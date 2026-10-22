@@ -1,0 +1,10 @@
+/* trustyappliancerepairutah.com theme: "Control panel". The safety orange and graphite of their logo, brushed steel greys, and an amber
+   LED read-out: the language of the appliances they fix. Chakra Petch for display, Inter Tight for text, IBM Plex Mono for read-outs. */
+:root {
+  --paper: #f3f3f1; --sand: #e6e6e2; --card: #ffffff; --ink: #161616; --ink2: #3d3d3b; --mute: #72726e; --line: #dadad5;
+  --dark: #161616; --dark2: #222221; --on-dark: #f2f2ef; --on-dark2: #a6a6a1; --foot: #0d0d0d;
+  --accent: #ff6500; --accent-2: #ff8a3d; --accent-ink: #b84600; --on-accent: #ffffff; --led: #ffb347;
+  --f-disp: "Chakra Petch", "Segoe UI", system-ui, sans-serif; --f-body: "Inter Tight", "Segoe UI", system-ui, sans-serif; --f-mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  --disp-w: 700; --disp-ls: -.015em; --disp-tt: none; --r: 6px; --btn-r: 6px; --hdr: 82px; --logo-h: 40px;
+  color-scheme: light;
+}

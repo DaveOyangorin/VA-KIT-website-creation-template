@@ -1,0 +1,1193 @@
+<html><body><main>
+
+            <p></p>
+
+            <p>
+                <div class="widget widget_citypage_map">
+                <div class="widget_title">
+                    Happy Customers Surrounding Tooele County, UT
+                </div>
+                    <div class="widget_content">
+                                    <script src="https://cdn.treehouseinternetgroup.com/core/js/leaflet/leaflet.js"></script>
+            <script src="https://cdn.treehouseinternetgroup.com/core/js/leaflet/mapbox-gl.js"></script>
+            <script src="https://cdn.treehouseinternetgroup.com/core/js/leaflet/leaflet-mapbox-gl.js"></script>
+            <link rel="stylesheet" href="https://cdn.treehouseinternetgroup.com/core/js/leaflet/leaflet.css"/>
+            <link rel="stylesheet" href="https://cdn.treehouseinternetgroup.com/core/js/leaflet/mapbox-gl.css"/>
+            <script type="text/javascript">
+            if (document.readyState != 'loading'){
+                initialize();
+            } else {
+                document.addEventListener('DOMContentLoaded', initialize);
+            }
+            function initialize() {
+                var cityPageMap = L.map('map_canvas', {
+                    maxZoom: 13,
+                    zoomControl: false
+                }).setView([40.264315499236, -112.5414007144], 13).setZoom(9);
+                var gl = L.mapboxGL({
+                    attribution: '&copy;&nbsp;<a href="https://openmaptiles.org/">OpenMapTiles</a>&nbsp;&copy;&nbsp;<a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>',
+                    accessToken: 'not-needed',
+                    style: 'https://dmlr3b1l99c8h.cloudfront.net/style.js'
+                }).addTo(cityPageMap);
+                L.control.zoom({position: 'bottomright'}).addTo(cityPageMap);
+                
+                                    var polygon = L.polygon(
+                        [[[40.008213,-112.177589],[39.988964,-112.220352],[39.957672,-112.233246],[39.942654,-112.304512],[39.948189,-112.331177],[39.90419,-112.344246],[39.908993,-113.433716],[39.900761,-113.463516],[39.910042,-113.487061],[39.899384,-113.57756],[39.906395,-113.601822],[39.90884,-114.039009],[40.111111,-114.03727],[40.997761,-114.037308],[40.999149,-112.836517],[41.078381,-112.495079],[41.077431,-112.493919],[40.77071,-112.252762],[40.70356,-112.194122],[40.631866,-112.183807],[40.603905,-112.165085],[40.465733,-112.173851],[40.46405,-112.201195],[40.447521,-112.208351],[40.341591,-112.181038],[40.312252,-112.19751],[40.291866,-112.186806],[40.263424,-112.191139],[40.253841,-112.17791],[40.225693,-112.177994],[40.208042,-112.155678],[40.175018,-112.147064],[40.165123,-112.149544],[40.149292,-112.174713],[40.128464,-112.176117],[40.094078,-112.155563],[40.055195,-112.183456],[40.036694,-112.174477],[40.008213,-112.177589]]],
+                        {
+                            weight: 1.5,
+                            opacity: 0.9,
+                            fillOpacity: 0.1,
+                                                            color: '#0071FF',
+                                fillColor: '#0071FF'
+                                                    }
+                    ).addTo(cityPageMap);
+                
+                var image = L.icon({
+                    iconUrl: 'https://cdn.treehouseinternetgroup.com/cms_images/icons/citypage-map-testimonial.svg'
+                });
+                var video_image = L.icon({
+                    iconUrl: 'https://cdn.treehouseinternetgroup.com/cms_images/icons/citypage-map-video.svg'
+                });
+                var review_image = L.icon({
+                    iconUrl: 'https://cdn.treehouseinternetgroup.com/cms_images/icons/citypage-map-review.svg'
+                });
+                var lead_image = L.icon({
+                    iconUrl: 'https://cdn.treehouseinternetgroup.com/cms_images/icons/citypage-map-lead.svg'
+                });
+
+                                                        
+                                    var infowindow_1 = L.marker([40.623874, -112.307003], {icon: lead_image}).addTo(cityPageMap);
+
+                    infowindow_1.bindPopup('                    <div class=\'citypage-job-item\'>                        <b>Project Location: </b> <i><small>Stansbury Park, UT</small></i><br/>                        <div class=\'comment\'>Basement flooded now I\'m considering sump pumps.</div>                    </div>');
+                                    var infowindow_2 = L.marker([40.628514, -112.300131], {icon: lead_image}).addTo(cityPageMap);
+
+                    infowindow_2.bindPopup('                    <div class=\'citypage-job-item\'>                        <b>Project Location: </b> <i><small>Stansbury Park, UT</small></i><br/>                        <div class=\'comment\'>Sinking patio towards house</div>                    </div>');
+                                    var infowindow_3 = L.marker([40.675591, -112.254974], {icon: lead_image}).addTo(cityPageMap);
+
+                    infowindow_3.bindPopup('                    <div class=\'citypage-job-item\'>                        <b>Project Location: </b> <i><small>Lake Point, UT</small></i><br/>                        <div class=\'comment\'>Need inspection for basement slab seepage</div>                    </div>');
+                                    var infowindow_4 = L.marker([40.660021, -112.273075], {icon: lead_image}).addTo(cityPageMap);
+
+                    infowindow_4.bindPopup('                    <div class=\'citypage-job-item\'>                        <b>Project Location: </b> <i><small>Lake Point, UT</small></i><br/>                        <div class=\'comment\'>Concrete settling on driveway and porch. I also have another property in Grantsville with the same issues</div>                    </div>');
+                                    var infowindow_5 = L.marker([40.639454, -112.320044], {icon: lead_image}).addTo(cityPageMap);
+
+                    infowindow_5.bindPopup('                    <div class=\'citypage-job-item\'>                        <b>Project Location: </b> <i><small>Stansbury Park, UT</small></i><br/>                        <div class=\'comment\'>Possible moisture problem in basement. No standing water, but cement has been discolored as if it is damp. Want to fix any issues before finishing the basement.</div>                    </div>');
+                                    var infowindow_6 = L.marker([40.683958, -112.256122], {icon: lead_image}).addTo(cityPageMap);
+
+                    infowindow_6.bindPopup('                    <div class=\'citypage-job-item\'>                        <b>Project Location: </b> <i><small>Lake Point, UT</small></i><br/>                        <div class=\'comment\'>I need my rear porch lifted five inches near the foundation.  Size is about two feet wider than both sides of a standard sliding door.</div>                    </div>');
+                                    var infowindow_7 = L.marker([40.642972, -112.291189], {icon: lead_image}).addTo(cityPageMap);
+
+                    infowindow_7.bindPopup('                    <div class=\'citypage-job-item\'>                        <b>Project Location: </b> <i><small>Stansbury Park, UT</small></i><br/>                        <div class=\'comment\'>I have water seeping into my basement when the ground is very saturated. I can\'t tell where it is coming from but there must be a crack. Do you come to stansbury?</div>                    </div>');
+                                    var infowindow_8 = L.marker([40.677501, -112.254934], {icon: lead_image}).addTo(cityPageMap);
+
+                    infowindow_8.bindPopup('                    <div class=\'citypage-job-item\'>                        <b>Project Location: </b> <i><small>Lakepoint, UT</small></i><br/>                        <div class=\'comment\'>Front driveway has some settling and also some hollow areas under it.</div>                    </div>');
+                                    var infowindow_9 = L.marker([40.679143, -112.255773], {icon: lead_image}).addTo(cityPageMap);
+
+                    infowindow_9.bindPopup('                    <div class=\'citypage-job-item\'>                        <b>Project Location: </b> <i><small>Lake Point, UT</small></i><br/>                        <div class=\'comment\'>I have dirt underneath one of my concrete slabs and want to fill it in before the slab falls</div>                    </div>');
+                                    var infowindow_10 = L.marker([40.633108, -112.322865], {icon: lead_image}).addTo(cityPageMap);
+
+                    infowindow_10.bindPopup('                    <div class=\'citypage-job-item\'>                        <b>Project Location: </b> <i><small>Stansbury Park, UT</small></i><br/>                        <div class=\'comment\'>Just moved to a new home. Contractor advised us to seal the concrete.</div>                    </div>');
+                            }
+            </script>
+            <div id="map_canvas" style="width:100%; height:300px"></div>
+            <div class="citypage_map_legend">
+                                                                                                                        <div class="citypage-map-legend-item citypage-map-legend-item-jobs" title="Work requests in Tooele, UT area">Work Requests</div>
+                                                                <p>Click the icons to see what our customers had to say.</p>
+                                                 </div>
+        
+
+<noscript>
+
+
+
+</noscript>
+
+
+                    </div>
+                </div></p>
+
+        </div>
+
+    </div>
+
+    
+
+    <div class="contact_form page_widget us">
+
+<div class="cp-inline-form">
+
+	<div class="cp-inline-form-inner">
+
+		<div class="inline-free-estimate-container">
+
+			<div id="form-heading">
+
+				<p class="free-estimate-form-heading">Get a Free Estimate</p>
+
+				<p class="free-estimate-form-desc">Fill out the form below to have Davenport Foundation Repair contact you shortly, or call <span id="numberassigned_3" class="mongoose_phone">1-801-569-2302</span> to contact Davenport Foundation Repair immediately.</p>
+
+			</div>
+
+			<form id="contact_form" action="https://www.davenportfoundationrepair.com/free-estimate/confirmation.html" method="post">
+
+				<input type="hidden" name="save" value="1">
+
+                <!-- Circles which indicates the steps of the form: -->
+
+                <div class="step-dot-container">
+
+                    <span class="dot active"><small>1</small></span>
+
+                    <span class="dot dot-lines"><small>2</small></span>
+
+                    <span class="dot"><small>3</small></span>
+
+                </div>
+
+                <!-- One "tab" for each step in the form: -->
+
+                <div class="tab current">
+
+                    <div class="tab-content-wrap">
+
+                        <div id="fname-wrap" class="grid-span-6">
+
+                            <label class="input-labels" for="First_Name">First Name</label>
+
+                            <input type="text" name="First_Name" maxlength="50" required id="First_Name" data-validate-name>
+
+                        </div>
+
+                        <div id="lname-wrap" class="grid-span-6">
+
+                            <label class="input-labels" for="Last_Name">Last Name</label>
+
+                            <input type="text" name="Last_Name" maxlength="50" required id="Last_Name" data-validate-name data-validate-notequal="#First_Name">
+
+                        </div>
+
+                        <div id="email-wrap" class="grid-span-8">
+
+                            <label class="input-labels" for="Email_Address">Email</label>
+
+                            <input id="Email_Address" name="Email_Address" type="email" required>
+
+                        </div>
+
+                        <div id="phonenum-wrap" class="grid-span-4">
+
+                            <label class="input-labels" for="Phone">Phone</label>
+
+                            <input type="text" id="Phone" name="Phone" required>
+
+                        </div>
+
+                        <div id="sms-wrap" class="grid-span-12">
+
+                            <div>
+<div>
+	<input type="hidden" name="sms_consent" value="0">
+	<input id="sms_consent" type="checkbox" name="sms_consent" value="1" checked>
+	<label id="sms_consent-label" for="sms_consent">By checking, you are consenting to receive <b>transactional/informational SMS</b> communications regarding appointment setting, account notifications, customer care, etc. from <b>Davenport Foundation Repair</b>. Message frequency may vary. Data rates may apply, <b>reply STOP to opt-out</b>. <a href="/terms-of-use.html" target="_blank">Terms of Use</a> | <a href="/privacy-policy.html" target="_blank">Privacy</a></label>
+</div>
+	</div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="tab">
+
+                    <div class="tab-content-wrap">
+
+                        <div id="street-wrap" class="grid-span-12">
+
+                            <label class="input-labels" for="Street">Street</label>
+
+                            <input type="text" id="Street" name="Street" maxlength="300" data-validate-address>
+
+                        </div>
+
+                        <div id="zip-wrap" class="grid-span-4">
+
+                            <label class="input-labels" for="Zip_Code">Zip Code</label>
+
+                            <input type="text" id="Zip" name="Zip_Code" maxlength="10" required>
+
+                        </div>
+
+                        <div id="city-wrap" class="grid-span-4">
+
+                            <label class="input-labels" for="City">City</label>
+
+                            <input id="City" type="text" name="City" maxlength="255" required>
+
+                        </div>
+
+                        <div id="state-wrap" class="grid-span-4">
+
+                            <label class="input-labels" for="State">State</label>
+
+                            
+	<select name="State" id="State" required>
+		<option value="">Please select...</option>
+		<option value="AL">Alabama</option>
+		<option value="AK">Alaska</option>
+		<option value="AZ">Arizona</option>
+		<option value="AR">Arkansas</option>
+		<option value="CA">California</option>
+		<option value="CO">Colorado</option>
+		<option value="CT">Connecticut</option>
+		<option value="DE">Delaware</option>
+		<option value="DC">District of Columbia</option>
+		<option value="FL">Florida</option>
+		<option value="GA">Georgia</option>
+		<option value="HI">Hawaii</option>
+		<option value="ID">Idaho</option>
+		<option value="IL">Illinois</option>
+		<option value="IN">Indiana</option>
+		<option value="IA">Iowa</option>
+		<option value="KS">Kansas</option>
+		<option value="KY">Kentucky</option>
+		<option value="LA">Louisiana</option>
+		<option value="ME">Maine</option>
+		<option value="MD">Maryland</option>
+		<option value="MA">Massachusetts</option>
+		<option value="MI">Michigan</option>
+		<option value="MN">Minnesota</option>
+		<option value="MS">Mississippi</option>
+		<option value="MO">Missouri</option>
+		<option value="MT">Montana</option>
+		<option value="NE">Nebraska</option>
+		<option value="NV">Nevada</option>
+		<option value="NH">New Hampshire</option>
+		<option value="NJ">New Jersey</option>
+		<option value="NM">New Mexico</option>
+		<option value="NY">New York</option>
+		<option value="NC">North Carolina</option>
+		<option value="ND">North Dakota</option>
+		<option value="OH">Ohio</option>
+		<option value="OK">Oklahoma</option>
+		<option value="OR">Oregon</option>
+		<option value="PA">Pennsylvania</option>
+		<option value="RI">Rhode Island</option>
+		<option value="SC">South Carolina</option>
+		<option value="SD">South Dakota</option>
+		<option value="TN">Tennessee</option>
+		<option value="TX">Texas</option>
+		<option value="UT" selected="selected">Utah</option>
+		<option value="VT">Vermont</option>
+		<option value="VA">Virginia</option>
+		<option value="WA">Washington</option>
+		<option value="WV">West Virginia</option>
+		<option value="WI">Wisconsin</option>
+		<option value="WY">Wyoming</option>
+	</select>
+	
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="tab">
+
+                    <div class="tab-content-wrap">
+
+                        <div id="whatprompted-wrap" class="grid-span-12">
+
+                            
+		<div class="field-wrap what-prompted">
+			<label for="lead_what_prompted_id">What prompted you to contact us today?</label>
+			<input type="hidden" id="lead_what_prompted_response" name="What_Prompted_Response" value=""/>
+			<select id="lead_what_prompted_id" name="What_Prompted_Id" data-validate-select-one required>
+				<option value="">Please select...</option>
+	<option value="1">Referral</option><option value="2">Previous Customer</option><option value="3">Internet / Web Search</option><option value="4">TV</option><option value="5">Radio</option><option value="6">Mail</option><option value="7">Other</option>
+			</select>
+		</div>
+		<div id="display_lead_what_prompted_followup">
+		</div>
+	
+
+                        </div>
+
+                        <div id="message-wrap" class="grid-span-12">
+
+                            <label class="input-labels" for="Message">Tell us what is going on in a few words-a short sentence is best:</label>
+
+                            <textarea id="Message" name="Message" data-validate-comment></textarea>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div>
+
+                    <div class="btn-container">
+
+                        <button type="button" id="nextBtn">Next step</button>
+
+                        <button type="submit" name="save" style="display: none;">Send</button>
+
+                        <button type="button" id="prevBtn" style="display: none;">Previous step</button>
+
+                    </div>
+
+                </div>
+
+			</form>
+
+		</div>
+
+	</div>
+
+</div>
+
+</div>
+
+	
+
+	
+
+     	<div class="citypage_text_generated_content">
+
+			<style> #service-area{display:none;}</style><h2 style="text-align: left;"><strong>Expert basement waterproofing, foundation repair &amp; crawl space encapsulation company serving Tooele County, UT</strong></h2>
+
+<p>We not only adhere to the highest industry standards, we strive to be the industry leader in the home improvement related services we provide. We are a dealer of the renowned Foundation Supportworks, Inc., the leading manufacturer of foundation repair and stabilization products in the U.S. and Canada. If your home is having foundation problems or a wet or flooded basement, call us today for a FREE estimate!</p>
+
+<h2>Foundation Repair Services:</h2>
+
+<table>
+
+<tbody>
+
+<tr>
+
+<td valign="top">
+
+<ul class="checks">
+
+<li>Wall anchor installation to straighten walls</li>
+
+<li>Bowing and tilting wall stabilization</li>
+
+<li>Slab &amp; foundation pier installation to resolve settlement problems</li>
+
+<li>Crawl space jack post installation to support sagging floors</li>
+
+<li>Affordable wall stabilization</li>
+
+<li>Concrete leveling &amp; lifting</li>
+
+<li>Commercial Foundation Repair</li>
+
+<li>25-year warranty against manufacturing defects on foundation products.</li>
+
+<li><strong>Financing options available</strong></li>
+
+<li><strong>FREE written estimates and inspections, and fast installation</strong></li>
+
+</ul>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+<h2>Crawl Space &amp; Basement Waterproofing Services:</h2>
+
+<table>
+
+<tbody>
+
+<tr>
+
+<td valign="top">
+
+<ul class="checks">
+
+<li>WaterShield &amp; NoWater V2 DP waterproofing systems installation</li>
+
+<li>Sump pump installation</li>
+
+<li>Wet/flooded basement waterproofing solutions.</li>
+
+<li>Crawl Space Encapsulation</li>
+
+<li><strong>Financing Available</strong></li>
+
+<li><strong>FREE estimates</strong></li>
+
+</ul>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+		</div>
+
+		<div class="cp-row">
+
+		    
+
+		</div>
+
+		
+
+	
+
+	
+
+<style>
+
+.cp-reviews {
+
+        margin: 0 0 2rem;
+
+        background: #F8F8F8;
+
+    }
+
+.cp-review-star {
+
+    fill:#F8C026;
+
+}
+
+.cp-reviews h2 {
+
+    color: #000 !important;
+
+    font-family: 'tg-adventor-bold', sans-serif;
+
+    text-align: center;
+
+    margin: 0 0 2rem 0;
+
+}
+
+.cp-reviews-inner {
+
+    max-width: 900px;
+
+    margin: 0 auto;
+
+    width: 100%;
+
+    padding: 2rem;
+
+}
+
+.cp-reviews-wrap {
+
+    display: grid;
+
+    grid-gap: 2rem;
+
+    margin-bottom: 2rem;
+
+}
+
+.cp-review {
+
+    box-shadow: 0px 3px 16px #00000027;
+
+    padding: 1.5rem;
+
+    background: #fff;
+
+}
+
+.cp-review-stars {
+
+    margin-bottom: .5rem;
+
+}
+
+.cp-review-text {
+
+    font-size: 14px;
+
+    margin-bottom: 1rem;
+
+    color: #000;
+
+}
+
+.cp-review-name {
+
+    font-family: 'tg-adventor-bold', sans-serif;
+
+    margin: 0;
+
+    font-size: 14px;
+
+    color: #000;
+
+}
+
+.cp-reviews .review_aggregate_rating {
+
+    display: none;
+
+}
+
+.cp-reviews-more {
+
+    text-align: center;
+
+}
+
+.cp-reviews-more a {
+
+    text-decoration: underline;
+
+    font-family: 'tg-adventor-bold', sans-serif;
+
+    font-weight: bold;
+
+    color: var(--cp-clr-primary);
+
+}
+
+@media screen and (min-width:861px) {
+
+    .cp-reviews-more {
+
+        text-align: left;
+
+    }
+
+    .cp-reviews {
+
+        margin: 0 0 4rem;
+
+    }
+
+    .cp-reviews-inner {
+
+        padding:3rem 2rem;
+
+    }
+
+    .cp-reviews h2 {
+
+        text-align: left;
+
+        font-size: 30px !important;
+
+    }
+
+    .cp-reviews-wrap {
+
+        grid-template-columns: repeat(2,1fr);
+
+        justify-content: center;
+
+    }
+
+    .cp-review {
+
+        padding: 2rem 3rem 2rem;
+
+    }
+
+    .cp-review-stars {
+
+        margin-bottom: 1rem;
+
+    }
+
+    .cp-review-stars img {
+
+        width: 30px;
+
+    }
+
+    .cp-review-text {
+
+        font-size: 16px;
+
+        margin-bottom: 0;
+
+    }
+
+    .cp-review-name {
+
+        font-size: 16px;
+
+    }
+
+}
+
+</style>
+
+<div class="cp-reviews">
+
+    <div class="cp-reviews-inner">
+
+        <h2> Reviews From Tooele County</h2>
+
+        <div class="cp-reviews-wrap">
+
+            
+
+<a href="https://www.davenportfoundationrepair.com/about-us/reviews/43869-grantsville-ut.html" class="cp-review">
+
+    <div class="cp-review-stars">
+
+        <img alt="full star" src="https://cdn.treehouseinternetgroup.com/cms_core/template/layout/site/star-new-full.svg" width="20" height="20"><img alt="full star" src="https://cdn.treehouseinternetgroup.com/cms_core/template/layout/site/star-new-full.svg" width="20" height="20"><img alt="full star" src="https://cdn.treehouseinternetgroup.com/cms_core/template/layout/site/star-new-full.svg" width="20" height="20"><img alt="full star" src="https://cdn.treehouseinternetgroup.com/cms_core/template/layout/site/star-new-full.svg" width="20" height="20"><img alt="full star" src="https://cdn.treehouseinternetgroup.com/cms_core/template/layout/site/star-new-full.svg" width="20" height="20">
+
+    </div>
+
+    <p class="cp-review-text">"Thank you for repounding quickly to the problem that..."</p>
+
+    <p class="cp-review-name">By Edward E. of Grantsville, UT</p>
+
+</a>
+
+
+
+<a href="https://www.davenportfoundationrepair.com/about-us/reviews/123236-grantsville-ut.html" class="cp-review">
+
+    <div class="cp-review-stars">
+
+        <img alt="full star" src="https://cdn.treehouseinternetgroup.com/cms_core/template/layout/site/star-new-full.svg" width="20" height="20"><img alt="full star" src="https://cdn.treehouseinternetgroup.com/cms_core/template/layout/site/star-new-full.svg" width="20" height="20"><img alt="full star" src="https://cdn.treehouseinternetgroup.com/cms_core/template/layout/site/star-new-full.svg" width="20" height="20"><img alt="full star" src="https://cdn.treehouseinternetgroup.com/cms_core/template/layout/site/star-new-full.svg" width="20" height="20"><img alt="full star" src="https://cdn.treehouseinternetgroup.com/cms_core/template/layout/site/star-new-full.svg" width="20" height="20">
+
+    </div>
+
+    <p class="cp-review-text">"Very polite and helpful and seemed to know the business."</p>
+
+    <p class="cp-review-name">By Linda A. of Grantsville, UT</p>
+
+</a>
+
+
+
+        </div>
+
+        <div class="cp-reviews-more">
+
+            <a href="https://www.davenportfoundationrepair.com/about-us/reviews.html">Read More Reviews</a>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+	
+
+	
+
+<style>
+
+.cp-ba {
+
+    margin: 0 0 2rem;
+
+}
+
+.cp-ba-inner {
+
+    max-width: 1200px;
+
+    box-shadow: 0px 3px 16px #00000027;
+
+    margin: 2rem auto;
+
+    width: 100%;
+
+    padding: 2rem;
+
+}
+
+.cp-ba-content {
+
+    max-width: 900px;
+
+    margin: 0 auto;
+
+}
+
+.cp-ba h2 {
+
+    color: black;
+
+    font-family: 'tg-adventor-bold', sans-serif;
+
+    font-weight: bold;
+
+    text-align: center;
+
+    margin: 0 0 2rem 0;
+
+}
+
+@media screen and (min-width:861px) {
+
+    .cp-ba {
+
+        margin: 0 0 4rem;
+
+    }
+
+    .cp-ba-inner {
+
+        padding:3rem 2rem;
+
+    }
+
+    .cp-ba h2 {
+
+        text-align: left;
+
+        font-size: 30px;
+
+    }
+
+}
+
+.cp-scrollbar {
+
+    padding-right: .75rem;
+
+}
+
+.cp-scrollbar::-webkit-scrollbar {
+
+    width: 12px;
+
+}
+
+.cp-scrollbar::-webkit-scrollbar-track {
+
+    background: #fff;
+
+    border-radius: 10px;
+
+}
+
+.cp-scrollbar::-webkit-scrollbar-thumb {
+
+    background: #D8D8D8;
+
+    border-radius: 10px;
+
+}
+
+.cp-ba h2,
+
+#content-wrap .cp-ba h2{
+
+    color: #000 !important;
+
+    font-family: 'tg-adventor-bold', sans-serif;
+
+}
+
+.swipe-info {
+
+    text-align: center;
+
+    font-size: 12px;
+
+    margin-bottom: .5rem;
+
+}
+
+.cp-ba-slider {
+
+    display: flex;
+
+    overflow-x: auto;
+
+    scroll-snap-type: x mandatory;
+
+    margin: 0 auto 1rem;
+
+    max-width: 400px;
+
+}
+
+.cp-ba-slide {
+
+    flex: none;
+
+    scroll-snap-align: start;
+
+    width: 100%;
+
+    margin-bottom: .5rem;
+
+}
+
+.cp-ba-slide:first-child {
+
+    border-right: 3px solid transparent;
+
+}
+
+.cp-ba-slide-img img {
+
+    width: 100%;
+
+    object-fit: cover;
+
+    height: 200px;
+
+}
+
+.cp-ba-slide-title {
+
+    display: block;
+
+    text-align: center;
+
+    padding: .5rem;
+
+    background: var(--cp-clr-primary);
+
+    color: #fff;
+
+    text-transform: uppercase;
+
+}
+
+.cp-ba-desc {
+
+    max-height: 150px;
+
+    overflow-y: scroll;
+
+    margin-bottom: 2rem;
+
+}
+
+.cp-ba-desc p {
+
+    font-size: 14px;
+
+}
+
+.cp-ba-more {
+
+    text-align: center;
+
+}
+
+.cp-ba-more a {
+
+    text-decoration: underline;
+
+    font-family: 'tg-adventor-bold', sans-serif;
+
+    font-weight: bold;
+
+    color: var(--cp-clr-primary);
+
+}
+
+@media screen and (min-width:861px) {
+
+    .cp-ba-more {
+
+        text-align: left;
+
+    }
+
+    .cp-ba-slider {
+
+        max-width: none;
+
+        margin: 0 auto 2rem;
+
+    }
+
+    .cp-ba-slide {
+
+        display: grid;
+
+        grid-template-columns: 100px 1fr 100px;
+
+        grid-template-rows: 1fr 40px;
+
+        width: 50%;
+
+        margin-bottom: 0;
+
+    }
+
+    .cp-ba-slide:first-child {
+
+        border: none;
+
+    }
+
+    .cp-ba-slide-img {
+
+        grid-column: 1/-1;
+
+        grid-row: 1/-1;
+
+    }
+
+    .cp-ba-slide-title {
+
+        grid-column: 1;
+
+        grid-row: 2;
+
+    }
+
+    .cp-ba-slide:last-child .cp-ba-slide-title {
+
+        grid-column: 3;
+
+    }
+
+    .swipe-info {
+
+        display: none;
+
+    }
+
+    .cp-ba-desc {
+
+        max-height: none;
+
+        overflow-y: unset;
+
+    }
+
+    .cp-ba-desc p {
+
+        font-size: 16px;
+
+    }
+
+    .cp-ba-slide-img img {
+
+        height: 100%;
+
+        max-height: 450px;
+
+    }
+
+}
+
+</style>
+
+<div class="cp-ba">
+
+    <div class="cp-ba-inner">
+
+        <div class="cp-ba-content">
+
+            <h2>Before and After Pictures from Tooele County</h2>
+
+            <p class="swipe-info">Swipe to see the After Photo</p>
+
+            
+
+<div class="cp-ba-slider cp-scrollbar">
+
+    <div class="cp-ba-slide">
+
+        <div class="cp-ba-slide-img">
+
+            <img src="https://cdn.treehouseinternetgroup.com/uploads/before_after/1264/medium/696fb6374df15_tooele-ut-crawl-space-encapsulation-beforejpg.jpg" alt="Before">
+
+        </div>
+
+        <span class="cp-ba-slide-title">Before</span>
+
+    </div>
+
+    <div class="cp-ba-slide">
+
+        <div class="cp-ba-slide-img">
+
+            <img src="https://cdn.treehouseinternetgroup.com/uploads/before_after/1264/medium/696fb63847177_tooele-ut-crawl-space-encapsulation-afterjpg.jpg" alt="After">
+
+        </div>
+
+        <span class="cp-ba-slide-title">After</span>
+
+    </div>
+
+</div>
+
+<div class="cp-ba-desc cp-scrollbar">
+
+    <p data-start="690" data-end="1025">This before-and-after photo set highlights a crawl space encapsulation project completed at a home in Tooele, Utah. Prior to repairs, the crawl space contained exposed soil, inconsistent moisture control, and limited protection against ground moisture and humidity, which can lead to mold growth, wood rot, and poor indoor air quality.</p>
+
+<p>&nbsp;</p>
+
+<p data-start="1027" data-end="1392">The completed encapsulation includes a durable vapor barrier system designed to seal the crawl space floor and walls, helping control moisture, improve energy efficiency, and protect the home&rsquo;s structural components. This solution creates a cleaner, drier, and more stable crawl space environment, offering long-term protection for homes throughout the Tooele area.</p>
+
+</div>
+
+
+
+            <div class="cp-ba-more">
+
+                <a href="https://www.davenportfoundationrepair.com/about-us/before-after.html">View More Before &amp; After Photos</a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+	
+
+	
+
+	
+
+	
+
+	
+
+<div class="widget widget_job_stories">
+
+    <div class="widget_title">Job Stories From Tooele County, UT</div>
+
+    <div class="widget_content" style="max-height: 600px; overflow-y: scroll">
+
+        
+
+<div class="widget_item">
+
+    <div class="widget_item_title">Sunken Slab Leads to Water in Grantsville, UT Basement</div>
+
+    <div class="widget_item_content" data-story-group><p>Jeff H. had water leaking into his home&rsquo;s basement due to an outside cement slab that had cracked and sunk up to six inches in some areas. There was also a large void under the back patio and by the garage door which caused the cement slab to become unstable and sink.</p>
+
+<p>Davenport Foundation Repair was able to offer a cost-effective, permanent solution with PolyLevel injection foam. 241 pounds of PolyLevel was pumped underneath the cement slabs, filling the void and closing the entry points for the water that was coming into the basement.</p>
+
+<p>Jeff H. and his family are now enjoying a dry basement. In addition the PolyLevel injection foam leveled and stabilized the home&rsquo;s backyard patio so the family can enjoy a safe time outside at their home in Grantsville, UT.</p></div>
+
+</div>
+
+
+
+<div class="widget_item">
+
+    <div class="widget_item_title">Settling Foundation Problem in Tooele</div>
+
+    <div class="widget_item_content" data-story-group><p>Alan met us at a Home Show in 2019 and reached out to us some months later to address a big problem with his foundation. It was beginning to settle on one side of his home. Over time when&nbsp;soils are unable to bear the load of a structure, it can begin to sink and settle.&nbsp;After sending one of our specialists to inspect his foundation we set a date to begin the repair project. We first had to excavate and then added several Push Piers for the lift procedure.&nbsp;</p></div>
+
+</div>
+
+
+
+<div class="widget_item">
+
+    <div class="widget_item_title">Foundation Settlement Stabilized with 7 Push Piers in Grantsville, UT</div>
+
+    <div class="widget_item_content" data-story-group><p class="isSelectedEnd">When cracks begin appearing in the exterior brick of a home, the damage may be more than a masonry problem. For a homeowner in Grantsville, Utah, significant vertical cracking and separation in the brick exterior were visible signs that the home was experiencing foundation movement.</p>
+
+<p class="isSelectedEnd">The homeowner turned to Davenport Foundation Repair to determine what was happening beneath the home and find a solution for the settlement.</p>
+
+<h2>Signs of Foundation Settlement at the Grantsville Home</h2>
+
+<p class="isSelectedEnd">One of the most noticeable symptoms was a vertical crack running through several courses of exterior brick near a window. In some areas, the movement had created visible gaps between sections of the masonry.</p>
+
+<p class="isSelectedEnd">These types of cracks can develop as portions of a foundation settle at different rates. As the foundation moves, the materials above it can be subjected to stress, resulting in cracks and separation in brick, mortar, drywall, and other parts of the home.</p>
+
+<p class="isSelectedEnd">Rather than simply addressing the visible cracks, the Davenport Foundation Repair team evaluated the structure to determine where foundation stabilization was needed.</p>
+
+<h2>Identifying the Area That Needed Stabilization</h2>
+
+<p class="isSelectedEnd">The project plan documented elevation differences throughout the affected portion of the home and identified the section of the foundation requiring stabilization.</p>
+
+<p class="isSelectedEnd">Based on the findings, a system of <strong>seven push piers</strong> was planned along the affected foundation walls. The piers were strategically positioned to support the portion of the structure experiencing settlement.</p>
+
+<p class="isSelectedEnd">This approach addresses the underlying foundation problem instead of treating cracking as an isolated cosmetic issue.</p>
+
+<h2>Installing 7 Push Piers to Stabilize the Foundation</h2>
+
+<p class="isSelectedEnd">To install the push pier system, the Davenport Foundation Repair crew excavated at each designated pier location to expose the home's foundation footing.</p>
+
+<p class="isSelectedEnd">Heavy-duty brackets were then secured at the foundation. Steel push pier sections were hydraulically advanced into the ground until they reached competent load-bearing material capable of supporting the structure.</p>
+
+<p class="isSelectedEnd">Once the required resistance was achieved, the seven-pier system could be used to transfer the affected portion of the home's structural load away from the weaker soils immediately beneath the foundation and onto more reliable bearing material below.</p>
+
+<p class="isSelectedEnd">After stabilization was completed, the excavated areas could be backfilled and the property restored.</p>
+
+<h2>Addressing the Cause Behind the Cracks</h2>
+
+<p class="isSelectedEnd">The before-and-after photos from this Grantsville project demonstrate why homeowners should pay attention when significant cracks begin developing in brick or masonry.</p>
+
+<p class="isSelectedEnd">A crack itself may be the most obvious symptom, but repairing the masonry alone does not necessarily address why the crack developed. When foundation settlement is responsible, determining the cause of the movement and stabilizing the affected foundation can be an important part of protecting the home.</p>
+
+<p class="isSelectedEnd">With <strong>seven push piers installed</strong>, the affected section of this Grantsville home received the structural stabilization needed to address the underlying foundation settlement.</p>
+
+<h2>Foundation Repair in Grantsville and Tooele County</h2>
+
+<p class="isSelectedEnd">Foundation settlement can occur gradually, and homeowners may first notice the problem through changes elsewhere in the house. Cracks in exterior brick, stair-step masonry cracks, separating building materials, sticking doors or windows, and uneven floors can all warrant a closer look at the foundation.</p>
+
+<p class="isSelectedEnd">Davenport Foundation Repair provides professional foundation inspections and foundation repair solutions throughout <strong>Grantsville, Tooele County, and communities across northern Utah</strong>.</p>
+
+<p>If you've noticed cracks or other potential signs of foundation movement around your home, <a href="https://www.davenportfoundationrepair.com/foundation-repair.html"><strong>schedule a foundation inspection</strong></a> with Davenport Foundation Repair. Identifying foundation settlement early can help determine whether stabilization is necessary before movement leads to additional damage.</p></div>
+
+</div>
+
+
+
+    </div>
+
+</div>
+
+
+
+	
+
+	
+            <div class="widget widget_citypage_list">
+                <div class="widget_title">Serving the following Tooele County, UT zip codes</div>
+                    <div class="widget_content">
+                    Tooele 84074, Grantsville 84029, Dugway 84022, Wendover 84083, Ibapah 84034, Stockton 84071, Rush Valley 84069, Vernon 84080
+                </div>
+            </div>
+        
+
+		
+
+</div>                    
+
+                  
+
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    </div><!-- end #silo-page-wrap -->
+
+
+
+        <div class="container home" </main></body></html>

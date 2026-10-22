@@ -1,0 +1,11 @@
+/* emetplumbingservices.com theme: "Straight answers". Emet is Hebrew for truth, and their pitch is honest, published pricing.
+   The van livery's royal blue and sunrise orange, set like an itemized invoice: navy frame, orange totals, receipt-white paper.
+   Bricolage Grotesque for display, Figtree for text, Spline Sans Mono for prices and line items. */
+:root {
+  --paper: #f5f6f8; --sand: #e9edf3; --card: #ffffff; --ink: #0f1a2c; --ink2: #3a4658; --mute: #66748a; --line: #d5dce6;
+  --dark: #0a1630; --dark2: #13244a; --on-dark: #f2f5fa; --on-dark2: #a9b6cc; --foot: #07101f;
+  --accent: #f57c1f; --accent-2: #ff9a45; --accent-ink: #b5530a; --on-accent: #0a1630; --blue: #1d4fd6;
+  --f-disp: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif; --f-body: "Figtree", "Segoe UI", system-ui, sans-serif; --f-mono: "Spline Sans Mono", ui-monospace, Menlo, Consolas, monospace;
+  --disp-w: 800; --disp-ls: -.025em; --disp-tt: none; --r: 10px; --btn-r: 999px; --hdr: 88px; --logo-h: 60px;
+  color-scheme: light;
+}

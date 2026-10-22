@@ -1,0 +1,320 @@
+{
+ "remap": {
+  "about-us/reviews/106223--.html": "about-us/reviews.html",
+  "concrete-leveling/before-after/26196-sunken-garage-floor-in-herriman.html": "concrete-leveling.html",
+  "about-us/job-opportunities/14088-construction-installer.html": "about-us/job-opportunities.html",
+  "about-us/job-opportunities/14157-construction-co-foreman.html": "about-us/job-opportunities.html",
+  "about-us/reviews/180190-north-logan-ut.html": "about-us/reviews.html",
+  "about-us/reviews/118248-logan-ut.html": "about-us/reviews.html",
+  "about-us/reviews/180107-n-ogden-ut.html": "about-us/reviews.html",
+  "about-us/reviews/146508-farr-west-ut.html": "about-us/reviews.html",
+  "basement-waterproofing/testimonials/45663-north-ogden-ut.html": "basement-waterproofing.html",
+  "basement-waterproofing/testimonials/44280-ogden-ut.html": "basement-waterproofing.html",
+  "basement-waterproofing/testimonials/47794-grantsville-ut.html": "basement-waterproofing.html",
+  "basement-waterproofing/testimonials/61320-layton-ut.html": "basement-waterproofing.html",
+  "basement-waterproofing/testimonials/47640-salt-lake-city-ut.html": "basement-waterproofing.html",
+  "basement-waterproofing/testimonials/50883-herriman-ut.html": "basement-waterproofing.html",
+  "basement-waterproofing/testimonials/61439-south-jordan-ut.html": "basement-waterproofing.html",
+  "basement-waterproofing/testimonials/59297-sandy-ut.html": "basement-waterproofing.html",
+  "concrete-leveling/photo-gallery/102860-album-3-part-concrete-protection-system-completed-in-west-valley-city-ut.html": "concrete-leveling/photo-gallery.html",
+  "basement-waterproofing/before-after/53650-wet-basement-in-north-logan-august-2019.html": "basement-waterproofing.html",
+  "foundation-repair/before-after/48634-crack-repair-in-farmington-ut.html": "foundation-repair.html",
+  "basement-waterproofing/before-after/54228-wet-basement-in-centerville.html": "basement-waterproofing.html",
+  "crawl-space-repair/before-after/48633-crawlspace-encapsulation-in-murray-ut.html": "crawl-space-repair.html",
+  "concrete-repair/before-after/193041-before-after-concrete-walkway-leveling-in-salt-lake-city-ut.html": "concrete-repair.html",
+  "basement-waterproofing/before-after/53028-cold-storage-waterproofing-in-south-jordan.html": "basement-waterproofing.html",
+  "concrete-repair/before-after/192885-concrete-leveling-near-front-steps-in-south-jordan-ut.html": "concrete-repair.html",
+  "concrete-repair/before-after/192886-damaged-concrete-repair-joint-sealing-in-south-jordan-ut.html": "concrete-repair.html",
+  "about-us/reviews/183097-syracuse-ut.html": "about-us/reviews.html",
+  "foundation-repair/testimonials/63402-south-jordan-ut.html": "foundation-repair.html",
+  "concrete-leveling/photo-gallery/104446-album-concrete-step-lifting-leveling-in-pleasant-grove-ut.html": "concrete-leveling/photo-gallery.html",
+  "foundation-repair/before-after/193225-foundation-repair-with-push-piers-in-grantsville-ut.html": "foundation-repair.html",
+  "foundation-repair/before-after/193227-foundation-settlement-repair-with-push-piers-in-grantsville-ut.html": "foundation-repair.html",
+  "concrete-repair/before-after/192450-garage-entrance-concrete-leveling-in-farmington-ut.html": "concrete-repair.html",
+  "concrete-repair/before-after/192452-garage-floor-concrete-crack-repair-in-farmington-ut.html": "concrete-repair.html",
+  "basement-waterproofing/before-after/191820-basement-sump-pump-installation-waterproofing-system-in-provo-ut.html": "basement-waterproofing.html",
+  "basement-waterproofing/before-after/191821-basement-wall-waterproofing-drainage-system-installation-in-provo-ut.html": "basement-waterproofing.html",
+  "foundation-repair/before-after/192977-foundation-repair-helps-close-exterior-brick-cracks-in-price-ut.html": "foundation-repair.html",
+  "foundation-repair/before-after/192978-foundation-repair-reduces-major-brick-separation-in-price-ut.html": "foundation-repair.html",
+  "foundation-repair/before-after/192823-foundation-repair-for-exterior-wall-separation-in-riverton-ut.html": "foundation-repair.html",
+  "foundation-repair/before-after/192824-foundation-settlement-and-wall-separation-repair-in-riverton-ut.html": "foundation-repair.html",
+  "foundation-repair/before-after/192980-foundation-repair-reduces-brick-cracking-above-doorway-in-price-ut.html": "foundation-repair.html",
+  "crawl-space-repair/before-after/191186-crawlspace-encapsulation-in-garden-city-ut.html": "crawl-space-repair.html",
+  "basement-waterproofing/before-after/193045-before-after-crawl-space-encapsulation-in-garden-city-ut.html": "basement-waterproofing.html",
+  "about-us/reviews/419780-herriman-ut.html": "about-us/reviews.html",
+  "about-us/reviews/420021-sandy-ut.html": "about-us/reviews.html",
+  "concrete-repair/before-after/191101-concrete-leveling-and-joint-sealant-repair-in-syracuse-ut.html": "concrete-repair.html",
+  "concrete-repair/before-after/191102-front-steps-and-driveway-concrete-leveling-in-syracuse-ut.html": "concrete-repair.html",
+  "concrete-repair/before-after/191615-concrete-leveling-and-crack-sealant-for-a-residential-driveway-in-magna-ut.html": "concrete-repair.html",
+  "concrete-repair/before-after/190721-nexuspro-crack-and-joint-sealant-repair-in-south-jordan-ut.html": "concrete-repair.html",
+  "concrete-repair/before-after/193004-cracked-concrete-walkway-repair-in-riverton-ut.html": "concrete-repair.html",
+  "concrete-repair/before-after/191244-concrete-leveling-and-joint-sealant-driveway-repair-in-lehi-ut.html": "concrete-repair.html",
+  "about-us/reviews/182632-new-orleans-la.html": "about-us/reviews.html",
+  "about-us/reviews/169587-orem-ut.html": "about-us/reviews.html",
+  "about-us/reviews/181342-syracuse-ut.html": "about-us/reviews.html",
+  "basement-waterproofing/testimonials/46142-north-ogden-ut.html": "basement-waterproofing.html",
+  "basement-waterproofing/testimonials/46141-west-haven-ut.html": "basement-waterproofing.html",
+  "foundation-repair/testimonials/53378-garden-city-ut.html": "foundation-repair.html",
+  "foundation-repair/testimonials/61244-farmington-ut.html": "foundation-repair.html",
+  "foundation-repair/testimonials/56329-sandy-ut.html": "foundation-repair.html",
+  "foundation-repair/testimonials/57961-draper-ut.html": "foundation-repair.html",
+  "foundation-repair/testimonials/60312-highland-ut.html": "foundation-repair.html",
+  "foundation-repair/before-after/48629-lifting-and-stabilizing-front-steps-in-vineyard-ut.html": "foundation-repair.html",
+  "foundation-repair/before-after/23087-15-piers-restored-this-beautiful-home.html": "foundation-repair.html",
+  "foundation-repair/before-after/23088-we-have-a-proven-piering-system-to-save-homes.html": "foundation-repair.html",
+  "foundation-repair/before-after/35211-foundation-stair-step-crack-repair-in-midvale-utah.html": "foundation-repair.html",
+  "foundation-repair/before-after/35269-commercial-building-foundation-repair-in-midvale-utah.html": "foundation-repair.html",
+  "foundation-repair/before-after/27869-pillar-stabilized-in-saratoga-springs-ut.html": "foundation-repair.html",
+  "foundation-repair/before-after/29947-stairstep-crack-in-brick-in-american-fork-utah.html": "foundation-repair.html",
+  "about-us/reviews/148122-woods-cross-ut.html": "about-us/reviews.html",
+  "concrete-leveling/testimonials/44971-west-valley-city-ut.html": "concrete-leveling.html",
+  "basement-waterproofing/testimonials/57765-murray-ut.html": "basement-waterproofing.html",
+  "foundation-repair/testimonials/57469-ogden-ut.html": "foundation-repair.html",
+  "concrete-leveling/testimonials/44975-layton-ut.html": "concrete-leveling.html",
+  "basement-waterproofing/testimonials/52498-layton-ut.html": "basement-waterproofing.html",
+  "basement-waterproofing/testimonials/59891-riverton-ut.html": "basement-waterproofing.html",
+  "concrete-leveling/case-studies/8865-sunken-garage-in-herriman.html": "concrete-leveling.html",
+  "basement-waterproofing/before-after/26311-total-makeover-of-an-unpleasant-crawlspace.html": "basement-waterproofing.html",
+  "foundation-repair/before-after/34064-closing-wall-gaps-in-holladay-utah.html": "foundation-repair.html",
+  "concrete-leveling/before-after/27868-stair-repair-in-sandy-ut.html": "concrete-leveling.html",
+  "concrete-leveling/before-after/29738-concrete-repair-in-lehi-utah.html": "concrete-leveling.html",
+  "foundation-repair/before-after/27327-great-work-equals-great-results.html": "foundation-repair.html",
+  "about-us/reviews/138077-bountuful-ut.html": "about-us/reviews.html",
+  "about-us/reviews/128054-west-jordan-ut.html": "about-us/reviews.html",
+  "about-us/reviews/165911-sandy-ut.html": "about-us/reviews.html",
+  "about-us/reviews/149893-sandy-ut.html": "about-us/reviews.html",
+  "about-us/reviews/137383-draper-ut.html": "about-us/reviews.html",
+  "about-us/reviews/140835-draper-ut.html": "about-us/reviews.html",
+  "basement-waterproofing/testimonials/61681-ogden-ut.html": "basement-waterproofing.html",
+  "concrete-leveling/testimonials/57022-taylorsville-ut.html": "concrete-leveling.html",
+  "concrete-leveling/testimonials/54186-cottonwood-heights-ut.html": "concrete-leveling.html",
+  "concrete-leveling/before-after/27908-sunken-driveway-in-layton-utah.html": "concrete-leveling.html",
+  "basement-waterproofing/before-after/193286-basement-waterproofing-preparation-in-draper-ut.html": "basement-waterproofing.html",
+  "basement-waterproofing/before-after/193287-basement-foundation-waterproofing-in-draper-utah.html": "basement-waterproofing.html",
+  "concrete-repair/before-after/191996-concrete-patio-crack-repair-and-surface-restoration-in-ogden-ut.html": "concrete-repair.html",
+  "concrete-repair/before-after/191997-concrete-stair-repair-restores-safe-entryway-in-ogden-ut.html": "concrete-repair.html",
+  "concrete-repair/before-after/192498-concrete-walkway-front-steps-leveling-in-clinton-ut-before-after.html": "concrete-repair.html",
+  "concrete-repair/before-after/191880-concrete-driveway-repair-leveling-joint-sealant-in-farmington-ut.html": "concrete-repair.html",
+  "concrete-repair/before-after/191881-concrete-driveway-leveling-crack-repair-in-farmington-ut.html": "concrete-repair.html",
+  "concrete-repair/before-after/191743-concrete-driveway-repair-with-crack-and-joint-sealant-in-bountiful-ut.html": "concrete-repair.html",
+  "concrete-repair/before-after/190583-concrete-leveling-and-crack-repair-near-a-patio-in-salt-lake-city-ut.html": "concrete-repair.html",
+  "concrete-repair/before-after/192494-concrete-patio-repair-crack-restoration-in-salt-lake-city-ut-before-after.html": "concrete-repair.html",
+  "concrete-leveling/before-after/192640-concrete-walkway-leveling-repair-in-logan-ut.html": "concrete-leveling.html",
+  "concrete-leveling/before-after/192641-sunken-concrete-walkway-repair-in-logan-ut.html": "concrete-leveling.html",
+  "about-us/reviews/421602--.html": "about-us/reviews.html",
+  "concrete-repair/before-after/191952-garage-floor-driveway-transition-concrete-leveling-in-south-jordan-ut.html": "concrete-repair.html",
+  "concrete-repair/before-after/191288-concrete-crack-and-joint-sealant-project-in-clinton-ut.html": "concrete-repair.html",
+  "concrete-leveling/before-after/193622-concrete-walkway-step-repair-in-lehi-ut.html": "concrete-leveling.html",
+  "concrete-leveling/before-after/193427-sunken-concrete-lifted-and-leveled-in-tremonton-ut.html": "concrete-leveling.html",
+  "concrete-repair/before-after/191789-concrete-driveway-repair-and-joint-sealant-installation-in-south-jordan-ut.html": "concrete-repair.html",
+  "concrete-leveling/before-after/191791-concrete-sidewalk-repair-and-joint-sealant-installation-in-south-jordan-ut.html": "concrete-leveling.html",
+  "concrete-repair/before-after/193202-concrete-joint-sealant-repair-in-midvale-ut.html": "concrete-repair.html",
+  "concrete-repair/before-after/192821-concrete-leveling-and-crack-repair-in-saratoga-springs-ut.html": "concrete-repair.html",
+  "concrete-repair/before-after/192887-uneven-concrete-slab-leveling-in-south-jordan-ut.html": "concrete-repair.html",
+  "concrete-repair/before-after/192694-concrete-driveway-leveling-repair-in-sandy-ut.html": "concrete-repair.html",
+  "concrete-repair/before-after/192453-concrete-leveling-restores-sunken-driveway-in-spanish-fork-ut.html": "concrete-repair.html",
+  "concrete-leveling/before-after/191471-concrete-walkway-repair-in-springville-ut-before-after-concrete-leveling.html": "concrete-leveling.html",
+  "concrete-repair/before-after/192714-concrete-driveway-crack-repair-in-american-fork-ut.html": "concrete-repair.html",
+  "concrete-leveling/before-after/193528-uneven-concrete-patio-leveling-in-park-city-ut.html": "concrete-leveling.html",
+  "concrete-leveling/before-after/193529-sunken-cracked-concrete-patio-repair-in-park-city-ut.html": "concrete-leveling.html",
+  "concrete-leveling/before-after/193531-concrete-patio-leveling-crack-repair-in-park-city-ut.html": "concrete-leveling.html",
+  "concrete-repair/before-after/190874-concrete-walkway-repair-and-restoration-in-kamas-ut.html": "concrete-repair.html",
+  "about-us/reviews/419359-salt-lake-city-ut.html": "about-us/reviews.html",
+  "about-us/reviews/129525-ogden-ut.html": "about-us/reviews.html",
+  "about-us/reviews/167964-ogden-ut.html": "about-us/reviews.html",
+  "about-us/reviews/181454-north-ogden-ut.html": "about-us/reviews.html",
+  "about-us/reviews/131918-ogden-ut.html": "about-us/reviews.html",
+  "concrete-leveling/testimonials/44282-tooele-ut.html": "concrete-leveling.html",
+  "concrete-leveling/testimonials/48042-park-city-ut.html": "concrete-leveling.html",
+  "concrete-leveling/testimonials/44974-brigham-city-ut.html": "concrete-leveling.html",
+  "concrete-leveling/testimonials/50878-willard-ut.html": "concrete-leveling.html",
+  "concrete-leveling/testimonials/44283-providence-ut.html": "concrete-leveling.html",
+  "concrete-leveling/testimonials/50880-west-haven-ut.html": "concrete-leveling.html",
+  "concrete-leveling/testimonials/63763-ogden-ut.html": "concrete-leveling.html",
+  "concrete-repair/before-after/191455-driveway-and-walkway-concrete-repair-in-ogden-ut.html": "concrete-repair.html",
+  "concrete-repair/before-after/190928-concrete-driveway-repair-in-ogden-ut.html": "concrete-repair.html",
+  "concrete-leveling/before-after/48929-concrete-lift-in-layton-ut.html": "concrete-leveling.html",
+  "basement-waterproofing/french-drain/weeping-tile.html": "basement-waterproofing/french-drain.html",
+  "basement-waterproofing/before-after/52068-basement-waterproofing-in-north-salt-lake-ut.html": "basement-waterproofing.html",
+  "basement-waterproofing/testimonials/62082-nephi-ut.html": "basement-waterproofing.html",
+  "basement-waterproofing/videos/13336-insulating-a-rim-joist-with-silverglo.html": "basement-waterproofing/videos.html",
+  "concrete-leveling/videos/5301-raising-concrete-slabs-alternative-to-mudjacking-polylevel-system-by-foundation-supportworks.html": "concrete-leveling/videos.html",
+  "concrete-repair/videos/15321-we-can-lift-concrete-year-round.html": "concrete-repair/videos.html",
+  "crawl-space-repair/crawlspace-dehumidifier/humidity.html": "crawl-space-repair/crawlspace-dehumidifier.html",
+  "crawl-space-repair/videos/13340-crawl-spaces-a-housing-epidemic.html": "crawl-space-repair/videos.html",
+  "foundation-repair/case-studies/7601-push-piers-stabalize-saratoga-springs-home.html": "foundation-repair.html",
+  "foundation-repair/before-after/2212-foundation-issue-cause-and-solution.html": "foundation-repair.html",
+  "foundation-repair/videos/16773-foundation-8-inch-lift-timelapse-west-jordan-ut.html": "foundation-repair/videos.html",
+  "sump-pump/videos/13328-sump-pump-comparison.html": "sump-pump/videos.html"
+ },
+ "canon_fix": [
+  [
+   "about-us/case-studies/1316-cottonwood-creek.html",
+   "commercial-foundation-contractor/case-studies/1316-cottonwood-creek.html"
+  ],
+  [
+   "about-us/case-studies/1732-sven-benson.html",
+   "concrete-leveling/case-studies/1732-sven-benson.html"
+  ],
+  [
+   "about-us/case-studies/1809-james-walthall.html",
+   "commercial-foundation-contractor/case-studies/1809-james-walthall.html"
+  ],
+  [
+   "about-us/case-studies/1813-the-egg-i.html",
+   "concrete-leveling/case-studies/1813-the-egg-i.html"
+  ],
+  [
+   "about-us/case-studies/1872-dr-darron-taylor.html",
+   "foundation-repair/case-studies/1872-dr-darron-taylor.html"
+  ],
+  [
+   "about-us/case-studies/28618-foundation-stabilization-basement-waterproofing-with-9-push-piers-in-clearfield-utah.html",
+   "foundation-repair/case-studies/28618-foundation-stabilization-basement-waterproofing-with-9-push-piers-in-clearfield-utah.html"
+  ],
+  [
+   "about-us/case-studies/29340-commercial-concrete-lifting-trench-stabilization-south-jordan-ut-data-center.html",
+   "concrete-leveling/case-studies/29340-commercial-concrete-lifting-trench-stabilization-south-jordan-ut-data-center.html"
+  ],
+  [
+   "about-us/case-studies/3308-trip-hazards-corrected-with-polylevel-in-highland-ut.html",
+   "concrete-leveling/case-studies/3308-trip-hazards-corrected-with-polylevel-in-highland-ut.html"
+  ],
+  [
+   "about-us/case-studies/7601-push-piers-stabalize-saratoga-springs-home.html",
+   "foundation-repair/case-studies/7601-push-piers-stabalize-saratoga-springs-home.html"
+  ],
+  [
+   "about-us/case-studies/8865-sunken-garage-in-herriman.html",
+   "concrete-leveling/case-studies/8865-sunken-garage-in-herriman.html"
+  ],
+  [
+   "about-us/case-studies/8875-five-foot-crack-repair.html",
+   "basement-waterproofing/case-studies/8875-five-foot-crack-repair.html"
+  ],
+  [
+   "about-us/case-studies/8878-corner-window-crack-in-cottonwood-heights.html",
+   "basement-waterproofing/case-studies/8878-corner-window-crack-in-cottonwood-heights.html"
+  ],
+  [
+   "about-us/reviews/106223-.html",
+   "about-us/reviews/106223--.html"
+  ],
+  [
+   "about-us/reviews/421602-.html",
+   "about-us/reviews/421602--.html"
+  ],
+  [
+   "about-us/technical-papers/37306-after-the-flood-now-what.html",
+   "foundation-repair/technical-papers/37306-after-the-flood-now-what.html"
+  ],
+  [
+   "about-us/technical-papers/37363-cost-of-doing-nothing.html",
+   "foundation-repair/technical-papers/37363-cost-of-doing-nothing.html"
+  ],
+  [
+   "about-us/technical-papers/37807-how-to-save-money-during-a-major-home-repair-project-in-state.html",
+   "foundation-repair/technical-papers/37807-how-to-save-money-during-a-major-home-repair-project-in-state.html"
+  ],
+  [
+   "about-us/technical-papers/37918-how-to-save-money-on-major-home-repairs.html",
+   "foundation-repair/technical-papers/37918-how-to-save-money-on-major-home-repairs.html"
+  ],
+  [
+   "about-us/technical-papers/37932-curb-appeal-in-state.html",
+   "concrete-repair/technical-papers/37932-curb-appeal-in-state.html"
+  ],
+  [
+   "about-us/technical-papers/38018-street-creep-causes-home-foundation-issues-in-state.html",
+   "concrete-leveling/technical-papers/38018-street-creep-causes-home-foundation-issues-in-state.html"
+  ],
+  [
+   "about-us/technical-papers/38159-sagging-floors.html",
+   "foundation-repair/technical-papers/38159-sagging-floors.html"
+  ],
+  [
+   "about-us/technical-papers/38283-how-is-polylevel-different-from-mud-jacking.html",
+   "concrete-leveling/technical-papers/38283-how-is-polylevel-different-from-mud-jacking.html"
+  ],
+  [
+   "about-us/technical-papers/38418-foundation-problems-that-come-with-snow-rain.html",
+   "foundation-repair/technical-papers/38418-foundation-problems-that-come-with-snow-rain.html"
+  ],
+  [
+   "about-us/technical-papers/39470-vertical-vs-horizontal.html",
+   "foundation-repair/technical-papers/39470-vertical-vs-horizontal.html"
+  ],
+  [
+   "about-us/technical-papers/39512-how-do-sealed-joints-help.html",
+   "concrete-repair/technical-papers/39512-how-do-sealed-joints-help.html"
+  ],
+  [
+   "about-us/technical-papers/39768-why-you-shouldnt-diy-foundation-issues.html",
+   "foundation-repair/technical-papers/39768-why-you-shouldnt-diy-foundation-issues.html"
+  ],
+  [
+   "about-us/technical-papers/39832-signs-of-a-sinking-foundation.html",
+   "foundation-repair/technical-papers/39832-signs-of-a-sinking-foundation.html"
+  ],
+  [
+   "about-us/technical-papers/39849-freezethaw-cycle-damage.html",
+   "concrete-repair/technical-papers/39849-freezethaw-cycle-damage.html"
+  ],
+  [
+   "about-us/technical-papers/39918-polylevel-environmentally-friendly.html",
+   "concrete-leveling/technical-papers/39918-polylevel-environmentally-friendly.html"
+  ],
+  [
+   "about-us/videos/13337-what-is-an-iceguard-all-things.html",
+   "basement-waterproofing/videos/13337-what-is-an-iceguard-all-things.html"
+  ],
+  [
+   "about-us/videos/13339-cleanspace-crawl-space-encapsulation-is-green.html",
+   "crawl-space-repair/videos/13339-cleanspace-crawl-space-encapsulation-is-green.html"
+  ],
+  [
+   "about-us/videos/13340-crawl-spaces-a-housing-epidemic.html",
+   "crawl-space-repair/videos/13340-crawl-spaces-a-housing-epidemic.html"
+  ],
+  [
+   "about-us/videos/15205-behind-the-scene-lifting-concrete.html",
+   "concrete-repair/videos/15205-behind-the-scene-lifting-concrete.html"
+  ],
+  [
+   "about-us/videos/15321-we-can-lift-concrete-year-round.html",
+   "concrete-repair/videos/15321-we-can-lift-concrete-year-round.html"
+  ],
+  [
+   "about-us/videos/15374-foundation-repair-with-push-piers-in-taylorsville-utah.html",
+   "foundation-repair/videos/15374-foundation-repair-with-push-piers-in-taylorsville-utah.html"
+  ],
+  [
+   "about-us/videos/15375-stabalizing-a-home-in-holladay-utah.html",
+   "foundation-repair/videos/15375-stabalizing-a-home-in-holladay-utah.html"
+  ],
+  [
+   "about-us/videos/16773-foundation-8-inch-lift-timelapse-west-jordan-ut.html",
+   "foundation-repair/videos/16773-foundation-8-inch-lift-timelapse-west-jordan-ut.html"
+  ],
+  [
+   "about-us/videos/17517-interior-push-piers-park-city-ut.html",
+   "foundation-repair/videos/17517-interior-push-piers-park-city-ut.html"
+  ],
+  [
+   "about-us/videos/17975-push-pier-installation-in-provo.html",
+   "foundation-repair/videos/17975-push-pier-installation-in-provo.html"
+  ],
+  [
+   "about-us/videos/18064-sinking-steps-lifted-september-2019.html",
+   "concrete-leveling/videos/18064-sinking-steps-lifted-september-2019.html"
+  ],
+  [
+   "about-us/videos/20507-concrete-lift.html",
+   "concrete-repair/videos/20507-concrete-lift.html"
+  ],
+  [
+   "about-us/videos/20508-carbon-armor-installation.html",
+   "foundation-repair/videos/20508-carbon-armor-installation.html"
+  ]
+ ]
+}

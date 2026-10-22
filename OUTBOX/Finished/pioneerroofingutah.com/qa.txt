@@ -1,0 +1,2 @@
+pages: 52 | issues: 0
+titles outside 50-60: 35 | metas outside 150-160: 17

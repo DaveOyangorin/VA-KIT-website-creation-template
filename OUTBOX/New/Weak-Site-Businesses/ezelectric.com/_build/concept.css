@@ -1,0 +1,86 @@
+/* ===== concept: "Flip it on" (21 Oct 2026). Dusk hero, the breaker panel, service doors, the free consult. ===== */
+body.is-home .site-header { background: var(--paper); color: var(--ink); border-bottom-color: var(--line) } body.is-home .site-header .menu summary { border-color: var(--line) }
+.label { font: 500 .72rem/1.3 var(--f-mono); letter-spacing: .08em; color: var(--accent-ink); display: inline-flex; gap: 8px; align-items: center }
+.label .spark { width: 10px; height: 10px; border-radius: 50%; background: var(--amber); box-shadow: 0 0 12px 3px rgba(255,194,77,.7) }
+h1, h2 { font-weight: 700 } h1 span, h2 span { color: var(--mute) } h3 { font-family: var(--f-body); font-weight: 700 }
+.btn { font-family: var(--f-body) } .btn.accent:hover { color: #fff; background: var(--accent-ink) } .tlink { border-bottom-color: var(--accent) } .tlink.light { color: var(--amber); border-bottom-color: var(--amber) }
+.draft-strip { background: var(--dark); color: var(--amber) }
+.z-head { max-width: 820px; margin-bottom: 44px } .z-head h2 { font-size: clamp(2.2rem, 5vw, 4.4rem); line-height: 1 }
+.split-h { max-width: none; display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: 40px; align-items: end } .split-h .lede { margin: 0 }
+
+/* hero: text on paper, the dusk photo running to the right edge */
+.z-hero { overflow: hidden; border-bottom: 1px solid var(--line) }
+.z-hero-in { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); min-height: min(760px, calc(100svh - var(--hdr))) }
+.wrap-l { padding: clamp(40px, 6vw, 90px) clamp(24px, 4vw, 64px) clamp(40px, 5vw, 70px) max(20px, calc((100vw - 1220px) / 2 + 20px)); display: flex; flex-direction: column; justify-content: center }
+.z-hero h1 { font-size: clamp(2.4rem, 4.6vw, 4.6rem); line-height: 1.02; letter-spacing: -.04em; margin-bottom: .45em } .z-hero h1 span { display: block }
+.z-facts { list-style: none; padding: 0; margin: 38px 0 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; border-top: 1px solid var(--ink) }
+.z-facts li { padding: 14px 12px 0 0; font-size: .9rem; color: var(--ink2) } .z-facts li + li { padding-left: 14px; border-left: 1px solid var(--line) } .z-facts b { display: block; font: 700 1.25rem var(--f-disp); color: var(--ink); letter-spacing: -.03em }
+.z-photo { position: relative; margin: 0; background: var(--dark) } .z-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 55% 60% }
+.z-photo::after { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse at 40% 75%, rgba(255,194,77,.18), transparent 55%), linear-gradient(180deg, rgba(11,18,32,.25), transparent 40%) }
+.z-photo figcaption { position: absolute; left: 20px; bottom: 20px; z-index: 1; font: 500 .7rem var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: #fff; background: rgba(11,18,32,.7); padding: 7px 11px; border-radius: 999px }
+
+/* signature: the breaker panel */
+.z-panel { background: var(--dark); color: var(--on-dark) } .z-panel h2 { color: var(--on-dark) } .z-panel .lede { color: var(--on-dark2) } .z-panel .label { color: var(--amber) }
+.pnl { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(24px, 4vw, 60px); align-items: stretch }
+.pnl-box { background: linear-gradient(180deg, #a9aeb6, #8c9199); border-radius: 10px; padding: 16px; box-shadow: inset 0 0 0 2px #6d727a, 0 30px 60px -30px rgba(0,0,0,.8) }
+.pnl-top { display: flex; justify-content: space-between; font: 500 .66rem var(--f-mono); letter-spacing: .1em; text-transform: uppercase; color: #20242b; padding: 2px 4px 12px }
+.pnl-main { display: flex; justify-content: center; padding-bottom: 12px; margin-bottom: 12px; border-bottom: 2px solid #7a7f87 }
+.pnl-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; background: #1c2029; padding: 10px; border-radius: 6px }
+.brk { display: grid; grid-template-columns: 26px 38px minmax(0, 1fr); gap: 10px; align-items: center; text-align: left; background: #2a2f3a; border: 1px solid #3a404d; border-radius: 4px; padding: 8px 10px; cursor: pointer; color: #e6e8ee; font: 600 .86rem var(--f-body); transition: background .2s }
+.brk:hover { background: #333949 } .brk:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px }
+.brk-n { font: 500 .66rem var(--f-mono); color: #8d95a7 }
+.brk-sw { position: relative; width: 38px; height: 22px; border-radius: 4px; background: #111; box-shadow: inset 0 0 0 1px #000 } .brk-sw i { position: absolute; top: 2px; left: 2px; width: 16px; height: 18px; border-radius: 3px; background: linear-gradient(180deg, #4a505c, #2c313b); transition: transform .22s cubic-bezier(.3,1.4,.5,1), background .22s }
+.brk.on .brk-sw i { transform: translateX(18px); background: linear-gradient(180deg, #ff6a5f, var(--accent)) } .brk.on { background: #31281c; border-color: #6b5426 } .brk.on .brk-l { color: var(--amber) }
+.brk.main { grid-template-columns: 38px auto; padding: 10px 16px; background: #1c2029 } .brk.main .brk-sw { width: 52px; height: 28px } .brk.main .brk-sw i { width: 22px; height: 24px } .brk.main.on .brk-sw i { transform: translateX(26px) }
+.brk.main { grid-template-columns: 52px auto }
+.pnl-label { margin: 12px 4px 0; font: 500 .62rem var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: #2a2e36 }
+.pnl-out { position: relative; display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: 24px; align-items: center; background: var(--dark2); border: 1px solid rgba(255,255,255,.08); border-radius: var(--r); padding: clamp(22px, 3vw, 40px) }
+.bulb { align-self: center; justify-self: center; width: 96px; filter: drop-shadow(0 0 0 rgba(255,194,77,0)); transition: filter .4s }
+.bulb svg { width: 100%; height: auto } .bulb .glass { fill: rgba(255,255,255,.06); stroke: #5b6478; stroke-width: 2; transition: fill .4s, stroke .4s } .bulb .fil { fill: none; stroke: #5b6478; stroke-width: 2.5; stroke-linejoin: round } .bulb .base { fill: #5b6478 }
+.pnl.lit .bulb { filter: drop-shadow(0 0 30px rgba(255,194,77,.75)) } .pnl.lit .bulb .glass { fill: rgba(255,194,77,.9); stroke: var(--amber) } .pnl.lit .bulb .fil { stroke: #fff6d8 }
+.pnl-loads { display: grid } .ld { grid-column: 2; grid-row: 1; opacity: 0; visibility: hidden; transform: translateY(6px); transition: opacity .3s, transform .3s, visibility .3s } .ld.on { opacity: 1; visibility: visible; transform: none }
+.ld-k { font: 500 .7rem var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--on-dark2); margin-bottom: 10px } .ld-k b { color: var(--amber); font-weight: 500 }
+.ld h3 { font: 700 clamp(1.5rem, 2.4vw, 2.1rem)/1.1 var(--f-disp); letter-spacing: -.03em; color: #fff; margin-bottom: 12px } .ld p { color: var(--on-dark2); margin-bottom: 12px } .ld .ld-1 { color: var(--on-dark) }
+.z-more { margin: 30px 0 0; color: var(--on-dark2); max-width: 90ch } .z-more b { color: var(--amber) }
+
+/* doors */
+.doors { display: grid; grid-template-columns: 1.1fr .9fr 1fr; gap: 20px; align-items: start }
+.door { display: grid; gap: 8px; text-decoration: none; background: var(--card); border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; padding-bottom: 24px; transition: transform .3s, box-shadow .3s }
+.door:hover { transform: translateY(-4px); box-shadow: 0 30px 50px -30px rgba(13,20,36,.5); color: var(--ink) } .door > :not(figure):not(svg) { padding: 0 22px } .door figure { margin: 0 0 10px } .door img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover }
+.d-k { font: 500 .7rem var(--f-mono); color: var(--accent-ink) } .door b { font: 700 1.6rem var(--f-disp); letter-spacing: -.03em } .door p { margin: 0; color: var(--ink2) } .door em { font-style: normal; font-weight: 700; color: var(--accent-ink); display: inline-flex; gap: 6px; align-items: center; margin-top: 6px } .door em svg { width: 1em; height: 1em }
+.d2 { margin-top: 70px; background: var(--dark); border-color: var(--dark); color: var(--on-dark); padding-top: 26px } .d2 p { color: var(--on-dark2) } .d2 em, .d2 .d-k { color: var(--amber) } .d2:hover { color: var(--on-dark) }
+.d-art { width: 100%; height: auto; margin-top: 14px; padding: 0 22px } .d-art path { fill: none; stroke: #4c5770; stroke-width: 2 } .d-art .hot { stroke: var(--amber); stroke-dasharray: 6 6; animation: dash 3s linear infinite } @keyframes dash { to { stroke-dashoffset: -48 } }
+.d3 { margin-top: 30px }
+
+/* consult */
+.z-consult { background: var(--sand) } .z-consult-in { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: clamp(28px, 5vw, 80px); align-items: center } .z-consult h2 { font-size: clamp(2.2rem, 4.4vw, 3.8rem) }
+.cs-steps { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px } .cs-steps li { display: grid; grid-template-columns: 60px minmax(0, 1fr); gap: 4px 18px; background: var(--card); border: 1px solid var(--line); border-radius: var(--r); padding: 20px 22px }
+.cs-steps span { grid-row: span 2; width: 48px; height: 48px; border-radius: 50%; background: var(--accent); color: #fff; display: grid; place-items: center; font: 500 .8rem var(--f-mono) } .cs-steps b { font-size: 1.15rem } .cs-steps p { margin: 0; color: var(--ink2) }
+.cs-steps.in-prose { margin: 1em 0 } .cs-steps.in-prose li { padding: 16px 18px }
+
+/* reviews */
+.zq { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px } .zq blockquote { margin: 0; background: var(--card); border: 1px solid var(--line); border-radius: var(--r); padding: 26px; display: grid; gap: 18px; align-content: space-between }
+.zq blockquote:nth-child(2) { transform: translateY(30px) } .zq p { margin: 0; font-size: 1.05rem; line-height: 1.55 } .zq p::before { content: "\201C"; display: block; font: 700 3rem/1 var(--f-disp); color: var(--accent); height: 30px }
+.zq footer { display: grid; border-top: 1px solid var(--line); padding-top: 14px } .zq footer span { font: 500 .66rem var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--mute) }
+.z-quotes { padding-bottom: 120px } .z-post { background: var(--dark); color: var(--on-dark); border: 0; padding: 30px !important; gap: 14px } .z-post b { font-family: var(--f-disp); font-size: 1.4rem; letter-spacing: -.03em } .z-post p { color: var(--on-dark2); margin: 0 } .z-post em { color: var(--amber) } .z-post .label { color: var(--amber) } .z-post:hover { color: var(--on-dark) }
+.z-post > :not(img) { padding: 0 !important }
+
+/* inner pages */
+.phero-full::after { background: linear-gradient(90deg, rgba(11,18,32,.9) 0%, rgba(11,18,32,.6) 55%, rgba(11,18,32,.2) 100%) } .phero-full .label { color: #fff } .phero-full .label::before { background: var(--amber) }
+.phero-full.no-photo { background: radial-gradient(ellipse at 80% 50%, rgba(255,194,77,.16), transparent 50%), var(--dark) }
+.ph-bolt { width: 100%; aspect-ratio: 1; max-width: 260px; margin: auto; background: var(--amber); clip-path: polygon(55% 0, 15% 55%, 45% 55%, 35% 100%, 85% 40%, 55% 40%, 70% 0); filter: drop-shadow(0 0 30px rgba(255,194,77,.6)) }
+.toc { background: var(--card); border: 1px solid var(--line); border-radius: var(--r); padding: 18px 22px; margin: 1em 0 1.6em } .toc ol { columns: 2; gap: 24px; margin: 0; padding-left: 1.2em } .toc li { margin: .25em 0 } .toc a { text-decoration: none; font-weight: 600 } .toc a:hover { color: var(--accent-ink) }
+.svc-s { position: relative; padding: 22px 0 6px 64px; border-top: 1px solid var(--line); scroll-margin-top: calc(var(--hdr) + 20px) } .svc-n { position: absolute; left: 0; top: 24px; font: 700 1.3rem var(--f-disp); color: var(--accent) } .svc-s h3 { margin-top: 0 }
+.answer { border-left-color: var(--accent) } .side-card { background: var(--dark) } .side-card .label { color: var(--amber) } .side-card .btn { background: var(--accent); border-color: var(--accent) }
+.cta { background: radial-gradient(ellipse at 85% 30%, rgba(255,194,77,.14), transparent 45%), var(--dark) } .cta .label { color: var(--amber) } .office small { color: var(--amber) } .office { border-radius: var(--r) }
+.site-footer { border-top: 4px solid var(--accent) } .flogo img { width: 200px } .fareas b, .foot a:hover { color: var(--amber) }
+
+@media (prefers-reduced-motion: reduce) { .brk-sw i, .bulb, .bulb .glass, .ld, .door { transition: none } .d-art .hot { animation: none } }
+@media (max-width: 1000px) {
+  .z-hero-in, .pnl, .z-consult-in, .split-h { grid-template-columns: minmax(0, 1fr) } .wrap-l { padding: 40px max(20px, env(safe-area-inset-left, 0px)) } .z-photo { min-height: 360px }
+  .doors, .zq { grid-template-columns: minmax(0, 1fr) } .d2, .d3 { margin-top: 0 } .zq blockquote:nth-child(2) { transform: none } .z-quotes { padding-bottom: 60px }
+}
+@media (max-width: 640px) {
+  .z-hero h1 { font-size: clamp(2.1rem, 9.6vw, 3rem) } .z-facts { grid-template-columns: minmax(0, 1fr) } .z-facts li + li { padding-left: 0; border-left: 0; border-top: 1px solid var(--line); padding-top: 10px }
+  .pnl-grid { grid-template-columns: minmax(0, 1fr) } .pnl-out { grid-template-columns: minmax(0, 1fr) } .bulb { width: 64px } .ld { grid-column: 1; grid-row: 2 } .toc ol { columns: 1 } .svc-s { padding-left: 46px }
+}

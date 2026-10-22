@@ -1,0 +1,11 @@
+/* abode.cleaning theme: "Come home to clean." Abode violet #8332F8 (their site) with deep violet #4C0AAB and soft lilac; airy white
+   and a warm pale grey from a freshly cleaned home; near-black #0A0A0A from their logo. Gabarito (round, friendly, confident) for
+   display, DM Sans for text, Geist Mono for small labels. Light theme by choice, like the homes in their film. */
+:root {
+  --paper: #fbfaf8; --sand: #f2eff9; --card: #ffffff; --ink: #0a0a0a; --ink2: #3b3946; --mute: #6c6a78; --line: #e4e0ee;
+  --dark: #1b1030; --dark2: #261845; --on-dark: #f4f1fb; --on-dark2: #bcb2d6; --foot: #140b24;
+  --accent: #8332f8; --accent-2: #a46ff2; --accent-ink: #4c0aab; --on-accent: #ffffff;
+  --f-disp: "Gabarito", "Segoe UI", system-ui, sans-serif; --f-body: "DM Sans", "Segoe UI", system-ui, sans-serif; --f-mono: "Geist Mono", ui-monospace, Menlo, Consolas, monospace;
+  --disp-w: 800; --disp-ls: -.03em; --disp-tt: none; --r: 18px; --btn-r: 999px; --hdr: 76px; --logo-h: 34px;
+  color-scheme: light;
+}

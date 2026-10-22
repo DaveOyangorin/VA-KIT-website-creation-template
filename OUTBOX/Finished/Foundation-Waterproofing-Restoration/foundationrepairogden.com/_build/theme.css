@@ -1,0 +1,13 @@
+/* foundationrepairogden.com theme: "Fortified". The name is a fortification, the town is old Ogden: cut stone, iron and Weber
+   clay. Limestone paper, granite darks, iron-oxide accent, clay and moisture-blue for the drawings. Fraunces (a heritage serif with
+   a carved feel; Filson and Heath Ceramics set the tone) for display, Hanken Grotesk for text, IBM Plex Mono for readouts.
+   One light brand theme by choice. */
+:root {
+  --paper: #efe9df; --sand: #e3dbcd; --card: #f9f6f0; --ink: #1d1b18; --ink2: #45403a; --mute: #6f6860; --line: #d3c9b8;
+  --dark: #23201c; --dark2: #2f2b26; --on-dark: #f3eee6; --on-dark2: #b5ab9c; --foot: #1a1815;
+  --accent: #b4532a; --accent-2: #d9773f; --accent-ink: #9a4321; --on-accent: #ffffff;
+  --clay: #a8643f; --clay-wet: #7c4428; --stone: #cfc4b2; --water: #4f86a6;
+  --f-disp: "Fraunces", Georgia, "Times New Roman", serif; --f-body: "Hanken Grotesk", "Segoe UI", system-ui, sans-serif; --f-mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  --disp-w: 700; --disp-ls: -.02em; --disp-tt: none; --r: 0px; --btn-r: 0px; --hdr: 82px; --logo-h: 44px;
+  color-scheme: light;
+}

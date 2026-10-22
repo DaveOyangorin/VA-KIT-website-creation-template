@@ -1,0 +1,10 @@
+/* danielswildlife.com theme: "Field notes". The logo's forest green on a field-guide paper, with the look of an inspector's notebook:
+   taped photos, typed observations, a marker highlight. Bitter (a sturdy slab) for display, Karla for text, Courier Prime for notes. */
+:root {
+  --paper: #f4f1e8; --sand: #e9e3d3; --card: #fffdf7; --ink: #1d2a22; --ink2: #3f4b42; --mute: #6c7569; --line: #d9d2bf;
+  --dark: #1e4a32; --dark2: #285d40; --on-dark: #f3f6f0; --on-dark2: #b2c7b6; --foot: #14331f;
+  --accent: #e8b23a; --accent-2: #f2c560; --accent-ink: #8a5e00; --on-accent: #1d2a22; --leaf: #2f7d4b;
+  --f-disp: "Bitter", Georgia, serif; --f-body: "Karla", "Segoe UI", system-ui, sans-serif; --f-mono: "Courier Prime", "Courier New", ui-monospace, monospace;
+  --disp-w: 800; --disp-ls: -.01em; --disp-tt: none; --r: 6px; --btn-r: 6px; --hdr: 88px; --logo-h: 58px;
+  color-scheme: light;
+}

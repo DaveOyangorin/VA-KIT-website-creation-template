@@ -1,0 +1,408 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact Disaster Repair Team for water, fire, smoke, mold, foundation, and insulation restoration in Utah. Call 385-287-6344 or submit a request online.">
+  <title>Contact Us | Disaster Repair Team</title>
+  <link rel="canonical" href="https://thedisasterrepairteam.com/request-help/">
+  <link rel="stylesheet" href="https://thedisasterrepairteam.com/css/common.css">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://thedisasterrepairteam.com/request-help/">
+  <meta property="og:title" content="Contact Us | Disaster Repair Team">
+  <meta property="og:description" content="Contact Disaster Repair Team for water, fire, smoke, mold, foundation, and insulation restoration in Utah. Call 385-287-6344 or submit a request online.">
+  <meta property="og:image" content="https://thedisasterrepairteam.com/images/water-damage-restoration-feature.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://thedisasterrepairteam.com/request-help/">
+  <meta name="twitter:title" content="Contact Us | Disaster Repair Team">
+  <meta name="twitter:description" content="Contact Disaster Repair Team for water, fire, smoke, mold, foundation, and insulation restoration in Utah.">
+  <meta name="twitter:image" content="https://thedisasterrepairteam.com/images/water-damage-restoration-feature.jpg">
+  <style>
+    .contact-page { background: #f2f5f8; }
+
+    /* Urgency bar */
+    .urgency-bar { background: #143149; padding: 11px 0; }
+    .urgency-bar .container { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; }
+    .urgency-label { color: rgba(255,255,255,.9); font-size: 14px; font-weight: 700; }
+    .urgency-cta { color: #ffb52d; font-size: 14px; font-weight: 800; text-decoration: none; }
+    .urgency-cta:hover { color: #ffc84d; }
+    .urgency-sep { color: rgba(255,255,255,.25); font-size: 14px; }
+    .urgency-note { color: rgba(255,255,255,.6); font-size: 14px; }
+
+    /* Layout */
+    .contact-section { padding: 36px 0 72px; }
+    .contact-grid { display: grid; grid-template-columns: 1fr 368px; gap: 24px; align-items: start; }
+
+    /* Form card */
+    .form-card { background: #fff; border-radius: 22px; border: 1px solid rgba(19,41,61,.08); box-shadow: 0 16px 40px rgba(19,41,61,.08); padding: 36px; }
+    .form-card-header { margin-bottom: 26px; padding-bottom: 22px; border-bottom: 1px solid rgba(19,41,61,.07); }
+    .form-card-header h1 { font-size: 34px; font-weight: 800; color: #1f3852; line-height: 1.1; letter-spacing: -.8px; margin: 0 0 10px; }
+    .form-card-header p { color: #5b6c7a; font-size: 16px; margin: 0; line-height: 1.55; }
+
+    /* Fields */
+    .contact-page form { display: grid; gap: 15px; }
+    .contact-page .field-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+    .contact-page label { display: block; font-size: 13px; font-weight: 700; color: #1f3852; letter-spacing: .01em; }
+    .contact-page label > input,
+    .contact-page label > select,
+    .contact-page label > textarea { display: block; width: 100%; margin-top: 7px; box-sizing: border-box; }
+    .contact-page input,
+    .contact-page select,
+    .contact-page textarea { background: #f6f8fb; border: 1.5px solid rgba(19,41,61,.1); border-radius: 12px; padding: 13px 14px; font: inherit; font-size: 15px; color: #1f3852; transition: border-color .15s, box-shadow .15s, background .15s; }
+    .contact-page input::placeholder,
+    .contact-page textarea::placeholder { color: #9eadb8; }
+    .contact-page input:focus,
+    .contact-page select:focus,
+    .contact-page textarea:focus { outline: none; border-color: #245c85; box-shadow: 0 0 0 3px rgba(36,92,133,.1); background: #fff; }
+    .contact-page textarea { min-height: 128px; resize: vertical; }
+    .form-status { display: block; color: #5b6c7a; font-size: 13px; line-height: 1.6; margin-top: 2px; }
+
+    /* Sidebar */
+    .sidebar-col { display: grid; gap: 14px; position: sticky; top: 20px; }
+
+    .sidebar-emergency { background: linear-gradient(150deg, #143149 0%, #1c4a75 100%); border-radius: 22px; padding: 26px 24px; display: grid; gap: 6px; }
+    .sidebar-emergency-eyebrow { color: rgba(255,255,255,.55); font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: .12em; }
+    .sidebar-emergency-number { color: #ffb52d; font-size: 32px; font-weight: 900; letter-spacing: -1px; line-height: 1.1; text-decoration: none; display: block; margin-top: 2px; }
+    .sidebar-emergency-number:hover { color: #ffc84d; }
+    .sidebar-emergency-region { color: rgba(255,255,255,.8); font-size: 13px; font-weight: 600; }
+    .sidebar-divider { border: none; border-top: 1px solid rgba(255,255,255,.1); margin: 10px 0 8px; }
+    .sidebar-emergency-secondary { color: rgba(255,255,255,.7); font-size: 14px; font-weight: 600; text-decoration: none; display: block; }
+    .sidebar-emergency-secondary:hover { color: #fff; }
+    .sidebar-emergency-sms { color: rgba(255,255,255,.45); font-size: 13px; text-decoration: none; display: block; margin-top: 4px; }
+    .sidebar-emergency-sms:hover { color: rgba(255,255,255,.75); }
+
+    .sidebar-trust { background: #fff; border: 1px solid rgba(19,41,61,.08); border-radius: 18px; padding: 20px 22px; display: grid; gap: 13px; box-shadow: 0 4px 16px rgba(19,41,61,.05); }
+    .sidebar-trust-row { display: flex; align-items: center; gap: 11px; }
+    .sidebar-trust-icon { font-size: 15px; width: 22px; text-align: center; flex-shrink: 0; }
+    .sidebar-trust-row .sidebar-trust-stars { color: #FBBC04; font-size: 12px; letter-spacing: 2px; width: auto; }
+    .sidebar-trust-row span { color: #4f5d6b; font-size: 14px; line-height: 1.4; }
+    .sidebar-trust-row strong { color: #1f3852; }
+
+    .sidebar-tip { background: #fff; border: 1px solid rgba(19,41,61,.08); border-radius: 18px; padding: 20px 22px; box-shadow: 0 4px 16px rgba(19,41,61,.05); }
+    .sidebar-tip-label { font-size: 13px; font-weight: 800; color: #1f3852; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 12px; }
+    .sidebar-tip ul { margin: 0; padding-left: 16px; display: grid; gap: 6px; }
+    .sidebar-tip ul li { color: #5b6c7a; font-size: 14px; line-height: 1.45; }
+
+    /* Validation */
+    .contact-page label.has-error input,
+    .contact-page label.has-error select,
+    .contact-page label.has-error textarea { border-color: #d0372b; background: #fff8f7; box-shadow: 0 0 0 3px rgba(208,55,43,.1); }
+    .contact-page label.has-error input:focus,
+    .contact-page label.has-error select:focus,
+    .contact-page label.has-error textarea:focus { border-color: #d0372b; box-shadow: 0 0 0 3px rgba(208,55,43,.15); }
+    .field-error { color: #d0372b; font-size: 12px; font-weight: 600; display: none; margin-top: 5px; }
+    .has-error .field-error { display: block; }
+
+    /* Responsive */
+    @media (max-width: 960px) {
+      .contact-grid { grid-template-columns: 1fr; }
+      .sidebar-col { position: static; }
+    }
+    @media (max-width: 640px) {
+      .contact-section { padding: 20px 0 52px; }
+      .form-card { padding: 22px 18px; }
+      .form-card-header h1 { font-size: 26px; }
+      .contact-page .field-grid { grid-template-columns: 1fr; }
+      .urgency-sep, .urgency-note { display: none; }
+    }
+  </style>
+  <link rel="stylesheet" href="https://thedisasterrepairteam.com/css/site-chat.css">
+  <link rel="stylesheet" href="https://thedisasterrepairteam.com/css/call-picker.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "LocalBusiness",
+        "@id": "https://thedisasterrepairteam.com#organization",
+        "name": "Disaster Repair Team",
+        "url": "https://thedisasterrepairteam.com",
+        "telephone": "+1-385-287-6344",
+        "email": "claims@thedisasterrepairteam.com",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "45 South 2920 West",
+          "addressLocality": "Lehi",
+          "addressRegion": "UT",
+          "postalCode": "84043",
+          "addressCountry": "US"
+        },
+        "areaServed": { "@type": "State", "name": "Utah" }
+      },
+      {
+        "@type": "ContactPage",
+        "name": "Contact Us",
+        "url": "https://thedisasterrepairteam.com/request-help/",
+        "mainEntity": { "@id": "https://thedisasterrepairteam.com#organization" }
+      }
+    ]
+  }
+  </script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZQJHV4JHEF"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-ZQJHV4JHEF');</script></head>
+<body>
+  <div class="contact-page">
+    <nav>
+      <div class="container">
+        <div class="logo"><a href="https://thedisasterrepairteam.com/"><img src="/images/logo.svg" alt="Disaster Repair Team logo"></a></div>
+        <div class="links">
+          <a class="link" href="https://thedisasterrepairteam.com/services/">Services</a>
+          <a class="link" href="https://thedisasterrepairteam.com/landing-pages/">Areas</a>
+          <a class="link" href="https://thedisasterrepairteam.com/blog/">Blog</a>
+          <a class="link" href="https://thedisasterrepairteam.com/about-us/">About Us</a>
+          <a class="link" href="https://thedisasterrepairteam.com/request-help/">Contact Us</a>
+        </div>
+      </div>
+      <div class="container bottom">
+        <div class="links">
+          <a class="link" href="https://thedisasterrepairteam.com/services/">Services</a>
+          <a class="link" href="https://thedisasterrepairteam.com/landing-pages/">Areas</a>
+          <a class="link" href="https://thedisasterrepairteam.com/blog/">Blog</a>
+          <a class="link" href="https://thedisasterrepairteam.com/about-us/">About Us</a>
+          <a class="link" href="https://thedisasterrepairteam.com/request-help/">Contact Us</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="urgency-bar">
+      <div class="container">
+        <span class="urgency-label">Active damage?</span>
+        <a href="tel:+13852876344" class="urgency-cta">Call 385-287-6344 now &rarr;</a>
+        <span class="urgency-sep">&middot;</span>
+        <span class="urgency-note">For contained damage, callbacks, and estimates — use the form below.</span>
+      </div>
+    </div>
+
+    <section class="contact-section">
+      <div class="container">
+        <div class="contact-grid">
+
+          <!-- Form -->
+          <div class="form-col">
+            <div class="form-card">
+              <div class="form-card-header">
+                <h1>Request Help or an Estimate</h1>
+                <p>Share a few details and the team will follow up as quickly as possible.</p>
+              </div>
+              <form id="request-form" data-request-form novalidate>
+                <div class="field-grid">
+                  <label>Full name <span style="color:#d0372b">*</span>
+                    <input type="text" name="name" placeholder="Your name" required>
+                    <span class="field-error">Please enter your name</span>
+                  </label>
+                  <label>Phone number <span style="color:#d0372b">*</span>
+                    <input type="tel" name="phone" placeholder="(385) 287-6344" required autocomplete="tel">
+                    <span class="field-error">Enter a valid 10-digit phone number</span>
+                  </label>
+                </div>
+                <div class="field-grid">
+                  <label>Email
+                    <input type="email" name="email" placeholder="you@example.com" autocomplete="email">
+                    <span class="field-error">Enter a valid email address</span>
+                  </label>
+                  <label>City
+                    <input type="text" name="city" placeholder="Lehi, Provo, St. George...">
+                  </label>
+                </div>
+                <div class="field-grid">
+                  <label>Service needed <span style="color:#d0372b">*</span>
+                    <select name="damage_type" required>
+                      <option value="">Select one</option>
+                      <option>Water damage</option>
+                      <option>Fire damage</option>
+                      <option>Smoke damage</option>
+                      <option>Mold remediation</option>
+                      <option>Foundation repair</option>
+                      <option>Insulation services</option>
+                      <option>Commercial emergency response</option>
+                      <option>Other restoration help</option>
+                    </select>
+                    <span class="field-error">Please select a service</span>
+                  </label>
+                  <label>Preferred response
+                    <select name="contact_method">
+                      <option value="">Select one</option>
+                      <option>Call me</option>
+                      <option>Text me</option>
+                      <option>Email me</option>
+                    </select>
+                  </label>
+                </div>
+                <div class="field-grid">
+                  <label>Insurance claim open?
+                    <select name="insurance_claim">
+                      <option value="">Select one</option>
+                      <option>Yes — claim already open</option>
+                      <option>No — not yet filed</option>
+                      <option>Not sure</option>
+                    </select>
+                  </label>
+                </div>
+                <label>What happened?
+                  <textarea name="message" placeholder="Describe the damage, when it started, whether it is still active, and anything urgent the team should know."></textarea>
+                </label>
+                <button class="button-component full-color" type="submit">Submit Request</button>
+                <span class="form-status" data-request-status>The team will review your request and follow up as quickly as possible. For active damage, calling is still the fastest option.</span>
+              </form>
+            </div>
+          </div>
+
+          <!-- Sidebar -->
+          <div class="sidebar-col">
+
+            <div class="sidebar-emergency">
+              <div class="sidebar-emergency-eyebrow">Active emergency? Call now.</div>
+              <a href="tel:+13852876344" class="sidebar-emergency-number" data-call-picker>385-287-6344</a>
+              <div class="sidebar-emergency-region">Northern Utah &middot; Available 24/7</div>
+              <hr class="sidebar-divider">
+              <a href="tel:+14356199594" class="sidebar-emergency-secondary" data-call-picker>St. George: 435-619-9594</a>
+            </div>
+
+            <div class="sidebar-trust">
+              <div class="sidebar-trust-row">
+                <span class="sidebar-trust-icon sidebar-trust-stars">★★★★★</span>
+                <span><strong>4.9</strong> &middot; <a href="https://maps.app.goo.gl/mqBNjCNbrZhit1977" target="_blank" rel="noopener" style="color:#245c85;">120+ Google reviews</a></span>
+              </div>
+              <div class="sidebar-trust-row">
+                <span class="sidebar-trust-icon">⚡</span>
+                <span><strong>60-min response</strong> &middot; Available 24/7</span>
+              </div>
+              <div class="sidebar-trust-row">
+                <span class="sidebar-trust-icon" style="color:#2a7340;">✓</span>
+                <span><strong>B-100 Licensed</strong> &middot; Insurance support included</span>
+              </div>
+              <div class="sidebar-trust-row">
+                <span class="sidebar-trust-icon" style="color:#2a7340;">✓</span>
+                <span><strong>Residential &amp; commercial</strong> &middot; Northern Utah &amp; St. George</span>
+              </div>
+            </div>
+
+            <div class="sidebar-tip">
+              <div class="sidebar-tip-label">What to include</div>
+              <ul>
+                <li>City and property location</li>
+                <li>Damage type and whether it&rsquo;s still active</li>
+                <li>When the damage started</li>
+                <li>Whether an insurance claim is already open</li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <div>
+          <div class="logo"><img src="/images/logo.svg" alt="Disaster Repair Team logo"></div>
+          <div class="links"><a href="https://maps.app.goo.gl/mqBNjCNbrZhit1977">Disaster Repair Team<br>45 South 2920 West<br>Lehi, UT 84043</a></div>
+        </div>
+        <div>
+          <h4>Services</h4>
+          <div class="links">
+            <a href="https://thedisasterrepairteam.com/water-damage-cleanup-restoration/">Water Damage Cleanup / Restoration</a>
+            <a href="https://thedisasterrepairteam.com/sewage-cleanup/">Sewage Backup Cleanup</a>
+            <a href="https://thedisasterrepairteam.com/fire-damage-cleanup-restoration/">Fire Damage Cleanup / Restoration</a>
+            <a href="https://thedisasterrepairteam.com/smoke-damage-cleanup-restoration/">Smoke Damage Cleanup / Restoration</a>
+            <a href="https://thedisasterrepairteam.com/mold-remediation-restoration/">Mold Remediation / Restoration</a>
+            <a href="https://thedisasterrepairteam.com/foundation-repair/">Foundation Repair</a>
+            <a href="https://thedisasterrepairteam.com/insulation-services/">Insulation Services</a>
+            <a href="https://thedisasterrepairteam.com/commercial-restoration/">Commercial Restoration</a>
+          </div>
+        </div>
+        <div>
+          <h4>Areas</h4>
+          <div class="links">
+            <a href="https://thedisasterrepairteam.com/landing-pages/">View all service areas</a>
+            <a href="https://thedisasterrepairteam.com/landing-pages/salt-lake-county/">Salt Lake County</a>
+            <a href="https://thedisasterrepairteam.com/landing-pages/davis-county/">Davis County</a>
+            <a href="https://thedisasterrepairteam.com/landing-pages/weber-county/">Weber County</a>
+            <a href="https://thedisasterrepairteam.com/landing-pages/utah-county/">Utah County</a>
+            <a href="https://thedisasterrepairteam.com/landing-pages/box-elder-county/">Box Elder County</a>
+            <a href="https://thedisasterrepairteam.com/landing-pages/summit-county/">Summit County</a>
+            <a href="https://thedisasterrepairteam.com/landing-pages/tooele-county/">Tooele County</a>
+            <a href="https://thedisasterrepairteam.com/landing-pages/washington-county/">Washington County</a>
+            <a href="https://thedisasterrepairteam.com/landing-pages/iron-county/">Iron County</a>
+          </div>
+        </div>
+        <div>
+          <h4>Contact Us</h4>
+          <div class="links">
+            <a href="tel:+13852876344">Northern Utah: 385-287-6344</a>
+            <a href="tel:+14356199594">Southern Utah (St. George): 435-619-9594</a>
+            <a href="https://thedisasterrepairteam.com/cdn-cgi/l/email-protection#d4b7b8b5bdb9a794a0bcb1b0bda7b5a7a0b1a6a6b1a4b5bda6a0b1b5b9fab7bbb9"><span class="__cf_email__" data-cfemail="e6858a878f8b95a6928e83828f958795928394948396878f949283878bc885898b">[email&#160;protected]</span></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="/js/request-help-form.js"></script>
+  <script src="/js/assistant-config.js"></script>
+  <script src="/js/site-chat.v4.js"></script>
+  <script src="/js/call-picker.js"></script>
+  <script>
+  (() => {
+    const form = document.getElementById('request-form');
+    if (!form) return;
+
+    // Phone auto-format
+    const phoneInput = form.querySelector('input[name="phone"]');
+    if (phoneInput) {
+      phoneInput.addEventListener('input', () => {
+        const digits = phoneInput.value.replace(/\D/g, '').slice(0, 10);
+        if (digits.length <= 3) {
+          phoneInput.value = digits;
+        } else if (digits.length <= 6) {
+          phoneInput.value = `(${digits.slice(0,3)}) ${digits.slice(3)}`;
+        } else {
+          phoneInput.value = `(${digits.slice(0,3)}) ${digits.slice(3,6)}-${digits.slice(6)}`;
+        }
+      });
+    }
+
+    function getDigits(val) { return val.replace(/\D/g, ''); }
+
+    function validateField(label, input) {
+      const name = input.name;
+      let valid = true;
+      if (input.required && !input.value.trim()) valid = false;
+      if (name === 'phone' && input.value.trim()) valid = getDigits(input.value).length === 10;
+      if (name === 'email' && input.value.trim()) valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value);
+      label.classList.toggle('has-error', !valid);
+      return valid;
+    }
+
+    // Validate on blur
+    form.querySelectorAll('input, select, textarea').forEach(input => {
+      const label = input.closest('label');
+      if (!label) return;
+      input.addEventListener('blur', () => validateField(label, input));
+      input.addEventListener('input', () => {
+        if (label.classList.contains('has-error')) validateField(label, input);
+      });
+    });
+
+    // Validate all on submit
+    form.addEventListener('drt:request_help_submit_start', () => {}, true);
+    const origSubmit = form.onsubmit;
+    form.addEventListener('submit', (e) => {
+      let allValid = true;
+      form.querySelectorAll('input, select, textarea').forEach(input => {
+        const label = input.closest('label');
+        if (!label) return;
+        if (!validateField(label, input)) allValid = false;
+      });
+      if (!allValid) {
+        e.stopImmediatePropagation();
+        const first = form.querySelector('label.has-error input, label.has-error select, label.has-error textarea');
+        if (first) first.focus();
+      }
+    }, true);
+  })();
+  </script>
+<script type="text/javascript" src="//cdn.callrail.com/companies/939497013/8c9c3ebd559e6104ea64/12/swap.js"></script><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092" integrity="sha512-UKNk8GbxkABxKcXYuLkO16EleLGUkcvJWtpSNmExE0Too3ZaFAxTscNWEc1OdAv5/BikHawapSCaiD2XCmp+Bw==" data-cf-beacon='{"version":"2024.11.0","token":"e45a600e3fd64e26aafc6b02d7cbd70c","r":1,"spa":2}' crossorigin="anonymous"></script>
+</body>
+</html>

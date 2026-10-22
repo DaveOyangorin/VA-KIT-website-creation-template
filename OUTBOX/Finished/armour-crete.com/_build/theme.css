@@ -1,0 +1,15 @@
+/* armour-crete.com theme: Snow Canyon red rock and sandstone, desert-dusk ink, concrete greys; water blue for the beading drops.
+   Gloock (serif display, after Layton's editorial headline) + Geist (text) + Geist Mono (labels). */
+:root {
+  --paper: #f5efe6; --sand: #ebe0cf; --card: #fdf9f3; --ink: #1d1714; --ink2: #463b34; --mute: #74675d; --line: #dccdb8;
+  --dark: #1b1512; --dark2: #2a201b; --on-dark: #f6efe5; --on-dark2: #c4b3a2; --foot: #130f0c;
+  --accent: #c25a32; --accent-ink: #a2441f; --on-accent: #fff; --water: #3f8fb0;
+  --f-disp: "Gloock", Georgia, "Times New Roman", serif; --f-body: "Geist", "Segoe UI", system-ui, sans-serif; --f-mono: "Geist Mono", ui-monospace, Menlo, Consolas, monospace;
+  --disp-w: 400; --disp-ls: -.01em; --r: 4px; --btn-r: 2px; --hdr: 78px; --logo-h: 46px;
+  --hero-shade: linear-gradient(180deg, rgba(27,21,18,.55) 0%, rgba(27,21,18,.1) 40%, rgba(27,21,18,.85) 100%);
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --paper: #15100d; --sand: #1e1712; --card: #231b16; --ink: #f2ebe2; --ink2: #cdbfb0; --mute: #a0907f; --line: #3a2e26; --accent-ink: #e58358; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --paper: #15100d; --sand: #1e1712; --card: #231b16; --ink: #f2ebe2; --ink2: #cdbfb0; --mute: #a0907f; --line: #3a2e26; --accent-ink: #e58358; color-scheme: dark }

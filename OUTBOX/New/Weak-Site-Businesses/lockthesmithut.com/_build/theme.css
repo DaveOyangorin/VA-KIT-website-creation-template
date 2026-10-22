@@ -1,0 +1,11 @@
+/* lockthesmithut.com theme: "Brass & steel". Graphite and brushed steel grounds (their white key logo needs a dark header), brass for
+   anything that opens, warm off-white for reading sections. Bricolage Grotesque at a narrow, heavy cut like stamped key blanks; Inter
+   Tight for text; Red Hat Mono for hours and labels. Dark-first by choice; reading sections are light. */
+:root {
+  --paper: #f3f1ec; --sand: #e7e3da; --card: #ffffff; --ink: #15171a; --ink2: #3b3f45; --mute: #6c7077; --line: #d9d5cc;
+  --dark: #121417; --dark2: #1c2025; --on-dark: #eceae4; --on-dark2: #9aa0a8; --foot: #0c0e10;
+  --accent: #c9a23a; --accent-2: #e3c46a; --accent-ink: #8a6a17; --on-accent: #15171a; --steel: #2a3038;
+  --f-disp: "Bricolage Grotesque", "Arial Narrow", "Segoe UI", system-ui, sans-serif; --f-body: "Inter Tight", "Segoe UI", system-ui, sans-serif; --f-mono: "Red Hat Mono", ui-monospace, Menlo, Consolas, monospace;
+  --disp-w: 800; --disp-ls: -.02em; --disp-tt: none; --r: 4px; --btn-r: 4px; --hdr: 78px; --logo-h: 40px;
+  color-scheme: light;
+}

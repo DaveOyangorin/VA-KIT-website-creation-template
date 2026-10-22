@@ -1,0 +1,41 @@
+/* exceptional-roofing.com concept (v3): the sample board */
+.brand img { background: #f4f1eb; border-radius: 3px; padding: 4px 8px }
+h2 { font-size: clamp(2.2rem, 5vw, 4.4rem); line-height: .98 }
+.big-intro { font-family: var(--f-body); font-weight: 500; text-transform: none; letter-spacing: -.02em }
+.stat b { font-family: var(--f-disp) }
+/* material selector */
+.matsec { background: var(--dark); color: var(--on-dark) } .matsec h2 { color: var(--on-dark) } .matsec .lede { color: var(--on-dark2) } .matsec .label { color: var(--accent) }
+.matbox { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.4fr); gap: 36px; align-items: stretch }
+.mat-list { display: grid; gap: 8px }
+.mat { display: flex; gap: 16px; align-items: center; text-align: left; background: transparent; border: 1px solid rgba(255,255,255,.12); border-radius: var(--r); padding: 10px 14px 10px 10px; color: var(--on-dark); cursor: pointer; font: inherit; transition: background .25s, border-color .25s, transform .25s }
+.mat:hover, .mat.on { background: var(--dark2); border-color: var(--accent); transform: translateX(6px) }
+.mat-sw { flex: none; width: 64px; height: 64px; border-radius: 3px; overflow: hidden; display: block } .mat-sw svg { width: 100%; height: 100%; display: block }
+.mat-t { display: grid; gap: 2px } .mat-t small { font: 600 .68rem var(--f-mono); letter-spacing: .12em; color: var(--accent) } .mat-t b { font: 700 1.5rem/1 var(--f-disp); text-transform: uppercase } .mat-t span { font-size: .84rem; color: var(--on-dark2); line-height: 1.4 }
+.mat-view { position: relative; min-height: 520px; border-radius: var(--r); overflow: hidden; clip-path: polygon(8% 0, 100% 0, 100% 100%, 0 100%) }
+.mat-img { position: absolute; inset: 0; margin: 0; opacity: 0; transform: scale(1.05); transition: opacity .6s, transform 1.2s cubic-bezier(.2,.7,.2,1) } .mat-img.show { opacity: 1; transform: none }
+.mat-img img { width: 100%; height: 100%; object-fit: cover } .mat-img figcaption { position: absolute; right: 16px; bottom: 16px; background: rgba(10,12,14,.7); color: #fff; font: 500 .8rem var(--f-mono); padding: 8px 12px; border-radius: 3px }
+/* bento + prints */
+.more { margin-top: 22px }
+.tile b { font-size: clamp(1.6rem, 2.4vw, 2.4rem) }
+.prints { margin-bottom: 70px }
+/* compare */
+.compare { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .8fr); gap: 48px; align-items: center; margin-top: 30px }
+.cmp-stage { position: relative; aspect-ratio: 4/3; overflow: hidden; border-radius: var(--r); --pos: 50%; user-select: none }
+.cmp-stage > img, .cmp-before img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover }
+.cmp-before { position: absolute; inset: 0; clip-path: inset(0 calc(100% - var(--pos)) 0 0) }
+.cmp-handle { position: absolute; top: 0; bottom: 0; left: var(--pos); width: 3px; background: #fff; transform: translateX(-50%); pointer-events: none; box-shadow: 0 0 0 1px rgba(0,0,0,.2) }
+.cmp-handle::after { content: "\2194"; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 44px; height: 44px; border-radius: 50%; background: var(--accent); color: var(--on-accent); display: grid; place-items: center; font-weight: 800 }
+.cmp-tag { position: absolute; top: 14px; font: 600 .7rem var(--f-mono); letter-spacing: .12em; text-transform: uppercase; background: rgba(10,12,14,.7); color: #fff; padding: 6px 10px; border-radius: 3px } .cmp-tag.l { left: 14px } .cmp-tag.r { right: 14px }
+.cmp-range { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: ew-resize; margin: 0 }
+/* split */
+.dark-split { background: var(--dark); color: var(--on-dark) } .dark-split h2 { color: var(--on-dark) } .dark-split p { color: var(--on-dark2) } .dark-split .label { color: var(--accent) }
+.dark-split .chips li { background: transparent; border-color: rgba(255,255,255,.2); color: var(--on-dark) }
+.fin { background: var(--card); border: 1px solid var(--line); border-left: 5px solid var(--accent); border-radius: var(--r); padding: 22px }
+.posts.one { grid-template-columns: minmax(0, 420px) }
+.svc-index { list-style: none; padding: 0 !important; border-top: 1px solid var(--line) } .svc-index li { display: grid; grid-template-columns: 240px 1fr; gap: 14px; padding: 14px 0; border-bottom: 1px solid var(--line); margin: 0 } .svc-index a { font: 700 1.3rem var(--f-disp); text-transform: uppercase; text-decoration: none } .svc-index span { color: var(--mute); font-size: .92rem }
+.board { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; margin: 0 0 1.6em } .spec { display: flex; flex-direction: column; gap: 4px; text-decoration: none; background: var(--card); border: 1px solid var(--line); border-radius: var(--r); padding: 6px 6px 10px }
+.sw { display: block; aspect-ratio: 1; border-radius: 3px; overflow: hidden } .sw svg { width: 100%; height: 100%; display: block } .sp-k { font: 600 .66rem var(--f-mono); color: var(--accent-ink) } .spec b { font: 700 1rem var(--f-disp); text-transform: uppercase } .sp-p { display: none }
+.board.one { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 360px }
+.ph-art .board { margin: 0 }
+@media (max-width: 900px) { .matbox, .compare { grid-template-columns: minmax(0, 1fr) } .mat-view { min-height: 360px; clip-path: none } }
+@media (max-width: 640px) { .mat-sw { width: 52px; height: 52px } .mat-t span { display: none } .svc-index li { grid-template-columns: 1fr; gap: 2px } }

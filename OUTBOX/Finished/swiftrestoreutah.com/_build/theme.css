@@ -1,0 +1,15 @@
+/* swiftrestoreutah.com theme: from the logo, flame red-orange (the fire) and water blue (the drop) on near-black; a warm
+   bone paper for the remodel half. Plus Jakarta Sans (display + text), Fraunces italic (Bluestem-style editorial accent), DM Mono. */
+:root {
+  --paper: #f6f3ee; --sand: #ece6dc; --card: #fffdf9; --ink: #121821; --ink2: #3c4552; --mute: #6b7380; --line: #ddd5c8;
+  --dark: #0a1220; --dark2: #142033; --on-dark: #f4f2ee; --on-dark2: #b2bac7; --foot: #070d17;
+  --accent: #f0531c; --accent-ink: #c23d0c; --on-accent: #fff; --water: #2f7fd6; --aqua: #5fbed2;
+  --f-disp: "Plus Jakarta Sans", "Segoe UI", system-ui, sans-serif; --f-body: "Plus Jakarta Sans", "Segoe UI", system-ui, sans-serif; --f-mono: "DM Mono", ui-monospace, Menlo, Consolas, monospace;
+  --f-serif: "Fraunces", Georgia, "Times New Roman", serif;
+  --disp-w: 800; --disp-ls: -.035em; --r: 14px; --btn-r: 999px; --hdr: 80px; --logo-h: 52px; --logo-bg: #fff; --logo-pad: 6px 10px;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --paper: #0e1522; --sand: #141d2c; --card: #18233a; --ink: #eef1f5; --ink2: #c3cad5; --mute: #949dab; --line: #27334a; --accent-ink: #ff7a45; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --paper: #0e1522; --sand: #141d2c; --card: #18233a; --ink: #eef1f5; --ink2: #c3cad5; --mute: #949dab; --line: #27334a; --accent-ink: #ff7a45; color-scheme: dark }

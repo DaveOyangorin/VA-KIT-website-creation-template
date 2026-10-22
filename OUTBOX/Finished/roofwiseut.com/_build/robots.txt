@@ -1,0 +1,20 @@
+# robots.txt for https://roofwiseut.com
+# Every page is open to search engines and AI search tools.
+# (The old file pointed to a sitemap on roofwise-clear-path.lovable.app; this one points to the real domain.)
+
+User-agent: *
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+Sitemap: https://roofwiseut.com/sitemap.xml

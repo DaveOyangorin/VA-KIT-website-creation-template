@@ -1,0 +1,16 @@
+/* stgeorgeconcreteleveling.com theme: "Measure the lip". Instrument dark slate (Linear), concrete greys, one hard
+   safety-yellow accent (a tape and a spirit level; Hilti's single accent), red-rock soil. Space Grotesk (display) + Figtree
+   (text) + Space Mono (readouts and fractions). */
+:root {
+  --paper: #f3f4f2; --sand: #e6e8e4; --card: #ffffff; --ink: #191d21; --ink2: #3f454c; --mute: #6b727a; --line: #d6d9d5;
+  --dark: #20252b; --dark2: #2a3037; --on-dark: #eef0f2; --on-dark2: #a7afb7; --foot: #16191d;
+  --accent: #ffcc33; --accent-ink: #8a6600; --on-accent: #191d21; --soil: #a3532f; --ok: #3fa66b; --warn: #e3a21a; --bad: #d4462f;
+  --f-disp: "Space Grotesk", "Segoe UI", system-ui, sans-serif; --f-body: "Figtree", "Segoe UI", system-ui, sans-serif; --f-mono: "Space Mono", ui-monospace, Menlo, Consolas, monospace;
+  --disp-w: 700; --disp-ls: -.03em; --r: 8px; --btn-r: 6px; --hdr: 78px; --logo-h: 54px;
+  --hero-shade: linear-gradient(180deg, rgba(32,37,43,.5), rgba(32,37,43,.88));
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --paper: #121518; --sand: #191d21; --card: #1e2328; --ink: #eceef0; --ink2: #c3c8ce; --mute: #8e959d; --line: #2e343a; --accent-ink: #ffd65c; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --paper: #121518; --sand: #191d21; --card: #1e2328; --ink: #eceef0; --ink2: #c3c8ce; --mute: #8e959d; --line: #2e343a; --accent-ink: #ffd65c; color-scheme: dark }

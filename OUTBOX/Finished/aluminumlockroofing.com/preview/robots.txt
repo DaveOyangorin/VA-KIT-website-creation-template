@@ -1,0 +1,21 @@
+# robots.txt for https://aluminumlockroofing.com
+# Every page is open to search engines and AI search tools.
+
+User-agent: *
+Allow: /
+Disallow: /?elementskit_template=
+Disallow: /metform-form/
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+Sitemap: https://aluminumlockroofing.com/sitemap.xml

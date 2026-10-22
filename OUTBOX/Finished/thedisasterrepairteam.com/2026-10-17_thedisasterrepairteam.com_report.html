@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>thedisasterrepairteam.com Website Plan</title>
+<style>
+  :root {
+    --bg: #f7f6f3; --card: #ffffff; --text: #1d1d1b; --muted: #6b6a66; --line: #e3e1dc;
+    --accent: #1f5f8b; --good: #2e7d4f; --warn: #a86400; --bad: #b3261e; --chip: #eef3f7;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #161716; --card: #1f201f; --text: #ecebe7; --muted: #a3a29d; --line: #333431;
+      --accent: #7fb6dd; --good: #6cc193; --warn: #e0a54a; --bad: #ef7b72; --chip: #24303a;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #161716; --card: #1f201f; --text: #ecebe7; --muted: #a3a29d; --line: #333431;
+    --accent: #7fb6dd; --good: #6cc193; --warn: #e0a54a; --bad: #ef7b72; --chip: #24303a;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text);
+    font: 15px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  main { max-width: 960px; margin: 0 auto; padding: 32px 16px 64px; }
+  h1 { font-size: 26px; margin: 0 0 4px; }
+  h2 { font-size: 18px; margin: 0 0 12px; }
+  h3 { font-size: 15px; margin: 16px 0 6px; }
+  .sub { color: var(--muted); margin: 0 0 24px; }
+  section { background: var(--card); border: 1px solid var(--line); border-radius: 10px;
+    padding: 20px; margin-bottom: 16px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; }
+  .stat { border: 1px solid var(--line); border-radius: 8px; padding: 12px; }
+  .stat b { display: block; font-size: 22px; }
+  .stat span { color: var(--muted); font-size: 13px; }
+  .table-wrap { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { color: var(--muted); font-weight: 600; font-size: 13px; }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+  .tag { display: inline-block; padding: 1px 8px; border-radius: 99px; font-size: 12px; white-space: nowrap; }
+  .t-good { background: color-mix(in srgb, var(--good) 15%, transparent); color: var(--good); }
+  .t-warn { background: color-mix(in srgb, var(--warn) 15%, transparent); color: var(--warn); }
+  .t-bad  { background: color-mix(in srgb, var(--bad) 15%, transparent); color: var(--bad); }
+  dl { display: grid; grid-template-columns: max-content 1fr; gap: 6px 16px; margin: 0; }
+  dt { color: var(--muted); }
+  dd { margin: 0; }
+  code { background: var(--chip); padding: 1px 6px; border-radius: 4px; font-size: 13px; }
+  ul, ol { padding-left: 20px; margin: 6px 0; }
+  li { margin: 3px 0; }
+  .note { border-left: 3px solid var(--warn); padding: 8px 12px; background: color-mix(in srgb, var(--warn) 8%, transparent); border-radius: 0 6px 6px 0; margin: 10px 0; }
+  .alert { border-left: 3px solid var(--bad); padding: 8px 12px; background: color-mix(in srgb, var(--bad) 8%, transparent); border-radius: 0 6px 6px 0; margin: 10px 0; }
+  .check li { list-style: none; margin-left: -20px; }
+  .check li::before { content: "☐ "; color: var(--muted); }
+  footer { color: var(--muted); font-size: 13px; text-align: center; margin-top: 24px; }
+  @media (max-width: 560px) { dl { grid-template-columns: 1fr; } dt { margin-top: 6px; } }
+  .small { color: var(--muted); font-size: 13px; }
+</style>
+
+</head>
+<body>
+<main>
+  <h1>thedisasterrepairteam.com · Website plan report</h1>
+  <p class="sub">Disaster Repair Team · Lehi · Prepared 17 Oct 2026. Business facts and audit from 5 Oct 2026; search numbers and Google results from 14 Oct 2026. Draft for Angelo's review.</p>
+  <section>
+    <h2>Summary</h2>
+    <ul>
+      <li><b>Home page target:</b> <code>water damage restoration lehi</code> (40 for “water damage restoration”, 90 for “water damage restoration near me”).</li>
+      <li><b>"Check first":</b> read the warning on the email page before any outreach.</li>
+      <li><b>Big site:</b> 127 pages. 4 of 10 services have their own page. Keep the URLs; the job is to fix and localize, not rebuild.</li>
+      <li><b>Biggest keyword:</b> french drain installation (20 searches + 10 "near me"). No page yet. Ask the client.</li>
+      <li><b>No page names Lehi.</b> Every page on the new site should.</li>
+      <li><b>Mobile speed:</b> 68/100 (aim 90+).</li>
+      <li><b>Reviews:</b> 4.9 stars from 168.</li>
+      <li><b>6 services to ask the client about</b> before building.</li>
+    </ul>
+  </section>
+  <section>
+    <h2>Business facts</h2>
+    <dl>
+      <dt>Name</dt><dd>Disaster Repair Team</dd>
+      <dt>Website</dt><dd>thedisasterrepairteam.com · 127 pages now</dd>
+      <dt>Phone</dt><dd>+1801-515-2257</dd>
+      <dt>Address</dt><dd>441 W Main St Ste E, Lehi, UT 84043</dd>
+      <dt>Google category</dt><dd>Water damage restoration service</dd>
+      <dt>Reviews</dt><dd>4.9 stars · 168 reviews</dd>
+    </dl>
+    <p class="alert"><b>"Check first" on the outreach list.</b> Read the warning on the email page before anything is sent to this business.</p>
+    <p class="note">From the Google profile on 5 Oct 2026. Confirm with the client before it goes on the site. The phone is copied exactly as given (<code>+1801-515-2257</code>). Ask the client how they want it shown; do not reformat it without their OK.</p>
+  </section>
+  <section>
+    <h2>Fix on the new site</h2>
+    <div class="grid">
+      <div class="stat"><b>68 / 100</b><span>Mobile speed now · aim for 90+</span></div>
+      <div class="stat"><b>Present</b><span>Meta description</span></div>
+      <div class="stat"><b>Missing</b><span>Alt text on some images</span></div>
+      <div class="stat"><b>0 of 127</b><span>Pages that name Lehi</span></div>
+    </div>
+    <h3>What to do</h3>
+    <ul>
+      <li>Compress and resize images, lazy-load images below the fold, and remove scripts or plugins the page does not need.</li>
+      <li>Keep a unique meta description on every page.</li>
+      <li>Give every image a short alt text that says what is in the photo, naming Lehi where it fits.</li>
+      <li>Name Lehi in the title, H1 and first paragraph of every service page.</li>
+      <li><b>Keep the page addresses (URLs).</b> With 127 pages live, changing URLs can lose rankings. If a URL must change or two pages merge, Angelo sets up a redirect.</li>
+    </ul>
+  </section>
+  <section>
+    <h2>Home page</h2>
+    <dl>
+      <dt>Main keyword</dt><dd><code>water damage restoration lehi</code></dd>
+      <dt>Searches</dt><dd>40 for “water damage restoration”, 90 for “water damage restoration near me”</dd>
+      <dt>Placement</dt><dd>Start with the keyword: put it in the title tag, the H1 and the first sentence.</dd>
+    </dl>
+    <p>The home page should link to every service page and the cost page. Show the rating and review count once the client confirms them.</p>
+  </section>
+  <section>
+    <h2>Service pages · build in this order</h2>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>Service</th><th>Target keyword</th><th class="num">Searches</th><th class="num">"Near me"</th><th class="num">Exact keyword</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Foundation repair</td><td><code>foundation repair lehi</code></td><td class="num">10</td><td class="num">10</td><td class="num">–</td><td><span class="tag t-good">Has a page</span></td></tr>
+        <tr><td>2</td><td>Sewage cleanup</td><td><code>sewage cleanup lehi</code></td><td class="num">10</td><td class="num">10</td><td class="num">–</td><td><span class="tag t-good">Has a page</span></td></tr>
+        <tr><td>3</td><td>Insulation</td><td><code>insulation lehi</code></td><td class="num">–</td><td class="num">10</td><td class="num">–</td><td><span class="tag t-good">Has a page</span></td></tr>
+        <tr><td>4</td><td>Mold remediation restoration</td><td><code>mold remediation restoration lehi</code></td><td class="num">10</td><td class="num">–</td><td class="num">–</td><td><span class="tag t-good">Has a page</span></td></tr>
+        <tr><td>5</td><td>Concrete lifting</td><td><code>concrete lifting lehi</code></td><td class="num">10</td><td class="num">10</td><td class="num">10</td><td><span class="tag t-bad">Ask client</span></td></tr>
+        <tr><td>6</td><td>French drain installation</td><td><code>french drain installation lehi</code></td><td class="num">20</td><td class="num">10</td><td class="num">–</td><td><span class="tag t-bad">Ask client</span></td></tr>
+        <tr><td>7</td><td>Basement waterproofing</td><td><code>basement waterproofing lehi</code></td><td class="num">10</td><td class="num">10</td><td class="num">–</td><td><span class="tag t-bad">Ask client</span></td></tr>
+        <tr><td>8</td><td>Foundation crack repair</td><td><code>foundation crack repair lehi</code></td><td class="num">10</td><td class="num">10</td><td class="num">–</td><td><span class="tag t-bad">Ask client</span></td></tr>
+        <tr><td>9</td><td>Concrete leveling</td><td><code>concrete leveling lehi</code></td><td class="num">10</td><td class="num">10</td><td class="num">–</td><td><span class="tag t-bad">Ask client</span></td></tr>
+        <tr><td>10</td><td>Mudjacking</td><td><code>mudjacking lehi</code></td><td class="num">10</td><td class="num">10</td><td class="num">–</td><td><span class="tag t-bad">Ask client</span></td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="small">Searches and "near me" are inside Lehi. "Exact keyword" = searches for the keyword with the city name, across Utah (for services read from their site: inside Lehi). "–" = fewer than 10 a month; "10" is Google's lowest number. One page per service. Only build a page if the business really does that service.</p>
+    <h3>Notes on the list</h3>
+    <ul>
+      <li><b>Foundation repair and Foundation crack repair</b> are very close topics. Keep each page clearly different, or ask Angelo whether one should be a section of the other, so they don't compete.</li>
+      <li><b>French drain installation</b> has the most searches and no page of its own yet. If the client confirms, build it early.</li>
+    </ul>
+  </section>
+  <section>
+    <h2>More searches Google suggests</h2>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Search</th><th>Use?</th><th>Where</th></tr></thead>
+      <tbody>
+        <tr><td>Basement waterproofing lehi utah</td><td><span class="tag t-good">Yes</span></td><td>Matching service page, as a section</td></tr>
+        <tr><td>Best basement waterproofing lehi</td><td><span class="tag t-warn">Show, don&#x27;t claim</span></td><td>Use real reviews, photos and process. Don&#x27;t claim &quot;the best&quot;.</td></tr>
+        <tr><td>Basement waterproofing lehi reviews</td><td><span class="tag t-warn">Show, don&#x27;t claim</span></td><td>Use real reviews, photos and process. Don&#x27;t claim &quot;the best&quot;.</td></tr>
+        <tr><td>Basement waterproofing lehi cost</td><td><span class="tag t-warn">Real prices only</span></td><td>Cost page</td></tr>
+        <tr><td>foundation repair near lehi</td><td><span class="tag t-good">Yes</span></td><td>Matching service page, as a section</td></tr>
+        <tr><td>ut</td><td><span class="tag t-good">Yes</span></td><td>Matching service page, as a section</td></tr>
+        <tr><td>foundation repair near salt lake city</td><td><span class="tag t-warn">Other city</span></td><td>Only if they work in Salt Lake City (city page)</td></tr>
+        <tr><td>ut</td><td><span class="tag t-good">Yes</span></td><td>Matching service page, as a section</td></tr>
+        <tr><td>Affordable foundation repair near me</td><td><span class="tag t-warn">If true</span></td><td>Only with real offers from the client</td></tr>
+        <tr><td>Free foundation repair near me</td><td><span class="tag t-warn">If true</span></td><td>Only with real offers from the client</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="small">Sorted automatically. Check any "company name" row by eye before skipping it.</p>
+  </section>
+  <section>
+    <h2>Cost page</h2>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Keyword</th><th class="num">Searches Lehi</th><th class="num">All Utah</th><th>City version</th><th class="num">All Utah</th></tr></thead>
+      <tbody>
+        <tr><td>foundation repair cost</td><td class="num">10</td><td class="num">50</td><td>foundation repair cost lehi</td><td class="num">–</td></tr>
+        <tr><td>basement waterproofing cost</td><td class="num">10</td><td class="num">10</td><td>basement waterproofing cost lehi</td><td class="num">–</td></tr>
+        <tr><td>concrete leveling cost</td><td class="num">10</td><td class="num">10</td><td>concrete leveling cost lehi</td><td class="num">–</td></tr>
+        <tr><td>mudjacking cost</td><td class="num">10</td><td class="num">10</td><td>mudjacking cost lehi</td><td class="num">–</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p>One cost page covering all of these. Check first whether one of the existing pages already covers cost; if so, improve it instead of adding a new one. Cost searchers are close to buying. <b>Use only real prices from the client.</b> If the client will not share prices, explain what changes the price and invite a free estimate instead.</p>
+  </section>
+  <section>
+    <h2>City pages</h2>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>City</th><th>Keyword 1</th><th class="num">All Utah</th><th>Keyword 2</th><th class="num">All Utah</th></tr></thead>
+      <tbody>
+        <tr><td>Pleasant Grove</td><td>foundation repair pleasant grove</td><td class="num">10</td><td>basement waterproofing pleasant grove</td><td class="num">–</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p>Build a city page only if the business really works there. Pleasant Grove has the most searches (10 for "foundation repair pleasant grove" across Utah). Each page needs real local content (jobs done there, neighborhoods), not the Lehi page with the name swapped.</p>
+  </section>
+  <section>
+    <h2>What a strong page looks like</h2>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Keyword</th><th class="num">Avg. words (top pages)</th><th class="num">Have FAQ</th><th class="num">Show prices</th></tr></thead>
+      <tbody>
+        <tr><td>foundation repair lehi</td><td class="num">~1,624</td><td class="num">1 of 1</td><td class="num">0 of 1</td></tr>
+        <tr><td>basement waterproofing lehi</td><td class="num">~3,263</td><td class="num">1 of 2</td><td class="num">1 of 2</td></tr>
+        <tr><td>foundation repair cost lehi</td><td class="num">~3,892</td><td class="num">3 of 3</td><td class="num">0 of 3</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <h3>Takeaways</h3>
+    <ul>
+      <li>Aim for <b>about 1,600–3,300 words</b> on the main service pages, with an FAQ on each.</li>
+
+    </ul>
+    <h3>Headings on the top pages (topic ideas only)</h3>
+    <ul>
+      <li>Crafting Durable Concrete Foundations for Lehi&#x27;s Homes and Businesses</li>
+      <li>Why is a Robust Concrete Foundation Crucial in Lehi, UT?</li>
+      <li>Our Proven Concrete Foundation Process in Lehi</li>
+      <li>Serving Lehi and Surrounding Utah Communities</li>
+      <li>Frequently Asked Questions</li>
+      <li>Expert Foundation Repair Contractor Serving Lehi, UT</li>
+      <li>Lehi’s Expert Foundation Repair Contractor</li>
+      <li>Foundation Repair Services</li>
+      <li>Fast, Effective Concrete Leveling &amp; Repair</li>
+      <li>Crawl Space &amp; Basement Waterproofing Company</li>
+      <li>Crawl Space &amp; Basement Waterproofing Services</li>
+      <li>our service area</li>
+      <li>Our services in Lehi</li>
+      <li>How We Work in Lehi</li>
+      <li>Building Foundation Repair Quotes</li>
+      <li>Get additional quotes for other projects from our partner contractors.</li>
+      <li>Building Foundation Repair in Lehi, UT</li>
+      <li>Common Building Foundation Repair Jobs</li>
+      <li>Building Foundation Repair Questions</li>
+      <li>Foundation Stabilizing Quotes</li>
+      <li>Foundation Stabilizing in Lehi, UT</li>
+      <li>Common Foundation Stabilizing Jobs</li>
+      <li>Foundation Stabilizing Questions</li>
+    </ul>
+    <p class="note">Use competitor headings for topic ideas only. Do not copy them. Some name other companies, owners or promotions. Bios, promotions and project photos go in only with real facts from the client.</p>
+  </section>
+  <section>
+    <h2>FAQ · real questions from Google</h2>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Question</th><th>Use?</th><th>Where</th></tr></thead>
+      <tbody>
+        <tr><td>What is the average cost to waterproof a basement?</td><td><span class="tag t-warn">Real prices only</span></td><td>Cost page</td></tr>
+        <tr><td>What is the most affordable way to waterproof a basement?</td><td><span class="tag t-good">Yes</span></td><td>Matching service page</td></tr>
+        <tr><td>How much does it cost to finish a basement in Utah?</td><td><span class="tag t-warn">Real prices only</span></td><td>Cost page</td></tr>
+        <tr><td>What is the best waterproofing method for basements?</td><td><span class="tag t-good">Yes</span></td><td>Matching service page</td></tr>
+        <tr><td>How much can it cost to repair a foundation?</td><td><span class="tag t-warn">Real prices only</span></td><td>Cost page</td></tr>
+        <tr><td>Is it expensive to live in Lehi, Utah?</td><td><span class="tag t-warn">Real prices only</span></td><td>Cost page</td></tr>
+        <tr><td>Can a foundation crack be repaired from the inside?</td><td><span class="tag t-good">Yes</span></td><td>Matching service page</td></tr>
+        <tr><td>What time of year is best for foundation repair?</td><td><span class="tag t-good">Yes</span></td><td>Matching service page</td></tr>
+        <tr><td>What is foundation underpinning?</td><td><span class="tag t-good">Yes</span></td><td>Matching service page</td></tr>
+        <tr><td>Will homeowners insurance cover foundation repair?</td><td><span class="tag t-warn">If client confirms</span></td><td>Only what the client really offers</td></tr>
+        <tr><td>What are the different types of foundation repair?</td><td><span class="tag t-good">Yes</span></td><td>Matching service page</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </section>
+  <section>
+    <h2>Rules for the writer</h2>
+    <ul>
+      <li>Start each page with its keyword.</li>
+      <li>Use only facts the client gives you: prices, warranty, years in business, licenses.</li>
+      <li>Do not invent reviews, numbers or photos.</li>
+    </ul>
+    <p class="small">Search numbers: Google Ads monthly searches, pulled 14 Oct 2026. Questions and page topics: live Google results in Lehi, 14 Oct 2026.</p>
+  </section>
+  <section>
+    <h2>Questions for the client</h2>
+    <ol>
+      <li>Which of these do you do: <b>concrete lifting, french drain installation, basement waterproofing, foundation crack repair, concrete leveling, mudjacking</b>?</li>
+      <li>Do you work in <b>Pleasant Grove</b>? Any recent jobs there we can mention?</li>
+      <li>Can you share <b>real prices or price ranges</b> for your main services?</li>
+      <li>Are the name, phone, address, rating (4.9 stars · 168 reviews) correct? How should the phone number be shown?</li>
+      <li>Do you help with <b>insurance claims</b> or offer <b>financing</b>? What is your warranty, years in business and licenses?</li>
+      <li>Can you send <b>project photos</b> (before/after), with the city each job was in?</li>
+    </ol>
+  </section>
+  <section>
+    <h2>Next steps</h2>
+    <ul class="check">
+      <li>Send the client questions above (after Angelo approves).</li>
+      <li>Home page: title, H1, first sentence with <code>water damage restoration lehi</code>.</li>
+      <li>Improve the service pages already on the site, naming Lehi on every one; keep the URLs the same.</li>
+      <li>Add "ask client" service pages only for services the client confirms.</li>
+      <li>Build or improve the cost page once real prices arrive.</li>
+      <li>City pages only for cities the client confirms.</li>
+      <li>Add alt text to every image.</li>
+      <li>Re-test mobile speed after changes (target 90+).</li>
+    </ul>
+  </section>
+  <footer>Novarte AI · Draft for internal review · Audit 5 Oct 2026 · Search data 14 Oct 2026</footer>
+</main>
+</body>
+</html>

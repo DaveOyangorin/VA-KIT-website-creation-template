@@ -1,0 +1,45 @@
+/* sfrutah.com v3 concept: The honest inspection */
+h1, h2, h3 { font-family: var(--f-disp); letter-spacing: .005em }
+h1, h2 { text-transform: uppercase; font-weight: 800 } h2 { font-size: clamp(2.3rem, 5vw, 4.6rem); line-height: .95 }
+h3 { font-weight: 700; font-size: 1.5rem }
+.btn.accent { background: var(--accent); border-color: var(--accent); color: var(--on-accent) } .btn.accent:hover { color: var(--on-accent) }
+body.is-home .brand img { background: #f6f3ec; border-radius: 8px; padding: 4px 6px }
+.hero-full h1 { font-size: clamp(3rem, 7.4vw, 7rem); max-width: 13ch } .hero-full h1 span { color: var(--accent) }
+.sf-hero .hf-card b { font-family: var(--f-disp); font-size: 1.7rem; text-transform: none; font-style: italic }
+.big-intro { font-family: var(--f-body); font-weight: 500; font-size: clamp(1.5rem, 2.6vw, 2.3rem); max-width: 32ch } .big-intro em { color: var(--rock); font-style: normal }
+/* review wall */
+.reviews-sec { background: var(--sand) }
+.rv-lead { margin: 0 0 48px; max-width: none; display: grid; grid-template-columns: 220px minmax(0, 1fr); grid-template-rows: auto 1fr; gap: 14px 56px; align-items: start; padding-bottom: 44px; border-bottom: 1px solid var(--line) }
+.rv-lead .stars { grid-column: 1; grid-row: 1 } .rv-lead footer { grid-column: 1; grid-row: 2; line-height: 1.6 }
+.rv-lead p { grid-column: 2; grid-row: 1 / span 2; font: 600 clamp(1.55rem, 2.5vw, 2.4rem)/1.24 var(--f-disp); text-transform: none; letter-spacing: -.01em; max-width: 36ch; margin: 0; text-wrap: pretty }
+.rv-lead footer { font: 600 .8rem var(--f-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--rock) }
+.rv-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px } .rv { margin: 0; background: var(--card); border-top: 4px solid var(--accent); padding: 22px; border-radius: 4px }
+.rv p { font-size: .97rem } .rv footer { font: 600 .74rem var(--f-mono); color: var(--mute) }
+.stars { display: flex; gap: 2px; color: var(--accent) } .stars svg { width: 18px; height: 18px }
+/* case story */
+.case-sec { background: var(--dark); color: var(--on-dark) } .case-sec h2 { color: var(--on-dark) } .case-sec .label { color: var(--accent) }
+.case-sec .step h3 { color: var(--on-dark); font-size: clamp(2rem, 3.6vw, 3.2rem); text-transform: uppercase } .case-sec .step p { color: var(--on-dark2) } .case-sec .s-n { color: var(--accent) }
+.frames { position: relative; aspect-ratio: 4/3.4; border-radius: 6px; overflow: hidden; background: #fffdf8 }
+.cframe { position: absolute; inset: 0; margin: 0; opacity: 0; transition: opacity .6s } .cframe.show { opacity: 1 }
+.cframe img { width: 100%; height: 100%; object-fit: cover } .cframe figcaption { position: absolute; left: 14px; bottom: 14px; background: rgba(8,10,40,.75); color: #fff; font: 500 .78rem var(--f-mono); padding: 6px 10px; border-radius: 3px }
+.cdraw { display: grid; place-items: center; padding: 10px } .cdraw svg { width: 100%; height: auto }
+.step { min-height: 46vh } .step-cta { padding: 20px 0 40px }
+/* bento with icons */
+.sf-bento { grid-auto-rows: 210px } .sf-bento .span-1 { grid-column: span 1 }
+.tile .t-ic { position: absolute; top: 16px; left: 16px; width: 52px; height: 52px; border-radius: 50%; background: rgba(255,253,248,.92); display: grid; place-items: center } .tile .t-ic img { width: 34px; height: 34px; position: static; z-index: 0 }
+.icon-tile { background: var(--dark2) } .icon-tile::after { background: radial-gradient(circle at 80% 20%, rgba(233,193,44,.18), transparent 60%) } .icon-tile .t-ic { width: 76px; height: 76px } .icon-tile .t-ic img { width: 52px; height: 52px }
+/* map split */
+.map-split { background: var(--dark); color: var(--on-dark) } .map-split h2 { color: var(--on-dark) } .map-split p { color: var(--on-dark2) } .map-split .label { color: var(--accent) }
+.sp-map { padding: 40px max(20px, 4vw); display: flex; align-items: center; background: #f6f3ec } .sp-map .map { width: 100% }
+.map-split .two-off div { background: var(--dark2); border-color: #2d3270 } .map-split .two-off b { color: #fff } .map-split .two-off a { color: var(--accent) }
+.m-road { stroke-dasharray: 900; stroke-dashoffset: 900; transition: stroke-dashoffset 2.4s ease } .sp-map.in .m-road, .no-js .m-road { stroke-dashoffset: 0 }
+@media (prefers-reduced-motion: reduce) { .m-road { stroke-dashoffset: 0; transition: none } }
+.quote-band footer a { color: var(--accent) }
+.owner-split .sp-txt { background: var(--paper) } .owner-split .tv { margin: 18px 0; max-width: 420px }
+.guide img { border-radius: 6px; margin-bottom: 10px; aspect-ratio: 16/9; object-fit: cover; width: 100% }
+.phero-full .ph-icon { width: 200px; height: 200px; border-radius: 50%; background: #fffdf8; display: grid; place-items: center; justify-self: end } .phero-full .ph-icon img { width: 120px }
+.phero-full .ph-in.has-art { grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr) }
+@media (max-width: 900px) { .rv-grid { grid-template-columns: 1fr } .sf-bento .span-1 { grid-column: span 2 } .phero-full .ph-art { display: none } .phero-full .ph-in.has-art { grid-template-columns: 1fr } }
+@media (max-width: 640px) { .sf-bento .span-1 { grid-column: span 1 } }
+@media (max-width: 900px) { .rv-lead { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto; gap: 12px } .rv-lead .stars, .rv-lead p, .rv-lead footer { grid-column: 1; grid-row: auto } .rv-lead footer { order: 3 } }
+@media (max-width: 640px) { .rv-lead p { font-size: 1.35rem } }

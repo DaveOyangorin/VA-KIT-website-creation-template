@@ -1,0 +1,11 @@
+/* equitypmusa.com theme: "The owner's ledger". Equity blue #0856A1 from their logo, a deep navy for dark bands, ledger paper and
+   hairline rules. Source Serif 4 (trustworthy, with tabular figures) for display and numbers; Hanken Grotesk for text; IBM Plex Mono for
+   labels. One light theme by choice, like a printed statement. */
+:root {
+  --paper: #f7f6f2; --sand: #eceae3; --card: #ffffff; --ink: #1d232b; --ink2: #3e4652; --mute: #6b7380; --line: #dedbd2;
+  --dark: #0b2b4f; --dark2: #113a66; --on-dark: #f2f5f9; --on-dark2: #a9bad0; --foot: #08203b;
+  --accent: #0856a1; --accent-2: #4f9be6; --accent-ink: #0856a1; --on-accent: #ffffff; --gold: #c8a24a;
+  --f-disp: "Source Serif 4", Georgia, "Times New Roman", serif; --f-body: "Hanken Grotesk", "Segoe UI", system-ui, sans-serif; --f-mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  --disp-w: 600; --disp-ls: -.02em; --disp-tt: none; --r: 6px; --btn-r: 4px; --hdr: 80px; --logo-h: 44px;
+  color-scheme: light;
+}

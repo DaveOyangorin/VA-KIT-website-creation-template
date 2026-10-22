@@ -1,0 +1,1860 @@
+{
+  "name": "Wikipedia Citation Opportunity Engine",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        240,
+        432
+      ],
+      "id": "b8c6e250-a7bd-4edc-ad8f-fbac5c768f3b",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "5b53102d-55ff-4851-accb-068e1206a2be",
+              "name": "id_sheet",
+              "value": "127bSU-pLAlYNWUmPRDPBl6-mMHQbAine0GOuvB8mvsw",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        480,
+        432
+      ],
+      "id": "683da564-71b8-4fbb-bc0d-17b26305c2bd",
+      "name": "Set Sheet ID"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "={{ $json.id_sheet }}",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1002397668,
+          "mode": "list",
+          "cachedResultName": "User Input",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1kUjExiAXHt47NbXbDGn1h8ae-Pwtd6ubtyMq3HW9lGo/edit#gid=1002397668"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "Status",
+              "lookupValue": "Ready"
+            }
+          ]
+        },
+        "options": {
+          "returnFirstMatch": true
+        }
+      },
+      "id": "986677ed-08ee-4fca-9f12-aa8743fb3785",
+      "name": "Retrieve User Input",
+      "type": "n8n-nodes-base.googleSheets",
+      "position": [
+        720,
+        432
+      ],
+      "typeVersion": 4.5
+    },
+    {
+      "parameters": {
+        "content": "## 1. Trigger & Input Setup\n1.1 Enter user inputs in the Google Sheets. Fields for input: User Page URL.\n1.2 Replace the \"id_sheet\" value in the **Set Sheet ID** node.\n1.3 Set \"Status\" to **Ready** in Google Sheets, and execute the n8n workflow.\n*Note: This workflow will only execute one row at a time.*",
+        "height": 320,
+        "width": 736,
+        "color": 3
+      },
+      "id": "cb40bfc1-c53a-48e9-a5dd-58f4b923fe42",
+      "name": "Sticky Note20",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        160,
+        288
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "## 0. Reminder\n* To use this workflow for your project, please make a copy of the provided **[Google Sheets](https://docs.google.com/spreadsheets/d/127bSU-pLAlYNWUmPRDPBl6-mMHQbAine0GOuvB8mvsw/edit?usp=sharing)** template.\n* Credentials required:\n  * DataforSEO\n  * OpenAI\n  * Google Sheets",
+        "height": 208,
+        "width": 736,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        160,
+        624
+      ],
+      "id": "0a7c3d8b-591f-477d-9a03-dbd569ebfb88",
+      "name": "Sticky Note13"
+    },
+    {
+      "parameters": {
+        "content": "## Wikipedia Citation Opportunity Engine\nDetects explicit Wikipedia citation gaps and converts them into clear, structured content opportunities aligned to a user page.",
+        "height": 1136,
+        "width": 5104
+      },
+      "id": "ce08b79a-3463-481a-8460-f6172cdb63d0",
+      "name": "Sticky Note21",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        144,
+        96
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.dataforseo.com/v3/on_page/content_parsing/live",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBasicAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "=[\n    {\n        \"url\": \"{{ $json['User Page URL'] }}\",\n        \"markdown_view\": true\n    }\n]",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1008,
+        432
+      ],
+      "id": "6d58729f-91ec-4102-a265-f673f4a7a620",
+      "name": "Fetch Page"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "7eb900f7-7eac-4d5f-b22c-e36110fa3bbe",
+              "name": "user_page_url",
+              "value": "={{ $json.tasks[0].data.url }}",
+              "type": "string"
+            },
+            {
+              "id": "0c594adb-785d-461f-ac13-ac12686ca6aa",
+              "name": "user_page_markdown",
+              "value": "={{ $json.tasks[0].result[0].items[0].page_as_markdown }}",
+              "type": "string"
+            },
+            {
+              "id": "a7063c0a-a9fa-48b1-97f3-3104343f1b27",
+              "name": "user_page_primary_content",
+              "value": "={{ $json.tasks[0].result[0].items[0].page_content.header.primary_content[0].text }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1008,
+        656
+      ],
+      "id": "8998b209-789f-4eb5-9dbe-f4341ec24caa",
+      "name": "Set Page Content"
+    },
+    {
+      "parameters": {
+        "url": "https://en.wikipedia.org/w/api.php",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "action",
+              "value": "query"
+            },
+            {
+              "name": "list",
+              "value": "search"
+            },
+            {
+              "name": "srsearch",
+              "value": "={{ $json.term }}"
+            },
+            {
+              "name": "format",
+              "value": "json"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "n8n-workflow/1.0 (https://n8n.io; user@example.com)"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a3c1afdf-777a-483e-b66f-29f359d63efb",
+      "name": "Wikipedia Search API",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        2128,
+        432
+      ],
+      "typeVersion": 4.1
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n  \"terms\": [\n    {\n      \"term\": \"commercial real estate loans\",\n      \"reason\": \"The page discusses financing structures used to acquire or refinance income-producing properties.\"\n    },\n    {\n      \"term\": \"rent reviews\",\n      \"reason\": \"The page references mechanisms for adjusting rental income over time, which impacts valuation and cash flow.\"\n    }\n  ]\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        1424,
+        672
+      ],
+      "id": "ba3da5f5-91ba-4f04-b392-9a44dbdc3521",
+      "name": "Structured Output Parser"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4.1-mini",
+          "mode": "list",
+          "cachedResultName": "gpt-4.1-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        1248,
+        672
+      ],
+      "id": "e711f001-8d0e-45e3-9b4b-b43839e79189",
+      "name": "OpenAI Chat Model"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        1888,
+        416
+      ],
+      "id": "c53db6a8-dff0-4516-b7d9-86f68cb59137",
+      "name": "Loop Over Items2"
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n  \"wiki_title\": \"Home insurance\",\n  \"relevance_score\": 80,\n  \"score_reason\": \"The article directly explains home insurance as a standalone concept and covers its scope and purpose, making it suitable as a primary explanatory reference for the term.\"\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        2176,
+        880
+      ],
+      "id": "0ccc18ec-f9a5-45e7-be28-ed2ad5196761",
+      "name": "Structured Output Parser2"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4.1-mini",
+          "mode": "list",
+          "cachedResultName": "gpt-4.1-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        2000,
+        880
+      ],
+      "id": "102cf8e7-61e7-42a1-807b-53593fb806bf",
+      "name": "OpenAI Chat Model3"
+    },
+    {
+      "parameters": {
+        "jsCode": "const output = [];\n\nfor (const item of items) {\n  const term = item.json.term;\n  const searchResults = item.json.query?.search || [];\n\n  for (const result of searchResults) {\n    output.push({\n      json: {\n        term,\n        wiki_title: result.title,\n        wiki_pageid: result.pageid,\n        wiki_url: `https://en.wikipedia.org/wiki/${result.title.replace(/ /g, \"_\")}`,\n        wiki_snippet: result.snippet\n      }\n    });\n  }\n}\n\nreturn output;\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2368,
+        432
+      ],
+      "id": "3c6da8ef-d387-4aaa-892a-70184247624a",
+      "name": "Parse Wikipedia Search Results"
+    },
+    {
+      "parameters": {
+        "sortFieldsUi": {
+          "sortField": [
+            {
+              "fieldName": "relevance_score",
+              "order": "descending"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.sort",
+      "typeVersion": 1,
+      "position": [
+        2848,
+        640
+      ],
+      "id": "c1545aa2-4d76-4a82-b9f8-cd9272e93baa",
+      "name": "Sort by Relevancy"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.limit",
+      "typeVersion": 1,
+      "position": [
+        2848,
+        960
+      ],
+      "id": "b4ae3466-6be0-4f2a-9a58-4a04a926d189",
+      "name": "Limit to 1 Wiki Page"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=## Context\n\nYou are evaluating whether a Wikipedia article provides a direct conceptual explanation of a specific term associated with a user page’s topic domain.\n\nThe term and its reason explain how the concept is used by the user page. The Wikipedia page markdown represents the actual scope and focus of the article.\n\nThis evaluation is used to decide whether the Wikipedia page is worth deeper analysis for citation opportunity discovery. The goal is to score conceptual relevance and explanatory proximity, not authority, completeness, or citation quality.\n\n⸻\n\n## Instructions\n1.  Use ONLY the provided inputs:\n•\tterm: a domain-defining term representing the user page’s topic area\n•\treason: a short explanation of why this term belongs to the user page’s topic domain\n•\twiki_title: title of the Wikipedia article\n•\twiki_snippet: short excerpt returned by Wikipedia search\n•\twiki_page_markdown: full markdown content of the Wikipedia article\n2.  Understand the user page’s topic domain\n•\tTreat \"term\" as the authoritative representation of the user page’s subject area\n•\tUse \"reason\" to understand how the term is used and interpreted on the user page\n•\tDo NOT require Wikipedia wording to match the reason\n•\tDo NOT infer scope beyond this term\n3.  Evaluate Wikipedia page relevance\n•\tAssess whether the Wikipedia article primarily explains the term itself\n•\tDetermine whether the term is:\n    •\ta central subject of the article, or\n    •\tonly mentioned incidentally within a broader topic\n•\tPrefer Wikipedia pages that:\n    •\tdefine, explain, or contextualise the term as a standalone concept\n    •\twould naturally be cited when explaining the term\n•\tPenalise pages that:\n    •\trepresent broader umbrella categories. But do NOT penalise scoped Wikipedia articles when the term itself is scoped\n    •\tfocus mainly on parent concepts, asset classes, or domains\n    •\tonly mention the term briefly or peripherally\n    •\tif the Wikipedia article could not reasonably be used to define or explain the term in a reference-style sentence\n•\tScoring Guidelines:\n    •\t90–100 → Canonical article directly explaining the term\n    •\t70–89 → Strong relevance; term is a major subtopic\n    •\t50–69 → Partial or ambiguous relevance\n    •\t<50 → Weak or unsuitable match\n•   Apply generic-term and scoped-term intent rules:\n    •   If the term is broad, generic, or category-level\n        •   Strongly prefer Wikipedia articles that explain the general concept itself\n        •   Penalise pages that represent: specific government programs, temporary schemes, jurisdiction-specific initiatives, named policies or acts   \n    •   If the term includes explicit scope indicators, such as country, jurisdiction, legal act, policy reference, or time-bound or named initiatives\n        •   Strongly prefer Wikipedia articles that match the same scope exactly\n        •   Generic umbrella pages MUST be penalised if they do not reflect the same scope\n    •\tApply specificity preference\n        •\tIf multiple pages are relevant, the page most specific to the term must score higher\n        •\tBroader parent concepts must not outrank direct explanatory pages\n4.  Apply strict constraints\n•\tBase judgment on wiki_title, wiki_snippet, and wiki_page_markdown only\n•\tDo NOT assume additional content\n•\tDo NOT hallucinate details\n•\tIf relevance is unclear, score conservatively\n•\trelevance_score must be an integer between 0 and 100\n•\tDo not return decimal values\n•\twiki_title in the output must exactly match the input wiki_title\n\n⸻\n\n## Task\nReturn ONLY valid JSON in the exact structure shown below.\n{\n  \"wiki_title\": \"Home insurance\",\n  \"relevance_score\": 80,\n  \"score_reason\": \"The article directly explains home insurance as a standalone concept and covers its scope and purpose, making it suitable as a primary explanatory reference for the term.\"\n}\n\n⸻\n\n## Inputs to Consider\nterm: {{ $('Loop Over Items2').item.json.term }}\nreason: {{ $('Loop Over Items2').item.json.reason }}\nwiki_title: {{ $json.wiki_title }}\nwiki_snippet: {{ $json.wiki_snippet }}\nwiki_page_markdown: {{ $json.wiki_page_markdown }}",
+        "hasOutputParser": true,
+        "options": {}
+      },
+      "id": "0c165071-c406-4aec-a13f-a2fbeed97a1f",
+      "name": "Rank Wiki Page Relevancy",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "position": [
+        2000,
+        656
+      ],
+      "typeVersion": 2.2,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.dataforseo.com/v3/on_page/content_parsing/live",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBasicAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "=[\n    {\n        \"url\": \"{{ $json.wiki_url }}\",\n        \"markdown_view\": true\n    }\n]",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2608,
+        432
+      ],
+      "id": "d5bd34d2-2219-40c3-945d-35c6fd249434",
+      "name": "Fetch Wiki Page"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "7eb900f7-7eac-4d5f-b22c-e36110fa3bbe",
+              "name": "wiki_page_url",
+              "value": "={{ $json.tasks[0].data.url }}",
+              "type": "string"
+            },
+            {
+              "id": "0c594adb-785d-461f-ac13-ac12686ca6aa",
+              "name": "wiki_page_markdown",
+              "value": "={{ $json.tasks[0].result[0].items[0].page_as_markdown }}",
+              "type": "string"
+            },
+            {
+              "id": "1db65c00-2a62-4d8e-be23-8d9e521c6bb2",
+              "name": "wiki_title",
+              "value": "={{ $('Parse Wikipedia Search Results').item.json.wiki_title }}",
+              "type": "string"
+            },
+            {
+              "id": "9e6fe2e8-1bb1-43df-ada4-47d062dbb2be",
+              "name": "wiki_snippet",
+              "value": "={{ $('Parse Wikipedia Search Results').item.json.wiki_snippet }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2848,
+        432
+      ],
+      "id": "072029de-8904-42a9-956d-f3ece1dd2f75",
+      "name": "Set Wiki Page Content"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "={{ $('Set Sheet ID').item.json.id_sheet }}",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1501866077,
+          "mode": "list",
+          "cachedResultName": "Recommendations",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1kUjExiAXHt47NbXbDGn1h8ae-Pwtd6ubtyMq3HW9lGo/edit#gid=1501866077"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Reference ID": "={{ $json.task_reference_id }}",
+            "Last Generated At": "={{ new Date().toISOString().replace('T',' ').replace(/\\.\\d+Z$/, ' UTC') }}",
+            "User Page Related Terms": "={{ $json.term }}",
+            "Wikipedia Page Title": "={{ $json.wiki_title }}",
+            "Wikipedia Page URL": "={{ $json.wiki_page_url }}",
+            "Wikipedia Opportunity Snippet": "={{ $json.wikipedia_opportunity_snippet }}",
+            "User Page Content Suggestion": "={{ $json.user_page_content_suggestion }}",
+            "Wikipedia Opportunity Type": "={{ $json.wikipedia_opportunity_type }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Reference ID",
+              "displayName": "Reference ID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Last Generated At",
+              "displayName": "Last Generated At",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "User Page Related Terms",
+              "displayName": "User Page Related Terms",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Wikipedia Page Title",
+              "displayName": "Wikipedia Page Title",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Wikipedia Page URL",
+              "displayName": "Wikipedia Page URL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Wikipedia Opportunity Type",
+              "displayName": "Wikipedia Opportunity Type",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Wikipedia Opportunity Snippet",
+              "displayName": "Wikipedia Opportunity Snippet",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "User Page Content Suggestion",
+              "displayName": "User Page Content Suggestion",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        5040,
+        976
+      ],
+      "id": "6144cece-4ac7-467c-98a5-4074ee12eec7",
+      "name": "Record Recommendations",
+      "executeOnce": false
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "={{ $('Set Sheet ID').first().json.id_sheet }}",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1002397668,
+          "mode": "list",
+          "cachedResultName": "User Input",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1kUjExiAXHt47NbXbDGn1h8ae-Pwtd6ubtyMq3HW9lGo/edit#gid=1002397668"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "#": "={{ $('Retrieve User Input').item.json['#'] }}",
+            "Status": "Success",
+            "Last Generated At": "={{ new Date().toISOString().replace('T',' ').replace(/\\.\\d+Z$/, ' UTC') }}"
+          },
+          "matchingColumns": [
+            "#"
+          ],
+          "schema": [
+            {
+              "id": "#",
+              "displayName": "#",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "User Page URL",
+              "displayName": "User Page URL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Last Generated At",
+              "displayName": "Last Generated At",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        2608,
+        144
+      ],
+      "id": "4c257e8e-371c-472e-a480-469aeccb1149",
+      "name": "Update Final Status",
+      "executeOnce": false
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "c90f2fa3-5d40-4089-a385-e125806e3639",
+              "name": "task_reference_id",
+              "value": "=#{{ $('Retrieve User Input').item.json['#'] }} {{ $('Retrieve User Input').item.json['User Page URL'] }}",
+              "type": "string"
+            },
+            {
+              "id": "962fcf3c-3293-4793-99f6-11c083fdc5e2",
+              "name": "term",
+              "value": "={{ $json.term }}",
+              "type": "string"
+            },
+            {
+              "id": "c537663a-03d2-4eb1-ac35-ea0bf87d7f31",
+              "name": "wiki_title",
+              "value": "={{ $json.wiki_title }}",
+              "type": "string"
+            },
+            {
+              "id": "d97de06c-c9a7-46b4-b1f0-2ea90a5a277d",
+              "name": "wiki_page_url",
+              "value": "={{ $('Set Wiki Page Content').item.json.wiki_page_url }}",
+              "type": "string"
+            },
+            {
+              "id": "83455444-38e7-4cce-af46-12e80133236e",
+              "name": "wikipedia_opportunity_type",
+              "value": "none",
+              "type": "string"
+            },
+            {
+              "id": "5481fb01-ecc4-4226-925f-cf455ea4eecc",
+              "name": "wikipedia_opportunity_snippet",
+              "value": "=No citation gaps found",
+              "type": "string"
+            },
+            {
+              "id": "b950d1bf-fc1c-4ac3-a1d9-f91fc0cc8506",
+              "name": "user_page_content_suggestion",
+              "value": "None",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        4432,
+        976
+      ],
+      "id": "7c6c8881-7a6e-4742-aa79-1f2a877d7ce1",
+      "name": "Set No Citation Gaps Found"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "7d322f78-6a4a-4cd6-b534-095bf4f3089d",
+              "leftValue": "={{ $('Set Wiki Page Content').item.json.wiki_page_markdown }}",
+              "rightValue": "citation needed",
+              "operator": {
+                "type": "string",
+                "operation": "contains"
+              }
+            },
+            {
+              "id": "07ad9e38-27a6-4840-b531-09d59dff2bd6",
+              "leftValue": "={{ $('Set Wiki Page Content').item.json.wiki_page_markdown }}",
+              "rightValue": "does not cite any sources",
+              "operator": {
+                "type": "string",
+                "operation": "contains"
+              }
+            },
+            {
+              "id": "2919679a-33c1-4c93-bff0-96d0143e363a",
+              "leftValue": "={{ $('Set Wiki Page Content').item.json.wiki_page_markdown }}",
+              "rightValue": "needs additional citations",
+              "operator": {
+                "type": "string",
+                "operation": "contains"
+              }
+            },
+            {
+              "id": "8adddc92-0ee7-462c-a8f6-0e553ce74022",
+              "leftValue": "={{ $('Set Wiki Page Content').item.json.wiki_page_markdown }}",
+              "rightValue": "unreferenced",
+              "operator": {
+                "type": "string",
+                "operation": "contains"
+              }
+            },
+            {
+              "id": "c2ee3212-9514-49ca-a369-15d850a66501",
+              "leftValue": "={{ $('Set Wiki Page Content').item.json.wiki_page_markdown }}",
+              "rightValue": "more citations needed",
+              "operator": {
+                "type": "string",
+                "operation": "contains"
+              }
+            },
+            {
+              "id": "bf8efda7-f0ba-4652-a09c-04bc049c2773",
+              "leftValue": "={{ $('Set Wiki Page Content').item.json.wiki_page_markdown }}",
+              "rightValue": "better source needed",
+              "operator": {
+                "type": "string",
+                "operation": "contains"
+              }
+            },
+            {
+              "id": "3a9d7150-be85-4d1b-b7a7-bba7b38f2689",
+              "leftValue": "={{ $('Set Wiki Page Content').item.json.wiki_page_markdown }}",
+              "rightValue": "additional citation needed",
+              "operator": {
+                "type": "string",
+                "operation": "contains"
+              }
+            }
+          ],
+          "combinator": "or"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        3104,
+        960
+      ],
+      "id": "722dacb8-62ec-4c2f-839b-d7e4efbf4a31",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "content": "## 2. Generate Key Terms from User Page\nExtracts key terms from the user page to guide Wikipedia page discovery.",
+        "height": 544,
+        "width": 864,
+        "color": 5
+      },
+      "id": "f20a5cd6-aecf-43f2-9ad9-0fcd5e1872cb",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        912,
+        288
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n  \"opportunities\": [\n    {\n      \"wiki_title\": \"Home insurance\",\n      \"term\": \"home insurance\",\n      \"wikipedia_opportunity_type\": \"inline\",\n      \"wikipedia_opportunity_snippet\": \"Home insurance policies typically cover damage caused by fire, theft, and certain natural disasters, although the specific coverage varies by policy and jurisdiction. [citation needed]\",\n      \"user_page_content_suggestion\": {\n        \"what_to_publish\": \"A neutral explainer describing the types of coverage commonly included in home insurance policies.\",\n        \"suggested_page_focus\": \"Standard perils, exclusions, and how coverage varies by policy and jurisdiction.\",\n        \"content_outline\": [\n          \"Purpose and definition of home insurance\",\n          \"Common perils typically covered\",\n          \"Jurisdictional and policy-based variations\",\n          \"Typical exclusions and limitations\"\n        ],\n        \"how_this_supports_wikipedia\": \"This content directly supports a statement that is explicitly marked as needing a citation.\"\n      }\n    }\n  ]\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        4832,
+        832
+      ],
+      "id": "9d7b256b-4198-4553-bc48-36a2778efa5d",
+      "name": "Structured Output Parser6"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4.1-mini",
+          "mode": "list",
+          "cachedResultName": "gpt-4.1-mini"
+        },
+        "options": {
+          "timeout": 300000
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        4656,
+        832
+      ],
+      "id": "86bc0de4-d267-4a87-937c-8df7763a1433",
+      "name": "OpenAI Chat Model7"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=## Context\n\nYou are an AI assistant responsible only for generating content suggestions for a user page, based on Wikipedia citation gaps that have already been identified by a previous process.\n\nThe Wikipedia citation gap has already been:\n•\tcorrectly detected,\n•\tcorrectly classified (inline, section, or article),\n•\tcorrectly extracted as an exact snippet.\n\nYou must not analyze Wikipedia, re-classify gaps, or question the extraction.\n\nYour role is purely generative: suggest neutral, reference-style content that the user page could publish to help support the specific citation gap provided.\n\nThis task is strictly about content suggestion, not discovery or validation.\n\n⸻\n\n## Instructions\n1.  Use ONLY the provided inputs:\n•\tterm: the specific concept associated with the user page\n•\treason: explanation of how the term relates to the user page\n•\tuser_page_markdown: full markdown content from the user page. This represents existing content and MUST be considered when suggesting additions or improvements.\n•\twiki_title: title of the Wikipedia article\n•\twikipedia_opportunity_type: classification of the snippet opportunity type, one of: inline, section, or article\n•\twikipedia_opportunity_snippet: the exact text extracted from Wikipedia that is explicitly marked as needing citations\n•\tScope boundaries (strict):\n    •\tDo NOT analyze Wikipedia beyond the provided snippet\n    •\tDo NOT infer additional citation gaps\n    •\tDo NOT validate factual accuracy\n    •\tDo NOT invent claims, data, or sources\n    •\tDo NOT use external knowledge\n2.  Interpret opportunity type correctly\n•\tYour content suggestion MUST align with wikipedia_opportunity_type:\n    •\tInline:\n        •\tRepresents a single statement or sentence\n        •   Suggest focused, narrowly scoped content\n        •   Typically one subsection, explainer, or clarification\n    •\tSection:\n        •   Represents an entire section lacking citations\n        •   Suggest structured, multi-point content\n        •   Appropriate for step-by-step or process explanations\n    •\tArticle:\n        •   Represents an article-wide citation banner\n        •   Suggest foundational, high-level reference content\n        •   Do NOT attempt to cover every claim in the article\n3.  Use the user page as the anchor\n    •\tReview user_page_markdown before suggesting content\n    •\tAvoid duplicating existing explanations\n    •\tPrefer:\n        •   expansions,\n        •   clarifications,\n        •   structured additions,\n        •   missing conceptual coverage\n4.  Generate a content suggestion\n•\tFor each wikipedia_opportunity_snippet, provide a clear content brief structured as:\n    •\twhat_to_publish: A plain-language description of the content the user should create or expand\n    •\tsuggested_page_focus: The scope, angle, or framing the content should take\n    •\tcontent_outline: Bullet points describing the key sections or points to cover\n    •\thow_this_supports_wikipedia: A short explanation of how this content supports the specific Wikipedia citation gap / opportunity snippet\n•\tTone & constraints\n    •\tNeutral, reference-style tone\n    •\tExplain what content should be published\n    •\tNo promotional language\n    •\tNo speculative or unverifiable claims\n•\tSpecial handling for article-level citation signals:\n    •\tProvide one general content brief only\n    •\tFocus on foundational, high-level explanatory content\n    •\tDo NOT attempt to address every article claim\n\n⸻\n\n## Task\nReturn ONLY valid JSON in the exact structure shown below.\nDo NOT add extra keys.\nDo NOT include explanations outside JSON.\n{\n  \"opportunities\": [\n    {\n      \"wiki_title\": \"Home insurance\",\n      \"term\": \"home insurance\",\n      \"wikipedia_opportunity_type\": \"inline\",\n      \"wikipedia_opportunity_snippet\": \"Home insurance policies typically cover damage caused by fire, theft, and certain natural disasters, although the specific coverage varies by policy and jurisdiction. [citation needed]\",\n      \"user_page_content_suggestion\": {\n        \"what_to_publish\": \"A neutral explainer describing the types of coverage commonly included in home insurance policies.\",\n        \"suggested_page_focus\": \"Standard perils, exclusions, and how coverage varies by policy and jurisdiction.\",\n        \"content_outline\": [\n          \"Purpose and definition of home insurance\",\n          \"Common perils typically covered\",\n          \"Jurisdictional and policy-based variations\",\n          \"Typical exclusions and limitations\"\n        ],\n        \"how_this_supports_wikipedia\": \"This content directly supports a statement that is explicitly marked as needing a citation.\"\n      }\n    }\n  ]\n}\n\n⸻\n\n## Inputs to Consider\nterm: {{ $json.term }}\nreason: {{ $json.reason }}\nuser_page_markdown: {{ $json.user_page_markdown }}\nwiki_title: {{ $json.wiki_title }}\nwikipedia_opportunity_type: {{ $json.wikipedia_opportunity_type }}\nwikipedia_opportunity_snippet: {{ $json.wikipedia_opportunity_snippet }}",
+        "hasOutputParser": true,
+        "options": {}
+      },
+      "id": "05d5711d-67ee-42a5-b0e1-de37fd388cc3",
+      "name": "Analyze Citation Opportunities",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "position": [
+        4656,
+        608
+      ],
+      "typeVersion": 2.2,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n  \"opportunities\": [\n    {\n      \"wikipedia_opportunity_type\": \"inline\",\n      \"wikipedia_opportunity_snippet\": \"The amount of insurance contribution is determined by several criteria, like the region, the type of car or the personal way of driving. [citation needed]\"\n    }\n  ]\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        3760,
+        480
+      ],
+      "id": "659131bb-1cc6-4414-a278-bad2a07b4629",
+      "name": "Structured Output Parser7"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4.1-mini",
+          "mode": "list",
+          "cachedResultName": "gpt-4.1-mini"
+        },
+        "options": {
+          "timeout": 300000
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        3584,
+        480
+      ],
+      "id": "9a951cd1-d97b-48b7-a5f0-7a78e5355d47",
+      "name": "OpenAI Chat Model8"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "c90f2fa3-5d40-4089-a385-e125806e3639",
+              "name": "task_reference_id",
+              "value": "=#{{ $('Retrieve User Input').item.json['#'] }} {{ $('Retrieve User Input').item.json['User Page URL'] }}",
+              "type": "string"
+            },
+            {
+              "id": "962fcf3c-3293-4793-99f6-11c083fdc5e2",
+              "name": "term",
+              "value": "={{ $json.term }}",
+              "type": "string"
+            },
+            {
+              "id": "c537663a-03d2-4eb1-ac35-ea0bf87d7f31",
+              "name": "wiki_title",
+              "value": "={{ $json.wiki_title }}",
+              "type": "string"
+            },
+            {
+              "id": "d97de06c-c9a7-46b4-b1f0-2ea90a5a277d",
+              "name": "wiki_page_url",
+              "value": "={{ $('Set Wiki Page Content').item.json.wiki_page_url }}",
+              "type": "string"
+            },
+            {
+              "id": "3f0d7507-c436-4b9a-84fa-d505a4e7fd3b",
+              "name": "wikipedia_opportunity_type",
+              "value": "={{ $json.wikipedia_opportunity_type }}",
+              "type": "string"
+            },
+            {
+              "id": "5481fb01-ecc4-4226-925f-cf455ea4eecc",
+              "name": "wikipedia_opportunity_snippet",
+              "value": "={{ $json.wikipedia_opportunity_snippet }}",
+              "type": "string"
+            },
+            {
+              "id": "b950d1bf-fc1c-4ac3-a1d9-f91fc0cc8506",
+              "name": "user_page_content_suggestion",
+              "value": "=What to publish:\n{{ $json.user_page_content_suggestion.what_to_publish }}\n\nSuggested page focus:\n{{ $json.user_page_content_suggestion.suggested_page_focus }}\n\nContent outline:\n{{ \n  $json.user_page_content_suggestion.content_outline\n    .map(item => `• ${item}`)\n    .join('\\n')\n}}\n\nHow this support Wikipedia:\n{{ $json.user_page_content_suggestion.how_this_supports_wikipedia }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        5040,
+        784
+      ],
+      "id": "612b5bd0-1471-4727-9e77-87271884772b",
+      "name": "Set Citation Gaps Found"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4.1-mini",
+          "mode": "list",
+          "cachedResultName": "gpt-4.1-mini"
+        },
+        "options": {
+          "timeout": 300000
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        3584,
+        864
+      ],
+      "id": "412066e0-92e0-4509-8df4-c1ea9b192c7b",
+      "name": "OpenAI Chat Model9"
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n  \"opportunities\": [\n    {\n      \"wikipedia_opportunity_type\": \"section\",\n      \"wikipedia_opportunity_snippet\": \"Germany\\nThis section does not cite any sources. Please help improve this section by adding citations to reliable sources.\\n\\nSince 1939, it has been compulsory to have third-party personal insurance before keeping a motor vehicle in all federal states of Germany. In addition, every vehicle owner is free to take out a comprehensive insurance policy.\"\n    },\n    {\n      \"wikipedia_opportunity_type\": \"article\",\n      \"wikipedia_opportunity_snippet\": \"This article needs additional citations for verification. Please help improve this article by adding citations to reliable sources. Unsourced material may be challenged and removed.\"\n    }\n  ]\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        3760,
+        864
+      ],
+      "id": "a61d70b6-a08d-464b-ba80-211577ecea07",
+      "name": "Structured Output Parser8"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        4192,
+        608
+      ],
+      "id": "66f0d46f-345e-42d6-943b-7936b8eb10ec",
+      "name": "Merge"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "7d322f78-6a4a-4cd6-b534-095bf4f3089d",
+              "leftValue": "={{ $('Set Wiki Page Content').item.json.wiki_page_markdown }}",
+              "rightValue": "citation needed",
+              "operator": {
+                "type": "string",
+                "operation": "contains"
+              }
+            },
+            {
+              "id": "bf8efda7-f0ba-4652-a09c-04bc049c2773",
+              "leftValue": "={{ $('Set Wiki Page Content').item.json.wiki_page_markdown }}",
+              "rightValue": "better source needed",
+              "operator": {
+                "type": "string",
+                "operation": "contains"
+              }
+            },
+            {
+              "id": "3a9d7150-be85-4d1b-b7a7-bba7b38f2689",
+              "leftValue": "={{ $('Set Wiki Page Content').item.json.wiki_page_markdown }}",
+              "rightValue": "additional citation needed",
+              "operator": {
+                "type": "string",
+                "operation": "contains"
+              }
+            }
+          ],
+          "combinator": "or"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        3344,
+        272
+      ],
+      "id": "c7401a70-993c-4740-899a-6b9bbaa67e75",
+      "name": "If1"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "07ad9e38-27a6-4840-b531-09d59dff2bd6",
+              "leftValue": "={{ $('Set Wiki Page Content').item.json.wiki_page_markdown }}",
+              "rightValue": "does not cite any sources",
+              "operator": {
+                "type": "string",
+                "operation": "contains"
+              }
+            },
+            {
+              "id": "2919679a-33c1-4c93-bff0-96d0143e363a",
+              "leftValue": "={{ $('Set Wiki Page Content').item.json.wiki_page_markdown }}",
+              "rightValue": "needs additional citations",
+              "operator": {
+                "type": "string",
+                "operation": "contains"
+              }
+            },
+            {
+              "id": "8adddc92-0ee7-462c-a8f6-0e553ce74022",
+              "leftValue": "={{ $('Set Wiki Page Content').item.json.wiki_page_markdown }}",
+              "rightValue": "unreferenced",
+              "operator": {
+                "type": "string",
+                "operation": "contains"
+              }
+            },
+            {
+              "id": "c2ee3212-9514-49ca-a369-15d850a66501",
+              "leftValue": "={{ $('Set Wiki Page Content').item.json.wiki_page_markdown }}",
+              "rightValue": "more citations needed",
+              "operator": {
+                "type": "string",
+                "operation": "contains"
+              }
+            }
+          ],
+          "combinator": "or"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        3344,
+        656
+      ],
+      "id": "b356f752-cf9c-4eca-9470-256ba15fa857",
+      "name": "If2"
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "output.terms",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        1616,
+        416
+      ],
+      "id": "10bcbcdd-bca5-445d-bb84-6f27efb9f6c6",
+      "name": "Split Out Terms"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=## Context\n\nYou are analysing the markdown content of a web page.\n\nThe page represents a product, service, or informational offering and is used to determine the topic domain the site operates in.\n\nThis analysis is to identify neutral concepts, entities, and terminology associated with this topic in educational or reference-style explanations.\n\nThe output will be used as a topic anchor for downstream relevance evaluation and citation opportunity discovery.\n\n⸻\n\n## Instructions\n1.  Use ONLY the provided inputs:\n•\tuser_page_markdown: cleaned markdown extracted from the user-provided URL\n•\tuser_page_primary_content: suggested primary content context for the page\n2.  Determine the page’s authority scope\n•\tIdentify what the page is about in neutral, encyclopedic terms\n•\tBase conclusions primarily on the page markdown\n•\tUse user_page_primary_content only as supporting context\n•\tDo not infer authority beyond what the content supports\n3.  Extract relevant terms and concepts\n•\tIdentify terms someone would reasonably expect when explaining this topic in an educational or reference context\n•\tInclude:\n    •\tsynonyms and alternative phrasings\n    •\trelated entities, concepts, processes, and definitions\n    •\tindustry-standard terminology\n•\tExclude:\n    •\tmarketing slogans\n    •\tbrand or product names (unless essential proper nouns)\n    •\tcalls to action, pricing, testimonials\n    •\tnavigation or boilerplate text\n4.  Provide a short reason for each term\n•\tFor each term, explain why it belongs to the page’s topic domain\n•\tThe reason should:\n    •\tbe 1–2 sentences maximum\n    •\tdescribe how the term relates to the page content\n    •\tbe explanatory, not definitional\n    •\tavoid restating the term verbatim\n•\tDo not use promotional or persuasive language\n5.  Normalise and deduplicate\n•\tMerge near-duplicates (singular/plural, phrasing variants)\n•\tPrefer canonical, widely accepted terminology\n•\tAvoid overly generic terms (e.g. “solution”, “service”, “benefits”)\n6.  Apply output constraints\n•\tExtract between 5 and 10 high-signal terms\n•\tEach term must be specific and meaningful for downstream matching\n•\tUse lowercase unless the term is a proper noun\n\n⸻\n\n## Task\nReturn ONLY valid JSON in the exact structure shown below.\nDo NOT add extra keys.\nDo NOT include explanations outside JSON.\n{\n  \"terms\": [\n    {\n      \"term\": \"commercial real estate loans\",\n      \"reason\": \"The page discusses financing structures used to acquire or refinance income-producing properties.\"\n    },\n    {\n      \"term\": \"rent reviews\",\n      \"reason\": \"The page references mechanisms for adjusting rental income over time, which impacts valuation and cash flow.\"\n    }\n  ]\n}\n\n⸻\n\n## Inputs to Consider\nuser_page_markdown: {{ $json.user_page_markdown }}\nuser_page_primary_content: {{ $json.user_page_primary_content }}",
+        "hasOutputParser": true,
+        "options": {}
+      },
+      "id": "e114afbe-449c-41bd-8ee0-a9214097d368",
+      "name": "Analyze User Page Content",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "position": [
+        1248,
+        432
+      ],
+      "typeVersion": 2.2,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "content": "## 3. Identify Top Matching Wikipedia Page\nFinds, evaluates, and selects the most conceptually relevant Wikipedia page for citation analysis.",
+        "height": 896,
+        "width": 1248,
+        "color": 5
+      },
+      "id": "1d97aac5-ca9c-4fd9-a73b-ef375fb53a3d",
+      "name": "Sticky Note2",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1792,
+        320
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "466e658d-2180-47ef-a2b6-a7744ff8d2b5",
+              "name": "term",
+              "value": "={{ $('Loop Over Items2').item.json.term }}",
+              "type": "string"
+            },
+            {
+              "id": "2cb8e84f-c72c-4a04-8b99-0bfb8094df08",
+              "name": "wiki_title",
+              "value": "={{ $json.output.wiki_title }}",
+              "type": "string"
+            },
+            {
+              "id": "3e9ec195-b190-476c-90be-146b2ea1eda2",
+              "name": "wiki_page_url",
+              "value": "={{ $('Set Wiki Page Content').item.json.wiki_page_url }}",
+              "type": "string"
+            },
+            {
+              "id": "7dde22e5-bd3f-487c-83b3-38c7179730c6",
+              "name": "relevance_score",
+              "value": "={{ $json.output.relevance_score }}",
+              "type": "number"
+            },
+            {
+              "id": "ddbdf2eb-10e5-4851-ba89-66929e8e3e80",
+              "name": "score_reason",
+              "value": "={{ $json.output.score_reason }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2368,
+        640
+      ],
+      "id": "d1167a84-b32b-49f0-8bed-e1a85f67438d",
+      "name": "Set Wiki Page Content Relevancy"
+    },
+    {
+      "parameters": {
+        "content": "## 4. Detect Citation Gaps\nScans the selected Wikipedia page to detect explicitly marked citation gaps by type.",
+        "height": 1104,
+        "width": 1280,
+        "color": 5
+      },
+      "id": "53ec194e-4e93-48f6-979a-3c5ee470f235",
+      "name": "Sticky Note5",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        3056,
+        112
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=## Context\n\nYou are analyzing a Wikipedia article to extract explicitly marked citation gaps.\n\nYour goal is to:\n•\tidentifying citation gap types\n•\textracting the exact snippet from the provided Wikipedia markdown\n\nYou must NOT generate explanations, summaries, or suggested content.\n\nThis is a deterministic extraction task.\n\n⸻\n\n## Instructions\n1.  Use ONLY the provided inputs:\n•\twiki_page_markdown: full markdown content of the Wikipedia article.\n•\tDo NOT use external knowledge.\n•\tDo NOT invent text.\n2.  Identify explicit Wikipedia citation signals\n•\tYou MUST treat citation gaps as purely text-based signals AND position-based signals.\n•\tYou MUST treat a citation gap as INLINE notices only if:\n    •\tThe exact phrase \"citation needed\", \"additional citation needed\", or \"better source needed\" appear in `wiki_page_markdown`.\n    •\tAppears INLINE within a sentence\n•\tIf none of the above phrases appear, no citation gap exists.\n3.  Extraction rules (STRICT)\n•\tFor EACH detected citation signal:\n    •\tExtract a continuous text span ending at the inline citation notice (including inline marker [] if any). The extracted span MUST be grammatically complete, semantically self-contained and understandable.\n    •\tAssign the opportunity as: wikipedia_opportunity_type = \"inline\"\n    •\tDo NOT include more text than necessary.\n    •\tDo NOT include headings, other paragraphs, or lists.\n4.  Hard constraints (MANDATORY)\n•   Every extracted snippet MUST exist verbatim in `wiki_page_markdown`\n•\tDo NOT merge multiple citation gaps\n•\tDo NOT rewrite, paraphrase, or normalize text\n\n⸻\n\n## Task\nReturn ONLY valid JSON in the exact structure shown below.\nDo NOT add extra keys.\nDo NOT include explanations outside JSON.\n{\n  \"opportunities\": [\n    {\n      \"wikipedia_opportunity_type\": \"inline\",\n      \"wikipedia_opportunity_snippet\": \"The amount of insurance contribution is determined by several criteria, like the region, the type of car or the personal way of driving. [citation needed]\"\n    }\n  ]\n}\n\n⸻\n\n## Inputs to Consider\nwiki_page_markdown: {{ $('Set Wiki Page Content').item.json.wiki_page_markdown }}",
+        "hasOutputParser": true,
+        "options": {}
+      },
+      "id": "b041b04d-944b-4985-a304-9a0088f1b019",
+      "name": "Identify Inline Citation Opportunities",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "position": [
+        3584,
+        256
+      ],
+      "typeVersion": 2.2,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=## Context\n\nYou are analyzing a Wikipedia article to extract explicitly marked citation gaps.\n\nYour goal is to:\n•\tidentifying citation gap types\n•\textracting the exact snippet from the provided Wikipedia markdown\n\nYou must NOT generate explanations, summaries, or suggested content.\n\nThis is a deterministic extraction task.\n\n⸻\n\n## Instructions\n1.  Use ONLY the provided inputs:\n•\twiki_page_markdown: full markdown content of the Wikipedia article.\n•\tDo NOT use external knowledge.\n•\tDo NOT invent text.\n2.  Identify explicit Wikipedia citation signals\n•\tYou MUST treat citation gaps as purely text-based signals.\n•\tYou MUST identify a citation gap whenever ANY of the following exact phrases appear anywhere in `wiki_page_markdown`:\n    A.\tSection-level notices:\n        •   This section does not cite any sources\n        •   This section needs additional citations\n        •   Whenever any of the above phrases appear, classify the opportunity as: wikipedia_opportunity_type = \"section\" \n    B.\tArticle-level notices:\n        •   Any banner or notice clearly stating that the article requires additional citations\n        •   Classify these as: wikipedia_opportunity_type = \"article\"\n•\tIf none of the above phrases appear, you MUST assume no citation gap exists.\n3.  Extraction rules (STRICT)\n•\tFor EACH detected citation signal:\n    •\tAssign `wikipedia_opportunity_type` as one of:\n        •\tsection\n        •\tarticle\n    •\tExtract the snippet EXACTLY as it appears in `wiki_page_markdown`.\n    •\tExtraction behavior by type:\n        A.  SECTION\n            •\tExtract the section heading (if present), the citation notice text, and the immediately following section content.\n            •\tStop at the next major heading.\n        B.  ARTICLE\n            •\tExtract ONLY the article-level citation notice text.\n            •\tDo NOT extract article body content.\n4.  Hard constraints (MANDATORY)\n•   Every extracted snippet MUST exist verbatim in `wiki_page_markdown`\n•\tDo NOT merge multiple citation gaps\n•\tDo NOT rewrite, paraphrase, or normalize text\n\n⸻\n\n## Task\nReturn ONLY valid JSON in the exact structure shown below.\nDo NOT add extra keys.\nDo NOT include explanations outside JSON.\n{\n  \"opportunities\": [\n    {\n      \"wikipedia_opportunity_type\": \"section\",\n      \"wikipedia_opportunity_snippet\": \"Germany\\nThis section does not cite any sources. Please help improve this section by adding citations to reliable sources.\\n\\nSince 1939, it has been compulsory to have third-party personal insurance before keeping a motor vehicle in all federal states of Germany. In addition, every vehicle owner is free to take out a comprehensive insurance policy.\"\n    },\n    {\n      \"wikipedia_opportunity_type\": \"article\",\n      \"wikipedia_opportunity_snippet\": \"This article needs additional citations for verification. Please help improve this article by adding citations to reliable sources. Unsourced material may be challenged and removed.\"\n    }\n  ]\n}\n\n⸻\n\n## Inputs to Consider\nwiki_page_markdown: {{ $('Set Wiki Page Content').item.json.wiki_page_markdown }}",
+        "hasOutputParser": true,
+        "options": {}
+      },
+      "id": "4c852f22-5bcf-4cf3-a864-5265d17aab56",
+      "name": "Identify Section/ Article Citation Opportunities",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "position": [
+        3584,
+        640
+      ],
+      "typeVersion": 2.2,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "output.opportunities",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        3952,
+        240
+      ],
+      "id": "b368fa70-9ded-46ca-a908-6a344f2f85b1",
+      "name": "Split Out Inline Opportunities"
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "output.opportunities",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        3952,
+        624
+      ],
+      "id": "c519e544-f4ee-47a5-8792-a536334a3dc7",
+      "name": "Split Out Section/Article Opportunities"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "962fcf3c-3293-4793-99f6-11c083fdc5e2",
+              "name": "term",
+              "value": "={{ $('Loop Over Items2').item.json.term }}",
+              "type": "string"
+            },
+            {
+              "id": "aacce8cc-3076-4231-b601-42f70e2e3e87",
+              "name": "reason",
+              "value": "={{ $('Loop Over Items2').item.json.reason }}",
+              "type": "string"
+            },
+            {
+              "id": "91089203-f4d8-4d57-9d9b-11a088595e58",
+              "name": "user_page_markdown",
+              "value": "={{ $('Set Page Content').item.json.user_page_markdown }}",
+              "type": "string"
+            },
+            {
+              "id": "c537663a-03d2-4eb1-ac35-ea0bf87d7f31",
+              "name": "wiki_title",
+              "value": "={{ $('If').item.json.wiki_title }}",
+              "type": "string"
+            },
+            {
+              "id": "3f0d7507-c436-4b9a-84fa-d505a4e7fd3b",
+              "name": "wikipedia_opportunity_type",
+              "value": "={{ $json.wikipedia_opportunity_type }}",
+              "type": "string"
+            },
+            {
+              "id": "5481fb01-ecc4-4226-925f-cf455ea4eecc",
+              "name": "wikipedia_opportunity_snippet",
+              "value": "={{ $json.wikipedia_opportunity_snippet }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        4432,
+        608
+      ],
+      "id": "cff5d65e-c2bb-4b6a-a032-76515550c266",
+      "name": "Set Opportunities"
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "output.opportunities",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        5040,
+        592
+      ],
+      "id": "55e87562-04b1-4100-bd39-03a0d0f03107",
+      "name": "Split Out Suggestions"
+    },
+    {
+      "parameters": {
+        "content": "## 5. Generate Content Suggestions\nConverts detected citation gaps into structured content opportunities aligned to the user page.",
+        "height": 1104,
+        "width": 880,
+        "color": 5
+      },
+      "id": "a9358221-ce65-44e4-908d-fd0419c1f443",
+      "name": "Sticky Note6",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        4352,
+        112
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "## 6. Update Final Status\nRecords workflow outcomes and updates completion status for tracking and reporting.",
+        "height": 192,
+        "width": 1248,
+        "color": 4
+      },
+      "id": "23e17001-8501-4476-a851-c693b6eb525d",
+      "name": "Sticky Note7",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1792,
+        112
+      ],
+      "typeVersion": 1
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Set Sheet ID",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Sheet ID": {
+      "main": [
+        [
+          {
+            "node": "Retrieve User Input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Retrieve User Input": {
+      "main": [
+        [
+          {
+            "node": "Fetch Page",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fetch Page": {
+      "main": [
+        [
+          {
+            "node": "Set Page Content",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Page Content": {
+      "main": [
+        [
+          {
+            "node": "Analyze User Page Content",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wikipedia Search API": {
+      "main": [
+        [
+          {
+            "node": "Parse Wikipedia Search Results",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Analyze User Page Content",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Analyze User Page Content",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items2": {
+      "main": [
+        [
+          {
+            "node": "Update Final Status",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Wikipedia Search API",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser2": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Rank Wiki Page Relevancy",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model3": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Rank Wiki Page Relevancy",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse Wikipedia Search Results": {
+      "main": [
+        [
+          {
+            "node": "Fetch Wiki Page",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Sort by Relevancy": {
+      "main": [
+        [
+          {
+            "node": "Limit to 1 Wiki Page",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Limit to 1 Wiki Page": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Rank Wiki Page Relevancy": {
+      "main": [
+        [
+          {
+            "node": "Set Wiki Page Content Relevancy",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fetch Wiki Page": {
+      "main": [
+        [
+          {
+            "node": "Set Wiki Page Content",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Wiki Page Content": {
+      "main": [
+        [
+          {
+            "node": "Rank Wiki Page Relevancy",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Record Recommendations": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "If2",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "If1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Set No Citation Gaps Found",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Competitor Content Strategy Insights": {
+      "main": [
+        [
+          {
+            "node": "Set Strategy Report",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Set Error Field",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items1": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Crawl Competitor Pages",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set No Citation Gaps Found": {
+      "main": [
+        [
+          {
+            "node": "Record Recommendations",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update Final Status": {
+      "main": [
+        []
+      ]
+    },
+    "Structured Output Parser6": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Analyze Citation Opportunities",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model7": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Analyze Citation Opportunities",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Analyze Citation Opportunities": {
+      "main": [
+        [
+          {
+            "node": "Split Out Suggestions",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser7": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Identify Inline Citation Opportunities",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model8": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Identify Inline Citation Opportunities",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model9": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Identify Section/ Article Citation Opportunities",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser8": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Identify Section/ Article Citation Opportunities",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Citation Gaps Found": {
+      "main": [
+        [
+          {
+            "node": "Record Recommendations",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Set Opportunities",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If2": {
+      "main": [
+        [
+          {
+            "node": "Identify Section/ Article Citation Opportunities",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If1": {
+      "main": [
+        [
+          {
+            "node": "Identify Inline Citation Opportunities",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out Terms": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Analyze User Page Content": {
+      "main": [
+        [
+          {
+            "node": "Split Out Terms",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        []
+      ]
+    },
+    "Set Wiki Page Content Relevancy": {
+      "main": [
+        [
+          {
+            "node": "Sort by Relevancy",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Identify Inline Citation Opportunities": {
+      "main": [
+        [
+          {
+            "node": "Split Out Inline Opportunities",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Identify Section/ Article Citation Opportunities": {
+      "main": [
+        [
+          {
+            "node": "Split Out Section/Article Opportunities",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out Inline Opportunities": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out Section/Article Opportunities": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Set Opportunities": {
+      "main": [
+        [
+          {
+            "node": "Analyze Citation Opportunities",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out Suggestions": {
+      "main": [
+        [
+          {
+            "node": "Set Citation Gaps Found",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "4053f45d-ff20-417c-a7e7-05627cea4b60",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "025ee8620cd28d62d8ca3d228a8c082fd302b060b5c59c13823fea8a4877da55"
+  },
+  "id": "PXrhYy1tGIPXVEXQ",
+  "tags": []
+}

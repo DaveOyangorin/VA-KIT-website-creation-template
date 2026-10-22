@@ -1,0 +1,11 @@
+/* acs-hoa.com theme: "The board's desk". Plum-navy #362F4C and purple #4B4986 from the ACS logo, its orange as the one warm accent,
+   on a cool off-white like meeting-room paper. Sora (geometric, steady) for display, Source Sans 3 for text, JetBrains Mono for times and
+   ticket labels. One light theme by choice. */
+:root {
+  --paper: #f6f6f9; --sand: #ecebf3; --card: #ffffff; --ink: #1f1b2e; --ink2: #423d55; --mute: #6e6a80; --line: #dddbe7;
+  --dark: #2a2440; --dark2: #362f4c; --on-dark: #f4f2fa; --on-dark2: #b9b3cf; --foot: #201b31;
+  --accent: #4b4986; --accent-2: #8f8cd9; --accent-ink: #4b4986; --on-accent: #ffffff; --warm: #f08a24;
+  --f-disp: "Sora", "Segoe UI", system-ui, sans-serif; --f-body: "Source Sans 3", "Segoe UI", system-ui, sans-serif; --f-mono: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+  --disp-w: 700; --disp-ls: -.03em; --disp-tt: none; --r: 12px; --btn-r: 8px; --hdr: 78px; --logo-h: 42px;
+  color-scheme: light;
+}

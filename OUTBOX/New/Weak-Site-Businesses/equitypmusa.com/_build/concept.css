@@ -1,0 +1,71 @@
+/* ===== concept: "The owner's ledger" (21 Oct 2026). Ruled paper, tabular serif figures, the Rent math calculator. ===== */
+.site-header, body.is-home .site-header { background: #fff; color: var(--ink); border-bottom-color: var(--line) } body.is-home .site-header .menu summary { border-color: var(--line) }
+.label { font: 500 .7rem/1.3 var(--f-mono); letter-spacing: .1em; color: var(--accent-ink); text-transform: uppercase }
+h1 em, h2 em { font-style: italic; font-weight: 400; color: var(--accent) } h3 { font-family: var(--f-body); font-weight: 700 }
+.btn { font-family: var(--f-body); font-weight: 600 } .btn.accent:hover { background: var(--dark); border-color: var(--dark); color: #fff }
+.draft-strip { background: var(--dark); color: var(--gold) }
+.e-head { max-width: 840px; margin-bottom: 40px } .e-head h2 { font-size: clamp(2.3rem, 4.8vw, 4.2rem); line-height: 1.02 }
+
+/* hero on ruled paper */
+.e-hero { background: repeating-linear-gradient(180deg, transparent 0 39px, rgba(8,86,161,.07) 39px 40px), var(--paper); border-bottom: 1px solid var(--line) }
+.e-hero-in { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, .75fr); gap: clamp(28px, 5vw, 80px); align-items: center; padding-block: clamp(46px, 6vw, 96px) 40px }
+.e-hero h1 { font-size: clamp(2.6rem, 5.6vw, 5.2rem); line-height: 1.02; margin-bottom: .4em } .e-hero h1 em { display: block }
+.e-card { background: var(--card); border: 1px solid var(--line); border-top: 4px solid var(--accent); padding: 22px 24px; box-shadow: 0 30px 60px -45px rgba(11,43,79,.45) }
+.e-card dl { margin: 10px 0 0; display: grid } .e-card dl div { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2px 14px; padding: 12px 0; border-top: 1px solid var(--line) }
+.e-card dt { font-weight: 600; color: var(--ink2); font-size: .95rem } .e-card dd { margin: 0; text-align: right; font: 600 1.7rem/1 var(--f-disp); font-variant-numeric: tabular-nums; color: var(--dark) } .e-card dd small { display: block; font: 400 .74rem var(--f-body); color: var(--mute); margin-top: 4px }
+.e-doors { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; padding-bottom: 46px }
+.e-doors a { display: grid; gap: 4px; padding: 20px 22px; border: 1px solid var(--line); background: var(--card); text-decoration: none; transition: background .2s, color .2s } .e-doors a + a { border-left: 0 }
+.e-doors a:hover { background: var(--dark); color: #fff } .e-doors small { font: 500 .66rem var(--f-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--accent) } .e-doors a:hover small, .e-doors a:hover span { color: var(--on-dark2) }
+.e-doors b { font: 600 1.45rem var(--f-disp) } .e-doors span { color: var(--mute); font-size: .92rem }
+
+/* signature: rent math */
+.e-calc { background: var(--dark); color: var(--on-dark) } .e-calc h2 { color: #fff } .e-calc h2 em { color: var(--accent-2) } .e-calc .lede { color: var(--on-dark2) } .e-calc .label { color: var(--gold) }
+.calc { background: var(--paper); color: var(--ink); border-radius: 8px; overflow: hidden; box-shadow: 0 40px 80px -50px rgba(0,0,0,.7) }
+.c-top { display: grid; grid-template-columns: auto auto minmax(0, 1fr); gap: 18px 30px; align-items: center; padding: 24px 28px; background: #fff; border-bottom: 2px solid var(--ink) }
+.seg { display: inline-flex; border: 1px solid var(--ink); border-radius: 999px; padding: 3px } .seg button { border: 0; background: transparent; padding: 10px 16px; border-radius: 999px; font: 600 .95rem var(--f-body); cursor: pointer; color: var(--ink) } .seg button.on { background: var(--dark); color: #fff }
+.rent { display: grid; gap: 4px } .rent > span:first-child { font: 500 .66rem var(--f-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--mute) }
+.rent-in { display: inline-flex; align-items: baseline; gap: 4px; border-bottom: 2px solid var(--accent) } .rent-in b { font: 600 1.8rem var(--f-disp) } .rent input { width: 6.5ch; border: 0; background: transparent; font: 600 2.2rem var(--f-disp); font-variant-numeric: tabular-nums; color: var(--ink); padding: 0 } .rent input:focus { outline: none }
+.slider { width: 100%; accent-color: var(--accent) }
+.c-rows .row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 24px; align-items: baseline; padding: 18px 28px; border-bottom: 1px solid var(--line); background: repeating-linear-gradient(90deg, transparent 0 7px, rgba(0,0,0,.035) 7px 8px) bottom/100% 1px no-repeat }
+.c-rows .row:last-child { border-bottom: 0 } .row span { font-weight: 600; color: var(--ink2) } .row b { font: 600 clamp(1.4rem, 2.4vw, 2rem)/1 var(--f-disp); font-variant-numeric: tabular-nums; color: var(--dark); text-align: right } .row small { grid-column: 1 / -1; color: var(--mute); font-size: .86rem }
+.row b.pulse { animation: pulse .5s ease } @keyframes pulse { 0% { color: var(--accent-2) } 100% { color: var(--dark) } }
+
+/* programs ledger */
+.e-prog-in { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: clamp(28px, 5vw, 80px); align-items: start } .e-prog h2 { font-size: clamp(2.2rem, 4.2vw, 3.6rem) }
+.ledger { width: 100%; border-collapse: collapse; background: var(--card); font-size: .98rem } .ledger th, .ledger td { padding: 14px 16px; border-bottom: 1px solid var(--line); text-align: left }
+.ledger thead th { background: var(--dark); color: #fff; font: 600 .95rem var(--f-body) } .ledger thead th small { display: block; font: 400 .74rem var(--f-body); color: var(--on-dark2) } .ledger .c { text-align: center }
+.ledger .y { display: inline-block; font: 500 .7rem var(--f-mono); letter-spacing: .06em; text-transform: uppercase; color: #146c43; background: #e3f3ea; padding: 4px 8px; border-radius: 3px } .ledger .n { color: var(--mute) }
+.ledger tbody tr:nth-child(even) td { background: #fbfaf7 } .tbl { overflow-x: auto }
+
+/* quote, faq */
+.e-quote { background: var(--sand) } .e-quote blockquote { margin: 0 auto; max-width: 900px; text-align: center } .e-quote p { font: 400 italic clamp(1.5rem, 2.8vw, 2.3rem)/1.35 var(--f-disp); margin: 0 0 18px } .e-quote footer { font: 500 .72rem var(--f-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--accent) }
+.e-faq h2 { font-size: clamp(2.1rem, 3.8vw, 3.2rem) } .more { margin-top: 18px }
+.e-office { background: var(--card); border: 1px solid var(--line); border-top: 4px solid var(--accent); padding: 24px } .eo-ph a { font: 600 2rem var(--f-disp); text-decoration: none; color: var(--dark) } .e-office address { font-style: normal; margin-bottom: 8px }
+.states { list-style: none; padding: 0; margin: 8px 0 0; display: flex; flex-wrap: wrap; gap: 6px } .states li { border: 1px solid var(--line); padding: 5px 10px; border-radius: 999px; font-size: .88rem }
+.e-post { margin-top: 18px; background: var(--dark); color: var(--on-dark); border: 0; padding: 24px !important; gap: 10px } .e-post > :not(img) { padding: 0 !important } .e-post b { font-family: var(--f-disp); font-size: 1.4rem } .e-post p { color: var(--on-dark2); margin: 0 } .e-post em, .e-post .label { color: var(--gold) } .e-post:hover { color: var(--on-dark) }
+
+/* inner, cta, footer */
+.phero-full.no-photo { background: repeating-linear-gradient(180deg, transparent 0 39px, rgba(255,255,255,.04) 39px 40px), var(--dark) } .phero-full .label { color: var(--gold) } .phero-full .label::before { background: var(--gold) } .phero-full h1 { font-weight: 600 }
+.answer { border-left-color: var(--accent) } .side-card { background: var(--dark) } .side-card .label { color: var(--gold) } .side-card .btn { background: var(--accent); border-color: var(--accent) }
+.cta { background: var(--dark) } .cta .label { color: var(--gold) } .office small { color: var(--gold) } .office b { font-family: var(--f-disp) }
+.site-footer { border-top: 4px solid var(--gold) } .flogo img { width: 230px } .fareas b, .foot a:hover { color: var(--gold) }
+.prose h2 { font-weight: 600 }
+
+@media (prefers-reduced-motion: reduce) { .row b.pulse { animation: none } }
+@media (max-width: 900px) { .e-hero-in, .e-prog-in { grid-template-columns: minmax(0, 1fr) } .c-top { grid-template-columns: minmax(0, 1fr) } }
+@media (max-width: 640px) {
+  .e-hero h1 { font-size: clamp(2.3rem, 10.5vw, 3.3rem) } .e-doors { grid-template-columns: minmax(0, 1fr) } .e-doors a + a { border-left: 1px solid var(--line); border-top: 0 }
+  .c-top, .c-rows .row { padding-inline: 18px } .row b { font-size: 1.35rem } .seg button { padding: 9px 12px; font-size: .88rem }
+}
+
+/* v2 (21 Oct): full-bleed photo banner */
+.e-hero { position: relative; isolation: isolate; background: var(--dark); color: #fff; border-bottom: 0 }
+.eh-img { position: absolute; inset: -8% 0 0 0; z-index: -2 } .eh-img img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 40% }
+.e-hero::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, rgba(8,32,59,.94) 0%, rgba(8,32,59,.78) 45%, rgba(8,32,59,.3) 100%), linear-gradient(0deg, rgba(8,32,59,.85), transparent 45%) }
+.e-hero-in { min-height: min(640px, calc(100svh - var(--hdr) - 120px)); padding-block: clamp(70px, 8vw, 120px) 40px }
+.e-hero h1 { color: #fff } .e-hero h1 em { color: #9cc7f2 } .e-hero .lede { color: rgba(255,255,255,.88) } .e-hero .label { color: var(--gold) } .e-hero .btn.ghost { color: #fff; border-color: rgba(255,255,255,.6) }
+.e-card { background: rgba(255,255,255,.96) } .e-hero .credit { position: relative; margin: 0 auto 10px; width: 100%; max-width: 1220px; padding-inline: max(20px, env(safe-area-inset-left, 0px)); text-align: right; font: 500 .62rem var(--f-mono); color: rgba(255,255,255,.6) }
+.e-doors a { background: rgba(255,255,255,.97) }
+.e-photo { margin: 26px 0 0; position: relative } .e-photo img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 6px } .e-photo figcaption { font: 500 .6rem var(--f-mono); color: var(--mute); margin-top: 6px }
+@media (max-width: 640px) { .e-hero::before { background: linear-gradient(0deg, rgba(8,32,59,.96) 0%, rgba(8,32,59,.82) 60%, rgba(8,32,59,.6) 100%) } .e-hero .credit { text-align: left } }
+.e-hero .e-doors a { color: var(--ink) } .e-hero .e-doors a:hover { color: #fff; background: var(--dark) }

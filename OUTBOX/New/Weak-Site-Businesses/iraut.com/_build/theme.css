@@ -1,0 +1,10 @@
+/* iraut.com theme: "Ecosystem". The deep teal and olive of the ia logo on a warm ledger cream: the look of an owner report, not a
+   brochure. Newsreader (editorial serif) for display, Plus Jakarta Sans for text, IBM Plex Mono for figures. */
+:root {
+  --paper: #f6f4ee; --sand: #ebe7dd; --card: #ffffff; --ink: #152a36; --ink2: #3c4d57; --mute: #6c7a82; --line: #dad5c9;
+  --dark: #173f55; --dark2: #1f4f69; --on-dark: #eff4f6; --on-dark2: #a8bfcb; --foot: #0f2e3f;
+  --accent: #a3a046; --accent-2: #c7c56a; --accent-ink: #6c6a1f; --on-accent: #152a36; --sea: #2c7a99;
+  --f-disp: "Newsreader", Georgia, serif; --f-body: "Plus Jakarta Sans", "Segoe UI", system-ui, sans-serif; --f-mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  --disp-w: 600; --disp-ls: -.02em; --disp-tt: none; --r: 6px; --btn-r: 999px; --hdr: 84px; --logo-h: 52px;
+  color-scheme: light;
+}

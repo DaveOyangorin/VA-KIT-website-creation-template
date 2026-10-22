@@ -1,0 +1,125 @@
+{
+ "home": {
+  "url": "https://www.actionyardcare.com/home",
+  "final": "https://www.actionyardcare.com/home",
+  "title": "Action Lawn & Yardcare",
+  "meta": "",
+  "canon": "https://www.actionyardcare.com",
+  "heads": [
+   [
+    "h1",
+    "Experienced landscape professionals serving the Salt Lake Valley"
+   ],
+   [
+    "h3",
+    "Check out our reviews"
+   ],
+   [
+    "h2",
+    "Contact us now and experience why we are one of the highest rated landscaping companies in Utah - (801) 244-4035"
+   ]
+  ],
+  "text": "id=\"page\" class=\"container\" role=\"main\"> Experienced landscape professionals serving the Salt Lake Valley Check out our reviews Contact us now and experience why we are one of the highest rated landscaping companies in Utah - (801) 244-4035",
+  "words": 35,
+  "imgs": [
+   "https://images.squarespace-cdn.com/content/v1/603e79dc71a48c54337ae39d/1614717715626-AIRXVPBLJF7FA9SK3VRR/actionlawnlogo.png?format=1500w",
+   "https://images.squarespace-cdn.com/content/v1/603e79dc71a48c54337ae39d/1614711552304-RSZHEQ8KV22OEGYEXQ5E/temp+background.jpg",
+   "https://images.squarespace-cdn.com/content/v1/603e79dc71a48c54337ae39d/1614711552304-RSZHEQ8KV22OEGYEXQ5E/temp+background.jpg?format=100w",
+   "https://images.squarespace-cdn.com/content/v1/603e79dc71a48c54337ae39d/1614711552304-RSZHEQ8KV22OEGYEXQ5E/temp+background.jpg?format=300w",
+   "https://images.squarespace-cdn.com/content/v1/603e79dc71a48c54337ae39d/1614711552304-RSZHEQ8KV22OEGYEXQ5E/temp+background.jpg?format=500w",
+   "https://images.squarespace-cdn.com/content/v1/603e79dc71a48c54337ae39d/1614711552304-RSZHEQ8KV22OEGYEXQ5E/temp+background.jpg?format=750w",
+   "https://images.squarespace-cdn.com/content/v1/603e79dc71a48c54337ae39d/1614711552304-RSZHEQ8KV22OEGYEXQ5E/temp+background.jpg?format=1000w",
+   "https://images.squarespace-cdn.com/content/v1/603e79dc71a48c54337ae39d/1614711552304-RSZHEQ8KV22OEGYEXQ5E/temp+background.jpg?format=1500w",
+   "https://images.squarespace-cdn.com/content/v1/603e79dc71a48c54337ae39d/1614711552304-RSZHEQ8KV22OEGYEXQ5E/temp+background.jpg?format=2500w",
+   "https://images.squarespace-cdn.com/content/v1/603e79dc71a48c54337ae39d/1615399436025-VRZYV61H7NWK71LCVFN7/IMG_7018.PNG",
+   "https://images.squarespace-cdn.com/content/v1/603e79dc71a48c54337ae39d/1615399473361-D6P8L0J0G6YMY7NB01IP/IMG_7020.PNG",
+   "https://images.squarespace-cdn.com/content/v1/603e79dc71a48c54337ae39d/1615421624910-D0BMZTD6TL1WEQ3KV1M6/IMG_7027.jpg"
+  ],
+  "tel": [],
+  "mail": [
+   "info@actionyardcare.com"
+  ]
+ },
+ "services": {
+  "url": "https://www.actionyardcare.com/services",
+  "final": "https://www.actionyardcare.com/services",
+  "title": "Services — Action Lawn & Yardcare",
+  "meta": "",
+  "canon": "https://www.actionyardcare.com/services",
+  "heads": [
+   [
+    "h1",
+    "Services"
+   ],
+   [
+    "h2",
+    "Landscaping"
+   ],
+   [
+    "h1",
+    "Maintenance"
+   ],
+   [
+    "h1",
+    "Fertilizing"
+   ],
+   [
+    "h1",
+    "Sprinklers"
+   ]
+  ],
+  "text": "id=\"page\" class=\"container\" role=\"main\"> Services Landscaping Sod Mulch/Rocks Flagstone Planting Edging New Landscaping and renovation Maintenance Weekly lawn mowing with string trimming and edging Yard clean ups Tree/bush trimming Leaf clean up Snow removal Aeration Fertilizing Lawn treatment programs Flower Bed treatment programs Landscape pest treatments Weed management Sprinklers Sprinkler Start up and Shut down New sprinkler system installation Sprinkler system check ups Sprinkler repair",
+  "words": 64,
+  "imgs": [
+   "https://images.squarespace-cdn.com/content/v1/603e79dc71a48c54337ae39d/1614717715626-AIRXVPBLJF7FA9SK3VRR/actionlawnlogo.png?format=1500w"
+  ],
+  "tel": [],
+  "mail": [
+   "info@actionyardcare.com"
+  ]
+ },
+ "contact_us": {
+  "url": "https://www.actionyardcare.com/contact-us",
+  "final": "https://www.actionyardcare.com/contact-us",
+  "title": "Contact Us — Action Lawn & Yardcare",
+  "meta": "",
+  "canon": "https://www.actionyardcare.com/contact-us",
+  "heads": [
+   [
+    "h3",
+    "Contact Us"
+   ]
+  ],
+  "text": "id=\"page\" class=\"container\" role=\"main\"> Contact Us Facebook Instagram Email: info@actionyardcare.com Phone: 801-244-4035",
+  "words": 11,
+  "imgs": [
+   "https://images.squarespace-cdn.com/content/v1/603e79dc71a48c54337ae39d/1614717715626-AIRXVPBLJF7FA9SK3VRR/actionlawnlogo.png?format=1500w"
+  ],
+  "tel": [],
+  "mail": [
+   "info@actionyardcare.com"
+  ]
+ },
+ "about": {
+  "url": "https://www.actionyardcare.com/about",
+  "final": "https://www.actionyardcare.com/about",
+  "title": "About — Action Lawn & Yardcare",
+  "meta": "",
+  "canon": "https://www.actionyardcare.com/about",
+  "heads": [
+   [
+    "h1",
+    "About Us"
+   ]
+  ],
+  "text": "id=\"page\" class=\"container\" role=\"main\"> About Us We are a group of licensed & insured professionals with decades of experience that are passionate about what we do.",
+  "words": 25,
+  "imgs": [
+   "https://images.squarespace-cdn.com/content/v1/603e79dc71a48c54337ae39d/1614717715626-AIRXVPBLJF7FA9SK3VRR/actionlawnlogo.png?format=1500w"
+  ],
+  "tel": [],
+  "mail": [
+   "info@actionyardcare.com"
+  ]
+ }
+}

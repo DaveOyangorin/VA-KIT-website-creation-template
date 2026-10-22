@@ -1,0 +1,10 @@
+/* mountainwindowcleaning.com theme: "Pure water". Their navy, pine and glacier blue from the logo, with the amber of their quote button.
+   Clear, cold, crisp: Sora (geometric, glassy) for display, Manrope for text, IBM Plex Mono for prices and labels. */
+:root {
+  --paper: #f4f7f8; --sand: #e7eef1; --card: #ffffff; --ink: #0f2a3f; --ink2: #34495a; --mute: #6a7c89; --line: #d6e1e6;
+  --dark: #0f2a3f; --dark2: #16364f; --on-dark: #eef5f8; --on-dark2: #a5bccb; --foot: #0a1f2f;
+  --accent: #f2a33a; --accent-2: #ffc06a; --accent-ink: #9a5b07; --on-accent: #0f2a3f; --glacier: #3fa9d6; --pine: #1e6b53;
+  --f-disp: "Sora", "Segoe UI", system-ui, sans-serif; --f-body: "Manrope", "Segoe UI", system-ui, sans-serif; --f-mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  --disp-w: 700; --disp-ls: -.035em; --disp-tt: none; --r: 14px; --btn-r: 999px; --hdr: 80px; --logo-h: 44px;
+  color-scheme: light;
+}

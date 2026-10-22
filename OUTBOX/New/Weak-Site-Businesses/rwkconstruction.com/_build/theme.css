@@ -1,0 +1,12 @@
+/* rwkconstruction.com theme: "Below grade". The architect's section drawing: charcoal and RWK's construction yellow on plaster white,
+   with blueprint hairlines. Archivo (variable width, expanded for display, condensed for labels) with Instrument Serif italics for the
+   human voice, JetBrains Mono for dimensions and drawing labels. Dark header for the white-and-yellow logo. */
+:root {
+  --paper: #f5f3ee; --sand: #e9e5dc; --card: #ffffff; --ink: #17171a; --ink2: #3d3c40; --mute: #6f6d70; --line: #dcd7cc;
+  --dark: #16161a; --dark2: #212126; --on-dark: #f3f1ec; --on-dark2: #a9a6a0; --foot: #0f0f12;
+  --accent: #f2b705; --accent-2: #ffd23f; --accent-ink: #8a6500; --on-accent: #16161a;
+  --f-disp: "Archivo", "Arial Narrow", system-ui, sans-serif; --f-body: "Archivo", "Segoe UI", system-ui, sans-serif; --f-mono: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+  --f-serif: "Instrument Serif", Georgia, serif;
+  --disp-w: 700; --disp-ls: -.025em; --disp-tt: none; --r: 0px; --btn-r: 0px; --hdr: 80px; --logo-h: 30px;
+  color-scheme: light;
+}

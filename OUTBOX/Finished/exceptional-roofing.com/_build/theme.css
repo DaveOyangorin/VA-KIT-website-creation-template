@@ -1,0 +1,16 @@
+/* exceptional-roofing.com theme (v3). References: Copper X, Baker Roofing, Strike Group.
+   Copper (their copper work) as the accent, slate from the logo's grey, the logo green kept for small marks; warm stone paper.
+   Antonio (condensed, uppercase display) + Schibsted Grotesk (text) + Azeret Mono (labels). */
+:root {
+  --paper: #f4f1eb; --sand: #e9e3d8; --card: #fdfbf7; --ink: #191c1e; --ink2: #41474b; --mute: #6c7276; --line: #d8d1c4;
+  --dark: #15191b; --dark2: #22282b; --on-dark: #f3f1ec; --on-dark2: #b5bab7; --foot: #0f1213;
+  --accent: #c8783f; --accent-ink: #9a5223; --on-accent: #1a0e05; --green: #7dc11e; --copper: #c8783f;
+  --f-disp: "Antonio", "Arial Narrow", "Helvetica Neue", Arial, sans-serif; --f-body: "Schibsted Grotesk", "Segoe UI", system-ui, sans-serif; --f-mono: "Azeret Mono", ui-monospace, Menlo, Consolas, monospace;
+  --disp-w: 700; --disp-ls: -.01em; --disp-tt: uppercase; --r: 4px; --btn-r: 3px; --hdr: 84px; --logo-h: 56px; --logo-bg: #f4f1eb; --logo-pad: 8px 10px;
+  --hero-shade: linear-gradient(180deg, rgba(10,12,14,.55) 0%, rgba(10,12,14,.1) 38%, rgba(10,12,14,.86) 100%);
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --paper: #121517; --sand: #1a1f21; --card: #1e2427; --ink: #eeeee9; --ink2: #c3c8c4; --mute: #979e9a; --line: #2e3538; --accent-ink: #e39a62; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --paper: #121517; --sand: #1a1f21; --card: #1e2427; --ink: #eeeee9; --ink2: #c3c8c4; --mute: #979e9a; --line: #2e3538; --accent-ink: #e39a62; color-scheme: dark }

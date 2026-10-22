@@ -1,0 +1,10 @@
+/* vogldirect.com theme: "Direct". Veteran-owned and plain-spoken: the navy and sky blue of their pin logo, with a signal amber for calls to
+   action, like a service tag. Barlow Condensed in heavy caps for display, Barlow for text, Space Mono for prices and plan details. */
+:root {
+  --paper: #f4f6f8; --sand: #e7ecf1; --card: #ffffff; --ink: #0f2740; --ink2: #34495d; --mute: #677a8c; --line: #d6dee6;
+  --dark: #0f2740; --dark2: #17344f; --on-dark: #eef4f9; --on-dark2: #9fb3c6; --foot: #0a1c2e;
+  --accent: #f4a51c; --accent-2: #ffc457; --accent-ink: #9a6200; --on-accent: #0f2740; --sky: #3aa6dd; --sky-2: #8fd0f0;
+  --f-disp: "Barlow Condensed", "Arial Narrow", system-ui, sans-serif; --f-body: "Barlow", "Segoe UI", system-ui, sans-serif; --f-mono: "Space Mono", ui-monospace, Menlo, Consolas, monospace;
+  --disp-w: 800; --disp-ls: -.005em; --disp-tt: uppercase; --r: 4px; --btn-r: 4px; --hdr: 84px; --logo-h: 50px;
+  color-scheme: light;
+}

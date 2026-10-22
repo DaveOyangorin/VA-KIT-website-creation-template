@@ -1,0 +1,921 @@
+{
+  "name": "SERP Keyword Visibility Discovery",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -224,
+        400
+      ],
+      "id": "c56f4fcb-1020-4ea6-a854-9e79e652a49f",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "5b53102d-55ff-4851-accb-068e1206a2be",
+              "name": "id_sheet",
+              "value": "16MWeFERG_xQiwul1hWpYXNP89loBYCkZMl_NicEv5do",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        32,
+        400
+      ],
+      "id": "0d2d16cf-de88-4ef7-b536-067fa96fd1a6",
+      "name": "Set Sheet ID"
+    },
+    {
+      "parameters": {
+        "content": "## 1. Trigger & Input Setup\n1.1 Enter user inputs in the Google Sheets. Fields for input: Niche Keyword, Keyword, Location, and Language.\n1.2 Replace the \"id_sheet\" value in the **Set Sheet ID** node.\n1.3 Set \"Status\" to **Ready** in Google Sheets, and execute the n8n workflow.\n*Note: This workflow will only execute one row at a time.*",
+        "height": 352,
+        "width": 736,
+        "color": 3
+      },
+      "id": "65b625af-0ee9-4e8a-b93e-754179c5fb45",
+      "name": "Sticky Note18",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -288,
+        224
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "={{ $json.id_sheet }}",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1002397668,
+          "mode": "list",
+          "cachedResultName": "User Input",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Aog284_93tTwQLRUvnLOTD3sN55EoXlDJ5sx7TzCTeQ/edit#gid=1002397668"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "Status",
+              "lookupValue": "Ready"
+            }
+          ]
+        },
+        "options": {
+          "returnFirstMatch": true
+        }
+      },
+      "id": "d2950d1a-9371-4462-9bde-dae83ed61a55",
+      "name": "Retrieve User Input",
+      "type": "n8n-nodes-base.googleSheets",
+      "position": [
+        272,
+        400
+      ],
+      "typeVersion": 4.5
+    },
+    {
+      "parameters": {
+        "content": "## SERP Keyword Visibility Discovery\nCreates a data-driven map of keyword markets, blending search metrics with SERP features to uncover visibility potential.",
+        "height": 672,
+        "width": 2704
+      },
+      "id": "2d46969a-048d-4b21-90d2-b3ec3041e780",
+      "name": "Sticky Note17",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -304,
+        144
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "## 0. Reminder\n* To use this workflow for your project, please make a copy of the provided **[Google Sheets](https://docs.google.com/spreadsheets/d/16MWeFERG_xQiwul1hWpYXNP89loBYCkZMl_NicEv5do/edit?usp=sharing)** template.\n* Credentials required:\n  * DataforSEO\n  * Google Sheets",
+        "width": 736,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -288,
+        592
+      ],
+      "id": "f91a9864-062b-46de-8878-ba74335b8da9",
+      "name": "Sticky Note12"
+    },
+    {
+      "parameters": {
+        "content": "## 2. Retrieve Keyword Metrics\nIdentifies keyword categories, expands keywords, and extracts keyword metrics such as search volume, cpc, and competition.",
+        "height": 576,
+        "width": 960,
+        "color": 5
+      },
+      "id": "6eb8380c-e550-47af-8a5a-3479e7c10484",
+      "name": "Sticky Note14",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        464,
+        224
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "## 4. Finalize\nCompiles all data and updates the final status in the Google Sheet.",
+        "height": 240,
+        "width": 944,
+        "color": 4
+      },
+      "id": "08f5acc0-e749-4bcf-a168-a089c17d814c",
+      "name": "Sticky Note15",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1440,
+        224
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "={{ $('Calculate Opportunity Score').item.json.Sheet_ID }}",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1002397668,
+          "mode": "list",
+          "cachedResultName": "User Input",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1zmApc9E7iSMcsrQ170S_iPGOR9MpjZ1riLoJxOXzKyA/edit#gid=1002397668"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "#": "={{ $('Retrieve User Input').first().json['#'] }}",
+            "Status": "Success",
+            "Generated At": "={{ new Date().toISOString().replace('T',' ').replace(/\\.\\d+Z$/, ' UTC') }}"
+          },
+          "matchingColumns": [
+            "#"
+          ],
+          "schema": [
+            {
+              "id": "#",
+              "displayName": "#",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Niche Keyword",
+              "displayName": "Niche Keyword",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Keyword (Main phrase to guide keyword output, lowercase, and separated by |)",
+              "displayName": "Keyword (Main phrase to guide keyword output, lowercase, and separated by |)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Location (check [Reference] List of Location & Language)",
+              "displayName": "Location (check [Reference] List of Location & Language)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Language (check [Reference] List of Location & Language)",
+              "displayName": "Language (check [Reference] List of Location & Language)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Generated At",
+              "displayName": "Generated At",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        2144,
+        304
+      ],
+      "id": "faeba17e-2584-4e33-b326-75b28556e6f0",
+      "name": "Update Final Status",
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        1520,
+        576
+      ],
+      "id": "69306d5e-0ceb-4af2-84e4-6828b0573261",
+      "name": "Loop Over Items"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBasicAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "=[\n    {\n        \"keyword\": \"{{ $('Extract Keyword Metrics').item.json.keyword }}\",\n        \"location_name\": \"{{ $('Retrieve User Input').item.json['Location (check [Reference] List of Location & Language)'] }}\",\n        \"language_name\": \"{{ $('Retrieve User Input').item.json['Language (check [Reference] List of Location & Language)'] }}\",\n        \"calculate_rectangles\": true,\n        \"device\": \"desktop\",\n        \"os\": \"windows\"\n    }\n]\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1728,
+        592
+      ],
+      "id": "bd2f2870-e547-45d6-9557-7ab94d24e852",
+      "name": "Get SERP Features"
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "tasks[0].result[0].items",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        784,
+        320
+      ],
+      "id": "112cf320-830c-4f52-8f89-54689eef8a07",
+      "name": "Split Out Categories Results"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.dataforseo.com/v3/dataforseo_labs/google/keywords_for_categories/live",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBasicAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "=[\n    {\n        \"category_codes\": [{{ $json.categories }}],\n        \"location_name\": \"{{ $('Retrieve User Input').item.json['Location (check [Reference] List of Location & Language)'] }}\",\n        \"language_name\": \"{{ $('Retrieve User Input').item.json['Language (check [Reference] List of Location & Language)'] }}\",\n        \"include_serp_info\": true,\n        \"filters\": [\"keyword\", \"regex\", \"({{ $('Retrieve User Input').item.json['Keyword (Main phrase to guide keyword output, lowercase, and separated by |)'] }})\"],\n        \"order_by\": [\"keyword_info.search_volume,desc\"],\n        \"limit\": 100\n    }\n]",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1008,
+        320
+      ],
+      "id": "924f9f50-a172-4ef3-a6a2-68c88f22a223",
+      "name": "Obtain Keywords for Categories"
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "tasks[0].result[0].items",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        1232,
+        320
+      ],
+      "id": "532d4494-c537-419d-821f-86ed18c45458",
+      "name": "Split Out Keywords Results"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "0d733e6b-c2af-4807-a3cf-cdf6b921da21",
+              "name": "keyword",
+              "value": "={{ $json.keyword }}",
+              "type": "string"
+            },
+            {
+              "id": "d4ecbfdb-a5f2-40e6-9ca1-c2f57d0846d6",
+              "name": "competition",
+              "value": "={{ $json.keyword_info.competition }}",
+              "type": "string"
+            },
+            {
+              "id": "1d3cda9d-9ad1-498a-8e3c-c079febd0a6b",
+              "name": "competition_level",
+              "value": "={{ $json.keyword_info.competition_level }}",
+              "type": "string"
+            },
+            {
+              "id": "616bb0f6-db11-4e13-9210-ad6f4b104755",
+              "name": "cpc",
+              "value": "={{ $json.keyword_info.cpc }}",
+              "type": "string"
+            },
+            {
+              "id": "4d4bd5ce-f3cb-4393-b4c7-affc12a0eccd",
+              "name": "search_volume",
+              "value": "={{ $json.keyword_info.search_volume }}",
+              "type": "string"
+            },
+            {
+              "id": "9a3a44c4-ca4e-4758-b33b-2a1591002001",
+              "name": "low_top_of_page_bid",
+              "value": "={{ $json.keyword_info.low_top_of_page_bid }}",
+              "type": "string"
+            },
+            {
+              "id": "59b2d54c-ef42-4c97-915a-e388d4334702",
+              "name": "high_top_of_page_bid",
+              "value": "={{ $json.keyword_info.high_top_of_page_bid }}",
+              "type": "string"
+            },
+            {
+              "id": "c591b524-fb8f-479c-bd87-7095baeb6941",
+              "name": "yearly_search_volume_trend",
+              "value": "={{ $json.keyword_info.search_volume_trend.yearly }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1008,
+        576
+      ],
+      "id": "9514707f-ee23-43e3-90b0-3a9af7eb9746",
+      "name": "Extract Keyword Metrics"
+    },
+    {
+      "parameters": {
+        "sortFieldsUi": {
+          "sortField": [
+            {
+              "fieldName": "keyword_info.search_volume",
+              "order": "descending"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.sort",
+      "typeVersion": 1,
+      "position": [
+        784,
+        576
+      ],
+      "id": "3a1e760c-4a7e-4867-8d99-6122169eeb66",
+      "name": "Sort By Search Volume"
+    },
+    {
+      "parameters": {
+        "jsCode": "// =========================================\n// CONFIGURATION\n// =========================================\nconst Y_THRESHOLD = 1080; // Anything >=1080 requires scrolling\nconst BLOCKERS = ['local_pack', 'map', 'paid', 'hotels_pack']; // SERP types considered blockers\n\n// =========================================\n// MAIN LOGIC\n// =========================================\nconst results = $input.all().map(item => {\n  const result = item.json.tasks?.[0]?.result?.[0];\n  if (!result) return { ...item.json, error: \"No result data found\" };\n\n  const keyword = result.keyword;\n  const serpItems = result.items || [];\n\n  // =========================================\n  // 1️⃣ Build grouped diagnostic summary\n  // =========================================\n  const serpSummary = serpItems\n    .map((i, idx) => {\n      const y = i.rectangle?.y ?? 'N/A';\n      const height = i.rectangle?.height ?? 'N/A';\n      const bottomEdge =\n        typeof y === 'number' && typeof height === 'number'\n          ? y + height\n          : 'N/A';\n\n      // Determine visibility zone\n      let visibility = 'Unknown';\n      if (typeof y === 'number' && typeof height === 'number') {\n        if (bottomEdge <= Y_THRESHOLD) visibility = 'Fully Above Fold';\n        else if (y < Y_THRESHOLD && bottomEdge > Y_THRESHOLD)\n          visibility = 'Partially Visible';\n        else if (y >= Y_THRESHOLD) visibility = 'Below Fold';\n      }\n\n      return `${idx + 1}. Type: ${i.type}, Rank Group: ${i.rank_group}, Rank Absolute: ${i.rank_absolute}, Visibility: ${visibility}`;\n    })\n    .join('\\n'); // or '<br>' if you want HTML formatting\n\n  // =========================================\n  // 2️⃣ Detect blockers above fold (including partial)\n  // =========================================\n  const hasVisibleBlocker = serpItems.some(i => {\n    const y = i.rectangle?.y ?? 9999;\n    const height = i.rectangle?.height ?? 0;\n    const bottomEdge = y + height;\n    const isPartiallyOrFullyAboveFold = y < Y_THRESHOLD; // ✅ counts partial visibility\n    return BLOCKERS.includes(i.type) && isPartiallyOrFullyAboveFold;\n  });\n\n  // =========================================\n  // 3️⃣ Return structured output\n  // =========================================\n  return {\n    keyword,\n    serp_summary: serpSummary,\n    \"Has Map/Paid Results Above the Fold?\": hasVisibleBlocker ? 'Yes' : 'No'\n  };\n});\n\n// =========================================\n// RETURN FINAL OUTPUT\n// =========================================\nreturn results;"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1936,
+        592
+      ],
+      "id": "e2b88521-6318-4f52-bbc5-75112d62db1e",
+      "name": "Parse SERP Features"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "87194ad0-662f-4aed-adbd-87e66dec7db9",
+              "leftValue": "={{ $json.keyword_info.cpc }}",
+              "rightValue": "",
+              "operator": {
+                "type": "number",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "5de406d8-e541-47cc-b92b-d48b14eff3ba",
+              "leftValue": "={{ $json.keyword_info.low_top_of_page_bid }}",
+              "rightValue": "",
+              "operator": {
+                "type": "number",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "f033b18a-b76b-4466-ab57-8c0871c51c8a",
+              "leftValue": "={{ $json.keyword_info.high_top_of_page_bid }}",
+              "rightValue": "",
+              "operator": {
+                "type": "number",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "4cacdbae-c4be-4c5d-a9bb-3a000cf4640d",
+              "leftValue": "={{ $json.keyword_info.competition }}",
+              "rightValue": "",
+              "operator": {
+                "type": "number",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.2,
+      "position": [
+        560,
+        576
+      ],
+      "id": "c6dc72fb-5be8-488f-854e-5d07ca629cc4",
+      "name": "Filter Null Results"
+    },
+    {
+      "parameters": {
+        "content": "## 3. SERP Market Discovery\nAnalyzes SERP feature data, including identification of SERP types, above the fold visibility, and calculates opportunity score.",
+        "height": 320,
+        "width": 944,
+        "color": 5
+      },
+      "id": "75ec5d88-32e1-43db-8963-ecd143451205",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1440,
+        480
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.dataforseo.com/v3/dataforseo_labs/google/categories_for_keywords/live",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBasicAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "=[\n    {\n        \"keywords\": [\"{{ $json[\"Niche Keyword\"] }}\"],\n        \"language_name\": \"{{ $json['Language (check [Reference] List of Location & Language)'] }}\"\n    }\n]",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        560,
+        320
+      ],
+      "id": "c1d2e58e-c70f-492c-889e-b3c659b186be",
+      "name": "Obtain Categories For Keyword"
+    },
+    {
+      "parameters": {
+        "maxItems": 50
+      },
+      "type": "n8n-nodes-base.limit",
+      "typeVersion": 1,
+      "position": [
+        1232,
+        576
+      ],
+      "id": "be3e0da5-ae59-4b3c-8a16-0f879b5bc47c",
+      "name": "Get First 50 Keywords"
+    },
+    {
+      "parameters": {
+        "jsCode": "// =========================================\n// 🧮 SERP Opportunity Scoring System (Code2)\n// =========================================\n\n// --- Get keyword metrics from 'Get First 50 Keywords' ---\nconst keywordData = $('Get First 50 Keywords').item; // gets current keyword loop’s data\nconst keyword = keywordData.json.keyword || \"N/A\";\nconst sv = Number(keywordData.json.search_volume) || 0;\nconst trend = Number(keywordData.json.yearly_search_volume_trend) || 0;\nconst competitionLevel = String(keywordData.json.competition_level || \"\").toUpperCase();\n\n// --- SERP blockers info from current item (Parse SERP Features path) ---\nconst hasBlocker = \n  String($json[\"Has Map/Paid Results Above the Fold?\"]).toLowerCase() === \"yes\";\n\n// =========================================\n// 📊 SCORING LOGIC\n// =========================================\nlet score = 0;\n\n// Search Volume scoring\nif (sv > 1000) score += 2;\nelse if (sv >= 200) score += 1;\n\n// SERP Blockers scoring\nif (hasBlocker) score -= 2;\n\n// Trend scoring (no fallback version)\nif (trend > 50) score += 2;\nelse if (trend > 10) score += 1;\nelse if (trend < -10) score -= 1;\nelse if (trend < -50) score -= 2;\n\n// Competition Level\nif (competitionLevel === \"LOW\") score += 2;\nelse if (competitionLevel === \"MEDIUM\") score += 1;\nelse if (competitionLevel === \"HIGH\") score -= 1;\n\n// =========================================\n// 🏁 LABEL\n// =========================================\nlet label = \"🔴 Low Opportunity\";\nif (score >= 4) label = \"🟢 High Opportunity\";\nelse if (score >= 1) label = \"🟡 Medium Opportunity\";\n\n// --- Pull Location & Sheet ID from earlier nodes ---\nconst location =\n  $('Retrieve User Input').first().json[\"Location (check [Reference] List of Location & Language)\"] ||  \"N/A\";\n\nconst sheetId =\n  $('Set Sheet ID').first().json.id_sheet || \"N/A\";\n\n// =========================================\n// ✅ RETURN ALL DATA (merge both paths)\n// =========================================\nreturn {\n  ...$json, // keep SERP details from current loop\n  ...keywordData.json, // merge keyword metrics\n  Location: location,      // from Retrieve User Input\n  Sheet_ID: sheetId,       // from Set Sheet ID\n  \"Opportunity Score\": score,\n  \"Opportunity Label\": label\n};\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2144,
+        592
+      ],
+      "id": "92719ade-83fa-42f0-b7b8-1f581c378bdd",
+      "name": "Calculate Opportunity Score"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "={{ $json.Sheet_ID }}",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1643205052,
+          "mode": "list",
+          "cachedResultName": "Report",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1zmApc9E7iSMcsrQ170S_iPGOR9MpjZ1riLoJxOXzKyA/edit#gid=1643205052"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Location": "={{ $json.Location }}",
+            "Keyword": "={{ $json.keyword }}",
+            "Opportunity Level": "=Score:  {{ $json['Opportunity Score'] }}\n{{ $json['Opportunity Label'] }}",
+            "Competition": "={{ $json.competition }}",
+            "Has Map/Paid Results Above the Fold?": "={{ $json['Has Map/Paid Results Above the Fold?'] }}",
+            "Keyword SERP Feature Presence": "={{ $json.serp_summary }}",
+            "Competition Level": "={{ $json.competition_level }}",
+            "CPC": "={{ $json.cpc }}",
+            "Search Volume": "={{ $json.search_volume }}",
+            "Low Top of Page Bid": "={{ $json.low_top_of_page_bid }}",
+            "High Top of Page Bid": "={{ $json.high_top_of_page_bid }}",
+            "Yearly Search Volume Trend (%)": "={{ $json.yearly_search_volume_trend }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Keyword",
+              "displayName": "Keyword",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Location",
+              "displayName": "Location",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Competition",
+              "displayName": "Competition",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Competition Level",
+              "displayName": "Competition Level",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "CPC",
+              "displayName": "CPC",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Search Volume",
+              "displayName": "Search Volume",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Low Top of Page Bid",
+              "displayName": "Low Top of Page Bid",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "High Top of Page Bid",
+              "displayName": "High Top of Page Bid",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Yearly Search Volume Trend (%)",
+              "displayName": "Yearly Search Volume Trend (%)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Keyword SERP Feature Presence",
+              "displayName": "Keyword SERP Feature Presence",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Has Map/Paid Results Above the Fold?",
+              "displayName": "Has Map/Paid Results Above the Fold?",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Opportunity Level",
+              "displayName": "Opportunity Level",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        1936,
+        304
+      ],
+      "id": "69343155-8a61-441b-8220-c30bc8e21ca6",
+      "name": "Record Data",
+      "executeOnce": false
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Set Sheet ID",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Sheet ID": {
+      "main": [
+        [
+          {
+            "node": "Retrieve User Input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Retrieve User Input": {
+      "main": [
+        [
+          {
+            "node": "Obtain Categories For Keyword",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [
+          {
+            "node": "Record Data",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Get SERP Features",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get SERP Features": {
+      "main": [
+        [
+          {
+            "node": "Parse SERP Features",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out Categories Results": {
+      "main": [
+        [
+          {
+            "node": "Obtain Keywords for Categories",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Obtain Keywords for Categories": {
+      "main": [
+        [
+          {
+            "node": "Split Out Keywords Results",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out Keywords Results": {
+      "main": [
+        [
+          {
+            "node": "Filter Null Results",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract Keyword Metrics": {
+      "main": [
+        [
+          {
+            "node": "Get First 50 Keywords",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Sort By Search Volume": {
+      "main": [
+        [
+          {
+            "node": "Extract Keyword Metrics",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse SERP Features": {
+      "main": [
+        [
+          {
+            "node": "Calculate Opportunity Score",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter Null Results": {
+      "main": [
+        [
+          {
+            "node": "Sort By Search Volume",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Obtain Categories For Keyword": {
+      "main": [
+        [
+          {
+            "node": "Split Out Categories Results",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get First 50 Keywords": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Calculate Opportunity Score": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Record Data": {
+      "main": [
+        [
+          {
+            "node": "Update Final Status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "ffad097a-e2a5-4de0-a2fb-3220b69ba51c",
+  "meta": {
+    "instanceId": "025ee8620cd28d62d8ca3d228a8c082fd302b060b5c59c13823fea8a4877da55"
+  },
+  "id": "AliMKTKLuSojejWA",
+  "tags": []
+}

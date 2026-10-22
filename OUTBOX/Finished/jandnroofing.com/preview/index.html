@@ -1,0 +1,375 @@
+<title>J & N Roofing Review</title>
+<meta name="description" content="Review of the J &amp; N Roofing Maintenance website redesign: audit report, what was fixed, before and after, and a link to open the new site.">
+<style>
+:root {
+  --bg: #f4f5f7; --card: #ffffff; --text: #16181d; --muted: #5f6672; --line: #e1e4ea; --accent: #1f5f8b; --accent-ink: #ffffff;
+  --good: #23784a; --warn: #9a5d00; --bad: #b3261e; --chip: #eef3f7; --shade: rgba(16,24,40,.08);
+  --display: "Space Grotesk", "Segoe UI", system-ui, sans-serif; --body: "Inter", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #111317; --card: #1a1d23; --text: #eceef2; --muted: #a3a9b5; --line: #2c3039; --accent: #7fb6dd; --accent-ink: #0d1a24;
+  --good: #6cc193; --warn: #e0a54a; --bad: #ef7b72; --chip: #232a33; --shade: rgba(0,0,0,.4); color-scheme: dark; } }
+:root[data-theme="dark"] { --bg: #111317; --card: #1a1d23; --text: #eceef2; --muted: #a3a9b5; --line: #2c3039; --accent: #7fb6dd; --accent-ink: #0d1a24;
+  --good: #6cc193; --warn: #e0a54a; --bad: #ef7b72; --chip: #232a33; --shade: rgba(0,0,0,.4); color-scheme: dark; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--text); font: 15px/1.6 var(--body); }
+a { color: var(--accent); }
+.wrap { width: 100%; max-width: 1120px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.topnav { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10; background: color-mix(in srgb, var(--card) 92%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+.topnav .wrap { display: flex; align-items: center; gap: 8px 18px; min-height: 60px; flex-wrap: wrap; padding-block: 8px; }
+.topnav .brand { font: 700 15px/1.2 var(--display); margin-right: auto; }
+.topnav .brand small { display: block; font: 500 11px/1.3 var(--body); color: var(--muted); letter-spacing: .08em; text-transform: uppercase; }
+.topnav nav { display: flex; gap: 2px; flex-wrap: wrap; }
+.topnav nav a { text-decoration: none; color: var(--text); padding: 8px 10px; border-radius: 8px; font-weight: 500; font-size: 14px; }
+.topnav nav a:hover { background: var(--chip); }
+.btn { display: inline-flex; align-items: center; gap: 10px; background: var(--accent); color: var(--accent-ink); text-decoration: none; font-weight: 700; padding: 12px 18px; border-radius: 10px; min-height: 46px; }
+.btn:hover { filter: brightness(1.08); }
+.btn.big { font-size: 17px; padding: 16px 24px; min-height: 56px; }
+.btn.ghost { background: transparent; color: var(--accent); border: 2px solid var(--accent); }
+header.intro { padding-block: 40px 28px; }
+.eyebrow { font: 600 12px/1 var(--body); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+h1 { font: 700 clamp(28px, 4.4vw, 44px)/1.1 var(--display); margin: 10px 0 8px; letter-spacing: -.02em; text-wrap: balance; }
+h2.sec { font: 700 clamp(22px, 3vw, 30px)/1.15 var(--display); margin: 0 0 6px; letter-spacing: -.01em; }
+.lede { color: var(--muted); max-width: 65ch; margin: 0 0 18px; font-size: 16px; }
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin: 24px 0; }
+.stat-tile { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 16px; }
+.stat-tile b { display: block; font: 700 28px/1 var(--display); font-variant-numeric: tabular-nums; }
+.stat-tile span { color: var(--muted); font-size: 13px; }
+.block { padding-block: 34px; border-top: 1px solid var(--line); scroll-margin-top: 70px; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: clamp(16px, 3vw, 28px); }
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 14px; min-width: 560px; }
+th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { color: var(--muted); font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: .06em; }
+.tag { display: inline-block; padding: 2px 9px; border-radius: 99px; font-size: 12px; font-weight: 600; white-space: nowrap; }
+.tag.ok { background: color-mix(in srgb, var(--good) 16%, transparent); color: var(--good); }
+.tag.wait { background: color-mix(in srgb, var(--warn) 16%, transparent); color: var(--warn); }
+.tag.bad { background: color-mix(in srgb, var(--bad) 16%, transparent); color: var(--bad); }
+/* the embedded audit report (its own markup, scoped here) */
+.report section { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 18px; margin-bottom: 14px; }
+.report h1 { font-size: 22px; margin: 0 0 4px; } .report h2 { font: 700 18px/1.3 var(--display); margin: 0 0 10px; } .report h3 { font-size: 15px; margin: 14px 0 6px; }
+.report .sub { color: var(--muted); margin: 0 0 14px; }
+.report .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 10px; }
+.report .stat { border: 1px solid var(--line); border-radius: 8px; padding: 12px; } .report .stat b { display: block; font-size: 20px; } .report .stat span { color: var(--muted); font-size: 13px; }
+.report .t-good { background: color-mix(in srgb, var(--good) 16%, transparent); color: var(--good); }
+.report .t-warn { background: color-mix(in srgb, var(--warn) 16%, transparent); color: var(--warn); }
+.report .t-bad { background: color-mix(in srgb, var(--bad) 16%, transparent); color: var(--bad); }
+.report td.num, .report th.num { text-align: right; font-variant-numeric: tabular-nums; }
+.report dl { display: grid; grid-template-columns: max-content 1fr; gap: 6px 16px; margin: 0; } .report dt { color: var(--muted); } .report dd { margin: 0; }
+.report code { background: var(--chip); padding: 1px 6px; border-radius: 4px; font-size: 13px; }
+.report .note { border-left: 3px solid var(--warn); padding: 8px 12px; background: color-mix(in srgb, var(--warn) 8%, transparent); border-radius: 0 6px 6px 0; margin: 10px 0; }
+.report .check li { list-style: none; margin-left: -20px; } .report .check li::before { content: "☐ "; color: var(--muted); }
+.report-box { max-height: 640px; overflow: auto; border-radius: 14px; border: 1px solid var(--line); padding: 14px; background: var(--bg); }
+.report-box.open { max-height: none; }
+.ba { display: grid; gap: 18px; }
+.ba figure { margin: 0; }
+.ba figcaption { font: 600 13px/1.3 var(--body); color: var(--muted); margin: 10px 0 0; text-transform: uppercase; letter-spacing: .08em; }
+.frame { border-radius: 12px; overflow: hidden; border: 1px solid var(--line); box-shadow: 0 18px 40px -24px var(--shade); background: var(--card); }
+.frame .bar { display: flex; gap: 6px; padding: 9px 12px; border-bottom: 1px solid var(--line); }
+.frame .bar i { width: 10px; height: 10px; border-radius: 50%; background: var(--line); }
+.frame img { display: block; width: 100%; max-width: 100%; height: auto; max-height: 560px; object-fit: cover; object-position: top; }
+.phones { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; max-width: 520px; }
+.phone { border: 8px solid #20232a; border-radius: 26px; overflow: hidden; background: #20232a; }
+.phone img { display: block; width: 100%; max-width: 100%; height: auto; max-height: 520px; object-fit: cover; object-position: top; }
+.pages { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 10px; }
+.pagelink { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 14px 16px; background: var(--card); border: 1px solid var(--line); border-radius: 10px; text-decoration: none; color: var(--text); font-weight: 600; }
+.pagelink:hover { border-color: var(--accent); color: var(--accent); }
+.qs li { margin: 6px 0; }
+.cta-row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+footer.foot { color: var(--muted); font-size: 13px; padding-block: 30px 50px; border-top: 1px solid var(--line); }
+@media (min-width: 860px) { .ba { grid-template-columns: 1fr 1fr; } }
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap">
+
+<div class="topnav"><div class="wrap">
+<div class="brand">J &amp; N Roofing Maintenance<small>Website redesign review &middot; draft</small></div>
+<nav aria-label="Sections"><a href="#report">Report</a><a href="#fixes">What we fixed</a><a href="#mockup">Before &amp; after</a><a href="#pages">Pages</a><a href="#questions">Questions</a></nav>
+<a class="btn" href="home/index.html">Open website <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a>
+</div></div>
+
+<header class="wrap intro">
+<div class="eyebrow">Draft for review &middot; jandnroofing.com &middot; West Valley City, UT</div>
+<h1>J &amp; N Roofing Maintenance: website redesign</h1>
+<p class="lede">Start with the report to see what was wrong, then what we fixed, then the before-and-after. When you're ready, open the new website. Nothing here is live.</p>
+<div class="cta-row"><a class="btn big" href="home/index.html">Open the new website <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a><a class="btn ghost" href="#mockup">See before &amp; after</a></div>
+<div class="stats"><div class="stat-tile"><b>79</b><span>pages built, same URLs</span></div><div class="stat-tile"><b>411</b><span>copied posts left out</span></div><div class="stat-tile"><b>1,164</b><span>words in the new blog post</span></div><div class="stat-tile"><b>0</b><span>QA issues</span></div><div class="stat-tile"><b>8/13</b><span>issues fixed in the draft</span></div></div>
+</header>
+
+<section class="block" id="report"><div class="wrap">
+<h2 class="sec">1. The report</h2><p class="lede">The website plan report from the 5 Oct 2026 audit. It's the reason behind most of the changes below.</p>
+<div class="report-box" id="rbox"><div class="report">
+  <h1>jandnroofing.com · Website plan report</h1>
+  <p class="sub">J &amp; N Roofing Maintenance LLC · West Valley City · Prepared 17 Oct 2026. Business facts and audit from 5 Oct 2026; search numbers and Google results from 14 Oct 2026. Draft for Angelo's review.</p>
+  <section>
+    <h2>Summary</h2>
+    <ul>
+      <li><b>Home page target:</b> <code>roofing company west valley city</code> (40 for “roofing company”, 70 for “roofing company near me”).</li>
+      <li><b>Big site:</b> 488 pages. 10 of 10 services have their own page. Keep the URLs; the job is to fix and localize, not rebuild.</li>
+      <li><b>Biggest keyword:</b> roof repair (50 searches + 20 "near me"). They already have a page.</li>
+      <li><b>Mobile speed:</b> 70/100 (aim 90+).</li>
+      <li><b>Meta descriptions are missing.</b> Every key page needs one.</li>
+      <li><b>Few reviews:</b> 5 stars, but only 9.</li>
+    </ul>
+  </section>
+  <section>
+    <h2>Business facts</h2>
+    <dl>
+      <dt>Name</dt><dd>J &amp; N Roofing Maintenance LLC</dd>
+      <dt>Website</dt><dd>jandnroofing.com · 488 pages now</dd>
+      <dt>Phone</dt><dd>+1801-969-5759</dd>
+      <dt>Address</dt><dd>3842 S 2200 W, West Valley City, UT 84119</dd>
+      <dt>Google category</dt><dd>Roofing contractor</dd>
+      <dt>Reviews</dt><dd>5 stars · 9 reviews</dd>
+    </dl>
+    <p class="note"><b>Website:</b> the domain (jandnroofing.com) doesn't match the business name. Check with Angelo that this is the right site for J &amp; N Roofing Maintenance LLC.</p>
+    <p class="note">From the Google profile on 5 Oct 2026. Confirm with the client before it goes on the site. The phone is copied exactly as given (<code>+1801-969-5759</code>). Ask the client how they want it shown; do not reformat it without their OK.</p>
+  </section>
+  <section>
+    <h2>Fix on the new site</h2>
+    <div class="grid">
+      <div class="stat"><b>70 / 100</b><span>Mobile speed now · aim for 90+</span></div>
+      <div class="stat"><b>Missing</b><span>Meta description</span></div>
+      <div class="stat"><b>OK</b><span>Images have alt text</span></div>
+      <div class="stat"><b>31 of 488</b><span>Pages that name West Valley City</span></div>
+    </div>
+    <h3>What to do</h3>
+    <ul>
+      <li>Compress and resize images, lazy-load images below the fold, and remove scripts or plugins the page does not need.</li>
+      <li><b>Write meta descriptions</b> for the home page and every service page. One unique description per page, with the keyword and "West Valley City".</li>
+      <li>Name West Valley City in the title, H1 and first paragraph of every service page.</li>
+      <li><b>Keep the page addresses (URLs).</b> With 488 pages live, changing URLs can lose rankings. If a URL must change or two pages merge, Angelo sets up a redirect.</li>
+      <li>488 pages is a lot. Ask Angelo for a quick check for thin or repeat pages that could be merged.</li>
+    </ul>
+  </section>
+  <section>
+    <h2>Home page</h2>
+    <dl>
+      <dt>Main keyword</dt><dd><code>roofing company west valley city</code></dd>
+      <dt>Also use</dt><dd><code>roofers west valley city</code>, <code>roofing contractor west valley city</code></dd>
+      <dt>Searches</dt><dd>40 for “roofing company”, 70 for “roofing company near me”</dd>
+      <dt>Placement</dt><dd>Start with the keyword: put it in the title tag, the H1 and the first sentence.</dd>
+    </dl>
+    <p>The home page should link to every service page and the cost page. Show the rating and review count once the client confirms them.</p>
+  </section>
+  <section>
+    <h2>Service pages · build in this order</h2>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>Service</th><th>Target keyword</th><th class="num">Searches</th><th class="num">"Near me"</th><th class="num">Exact keyword</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Roof repair</td><td><code>roof repair west valley city</code></td><td class="num">50</td><td class="num">20</td><td class="num">–</td><td><span class="tag t-good">Has a page</span></td></tr>
+        <tr><td>2</td><td>Repair roofs</td><td><code>repair roofs west valley city</code></td><td class="num">50</td><td class="num">–</td><td class="num">–</td><td><span class="tag t-good">Has a page</span></td></tr>
+        <tr><td>3</td><td>Roofing</td><td><code>roofing west valley city</code></td><td class="num">–</td><td class="num">50</td><td class="num">–</td><td><span class="tag t-good">Has a page</span></td></tr>
+        <tr><td>4</td><td>Roof replacement</td><td><code>roof replacement west valley city</code></td><td class="num">10</td><td class="num">20</td><td class="num">–</td><td><span class="tag t-good">Has a page</span></td></tr>
+        <tr><td>5</td><td>Roof inspection</td><td><code>roof inspection west valley city</code></td><td class="num">10</td><td class="num">10</td><td class="num">–</td><td><span class="tag t-good">Has a page</span></td></tr>
+        <tr><td>6</td><td>Flat roofs</td><td><code>flat roofs west valley city</code></td><td class="num">10</td><td class="num">10</td><td class="num">–</td><td><span class="tag t-good">Has a page</span></td></tr>
+        <tr><td>7</td><td>Roofing materials</td><td><code>roofing materials west valley city</code></td><td class="num">10</td><td class="num">10</td><td class="num">–</td><td><span class="tag t-good">Has a page</span></td></tr>
+        <tr><td>8</td><td>Roofing quote</td><td><code>roofing quote west valley city</code></td><td class="num">10</td><td class="num">10</td><td class="num">–</td><td><span class="tag t-good">Has a page</span></td></tr>
+        <tr><td>9</td><td>Solar powered e bike</td><td><code>solar powered e bike west valley city</code></td><td class="num">10</td><td class="num">–</td><td class="num">–</td><td><span class="tag t-good">Has a page</span></td></tr>
+        <tr><td>10</td><td>Low slope roofing</td><td><code>low slope roofing west valley city</code></td><td class="num">10</td><td class="num">–</td><td class="num">–</td><td><span class="tag t-good">Has a page</span></td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="small">Searches and "near me" are inside West Valley City. "Exact keyword" = searches for the keyword with the city name, across Utah (for services read from their site: inside West Valley City). "–" = fewer than 10 a month; "10" is Google's lowest number. One page per service. Only build a page if the business really does that service.</p>
+    <h3>Notes on the list</h3>
+    <ul>
+      <li><b>Roof repair and Repair roofs</b> are very close topics. Keep each page clearly different, or ask Angelo whether one should be a section of the other, so they don't compete.</li>
+      <li><b>Roof repair and Roofing</b> are very close topics. Keep each page clearly different, or ask Angelo whether one should be a section of the other, so they don't compete.</li>
+      <li><b>Repair roofs and Roofing</b> are very close topics. Keep each page clearly different, or ask Angelo whether one should be a section of the other, so they don't compete.</li>
+      <li><b>Roofing and Roof replacement</b> are very close topics. Keep each page clearly different, or ask Angelo whether one should be a section of the other, so they don't compete.</li>
+      <li><b>Roofing and Roof inspection</b> are very close topics. Keep each page clearly different, or ask Angelo whether one should be a section of the other, so they don't compete.</li>
+      <li><b>Roofing and Flat roofs</b> are very close topics. Keep each page clearly different, or ask Angelo whether one should be a section of the other, so they don't compete.</li>
+      <li><b>Roofing and Roofing materials</b> are very close topics. Keep each page clearly different, or ask Angelo whether one should be a section of the other, so they don't compete.</li>
+      <li><b>Roofing and Roofing quote</b> are very close topics. Keep each page clearly different, or ask Angelo whether one should be a section of the other, so they don't compete.</li>
+      <li><b>Roofing and Low slope roofing</b> are very close topics. Keep each page clearly different, or ask Angelo whether one should be a section of the other, so they don't compete.</li>
+      <li><b>Roofing materials</b> is not a service: a guide. Don't count its searches as customers. Keep the page, but don't build the site around it. Check with Angelo.</li>
+      <li><b>Roofing quote</b> is not a service: a quote/estimate page. Don't count its searches as customers. Keep the page, but don't build the site around it. Check with Angelo.</li>
+      <li><b>Solar powered e bike</b> is not a service: a blog topic, not a roofing service. Don't count its searches as customers. Keep the page, but don't build the site around it. Check with Angelo.</li>
+    </ul>
+  </section>
+  <section>
+    <h2>More searches Google suggests</h2>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Search</th><th>Use?</th><th>Where</th></tr></thead>
+      <tbody>
+        <tr><td>Residential roof repair west valley city</td><td><span class="tag t-good">Yes</span></td><td>Matching service page, as a section</td></tr>
+        <tr><td>Free roof repair west valley city</td><td><span class="tag t-warn">If true</span></td><td>Only with real offers from the client</td></tr>
+        <tr><td>Free roof replacement west valley city</td><td><span class="tag t-warn">If true</span></td><td>Only with real offers from the client</td></tr>
+        <tr><td>Roof replacement west valley city cost</td><td><span class="tag t-warn">Real prices only</span></td><td>Cost page</td></tr>
+        <tr><td>Roof replacement cost west valley city calculator</td><td><span class="tag t-warn">Real prices only</span></td><td>Cost page</td></tr>
+        <tr><td>Metal roof replacement cost west valley city</td><td><span class="tag t-warn">Real prices only</span></td><td>Cost page</td></tr>
+        <tr><td>roof repair near salt lake city</td><td><span class="tag t-warn">Other city</span></td><td>Only if they work in Salt Lake City (city page)</td></tr>
+        <tr><td>ut</td><td><span class="tag t-good">Yes</span></td><td>Matching service page, as a section</td></tr>
+        <tr><td>roof repair near west valley city</td><td><span class="tag t-good">Yes</span></td><td>Matching service page, as a section</td></tr>
+        <tr><td>ut</td><td><span class="tag t-good">Yes</span></td><td>Matching service page, as a section</td></tr>
+        <tr><td>Metal roof repair near me</td><td><span class="tag t-good">Yes</span></td><td>Matching service page, as a section</td></tr>
+        <tr><td>Best roof repair near me</td><td><span class="tag t-warn">Show, don&#x27;t claim</span></td><td>Use real reviews, photos and process. Don&#x27;t claim &quot;the best&quot;.</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="small">Sorted automatically. Check any "company name" row by eye before skipping it.</p>
+  </section>
+  <section>
+    <h2>Cost page</h2>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Keyword</th><th class="num">Searches West Valley City</th><th class="num">All Utah</th><th>City version</th><th class="num">All Utah</th></tr></thead>
+      <tbody>
+        <tr><td>roof replacement cost</td><td class="num">10</td><td class="num">170</td><td>roof replacement cost west valley city</td><td class="num">–</td></tr>
+        <tr><td>roof repair cost</td><td class="num">10</td><td class="num">30</td><td>roof repair cost west valley city</td><td class="num">–</td></tr>
+        <tr><td>new roof cost</td><td class="num">10</td><td class="num">70</td><td>new roof cost west valley city</td><td class="num">–</td></tr>
+        <tr><td>metal roof cost</td><td class="num">10</td><td class="num">90</td><td>metal roof cost west valley city</td><td class="num">–</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p>One cost page covering all of these. Check first whether one of the existing pages already covers cost; if so, improve it instead of adding a new one. Cost searchers are close to buying. <b>Use only real prices from the client.</b> If the client will not share prices, explain what changes the price and invite a free estimate instead.</p>
+  </section>
+  <section>
+    <h2>City pages</h2>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>City</th><th>Keyword 1</th><th class="num">All Utah</th><th>Keyword 2</th><th class="num">All Utah</th></tr></thead>
+      <tbody>
+        <tr><td>Salt Lake City</td><td>roof repair salt lake city</td><td class="num">140</td><td>roof replacement salt lake city</td><td class="num">20</td></tr>
+        <tr><td>South Jordan</td><td>roof repair south jordan</td><td class="num">30</td><td>roof replacement south jordan</td><td class="num">–</td></tr>
+        <tr><td>Sandy</td><td>roof repair sandy</td><td class="num">30</td><td>roof replacement sandy</td><td class="num">–</td></tr>
+        <tr><td>Draper</td><td>roof repair draper</td><td class="num">10</td><td>roof replacement draper</td><td class="num">–</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p>Build a city page only if the business really works there. Salt Lake City has the most searches (140 for "roof repair salt lake city" across Utah). Each page needs real local content (jobs done there, neighborhoods), not the West Valley City page with the name swapped.</p>
+  </section>
+  <section>
+    <h2>What a strong page looks like</h2>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Keyword</th><th class="num">Avg. words (top pages)</th><th class="num">Have FAQ</th><th class="num">Show prices</th></tr></thead>
+      <tbody>
+        <tr><td>roof repair west valley city</td><td class="num">~590</td><td class="num">2 of 3</td><td class="num">0 of 3</td></tr>
+        <tr><td>roof replacement west valley city</td><td class="num">~1,163</td><td class="num">3 of 3</td><td class="num">0 of 3</td></tr>
+        <tr><td>roof replacement cost west valley city</td><td class="num">~1,862</td><td class="num">2 of 3</td><td class="num">2 of 3</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <h3>Takeaways</h3>
+    <ul>
+      <li>Aim for <b>about 600–1,200 words</b> on the main service pages, with an FAQ on each.</li>
+      <li>No top service page shows prices. Real prices (if the client gives them) would set this site apart.</li>
+    </ul>
+    <h3>Headings on the top pages (topic ideas only)</h3>
+    <ul>
+      <li>Weather That Damages Roofs in West Valley City</li>
+      <li>West Valley City Neighborhoods We Serve</li>
+      <li>Roofing Services in West Valley City</li>
+      <li>Frequently Asked Questions</li>
+      <li>QUALITY ROOFING IN ALL OF UTAH</li>
+      <li>Comprehensive Roofing Services in West Valley &amp; Salt Lake City</li>
+      <li>Our Seamless Roofing Process</li>
+      <li>Our Roofing Services in West Valley &amp; Salt Lake City</li>
+      <li>Frequently Asked Questions (FAQs)</li>
+      <li>Wasatch Front Performance for West Valley City</li>
+      <li>Storm Damage &amp; Insurance Hub: West Valley City</li>
+      <li>Plan your roofing project in West Valley City</li>
+      <li>Premium Roof Replacements in West Valley City</li>
+      <li>Why West Valley City Homes Need Expert Roofing</li>
+      <li>Reroofing Built to Uncompromising Standards</li>
+      <li>West Valley City Housing &amp; Roofing Context</li>
+      <li>Serving West Valley City &amp; Surrounding Communities</li>
+    </ul>
+    <p class="note">Use competitor headings for topic ideas only. Do not copy them. Some name other companies, owners or promotions. Bios, promotions and project photos go in only with real facts from the client.</p>
+  </section>
+  <section>
+    <h2>FAQ · real questions from Google</h2>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Question</th><th>Use?</th><th>Where</th></tr></thead>
+      <tbody>
+        <tr><td>How do you do valleys with metal roofing?</td><td><span class="tag t-good">Yes</span></td><td>Matching service page</td></tr>
+        <tr><td>How to pay for roof repair?</td><td><span class="tag t-warn">If client confirms</span></td><td>Only what the client really offers</td></tr>
+        <tr><td>Who are the major manufacturers of shingles in the USA?</td><td><span class="tag t-bad">Skip as written</span></td><td>Cover the intent on the home page (reviews, why choose us)</td></tr>
+        <tr><td>How long do roofs last in Utah?</td><td><span class="tag t-good">Yes</span></td><td>Matching service page</td></tr>
+        <tr><td>How to get your roof replaced for cheap?</td><td><span class="tag t-warn">Real prices only</span></td><td>Cost page</td></tr>
+        <tr><td>What is the average cost to replace a roof on a 2000 square-foot home?</td><td><span class="tag t-warn">Real prices only</span></td><td>Cost page</td></tr>
+        <tr><td>What is the 25% rule for roofing?</td><td><span class="tag t-warn">Check Utah rules</span></td><td>Matching service page</td></tr>
+        <tr><td>Is $30,000 too much for a roof?</td><td><span class="tag t-warn">Real prices only</span></td><td>Cost page</td></tr>
+        <tr><td>Will insurance cover a 20 year old roof?</td><td><span class="tag t-warn">If client confirms</span></td><td>Only what the client really offers</td></tr>
+        <tr><td>What is the average price of a roof repair?</td><td><span class="tag t-warn">Real prices only</span></td><td>Cost page</td></tr>
+        <tr><td>How much should I pay for a roof repair?</td><td><span class="tag t-warn">Real prices only</span></td><td>Cost page</td></tr>
+        <tr><td>Who is the best person to fix a leaking roof?</td><td><span class="tag t-good">Yes</span></td><td>Matching service page</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </section>
+  <section>
+    <h2>Rules for the writer</h2>
+    <ul>
+      <li>Start each page with its keyword.</li>
+      <li>Use only facts the client gives you: prices, warranty, years in business, licenses.</li>
+      <li>Do not invent reviews, numbers or photos.</li>
+    </ul>
+    <p class="small">Search numbers: Google Ads monthly searches, pulled 14 Oct 2026. Questions and page topics: live Google results in West Valley City, 14 Oct 2026.</p>
+  </section>
+  <section>
+    <h2>Questions for the client</h2>
+    <ol>
+      <li>Do you work in <b>Salt Lake City, South Jordan, Sandy, Draper</b>? Any recent jobs there we can mention?</li>
+      <li>Can you share <b>real prices or price ranges</b> for your main services?</li>
+      <li>Are the name, phone, address, rating (5 stars · 9 reviews) correct? How should the phone number be shown?</li>
+      <li>Do you help with <b>insurance claims</b> or offer <b>financing</b>? What is your warranty, years in business and licenses?</li>
+      <li>Can you send <b>project photos</b> (before/after), with the city each job was in?</li>
+    </ol>
+  </section>
+  <section>
+    <h2>Next steps</h2>
+    <ul class="check">
+      <li><b>Angelo:</b> confirm jandnroofing.com is the right website for this business.</li>
+      <li><b>Angelo:</b> the review count is low; consider Google profile review work.</li>
+      <li><b>Angelo:</b> the "Solar powered e bike" row in the plan is not a real service; decide whether that page stays.</li>
+      <li>Send the client questions above (after Angelo approves).</li>
+      <li>Write meta descriptions for the home page and every service page.</li>
+      <li>Home page: title, H1, first sentence with <code>roofing company west valley city</code>.</li>
+      <li>Improve the service pages already on the site, naming West Valley City on every one; keep the URLs the same.</li>
+      <li>Build or improve the cost page once real prices arrive.</li>
+      <li>City pages only for cities the client confirms.</li>
+      <li>Re-test mobile speed after changes (target 90+).</li>
+    </ul>
+  </section>
+  
+</div></div>
+<p style="margin:12px 0 0"><button class="btn ghost" type="button" id="rtoggle" style="cursor:pointer;font:inherit;font-weight:700">Show the whole report</button></p>
+</div></section>
+
+<section class="block" id="fixes"><div class="wrap">
+<h2 class="sec">2. What we fixed</h2><p class="lede">Each problem from the report or the site review, and what the new site does about it.</p>
+<div class="card table-wrap"><table><thead><tr><th>Problem</th><th>What we did</th><th>Status</th></tr></thead><tbody><tr><td>First draft looked templated and plain</td><td>Redesigned as a printed handbook: a magazine-cover home page with an original line drawing of the parts of a roof, services as a table of contents, a letter from the team, guides on a bookshelf, the real offers as tear-off coupons</td><td><span class="tag ok">Fixed</span></td></tr><tr><td>411 of 452 blog posts are copied from goodshomedesign.com (crochet, crafts, cabins; hotlinked images; another site&#x27;s Amazon affiliate tag)</td><td>Left out of the new site; full list in the copied-posts file for a 410 or noindex decision</td><td><span class="tag wait">Needs Angelo</span></td></tr><tr><td>Home page doesn&#x27;t target West Valley City</td><td>Home title, H1 and first sentence target &quot;roofing company West Valley City&quot;</td><td><span class="tag ok">Fixed</span></td></tr><tr><td>Service pages don&#x27;t name West Valley City</td><td>All 11 service pages plus services and about now have it in the title, H1 and first paragraph</td><td><span class="tag ok">Fixed</span></td></tr><tr><td>Meta descriptions missing on key pages</td><td>Hand-written for home and service pages; others from each page&#x27;s own text</td><td><span class="tag ok">Fixed</span></td></tr><tr><td>References page publishes private homeowners&#x27; phone numbers</td><td>Names kept; phone numbers held back until the client confirms</td><td><span class="tag wait">Needs client</span></td></tr><tr><td>Years in business contradict (20, over 20, 27, over 27, over 30)</td><td>No year claims used</td><td><span class="tag wait">Needs client</span></td></tr><tr><td>36 of the 41 own posts are near-duplicate &quot;roofing salt lake city&quot; pages competing with each other</td><td>Kept on their URLs; merge plan needs Angelo</td><td><span class="tag wait">Needs Angelo</span></td></tr><tr><td>Old links redirect or 404 (services-2/, financing/)</td><td>Pointed at the real pages or removed</td><td><span class="tag ok">Fixed</span></td></tr><tr><td>Most photos look like stock images</td><td>Heroes use house and roof shots only; real job photos requested</td><td><span class="tag wait">Needs client</span></td></tr><tr><td>Thank-you page and search template indexable</td><td>Marked noindex, left out of the sitemap</td><td><span class="tag ok">Fixed</span></td></tr><tr><td>Mobile speed 70/100</td><td>Plain HTML, one CSS file, WebP images under 150 KB, lazy-loaded</td><td><span class="tag ok">Fixed, re-test after go-live</span></td></tr><tr><td>No schema</td><td>RoofingContractor, Service, FAQPage, BlogPosting, DefinedTermSet (glossary), BreadcrumbList</td><td><span class="tag ok">Fixed</span></td></tr></tbody></table></div>
+</div></section>
+
+<section class="block" id="mockup"><div class="wrap">
+<h2 class="sec">3. Before &amp; after</h2><p class="lede">The home page, old site on the left and the new design on the right. Screenshots from 16 to 17 Oct 2026.</p>
+<div class="ba">
+<figure><div class="frame"><div class="bar"><i></i><i></i><i></i></div><img src="review/old-desktop.webp" alt="Old J &amp; N Roofing Maintenance home page on desktop" width="1200" height="1917" decoding="async"></div><figcaption>Before: current live site</figcaption></figure>
+<figure><div class="frame"><div class="bar"><i></i><i></i><i></i></div><img src="review/new-desktop.webp" alt="New J &amp; N Roofing Maintenance home page design on desktop" width="1200" height="1917" decoding="async"></div><figcaption>After: the new design</figcaption></figure>
+</div>
+<h3 style="font:700 18px/1.3 var(--display);margin:30px 0 12px">On a phone</h3>
+<div class="phones"><figure style="margin:0"><div class="phone"><img src="review/old-mobile.webp" alt="Old home page on a phone" width="390" height="1900" decoding="async"></div><figcaption style="font:600 12px var(--body);color:var(--muted);margin-top:8px;text-transform:uppercase;letter-spacing:.08em">Before</figcaption></figure>
+<figure style="margin:0"><div class="phone"><img src="review/new-mobile.webp" alt="New home page on a phone" width="390" height="1900" decoding="async"></div><figcaption style="font:600 12px var(--body);color:var(--muted);margin-top:8px;text-transform:uppercase;letter-spacing:.08em">After</figcaption></figure></div>
+<p style="margin:26px 0 0"><a class="btn big" href="home/index.html">Open the new website <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a></p>
+</div></section>
+
+<section class="block" id="pages"><div class="wrap">
+<h2 class="sec">4. Pages to look at</h2><p class="lede">Jump straight into key pages of the new site. Use the browser back button to come back here.</p>
+<div class="pages"><a class="pagelink" href="home/index.html"><span>Home</span><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a><a class="pagelink" href="services/roofing-repairs/index.html"><span>Roof repair WVC</span><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a><a class="pagelink" href="services/roof-replacement/index.html"><span>Roof replacement</span><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a><a class="pagelink" href="warranty-support/index.html"><span>Warranty support</span><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a><a class="pagelink" href="special-offers/index.html"><span>Special offers</span><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a><a class="pagelink" href="how-far-should-shingles-overhang-the-drip-edge/index.html"><span>New blog post</span><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a><a class="pagelink" href="glossary-of-roofing-terms/index.html"><span>Glossary</span><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a><a class="pagelink" href="testimonials/index.html"><span>Testimonials</span><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a></div>
+</div></section>
+
+<section class="block" id="questions"><div class="wrap">
+<h2 class="sec">5. Questions for the client</h2><p class="lede">These need answers before the site goes live. Full details are in the notes file in OUTBOX.</p>
+<div class="card"><ol class="qs"><li>Remove the 411 copied posts (410) or noindex them? (Angelo)</li><li>How many years in business?</li><li>May individual references&#x27; phone numbers be shown?</li><li>Show the street address (3842 S 2200 W) on the site?</li><li>Are the $70/$130/$200 special offers still current?</li><li>Can you send real job photos?</li><li>OK to show 5 stars / 9 reviews?</li><li>Is jandnroofing.com the right site for J &amp; N Roofing Maintenance LLC? (report flag)</li></ol></div>
+</div></section>
+
+<footer class="wrap foot">Draft preview made by Novarte AI for review. Not the live site. Forms are switched off in this preview.</footer>
+<script>
+(function(){var b=document.getElementById('rtoggle'),x=document.getElementById('rbox');if(!b||!x)return;
+b.addEventListener('click',function(){var o=x.classList.toggle('open');b.textContent=o?'Show less':'Show the whole report';});})();
+</script>

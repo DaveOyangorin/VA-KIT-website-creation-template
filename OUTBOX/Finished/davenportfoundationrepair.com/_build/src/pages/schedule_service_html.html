@@ -1,0 +1,275 @@
+<html><body><main>
+
+<h3 class="center">Request Your Appointment Now</h3>
+
+    <form action="" method="post" id="contact_form">
+
+        <div class="fname">
+
+            <label for="First_Name">First Name: <span>*</span></label>
+
+            <input type="text" name="f_l_First_Name" maxlength="50" class="required" id="First_Name">
+
+        </div>
+
+        <div class="lname">
+
+            <label for="Last_Name">Last Name: <span>*</span></label>
+
+            <input type="text" name="f_l_Last_Name" maxlength="50" class="required" id="Last_Name">
+
+        </div>
+
+        <div class="address">
+
+            <label for="Street">Street: <span>*</span></label>
+
+            <input type="text" name="f_l_Street" maxlength="50" class="required" id="Street">
+
+        </div>
+
+        <div class="city">
+
+            <label for="City">City: <span>*</span></label>
+
+            <input type="text" name="f_l_City" maxlength="50" class="required" value="" id="City">
+
+        </div>
+
+        <div class="state">
+
+            <label for="State">State: <span>*</span></label>
+
+            <select name="f_l_State" class="required" id="State">
+
+                <option value="" selected="selected">Please select...</option>
+
+                <option value="UT">Utah</option>
+
+            </select>
+
+        </div>
+
+        <div class="zip">
+
+            <label for="Zip">Zip Code: <span>*</span></label>
+
+            <input type="text" name="f_l_Zip_Code" maxlength="10" class="required zipcode" value="" id="Zip">
+
+        </div>
+
+        <div class="phone">
+
+            <label for="Phone">Phone: <span>*</span></label>
+
+            <input type="text" name="f_l_Phone" maxlength="50" class="required phone" id="Phone">
+
+        </div>
+
+        <div class="email">
+
+            <label for="Email_Address">Email: <span>*</span></label>
+
+            <input type="text" name="f_l_Email_Address" maxlength="50" class="required email" id="Email_Address">
+
+        </div>
+
+
+
+        <div class="date-requested" style="overflow: hidden;">
+
+            <p>Please select your availability:</p>
+
+
+
+            <div class="left small-6">
+
+                <label for="custom_field_3">Preferred Appointment:<span class="date-required">*</span></label>
+
+                <div>
+
+                  <input type="text"  id="datepicker" name="f_l_Preferred_Appointment_Date_1" maxlength="50" class="required" value="Select Date">
+
+                </div>
+
+            </div>
+
+            <div class="small-6" style="display: inline;">
+
+                <select name="f_l_Preferred_Appointment_Time_1" class="required" id="time1" style="margin-top:21px; width: 140px;">
+
+                    <option value="">Arrival Window</option>
+
+                    <option value="9am-1pm">9am-1pm</option>
+
+                    <option value="1pm-5pm">1pm-5pm</option>
+
+                </select>
+
+            </div>
+
+
+
+        </div>
+
+        <div class="date-requested" style="overflow: hidden;">
+
+                <div class="left small-6">
+
+                <div>
+
+                  <input type="text"  id="datepicker2" name="f_l_Preferred_Appointment_Date_2" maxlength="50" class="required" value="Select Date">
+
+                </div>
+
+            </div>
+
+
+
+            <div class="small-6" style="display: inline;">
+
+                <select name="f_l_Preferred_Appointment_Time_2" class="required" id="time1" style="margin-top:0; width: 140px;">
+
+                    <option value="">Arrival Window</option>
+
+                    <option value="9am-1pm">9am-1pm</option>
+
+                    <option value="1pm-5pm">1pm-5pm</option>
+
+                </select>
+
+            </div>
+
+
+
+        </div>
+
+        <div class="date-requested" style="overflow: hidden;">
+
+            <div class="left small-6">
+
+                <div>
+
+                  <input type="text"  id="datepicker3" name="f_l_Preferred_Appointment_Date_3" maxlength="50" class="required" value="Select Date">
+
+                </div>
+
+            </div>
+
+            <div class="small-6" style="display: inline;">
+
+                <select name="f_l_Preferred_Appointment_Time_3" class="required" id="time1" style="margin-top:0; width: 140px;">
+
+                    <option value="">Arrival Window</option>
+
+                    <option value="9am-1pm">9am-1pm</option>
+
+                    <option value="1pm-5pm">1pm-5pm</option>
+
+                </select>
+
+            </div>
+
+
+
+        </div>
+
+        <div class="comment">
+
+            <label for="Message">Comments:</label>
+
+            <textarea value="Comments:" name="f_l_Message" id="Message"></textarea>
+
+        </div>
+
+        <div class="g-recaptcha" data-sitekey="6LeDRjQUAAAAAFnMLuC2cA_aajyhPOdnahHiS5Zt"></div>
+
+        <div class="submit">
+
+            <input class="submit" name="send" type="submit" value="Send" id="save">
+
+        </div>
+
+    </form>
+
+<!-- End Forms -->
+
+
+
+    </div>
+
+      
+
+
+
+<script>
+
+$('#datepicker, #datepicker2, #datepicker3').datepicker({
+
+    language: 'en',
+
+    onShow: function(dp, animationCompleted){
+
+
+
+    },
+
+    onHide: function(dp, animationCompleted){
+
+
+
+    }
+
+})
+
+
+
+var disabledDays = [0, 6];
+
+
+
+$('#datepicker, #datepicker2, #datepicker3').datepicker({
+
+    language: 'en',
+
+    onRenderCell: function (date, cellType) {
+
+        if (cellType == 'day') {
+
+            var day = date.getDay(),
+
+                isDisabled = disabledDays.indexOf(day) != -1;
+
+
+
+            return {
+
+                disabled: isDisabled
+
+            }
+
+        }
+
+    }
+
+})
+
+
+
+$(document).ready(function(){
+
+       $("#datepicker, #datepicker2, #datepicker3").val('Select A Date');
+
+    });
+
+
+
+</script><p class="clear page_bottom_estimate_callout">Looking for a price? Get a no cost, no obligation <a href="https://www.davenportfoundationrepair.com/free-estimate.html">free estimate</a>.</p>                    
+
+                  
+
+
+
+            </div>
+
+            <div class="medium-3 medium-pull-9 large-2 large-pull-10 columns" id="</main></body></html>

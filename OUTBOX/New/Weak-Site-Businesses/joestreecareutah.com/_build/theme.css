@@ -1,0 +1,10 @@
+/* joestreecareutah.com theme: "Heartwood". Their logo green deepened to a conifer green, the orange of fresh-ground heartwood and sawdust,
+   and bark charcoal. Zilla Slab (sturdy, woodworking) for display, Work Sans for text, Space Mono for months and stats. */
+:root {
+  --paper: #f5f3ec; --sand: #e9e4d6; --card: #ffffff; --ink: #1d2b23; --ink2: #3f4a43; --mute: #6c756f; --line: #dbd5c5;
+  --dark: #123d2a; --dark2: #1a4c35; --on-dark: #f1f2ea; --on-dark2: #a9bcae; --foot: #0c2a1d;
+  --accent: #d9822b; --accent-2: #f0a356; --accent-ink: #95520f; --on-accent: #ffffff; --leaf: #1f9a5e;
+  --f-disp: "Zilla Slab", Georgia, serif; --f-body: "Work Sans", "Segoe UI", system-ui, sans-serif; --f-mono: "Space Mono", ui-monospace, Menlo, Consolas, monospace;
+  --disp-w: 700; --disp-ls: -.01em; --disp-tt: none; --r: 8px; --btn-r: 6px; --hdr: 82px; --logo-h: 48px;
+  color-scheme: light;
+}

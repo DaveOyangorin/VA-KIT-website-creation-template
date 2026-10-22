@@ -1,0 +1,11 @@
+/* actionyardcare.com theme: "Lineup card". Their logo is varsity block lettering over a crew of silhouettes, and the crew works in
+   hi-vis yellow-green. So: black and safety lime like a team jersey, chalk-white field, athletic condensed type.
+   Graduate (varsity block) for the big words, Barlow Condensed for headings, Barlow for text. */
+:root {
+  --paper: #f3f4ee; --sand: #e6e9dc; --card: #ffffff; --ink: #151815; --ink2: #3e443d; --mute: #6b7268; --line: #d8dccd;
+  --dark: #111411; --dark2: #1d221c; --on-dark: #f4f6ef; --on-dark2: #aab3a6; --foot: #0b0d0b;
+  --accent: #c4f028; --accent-2: #d6f75f; --accent-ink: #4f6b00; --on-accent: #111411; --turf: #2f7a35;
+  --f-disp: "Barlow Condensed", "Arial Narrow", system-ui, sans-serif; --f-body: "Barlow", "Segoe UI", system-ui, sans-serif; --f-mono: "Barlow Condensed", "Arial Narrow", sans-serif; --f-varsity: "Graduate", "Rockwell", serif;
+  --disp-w: 800; --disp-ls: 0; --disp-tt: uppercase; --r: 4px; --btn-r: 4px; --hdr: 88px; --logo-h: 50px;
+  color-scheme: light;
+}

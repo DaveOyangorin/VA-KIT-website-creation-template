@@ -1,0 +1,529 @@
+developers.google.com /search/docs/appearance/structured-data/intro-structured-data
+Intro to How Structured Data Markup Works | Google Search Central  |  Documentation  |  Google for Developers
+10-12 minutes
+Introduction to structured data markup in Google Search
+bookmark_border Stay organized with collections Save and categorize content based on your preferences.
+
+
+Google Search works hard to understand the content of a page. You can help us by providing explicit clues about the meaning of a page to Google by including structured data on the page. Structured data is a standardized format for providing information about a page and classifying the page content; for example, on a recipe page, what are the ingredients, the cooking time and temperature, the calories, and so on.
+
+Why add structured data to a page?
+Adding structured data can enable search results that are more engaging to users and might encourage them to interact more with your website, which are called rich results. Here are some case studies of websites that have implemented structured data for their site:
+
+Rotten Tomatoes added structured data to 100,000 unique pages and measured a 25% higher click-through rate for pages enhanced with structured data, compared to pages without structured data.
+The Food Network has converted 80% of their pages to enable search features, and has seen a 35% increase in visits.
+Rakuten has found that users spend 1.5x more time on pages that implemented structured data than on non-structured data pages, and have a 3.6x higher interaction rate on AMP pages with search features vs non-feature AMP pages.
+Nestlé has measured pages that show as rich results in search have an 82% higher click through rate than non-rich result pages.
+Google uses structured data that it finds on the web to understand the content of the page, as well as to gather information about the web and the world in general, such as information about the people, books, or companies that are included in the markup. For example, here is a JSON-LD structured data snippet that might appear on a recipe page, describing the title of the recipe, the author of the recipe, and other details:
+
+<html>
+  <head>
+    <title>Party Coffee Cake</title>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "Recipe",
+      "name": "Party Coffee Cake",
+      "author": {
+        "@type": "Person",
+        "name": "Mary Stone"
+      },
+      "datePublished": "2018-03-10",
+      "description": "This coffee cake is awesome and perfect for parties.",
+      "prepTime": "PT20M"
+    }
+    </script>
+  </head>
+  <body>
+    <h2>Party coffee cake recipe</h2>
+    <p>
+      <i>by Mary Stone, 2018-03-10</i>
+    </p>
+    <p>
+      This coffee cake is awesome and perfect for parties.
+    </p>
+    <p>
+      Preparation time: 20 minutes
+    </p>
+  </body>
+</html>
+Google Search also uses structured data to enable special search result features and enhancements. For example, a recipe page with valid structured data is eligible to appear in a graphical search result, as shown here:
+
+Apple pie recipe rich result
+<html>
+  <head>
+    <title>Apple Pie by Grandma</title>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "Recipe",
+      "name": "Apple Pie by Grandma",
+      "author": "Elaine Smith",
+      "image": "https://images.edge-generalmills.com/56459281-6fe6-4d9d-984f-385c9488d824.jpg",
+      "description": "A classic apple pie.",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "7462",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "prepTime": "PT30M",
+      "totalTime": "PT1H30M",
+      "recipeYield": "8",
+      "nutrition": {
+        "@type": "NutritionInformation",
+        "calories": "512 calories"
+      },
+      "recipeIngredient": [
+        "1 box refrigerated pie crusts, softened as directed on box",
+        "6 cups thinly sliced, peeled apples (6 medium)"
+      ]
+    }
+    </script>
+  </head>
+  <body>
+  </body>
+</html>
+Because the structured data labels each individual element of the recipe, users can search for your recipe by ingredient, calorie count, cook time, and so on.
+
+Structured data is coded using in-page markup on the page that the information applies to. The structured data on the page describes the content of that page. Don't create blank or empty pages just to hold structured data, and don't add structured data about information that is not visible to the user, even if the information is accurate. For more technical and quality guidelines, see the Structured data general guidelines.
+
+The Rich Results Test is an easy and useful tool for validating your structured data, and in some cases, previewing a feature in Google Search. Try it out:
+
+Structured data vocabulary and format
+
+
+This documentation describes which properties are required, recommended, or optional for structured data with special meaning to Google Search. Most Search structured data uses schema.org vocabulary, but you should rely on the Google Search Central documentation as definitive for Google Search behavior, rather than the schema.org documentation. There are more attributes and objects on schema.org that aren't required by Google Search; they may be useful for other search engines, services, tools, and platforms.
+
+Be sure to check your structured data using the Rich Results Test during development, and the Rich result status reports after deployment, to monitor the validity of your pages, which might break after deployment due to templating or serving issues.
+
+You must include all the required properties for an object to be eligible for appearance in Google Search with enhanced display. In general, defining more recommended features can make it more likely that your information can appear in Search results with enhanced display. However, it is more important to supply fewer but complete and accurate recommended properties rather than trying to provide every possible recommended property with less complete, badly-formed, or inaccurate data.
+
+In addition to the properties and objects documented here, Google can make general use of the sameAs property and other schema.org structured data. Some of these elements may be used to enable future Search features, if they are deemed useful.
+
+Supported formats
+Google Search supports structured data in the following formats, unless documented otherwise. In general, we recommend using a format that's easiest for you to implement and maintain (in most cases, that's JSON-LD); all 3 formats are equally fine for Google, as long as the markup is valid and properly implemented per the feature's documentation.
+
+Formats
+JSON-LD* (Recommended)	A JavaScript notation embedded in a <script> tag in the <head> and <body> elements of an HTML page. The markup is not interleaved with the user-visible text, which makes nested data items easier to express, such as the Country of a PostalAddress of a MusicVenue of an Event. Also, Google can read JSON-LD data when it is dynamically injected into the page's contents, such as by JavaScript code or embedded widgets in your content management system.
+Microdata	An open-community HTML specification used to nest structured data within HTML content. Like RDFa, it uses HTML tag attributes to name the properties you want to expose as structured data. It is typically used in the <body> element, but can be used in the <head> element.
+RDFa	An HTML5 extension that supports linked data by introducing HTML tag attributes that correspond to the user-visible content that you want to describe for search engines. RDFa is commonly used in both the <head> and <body> sections of the HTML page.
+Structured data guidelines
+Be sure to follow the general structured data guidelines, as well as any guidelines specific to your structured data type; otherwise your structured data might be ineligible for rich result display in Google Search.
+
+Get started with structured data
+If you're new to structured data, check out schema.org beginner's guide to structured data. While the guide focuses on Microdata, the basic ideas are relevant for JSON-LD and RDFa.
+
+Once you're comfortable with the basics of structured data, explore the list of structured data features in Google Search and pick a feature to implement. Each guide goes into detail on how to implement the structured data in a way that makes your site eligible for a rich result appearance on Google Search.
+
+Choose a feature
+
+Measuring the effect of structured data
+You probably want to compare performance of your pages with structured data with those pages that don't have structured data, in order to decide if it's worth your effort. The best way to do that is to run a before and after test on a few pages on your site. This can be a little tricky, since page views can vary for a single page for various reasons.
+
+Take some pages on your site that are not using any structured data, and have several months of data in Search Console. Be sure to choose pages that won't be affected by the time of year or timeliness of the page content; use pages that won't change much, but are still popular enough to be read often enough to generate meaningful data.
+Add structured data or other features to your pages. Confirm that your markup is valid, and that Google has found your structured data using the URL Inspection tool on your page.
+Record the performance for a few months in the Performance report, and filter by URL to compare performance of your page.
+
+
+developers.google.com /search/docs/appearance/structured-data/sd-policies
+General Structured Data Guidelines | Google Search Central  |  Documentation  |  Google for Developers
+13-17 minutes
+developers.google.com uses cookies from Google to deliver and enhance the quality of its services and to analyze traffic. Learn more.
+
+Documentation
+Support
+Blog
+What's new
+Events
+Case studies
+Introduction
+SEO fundamentals
+
+SEO Starter Guide
+How Google Search works
+Creating helpful, reliable, people-first content
+Do you need an SEO?
+Maintaining your site's SEO
+Developer's guide to Search
+Get your website on Google
+Crawling and indexing
+
+Overview
+File types Google can index
+URL structure
+Links
+Sitemaps
+
+Learn about sitemaps
+Build and submit a sitemap
+Manage sitemaps with sitemap index file
+Crawler management
+
+Ask Google to recrawl your URLs
+Reduce the Googlebot crawl rate
+Verifying Googlebot and other Google crawlers
+Large site owner's guide to managing your crawl budget
+How HTTP status codes, and network and DNS errors affect Google Search
+robots.txt
+
+Introduction to robots.txt
+How to write and submit a robots.txt file
+Update your robots.txt file
+How Google interprets the robots.txt specification
+Mobile site and mobile-first indexing
+AMP
+
+AMP on Google Search guidelines
+Understand how AMP works in search results
+Enhance AMP content
+Validate AMP content
+Remove AMP content
+JavaScript
+
+Understand the JavaScript SEO basics
+Fix search-related JavaScript problems
+Fix lazy-loaded content
+Dynamic rendering as a workaround
+Page and content metadata
+
+Page metadata
+Meta tags
+
+Meta tags and HTML attributes that Google supports
+Robots meta tag, data-nosnippet, and X-Robots-Tag
+noindex
+SafeSearch
+rel attributes
+Ranking and search appearance
+
+Overview
+AI overviews
+Byline dates
+Favicons
+Featured snippets
+Flexible Sampling
+Google Discover
+Images
+Notes
+Site names
+Sitelinks
+Snippets
+Structured data
+
+Understand how structured data works
+Structured data general guidelines
+Enriched search results
+Generate structured data with JavaScript
+Feature guides
+
+All structured data features
+Article
+Book actions
+Breadcrumb
+Carousel
+Course info
+Course list
+Dataset
+Discussion forum
+Education Q&A
+Employer aggregate rating
+Estimated salary
+Event
+Fact check
+FAQ
+Image metadata
+Job posting
+Learning video
+Local business
+Math solver
+Movie carousel
+Organization
+Practice problem
+Profile page
+Q&A
+Recipe
+Review snippet
+Sitelinks search box
+Software app
+Speakable
+Special announcement
+Subscription and paywalled content
+Vacation rental
+Vehicle listing
+Video
+Title links
+Videos
+Visual Elements gallery
+Site-specific guides
+
+Ecommerce
+
+Overview
+Where content can appear
+Share product data
+Include structured data
+Launch a new website
+Write high quality reviews
+Design a URL structure
+Ecommerce site structure
+Pagination, incremental page loading, and Search
+On this page
+Technical guidelines
+Format
+Access
+Quality guidelines
+Content
+Relevance
+Completeness
+Location
+Specificity
+Images
+Multiple items on a page
+bookmark_border Stay organized with collections Save and categorize content based on your preferences.
+To be eligible for rich result appearance in Google Search results, structured data shouldn't violate the Content policies for Google Search (which include our spam policies). In addition, this page details the general guidelines that apply to all structured data: they must be followed in order to be eligible for appearance as a rich result in Google Search.
+
+If your page contains a structured data issue, it can result in a manual action. A structured data manual action means that a page loses eligibility for appearance as a rich result; it doesn't affect how the page ranks in Google web search. To check if you have a manual action, open the Manual Actions report in Search Console.
+
+Technical guidelines
+You can test compliance with technical guidelines using the Rich Results Test and the URL Inspection tool, which catch most technical errors.
+
+Format
+In order to be eligible for rich results, mark up your site's pages using one of three supported formats:
+
+JSON-LD (recommended)
+Microdata
+RDFa
+Access
+Do not block your structured data pages to Googlebot using robots.txt, noindex, or any other access control methods.
+
+Quality guidelines
+These quality guidelines are not easily testable using an automated tool. Violating a quality guideline can prevent syntactically correct structured data from being displayed as a rich result in Google Search, or possibly cause it to be marked as spam.
+
+Content
+Follow the spam policies for Google web search.
+Provide up-to-date information. We won't show a rich result for time-sensitive content that is no longer relevant.
+Provide original content that you or your users have generated.
+Don't mark up content that is not visible to readers of the page. For example, if the JSON-LD markup describes a performer, the HTML body must describe that same performer.
+Don't mark up irrelevant or misleading content, such as fake reviews or content unrelated to the focus of a page.
+Don't use structured data to deceive or mislead users. Don't impersonate any person or organization, or misrepresent your ownership, affiliation, or primary purpose.
+Content in structured data must also follow the additional content guidelines or policies, as documented in the specific feature guide. For example, content in JobPosting structured data must follow the job posting content policies. Content in Practice problems structured data must follow the Practice problems content guidelines.
+Relevance
+Your structured data must be a true representation of the page content. Here are some examples of irrelevant data:
+
+A sports live streaming site labeling broadcasts as local events.
+A woodworking site labeling instructions as recipes.
+Completeness
+Specify all required properties listed in the documentation for your specific rich result type. Items that are missing required properties are not eligible for rich results.
+The more recommended properties that you provide, the higher quality the result is to users. For example: users prefer job postings with explicitly stated salaries than those without; users prefer recipes with actual user reviews and genuine star ratings (note that reviews or ratings not by actual users may result in manual action). Rich result ranking takes extra information into consideration.
+Location
+Put the structured data on the page that it describes, unless specified otherwise by the documentation.
+If you have duplicate pages for the same content, we recommend placing the same structured data on all page duplicates, not just on the canonical page.
+Specificity
+Try to use the most specific applicable type and property names defined by schema.org for your markup.
+Follow all additional guidelines given in the documentation for your specific rich result type.
+Images
+When specifying an image as a structured data property, make sure that the image is relevant to the page that it's on. For example, if you define the image property of NewsArticle, the image must be relevant to that news article.
+All image URLs specified in structured data must be crawlable and indexable. Otherwise, Google Search can't find and display them on the search results page. To check if Google can access your URLs, use the URL Inspection tool.
+Multiple items on a page
+Multiple items on a page means that there is more than one kind of thing on a page. For example, a page could contain a recipe, a video that shows how to make that recipe, and breadcrumb information for how people can discover that recipe. All of this user-visible information can also be marked up with structured data, which makes it easier for search engines like Google Search to understand the information on a page. When you add more items that apply to a page, Google Search has a fuller picture of what the page is about and can display that page in different search features.
+
+A recipe rich result that shows both a video and reviews
+
+Google Search understands multiple items on a page, whether you nest the items or specify each item individually:
+
+Nesting: When there is one main item, and additional items are grouped under the main item. This is particularly helpful when grouping related items (for example, a recipe with a video and reviews).
+Individual items: When each item is a separate block on the same page.
+These examples are trimmed for brevity, and they don't include all the required and recommended properties for the features. For a full example, refer to the specific structured data type documentation.
+
+Here's an example of nested structured data, where Recipe is the main item, and aggregateRating and video are nested in the Recipe.
+
+<html>
+  <head>
+    <title>How To Make Banana Bread</title>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "Recipe",
+      "name": "Banana Bread Recipe",
+      "description": "The best banana bread recipe you'll ever find! Learn how to use up all those extra bananas.",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.7",
+        "ratingCount": "123"
+      },
+      "video": {
+        "@type": "VideoObject",
+        "name": "How To Make Banana Bread",
+        "description": "This is how you make banana bread, in 5 easy steps.",
+        "contentUrl": "https://www.example.com/video123.mp4"
+       }
+    }
+    </script>
+  </head>
+  <body>
+  </body>
+</html>
+Here's an example of individual items of structured data. There are two, distinct items: Recipe and BreadcrumbList.
+
+<html>
+  <head>
+    <title>How To Make Banana Bread</title>
+    <script type="application/ld+json">
+    [{
+      "@context": "https://schema.org/",
+      "@type": "Recipe",
+      "name": "Banana Bread Recipe",
+      "description": "The best banana bread recipe you'll ever find! Learn how to use up all those extra bananas."
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Recipes",
+        "item": "https://example.com/recipes"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Bread recipes",
+        "item": "https://example.com/recipes/bread-recipes"
+      },{
+        "@type": "ListItem",
+        "position": 3,
+        "name": "How To Make Banana Bread"
+      }]
+    }]
+    </script>
+  </head>
+  <body>
+  </body>
+</html>
+Additional tips
+To make sure that Google Search understands what the main purpose of the page is, include the main type of structured data that reflects the main focus of the page. For example, if a page is mainly about a recipe, make sure to include Recipe structured data in addition to Video and Review structured data. This is an opportunity for that page to be eligible for multiple search appearances (recipe rich results, video search, and review snippets). If the page only contained Video structured data, Google Search wouldn't know enough about the page to also display it as a recipe rich result.
+To ensure that the page fully represents the content that's visible to users, make sure all structured data items are complete. For example, if you include multiple reviews, make sure that you include all of the reviews that are visible to people on the page. If a page didn't mark up all of the reviews on a page, this would be misleading for people who expect to see all of those reviews, based on the appearance of the page in Search results.
+Except as otherwise noted, the content of this page is licensed under the Creative Commons Attribution 4.0 License, and code samples are licensed under the Apache 2.0 License. For details, see the Google Developers Site Policies. Java is a registered trademark of Oracle and/or its affiliates.
+
+Last updated 2024-03-18 UTC.
+
+Follow our general guidelines for structured data. These guidelines will help your structured data be eligible for rich Google Search results.
+
+
+developers.google.com /search/docs/appearance/enriched-search-results
+Enriched and Interactive Search Results | Google Search Central  |  Documentation  |  Google for Developers
+4-6 minutes
+bookmark_border Stay organized with collections Save and categorize content based on your preferences.
+In addition to standard rich results, Google Search supports a more interactive and enhanced class of rich result called enriched search results. Enriched search results often include an immersive popup experience or other advanced interaction feature. For example, here is a Jobs enriched result popup that might appear if a user searched for "jobs in Mountain View":
+
+Jobs enriched search result
+
+Enriched search enables the user to search across the various properties of a structured data item; for instance, a user might search for chicken soup recipes under 200 calories, or recipes that take less than 1 hour of preparation time.
+
+Implementing enriched search
+Enriched search is a subset of rich results, and is implemented using structured data. Some rich result types are only available as enriched search types (for example, recipes, jobs, and events); other rich result types can be extended to be an enriched search type with the addition of a few properties. The documentation for a rich result type explains whether and how it can be extended from a basic rich result to an enriched result.
+
+Technical information and a gallery of results is available here.
+
+Enriched search is driven by the Google Search ranking algorithm; in addition to adding the correct structured data on your pages, you must follow the following quality guidelines so that Google can properly index and rank your pages.
+
+The Structured data quality guidelines
+The Search Essentials
+The enriched search quality guidelines
+A note about duplicate structured data content: Structured data is typically duplicated across many pages within a site, and for good reason. For example, you might post several Job listings for the same opening in multiple locations. These listings would have identical description values but different location values. The enriched search algorithm takes this into account, and these objects are not considered to be duplicates.
+
+Enriched search types
+The following search types support an enriched search experience:
+
+Job Posting
+Recipe
+Event
+Enriched search quality guidelines
+You must follow these spam policies to be eligible for enriched search. If the enriched search ranking algorithm decides that a large part of a site is not meeting the quality bar, it can exclude the entire site from enriched search results.
+
+Required properties: Each enriched search type defines a required set of properties. Items missing the required properties are ineligible.
+Completeness: The more additional (recommended) properties you provide, the higher quality the item is to our users. For a job posting, users prefer jobs with explicitly stated salaries than those without, and enriched search ranking also takes this into consideration. If your recipes have actual user reviews and genuine star ratings, that is also valuable to users of your site and enriched search. In addition, enriched search offers structured exploration for users; for instance users can filter the list of jobs by salaries. When user apply this filter, a job posting without salaries will not be able to rank. This is one of the most important ranking signals for enriched search.
+Relevance: Your marked up data must be relevant to the enriched search you are participating in. Here are some examples of irrelevant data:
+A sports live streaming site labeling broadcasts as local events.
+A woodworking site labeling instructions as recipes.
+Leaf content: Enriched search is only available for leaf pages, not for listing pages. A leaf page is a page that describes the detailed properties of an item. A listing page, on the other hand, is a category page that links to multiple leaf pages. The following are examples of listing pages:
+A page that describes "10 best ideas for cooking turkey" with links out to each recipe.
+A page listing all the jobs at Mountain View, CA, with links to individual jobs.
+Content policies: Individual enriched search has additional content-type-specific policies for each data type, as described in its documentation. Documents or sites that violate these content policies may receive less favorable ranking or ineligible for the feature.
+
+
+developers.google.com /search/docs/appearance/structured-data/generate-structured-data-with-javascript
+Generate Structured Data with JavaScript | Google Search Central  |  Documentation  |  Google for Developers
+5-6 minutes
+bookmark_border Stay organized with collections Save and categorize content based on your preferences.
+Modern websites use JavaScript to display lots of dynamic content. There are a few things you need to look out for when using JavaScript to generate structured data on your websites, and this guide covers best practices and implementation strategies. If you're new to structured data, you can learn more about how structured data works.
+
+There are different ways to generate structured data with JavaScript, but the most common are:
+
+Google Tag Manager
+Custom JavaScript
+Use Google Tag Manager to generate JSON-LD dynamically
+Google Tag Manager is a platform that allows you to manage tags on your website without editing the code. To generate structured data with Google Tag Manager, follow these steps:
+
+Set up and install Google Tag Manager on your site.
+Add a new Custom HTML tag to the container.
+Paste the desired structured data block into the tag content.
+Install the container as shown in the Install Google Tag Manager section of your container's admin menu.
+To add the tag to your website, publish your container in the Google Tag Manager interface.
+Test your implementation.
+Using variables in Google Tag Manager
+Google Tag Manager (GTM) supports variables to use information on the page as part of your structured data. Use variables to extract the structured data from the page instead of duplicating the information in GTM. Duplicating the information in GTM increases the risk of having a mismatch between page content and the structured data inserted via GTM.
+
+For example, you can dynamically create a Recipe JSON-LD block that uses the page title as the recipe name by creating the following custom variable named recipe_name:
+
+function() { return document.title; }
+You can then use {{recipe_name}} in your custom tag HTML.
+
+We recommend to create variables to collect all the necessary information from the page using variables.
+
+Here is an example for the custom HTML tag content:
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org/",
+    "@type": "Recipe",
+    "name": "{{recipe_name}}",
+    "image": [ "{{recipe_image}}" ],
+    "author": {
+      "@type": "Person",
+      "name": "{{recipe_author}}"
+    }
+  }
+</script>
+Generate structured data with custom JavaScript
+Another way you can generate structured data is by using JavaScript to either generate all of your structured data or add more information to the server-side rendered structured data. Either way, Google Search can understand and process structured data that's available in the DOM when it renders the page. To learn more about how Google Search processes JavaScript, check out the JavaScript basics guide.
+
+Here is an example of JavaScript-generated structured data:
+
+Find the type of structured data you are interested in.
+Edit your website's HTML to include a JavaScript snippet like the following example (refer to the documentation from your CMS or hosting provider, or ask your developers).
+fetch('https://api.example.com/recipes/123')
+.then(response => response.text())
+.then(structuredDataText => {
+  const script = document.createElement('script');
+  script.setAttribute('type', 'application/ld+json');
+  script.textContent = structuredDataText;
+  document.head.appendChild(script);
+});
+Test your implementation with the Rich Results Test.
+Using server-side rendering
+If you are using server-side rendering, you can also include the desired structured data in the rendered output. Check the documentation of your framework to find out how to generate the JSON-LD for the type of structured data you are interested in.
+
+Test your implementation
+To make sure Google Search can crawl and index your structured data, test your implementation:
+
+Open the Rich Results Test.
+Enter the URL that you want to test.
+Click Test URL.
+Success: If you did everything correctly and your structured data type is supported in the tool, you will see the message "Page is eligible for rich results".
+If you are testing a structured data type that is not supported by the Rich Results test, check the rendered HTML. If the rendered HTML contains the structured data, Google Search will be able to process it.
+
+Try again: If you see errors or warnings, it is most likely a syntax error or a missing property. Read the documentation for your type of structured data and make sure you've added all the properties. If your problem persists, make sure to also check the guide on fixing search-related JavaScript problems.
+
+

@@ -1,0 +1,25 @@
+# robots.txt for https://gprroofing.com
+# Every page is open to search engines and AI search tools.
+# The 10-second crawl delay is kept from the current site (Google ignores it; Bing and others honor it).
+# The empty privacy and terms pages carry a noindex tag instead of a block, so search engines can read it.
+
+User-agent: *
+Crawl-delay: 10
+Allow: /
+Disallow: /wp-admin/
+Allow: /wp-admin/admin-ajax.php
+Disallow: /metform-form/
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+Sitemap: https://gprroofing.com/sitemap.xml

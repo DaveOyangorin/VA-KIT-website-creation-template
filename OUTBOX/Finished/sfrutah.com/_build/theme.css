@@ -1,0 +1,8 @@
+/* sfrutah.com v3 tokens: logo navy and grey, icon gold, Southern Utah red rock. Barlow Condensed caps (Mortenson's DIN feel). */
+:root {
+  --accent: #e9c12c; --accent-ink: #8a6a00; --on-accent: #14163a; --dark: #0c0f3a; --dark2: #181c52; --on-dark: #f3f1ea; --on-dark2: #b9bad0;
+  --f-disp: "Barlow Condensed", "Arial Narrow", "Helvetica Neue", Arial, sans-serif; --disp-w: 800; --disp-tt: uppercase; --hdr: 80px;
+  --hero-shade: linear-gradient(180deg, rgba(8,10,40,.55) 0%, rgba(8,10,40,.1) 38%, rgba(8,10,40,.88) 100%);
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --accent-ink: #e9c12c } }
+:root[data-theme="dark"] { --accent-ink: #e9c12c }

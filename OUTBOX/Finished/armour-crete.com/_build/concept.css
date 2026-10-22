@@ -1,0 +1,42 @@
+/* armour-crete.com concept: Sealed for the desert */
+h1 em, h2 em, blockquote em { font-style: italic; color: var(--accent-ink) } .hero-full h1 em, .dark h2 em, .ac-split h2 em, .quote-band em { color: #f0a27e }
+h1, h2 { font-weight: 400 } h2 { font-size: clamp(2.1rem, 4.4vw, 3.8rem); line-height: 1.02 }
+.hero-full h1 { font-size: clamp(2.8rem, 6.6vw, 6rem); max-width: 14ch }
+.ac-hero .hf-card b { font-family: var(--f-disp); font-weight: 400; font-size: 2.6rem }
+/* logo: ink version in the header, white version on the transparent home header */
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .brand img, :root:not([data-theme="light"]) .flogo img { filter: invert(1) } }
+:root[data-theme="dark"] .brand img, :root[data-theme="dark"] .flogo img { filter: invert(1) }
+body.is-home .site-header:not(.scrolled) .brand img { filter: invert(1) }
+.flogo img { filter: invert(1) }
+/* slab story */
+.slabs { position: relative; aspect-ratio: 4/3; padding: 0; overflow: hidden; background: #f7f1e8 }
+.sframe { position: absolute; inset: 0; opacity: 0; transition: opacity .55s } .sframe.show { opacity: 1 } .slab { width: 100%; height: 100%; display: block }
+.sl-t { font: 600 14px var(--f-body); fill: #1d1714 } .sl-s { font: 500 11px var(--f-mono); fill: #74675d }
+.story .step h3 { font-size: clamp(1.9rem, 3vw, 2.6rem) } .step { min-height: 46vh }
+/* finish tiles */
+.ftiles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px }
+.ftile { position: relative; display: block; aspect-ratio: 4/3.2; border-radius: var(--r); overflow: hidden; color: #fff; text-decoration: none; isolation: isolate }
+.ft-tex { position: absolute; inset: 0; z-index: -2 } .ft-tex svg { width: 100%; height: 100%; display: block; transition: transform .8s }
+.ftile::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(0,0,0,0) 35%, rgba(18,13,10,.85)) }
+.ft-in { position: absolute; left: 0; right: 0; bottom: 0; padding: 20px; display: grid; gap: 4px } .ft-in b { font: 400 1.7rem/1.05 var(--f-disp) } .ft-in span { font-size: .9rem; color: rgba(255,255,255,.82) }
+.ft-in em { position: absolute; right: 18px; bottom: 20px; color: #f0a27e } .ft-in em svg { width: 20px; height: 20px }
+.ftile:hover .ft-tex svg { transform: scale(1.06) } .ftile:hover { color: #fff }
+/* process */
+.procs { list-style: none; padding: 0; margin: 0; display: grid; gap: 0; border-top: 1px solid var(--line) }
+.procs li { display: grid; grid-template-columns: 64px 1fr; gap: 4px 16px; padding: 20px 0; border-bottom: 1px solid var(--line) }
+.procs span { grid-row: span 2; font: 400 2.4rem/1 var(--f-disp); color: var(--accent) } .procs b { font: 400 1.6rem var(--f-disp) } .procs p { margin: 0; color: var(--ink2) }
+.big24 { display: flex; gap: 16px; align-items: baseline; margin-top: 26px } .big24 b { font: 400 7rem/0.9 var(--f-disp); color: var(--accent) } .big24 span { max-width: 14ch; color: var(--mute) }
+.quote-band footer { text-transform: none; letter-spacing: 0; font: 400 1rem/1.5 var(--f-body); max-width: 56ch }
+/* products */
+.prods { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 12px }
+.prods li { background: var(--card); border: 1px solid var(--line); border-top: 3px solid var(--accent); padding: 18px; border-radius: var(--r); display: grid; gap: 4px } .prods b { font: 400 1.35rem var(--f-disp) } .prods span { font-size: .9rem; color: var(--ink2) }
+.ac-split { background: var(--dark); color: var(--on-dark) } .ac-split h2 { color: var(--on-dark) } .ac-split p { color: var(--on-dark2) } .ac-split .label { color: #f0a27e } .ac-split .chips li { background: transparent; color: var(--on-dark); border-color: rgba(255,255,255,.2) }
+/* inner page texture heroes */
+.tex-hero { position: relative; aspect-ratio: 4/3; border-radius: var(--r); overflow: hidden; box-shadow: 0 30px 60px -30px rgba(0,0,0,.6) } .tex-hero svg { width: 100%; height: 100%; display: block }
+.tex-hero span { position: absolute; left: 14px; bottom: 14px; background: rgba(27,21,18,.75); color: #fff; font: 500 .74rem var(--f-mono); letter-spacing: .1em; text-transform: uppercase; padding: 6px 10px }
+.tex-hero.bloom::after { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse at 30% 70%, rgba(255,255,255,.75), transparent 45%), radial-gradient(ellipse at 75% 40%, rgba(255,255,255,.55), transparent 35%) }
+.credits { font: 400 .76rem/1.5 var(--f-mono); color: var(--mute); padding: 18px 0 10px; margin: 0 }
+.posts.one { grid-template-columns: minmax(0, 520px) } .post-card b { font: 400 1.5rem/1.15 var(--f-disp) }
+.dark .label { color: #f0a27e }
+@media (max-width: 900px) { .ftiles { grid-template-columns: 1fr 1fr } .prods { grid-template-columns: 1fr } .big24 b { font-size: 5rem } }
+@media (max-width: 640px) { .ftiles { grid-template-columns: 1fr } }

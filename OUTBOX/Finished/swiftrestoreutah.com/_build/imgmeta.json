@@ -1,0 +1,542 @@
+{
+"swift-logo": [
+300,
+208,
+41
+],
+"favicon-logo": [
+64,
+44,
+4
+],
+"darin-jenks": [
+900,
+1350,
+59
+],
+"swift-van": [
+900,
+900,
+29
+],
+"swift-map": [
+1000,
+1000,
+24
+],
+"air-mover": [
+820,
+600,
+30
+],
+"air-scrubbers": [
+820,
+600,
+44
+],
+"basement-drying": [
+820,
+600,
+38
+],
+"dehumidifier-air-movers": [
+820,
+600,
+32
+],
+"containment": [
+820,
+600,
+15
+],
+"containment-bed": [
+820,
+600,
+25
+],
+"demo-bathroom": [
+1400,
+972,
+49
+],
+"demo-bathroom-2": [
+1400,
+824,
+79
+],
+"demo-open-wall": [
+1000,
+1258,
+88
+],
+"demo-basement": [
+1000,
+1259,
+92
+],
+"rebuild-bath": [
+768,
+1024,
+35
+],
+"rebuild-bath-2": [
+768,
+1024,
+37
+],
+"finished-bath": [
+1100,
+1390,
+104
+],
+"finished-bath-2": [
+1100,
+1392,
+63
+],
+"finished-bath-3": [
+820,
+600,
+21
+],
+"before-remodel": [
+1192,
+1500,
+75
+],
+"after-remodel": [
+1400,
+1151,
+139
+],
+"after-remodel-2": [
+1400,
+1144,
+139
+],
+"attic-conversion": [
+1600,
+841,
+63
+],
+"fire-kitchen-rebuilt": [
+900,
+600,
+45
+],
+"kitchen-transformation": [
+900,
+473,
+38
+],
+"ceiling-leak": [
+820,
+600,
+17
+],
+"living-room-dryout": [
+1024,
+768,
+94
+],
+"bedroom-mitigation": [
+1400,
+1070,
+66
+],
+"after-restoration": [
+1100,
+1391,
+69
+],
+"case-hyrum": [
+900,
+600,
+39
+],
+"case-millcreek": [
+900,
+600,
+48
+],
+"case-kaysville-flood": [
+900,
+600,
+56
+],
+"case-kaysville-remodel": [
+900,
+600,
+52
+],
+"case-kaysville-rooms": [
+900,
+600,
+32
+],
+"case-farmington-garage": [
+900,
+600,
+34
+],
+"case-layton-basement": [
+900,
+600,
+44
+],
+"case-farmington-basement": [
+900,
+600,
+52
+],
+"tip-rofessional-standards-for-indoor-air-quality-aft": [
+900,
+600,
+53
+],
+"tip-ow-professional-restoration-protects-your-family": [
+900,
+600,
+70
+],
+"tip-ow-professional-equipment-improves-water-extract": [
+900,
+600,
+56
+],
+"tip-itchen-remodeling-after-fire-damage-in-weber-cou": [
+900,
+600,
+43
+],
+"tip-ow-to-evaluate-fire-damage-restoration-companies": [
+900,
+600,
+98
+],
+"tip-ow-smoke-damage-affects-your-home-s-air-quality": [
+900,
+600,
+36
+],
+"tip-old-growth-timeline-after-water-damage-in-utah-s": [
+900,
+600,
+72
+],
+"tip-ost-of-fire-damage-restoration-services-in-ogden": [
+900,
+600,
+78
+],
+"tip-ow-fire-damage-affects-your-home-s-structural-in": [
+900,
+600,
+62
+],
+"tip-mergency-planning-for-northern-utah-s-wildfire-s": [
+900,
+600,
+79
+],
+"tip-rofessional-vs-diy-mold-testing-in-bountiful-uta": [
+900,
+600,
+94
+],
+"tip-op-5-mistakes-ogden-homeowners-make-during-water": [
+900,
+600,
+47
+],
+"tip-an-you-stay-in-your-layton-home-during-professio": [
+900,
+600,
+56
+],
+"tip-ost-to-repair-flood-damage-in-ogden-utah-homes": [
+900,
+600,
+52
+],
+"tip-ow-long-does-water-damage-restoration-take-in-we": [
+900,
+600,
+59
+],
+"tip-rofessional-leak-detection-methods-used-in-north": [
+900,
+600,
+35
+],
+"tip-ow-basement-flooding-differs-from-other-water-da": [
+900,
+600,
+38
+],
+"tip-mergency-planning-for-northern-utah-s-spring-flo": [
+900,
+600,
+102
+],
+"tip-ow-to-prevent-spring-runoff-water-damage-in-ogde": [
+900,
+600,
+41
+],
+"tip-ow-to-document-water-damage-for-insurance-claims": [
+900,
+600,
+34
+],
+"tip-nderstanding-your-utah-insurance-coverage-for-st": [
+900,
+600,
+111
+],
+"tip-nderstanding-thermal-imaging-in-professional-dam": [
+900,
+600,
+31
+],
+"tip-ow-seasonal-weather-patterns-affect-water-damage": [
+900,
+600,
+48
+],
+"tip-ow-professional-teams-handle-hazardous-materials": [
+900,
+600,
+51
+],
+"tip-mergency-supply-kit-essentials-for-northern-utah": [
+900,
+600,
+47
+],
+"tip-ow-to-coordinate-temporary-housing-during-major": [
+900,
+600,
+99
+],
+"tip-nderstanding-equipment-rental-vs-professional-se": [
+900,
+600,
+71
+],
+"tip-ow-professional-teams-handle-utility-coordinatio": [
+900,
+600,
+47
+],
+"tip-mergency-preparation-checklist-for-ogden-valley": [
+900,
+600,
+61
+],
+"tip-mergency-water-shut-off-locations-every-ogden-ho": [
+900,
+600,
+48
+],
+"tip-ow-to-prevent-ice-dam-water-damage-on-weber-coun": [
+900,
+600,
+58
+],
+"tip-inter-pipe-burst-prevention-for-ogden-area-homeo": [
+900,
+600,
+29
+],
+"tip-hy-professional-water-damage-assessment-beats-th": [
+900,
+600,
+35
+],
+"tip-ow-wind-damage-assessment-works-for-northern-uta": [
+900,
+600,
+82
+],
+"tip-mergency-board-up-services-after-storm-damage-in": [
+900,
+600,
+55
+],
+"tip-hat-to-do-first-after-discovering-water-damage-i": [
+900,
+600,
+39
+],
+"tip-igns-your-weber-county-home-has-hidden-water-dam": [
+900,
+600,
+72
+],
+"tip-hat-is-emergency-water-extraction-and-does-insur": [
+900,
+600,
+61
+],
+"tip-he-risks-of-sewage-backups": [
+900,
+473,
+35
+],
+"tip-ater-damage-from-bathtubs-and-shower-leaks": [
+900,
+473,
+36
+],
+"tip-ater-damage-from-bathroom-sink-issues": [
+900,
+473,
+52
+],
+"tip-hat-leads-to-toilet-leaks-and-overflows": [
+900,
+473,
+26
+],
+"tip-ypical-causes-of-leaks-under-the-kitchen-sink": [
+900,
+473,
+48
+],
+"tip-ommon-sump-pump-problems": [
+900,
+473,
+47
+],
+"tip-asement-flooding-a-guide-for-homeowners": [
+900,
+473,
+25
+],
+"tip-hat-causes-a-leaking-roof-and-how-to-prevent-the": [
+900,
+473,
+29
+],
+"tip-ater-damage-from-appliance-leaks": [
+900,
+473,
+16
+],
+"tip-vac-related-water-damage-and-prevention-tips": [
+900,
+473,
+43
+],
+"tip-amaged-pipes": [
+900,
+473,
+38
+],
+"tip-ow-to-handle-burst-pipes": [
+900,
+473,
+36
+],
+"tip-top-leaking-pipes-before-they-flood-your-home": [
+900,
+473,
+30
+],
+"tip-aulty-plumbing-what-are-the-reasons-and-can-it-b": [
+900,
+473,
+31
+],
+"tip-hat-not-to-do-after-water-damage": [
+900,
+473,
+46
+],
+"tip-nderstanding-the-common-causes-of-household-mold": [
+900,
+473,
+40
+],
+"tip-ater-damage-prevention-tips": [
+900,
+473,
+17
+],
+"tip-ommon-causes-of-water-damage": [
+960,
+504,
+44
+],
+"tip-ow-to-prevent-mold-after-water-damage": [
+960,
+504,
+51
+],
+"tip-eiling-water-damage-repair": [
+960,
+504,
+34
+],
+"tip-ow-to-test-for-black-mold": [
+960,
+504,
+42
+],
+"tip-he-process-of-water-damage-assessment": [
+960,
+504,
+25
+],
+"tip-ow-to-fix-water-issues-in-a-crawl-space": [
+600,
+315,
+29
+],
+"tip-ow-to-repair-kitchen-cabinets-with-water-damage": [
+600,
+315,
+15
+],
+"tip-elling-a-house-with-water-damage": [
+600,
+315,
+19
+],
+"tip-old-exposure-symptoms-in-toddlers": [
+600,
+315,
+16
+],
+"tip-igns-of-water-damage": [
+600,
+315,
+12
+],
+"tip-hat-is-category-3-water-damage": [
+600,
+315,
+24
+],
+"tip-ow-bad-is-water-damage-to-a-house": [
+600,
+315,
+14
+],
+"tip-ow-to-fix-water-damaged-wood": [
+600,
+315,
+29
+],
+"tip-ow-to-kill-mold-on-drywall": [
+600,
+315,
+9
+],
+"tip-igns-of-water-damage-to-your-foundation": [
+960,
+549,
+62
+]
+}

@@ -1,0 +1,10 @@
+/* ahc-utah.com theme: "Both seasons". Salt Lake winters and summers: a cool slate-blue (their logo blue) and an ember red-orange (their
+   logo red, warmed), on an off-white like a clean filter. Bricolage Grotesque for display, Public Sans for text, DM Mono for set-points. */
+:root {
+  --paper: #f6f4f0; --sand: #ece8e1; --card: #ffffff; --ink: #14232c; --ink2: #3a4a54; --mute: #6c7a83; --line: #dcd8d0;
+  --dark: #14232c; --dark2: #1d3240; --on-dark: #f1f4f5; --on-dark2: #a6b6bf; --foot: #0e1a21;
+  --accent: #e2522b; --accent-2: #ff7a4d; --accent-ink: #b23a17; --on-accent: #ffffff; --cool: #2a7fa1; --cool-2: #6cc0e0;
+  --f-disp: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif; --f-body: "Public Sans", "Segoe UI", system-ui, sans-serif; --f-mono: "DM Mono", ui-monospace, Menlo, Consolas, monospace;
+  --disp-w: 700; --disp-ls: -.03em; --disp-tt: none; --r: 10px; --btn-r: 8px; --hdr: 84px; --logo-h: 46px;
+  color-scheme: light;
+}

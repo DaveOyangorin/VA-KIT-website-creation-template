@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Foundation Group Overview</title>
+<style>
+  :root {
+    --bg: #f7f6f3; --card: #ffffff; --text: #1d1d1b; --muted: #6b6a66; --line: #e3e1dc;
+    --accent: #1f5f8b; --good: #2e7d4f; --warn: #a86400; --bad: #b3261e; --chip: #eef3f7;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #161716; --card: #1f201f; --text: #ecebe7; --muted: #a3a29d; --line: #333431;
+      --accent: #7fb6dd; --good: #6cc193; --warn: #e0a54a; --bad: #ef7b72; --chip: #24303a;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #161716; --card: #1f201f; --text: #ecebe7; --muted: #a3a29d; --line: #333431;
+    --accent: #7fb6dd; --good: #6cc193; --warn: #e0a54a; --bad: #ef7b72; --chip: #24303a;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text);
+    font: 15px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  main { max-width: 1200px; margin: 0 auto; padding: 32px 16px 64px; }
+  h1 { font-size: 26px; margin: 0 0 4px; }
+  h2 { font-size: 18px; margin: 0 0 12px; }
+  h3 { font-size: 15px; margin: 16px 0 6px; }
+  .sub { color: var(--muted); margin: 0 0 24px; }
+  section { background: var(--card); border: 1px solid var(--line); border-radius: 10px;
+    padding: 20px; margin-bottom: 16px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; }
+  .stat { border: 1px solid var(--line); border-radius: 8px; padding: 12px; }
+  .stat b { display: block; font-size: 22px; }
+  .stat span { color: var(--muted); font-size: 13px; }
+  .table-wrap { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { color: var(--muted); font-weight: 600; font-size: 13px; }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+  .tag { display: inline-block; padding: 1px 8px; border-radius: 99px; font-size: 12px; white-space: nowrap; }
+  .t-good { background: color-mix(in srgb, var(--good) 15%, transparent); color: var(--good); }
+  .t-warn { background: color-mix(in srgb, var(--warn) 15%, transparent); color: var(--warn); }
+  .t-bad  { background: color-mix(in srgb, var(--bad) 15%, transparent); color: var(--bad); }
+  dl { display: grid; grid-template-columns: max-content 1fr; gap: 6px 16px; margin: 0; }
+  dt { color: var(--muted); }
+  dd { margin: 0; }
+  code { background: var(--chip); padding: 1px 6px; border-radius: 4px; font-size: 13px; }
+  ul, ol { padding-left: 20px; margin: 6px 0; }
+  li { margin: 3px 0; }
+  .note { border-left: 3px solid var(--warn); padding: 8px 12px; background: color-mix(in srgb, var(--warn) 8%, transparent); border-radius: 0 6px 6px 0; margin: 10px 0; }
+  .alert { border-left: 3px solid var(--bad); padding: 8px 12px; background: color-mix(in srgb, var(--bad) 8%, transparent); border-radius: 0 6px 6px 0; margin: 10px 0; }
+  .check li { list-style: none; margin-left: -20px; }
+  .check li::before { content: "☐ "; color: var(--muted); }
+  footer { color: var(--muted); font-size: 13px; text-align: center; margin-top: 24px; }
+  @media (max-width: 560px) { dl { grid-template-columns: 1fr; } dt { margin-top: 6px; } }
+  .small { color: var(--muted); font-size: 13px; }
+</style>
+
+</head>
+<body>
+<main>
+  <h1>Foundation, waterproofing &amp; restoration · Overview</h1>
+  <p class="sub">15 businesses from the Utah outreach list. Reviewed 19 Oct 2026. Business facts and audits from 5 Oct 2026; search numbers from 14 Oct 2026. Draft for Angelo's review.</p>
+
+  <section>
+    <h2>The group at a glance</h2>
+    <div class="grid">
+      <div class="stat"><b>5</b><span>Fit the group well</span></div>
+      <div class="stat"><b>3</b><span>Fit, but the plan's cost/FAQ data is about a different trade</span></div>
+      <div class="stat"><b>6</b><span>Check who the business is first</span></div>
+      <div class="stat"><b>1</b><span>Probably in the wrong group</span></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>What stands out</h2>
+    <ul>
+      <li><b>Only 5 of the 15 are clearly foundation or waterproofing businesses</b> that match the plan: Davenport, Rhino, Rocky Mountain Waterproofing, Superior Foundation Repair and Poly-Lift. Fortified Foundations also fits, but it has no Google profile.</li>
+      <li><b>For 3 water damage companies</b> (Swift, ClearTop, Disaster Repair Team), the cost, competitor topics and FAQ in the plan come from <b>foundation</b> searches. Ask Angelo for water damage restoration data before writing those parts.</li>
+      <li><b>St. George Home Services is a plumber/HVAC company.</b> It probably belongs in a different group.</li>
+      <li><b>4 businesses have no Google profile at all:</b> M3 Industries, Fortified Foundations, Salt Lake City Concrete Pros and St. George Concrete Leveling. The last two read like lead-generation sites. Confirm who owns them before any outreach.</li>
+      <li><b>2 Google profiles may be the wrong business:</b> Armour Crete (profile: Armored Concrete Systems) and Basement Specialists (profile: Vista Concrete Construction, site jsprofinish.com).</li>
+      <li><b>Clients compete with each other:</b> Davenport and Rocky Mountain Waterproofing both target West Jordan. Superior Foundation Repair and Salt Lake City Concrete Pros both target "foundation repair salt lake city". Angelo should know.</li>
+      <li><b>Strongest business:</b> Davenport Foundation Repair, with 4.8 stars from 1,473 reviews, but its mobile speed is 40/100.</li>
+      <li><b>Slowest sites:</b> Poly-Lift (33), Davenport (40), M3 Industries (48).</li>
+      <li><b>Biggest market:</b> Salt Lake City. "foundation repair salt lake city" gets 110 searches + 40 "near me". Most other cities get about 10.</li>
+      <li><b>"Water damage restoration" is suggested to almost every foundation and concrete business.</b> It's a different trade. Build it only if they really do it.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>All 15 businesses</h2>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>Business</th><th>City</th><th>Main work</th><th>Fit</th><th class="num">Pages</th><th class="num">Speed</th><th>Reviews</th><th>Flags</th><th>Report</th></tr></thead>
+      <tbody>
+        <tr><td>01</td><td><b>Davenport Foundation Repair</b><br><span class="small">davenportfoundationrepair.com</span></td><td>West Jordan</td><td>Foundation repair &amp; waterproofing</td>
+          <td><span class="tag t-good">Fits this group</span></td><td class="num">117</td><td class="num">40</td><td>4.8 stars · 1473 reviews</td>
+          <td>Slow site (40)</td><td><a href="davenportfoundationrepair.com/2026-10-19_davenportfoundationrepair.com_report.html">Open report</a></td></tr>
+        <tr><td>02</td><td><b>Rhino Foundation Systems</b><br><span class="small">rhinofoundationsystems.com</span></td><td>American Fork</td><td>Foundation repair &amp; waterproofing</td>
+          <td><span class="tag t-good">Fits this group</span></td><td class="num">96</td><td class="num">65</td><td>4.7 stars · 290 reviews</td>
+          <td>–</td><td><a href="rhinofoundationsystems.com/2026-10-19_rhinofoundationsystems.com_report.html">Open report</a></td></tr>
+        <tr><td>03</td><td><b>Rocky Mountain Waterproofing</b><br><span class="small">dryhouse.com</span></td><td>West Jordan</td><td>Basement waterproofing</td>
+          <td><span class="tag t-good">Fits this group</span></td><td class="num">1</td><td class="num">56</td><td>4.8 stars · 50 reviews</td>
+          <td>–</td><td><a href="dryhouse.com/2026-10-19_dryhouse.com_report.html">Open report</a></td></tr>
+        <tr><td>04</td><td><b>Superior Foundation Repair</b><br><span class="small">sfrutah.com</span></td><td>Salt Lake City</td><td>Foundation repair</td>
+          <td><span class="tag t-good">Fits this group</span></td><td class="num">0</td><td class="num">61</td><td>5 stars · 17 reviews</td>
+          <td>Audit found 0 pages</td><td><a href="sfrutah.com/2026-10-19_sfrutah.com_report.html">Open report</a></td></tr>
+        <tr><td>05</td><td><b>Swift Restoration And Remodeling</b><br><span class="small">swiftrestoreutah.com</span></td><td>Ogden</td><td>Water damage restoration &amp; remodeling</td>
+          <td><span class="tag t-warn">Plan data partly wrong</span></td><td class="num">266</td><td class="num">52</td><td>4.6 stars · 179 reviews</td>
+          <td>–</td><td><a href="swiftrestoreutah.com/2026-10-19_swiftrestoreutah.com_report.html">Open report</a></td></tr>
+        <tr><td>06</td><td><b>Armour Crete</b><br><span class="small">armour-crete.com</span></td><td>St. George</td><td>Concrete sealing</td>
+          <td><span class="tag t-warn">Check the business first</span></td><td class="num">15</td><td class="num">77</td><td>5 stars · 3 reviews</td>
+          <td>–</td><td><a href="armour-crete.com/2026-10-19_armour-crete.com_report.html">Open report</a></td></tr>
+        <tr><td>07</td><td><b>Basement Specialists</b><br><span class="small">jsprofinish.com</span></td><td>Ogden</td><td>Remodeling &amp; basement finishing</td>
+          <td><span class="tag t-warn">Check the business first</span></td><td class="num">25</td><td class="num">99</td><td>5 stars · 45 reviews</td>
+          <td>–</td><td><a href="jsprofinish.com/2026-10-19_jsprofinish.com_report.html">Open report</a></td></tr>
+        <tr><td>08</td><td><b>ClearTop Solutions</b><br><span class="small">cleartopsolutions.shop</span></td><td>St. George</td><td>Water damage restoration</td>
+          <td><span class="tag t-warn">Plan data partly wrong</span></td><td class="num">30</td><td class="num">92</td><td>none found</td>
+          <td>–</td><td><a href="cleartopsolutions.shop/2026-10-19_cleartopsolutions.shop_report.html">Open report</a></td></tr>
+        <tr><td>09</td><td><b>St. George Home Services</b><br><span class="small">stgeorgehomeservices.com</span></td><td>St. George</td><td>Plumbing, HVAC &amp; handyman</td>
+          <td><span class="tag t-bad">Probably wrong group</span></td><td class="num">196</td><td class="num">96</td><td>5 stars · 1 reviews</td>
+          <td>–</td><td><a href="stgeorgehomeservices.com/2026-10-19_stgeorgehomeservices.com_report.html">Open report</a></td></tr>
+        <tr><td>10</td><td><b>Poly-Lift</b><br><span class="small">poly-lift.com</span></td><td>Logan</td><td>Concrete lifting (polyurethane foam)</td>
+          <td><span class="tag t-good">Fits this group</span></td><td class="num">42</td><td class="num">33</td><td>4.6 stars · 14 reviews</td>
+          <td>&quot;Check first&quot;, Slow site (33)</td><td><a href="poly-lift.com/2026-10-19_poly-lift.com_report.html">Open report</a></td></tr>
+        <tr><td>11</td><td><b>Disaster Repair Team</b><br><span class="small">thedisasterrepairteam.com</span></td><td>Lehi</td><td>Water damage restoration</td>
+          <td><span class="tag t-warn">Plan data partly wrong</span></td><td class="num">127</td><td class="num">68</td><td>4.9 stars · 168 reviews</td>
+          <td>&quot;Check first&quot;</td><td><a href="thedisasterrepairteam.com/2026-10-19_thedisasterrepairteam.com_report.html">Open report</a></td></tr>
+        <tr><td>12</td><td><b>M3 Industries</b><br><span class="small">m3industriesconcrete.com</span></td><td>St. George</td><td>Concrete coatings</td>
+          <td><span class="tag t-warn">Check the business first</span></td><td class="num">37</td><td class="num">48</td><td>none found</td>
+          <td>No Google profile, &quot;Check first&quot;, Slow site (48)</td><td><a href="m3industriesconcrete.com/2026-10-19_m3industriesconcrete.com_report.html">Open report</a></td></tr>
+        <tr><td>13</td><td><b>Fortified Foundations</b><br><span class="small">foundationrepairogden.com</span></td><td>Ogden</td><td>Foundation repair</td>
+          <td><span class="tag t-warn">Check the business first</span></td><td class="num">23</td><td class="num">82</td><td>none found</td>
+          <td>No Google profile, &quot;Check first&quot;</td><td><a href="foundationrepairogden.com/2026-10-19_foundationrepairogden.com_report.html">Open report</a></td></tr>
+        <tr><td>14</td><td><b>Salt Lake City Concrete Pros</b><br><span class="small">saltlakecity-concretepros.com</span></td><td>Salt Lake City</td><td>Concrete contractor</td>
+          <td><span class="tag t-warn">Check the business first</span></td><td class="num">18</td><td class="num">93</td><td>none found</td>
+          <td>No Google profile, &quot;Check first&quot;</td><td><a href="saltlakecity-concretepros.com/2026-10-19_saltlakecity-concretepros.com_report.html">Open report</a></td></tr>
+        <tr><td>15</td><td><b>St. George Concrete Leveling</b><br><span class="small">stgeorgeconcreteleveling.com</span></td><td>St. George</td><td>Concrete leveling</td>
+          <td><span class="tag t-warn">Check the business first</span></td><td class="num">6</td><td class="num">95</td><td>none found</td>
+          <td>No Google profile, &quot;Check first&quot;</td><td><a href="stgeorgeconcreteleveling.com/2026-10-19_stgeorgeconcreteleveling.com_report.html">Open report</a></td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="small">Order follows the outreach list. Each report has a "Reviewer notes" section with the hand-checked findings for that business.</p>
+  </section>
+
+  <section>
+    <h2>Next steps</h2>
+    <ul class="check">
+      <li><b>Angelo:</b> confirm who owns the 4 businesses with no Google profile and the 2 with a possibly wrong profile.</li>
+      <li><b>Angelo:</b> send water damage restoration keyword data for Swift, ClearTop and Disaster Repair Team.</li>
+      <li><b>Angelo:</b> decide whether St. George Home Services stays in this group.</li>
+      <li><b>Angelo:</b> decide how to handle clients that compete for the same keywords.</li>
+      <li>Open sfrutah.com by hand. The audit couldn't read it properly.</li>
+      <li>Read the email page warning before outreach to any "Check first" business.</li>
+    </ul>
+  </section>
+
+  <footer>Novarte AI · Draft for internal review · Audit 5 Oct 2026 · Search data 14 Oct 2026</footer>
+</main>
+</body>
+</html>

@@ -1,0 +1,3 @@
+client,phase,pillar,target_site,target_url,action,dofollow,cost,why_it_links,status,date_submitted,live_link_url,notes
+example-client,1,Directories & citations,Yelp,https://biz.yelp.com,claim,unknown,free,Core local directory; customers search it,todo,,,"Search by phone first; claim if a listing exists"
+example-client,3,Industry partners,State trade association member directory,,apply,unknown,unknown,Real credential; member listing links to site,todo,,,"NEEDS ANGELO OK: membership fee unknown"

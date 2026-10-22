@@ -1,0 +1,11 @@
+/* therepairpros.com theme: "The service manual". Black ink from their italic plug wordmark and lettered white van; manual-paper
+   off-white; signal yellow (multimeter yellow) as the one accent, always with black text on it. Schibsted Grotesk at heavy weights for
+   display, Figtree for text, Martian Mono for spec readouts and figure captions. One light theme by choice. */
+:root {
+  --paper: #f4f3ef; --sand: #e9e7e0; --card: #ffffff; --ink: #0e0e0e; --ink2: #34342f; --mute: #6a6a63; --line: #d9d7cf;
+  --dark: #121212; --dark2: #1d1d1b; --on-dark: #f4f3ef; --on-dark2: #a8a79f; --foot: #0b0b0b;
+  --accent: #f5c400; --accent-2: #ffd633; --accent-ink: #8a6d00; --on-accent: #0e0e0e;
+  --f-disp: "Schibsted Grotesk", "Arial Black", "Segoe UI", system-ui, sans-serif; --f-body: "Figtree", "Segoe UI", system-ui, sans-serif; --f-mono: "Martian Mono", ui-monospace, Menlo, Consolas, monospace;
+  --disp-w: 800; --disp-ls: -.03em; --disp-tt: none; --r: 4px; --btn-r: 4px; --hdr: 76px; --logo-h: 34px;
+  color-scheme: light;
+}

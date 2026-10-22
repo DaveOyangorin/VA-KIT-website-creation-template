@@ -1,0 +1,632 @@
+================================================================================
+VA COPY of Angelo's FRAVATA file "FRAVATA_SEO_KNOWLEDGE.txt" - made 2026-10-11 for the VA kit.
+Kept: Module 1 technical SEO, Module 2 local SEO (2.1-2.2), Module 3 keyword + post method (3.1-3.2), Module 6 core-update knowledge, Module 7 Google's AI-content rules.
+Removed: logins and passwords, the publishing pipeline, Novarte's own blog plans,
+prospect audit data, and anything about other businesses.
+Where this file says DataForSEO, MAMMATA, SORDA or a FRAVATA\ folder: use the keyword
+file and facts Angelo put in INBOX\, and save your work in OUTBOX\.
+The kit's rules in CLAUDE.md win over anything in this file.
+================================================================================
+
+================================================================================
+FRAVATA SEO KNOWLEDGE BASE
+Source: MAMMATA audits + DataForSEO API + Google Search Central
+Last Updated: 2026-05-24 (+ MODULE 7, AI content rules, 2026-10-05)
+================================================================================
+
+CRITICAL — READ FIRST: Google May 2026 Core Update rolled out May 21, 2026.
+Estimated completion: June 4, 2026. This update changed ranking signals.
+All blog posts, audits, and advice must reflect the new 7-signal framework below.
+See MODULE 6 for the complete May 2026 Core Update knowledge base.
+
+This file is Fravata's brain. Every blog post must draw from this knowledge.
+Do not fabricate technical data — use what is here, or reference real sources.
+
+
+================================================================================
+MODULE 1 — TECHNICAL SEO
+================================================================================
+
+--------------------------------------------------------------------------------
+1.1 CORE TECHNICAL SIGNALS (what Google actually checks)
+--------------------------------------------------------------------------------
+
+HTTPS & SSL
+  - HTTPS is a confirmed Google ranking signal (since 2014)
+  - Let's Encrypt is acceptable — does not reduce trust vs paid certs
+  - HTTP→HTTPS redirect must be enforced on ALL pages (301, not 302)
+  - www vs non-www: PICK ONE and 301-redirect the other
+    → Common failure: www.domain.com returns 404 instead of redirecting
+    → This splits link equity between two "domains" in Google's eyes
+  - Reference: https://developers.google.com/search/docs/crawling-indexing/https/
+
+XML SITEMAP
+  - Must exist at /sitemap.xml
+  - Submit to Google Search Console
+  - Include only canonicalized, indexable pages
+  - Update automatically when new blog posts are published (GitHub Actions can do this)
+  - Max URLs per sitemap: 50,000 (if more, use sitemap index)
+
+ROBOTS.TXT
+  - Must exist at /robots.txt
+  - Common mistake: blocking /wp-admin BUT also accidentally blocking CSS/JS
+  - Test via Google Search Console's robots.txt tester
+  - Never disallow the entire site (Disallow: /) in production
+
+CRAWLABILITY
+  - Broken links (4xx) waste crawl budget and signal poor maintenance
+  - Internal links are the roadmap Google follows — more internal links = more crawl
+  - Redirect chains (A→B→C) slow crawlers; consolidate to one hop
+  - Canonical tags prevent duplicate content issues; must point to self on canonical pages
+
+PAGE SPEED — CORE WEB VITALS (Google ranking factor since 2021)
+  MAY 2026 UPDATE: Google now evaluates Core Web Vitals HOLISTICALLY,
+  not as three pass/fail gates. A site with stellar LCP but poor INP
+  can still rank well if the overall UX score is high. But failing all
+  three is now a stronger negative signal than pre-2026.
+
+  - LCP (Largest Contentful Paint): target < 2.5s
+    → Main causes of slow LCP: large hero images, render-blocking CSS/JS, no CDN
+    → Fix: compress images (WebP format), use CDN (Netlify, Cloudflare), preload fonts
+  - CLS (Cumulative Layout Shift): target < 0.1
+    → Main cause: images without width/height attributes, late-loading ads
+    → Fix: always set width and height on <img> tags
+  - INP (Interaction to Next Paint, replaced FID in 2024): target < 200ms
+    → Main cause: heavy JavaScript blocking the main thread
+    → Fix: defer non-critical JS, use web workers for heavy computation
+  - Tool: Google PageSpeed Insights → https://pagespeed.web.dev/
+  - Tool: DataForSEO On-Page API returns LCP, FID, CLS per page
+
+HTTP/2 & COMPRESSION
+  - HTTP/2 enables request multiplexing (faster parallel loading)
+  - Brotli compression outperforms gzip by 15-25% on text files
+  - Netlify enables both by default — no config needed
+
+RENDER-BLOCKING RESOURCES
+  - <link rel="stylesheet"> in <head> blocks rendering until CSS loads
+  - Fix: use preload/onload trick for non-critical CSS:
+    <link rel="preload" href="/styles.css" as="style"
+          onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/styles.css"></noscript>
+  - JavaScript: use defer or async attributes on all non-critical scripts
+  - Real case: one site we audited had this on all 8 pages — 2.9KB stylesheet
+
+--------------------------------------------------------------------------------
+1.2 ON-PAGE SEO
+--------------------------------------------------------------------------------
+
+TITLE TAGS
+  - Maximum 60 characters (Google truncates at ~55–60 chars in SERP)
+  - Format: [Primary Keyword] — [Brand Name] or [Keyword] | [Location] | [Brand]
+  - Must be unique per page — duplicate titles divide ranking signals
+  - H1 must match the page's intent (not necessarily identical to title tag)
+  - Example good title: "Local SEO Services Utah — Rank in Salt Lake City Maps" (53 chars)
+
+META DESCRIPTIONS
+  - Not a direct ranking factor — but affects CTR which IS a ranking signal
+  - Target: 150–160 characters
+  - Must include primary keyword (Google bolds it in SERP when matched)
+  - Must be a compelling reason to click — treat it like ad copy
+  - Short descriptions are penalized in CTR; 108 chars is too short
+
+H1/H2/H3 HIERARCHY
+  - ONE H1 per page — this is the page's main topic declaration
+  - H2s are sub-topics — naturally include secondary keywords
+  - H3s are subsection details
+  - Never use headings as styling — only use them to communicate hierarchy to crawlers
+  - Missing H1 = Google doesn't know what the page is about
+
+IMAGE OPTIMIZATION
+  - Every <img> must have descriptive alt="[what's in the image]"
+  - File names matter: "red-seo-dashboard.webp" beats "IMG_0047.jpg"
+  - Compress all images to <150KB where possible; homepage image >350KB is too large
+  - Use WebP format — 25-34% smaller than JPEG at same quality
+  - Set explicit width and height attributes to prevent CLS
+
+INTERNAL LINKING
+  - Every page should link to 3-5 related pages
+  - Anchor text should be descriptive, not "click here"
+  - Blog posts → service pages = link equity flowing to conversion pages
+  - Average healthy site: 9+ internal links per page (from our audits)
+  - Orphan pages (zero internal links) often don't get crawled at all
+
+URL STRUCTURE
+  - Short, descriptive, hyphenated
+  - Include primary keyword: /blog/technical-seo-audit-checklist
+  - Never: /page?id=2872 or /blog/post-1
+  - Canonical URL must match the URL shown to users (no trailing slash inconsistency)
+
+CONTENT DEPTH
+  - Minimum: 300 words per page to avoid "thin content" flag
+  - Service pages: 800–1,200 words for competitive keywords
+  - Blog posts: 1,500–3,000 words for topical authority
+  - Real example: one site's /contact page had 90 words — flagged as critically thin
+  - Flesch-Kincaid Readability: target 45–65 (accessible professional writing)
+
+--------------------------------------------------------------------------------
+1.3 SCHEMA / STRUCTURED DATA
+--------------------------------------------------------------------------------
+
+WHY SCHEMA MATTERS
+  - Enables rich results in Google SERP (FAQ dropdowns, star ratings, sitelinks)
+  - Google confirmed: schema does NOT directly boost rankings — but rich results
+    increase CTR by 20–40%, which creates a ranking feedback loop
+  - Schema tells Google WHAT your content is, not just WHAT it says
+  - Reference: https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data
+
+  MAY 2026 UPDATE — SCHEMA AS AI ENTITY VERIFICATION:
+  Schema now plays a second role beyond rich results: it is Google's primary
+  mechanism for verifying entity identity in its Knowledge Graph for AI Overviews.
+  Without correct schema, pages are much less likely to be cited in AI Overviews.
+  AI Overviews now appear on 48% of all Google queries. Sites cited in AI Overviews
+  receive 35% more clicks than the position-1 organic result.
+
+  What this means for Fravata posts:
+  → Every BlogPosting must have complete author schema with @id and sameAs fields
+  → Organization schema must link to social profiles (sameAs array)
+  → FAQPage schema on any post with Q&A boosts AI Overview citation probability
+  → Fravata must write with schema in mind — headings that match FAQ schema questions
+
+  HEALTHCARE / YMYL SCHEMA (for healthcare clients):
+  Google's Gemini reads schema to identify YMYL (Your Money Your Life) pages.
+  Missing YMYL schema on healthcare sites now triggers aggressive quality scrutiny.
+  Required types:
+    MedicalBusiness  → practice identity, specialties, hours, location
+    MedicalWebPage   → each service/condition page
+    FAQPage          → patient FAQ sections
+
+SCHEMA TYPES FOR NOVARTE AI / LOCAL SERVICE BUSINESSES
+  Organization       → Homepage: brand identity, logo, social profiles
+  WebSite            → Homepage: enables sitelinks search box
+  LocalBusiness      → For any geographically-targeted business
+  Service            → Each service page (SEO, Local SEO, Lead Gen, etc.)
+  FAQPage            → Add to every page that has Q&A content
+  BreadcrumbList     → Every page except homepage
+  Article/BlogPosting→ Every blog post (CRITICAL for Fravata posts)
+  Person             → About page (establishes founder E-E-A-T signals)
+  ContactPage        → /contact page
+
+CRITICAL SCHEMA FOR BLOG POSTS (Fravata must embed this in every post):
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "[Post Title]",
+    "description": "[Meta description]",
+    "author": {
+      "@type": "Person",
+      "name": "[Author Name]",
+      "url": "https://[domain]/about"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "[Business Name]",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://[domain]/assets/logo-new.png"
+      }
+    },
+    "datePublished": "[YYYY-MM-DD]",
+    "dateModified": "[YYYY-MM-DD]",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://[domain]/blog/[slug]"
+    },
+    "image": "https://[domain]/blog/images/[post-image.jpg]"
+  }
+
+E-E-A-T (Experience, Expertise, Authoritativeness, Trustworthiness)
+  - Google's quality rater guidelines contain 175 pages on this topic
+  - Signals that help: author bios, About page depth, real case studies,
+  - The About page must have real depth
+  - Reference: https://static.googleusercontent.com/media/guidelines.raterhub.com/en//searchqualityevaluatorguidelines.pdf
+
+  MAY 2026 UPDATE — EXPERIENCE IS NOW THE TOP E-E-A-T SUB-SIGNAL:
+  Pre-2026 E-E-A-T weighted Expertise most heavily. The May 2026 update
+  re-weighted: Experience now counts most. Google's raters are trained to
+  look for first-person evidence of having actually done the thing.
+
+  What "Experience" signals look like in writing:
+    ✅ "When I ran this audit for a Draper auto shop last month..."
+    ✅ "I've done this migration three times — here's what actually breaks"
+    ✅ Specific dates, client names (or anonymized but detailed), real numbers
+    ✅ Photos, screenshots, real tool outputs embedded in posts
+    ✅ Admitting what didn't work and what you'd do differently
+    ❌ "Experts recommend..." (Expertise signal, not Experience)
+    ❌ "Studies show..." without having personally verified or tested
+    ❌ Generic "best practices" lists with no personal application
+
+  Fravata must write every post from the client's real expert's first-person
+  experience perspective. The author schema (Person @id) must link
+
+================================================================================
+MODULE 2 — LOCAL SEO
+================================================================================
+
+--------------------------------------------------------------------------------
+2.1 GOOGLE BUSINESS PROFILE (GBP) — THE MAP PACK
+--------------------------------------------------------------------------------
+
+What GBP controls:
+  The 3-pack of local results that appears above organic for "near me" and
+  local queries. This is often the highest-CTR position on the entire SERP.
+
+GBP Ranking Factors (the three Google confirms):
+  1. RELEVANCE — Does this business match what was searched?
+  2. DISTANCE  — How far is this business from the searcher?
+  3. PROMINENCE — How well-known/authoritative is this business online?
+
+Optimization checklist:
+  ✅ Complete every field in GBP (hours, services, description, photos)
+  ✅ Primary category must match your exact service ("Auto Repair Shop")
+  ✅ Add all secondary categories that apply
+  ✅ NAP consistency: Name, Address, Phone must match EXACTLY across all platforms
+  ✅ Post weekly to GBP (promotional posts, events, updates)
+  ✅ Respond to EVERY review (positive and negative) within 48 hours
+  ✅ Add 10+ photos (interior, exterior, team, work product, logo)
+  ✅ Enable messaging
+  ✅ Add service area if you serve multiple cities (without a storefront in each)
+  ✅ Products section: add main services with prices and descriptions
+
+Review velocity matters:
+  Fresh reviews (recent) outweigh old reviews (even many of them)
+  Target: 2–4 new reviews per month consistently
+  Never incentivize reviews — Google penalizes this
+
+Citations:
+  Consistent NAP listings on Yelp, BBB, Angi, YellowPages
+  These are "votes" confirming your business exists at that location/phone
+  Inconsistent NAP (different suite numbers, abbreviations) degrades prominence
+
+--------------------------------------------------------------------------------
+2.2 LOCAL KEYWORD STRATEGY
+--------------------------------------------------------------------------------
+
+Keyword patterns for local service businesses:
+  [service] + [city]          → "auto repair Draper UT"
+  [service] + "near me"       → "plumber near me" (GBP ranks this)
+  [service] + [neighborhood]  → "HVAC South Jordan"
+  "best" + [service] + [city] → "best roofing company Salt Lake City"
+  "cheap/affordable" + [service] + [city] → lower intent but high volume
+  [service] + "emergency"     → high-intent, often needs 24/7 page
+
+Local SEO content strategy:
+  Create one page per service/city combination for maximum coverage
+  Example: /services/auto-repair-draper-ut/
+  These city landing pages must be unique (no duplicate content between cities)
+  Minimum 500 words per city page with real local references
+
+
+MODULE 3 — CONTENT SEO & BLOG STRATEGY
+================================================================================
+
+--------------------------------------------------------------------------------
+3.1 KEYWORD RESEARCH METHOD
+--------------------------------------------------------------------------------
+
+Step 1 — Seed keywords:
+  Start with what the business does + location + problem
+  Example seeds: "local seo utah", "technical seo audit", "seo company salt lake city"
+
+Step 2 — DataForSEO Keyword Ideas API:
+  Endpoint: /v3/keywords_data/google_ads/search_volume/live
+  Returns: monthly search volume, CPC, competition level
+  Use: filter for < 1,000 searches/month but > 100 (sweet zone for new sites)
+
+Step 3 — SERP Analysis:
+  Search the keyword manually. Look at page 1.
+  What type of content ranks? (listicles, guides, case studies, tools?)
+  What's the average word count? (Use this as your floor)
+  What questions do the "People Also Ask" boxes show?
+
+Step 4 — Long-tail expansion:
+  For each seed keyword find 5 long-tail variants
+  "technical seo audit" → "how to do a technical seo audit without tools"
+  These are faster to rank, higher converting, and build topical authority
+
+Step 5 — Keyword mapping:
+  Each target keyword gets ONE page/post
+  Never compete with yourself (two posts targeting same keyword = cannibalization)
+
+--------------------------------------------------------------------------------
+3.2 BLOG POST STRUCTURE TEMPLATE (Fravata Standard)
+--------------------------------------------------------------------------------
+
+POST ANATOMY (mandatory structure for every post):
+
+  [HOOK PARAGRAPH — 3–4 sentences]
+    Counterintuitive fact, surprising stat, or scene-setting anecdote
+    DO NOT start with "In today's..." or "SEO is important..."
+
+  [THE PROBLEM — 1 section, 150–250 words]
+    What pain does this post solve? Name it clearly.
+    Use real numbers if available.
+
+  [CASE STUDY / REAL EXAMPLE — 1–2 sections, ~500 words]
+    This is what separates Fravata from generic SEO blogs.
+    Use real audit data (from the client's own files in INBOX)
+    OR reference a well-known public case study with source citation.
+    Structure: Situation → What was found → What was done → Result
+
+  [THE FRAMEWORK / HOW-TO — main body, 3–6 sections]
+    Each section is one H2. Each H2 covers one concrete step/concept.
+    Alternate between explanation and example.
+    Use numbered lists, bullet points, code blocks where relevant.
+    Every claim needs either: real data Fravata has, or a cited source.
+
+  [COMMON MISTAKES — optional, 1 section]
+    "The 3 mistakes I see auto repair shops make with their GBP..."
+    These perform well in search (high intent) and in social shares.
+
+  [CONCLUSION + CTA — 100–150 words]
+    Summarize the ONE key takeaway (not a recap of everything).
+    Call to action: free audit link OR related post link OR question to comment on.
+
+POST METADATA (every post must have):
+  Title      : 50–60 chars, includes primary keyword
+  Meta desc  : 150–160 chars, includes keyword, CTA
+  Slug       : /blog/[keyword-hyphenated]/
+  Tags       : 3–5 relevant tags
+  Category   : Technical SEO | Local SEO | AI Marketing | Case Studies | Lead Gen
+  Schema     : BlogPosting (full template in MODULE 1)
+  Author     : [Author Name]
+  Date       : Publish date (YYYY-MM-DD)
+  WordCount  : Minimum 1,500 words (target 2,000–2,500)
+  Sources    : Minimum 3 cited external sources per post
+
+CITING SOURCES (mandatory format):
+  Inline: "According to Google Search Central's documentation on structured data
+           (https://developers.google.com/search/docs/...), schema markup..."
+  At end: [Sources] section listing all links used
+
+ACCEPTABLE SOURCE TYPES:
+  ✅ Google Search Central Blog (developers.google.com/search)
+  ✅ Google Quality Rater Guidelines (PDF published by Google)
+  ✅ Ahrefs Blog (ahrefs.com/blog) — known for original research
+  ✅ Backlinko (backlinko.com) — Brian Dean's data-backed studies
+  ✅ Search Engine Journal (searchenginejournal.com)
+  ✅ Search Engine Land (searchengineland.com)
+  ✅ Moz Blog (moz.com/blog) — long-standing SEO authority
+  ✅ DataForSEO documentation (docs.dataforseo.com)
+  ❌ Medium posts without cited data
+  ❌ Generic "according to experts" without names
+  ❌ Competitor agencies' blogs without original research
+
+
+MODULE 6 — MAY 2026 CORE UPDATE (Rolled Out: May 21, 2026)
+================================================================================
+
+SOURCE: Google Search Central, Search Engine Journal, Search Engine Land
+Estimated full rollout completion: June 4, 2026
+Last verified: May 24, 2026
+
+--------------------------------------------------------------------------------
+6.1 THE 5 PRIMARY RANKING SIGNALS (what changed)
+--------------------------------------------------------------------------------
+
+These five signals now form the core of Google's ranking evaluation. MAMMATA
+scores sites against all five. Fravata blog posts must help clients improve
+their scores in each area.
+
+SIGNAL 1 — SEARCH INTENT MATCHING (weight: 20/120)
+  Definition: How precisely does a page's content, format, and depth match
+  what the searcher actually wanted to accomplish?
+
+  2026 change: Google now evaluates intent at three levels simultaneously:
+    → Informational (wants to learn)
+    → Commercial (comparing options)
+    → Navigational (wants a specific site/brand)
+  A page must satisfy the DOMINANT intent and not confuse the secondary intent.
+
+  Failure patterns:
+    - Blog post trying to rank for a transactional keyword
+    - Service page that reads like a blog post (too educational, not enough action)
+    - FAQ pages targeting informational queries but with CTA-heavy copy
+
+  Fix: Format must match intent. Buying intent = features, pricing, social proof.
+  Research intent = depth, examples, comparisons. Navigation = brand clarity.
+
+SIGNAL 2 — E-E-A-T (weight: 20/120)
+  See Module 1.3 for full detail on the 2026 Experience-first reweighting.
+  Key new requirement: Google's Gemini quality filter verifies Experience signals
+  by looking for first-person specificity — not just author bylines.
+
+  Author schema @id field now required to establish author entity in Knowledge Graph.
+  Without it, Google cannot connect the byline to a known real-world person.
+
+  For Fravata posts, required schema addition:
+  "author": {
+    "@type": "Person",
+    "@id": "https://[domain]/about#[author]",
+    "name": "[Author Name]",
+    "url": "https://[domain]/about",
+    "sameAs": [
+      "https://www.linkedin.com/in/[profile]",
+      "https://twitter.com/[handle]"
+    ]
+  }
+
+SIGNAL 3 — INFORMATION GAIN (weight: 20/120)
+  Definition: How much new, original knowledge does this page add that the
+  top 10 results don't already cover?
+
+  This is arguably the biggest 2026 shift. Google now measures content
+  originality at the semantic level — not just text uniqueness (Copyscape-style)
+  but conceptual uniqueness. Pages that just repackage top-10 content lose rank
+  even if they're perfectly written.
+
+  What creates Information Gain:
+    ✅ Original data from your own audits, client results, tests
+    ✅ A perspective or conclusion that disagrees with what ranks #1
+    ✅ A specific use case the top results don't cover
+    ✅ Timestamps that place knowledge in a specific context (recency)
+    ✅ Combining two concepts that aren't combined in existing results
+    ✅ Case studies with actual before/after numbers, not averages
+    ❌ Adding more words to cover the same points
+    ❌ Longer listicles with the same list items
+    ❌ "Comprehensive guides" that synthesize without adding
+
+  Fravata mandate: Every post must pass the "What does THIS post say that
+  none of the top 10 results say?" test before publishing.
+
+  Minimum Information Gain requirements per post:
+    → At least 1 original data point (from MAMMATA audit, own test, or client)
+    → At least 1 counterintuitive angle or conclusion
+    → At least 1 named case with specific numbers
+
+SIGNAL 4 — AI CONTENT DETECTION / EDITORIAL OVERSIGHT (weight: 20/120)
+  Definition: Does this content demonstrate human editorial judgment, or does
+  it read as algorithmically generated without meaningful oversight?
+
+  Google is NOT penalizing AI-assisted content. It IS penalizing content that:
+    - Shows no human perspective, opinion, or selection judgment
+    - Covers a topic uniformly with no emphasis (every point treated equally)
+    - Has no evidence of first-hand experience (see Signal 2)
+    - Was clearly published without any human having read it
+
+  The Gemini semantic filter evaluates 5 sub-signals:
+    1. Editorial emphasis: are some points treated as more important than others?
+    2. Point of view: does the author take a stance on anything?
+    3. Experience markers: is there evidence of having done the thing?
+    4. Named authorship: does a real entity take responsibility for this content?
+    5. Behavioral signals: do users engage with it as they do expert content?
+
+  This is why FRAVATA_IDENTITY.txt was trained with 18 humanization rules and
+  10 AI detection evasion patterns. Every rule there maps to one of these sub-signals.
+
+SIGNAL 5 — HOLISTIC UX SCORING (weight: 20/120)
+  Definition: A composite score combining Core Web Vitals, mobile experience,
+  ad density, intrusive interstitials, and navigation clarity.
+
+  2026 change: No longer evaluated as binary pass/fail per metric. Google now
+  uses a composite UX score that weights metrics relative to the query type.
+    → High-competition commercial queries: UX score matters most (users have options)
+    → Low-competition informational queries: content relevance outweighs UX
+
+  Component breakdown:
+    - Core Web Vitals composite (LCP, INP, CLS) — see 1.1
+    - Mobile usability (tap target sizes, viewport config, font size ≥16px)
+    - Ad density: ads must not displace more than 30% of visible content
+    - Interstitials: full-screen pop-ups on mobile = heavy penalty
+    - Navigation: users must reach any page in ≤ 3 clicks from homepage
+
+  For Novarte AI clients: UX Scoring penalizes more heavily in local search
+  than national search — local SERPs have higher ad density and competition.
+
+SIGNAL 6 — STRUCTURED DATA / ENTITY VERIFICATION (weight: 25/120)
+  See Module 1.3 for the full AI entity verification section.
+  This signal is weighted at 25 — heaviest single signal in the new framework.
+  Schema is no longer optional for any site targeting AI Overviews.
+
+SIGNAL 7 — TOPICAL AUTHORITY (weight: 15/120)
+  Definition: Does this domain publish consistently within a defined topic cluster?
+  Does internal linking map clearly to a topical hierarchy?
+
+  A new domain cannot outrank a high-authority site on
+  a broad keyword — but it CAN outrank it on a specific sub-topic where it
+  publishes more content that covers the sub-topic end-to-end.
+
+  Topical authority building formula:
+    1. Pick 3–5 topic clusters (e.g., Technical SEO, Local SEO, Schema Markup)
+    2. Create a pillar page for each (2,500+ words, broad keyword)
+    3. Create 5–8 cluster posts per pillar (targeted, specific long-tail)
+    4. Link every cluster post → pillar page with descriptive anchor text
+    5. Pillar page links back to each cluster post
+    6. Google sees: this site covers THIS topic end-to-end → topical authority
+
+  Fravata's 2026 content calendar must be organized by topic cluster, not
+  just by month. The calendar in Module 3.3 should be restructured around
+  4 pillars: Technical SEO | Local SEO | Schema & Structured Data | AI in SEO
+
+--------------------------------------------------------------------------------
+6.2 AI OVERVIEWS — WHAT FRAVATA MUST KNOW
+--------------------------------------------------------------------------------
+
+AI Overviews now appear on 48% of all Google searches (up from 15% in 2025).
+On commercial and informational queries, the AI Overview often appears above
+position 1. Being cited in an AI Overview drives 35% MORE clicks than
+being in position 1 organic.
+
+How pages get cited in AI Overviews:
+  1. Strong E-E-A-T signals (Experience specifically)
+  2. Complete and accurate structured data (@type, @id, sameAs)
+  3. Clear factual statements that Gemini can extract as direct answers
+  4. FAQPage schema that maps to specific question phrasings users type
+  5. Content that adds Information Gain vs. what's already in the AI model
+
+How to write content optimized for AI Overview citation:
+  → Answer the primary question in the first 2–3 sentences (Gemini extracts early)
+  → Use the exact question as a subheading (matches query phrasing)
+  → Follow with 2–4 supporting sentences that give specific detail
+  → Include a number, name, date, or metric in every answer (specificity matters)
+  → Add FAQPage schema matching those exact H2/H3 subheadings
+
+For Fravata posts:
+  Every H2 should be phrased as a question the user might type.
+  The paragraph immediately after the H2 must answer it directly in 1–2 sentences.
+  Then expand with examples and detail. This structure maximizes AI Overview picks.
+
+AI Overview example (what Gemini prefers to cite):
+  H2: "How long does local SEO take to show results?"
+  Para 1: "Most local businesses see measurable ranking movement in 90–120 days,
+           based on my audits of Utah service businesses in 2026."
+  Para 2: [expand with case study data, what factors speed it up/slow it down]
+
+What AI Overview WILL NOT cite:
+  ❌ Pages with zero structured data
+  ❌ Generic summaries without specific claims
+  ❌ Content that doesn't take a clear position
+  ❌ Pages with expired SSL certificates
+  ❌ Pages that fail mobile Core Web Vitals
+
+
+--------------------------------------------------------------------------------
+6.4 UPDATED SCORING FRAMEWORK FOR BLOG AUDITS
+--------------------------------------------------------------------------------
+
+When writing about any site's SEO performance in a Fravata post, use this
+7-signal framework (matches MAMMATA's May 2026 audit format):
+
+  Signal                    | Max Score | Weight
+  --------------------------|-----------|--------
+  Search Intent Matching    |    20     | Core
+  E-E-A-T                   |    20     | Core
+  Content & Information Gain|    20     | Core
+  Holistic UX Score         |    20     | Core
+  Structured Data           |    25     | Highest
+  Topical Authority         |    15     | Core
+  Technical SEO             |    20     | Core
+  TOTAL                     |   140     |
+
+  ≥ 112/140 (80%+) = Strong — likely recovering or maintaining after update
+  84–111/140 (60–79%) = Average — some volatility, targeted fixes needed
+  56–83/140 (40–59%) = Weak — significant drops likely during rollout
+  < 56/140 (< 40%) = Critical — immediate remediation required
+
+================================================================================
+MODULE 7 — AI CONTENT RULES (Google revised its gen-AI guidance 2026-10-01)
+================================================================================
+Google's page (checked live 2026-10-05): developers.google.com/search/docs/fundamentals/using-gen-ai-content
+
+WHAT GOOGLE NOW SAYS (its words)
+  - AI models "don't retrieve facts, but predict a likely sequence of words" → hallucinations.
+  - "It is critical to manually factcheck and review all AI-generated content for accuracy and
+    trustworthiness before publishing." Also the METADATA: title, meta description, structured
+    data, image alt text.
+  - Many AI pages without added value may violate the scaled content abuse spam policy.
+  - Older FAQ: AI isn't banned and gets no boost; accurate bylines where readers expect them;
+    don't list "AI" as the author; disclose AI/automation where readers would ask "how was this made?".
+  - Merchant Center: AI images need IPTC DigitalSourceType = TrainedAlgorithmicMedia.
+
+HOW FRAVATA WRITES FROM NOW ON
+  1. Every fact, number, date and quote in a draft must trace to a real source; list the sources at
+     the bottom of the draft for the human reviewer. No source → cut it.
+  2. Write the title, meta description, schema text and alt text as carefully as the body, and put
+     them in the review packet — Google now names them.
+  3. Draft = assistant output. A named human (Angelo or the client) reads it before it ships. Never
+     present a draft as reviewed.
+     byline "AI".
+  5. No one-shot page sets. Each city/service page needs its own real local facts; write fewer,
+     better pages.
+  6. Cut fluff: answer first, short paragraphs, one clear call to action; add real photos/video.
+
+

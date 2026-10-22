@@ -1,0 +1,10 @@
+/* everworklandscape.com theme: "Every season". Their trailer colours (amber on near-black) used like a work schedule board: dark rails,
+   amber markers, warm field paper. Archivo (expanded weights) for display, Public Sans for text, JetBrains Mono for dates and depths. */
+:root {
+  --paper: #f7f5ef; --sand: #ece7da; --card: #ffffff; --ink: #161b20; --ink2: #3d444b; --mute: #6b7279; --line: #dcd6c8;
+  --dark: #12171b; --dark2: #1d252b; --on-dark: #f9f8f6; --on-dark2: #aab3ba; --foot: #0c1013;
+  --accent: #f9ad26; --accent-2: #ffc75e; --accent-ink: #8a5a00; --on-accent: #12171b; --grass: #3f7d3a;
+  --f-disp: "Archivo", "Arial Black", system-ui, sans-serif; --f-body: "Public Sans", "Segoe UI", system-ui, sans-serif; --f-mono: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+  --disp-w: 800; --disp-ls: -.01em; --disp-tt: none; --r: 4px; --btn-r: 4px; --hdr: 84px; --logo-h: 40px;
+  color-scheme: light;
+}

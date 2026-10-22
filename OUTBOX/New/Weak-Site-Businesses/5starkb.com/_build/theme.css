@@ -1,0 +1,10 @@
+/* 5starkb.com theme: "Before / After". Charcoal and the gold of their 5-star logo, on warm showroom white. Bodoni Moda (high-contrast,
+   showroom-elegant) for display, Karla for text, Space Mono for small labels. Light pages, dark header and bands for the gold logo. */
+:root {
+  --paper: #f8f6f1; --sand: #eee9df; --card: #ffffff; --ink: #18181b; --ink2: #3f3f46; --mute: #71717a; --line: #e2ddd2;
+  --dark: #141416; --dark2: #1f1f23; --on-dark: #f5f3ee; --on-dark2: #a8a59d; --foot: #0e0e10;
+  --accent: #d6a92a; --accent-2: #f2c94c; --accent-ink: #8f6c0e; --on-accent: #141416;
+  --f-disp: "Bodoni Moda", "Didot", Georgia, serif; --f-body: "Karla", "Segoe UI", system-ui, sans-serif; --f-mono: "Space Mono", ui-monospace, Menlo, Consolas, monospace;
+  --disp-w: 500; --disp-ls: -.015em; --disp-tt: none; --r: 2px; --btn-r: 2px; --hdr: 84px; --logo-h: 62px;
+  color-scheme: light;
+}

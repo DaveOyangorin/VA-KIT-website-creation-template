@@ -1,0 +1,23 @@
+# robots.txt for https://customroofs.biz
+# Every page is open to search engines and AI search tools.
+# Elementor header/footer templates are site parts, not pages: keep them out of search.
+
+User-agent: *
+Allow: /
+Disallow: /elementor-hf/
+Disallow: /wp-admin/
+Allow: /wp-admin/admin-ajax.php
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+Sitemap: https://customroofs.biz/sitemap.xml

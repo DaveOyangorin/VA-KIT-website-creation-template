@@ -1,0 +1,21 @@
+# robots.txt for https://www.amcoroof.com
+# Every page is open to search engines.
+
+User-agent: *
+Allow: /
+Crawl-delay: 10
+
+# AI search and answer engines are welcome
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+Sitemap: https://www.amcoroof.com/sitemap.xml

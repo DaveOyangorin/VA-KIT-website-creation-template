@@ -1,0 +1,24 @@
+# robots.txt for https://ezroofingnow.com
+# Every page is open to search engines and AI search tools.
+# Test pages and empty team profiles carry a noindex tag instead of a block here, so search engines can read it.
+
+User-agent: *
+Allow: /
+Disallow: /wp-admin/
+Allow: /wp-admin/admin-ajax.php
+Disallow: /?s=
+Disallow: /search/
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+Sitemap: https://ezroofingnow.com/sitemap.xml

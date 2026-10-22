@@ -1,0 +1,355 @@
+<html><body><main>
+
+    </div>
+
+    <div id="form-wrap" class="bg-white pb-4">
+
+        <form id="contact_form" class="" action="/free-estimate/confirmation.html" method="post" novalidate="true">
+
+            <input type="hidden" name="save" value="1">
+
+            <div id="step-dot-container" class="mx-auto flex w-full items-center">
+
+                <div class="step active">
+
+                    <span>1.</span>
+
+                    <p>Services</p>
+
+                </div>
+
+                <div class="step">
+
+                    <span>2.</span>
+
+                    <p>Contact Info</p>
+
+                </div>
+
+                <div class="step">
+
+                    <span>3.</span>
+
+                    <p>Comments &amp; Send</p>
+
+                </div>
+
+            </div>
+
+            <div class="tab current">
+
+                <h3 class="text-brand text-xl pb-4 font-semibold">How can we help?</h3>
+
+                <input type="hidden" value="Service Needed" name="custom_field_1_name" />
+
+                <div class="input-wrap">
+
+                    <label for="custom_field_1">Service Needed<small>*</small></label>
+
+                    <select name="custom_field_1" id="Service" required="required">
+
+                        
+
+    <option value="" disabled selected>Choose a service</option>
+
+    <option value="Basement Repair">Water in my basement/crawl space</option>
+
+    <option value="Settlement Repair">Bowing walls or settling foundation</option>
+
+    <option value="Concrete Repair">Cracked or sinking concrete</option>
+
+    <option value="Crawlspace">Crawlspace problems</option>
+
+
+
+                    </select>
+
+                </div>
+
+                <div class="input-wrap">
+
+                    <label for="Zip_Code">Zip Code<small>*</small></label>
+
+                    <input type="text" id="Zip" name="Zip_Code" maxlength="10" data-validate-zip="us"
+
+                        placeholder="Enter property zip code" required />
+
+                </div>
+
+            </div>
+
+            <div class="tab">
+
+                <h3 class="text-brand text-xl pb-4 font-semibold">Who should we contact?</h3>
+
+                <div class="input-wrap">
+
+                    <label for="First_Name">First Name<small>*</small></label>
+
+                    <input type="text" id="First_Name" name="First_Name" placeholder="First Name" maxlength="50"
+
+                        required />
+
+                </div>
+
+                <div class="input-wrap">
+
+                    <label for="Last_Name">Last Name<small>*</small></label>
+
+                    <input type="text" id="Last_Name" name="Last_Name" placeholder="Last Name" maxlength="50"
+
+                        required />
+
+                </div>
+
+                <div class="input-wrap">
+
+                    <label for="Phone">Phone<small>*</small></label>
+
+                    <input onInput="phoneNumberFormatter()" id="Phone" type="tel" name="Phone"
+
+                        placeholder="(888) 888-8888" title="please enter a valid phone number" maxlength="14"
+
+                        required />
+
+                </div>
+
+                <div class="input-wrap">
+
+                    <label for="Email_Address">Email<small>*</small></label>
+
+                    <input id="Email_Address" name="Email_Address" type="email"
+
+                        title="please enter a valid email address" required placeholder="Email Address" />
+
+                </div>
+
+                <div class="input-wrap">
+
+                    <label for="Street">Property Address<small>*</small></label>
+
+                    <input id="Street" name="Street" type="text" title="please enter a valid street address" required
+
+                        placeholder="Street Address" />
+
+                </div>
+
+                <div class="input-wrap">
+
+                    <label for="City">City<small>*</small></label>
+
+                    <input type="text" id="City" name="City" placeholder="Enter your city"
+
+                        title="Please enter a valid city" required />
+
+                </div>
+
+                <div class="input-wrap">
+
+                    <label for="State">State<small>*</small></label>
+
+                    
+	<select name="State" id="State" required>
+		<option value="">Please select...</option>
+		<option value="AL">Alabama</option>
+		<option value="AK">Alaska</option>
+		<option value="AZ">Arizona</option>
+		<option value="AR">Arkansas</option>
+		<option value="CA">California</option>
+		<option value="CO">Colorado</option>
+		<option value="CT">Connecticut</option>
+		<option value="DE">Delaware</option>
+		<option value="DC">District of Columbia</option>
+		<option value="FL">Florida</option>
+		<option value="GA">Georgia</option>
+		<option value="HI">Hawaii</option>
+		<option value="ID">Idaho</option>
+		<option value="IL">Illinois</option>
+		<option value="IN">Indiana</option>
+		<option value="IA">Iowa</option>
+		<option value="KS">Kansas</option>
+		<option value="KY">Kentucky</option>
+		<option value="LA">Louisiana</option>
+		<option value="ME">Maine</option>
+		<option value="MD">Maryland</option>
+		<option value="MA">Massachusetts</option>
+		<option value="MI">Michigan</option>
+		<option value="MN">Minnesota</option>
+		<option value="MS">Mississippi</option>
+		<option value="MO">Missouri</option>
+		<option value="MT">Montana</option>
+		<option value="NE">Nebraska</option>
+		<option value="NV">Nevada</option>
+		<option value="NH">New Hampshire</option>
+		<option value="NJ">New Jersey</option>
+		<option value="NM">New Mexico</option>
+		<option value="NY">New York</option>
+		<option value="NC">North Carolina</option>
+		<option value="ND">North Dakota</option>
+		<option value="OH">Ohio</option>
+		<option value="OK">Oklahoma</option>
+		<option value="OR">Oregon</option>
+		<option value="PA">Pennsylvania</option>
+		<option value="RI">Rhode Island</option>
+		<option value="SC">South Carolina</option>
+		<option value="SD">South Dakota</option>
+		<option value="TN">Tennessee</option>
+		<option value="TX">Texas</option>
+		<option value="UT">Utah</option>
+		<option value="VT">Vermont</option>
+		<option value="VA">Virginia</option>
+		<option value="WA">Washington</option>
+		<option value="WV">West Virginia</option>
+		<option value="WI">Wisconsin</option>
+		<option value="WY">Wyoming</option>
+	</select>
+	
+
+                </div>
+
+            </div>
+
+            <div class="tab">
+
+                <h3 class="text-brand text-xl pb-4 font-semibold">Almost done!</h3>
+
+                <div>
+
+                    
+		<div class="field-wrap what-prompted">
+			<label for="lead_what_prompted_id">What prompted you to contact us today?</label>
+			<input type="hidden" id="lead_what_prompted_response" name="What_Prompted_Response" value=""/>
+			<select id="lead_what_prompted_id" name="What_Prompted_Id" data-validate-select-one required>
+				<option value="">Please select...</option>
+	<option value="1">Referral</option><option value="2">Previous Customer</option><option value="3">Internet / Web Search</option><option value="4">TV</option><option value="5">Radio</option><option value="6">Mail</option><option value="7">Other</option>
+			</select>
+		</div>
+		<div id="display_lead_what_prompted_followup">
+		</div>
+	
+
+                </div>
+
+                <div class="input-wrap">
+
+                    <label for="Message" class="text-gray-500">Tell us what is going on in a few words-a short sentence is best <span
+
+                            class="italic mt-2 block">(Optional)</span></label>
+
+                    <textarea class="bg-brand-light border-gray-200 resize-y" id="Message" name="Message" rows="2"
+
+                        placeholder="Your message..."></textarea>
+
+                </div>
+
+                <div class="sms_wrap">
+
+                    <div>
+<div>
+	<input type="hidden" name="sms_consent" value="0">
+	<input id="sms_consent" type="checkbox" name="sms_consent" value="1" checked>
+	<label id="sms_consent-label" for="sms_consent">By checking, you are consenting to receive <b>transactional/informational SMS</b> communications regarding appointment setting, account notifications, customer care, etc. from <b>Davenport Foundation Repair</b>. Message frequency may vary. Data rates may apply, <b>reply STOP to opt-out</b>. <a href="/terms-of-use.html" target="_blank">Terms of Use</a> | <a href="/privacy-policy.html" target="_blank">Privacy</a></label>
+</div>
+	</div>
+
+                </div>
+
+            </div>
+
+            <div id="btn-container" class="mx-auto mt-8 flex justify-between w-fit items-center gap-4">
+
+                <button type="button" id="prevBtn"
+
+                    class="rounded-sm border border-gray-500 px-6 py-1 text-base font-semibold text-gray-500 uppercase hover:scale-105 transition"
+
+                    onclick="nextPrev(-1)" style="display: none">Previous Step</button>
+
+                <button
+
+                    class="rounded-sm border-2 border-brand bg-brand px-6 py-1 text-base font-semibold text-white uppercase hover:scale-105 transition"
+
+                    type="button" id="nextBtn" onclick="nextPrev(1)">Next Step</button>
+
+                <input
+
+                    class="rounded-full border-2 border-brand-alert bg-brand-alert px-6 py-2 text-xl uppercase font-bold text-white"
+
+                    type="submit" value="Send" style="display: none" />
+
+            </div>
+
+
+
+            <p class="req-item text-gray-500 text-xs italic"><span class="text-red-700">*</span> indicates required
+
+                field</p>
+
+        </form>
+
+    </div>
+
+</div>
+
+<!-- REVIEWS -->
+
+<style>
+
+#contact__reviews {
+
+    margin-block: 0;
+
+    padding-block: 3rem;
+
+}
+
+#contact__reviews h3 {
+
+    font-weight: 800 !important;
+
+    padding-inline:3rem;
+
+}
+
+#contact__reviews > div {
+
+    width: min(100%,90vw);
+
+    margin: 2rem auto 4rem;
+
+}
+
+@media screen and (min-width: 768px) {
+
+    #contact__reviews {
+
+        margin-block: 6rem 0;
+
+        padding-block: 4rem;
+
+    }
+
+}
+
+</style>
+
+
+
+</div>                    
+
+                  
+
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    </div><!-- end #silo-page-wrap -->
+
+
+
+        <div class="container home" </main></body></html>

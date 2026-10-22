@@ -1,0 +1,63 @@
+/* ===== concept: "Ecosystem" (22 Oct 2026). Aerial of their property as banner with a stat ledger; the six-service ecosystem wheel. ===== */
+.site-header, body.is-home .site-header { background: #fff; color: var(--ink); border-bottom: 1px solid var(--line) } body.is-home .site-header .menu summary { border-color: var(--line) }
+.site-header .btn, body.is-home .site-header .btn { background: var(--dark); border-color: var(--dark); color: #fff } .site-header .head-phone svg { color: var(--accent-ink) } .brand img { height: var(--logo-h); width: auto }
+.label { font: 500 .7rem/1.3 var(--f-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--accent-ink) }
+h1, h2 { font-family: var(--f-disp); font-weight: 600; letter-spacing: -.02em } h1 em, h2 em { font-style: italic; font-weight: 500; color: var(--sea) } h3 { font-family: var(--f-disp); font-weight: 600 }
+.btn { font-family: var(--f-body); font-weight: 600 } .btn.accent { background: var(--accent); border-color: var(--accent); color: var(--on-accent) } .btn.accent:hover { background: var(--accent-2); border-color: var(--accent-2); color: var(--on-accent) }
+.draft-strip { background: var(--dark); color: var(--accent-2) }
+.i-head { max-width: 880px; margin-bottom: 40px } .i-head h2 { font-size: clamp(2.3rem, 4.8vw, 4.2rem); line-height: 1.02 }
+.split-h { max-width: none; display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr); gap: 30px; align-items: end } .split-h .lede { margin: 0 } .split-h .tlink { justify-self: end }
+
+/* hero */
+.i-hero { position: relative; overflow: hidden; isolation: isolate; color: #fff; background: var(--dark) }
+.ih-img { position: absolute; inset: -8% 0 0 0; z-index: -2 } .ih-img img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 45% }
+.i-hero::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, rgba(15,46,63,.92) 0%, rgba(15,46,63,.68) 48%, rgba(15,46,63,.15) 100%) }
+.ih-in { min-height: min(640px, calc(100svh - var(--hdr) - 150px)); display: flex; align-items: center; padding-block: clamp(80px, 9vw, 120px) 50px }
+.ih-txt { max-width: 780px } .i-hero h1 { color: #fff; font-size: clamp(2.5rem, 5.2vw, 4.8rem); line-height: 1.02; margin-bottom: .35em } .i-hero h1 em { display: block; color: var(--accent-2) }
+.i-hero .lede { color: rgba(255,255,255,.9); max-width: 60ch } .i-hero .label { color: var(--accent-2) } .i-hero .btn.ghost { color: #fff; border-color: rgba(255,255,255,.6) }
+.ih-stats .stats { margin: 0 auto; max-width: 1180px; padding: 0; border: 0 } @media (max-width: 1220px) { .ih-stats .stats { margin-inline: max(20px, env(safe-area-inset-left, 0px)) } } .ih-stats { background: rgba(15,46,63,.88); border-top: 1px solid rgba(255,255,255,.18); backdrop-filter: blur(6px) } .stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)) }
+.stats div { padding: 22px 18px; border-left: 1px solid rgba(255,255,255,.16); display: grid; gap: 2px } .stats div:first-child { border-left: 0; padding-left: 0 }
+.stats b { font: 500 2rem/1 var(--f-mono); color: #fff; letter-spacing: -.03em } .stats span { font-size: .9rem; color: var(--on-dark2) }
+
+/* ecosystem wheel */
+.i-eco { background: var(--paper) } .eco { display: grid; grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr); gap: clamp(20px, 3vw, 50px); align-items: center }
+.wh { width: min(100%, 470px); height: auto; display: block; margin-inline: auto } .hub { fill: var(--dark) } .hub-t { font: 600 40px var(--f-disp); fill: #fff } .hub-s { font: 500 11px var(--f-mono); letter-spacing: .16em; text-transform: uppercase; fill: var(--accent-2) }
+.seg { cursor: pointer; outline: none } .seg path { fill: var(--card); stroke: var(--paper); stroke-width: 4; transition: fill .25s } .seg text { font: 600 12.5px var(--f-body); fill: var(--ink); pointer-events: none }
+.seg:hover path { fill: var(--sand) } .seg[aria-pressed="true"] path { fill: var(--sea) } .seg[aria-pressed="true"] text { fill: #fff } .seg:focus-visible path { stroke: var(--accent); stroke-width: 5 }
+.eco-hint { text-align: center; color: var(--mute); font-size: .9rem; margin: 10px 0 0 }
+.wp { background: var(--card); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; box-shadow: 0 30px 60px -45px rgba(21,42,54,.5) } .wp figure { margin: 0 } .wp img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover }
+.wp > div { padding: 22px 26px 26px } .wp-fig { margin: 4px 0 10px; display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap } .wp-fig b { font: 500 2.6rem/1 var(--f-mono); color: var(--dark); letter-spacing: -.04em } .wp-fig span { color: var(--mute) } .wp p { color: var(--ink2) }
+
+/* paths */
+.i-paths { background: var(--sand) } .paths { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px }
+.pth { display: grid; background: var(--card); border-radius: 12px; overflow: hidden; text-decoration: none; border: 1px solid var(--line); transition: transform .2s, box-shadow .2s } .pth:hover { transform: translateY(-4px); box-shadow: 0 30px 50px -36px rgba(21,42,54,.5); color: var(--ink) }
+.pth figure { margin: 0; aspect-ratio: 4 / 3; overflow: hidden } .pth img { width: 100%; height: 100%; object-fit: cover } .pth > div { padding: 20px 22px 24px; display: grid; gap: 6px }
+.pth span { font: 500 .7rem var(--f-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--accent-ink) } .pth b { font: 600 1.5rem var(--f-disp) } .pth p { margin: 0; color: var(--ink2) } .pth em { font-style: normal; font-weight: 700; color: var(--sea); display: inline-flex; gap: 6px; align-items: center } .pth em svg { width: 1em; height: 1em }
+
+/* band, portfolio */
+.i-band { position: relative; overflow: hidden; color: #fff; padding: clamp(100px, 13vw, 180px) 0; isolation: isolate }
+.band-img { position: absolute; inset: -18% 0; z-index: -2 } .band-img img { width: 100%; height: 100%; object-fit: cover } .i-band::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, rgba(15,46,63,.9), rgba(15,46,63,.35)) }
+.i-band blockquote { margin: 0; max-width: 46ch } .i-band blockquote p:not(.label) { font: 500 italic clamp(1.5rem, 2.6vw, 2.3rem)/1.3 var(--f-disp); margin: 0 } .i-band .label { color: var(--accent-2) }
+.gal { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); grid-auto-rows: 200px; gap: 12px } .gal figure { margin: 0; overflow: hidden; border-radius: var(--r) } .gal img { width: 100%; height: 100%; object-fit: cover }
+.gal .g0 { grid-column: span 3; grid-row: span 2 } .gal .g1 { grid-column: span 3 } .gal .g2 { grid-column: span 3 } .gal .g3 { grid-column: span 3 } .gal .g4 { grid-column: span 3 }
+.i-post { margin-top: 22px; background: var(--dark); color: var(--on-dark); border: 0; padding: 24px !important; gap: 10px } .i-post > :not(img) { padding: 0 !important } .i-post b { font: 600 1.35rem var(--f-disp) } .i-post p { color: var(--on-dark2); margin: 0 } .i-post em, .i-post .label { color: var(--accent-2) } .i-post:hover { color: var(--on-dark) }
+
+/* inner */
+.phero-full::after { background: linear-gradient(90deg, rgba(15,46,63,.92) 0%, rgba(15,46,63,.62) 55%, rgba(15,46,63,.22) 100%) } .phero-full .label { color: var(--accent-2) } .phero-full .label::before { background: var(--accent) }
+.phero-full.no-photo { background: radial-gradient(ellipse at 85% 20%, #2a6a8a, var(--dark) 60%) }
+.answer { border-left-color: var(--accent) } .side-card { background: var(--dark) } .side-card .label { color: var(--accent-2) } .side-card .btn { background: var(--accent); border-color: var(--accent); color: var(--on-accent) }
+.kpis { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin: 0 0 24px } .kpis div { background: var(--dark); color: #fff; border-radius: var(--r); padding: 16px; display: grid; gap: 2px } .kpis b { font: 500 1.6rem var(--f-mono) } .kpis span { font-size: .85rem; color: var(--on-dark2) }
+.report { margin: 20px 0; background: var(--card); border: 1px solid var(--line); border-radius: var(--r); padding: 14px } .report figcaption { font-size: .85rem; color: var(--mute); margin-top: 6px }
+.cats { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 12px; margin: 12px 0 24px } .cat { display: grid; gap: 6px; padding: 20px; background: var(--card); border: 1px solid var(--line); border-top: 4px solid var(--sea); border-radius: var(--r); text-decoration: none }
+.cat b { font: 600 1.2rem var(--f-disp) } .cat span { color: var(--ink2); font-size: .92rem } .cat em { font-style: normal; font-weight: 700; color: var(--sea); display: inline-flex; gap: 6px; align-items: center } .cat em svg { width: 1em; height: 1em }
+.pgal img { border-radius: var(--r) }
+.cta { background: radial-gradient(ellipse at 85% 20%, #2a6a8a, var(--dark) 60%) } .cta .label { color: var(--accent-2) } .cta h2 em { color: var(--accent-2) } .office small { color: var(--accent-2) }
+.site-footer { border-top: 4px solid var(--accent) } .flogo img { width: 90px; height: auto } .fareas b, .foot a:hover { color: var(--accent-2) }
+.callbar a:last-child { background: var(--accent); color: var(--on-accent); border-color: var(--accent) }
+
+@media (prefers-reduced-motion: reduce) { .seg path, .pth { transition: none } }
+@media (max-width: 1000px) { .eco, .split-h { grid-template-columns: minmax(0, 1fr) } .split-h .tlink { justify-self: start } .paths { grid-template-columns: minmax(0, 1fr) } .stats, .kpis { grid-template-columns: repeat(2, minmax(0, 1fr)) } .stats div:nth-child(3) { border-left: 0; padding-left: 0 } .gal { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 170px } .gal figure { grid-column: span 1 !important; grid-row: span 1 !important } .gal .g0 { grid-column: span 2 !important; grid-row: span 2 !important } }
+@media (max-width: 640px) {
+  .ih-in { min-height: 0; padding-block: 100px 40px } .i-hero h1 { font-size: clamp(2.2rem, 10vw, 3.2rem) } .i-hero::after { background: linear-gradient(0deg, rgba(15,46,63,.96) 0%, rgba(15,46,63,.78) 60%, rgba(15,46,63,.5) 100%) }
+  .stats div { padding: 14px 10px } .stats b { font-size: 1.5rem } .seg text { font-size: 15px }
+}

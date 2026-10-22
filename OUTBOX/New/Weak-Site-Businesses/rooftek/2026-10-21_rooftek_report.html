@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>rooftek Website Plan</title>
+<style>
+  :root {
+    --bg: #f7f6f3; --card: #ffffff; --text: #1d1d1b; --muted: #6b6a66; --line: #e3e1dc;
+    --accent: #1f5f8b; --good: #2e7d4f; --warn: #a86400; --bad: #b3261e; --chip: #eef3f7;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #161716; --card: #1f201f; --text: #ecebe7; --muted: #a3a29d; --line: #333431;
+      --accent: #7fb6dd; --good: #6cc193; --warn: #e0a54a; --bad: #ef7b72; --chip: #24303a;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #161716; --card: #1f201f; --text: #ecebe7; --muted: #a3a29d; --line: #333431;
+    --accent: #7fb6dd; --good: #6cc193; --warn: #e0a54a; --bad: #ef7b72; --chip: #24303a;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text);
+    font: 15px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  main { max-width: 960px; margin: 0 auto; padding: 32px 16px 64px; }
+  h1 { font-size: 26px; margin: 0 0 4px; }
+  h2 { font-size: 18px; margin: 0 0 12px; }
+  h3 { font-size: 15px; margin: 16px 0 6px; }
+  .sub { color: var(--muted); margin: 0 0 24px; }
+  section { background: var(--card); border: 1px solid var(--line); border-radius: 10px;
+    padding: 20px; margin-bottom: 16px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; }
+  .stat { border: 1px solid var(--line); border-radius: 8px; padding: 12px; }
+  .stat b { display: block; font-size: 22px; }
+  .stat span { color: var(--muted); font-size: 13px; }
+  .table-wrap { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { color: var(--muted); font-weight: 600; font-size: 13px; }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+  .tag { display: inline-block; padding: 1px 8px; border-radius: 99px; font-size: 12px; white-space: nowrap; }
+  .t-good { background: color-mix(in srgb, var(--good) 15%, transparent); color: var(--good); }
+  .t-warn { background: color-mix(in srgb, var(--warn) 15%, transparent); color: var(--warn); }
+  .t-bad  { background: color-mix(in srgb, var(--bad) 15%, transparent); color: var(--bad); }
+  dl { display: grid; grid-template-columns: max-content 1fr; gap: 6px 16px; margin: 0; }
+  dt { color: var(--muted); }
+  dd { margin: 0; }
+  code { background: var(--chip); padding: 1px 6px; border-radius: 4px; font-size: 13px; }
+  ul, ol { padding-left: 20px; margin: 6px 0; }
+  li { margin: 3px 0; }
+  .note { border-left: 3px solid var(--warn); padding: 8px 12px; background: color-mix(in srgb, var(--warn) 8%, transparent); border-radius: 0 6px 6px 0; margin: 10px 0; }
+  .alert { border-left: 3px solid var(--bad); padding: 8px 12px; background: color-mix(in srgb, var(--bad) 8%, transparent); border-radius: 0 6px 6px 0; margin: 10px 0; }
+  .check li { list-style: none; margin-left: -20px; }
+  .check li::before { content: "☐ "; color: var(--muted); }
+  footer { color: var(--muted); font-size: 13px; text-align: center; margin-top: 24px; }
+  @media (max-width: 560px) { dl { grid-template-columns: 1fr; } dt { margin-top: 6px; } }
+  .small { color: var(--muted); font-size: 13px; }
+</style>
+
+</head>
+<body>
+<main>
+  <h1>RoofTek · Website plan report</h1>
+  <p class="sub">RoofTek · Millcreek · No website on Google · Prepared 21 Oct 2026. Listing facts from 15 Oct 2026; audit and search numbers from 21 Oct 2026. Draft for Angelo's review.</p>
+  <section>
+    <h2>Summary</h2>
+    <ul>
+      <li><b>Home page target:</b> <code>roofing company millcreek</code>. Searches across Utah: – for “roofing company millcreek”, 1,300 for “roofing company near me”.</li>
+      <li><b>No website on Google.</b> People who find the listing have nowhere to click. This is a new build from scratch.</li>
+      <li><b>Strong reviews:</b> 4.6 stars from 1,403. A good site would turn that trust into calls.</li>
+      <li><b>Biggest service demand:</b> roof repair (720 "near me" searches across Utah).</li>
+      <li><b>9 of 9 services have no page</b> (ask the client which they really do).</li>
+    </ul>
+  </section>
+  <section>
+    <h2>Reviewer notes</h2>
+    <p><span class="tag t-good">Priority A: strong prospect</span></p>
+    <p><b>Top prospect: 1,403 reviews and no website at all.</b></p>
+    <ul>
+      <li>The most-reviewed business on this list has no site to click from Google. A new site would turn that trust into calls.</li>
+      <li>Millcreek gets few searches by name. The bigger market is next door: "roofing company salt lake city" gets 480 searches across Utah. A Salt Lake City page only if they work there.</li>
+      <li>Roof repair (720 "near me") and roof replacement (390) are the first pages to build, once they confirm their services.</li>
+    </ul>
+  </section>
+  <section>
+    <h2>Business facts</h2>
+    <dl>
+      <dt>Name</dt><dd>RoofTek</dd>
+      <dt>Website</dt><dd>none on Google</dd>
+      <dt>Phone</dt><dd>+1801-471-2054</dd>
+      <dt>Address</dt><dd>4080 S W Temple St, Millcreek, UT 84107</dd>
+      <dt>Google category</dt><dd>Roofing contractor</dd>
+      <dt>Reviews</dt><dd>4.6 stars · 1,403 reviews</dd>
+    </dl>
+    <p class="alert"><b>Not a client yet. Do not contact this business.</b> This report is for planning only. Nothing goes to them unless Angelo says so.</p>
+    <p class="note">From the Google listing (pulled 15 Oct 2026). Confirm with the client before it goes on a site. Name, address and phone are copied exactly as given; do not reformat them.</p>
+  </section>
+  <section>
+    <h2>Why they need a site</h2>
+    <h3>What the audit found</h3>
+    <ul>
+      <li>The Google listing has no website. Searchers who find the listing have no site to click.</li>
+    </ul>
+    <h3>What to do</h3>
+    <ul>
+      <li>Build a new site: home page, one page per confirmed service, a cost page and city pages only where they work.</li>
+      <li>From day one: one H1 per page, a unique meta description, a tap-to-call phone link, business schema, alt text on every image, and the city named in titles and H1s.</li>
+      <li>Aim for 90+ mobile speed and 800+ words on the home page.</li>
+      <li>Once the site is live, add it to the Google listing (Angelo / the client).</li>
+    </ul>
+  </section>
+  <section>
+    <h2>Home page</h2>
+    <dl>
+      <dt>Main keyword</dt><dd><code>roofing company millcreek</code></dd>
+      <dt>Also use</dt><dd><code>roofers millcreek</code>, <code>roofing contractor millcreek</code></dd>
+      <dt>Searches</dt><dd>– for “roofing company millcreek”, 1,300 for “roofing company near me” (across Utah)</dd>
+      <dt>Placement</dt><dd>Start with the keyword: title tag, H1 and first sentence.</dd>
+    </dl>
+  </section>
+  <section>
+    <h2>Service pages · build in this order</h2>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>Service</th><th>Target keyword</th><th class="num">With the city</th><th class="num">"Near me"</th><th class="num">+ "utah"</th><th>Now</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Roof repair</td><td><code>roof repair millcreek</code></td><td class="num">–</td><td class="num">720</td><td class="num">50</td><td><span class="tag t-bad">Ask client</span></td></tr>
+        <tr><td>2</td><td>Roof replacement</td><td><code>roof replacement millcreek</code></td><td class="num">–</td><td class="num">390</td><td class="num">70</td><td><span class="tag t-bad">Ask client</span></td></tr>
+        <tr><td>3</td><td>Gutter installation</td><td><code>gutter installation millcreek</code></td><td class="num">–</td><td class="num">170</td><td class="num">10</td><td><span class="tag t-bad">Ask client</span></td></tr>
+        <tr><td>4</td><td>Metal roofing</td><td><code>metal roofing millcreek</code></td><td class="num">–</td><td class="num">90</td><td class="num">70</td><td><span class="tag t-bad">Ask client</span></td></tr>
+        <tr><td>5</td><td>Roof inspection</td><td><code>roof inspection millcreek</code></td><td class="num">–</td><td class="num">90</td><td class="num">20</td><td><span class="tag t-bad">Ask client</span></td></tr>
+        <tr><td>6</td><td>Commercial roofing</td><td><code>commercial roofing millcreek</code></td><td class="num">–</td><td class="num">70</td><td class="num">20</td><td><span class="tag t-bad">Ask client</span></td></tr>
+        <tr><td>7</td><td>Roof leak repair</td><td><code>roof leak repair millcreek</code></td><td class="num">–</td><td class="num">50</td><td class="num">10</td><td><span class="tag t-bad">Ask client</span></td></tr>
+        <tr><td>8</td><td>Flat roof repair</td><td><code>flat roof repair millcreek</code></td><td class="num">–</td><td class="num">10</td><td class="num">10</td><td><span class="tag t-bad">Ask client</span></td></tr>
+        <tr><td>9</td><td>Storm damage roof repair</td><td><code>storm damage roof repair millcreek</code></td><td class="num">–</td><td class="num">10</td><td class="num">–</td><td><span class="tag t-bad">Ask client</span></td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="small">Monthly searches across Utah. "–" = fewer than 10 a month. One page per service. Only build a page if the business really does that service.</p>
+  </section>
+  <section>
+    <h2>Cost page</h2>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Keyword</th><th class="num">All Utah</th><th class="num">+ "utah"</th><th>With city</th><th class="num">All Utah</th></tr></thead>
+      <tbody>
+        <tr><td>roof replacement cost</td><td class="num">170</td><td class="num">20</td><td>roof replacement cost salt lake city</td><td class="num">–</td></tr>
+        <tr><td>roof repair cost</td><td class="num">30</td><td class="num">–</td><td>roof repair cost salt lake city</td><td class="num">–</td></tr>
+        <tr><td>new roof cost</td><td class="num">70</td><td class="num">10</td><td>new roof cost salt lake city</td><td class="num">–</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p>One cost page covering these. Cost searchers are close to buying. <b>Use only real prices from the client.</b></p>
+  </section>
+  <section>
+    <h2>City pages</h2>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>City</th><th>Keyword 1</th><th class="num">All Utah</th><th>Keyword 2</th><th class="num">All Utah</th></tr></thead>
+      <tbody>
+        <tr><td>Salt Lake City</td><td>roofing company salt lake city</td><td class="num">480</td><td>roof repair salt lake city</td><td class="num">140</td></tr>
+        <tr><td>Draper</td><td>roofing company draper</td><td class="num">10</td><td>roof repair draper</td><td class="num">10</td></tr>
+        <tr><td>Sandy</td><td>roofing company sandy</td><td class="num">–</td><td>roof repair sandy</td><td class="num">30</td></tr>
+        <tr><td>West Jordan</td><td>roofing company west jordan</td><td class="num">–</td><td>roof repair west jordan</td><td class="num">–</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p>Build a city page only if the business really works there, with real local content.</p>
+  </section>
+  <section>
+    <h2>What a strong page looks like</h2>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Keyword</th><th class="num">Avg. words (top pages)</th><th class="num">Have FAQ</th><th class="num">Show prices</th></tr></thead>
+      <tbody>
+        <tr><td>roofing company millcreek</td><td class="num">~1,691</td><td class="num">0 of 3</td><td class="num">2 of 3</td></tr>
+        <tr><td>roof repair millcreek</td><td class="num">~758</td><td class="num">1 of 3</td><td class="num">0 of 3</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <h3>Headings on the top pages (topic ideas only)</h3>
+    <ul>
+      <li>Millcreek roofing, done differently</li>
+      <li>How do I get my roof replaced in Millcreek?</li>
+      <li>Millcreek roof pricing</li>
+      <li>How does SquareDash compare to local Millcreek contractors?</li>
+      <li>Millcreek neighborhoods we serve</li>
+      <li>Get your Millcreek roof price</li>
+      <li>How Jeremy Decides a Roof Is Done</li>
+      <li>What Comes Off, and What Goes Back On</li>
+      <li>One to Three Days in Your Driveway</li>
+      <li>Types of Roof Repairs</li>
+      <li>Common Roof Repair Issues</li>
+      <li>Signs Your Roof Needs Immediate Repair</li>
+      <li>Local Roofing Company in Millcreek, Utah</li>
+      <li>Our Roof Repair Process</li>
+      <li>Initial Roof Inspection</li>
+      <li>Detailed Repair Estimate</li>
+      <li>Material Selection</li>
+      <li>Roof Repairs</li>
+    </ul>
+    <p class="note">Use competitor headings for topic ideas only. Do not copy them. Some name other companies, people or prices.</p>
+  </section>
+  <section>
+    <h2>More searches Google suggests</h2>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Search</th><th>Use?</th><th>Where</th></tr></thead>
+      <tbody>
+        <tr><td>Residential roofing company millcreek</td><td><span class="tag t-good">Yes</span></td><td>Matching service page, as a section</td></tr>
+        <tr><td>Roofing company millcreek reviews</td><td><span class="tag t-warn">Show, don&#x27;t claim</span></td><td>Real reviews, photos and process. Never claim &quot;the best&quot;.</td></tr>
+        <tr><td>Best roof repair millcreek</td><td><span class="tag t-warn">Show, don&#x27;t claim</span></td><td>Real reviews, photos and process. Never claim &quot;the best&quot;.</td></tr>
+        <tr><td>Roof repair millcreek cost</td><td><span class="tag t-warn">Real prices only</span></td><td>Cost page</td></tr>
+        <tr><td>Affordable roof repair millcreek</td><td><span class="tag t-warn">If true</span></td><td>Only with real offers from the client</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </section>
+  <section>
+    <h2>FAQ · real questions from Google</h2>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Question</th><th>Use?</th><th>Where</th></tr></thead>
+      <tbody>
+        <tr><td>How to find a roofing company?</td><td><span class="tag t-bad">Skip as written</span></td><td>Cover the intent on the home page (reviews, why choose us)</td></tr>
+        <tr><td>How much do roof tiles usually cost?</td><td><span class="tag t-warn">Real prices only</span></td><td>Cost page</td></tr>
+        <tr><td>Is $50,000 for a new roof good?</td><td><span class="tag t-warn">Real prices only</span></td><td>Cost page</td></tr>
+        <tr><td>How much should a 1500 sq ft roof cost?</td><td><span class="tag t-warn">Real prices only</span></td><td>Cost page</td></tr>
+        <tr><td>How much does it typically cost to repair a roof?</td><td><span class="tag t-warn">Real prices only</span></td><td>Cost page</td></tr>
+        <tr><td>What is the 25% rule for roofing?</td><td><span class="tag t-warn">Check Utah rules</span></td><td>Matching service page</td></tr>
+        <tr><td>Who is the best person to fix a leaking roof?</td><td><span class="tag t-bad">Skip as written</span></td><td>Cover the intent on the home page (reviews, why choose us)</td></tr>
+        <tr><td>Can a handyman repair a roof?</td><td><span class="tag t-good">Yes</span></td><td>Matching service page</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </section>
+  <section>
+    <h2>Rules for the writer</h2>
+    <ul>
+      <li>Start each page with its keyword.</li>
+      <li>Use only facts the client gives you: prices, warranty, years in business, licenses.</li>
+      <li>Do not invent reviews, numbers or photos.</li>
+      <li><b>This business is not a client yet: do not contact it.</b></li>
+    </ul>
+    <p class="small">Search numbers: Google Ads monthly searches across Utah, pulled 21 Oct 2026. "–" means fewer than 10 a month. Questions and page topics: live Google results in Millcreek, 21 Oct 2026.</p>
+  </section>
+  <section>
+    <h2>If they become a client: questions to ask</h2>
+    <p class="small">Only after Angelo signs them up. Do not contact them now.</p>
+    <ol>
+      <li>Which of these services do you really offer: <b>roof repair, roof replacement, gutter installation, metal roofing, roof inspection, commercial roofing, roof leak repair, flat roof repair, storm damage roof repair</b>?</li>
+      <li>Are the name, phone and address on Google correct and how should they appear on the site?</li>
+      <li>Can you share real prices or price ranges?</li>
+      <li>Which cities do you work in?</li>
+      <li>Warranty, years in business, licenses? Any project photos?</li>
+    </ol>
+  </section>
+  <footer>Novarte AI · Draft for internal review · Not a client: do not contact · Data from 21 Oct 2026</footer>
+</main>
+</body>
+</html>

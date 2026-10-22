@@ -1,0 +1,16 @@
+/* cleartopsolutions.shop theme: "Where's the water?". Night-navy blueprint ground (FirstOnsite's navy), water cyan for every
+   drop and line, red-rock / safety orange for the urgent call (St. George + FirstOnsite's orange bar), sandstone paper.
+   Sora (display) + IBM Plex Sans (text) + IBM Plex Mono (meter readings and blueprint labels). */
+:root {
+  --paper: #f5f2ec; --sand: #ebe5da; --card: #fdfbf8; --ink: #0f1b2a; --ink2: #3c4756; --mute: #6b7584; --line: #d8d2c6;
+  --dark: #0c1a2b; --dark2: #13263d; --on-dark: #eef3f8; --on-dark2: #a9b8c9; --foot: #08121e;
+  --accent: #e0612b; --accent-ink: #b8461a; --on-accent: #fff; --water: #3fb6d9; --water2: #8fd8ee; --sky1: #dcecf5; --sky2: #f5f2ec;
+  --f-disp: "Sora", "Segoe UI", system-ui, sans-serif; --f-body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif; --f-mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  --disp-w: 700; --disp-ls: -.03em; --r: 10px; --btn-r: 999px; --hdr: 76px; --logo-h: 40px;
+  --hero-shade: linear-gradient(180deg, rgba(12,26,43,.6) 0%, rgba(12,26,43,.3) 40%, rgba(12,26,43,.9) 100%);
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --paper: #0b1622; --sand: #0f1e2e; --card: #13243a; --ink: #e9f0f7; --ink2: #bfccda; --mute: #8e9db0; --line: #24384f; --accent-ink: #ff8a55; --sky1: #102438; --sky2: #0b1622; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --paper: #0b1622; --sand: #0f1e2e; --card: #13243a; --ink: #e9f0f7; --ink2: #bfccda; --mute: #8e9db0; --line: #24384f; --accent-ink: #ff8a55; --sky1: #102438; --sky2: #0b1622; color-scheme: dark }

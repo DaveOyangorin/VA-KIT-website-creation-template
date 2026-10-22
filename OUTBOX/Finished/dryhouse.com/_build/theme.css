@@ -1,0 +1,9 @@
+/* dryhouse.com v3 tokens: maps the v1 palette onto the premium layer.
+   Membrane black and night for the dark grounds, the logo's amber sun as the accent, the logo's sky blue for water. */
+:root {
+  --accent: #f0a91e; --accent-ink: #8f5c00; --on-accent: #1d1d1f; --dark: #121315; --dark2: #1d1f22; --on-dark: #f2f1ec; --on-dark2: #b7b5ae;
+  --disp-w: 800; --disp-tt: uppercase; --hdr: 76px; --f-serif: "Instrument Serif", Georgia, "Times New Roman", serif;
+  --hero-shade: linear-gradient(180deg, rgba(10,11,13,.6) 0%, rgba(10,11,13,.12) 40%, rgba(10,11,13,.86) 100%);
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --accent-ink: #f2b53a } }
+:root[data-theme="dark"] { --accent-ink: #f2b53a }

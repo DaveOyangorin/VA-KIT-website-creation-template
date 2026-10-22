@@ -1,0 +1,17 @@
+{
+  "tasks": [
+    {
+      "id": "tmu3rbbs799d48f",
+      "at": "2026-09-16T07:05:56.839Z",
+      "slug": "vast",
+      "client": "VAST Chiropractic",
+      "job": "backlinks",
+      "title": "DEMO - claim the free listings",
+      "due": "2026-09-19",
+      "status": "open",
+      "brief": "vast_backlinks-brief_2026-09-16.md",
+      "files": [],
+      "by": "owner"
+    }
+  ]
+}

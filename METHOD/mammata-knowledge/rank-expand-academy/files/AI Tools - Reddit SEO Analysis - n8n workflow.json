@@ -1,0 +1,1863 @@
+{
+  "name": "Automated Reddit Brand Discovery, Analysis & Response System",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        320,
+        -752
+      ],
+      "id": "e04ed61a-fa73-426f-8811-cb6a82bad323",
+      "name": "Loop Over Items"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.dataforseo.com/v3/serp/google/organic/live/advanced",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBasicAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "=[\n    {\n        \"keyword\": \"{{ $json.Keyword }}\",\n        \"location_name\": \"{{ $('Retrieve User Input').item.json['Location (check [Reference] List of Location & Language)'] }}\",\n        \"language_name\": \"{{ $('Retrieve User Input').item.json['Language (check [Reference] List of Location & Language)'] }}\",\n        \"depth\": 30,\n        \"device\": \"desktop\",\n        \"os\": \"windows\"\n    }\n]\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        544,
+        -736
+      ],
+      "id": "01dd9854-d306-4f70-8b56-5297f9a16518",
+      "name": "Get SERP Features"
+    },
+    {
+      "parameters": {
+        "jsCode": "//\n// UNIVERSAL REDDIT EXTRACTOR — handles discussions, organic, deep nested blocks\n//\n\nconst raw = $json;\n\n// Auto-locate the SERP items array safely\nlet serpItems = [];\n\ntry {\n    serpItems = raw.tasks[0].result[0].items;\n} catch (e) {\n    serpItems = [];\n}\n\nconst keyword = raw.tasks?.[0]?.data?.keyword ?? \"\";\nconst redditResults = [];\n\n// -----------------------------------------\n// Helper to push Reddit entries\n// -----------------------------------------\nfunction pushReddit(item, sourceType, parentMeta = {}) {\n    const domain = (item.domain || \"\").toLowerCase();\n    if (!domain.includes(\"reddit.com\")) return;\n\n    redditResults.push({\n        keyword,\n        source_type: sourceType,\n\n        // Ranking info\n        rank_absolute: item.rank_absolute ?? parentMeta.rank_absolute ?? null,\n        page: item.page ?? parentMeta.page ?? null,\n\n        // Content values\n        title: item.title ?? \"\",\n        url: item.url ?? \"\",\n        domain: item.domain ?? \"\",\n        description: item.description ?? \"\",\n        breadcrumb: item.breadcrumb ?? \"\",\n        posts_count: item.posts_count ?? null,\n        timestamp: item.timestamp ?? null\n    });\n}\n\n// -----------------------------------------\n// MAIN extraction loop\n// -----------------------------------------\nfor (const item of serpItems) {\n\n    const parentMeta = {\n        rank_absolute: item.rank_absolute ?? null,\n        page: item.page ?? null\n    };\n\n    // Case 1: discussions block with nested items\n    if (item.type === \"discussions_and_forums\" && Array.isArray(item.items)) {\n        for (const nested of item.items) {\n            pushReddit(nested, \"discussions_and_forums\", parentMeta);\n        }\n    }\n\n    // Case 2: organic reddit.com result\n    if (\n        item.type === \"organic\" &&\n        (item.domain || \"\").toLowerCase().includes(\"reddit.com\")\n    ) {\n        pushReddit(item, \"organic\", parentMeta);\n    }\n}\n\n// -----------------------------------------\n// Return clean output\n// -----------------------------------------\nif (redditResults.length === 0) {\n    return [{\n        json: {\n            keyword,\n            reddit_found: false\n        }\n    }];\n}\n\nreturn [{\n    json: {\n        keyword,\n        reddit_found: true,\n        reddit_count: redditResults.length,\n        reddit_results: redditResults\n    }\n}];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        768,
+        -736
+      ],
+      "id": "c8bc448c-ddf1-4000-a325-a060718d43ea",
+      "name": "Parse SERP Features"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -1168,
+        -672
+      ],
+      "id": "8189a8ab-a977-4463-a1c3-7336691fc70d",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "5b53102d-55ff-4851-accb-068e1206a2be",
+              "name": "id_sheet",
+              "value": "17EVrFz-OCogOjEwU8XN0-R_V2Nur6KLDoGiWQ3sAZgQ",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -912,
+        -672
+      ],
+      "id": "e5944e18-b86e-4678-b25a-d389142cb79c",
+      "name": "Set Sheet ID"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "={{ $json.id_sheet }}",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1575629605,
+          "mode": "list",
+          "cachedResultName": "User Input",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1mO3AdNlnLxRQHb3mkDhs3ULxMXAUsrI_gSwH8k3x8ug/edit#gid=1575629605"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "Status",
+              "lookupValue": "Ready"
+            }
+          ]
+        },
+        "options": {
+          "returnFirstMatch": true
+        }
+      },
+      "id": "9656a7a9-5d26-4ebf-9c2d-244c0fac6f19",
+      "name": "Retrieve User Input",
+      "type": "n8n-nodes-base.googleSheets",
+      "position": [
+        -672,
+        -672
+      ],
+      "typeVersion": 4.5
+    },
+    {
+      "parameters": {
+        "content": "## 1. Trigger & Input Setup\n1.1 Enter user inputs in the Google Sheets. Fields for input: Your Domain, Your Brand Name, Your Service/Product Page, Location, Language.\n1.2 Replace the \"id_sheet\" value in the **Set Sheet ID** node.\n1.3 Set \"Status\" to **Ready** in Google Sheets, and execute the n8n workflow.\n*Note: This workflow will only execute one row at a time.*",
+        "height": 352,
+        "width": 736,
+        "color": 3
+      },
+      "id": "6f739dbf-9728-435b-976c-eecbf49a4cf2",
+      "name": "Sticky Note20",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -1232,
+        -848
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "## Automated Reddit Brand Discovery, Analysis & Response System\nDiscovers Reddit discussions related to your brand, analyzes user sentiment and context, and generates human-sounding brand-aligned responses powered by AI.",
+        "height": 1088,
+        "width": 4976
+      },
+      "id": "b8aace1e-69a3-41b8-a249-aeda0b9c2047",
+      "name": "Sticky Note21",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -1248,
+        -1040
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "## 0. Reminder\n* To use this workflow for your project, please make a copy of the provided **[Google Sheets](https://docs.google.com/spreadsheets/d/17EVrFz-OCogOjEwU8XN0-R_V2Nur6KLDoGiWQ3sAZgQ/edit?usp=sharing)** template.\n  * DataForSEO\n  * Apify\n  * OpenAI\n  * Google Sheets",
+        "height": 176,
+        "width": 736,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -1232,
+        -480
+      ],
+      "id": "38670bed-54c9-42f6-a2a9-fdced3445e72",
+      "name": "Sticky Note13"
+    },
+    {
+      "parameters": {
+        "content": "## 2.1 Retrieve Keywords For Site\nFetches relevant keywords for the target domain and creates the keyword list with keyword metrics.",
+        "height": 544,
+        "width": 704,
+        "color": 5
+      },
+      "id": "91dc4033-a056-40d6-9c59-e22095d27039",
+      "name": "Sticky Note22",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -480,
+        -848
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "={{ $('Set Sheet ID').first().json.id_sheet }}",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1575629605,
+          "mode": "list",
+          "cachedResultName": "User Input",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1mO3AdNlnLxRQHb3mkDhs3ULxMXAUsrI_gSwH8k3x8ug/edit#gid=1575629605"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "User Reference (auto-generated)": "={{ $('Retrieve User Input').first().json['User Reference (auto-generated)'] }}",
+            "Status": "Success",
+            "Generated At": "={{ new Date().toISOString().replace('T',' ').replace(/\\.\\d+Z$/, ' UTC') }}"
+          },
+          "matchingColumns": [
+            "User Reference (auto-generated)"
+          ],
+          "schema": [
+            {
+              "id": "#",
+              "displayName": "#",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Your Domain (e.g. apple.com)",
+              "displayName": "Your Domain (e.g. apple.com)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Your Brand Name",
+              "displayName": "Your Brand Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Your Service/Product Page (comma-separated)",
+              "displayName": "Your Service/Product Page (comma-separated)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Location (check [Reference] List of Location & Language)",
+              "displayName": "Location (check [Reference] List of Location & Language)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Language (check [Reference] List of Location & Language)",
+              "displayName": "Language (check [Reference] List of Location & Language)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "User Reference (auto-generated)",
+              "displayName": "User Reference (auto-generated)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Generated At",
+              "displayName": "Generated At",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        3488,
+        -928
+      ],
+      "id": "86cec75d-d1ce-4e06-b9a5-9b6ff98e4973",
+      "name": "Update Final Status",
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "sortFieldsUi": {
+          "sortField": [
+            {
+              "fieldName": "search_volume",
+              "order": "descending"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.sort",
+      "typeVersion": 1,
+      "position": [
+        -192,
+        -544
+      ],
+      "id": "26200b41-59a8-4be0-909c-12bd3bc9768e",
+      "name": "Sort by Search Volume"
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "tasks[0].result[0].items",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        -192,
+        -752
+      ],
+      "id": "25fe1000-73e1-4d2b-8ad5-6be5b4fdfdb9",
+      "name": "Split Out Keywords"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "a21307ae-9d7a-4954-b6a3-ec2cee21aa70",
+              "name": "keyword",
+              "value": "={{ $json.keyword }}",
+              "type": "string"
+            },
+            {
+              "id": "e4da0347-4c43-4560-b569-7a6e3cba9fd1",
+              "name": "competition",
+              "value": "={{ $json.keyword_info.competition }}",
+              "type": "number"
+            },
+            {
+              "id": "19f86264-c3dd-471c-938d-0e9c19f0a952",
+              "name": "competition_level",
+              "value": "={{ $json.keyword_info.competition_level }}",
+              "type": "string"
+            },
+            {
+              "id": "3ccabe87-855a-4f75-9a54-5bd77865d009",
+              "name": "cpc",
+              "value": "={{ $json.keyword_info.cpc }}",
+              "type": "number"
+            },
+            {
+              "id": "0fd402fc-046a-4518-a763-3b62a51acace",
+              "name": "search_volume",
+              "value": "={{ $json.keyword_info.search_volume }}",
+              "type": "number"
+            },
+            {
+              "id": "06e1227a-952e-46e8-af1c-a81eda1686b7",
+              "name": "low_top_of_page_bid",
+              "value": "={{ $json.keyword_info.low_top_of_page_bid }}",
+              "type": "number"
+            },
+            {
+              "id": "47728b7e-3f5d-43d9-8719-4e17a055a9ef",
+              "name": "high_top_of_page_bid",
+              "value": "={{ $json.keyword_info.high_top_of_page_bid }}",
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -400,
+        -544
+      ],
+      "id": "71e0a5a7-71d5-4869-842c-3a5e2aaca364",
+      "name": "Set Keyword Metrics"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4.1-mini",
+          "mode": "list",
+          "cachedResultName": "gpt-4.1-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        2752,
+        -576
+      ],
+      "id": "d99121dc-cbd4-46f4-bc70-3f7cb59c274c",
+      "name": "OpenAI Chat Model"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.dataforseo.com/v3/dataforseo_labs/google/keywords_for_site/live",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBasicAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "=[\n    {\n        \"target\": \"{{ $json['Your Domain (e.g. apple.com)'] }}\",\n        \"language_name\": \"{{ $json['Language (check [Reference] List of Location & Language)'] }}\",\n        \"location_name\": \"{{ $json['Location (check [Reference] List of Location & Language)'] }}\",\n        \"limit\": 20\n    }\n]",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -400,
+        -752
+      ],
+      "id": "4dce7854-da88-4316-b980-4919b01fb92e",
+      "name": "Obtain Keywords For Site"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "={{ $('Set Sheet ID').item.json.id_sheet }}",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1406985593,
+          "mode": "list",
+          "cachedResultName": "Keyword Metrics",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1J9FfLcEi9Jjymz5MUHnKoiI9Aeya584bVqBlDKZwoq8/edit#gid=1406985593"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "User Reference (auto-generated)": "={{ $('Retrieve User Input').item.json['User Reference (auto-generated)'] }}",
+            "Keyword": "={{ $json.keyword }}",
+            "Competition": "={{ $json.competition }}",
+            "Competition Level": "={{ $json.competition_level }}",
+            "CPC": "={{ $json.cpc }}",
+            "Search Volume": "={{ $json.search_volume }}",
+            "Low Top of Page Bid": "={{ $json.low_top_of_page_bid }}",
+            "High Top of Page Bid": "={{ $json.high_top_of_page_bid }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "User Reference (auto-generated)",
+              "displayName": "User Reference (auto-generated)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Keyword",
+              "displayName": "Keyword",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Competition",
+              "displayName": "Competition",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Competition Level",
+              "displayName": "Competition Level",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "CPC",
+              "displayName": "CPC",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Search Volume",
+              "displayName": "Search Volume",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Low Top of Page Bid",
+              "displayName": "Low Top of Page Bid",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "High Top of Page Bid",
+              "displayName": "High Top of Page Bid",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        48,
+        -752
+      ],
+      "id": "04138548-1108-47f6-b66f-d9ba467e7dc7",
+      "name": "Record Keyword Metrics",
+      "executeOnce": false
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "={{ $('Set Sheet ID').first().json.id_sheet }}",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 507682878,
+          "mode": "list",
+          "cachedResultName": "Reddit Review Data",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1J9FfLcEi9Jjymz5MUHnKoiI9Aeya584bVqBlDKZwoq8/edit#gid=507682878"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "User Reference (auto-generated)": "={{ $('Retrieve User Input').first().json['User Reference (auto-generated)'] }}",
+            "Keyword": "={{ $json.keyword }}",
+            "Reddit URL": "={{ $json.post_url }}",
+            "SERP Ranking": "=Rank Absolute: {{ $json.rank_absolute }}, Page {{ $json.page }}",
+            "Post Title": "={{ $json.post_title }}",
+            "Post Summary": "={{ $json.post_summary }}",
+            "Suggested Response": "={{ $json.suggested_response }}",
+            "Response Rationale": "={{ $json.response_rationale }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "User Reference (auto-generated)",
+              "displayName": "User Reference (auto-generated)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Keyword",
+              "displayName": "Keyword",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Reddit URL",
+              "displayName": "Reddit URL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "SERP Ranking",
+              "displayName": "SERP Ranking",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Post Title",
+              "displayName": "Post Title",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Post Summary",
+              "displayName": "Post Summary",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Suggested Response",
+              "displayName": "Suggested Response",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Response Rationale",
+              "displayName": "Response Rationale",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        3488,
+        -768
+      ],
+      "id": "b14fc5a0-5a7a-47e3-9db4-86a5ecbf9d8e",
+      "name": "Record Reddit Review Data",
+      "executeOnce": false
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "642d9c0c-7830-4bb8-9e38-260cead27975",
+              "name": "keyword",
+              "value": "={{ $json.keyword }}",
+              "type": "string"
+            },
+            {
+              "id": "41732d56-4f60-4da8-9add-5fc040347ccb",
+              "name": "reddit_found",
+              "value": "={{ $json.reddit_found }}",
+              "type": "boolean"
+            },
+            {
+              "id": "ab67aee2-7a6c-4ba7-9444-2ea6fe1a082a",
+              "name": "rank_absolute",
+              "value": "={{ $json.reddit_results.rank_absolute }}",
+              "type": "number"
+            },
+            {
+              "id": "9efc677d-22f4-47bb-8628-07dba4e100cc",
+              "name": "page",
+              "value": "={{ $json.reddit_results.page }}",
+              "type": "number"
+            },
+            {
+              "id": "f81933ca-2f0b-4a2a-8e8d-f5aff454a565",
+              "name": "post_title",
+              "value": "={{ $json.reddit_results.title }}",
+              "type": "string"
+            },
+            {
+              "id": "e7c4cff9-469e-497a-a6ed-ceb117610716",
+              "name": "post_url",
+              "value": "={{ $json.reddit_results.url }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        976,
+        -512
+      ],
+      "id": "e157cf57-01e2-41c8-b587-8e7fa52da88b",
+      "name": "Set SERP Data"
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "reddit_results",
+        "include": "allOtherFields",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        768,
+        -512
+      ],
+      "id": "7bd7b7ee-bf12-47b7-b0e7-da88c95aea54",
+      "name": "Split Out"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "4ad78630-2f0f-4ed5-86ac-ba0511d23619",
+                    "leftValue": "={{ $json.reddit_found }}",
+                    "rightValue": "false",
+                    "operator": {
+                      "type": "boolean",
+                      "operation": "false",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "No Reddit Found"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.reddit_count }}",
+                    "rightValue": 1,
+                    "operator": {
+                      "type": "number",
+                      "operation": "gte"
+                    },
+                    "id": "883d304f-61ee-4500-a054-c0ccb1e29115"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Reddit Found"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        544,
+        -528
+      ],
+      "id": "e4a9e850-8964-406e-b20b-e780a913b09f",
+      "name": "Switch"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "fd9d25a7-1550-46ab-b6ce-d5ed1ff6ff3b",
+              "leftValue": "={{ $json.reddit_found }}",
+              "rightValue": "true",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.2,
+      "position": [
+        976,
+        -832
+      ],
+      "id": "bb4c10b2-77ef-48f5-b288-7494db544a74",
+      "name": "Filter"
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "fieldsToMatchString": "post_url",
+        "joinMode": "enrichInput2",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        3136,
+        -928
+      ],
+      "id": "7e54333d-f194-4cb7-bcf9-d4117030aa38",
+      "name": "Merge"
+    },
+    {
+      "parameters": {
+        "compare": "selectedFields",
+        "fieldsToCompare": "post_url",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.removeDuplicates",
+      "typeVersion": 2,
+      "position": [
+        1232,
+        -768
+      ],
+      "id": "7ddce5fb-5856-4d19-9f03-6f2f9837cf3c",
+      "name": "Remove Duplicates"
+    },
+    {
+      "parameters": {
+        "operation": "Run actor and get dataset",
+        "actorSource": "store",
+        "actorId": {
+          "__rl": true,
+          "value": "TwqHBuZZPHJxiQrTU",
+          "mode": "list",
+          "cachedResultName": "Reddit Scraper | All-In-One | $1.5 / 1K (fatihtahta/reddit-scraper-search-fast)",
+          "cachedResultUrl": "https://console.apify.com/actors/TwqHBuZZPHJxiQrTU/input"
+        },
+        "customBody": "={\n    \"includeNsfw\": false,\n    \"maxComments\": 50,\n    \"maxPosts\": 50,\n    \"scrapeComments\": true,\n    \"urls\": [\"{{ $json.post_url }}\"]\n}",
+        "timeout": 300
+      },
+      "type": "@apify/n8n-nodes-apify.apify",
+      "typeVersion": 1,
+      "position": [
+        1440,
+        -544
+      ],
+      "id": "7da4777b-88a9-410c-8058-28ed43fad417",
+      "name": "Scrape Reddit Posts"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=## Context\n\nYou are an AI assistant responsible for generating three outputs based on Reddit posts:\n1. A brief post summary/insight\n– A concise explanation of what the Reddit post is about, what the OP is struggling with, and the key themes raised in comments.\n\n2. A suggested Reddit response\n– Helpful, human-sounding, subtly brand-aligned, conversational, and grounded in practical experience.\n\n3. A response rationale\n– An internal explanation of why the chosen tone, structure, and content were used.\n\nYou receive:\n•\tReddit Discussion Data\n    •\tpost_url: The URL of the Reddit post.\n    •\tpost_title: The title of the post.\n    •\tpost_content: The body of the original post (OP).\n    •\tpost_comment: An array of comments from the thread.\n•\tBrand Knowledge\n    •\tmarkdown: Parsed markdown content combining user brand information. This serves as the definitive source for: brand voice, offerings, features, benefits, value proposition, tone, target customers, differentiators.\n    •\tbrand_name: The name of the brand you are representing.\n\nYou must respond as a human-sounding representative of the brand, using the brand_name naturally and subtly. You should sound like someone who works in the field and is offering grounded, real-world guidance — not a corporate marketer. The goal is to be genuinely helpful, not promotional.\n\n⸻\n\n## Instructions\n1. Read & analyze the full Reddit conversation:\n   • Understand OP’s and commenters' situation, pain points, misconceptions, and emotional tone.\n   • Synthesize insights from the comment thread (common questions, objections, misinformation).\n   • Determine where the brand’s knowledge can provide additional clarity or insight without promoting.\n2. Read the brand markdown + brand_name\n   • Extract phrasing patterns, vocabulary, tone, values, and brand personality.\n   • Identify what expertise the brand typically brings to conversations.\n   • Integrate the brand_name as part of your identity as a representative.\n   • Never copy the markdown verbatim; adapt the tone naturally.\n3. Generate a brief post summary/insight:\n   • Provide 2–4 sentences summarizing the issue, key concerns, and useful context from comments.\n   • This section must be neutral, factual, and free of brand references.\n4. Generate a suggested Reddit response that:\n   • Sounds like a knowledgeable person who works at the brand (“I” / “We”), not a corporate statement.\n   • Feels conversational, human, and grounded in real field experience.\n   • Use brand-aligned tone without copying the brand markdown literally.\n   • Provides practical insights, clarifies misconceptions, or gives useful frameworks.\n   • Address misconceptions or risks if relevant.\n   • Avoids “buy”, “sign up”, “contact us”, discounts, or sales framing.\n   • Does not promote pricing, discounts, or sales language.\n   • Brand mention rules:\n     • You are speaking as the brand, so “we” refers to the team/company. \n     • You should reference the brand in 1–2 places, but lightly. Allowed (1–2 times only) mentions of brand_name.\n     • You may reference the brand’s experience or perspective naturally (e.g., “We often help people with situations like this…”, “From our work with homeowners…”).\n     • Do NOT describe specific services, offerings, pricing, or features.\n     • The brand reference must feel subtle, credible, and experience-based — never promotional.\n5. Generate a response rationale for internal use:\n   • 2–4 sentences explaining why you structured the reply this way.\n   • explaining how the brand_name shaped the tone and direction and how the response aligns with the brand markdown \n   • This rationale is only for internal use, and must not appear in the suggested Reddit reply.\n6. Follow these writing rules:\n   • Allowed forms of brand reference: Contextual credibility, Relevant perspective or method, Soft mention of what the brand focuses on.\n   • Brand mentions must feel natural, occasional, and never the focus.\n   • Prevent Repeated Openings: Do NOT begin every reply the same way. Your opening sentence must vary across responses.\n   • Allowed opening approaches include: Observation, Topic insight, Question framing, Reflection, Experience-based.\n\n⸻\n\n## Task\nUsing the provided Reddit and brand data, generate a structured JSON object with this exact schema:\n{\n  \"post_url\": \"the post_url\",\n  \"post_summary\": \"A neutral 2–4 sentence overview describing what the Reddit post is about, the OP’s main issue, and key themes from the discussion, written without brand references.\",\n  \"suggested_response\": \"A conversational, human-sounding Reddit reply (max ~180 words) written as a representative of the brand_name using an 'I/We' voice. The reply offers genuinely helpful insight, clarifies misunderstandings, and includes one subtle credibility-based brand mention when natural. It must avoid promotional language, CTAs, links, or descriptions of specific services.\",\n  \"response_rationale\": \"A 2–4 sentence internal explanation of why this tone, structure, and content were chosen. It should reference the brand_name, the brand markdown, the context of the Reddit discussion, and subreddit norms.\"\n}\n\n⸻\n\n## Inputs to Consider\npost_url: {{$json.post_url}},\npost_title: {{$json.post_title}},\npost_content: {{$json.post_content}},\npost_comment: {{$json.post_comment}},\nmarkdown: {{$json.markdown}}\nbrand_name: {{$json.brand_name}}",
+        "hasOutputParser": true,
+        "options": {}
+      },
+      "id": "57412e64-3ebc-4e48-8af7-c374e52f75e0",
+      "name": "Analyze Reddit Post Discussions & Generate Response",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "position": [
+        2752,
+        -768
+      ],
+      "typeVersion": 2.2
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        1440,
+        -768
+      ],
+      "id": "d9804060-028f-464c-8528-8f65af56da35",
+      "name": "Loop Over Posts"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "931e3a8b-2bb6-4d9e-a7cb-ff1291d7369b",
+              "name": "post_comment",
+              "value": "={{ $json.body }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1840,
+        -736
+      ],
+      "id": "2eb2bdf3-3fe5-4c5b-a282-f480be22830d",
+      "name": "Set Comment Info"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "487ce67c-d42c-4612-bd1b-c39440f217b9",
+              "name": "post_url",
+              "value": "={{ $json.query }}",
+              "type": "string"
+            },
+            {
+              "id": "931e3a8b-2bb6-4d9e-a7cb-ff1291d7369b",
+              "name": "post_title",
+              "value": "={{ $json.title }}",
+              "type": "string"
+            },
+            {
+              "id": "e9a56b58-be9f-4d3c-88bf-6e542d1599cb",
+              "name": "post_content",
+              "value": "={{ $json.body }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1840,
+        -528
+      ],
+      "id": "b816d6b4-0abb-42c4-a5e1-057f695fb7c0",
+      "name": "Set Post Title Info"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "8a1247e7-b738-4e28-9236-745c72090c34",
+                    "leftValue": "={{ $json.kind }}",
+                    "rightValue": "comment",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Comment"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.kind }}",
+                    "rightValue": "post",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "757b87d4-7551-436a-bbfe-4eb619dba545"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Post"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        1648,
+        -544
+      ],
+      "id": "e7c4c219-57f9-4f2b-ad4d-1d3d0fb5ce81",
+      "name": "Switch1"
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        2240,
+        -544
+      ],
+      "id": "756f7ae9-0a3b-4ce1-b88d-22dc3b4a338d",
+      "name": "Merge1"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "61739ebe-9e06-418f-95d8-215bd898ff7b",
+              "leftValue": "={{ $json.post_comment }}",
+              "rightValue": "[deleted]",
+              "operator": {
+                "type": "string",
+                "operation": "notEquals"
+              }
+            },
+            {
+              "id": "60615442-7fbd-46b4-995e-d7f677c68b44",
+              "leftValue": "={{ $json.post_comment }}",
+              "rightValue": "[removed]",
+              "operator": {
+                "type": "string",
+                "operation": "notEquals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.2,
+      "position": [
+        2032,
+        -736
+      ],
+      "id": "96c4264a-f315-4746-95f4-b58cdb2600f7",
+      "name": "Filter Deleted Comments"
+    },
+    {
+      "parameters": {
+        "fieldsToAggregate": {
+          "fieldToAggregate": [
+            {
+              "fieldToAggregate": "post_comment"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        2240,
+        -736
+      ],
+      "id": "9fdb60b9-9ef6-48f0-bfbd-10396f31c697",
+      "name": "Aggregate Comments"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.dataforseo.com/v3/on_page/content_parsing/live",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBasicAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "=[\n    {\n        \"url\": \"{{ $('Code').item.json.url }}\",\n        \"markdown_view\": true\n    }\n]",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        48,
+        -176
+      ],
+      "id": "6290cbd0-d4f2-4afb-a41d-d2607c491f82",
+      "name": "Obtain User Brand Info"
+    },
+    {
+      "parameters": {
+        "jsCode": "const raw = $json['Your Service/Product Page (comma-separated)'] || \"\";\n\n// Normalize and split by any kind of separators (newline, comma, space)\nconst parts = raw\n    .replace(/[\\n,]+/g, \" \")     // Replace newlines & commas with spaces\n    .split(/\\s+/)                // Split by any whitespace\n    .map(x => x.trim())\n    .filter(x => /^https?:\\/\\//i.test(x));  // Keep only valid URLs\n\n// Deduplicate\nconst unique = [...new Set(parts)];\n\n// Output as multiple items for looping\nreturn unique.map(url => ({ json: { url } }));\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -400,
+        -192
+      ],
+      "id": "757535a6-355e-4cc5-9698-bcac0efc1ddd",
+      "name": "Code"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        -192,
+        -192
+      ],
+      "id": "3b14047a-e952-4210-8f04-04492253601c",
+      "name": "Loop Over Pages"
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineAll",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        2464,
+        -768
+      ],
+      "id": "0ba862ec-fe83-4947-9ef3-6636e4fd8b26",
+      "name": "Merge2"
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n  \"post_url\": \"the post_url\",\n  \"post_summary\": \"A neutral 2–4 sentence overview describing what the Reddit post is about, the OP’s main issue, and key themes from the discussion, written without brand references.\",\n  \"suggested_response\": \"A conversational, human-sounding Reddit reply (max ~180 words) written as a representative of the brand_name using an 'I/We' voice. The reply offers genuinely helpful insight, clarifies misunderstandings, and includes one subtle credibility-based brand mention when natural. It must avoid promotional language, CTAs, links, or descriptions of specific services.\",\n  \"response_rationale\": \"A 2–4 sentence internal explanation of why this tone, structure, and content were chosen. It should reference the brand_name, the brand markdown, the context of the Reddit discussion, and subreddit norms.\"\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        2896,
+        -544
+      ],
+      "id": "db57bbcc-3b11-4488-824f-5058bc553473",
+      "name": "Structured Output Parser"
+    },
+    {
+      "parameters": {
+        "content": "## 2.4 Get Brand Info\nRetrieves and parses brand pages provided by the user, converting them into a unified markdown profile describing tone, value propositions, differentiators, and messaging patterns.",
+        "height": 320,
+        "width": 3136,
+        "color": 5
+      },
+      "id": "15f67bba-be96-46b0-bcc1-6f45719a6182",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -480,
+        -288
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "## 2.2 Fetch SERPs For Keywords\nChecks SERP results for each keyword and extracts Reddit entries for analysis.",
+        "height": 544,
+        "width": 912,
+        "color": 5
+      },
+      "id": "ae360c6f-31f7-4481-8325-bec3b1660bea",
+      "name": "Sticky Note2",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        240,
+        -848
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "## 2.3 Analyze Reddit Posts\nScrapes Reddit posts and comments for each URL and outputs structured conversation data ready for AI analysis.",
+        "height": 608,
+        "width": 1488,
+        "color": 5
+      },
+      "id": "6fdbc316-331d-4721-9ee6-5d6a37bdb357",
+      "name": "Sticky Note3",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1168,
+        -912
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "fbaccaa0-2629-43b1-95f5-755993b4c6ec",
+              "name": "markdown",
+              "value": "={{ $json.tasks[0].result[0].items[0].page_as_markdown }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        320,
+        -176
+      ],
+      "id": "b7332044-a54a-4f66-b49a-1d09e7502688",
+      "name": "Set Markdown Content"
+    },
+    {
+      "parameters": {
+        "fieldsToAggregate": {
+          "fieldToAggregate": [
+            {
+              "fieldToAggregate": "markdown"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        2240,
+        -208
+      ],
+      "id": "b5e7510d-5736-49dd-bdf4-bd722f949439",
+      "name": "Aggregate Markdown Content"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "f4161ef4-4c3f-42b6-a8ee-bca9a4f8aeed",
+              "name": "brand_name",
+              "value": "={{ $('Retrieve User Input').item.json['Your Brand Name'] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2464,
+        -208
+      ],
+      "id": "da2923cc-f3eb-4f59-b9c3-e1bcfdcb85b9",
+      "name": "Set Brand Name"
+    },
+    {
+      "parameters": {
+        "content": "## 3. Analyze Reddit Post Discussions & Generate Response\nInterprets Reddit conversations, summarizes user pain points, and crafts human-sounding brand responses based on the brand’s voice and expertise.",
+        "height": 720,
+        "width": 688,
+        "color": 5
+      },
+      "id": "090349f1-7291-4438-922e-ded01493c7e5",
+      "name": "Sticky Note4",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        2672,
+        -1024
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "b7bccb0d-1042-4d07-aa1a-4f510893c651",
+              "name": "post_url",
+              "value": "={{ $json.output.post_url }}",
+              "type": "string"
+            },
+            {
+              "id": "6c7729e3-97e2-4704-bc90-c522c11e7c24",
+              "name": "post_summary",
+              "value": "={{ $json.output.post_summary }}",
+              "type": "string"
+            },
+            {
+              "id": "49d65c89-a54b-4f47-8148-905984b5a5a2",
+              "name": "suggested_response",
+              "value": "={{ $json.output.suggested_response }}",
+              "type": "string"
+            },
+            {
+              "id": "d6881953-d170-45b3-a80c-2165b26b112d",
+              "name": "response_rationale",
+              "value": "={{ $json.output.response_rationale }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3136,
+        -768
+      ],
+      "id": "26ac5b12-5deb-4127-8153-fea8921fc894",
+      "name": "Set Reddit Review Data"
+    },
+    {
+      "parameters": {
+        "content": "## 4. Finalize\nLogs all outputs and updates final status in the Google Sheets.",
+        "height": 448,
+        "width": 336,
+        "color": 4
+      },
+      "id": "03b667ab-40e4-4448-8e5d-d182160f3f5e",
+      "name": "Sticky Note5",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        3376,
+        -1024
+      ],
+      "typeVersion": 1
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Loop Over Items": {
+      "main": [
+        [
+          {
+            "node": "Filter",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Get SERP Features",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get SERP Features": {
+      "main": [
+        [
+          {
+            "node": "Parse SERP Features",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse SERP Features": {
+      "main": [
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Set Sheet ID",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Sheet ID": {
+      "main": [
+        [
+          {
+            "node": "Retrieve User Input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Retrieve User Input": {
+      "main": [
+        [
+          {
+            "node": "Obtain Keywords For Site",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Sort by Search Volume": {
+      "main": [
+        [
+          {
+            "node": "Record Keyword Metrics",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out Keywords": {
+      "main": [
+        [
+          {
+            "node": "Set Keyword Metrics",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Keyword Metrics": {
+      "main": [
+        [
+          {
+            "node": "Sort by Search Volume",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Analyze Reddit Post Discussions & Generate Response",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Obtain Keywords For Site": {
+      "main": [
+        [
+          {
+            "node": "Split Out Keywords",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Record Keyword Metrics": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set SERP Data": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out": {
+      "main": [
+        [
+          {
+            "node": "Set SERP Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Split Out",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter": {
+      "main": [
+        [
+          {
+            "node": "Remove Duplicates",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Record Reddit Review Data",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Update Final Status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Remove Duplicates": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Posts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Scrape Reddit Posts": {
+      "main": [
+        [
+          {
+            "node": "Switch1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Analyze Reddit Post Discussions & Generate Response": {
+      "main": [
+        [
+          {
+            "node": "Set Reddit Review Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Posts": {
+      "main": [
+        [
+          {
+            "node": "Merge2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Scrape Reddit Posts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Comment Info": {
+      "main": [
+        [
+          {
+            "node": "Filter Deleted Comments",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch1": {
+      "main": [
+        [
+          {
+            "node": "Set Comment Info",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Set Post Title Info",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Post Title Info": {
+      "main": [
+        [
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Merge1": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Posts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter Deleted Comments": {
+      "main": [
+        [
+          {
+            "node": "Aggregate Comments",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate Comments": {
+      "main": [
+        [
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Pages",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Pages": {
+      "main": [
+        [
+          {
+            "node": "Aggregate Markdown Content",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Obtain User Brand Info",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge2": {
+      "main": [
+        [
+          {
+            "node": "Analyze Reddit Post Discussions & Generate Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Obtain User Brand Info": {
+      "main": [
+        [
+          {
+            "node": "Set Markdown Content",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Analyze Reddit Post Discussions & Generate Response",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Markdown Content": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Pages",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate Markdown Content": {
+      "main": [
+        [
+          {
+            "node": "Set Brand Name",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Brand Name": {
+      "main": [
+        [
+          {
+            "node": "Merge2",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Set Reddit Review Data": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "bc1f980f-788d-4c03-bf0c-e271427e620a",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "025ee8620cd28d62d8ca3d228a8c082fd302b060b5c59c13823fea8a4877da55"
+  },
+  "id": "mLTEbNWf3yQ5xT3V",
+  "tags": []
+}

@@ -1,0 +1,140 @@
+> VA COPY of MAMMATA's knowledge file, made 2026-10-12 for the VA kit. Client names, logins and
+> internal tools were removed. Where it says DataForSEO, GSC or a script: you do not have
+> those - use the keyword file Angelo put in INBOX\. The kit's CLAUDE.md rules win.
+
+EDWARD STURM — SEO KNOWLEDGE BASE
+Extracted from: edwardsturm.com/articles/ + YouTube @buildinpublic
+Last updated: 2026-05-31
+Source video: https://www.youtube.com/watch?v=5nYNvdfEdyQ
+
+==============================================================
+CORE FRAMEWORK: 2026 SEO PLAYBOOK — MAXIMIZE COVERAGE
+==============================================================
+
+The winning strategy in 2026 is maximum keyword coverage across platforms:
+
+  1 website page/post targeting a keyword
+  + multiple short videos targeting the SAME keyword
+  = maximum SERP coverage (text + video results)
+
+Videos should be:
+- Created in minutes (casual UGC style, NOT polished production)
+- Distributed to: YouTube Shorts, Facebook Reels, Instagram Reels, TikTok
+- Linked back to the website page (Facebook and YouTube allow clickable links)
+
+Google admitted "the open web is in rapid decline" and needs stronger link signals.
+Video description links provide this value — treat them as backlinks.
+
+==============================================================
+VIDEO SEO — EXACT OPTIMIZATION FORMULA
+==============================================================
+
+Title format:
+  [Target Keyword] | [Benefit or Searcher's Goal] | [Brand Name]
+
+Description formula:
+  Line 1: Target keyword (exact match)
+  Lines 2+: Full edited transcript of the video
+
+Additional:
+  - Use 3 hashtags
+  - Video duration: 18-43 seconds (most effective range)
+  - Under 60 seconds always
+
+Why short video beats long articles:
+  - Users prefer quick answers
+  - Recent content gets prioritized
+  - Short videos rank faster than written content
+  - Multiple videos can rank simultaneously for same keyword
+  - 5-10 videos can be made in the time it takes to write 1 article
+
+Key result: Videos can rank within 8 hours of publishing.
+
+==============================================================
+BRAND REVIEW KEYWORD STRATEGY (Video UGC Tactic)
+==============================================================
+
+Target these review-intent keywords with video:
+  - Is [brand] legit?
+  - [Brand] review
+  - Is [brand] a scam?
+  - Does [brand] really work?
+  - [Brand] 2025/2026 review
+  - [Brand] worth it?
+  - [Brand] alternative
+
+How to execute:
+  - Repurpose video testimonials into dedicated keyword-targeted videos
+  - Convert written testimonials into video with screenshots
+  - Distribute across all video platforms
+  - These rank extremely well in Google traditional search (UGC platforms dominate)
+
+==============================================================
+BACKLINKS — RESEARCH REPORTS AS LINKABLE ASSETS
+==============================================================
+
+Original research still generates massive backlinks:
+  Example: Originality.ai → 78,000 backlinks from 7,100 domains via research reports
+
+Steps:
+  1. Conduct industry research using your own tools/data
+  2. Write up findings as a shareable report
+  3. Build direct journalist relationships (NOT PR agencies)
+  4. Amplify through those relationships
+
+Key quote: "I burned so much company money trying to outsource digital PR"
+— cultivate direct journalist relationships instead.
+
+==============================================================
+PRESS RELEASES FOR AI INFLUENCE (AEO TACTIC)
+==============================================================
+
+Use affordable press releases to influence AI search recommendations:
+  - LLMs learn from major news sites (PR Newswire, Yahoo News, etc.)
+  - Syndicated press releases appear on these sites
+  - LLMs cannot filter them without losing valuable data
+  - This means press releases = AI training signal
+
+Best use: Trending niches + interesting/counterintuitive angles
+
+==============================================================
+E-E-A-T SIGNALS THAT ACTUALLY MOVE THE NEEDLE (2026)
+==============================================================
+
+From collaboration with Shaun Anderson (Hobo Web):
+  - Experience > Expertise in 2026 (personal firsthand > credentials)
+  - Author schema with @id pointing to an about page is critical
+  - Real case studies with specific numbers (not vague claims)
+  - Cite credible external sources (Google, .gov, .edu, major pubs)
+  - Every post must have one original insight not findable on competing pages
+
+==============================================================
+KEYWORD ANGLE STRATEGY
+==============================================================
+
+Do NOT try to cover all keyword angles in a single piece.
+Instead: target each video/post from ONE angle.
+
+Example: For "technical SEO audit"
+  - Video 1: "how to run a technical SEO audit in 10 minutes"
+  - Video 2: "technical SEO audit checklist for small businesses"
+  - Video 3: "technical SEO audit mistakes most people make"
+  - Article: "Technical SEO Audit: The Complete Guide [2026]"
+
+Each piece covers one angle = multiple rankings for same keyword cluster.
+
+For top-of-funnel keywords, always connect to your business:
+  "Our SEO clients noticed..." or "When we audited X..."
+
+==============================================================
+MAMMATA APPLICATION RULES
+==============================================================
+
+Apply Edward Sturm's framework when:
+  1. Auditing a site — check if they have video presence for their keywords
+  2. Building keyword strategy — always plan for video + text coverage
+  3. Writing content briefs for FRAVATA — specify keyword angle per piece
+  4. AEO recommendations — include press release strategy for AI influence
+  5. Backlink strategy — recommend original research as linkable asset
+
+This knowledge is PERMANENT and should inform every audit and strategy.

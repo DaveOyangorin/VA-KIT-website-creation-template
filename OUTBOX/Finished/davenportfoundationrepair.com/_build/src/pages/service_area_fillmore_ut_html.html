@@ -1,0 +1,1161 @@
+<html><body><main>
+
+            <p></p>
+
+            <p>
+                <div class="widget widget_citypage_map">
+                <div class="widget_title">
+                    Happy Customers Surrounding Fillmore, UT
+                </div>
+                    <div class="widget_content">
+                                    <script src="https://cdn.treehouseinternetgroup.com/core/js/leaflet/leaflet.js"></script>
+            <script src="https://cdn.treehouseinternetgroup.com/core/js/leaflet/mapbox-gl.js"></script>
+            <script src="https://cdn.treehouseinternetgroup.com/core/js/leaflet/leaflet-mapbox-gl.js"></script>
+            <link rel="stylesheet" href="https://cdn.treehouseinternetgroup.com/core/js/leaflet/leaflet.css"/>
+            <link rel="stylesheet" href="https://cdn.treehouseinternetgroup.com/core/js/leaflet/mapbox-gl.css"/>
+            <script type="text/javascript">
+            if (document.readyState != 'loading'){
+                initialize();
+            } else {
+                document.addEventListener('DOMContentLoaded', initialize);
+            }
+            function initialize() {
+                var cityPageMap = L.map('map_canvas', {
+                    maxZoom: 13,
+                    zoomControl: false
+                }).setView([38.9594415, -112.3202985], 13).setZoom(9);
+                var gl = L.mapboxGL({
+                    attribution: '&copy;&nbsp;<a href="https://openmaptiles.org/">OpenMapTiles</a>&nbsp;&copy;&nbsp;<a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>',
+                    accessToken: 'not-needed',
+                    style: 'https://dmlr3b1l99c8h.cloudfront.net/style.js'
+                }).addTo(cityPageMap);
+                L.control.zoom({position: 'bottomright'}).addTo(cityPageMap);
+                
+                
+                var image = L.icon({
+                    iconUrl: 'https://cdn.treehouseinternetgroup.com/cms_images/icons/citypage-map-testimonial.svg'
+                });
+                var video_image = L.icon({
+                    iconUrl: 'https://cdn.treehouseinternetgroup.com/cms_images/icons/citypage-map-video.svg'
+                });
+                var review_image = L.icon({
+                    iconUrl: 'https://cdn.treehouseinternetgroup.com/cms_images/icons/citypage-map-review.svg'
+                });
+                var lead_image = L.icon({
+                    iconUrl: 'https://cdn.treehouseinternetgroup.com/cms_images/icons/citypage-map-lead.svg'
+                });
+
+                                                        
+                                    var infowindow_1 = L.marker([38.960524, -112.324017], {icon: lead_image}).addTo(cityPageMap);
+
+                    infowindow_1.bindPopup('                    <div class=\'citypage-job-item\'>                        <b>Project Location: </b> <i><small>Fillmore, UT</small></i><br/>                        <div class=\'comment\'>Water getting into basement. possibly in the foundation seam between old building and addition.</div>                    </div>');
+                                    var infowindow_2 = L.marker([38.958359, -112.316580], {icon: lead_image}).addTo(cityPageMap);
+
+                    infowindow_2.bindPopup('                    <div class=\'citypage-job-item\'>                        <b>Project Location: </b> <i><small>FILLMORE, UT</small></i><br/>                        <div class=\'comment\'>Water leaking into cold storage below porch.</div>                    </div>');
+                            }
+            </script>
+            <div id="map_canvas" style="width:100%; height:300px"></div>
+            <div class="citypage_map_legend">
+                                                                                                                        <div class="citypage-map-legend-item citypage-map-legend-item-jobs" title="Work requests in Fillmore, UT area">Work Requests</div>
+                                                                <p>Click the icons to see what our customers had to say.</p>
+                                                 </div>
+        
+
+<noscript>
+
+<h3>Work requests in Fillmore, UT</h3>
+
+
+                        <div class="citypage-job-item">
+
+
+                            <b>Project Location: </b> <i><small>Fillmore, UT</small></i><br/>
+
+
+                            <div class="comments">Water getting into basement. possibly in the foundation seam between old building and addition.</div>
+
+
+                        </div>
+                    
+
+</noscript>
+
+
+                    </div>
+                </div></p>
+
+        </div>
+
+    </div>
+
+    
+
+    <div class="contact_form page_widget us">
+
+<div class="cp-inline-form">
+
+	<div class="cp-inline-form-inner">
+
+		<div class="inline-free-estimate-container">
+
+			<div id="form-heading">
+
+				<p class="free-estimate-form-heading">Get a Free Estimate</p>
+
+				<p class="free-estimate-form-desc">Fill out the form below to have Davenport Foundation Repair contact you shortly, or call <span id="numberassigned_3" class="mongoose_phone">1-801-569-2302</span> to contact Davenport Foundation Repair immediately.</p>
+
+			</div>
+
+			<form id="contact_form" action="https://www.davenportfoundationrepair.com/free-estimate/confirmation.html" method="post">
+
+				<input type="hidden" name="save" value="1">
+
+                <!-- Circles which indicates the steps of the form: -->
+
+                <div class="step-dot-container">
+
+                    <span class="dot active"><small>1</small></span>
+
+                    <span class="dot dot-lines"><small>2</small></span>
+
+                    <span class="dot"><small>3</small></span>
+
+                </div>
+
+                <!-- One "tab" for each step in the form: -->
+
+                <div class="tab current">
+
+                    <div class="tab-content-wrap">
+
+                        <div id="fname-wrap" class="grid-span-6">
+
+                            <label class="input-labels" for="First_Name">First Name</label>
+
+                            <input type="text" name="First_Name" maxlength="50" required id="First_Name" data-validate-name>
+
+                        </div>
+
+                        <div id="lname-wrap" class="grid-span-6">
+
+                            <label class="input-labels" for="Last_Name">Last Name</label>
+
+                            <input type="text" name="Last_Name" maxlength="50" required id="Last_Name" data-validate-name data-validate-notequal="#First_Name">
+
+                        </div>
+
+                        <div id="email-wrap" class="grid-span-8">
+
+                            <label class="input-labels" for="Email_Address">Email</label>
+
+                            <input id="Email_Address" name="Email_Address" type="email" required>
+
+                        </div>
+
+                        <div id="phonenum-wrap" class="grid-span-4">
+
+                            <label class="input-labels" for="Phone">Phone</label>
+
+                            <input type="text" id="Phone" name="Phone" required>
+
+                        </div>
+
+                        <div id="sms-wrap" class="grid-span-12">
+
+                            <div>
+<div>
+	<input type="hidden" name="sms_consent" value="0">
+	<input id="sms_consent" type="checkbox" name="sms_consent" value="1" checked>
+	<label id="sms_consent-label" for="sms_consent">By checking, you are consenting to receive <b>transactional/informational SMS</b> communications regarding appointment setting, account notifications, customer care, etc. from <b>Davenport Foundation Repair</b>. Message frequency may vary. Data rates may apply, <b>reply STOP to opt-out</b>. <a href="/terms-of-use.html" target="_blank">Terms of Use</a> | <a href="/privacy-policy.html" target="_blank">Privacy</a></label>
+</div>
+	</div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="tab">
+
+                    <div class="tab-content-wrap">
+
+                        <div id="street-wrap" class="grid-span-12">
+
+                            <label class="input-labels" for="Street">Street</label>
+
+                            <input type="text" id="Street" name="Street" maxlength="300" data-validate-address>
+
+                        </div>
+
+                        <div id="zip-wrap" class="grid-span-4">
+
+                            <label class="input-labels" for="Zip_Code">Zip Code</label>
+
+                            <input type="text" id="Zip" name="Zip_Code" maxlength="10" required>
+
+                        </div>
+
+                        <div id="city-wrap" class="grid-span-4">
+
+                            <label class="input-labels" for="City">City</label>
+
+                            <input id="City" type="text" name="City" maxlength="255" required>
+
+                        </div>
+
+                        <div id="state-wrap" class="grid-span-4">
+
+                            <label class="input-labels" for="State">State</label>
+
+                            
+	<select name="State" id="State" required>
+		<option value="">Please select...</option>
+		<option value="AL">Alabama</option>
+		<option value="AK">Alaska</option>
+		<option value="AZ">Arizona</option>
+		<option value="AR">Arkansas</option>
+		<option value="CA">California</option>
+		<option value="CO">Colorado</option>
+		<option value="CT">Connecticut</option>
+		<option value="DE">Delaware</option>
+		<option value="DC">District of Columbia</option>
+		<option value="FL">Florida</option>
+		<option value="GA">Georgia</option>
+		<option value="HI">Hawaii</option>
+		<option value="ID">Idaho</option>
+		<option value="IL">Illinois</option>
+		<option value="IN">Indiana</option>
+		<option value="IA">Iowa</option>
+		<option value="KS">Kansas</option>
+		<option value="KY">Kentucky</option>
+		<option value="LA">Louisiana</option>
+		<option value="ME">Maine</option>
+		<option value="MD">Maryland</option>
+		<option value="MA">Massachusetts</option>
+		<option value="MI">Michigan</option>
+		<option value="MN">Minnesota</option>
+		<option value="MS">Mississippi</option>
+		<option value="MO">Missouri</option>
+		<option value="MT">Montana</option>
+		<option value="NE">Nebraska</option>
+		<option value="NV">Nevada</option>
+		<option value="NH">New Hampshire</option>
+		<option value="NJ">New Jersey</option>
+		<option value="NM">New Mexico</option>
+		<option value="NY">New York</option>
+		<option value="NC">North Carolina</option>
+		<option value="ND">North Dakota</option>
+		<option value="OH">Ohio</option>
+		<option value="OK">Oklahoma</option>
+		<option value="OR">Oregon</option>
+		<option value="PA">Pennsylvania</option>
+		<option value="RI">Rhode Island</option>
+		<option value="SC">South Carolina</option>
+		<option value="SD">South Dakota</option>
+		<option value="TN">Tennessee</option>
+		<option value="TX">Texas</option>
+		<option value="UT" selected="selected">Utah</option>
+		<option value="VT">Vermont</option>
+		<option value="VA">Virginia</option>
+		<option value="WA">Washington</option>
+		<option value="WV">West Virginia</option>
+		<option value="WI">Wisconsin</option>
+		<option value="WY">Wyoming</option>
+	</select>
+	
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="tab">
+
+                    <div class="tab-content-wrap">
+
+                        <div id="whatprompted-wrap" class="grid-span-12">
+
+                            
+		<div class="field-wrap what-prompted">
+			<label for="lead_what_prompted_id">What prompted you to contact us today?</label>
+			<input type="hidden" id="lead_what_prompted_response" name="What_Prompted_Response" value=""/>
+			<select id="lead_what_prompted_id" name="What_Prompted_Id" data-validate-select-one required>
+				<option value="">Please select...</option>
+	<option value="1">Referral</option><option value="2">Previous Customer</option><option value="3">Internet / Web Search</option><option value="4">TV</option><option value="5">Radio</option><option value="6">Mail</option><option value="7">Other</option>
+			</select>
+		</div>
+		<div id="display_lead_what_prompted_followup">
+		</div>
+	
+
+                        </div>
+
+                        <div id="message-wrap" class="grid-span-12">
+
+                            <label class="input-labels" for="Message">Tell us what is going on in a few words-a short sentence is best:</label>
+
+                            <textarea id="Message" name="Message" data-validate-comment></textarea>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div>
+
+                    <div class="btn-container">
+
+                        <button type="button" id="nextBtn">Next step</button>
+
+                        <button type="submit" name="save" style="display: none;">Send</button>
+
+                        <button type="button" id="prevBtn" style="display: none;">Previous step</button>
+
+                    </div>
+
+                </div>
+
+			</form>
+
+		</div>
+
+	</div>
+
+</div>
+
+</div>
+
+	
+
+	
+
+     	<div class="citypage_text_generated_content">
+
+			<style> #service-area{display:none;}</style><h2>Expert Foundation Repair&nbsp;Contractor Serving Fillmore, UT</h2>
+
+<p>We not only adhere to the highest industry standards, we strive to be the industry leader in the home improvement related services we provide. We are a trusted dealer of the renowned Foundation Supportworks, Inc., the leading manufacturer of foundation repair and stabilization products in the U.S. and Canada, as well as Basement Systems, the innovative basement waterproofing network. If your home is having foundation problems or a wet or flooded basement, call us today for a FREE estimate!</p>
+
+<h2>Fillmore&rsquo;s Expert Foundation Repair Contractor</h2>
+
+<p>Foundation repair is often seen as stressful and aggravating but at Davenport Foundation Repair we do everything in our power to make sure you feel cared for respected by our crews. We have worked to improve our process from start to finish to make sure you get the very best service possible. Foundation repair can vary in both damages and cost so one thing we like to stress at Davenport Foundation Repair is early detection. Early detection for foundation repair is crucial because then we have the best chance to find permanent and effective solutions. If the issues can be caught before they become too severe that greatly helps our crews with the repair process and more than likely will save you money. Our talented professionals are experts at not only recognizing problems early but also at effectively coming up with solutions. At Davenport Foundation Repair, we have effective, warrantied solutions for foundation repairs of all types, and we have the training, techniques, and top-quality products you need to permanently solve your foundation repair problems. To learn more about the products only available from us and our expertise about foundation repair call or click today!</p>
+
+<div style="text-align: center;"><a class="button wide" href="https://www.davenportfoundationrepair.com/free-estimate.html">Click to Schedule a FREE Estimate!</a></div>
+
+<h2>Foundation Repair Services:</h2>
+
+<ul class="checks" style="margin: 5px 0 20px;">
+
+<li>Wall anchor installation to straighten walls</li>
+
+<li>Bowing and tilting wall stabilization</li>
+
+<li>Slab &amp; foundation pier installation to resolve settlement problems</li>
+
+<li>Crawl space jack post installation to support sagging floors</li>
+
+<li>Affordable wall stabilization</li>
+
+<li>Concrete leveling &amp; lifting</li>
+
+<li>Commercial foundation repair</li>
+
+<li>25-year warranty against manufacturing defects on foundation products.</li>
+
+<li><strong>Financing options available</strong></li>
+
+<li><strong>FREE written estimates and inspections, and fast installation</strong></li>
+
+</ul>
+
+<h2>Fast, Effective Concrete Leveling &amp; Repair</h2>
+
+<p>Concrete used for walkways and driveways looks great when it's new but over time the concrete slab will eventually start to shift as the ground does. The result can look disastrous and can create a dangerous tripping hazards as well. This far cry from the originally smoothly poured concrete often leads to frustration and a hopeless feeling. If you have had a similar experience with your home know that you&rsquo;re not alone and that you are in the right place! Davenport Foundation Repair has dedicated teams of knowledgeable and experienced professionals that use our patented leveling product simply known as PolyLevel&reg;. This revolutionary concrete lifting &amp; leveling product is capable of lifting, leveling and stabilizing concrete slab in an extremely efficient and cost-effective way. The process for concrete lifting and leveling begins by drilling a few small holes in the slab and then pouring the PolyLevel polymer into the hole. The polymer will mix and expand beneath the slab, raising it to the desired height and stabilizing it in the process. PolyLevel only takes about 15 minutes to dry and the product is environmentally friendly.</p>
+
+<p>Davenport Foundation Repair also provides concrete sealing services. Our SealantPro system seals in quality and protects against damage for 3 x 5 times longer than other concrete sealants. To learn more about our concrete lifting and leveling solutions call or <a href="https://www.davenportfoundationrepair.com/free-estimate.html">click</a> today!</p>
+
+<p>&nbsp;</p>
+
+<div style="text-align: center;"><a class="button wide" href="https://www.davenportfoundationrepair.com/free-estimate.html">Click to Schedule a FREE Estimate!</a></div>
+
+<h2>Crawl Space &amp; Basement Waterproofing Company</h2>
+
+<p>As an experienced basement waterproofing company, Davenport Foundation Repair helps homeowners solve their basement problems fast.&nbsp;&nbsp;If you have musty smells, walls that feel damp, or if your basement floods with heavy rain, we can help. Not sure what&rsquo;s causing your home&rsquo;s wet basement? Let one of our basement waterproofing experts take a look.&nbsp;&nbsp;All of our patented basement waterproofing products, like the award-winning WaterGuard drainage channel, are custom designed to fit your home and will be installed by one of our industry experts based upon your home's needs.&nbsp; It is important to not let your damp or wet basement problems go untreated.&nbsp; Prolonged issues can result in bigger issues and costs such as,&nbsp;mold, mildew, rot, structural damage, and a variety of health problems.&nbsp; Key&nbsp;indicators that basement waterproofing is needed are:&nbsp;</p>
+
+<ul class="arrows" style="margin: 5px 0 20px;">
+
+<li>Wet or damp basement floor</li>
+
+<li>Leaking or damp basement walls</li>
+
+<li>Pooling or standing water</li>
+
+<li>crystalline deposit on concrete surfaces</li>
+
+<li>Musty odors</li>
+
+<li>Condensation</li>
+
+<li>Sump pump issues</li>
+
+<li>Leaky basement windows</li>
+
+</ul>
+
+<p>We offer free inspections and estimates &ndash; schedule yours today! Call&nbsp;<span id="numberassigned_3" class="mongoose_phone">1-877-732-9964&nbsp;</span>or <a href="https://www.davenportfoundationrepair.com/free-estimate.html">click</a> today.&nbsp;&nbsp;</p>
+
+<h2>Crawl Space &amp; Basement Waterproofing Services:</h2>
+
+<ul class="checks" style="margin: 5px 0 20px;">
+
+<li>Basement drainage systems, dehumidifiers, wall options, and other products</li>
+
+<li>Sump pump installation</li>
+
+<li>Wet/flooded basement waterproofing solutions</li>
+
+<li>Crawl space encapsulation</li>
+
+<li><strong>Financing Available</strong></li>
+
+<li><strong>FREE estimates</strong></li>
+
+</ul>
+
+<p style="text-align: center;"><a class="button wide" href="https://www.davenportfoundationrepair.com/free-estimate.html">Click to Schedule a FREE Estimate!</a></p>
+
+		</div>
+
+		<div class="cp-row">
+
+		    
+
+		</div>
+
+		
+
+	
+
+	
+
+	
+
+	
+
+<style>
+
+.cp-ba {
+
+    margin: 0 0 2rem;
+
+}
+
+.cp-ba-inner {
+
+    max-width: 1200px;
+
+    box-shadow: 0px 3px 16px #00000027;
+
+    margin: 2rem auto;
+
+    width: 100%;
+
+    padding: 2rem;
+
+}
+
+.cp-ba-content {
+
+    max-width: 900px;
+
+    margin: 0 auto;
+
+}
+
+.cp-ba h2 {
+
+    color: black;
+
+    font-family: 'tg-adventor-bold', sans-serif;
+
+    font-weight: bold;
+
+    text-align: center;
+
+    margin: 0 0 2rem 0;
+
+}
+
+@media screen and (min-width:861px) {
+
+    .cp-ba {
+
+        margin: 0 0 4rem;
+
+    }
+
+    .cp-ba-inner {
+
+        padding:3rem 2rem;
+
+    }
+
+    .cp-ba h2 {
+
+        text-align: left;
+
+        font-size: 30px;
+
+    }
+
+}
+
+.cp-scrollbar {
+
+    padding-right: .75rem;
+
+}
+
+.cp-scrollbar::-webkit-scrollbar {
+
+    width: 12px;
+
+}
+
+.cp-scrollbar::-webkit-scrollbar-track {
+
+    background: #fff;
+
+    border-radius: 10px;
+
+}
+
+.cp-scrollbar::-webkit-scrollbar-thumb {
+
+    background: #D8D8D8;
+
+    border-radius: 10px;
+
+}
+
+.cp-ba h2,
+
+#content-wrap .cp-ba h2{
+
+    color: #000 !important;
+
+    font-family: 'tg-adventor-bold', sans-serif;
+
+}
+
+.swipe-info {
+
+    text-align: center;
+
+    font-size: 12px;
+
+    margin-bottom: .5rem;
+
+}
+
+.cp-ba-slider {
+
+    display: flex;
+
+    overflow-x: auto;
+
+    scroll-snap-type: x mandatory;
+
+    margin: 0 auto 1rem;
+
+    max-width: 400px;
+
+}
+
+.cp-ba-slide {
+
+    flex: none;
+
+    scroll-snap-align: start;
+
+    width: 100%;
+
+    margin-bottom: .5rem;
+
+}
+
+.cp-ba-slide:first-child {
+
+    border-right: 3px solid transparent;
+
+}
+
+.cp-ba-slide-img img {
+
+    width: 100%;
+
+    object-fit: cover;
+
+    height: 200px;
+
+}
+
+.cp-ba-slide-title {
+
+    display: block;
+
+    text-align: center;
+
+    padding: .5rem;
+
+    background: var(--cp-clr-primary);
+
+    color: #fff;
+
+    text-transform: uppercase;
+
+}
+
+.cp-ba-desc {
+
+    max-height: 150px;
+
+    overflow-y: scroll;
+
+    margin-bottom: 2rem;
+
+}
+
+.cp-ba-desc p {
+
+    font-size: 14px;
+
+}
+
+.cp-ba-more {
+
+    text-align: center;
+
+}
+
+.cp-ba-more a {
+
+    text-decoration: underline;
+
+    font-family: 'tg-adventor-bold', sans-serif;
+
+    font-weight: bold;
+
+    color: var(--cp-clr-primary);
+
+}
+
+@media screen and (min-width:861px) {
+
+    .cp-ba-more {
+
+        text-align: left;
+
+    }
+
+    .cp-ba-slider {
+
+        max-width: none;
+
+        margin: 0 auto 2rem;
+
+    }
+
+    .cp-ba-slide {
+
+        display: grid;
+
+        grid-template-columns: 100px 1fr 100px;
+
+        grid-template-rows: 1fr 40px;
+
+        width: 50%;
+
+        margin-bottom: 0;
+
+    }
+
+    .cp-ba-slide:first-child {
+
+        border: none;
+
+    }
+
+    .cp-ba-slide-img {
+
+        grid-column: 1/-1;
+
+        grid-row: 1/-1;
+
+    }
+
+    .cp-ba-slide-title {
+
+        grid-column: 1;
+
+        grid-row: 2;
+
+    }
+
+    .cp-ba-slide:last-child .cp-ba-slide-title {
+
+        grid-column: 3;
+
+    }
+
+    .swipe-info {
+
+        display: none;
+
+    }
+
+    .cp-ba-desc {
+
+        max-height: none;
+
+        overflow-y: unset;
+
+    }
+
+    .cp-ba-desc p {
+
+        font-size: 16px;
+
+    }
+
+    .cp-ba-slide-img img {
+
+        height: 100%;
+
+        max-height: 450px;
+
+    }
+
+}
+
+</style>
+
+<div class="cp-ba">
+
+    <div class="cp-ba-inner">
+
+        <div class="cp-ba-content">
+
+            <h2>Before and After Pictures from Fillmore</h2>
+
+            <p class="swipe-info">Swipe to see the After Photo</p>
+
+            
+
+<div class="cp-ba-slider cp-scrollbar">
+
+    <div class="cp-ba-slide">
+
+        <div class="cp-ba-slide-img">
+
+            <img src="https://cdn.treehouseinternetgroup.com/uploads/before_after/1264/medium/680022f8dbf7e_2020-11-13111453am.jpg" alt="Before">
+
+        </div>
+
+        <span class="cp-ba-slide-title">Before</span>
+
+    </div>
+
+    <div class="cp-ba-slide">
+
+        <div class="cp-ba-slide-img">
+
+            <img src="https://cdn.treehouseinternetgroup.com/uploads/before_after/1264/medium/680022f7cdcb9_2020-11-13122838pm.jpg" alt="After">
+
+        </div>
+
+        <span class="cp-ba-slide-title">After</span>
+
+    </div>
+
+</div>
+
+<div class="cp-ba-desc cp-scrollbar">
+
+    <p>This home in Fillmore had sinking concrete near their entrance.&nbsp;</p>
+
+</div>
+
+
+
+            <div class="cp-ba-more">
+
+                <a href="https://www.davenportfoundationrepair.com/about-us/before-after.html">View More Before &amp; After Photos</a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+	
+
+<style>
+
+.cp-photo-gallery {
+
+    margin: 0 0 2rem;
+
+}
+
+
+
+.cp-photo-gallery-inner {
+
+    max-width: 1200px;
+
+    box-shadow: 0px 3px 16px #00000027;
+
+    margin: 2rem auto;
+
+    width: 100%;
+
+    padding: 2rem;
+
+}
+
+
+
+.cp-photo-gallery-content {
+
+    max-width: 1000px;
+
+    margin: 0 auto;
+
+    text-align: center;
+
+}
+
+
+
+.cp-photo-gallery h2 {
+
+    color: black;
+
+    font-family: 'tg-adventor-bold', sans-serif;
+
+    font-weight: bold;
+
+    margin: 0 0 2rem 0;
+
+}
+
+
+
+@media screen and (min-width:861px) {
+
+    .cp-photo-gallery {
+
+        margin: 0 0 4rem;
+
+    }
+
+
+
+    .cp-ba-inner {
+
+        padding: 3rem 2rem;
+
+    }
+
+
+
+    .cp-photo-gallery h2 {
+
+        text-align: left;
+
+        font-size: 30px;
+
+    }
+
+
+
+    .cp-photo-gallery-content {
+
+        text-align: left;
+
+    }
+
+}
+
+
+
+/* GRID LAYOUT */
+
+.cp-photo-gallery-slider {
+
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    gap: 2rem;
+
+    justify-items: center;
+
+    margin: 0 auto 2rem;
+
+}
+
+
+
+/* Tablet */
+
+@media screen and (min-width:600px) {
+
+    .cp-photo-gallery-slider {
+
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+}
+
+
+
+/* Desktop: 4 items */
+
+@media screen and (min-width:861px) {
+
+    .cp-photo-gallery-slider {
+
+        grid-template-columns: repeat(4, 1fr);
+
+        gap: 2.5rem;
+
+    }
+
+}
+
+
+
+.cp-photo-gallery-slide {
+
+    width: 100%;
+
+    text-align: center;
+
+}
+
+
+
+/* Thumbnail */
+
+.cp-photo-gallery-slide-img {
+
+    width: 100px;
+
+    height: 100px;
+
+    margin: 0 auto 0.75rem;
+
+}
+
+
+
+.cp-photo-gallery-slide-img img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+}
+
+
+
+/* Caption refinement */
+
+.cp-photo-gallery-name {
+
+    font-size: 14px;
+
+    line-height: 1.4;
+
+    color: #111;
+
+    font-family: 'tg-adventor-bold', sans-serif;
+
+    letter-spacing: 0.3px;
+
+    margin: 0;
+
+}
+
+
+
+/* Optional subtle hover polish */
+
+.cp-photo-gallery-link {
+
+    text-decoration: none;
+
+}
+
+
+
+.cp-photo-gallery-link:hover .cp-photo-gallery-name {
+
+    text-decoration: underline;
+
+}
+
+
+
+.cp-photo-gallery-more {
+
+    text-align: center;
+
+}
+
+
+
+.cp-photo-gallery-more a {
+
+    text-decoration: underline;
+
+    font-family: 'tg-adventor-bold', sans-serif;
+
+    font-weight: bold;
+
+    color: var(--cp-clr-primary);
+
+}
+
+
+
+@media screen and (min-width:861px) {
+
+    .cp-photo-gallery-more {
+
+        text-align: left;
+
+    }
+
+}
+
+
+
+
+
+</style>
+
+<div class="cp-photo-gallery">
+
+    <div class="cp-photo-gallery-inner">
+
+        <div class="cp-photo-gallery-content">
+
+            <h2>Photo Galleries From Fillmore</h2>
+
+            <!--<p class="swipe-info">Swipe to view more photos</p>-->
+
+            <div class="cp-photo-gallery-slider cp-scrollbar">
+
+                
+
+<div class="cp-photo-gallery-slide">
+
+    <a href="https://www.davenportfoundationrepair.com/concrete-repair/photo-gallery/91253-album-leveling-concrete-in-fillmore-ut.html" class="cp-photo-gallery-link">
+
+        <div class="cp-photo-gallery-slide-img">
+
+            <img src="https://cdn.treehouseinternetgroup.com/uploads/photo_gallery/medium/568096-6800241cabd70_2020-11-13122838pm-2.jpg?v=" alt="Unlevel concrete walkway in Fillmore, UT">
+
+        </div>
+
+        <p class="cp-photo-gallery-name">Leveling concrete in Fillmore, UT</p>
+
+    </a>
+
+</div>
+
+
+
+            </div>
+
+            <div class="cp-photo-gallery-more">
+
+                <a href="https://www.legacysupportworks.com/about-us/photo-gallery.html">View More Photo Galleries</a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+	
+
+	
+
+	
+
+	
+
+	
+                    
+                    <div class="widget widget_work_requests" >
+                        <div class="widget_title">Work Requests From Fillmore, UT</div>
+                        <div class="widget_content" style="max-height: 300px; overflow-y: scroll">
+                            
+                    <div class="widget_item">
+                        <div class="widget_item_content">
+                        <div class="citypage-job-item">
+
+
+                            <b>Project Location: </b> <i><small>Fillmore, UT</small></i><br/>
+
+
+                            <div class="comments">Water getting into basement. possibly in the foundation seam between old building and addition.</div>
+
+
+                        </div>
+                    </div>
+                    </div>
+                        </div>
+                        
+                    </div>
+
+	
+
+		
+
+</div>                    
+
+                  
+
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    </div><!-- end #silo-page-wrap -->
+
+
+
+        <div class="container home" </main></body></html>

@@ -1,0 +1,16 @@
+/* m3industriesconcrete.com theme: "From red dirt to finished slab". Concrete greys and a warm off-white, St. George red-dirt
+   rust for the ground, the client's logo orange as the one hard accent (Hilti), charcoal for the dark bands (Holcim).
+   Anton (tall condensed display, like stencilled form boards) + Work Sans (text) + IBM Plex Mono (labels). */
+:root {
+  --paper: #f2f1ee; --sand: #e6e3dd; --card: #ffffff; --ink: #1d2022; --ink2: #43484c; --mute: #6c7276; --line: #d6d3cc;
+  --dark: #1f2326; --dark2: #2a2f33; --on-dark: #eef0f1; --on-dark2: #a9b0b5; --foot: #16191b;
+  --accent: #f08c1e; --accent-ink: #a95a05; --on-accent: #1d2022; --dirt: #b4552d; --conc: #b9bbb9;
+  --f-disp: "Anton", "Arial Narrow", Impact, sans-serif; --f-body: "Work Sans", "Segoe UI", system-ui, sans-serif; --f-mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  --disp-w: 400; --disp-ls: .01em; --r: 3px; --btn-r: 2px; --hdr: 76px; --logo-h: 52px;
+  --hero-shade: linear-gradient(180deg, rgba(31,35,38,.5), rgba(31,35,38,.88));
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --paper: #131618; --sand: #1a1e21; --card: #1f2427; --ink: #eceeef; --ink2: #c4c9cc; --mute: #8f969b; --line: #30363a; --accent-ink: #f8a447; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --paper: #131618; --sand: #1a1e21; --card: #1f2427; --ink: #eceeef; --ink2: #c4c9cc; --mute: #8f969b; --line: #30363a; --accent-ink: #f8a447; color-scheme: dark }

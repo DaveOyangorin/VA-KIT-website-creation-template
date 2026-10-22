@@ -1,0 +1,10 @@
+/* sterlingtreeco theme: "Canopy". The name, taken literally: sterling silver on deep evergreen, with the warm grey of winter bark.
+   DM Serif Display (the wordmark) for headings, Manrope for text, IBM Plex Mono for checklist numbers and tags. */
+:root {
+  --paper: #f3f4f1; --sand: #e5e8e2; --card: #ffffff; --ink: #18221d; --ink2: #3e4a43; --mute: #6a756f; --line: #d5dbd4;
+  --dark: #173026; --dark2: #214034; --on-dark: #f3f5f2; --on-dark2: #a8bcb0; --foot: #0f2119;
+  --accent: #c9d2d4; --accent-2: #e2e8e9; --accent-ink: #3b6b52; --on-accent: #173026; --moss: #6f9a5c; --bark: #8a7a6a;
+  --f-disp: "DM Serif Display", Georgia, serif; --f-body: "Manrope", "Segoe UI", system-ui, sans-serif; --f-mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  --disp-w: 400; --disp-ls: -.01em; --disp-tt: none; --r: 10px; --btn-r: 999px; --hdr: 84px; --logo-h: 40px;
+  color-scheme: light;
+}

@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>skybridgeroofings.com Website Plan</title>
+<style>
+  :root {
+    --bg: #f7f6f3; --card: #ffffff; --text: #1d1d1b; --muted: #6b6a66; --line: #e3e1dc;
+    --accent: #1f5f8b; --good: #2e7d4f; --warn: #a86400; --bad: #b3261e; --chip: #eef3f7;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #161716; --card: #1f201f; --text: #ecebe7; --muted: #a3a29d; --line: #333431;
+      --accent: #7fb6dd; --good: #6cc193; --warn: #e0a54a; --bad: #ef7b72; --chip: #24303a;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #161716; --card: #1f201f; --text: #ecebe7; --muted: #a3a29d; --line: #333431;
+    --accent: #7fb6dd; --good: #6cc193; --warn: #e0a54a; --bad: #ef7b72; --chip: #24303a;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text);
+    font: 15px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  main { max-width: 960px; margin: 0 auto; padding: 32px 16px 64px; }
+  h1 { font-size: 26px; margin: 0 0 4px; }
+  h2 { font-size: 18px; margin: 0 0 12px; }
+  h3 { font-size: 15px; margin: 16px 0 6px; }
+  .sub { color: var(--muted); margin: 0 0 24px; }
+  section { background: var(--card); border: 1px solid var(--line); border-radius: 10px;
+    padding: 20px; margin-bottom: 16px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; }
+  .stat { border: 1px solid var(--line); border-radius: 8px; padding: 12px; }
+  .stat b { display: block; font-size: 22px; }
+  .stat span { color: var(--muted); font-size: 13px; }
+  .table-wrap { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { color: var(--muted); font-weight: 600; font-size: 13px; }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+  .tag { display: inline-block; padding: 1px 8px; border-radius: 99px; font-size: 12px; white-space: nowrap; }
+  .t-good { background: color-mix(in srgb, var(--good) 15%, transparent); color: var(--good); }
+  .t-warn { background: color-mix(in srgb, var(--warn) 15%, transparent); color: var(--warn); }
+  .t-bad  { background: color-mix(in srgb, var(--bad) 15%, transparent); color: var(--bad); }
+  dl { display: grid; grid-template-columns: max-content 1fr; gap: 6px 16px; margin: 0; }
+  dt { color: var(--muted); }
+  dd { margin: 0; }
+  code { background: var(--chip); padding: 1px 6px; border-radius: 4px; font-size: 13px; }
+  ul, ol { padding-left: 20px; margin: 6px 0; }
+  li { margin: 3px 0; }
+  .note { border-left: 3px solid var(--warn); padding: 8px 12px; background: color-mix(in srgb, var(--warn) 8%, transparent); border-radius: 0 6px 6px 0; margin: 10px 0; }
+  .alert { border-left: 3px solid var(--bad); padding: 8px 12px; background: color-mix(in srgb, var(--bad) 8%, transparent); border-radius: 0 6px 6px 0; margin: 10px 0; }
+  .check li { list-style: none; margin-left: -20px; }
+  .check li::before { content: "☐ "; color: var(--muted); }
+  footer { color: var(--muted); font-size: 13px; text-align: center; margin-top: 24px; }
+  @media (max-width: 560px) { dl { grid-template-columns: 1fr; } dt { margin-top: 6px; } }
+  .small { color: var(--muted); font-size: 13px; }
+</style>
+
+</head>
+<body>
+<main>
+  <h1>skybridgeroofings.com · Website plan report</h1>
+  <p class="sub">Sky Bridge Roofing · South Salt Lake · Prepared 17 Oct 2026. Business facts and audit from 5 Oct 2026; search numbers and Google results from 14 Oct 2026. Draft for Angelo's review.</p>
+  <section>
+    <h2>Summary</h2>
+    <ul>
+      <li><b>Home page target:</b> <code>roofing company south salt lake</code> (20 for “roofing company”, 40 for “roofing company near me”).</li>
+      <li><b>"Check first":</b> read the warning on the email page before any outreach.</li>
+      <li><b>Site size:</b> 16 pages. 3 of 10 services have their own page, 2 only named on the home page, 5 not on the site.</li>
+      <li><b>Biggest keyword:</b> roof repair (70 searches + 20 "near me"). They already have a page.</li>
+      <li><b>Biggest gap:</b> roof installation (20 searches) is not on their site. Ask the client if they do it.</li>
+      <li><b>No page names South Salt Lake.</b> Every page on the new site should.</li>
+      <li><b>Mobile speed:</b> 76/100 (aim 90+).</li>
+      <li><b>Reviews:</b> 5 stars from 25.</li>
+      <li><b>5 services to ask the client about</b> before building.</li>
+    </ul>
+  </section>
+  <section>
+    <h2>Business facts</h2>
+    <dl>
+      <dt>Name</dt><dd>Sky Bridge Roofing</dd>
+      <dt>Website</dt><dd>skybridgeroofings.com · 16 pages now</dd>
+      <dt>Phone</dt><dd>+1435-659-4915</dd>
+      <dt>Address</dt><dd>3007 S W Temple St, South Salt Lake, UT 84115</dd>
+      <dt>Google category</dt><dd>Roofing contractor</dd>
+      <dt>Reviews</dt><dd>5 stars · 25 reviews</dd>
+    </dl>
+    <p class="alert"><b>"Check first" on the outreach list.</b> Read the warning on the email page before anything is sent to this business.</p>
+    <p class="note">From the Google profile on 5 Oct 2026. Confirm with the client before it goes on the site. The phone is copied exactly as given (<code>+1435-659-4915</code>). Ask the client how they want it shown; do not reformat it without their OK.</p>
+  </section>
+  <section>
+    <h2>Fix on the new site</h2>
+    <div class="grid">
+      <div class="stat"><b>76 / 100</b><span>Mobile speed now · aim for 90+</span></div>
+      <div class="stat"><b>Present</b><span>Meta description</span></div>
+      <div class="stat"><b>Missing</b><span>Alt text on some images</span></div>
+      <div class="stat"><b>0 of 16</b><span>Pages that name South Salt Lake</span></div>
+    </div>
+    <h3>What to do</h3>
+    <ul>
+      <li>Compress and resize images, lazy-load images below the fold, and remove scripts or plugins the page does not need.</li>
+      <li>Keep a unique meta description on every page.</li>
+      <li>Give every image a short alt text that says what is in the photo, naming South Salt Lake where it fits.</li>
+      <li>Name South Salt Lake in the title, H1 and first paragraph of every service page.</li>
+    </ul>
+  </section>
+  <section>
+    <h2>Home page</h2>
+    <dl>
+      <dt>Main keyword</dt><dd><code>roofing company south salt lake</code></dd>
+      <dt>Also use</dt><dd><code>roofing contractor south salt lake</code>, <code>roofers south salt lake</code></dd>
+      <dt>Searches</dt><dd>20 for “roofing company”, 40 for “roofing company near me”</dd>
+      <dt>Placement</dt><dd>Start with the keyword: put it in the title tag, the H1 and the first sentence.</dd>
+    </dl>
+    <p>The home page should link to every service page and the cost page. Show the rating and review count once the client confirms them.</p>
+  </section>
+  <section>
+    <h2>Service pages · build in this order</h2>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>Service</th><th>Target keyword</th><th class="num">Searches</th><th class="num">"Near me"</th><th class="num">Exact keyword</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Roof repair</td><td><code>roof repair south salt lake</code></td><td class="num">70</td><td class="num">20</td><td class="num">–</td><td><span class="tag t-good">Has a page</span></td></tr>
+        <tr><td>2</td><td>Roof replacement</td><td><code>roof replacement south salt lake</code></td><td class="num">20</td><td class="num">20</td><td class="num">–</td><td><span class="tag t-warn">Home page only</span></td></tr>
+        <tr><td>3</td><td>Metal roofing</td><td><code>metal roofing south salt lake</code></td><td class="num">20</td><td class="num">10</td><td class="num">–</td><td><span class="tag t-good">Has a page</span></td></tr>
+        <tr><td>4</td><td>Roof inspection</td><td><code>roof inspection south salt lake</code></td><td class="num">10</td><td class="num">10</td><td class="num">–</td><td><span class="tag t-good">Has a page</span></td></tr>
+        <tr><td>5</td><td>Commercial roofing</td><td><code>commercial roofing south salt lake</code></td><td class="num">10</td><td class="num">10</td><td class="num">–</td><td><span class="tag t-warn">Home page only</span></td></tr>
+        <tr><td>6</td><td>Roof installation</td><td><code>roof installation south salt lake</code></td><td class="num">20</td><td class="num">30</td><td class="num">–</td><td><span class="tag t-bad">Ask client</span></td></tr>
+        <tr><td>7</td><td>Roof leak repair</td><td><code>roof leak repair south salt lake</code></td><td class="num">10</td><td class="num">10</td><td class="num">–</td><td><span class="tag t-bad">Ask client</span></td></tr>
+        <tr><td>8</td><td>Emergency roof repair</td><td><code>emergency roof repair south salt lake</code></td><td class="num">10</td><td class="num">10</td><td class="num">–</td><td><span class="tag t-bad">Ask client</span></td></tr>
+        <tr><td>9</td><td>Storm damage roof repair</td><td><code>storm damage roof repair south salt lake</code></td><td class="num">10</td><td class="num">10</td><td class="num">–</td><td><span class="tag t-bad">Ask client</span></td></tr>
+        <tr><td>10</td><td>Gutter installation</td><td><code>gutter installation south salt lake</code></td><td class="num">10</td><td class="num">10</td><td class="num">–</td><td><span class="tag t-bad">Ask client</span></td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="small">Searches and "near me" are inside South Salt Lake. "Exact keyword" = searches for the keyword with the city name, across Utah (for services read from their site: inside South Salt Lake). "–" = fewer than 10 a month; "10" is Google's lowest number. One page per service. Only build a page if the business really does that service.</p>
+    <h3>Notes on the list</h3>
+    <ul>
+      <li><b>Roof repair and Roof leak repair</b> are very close topics. Keep each page clearly different, or ask Angelo whether one should be a section of the other, so they don't compete.</li>
+      <li><b>Roof repair and Emergency roof repair</b> are very close topics. Keep each page clearly different, or ask Angelo whether one should be a section of the other, so they don't compete.</li>
+      <li><b>Roof repair and Storm damage roof repair</b> are very close topics. Keep each page clearly different, or ask Angelo whether one should be a section of the other, so they don't compete.</li>
+      <li><b>Roof installation vs. roof replacement:</b> keep them different. Suggest: installation = new builds and additions; replacement = tearing off and replacing an old roof.</li>
+      <li><b>Emergency roof repair:</b> only claim "24/7" or "same-day" if the client confirms it.</li>
+    </ul>
+  </section>
+  <section>
+    <h2>More searches Google suggests</h2>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Search</th><th>Use?</th><th>Where</th></tr></thead>
+      <tbody>
+        <tr><td>Residential roof repair south salt lake</td><td><span class="tag t-good">Yes</span></td><td>Matching service page, as a section</td></tr>
+        <tr><td>Cheap roof repair south salt lake</td><td><span class="tag t-warn">If true</span></td><td>Only with real offers from the client</td></tr>
+        <tr><td>Best roof repair south salt lake</td><td><span class="tag t-warn">Show, don&#x27;t claim</span></td><td>Use real reviews, photos and process. Don&#x27;t claim &quot;the best&quot;.</td></tr>
+        <tr><td>Affordable roof repair south salt lake</td><td><span class="tag t-warn">If true</span></td><td>Only with real offers from the client</td></tr>
+        <tr><td>Roofing companies Salt Lake City</td><td><span class="tag t-bad">Skip</span></td><td>Another company in this list</td></tr>
+        <tr><td>Roofers Supply Salt Lake City</td><td><span class="tag t-bad">Skip</span></td><td>Another company in this list</td></tr>
+        <tr><td>Whitaker Roofing services Salt Lake City</td><td><span class="tag t-bad">Skip</span></td><td>Another company in this list</td></tr>
+        <tr><td>Vertex Roofing</td><td><span class="tag t-bad">Skip</span></td><td>Another company in this list</td></tr>
+        <tr><td>Cheap roof replacement south salt lake</td><td><span class="tag t-warn">If true</span></td><td>Only with real offers from the client</td></tr>
+        <tr><td>Roof replacement south salt lake cost</td><td><span class="tag t-warn">Real prices only</span></td><td>Cost page</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="small">Sorted automatically. Check any "company name" row by eye before skipping it.</p>
+  </section>
+  <section>
+    <h2>Cost page</h2>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Keyword</th><th class="num">Searches South Salt Lake</th><th class="num">All Utah</th><th>City version</th><th class="num">All Utah</th></tr></thead>
+      <tbody>
+        <tr><td>roof replacement cost</td><td class="num">10</td><td class="num">170</td><td>roof replacement cost south salt lake</td><td class="num">–</td></tr>
+        <tr><td>roof repair cost</td><td class="num">10</td><td class="num">30</td><td>roof repair cost south salt lake</td><td class="num">–</td></tr>
+        <tr><td>new roof cost</td><td class="num">10</td><td class="num">70</td><td>new roof cost south salt lake</td><td class="num">–</td></tr>
+        <tr><td>metal roof cost</td><td class="num">10</td><td class="num">90</td><td>metal roof cost south salt lake</td><td class="num">–</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p>One cost page covering all of these. Cost searchers are close to buying. <b>Use only real prices from the client.</b> If the client will not share prices, explain what changes the price and invite a free estimate instead.</p>
+  </section>
+  <section>
+    <h2>City pages</h2>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>City</th><th>Keyword 1</th><th class="num">All Utah</th><th>Keyword 2</th><th class="num">All Utah</th></tr></thead>
+      <tbody>
+        <tr><td>Salt Lake City</td><td>roof repair salt lake city</td><td class="num">140</td><td>roof replacement salt lake city</td><td class="num">20</td></tr>
+        <tr><td>South Jordan</td><td>roof repair south jordan</td><td class="num">30</td><td>roof replacement south jordan</td><td class="num">–</td></tr>
+        <tr><td>Sandy</td><td>roof repair sandy</td><td class="num">30</td><td>roof replacement sandy</td><td class="num">–</td></tr>
+        <tr><td>Draper</td><td>roof repair draper</td><td class="num">10</td><td>roof replacement draper</td><td class="num">–</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p>Build a city page only if the business really works there. Salt Lake City has the most searches (140 for "roof repair salt lake city" across Utah). Each page needs real local content (jobs done there, neighborhoods), not the South Salt Lake page with the name swapped.</p>
+  </section>
+  <section>
+    <h2>What a strong page looks like</h2>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Keyword</th><th class="num">Avg. words (top pages)</th><th class="num">Have FAQ</th><th class="num">Show prices</th></tr></thead>
+      <tbody>
+        <tr><td>roof repair south salt lake</td><td class="num">~1,179</td><td class="num">2 of 2</td><td class="num">0 of 2</td></tr>
+        <tr><td>roof replacement south salt lake</td><td class="num">~5,042</td><td class="num">2 of 2</td><td class="num">0 of 2</td></tr>
+        <tr><td>roof replacement cost south salt lake</td><td class="num">~1,449</td><td class="num">1 of 3</td><td class="num">3 of 3</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <h3>Takeaways</h3>
+    <ul>
+      <li>Aim for <b>about 1,200–5,000 words</b> on the main service pages, with an FAQ on each.</li>
+      <li>No top service page shows prices. Real prices (if the client gives them) would set this site apart.</li>
+    </ul>
+    <h3>Headings on the top pages (topic ideas only)</h3>
+    <ul>
+      <li>Why Utah Property Owners Choose American Roofing Company</li>
+      <li>Get a Straight Answer in Three Steps</li>
+      <li>Roofing Solutions for Every Property</li>
+      <li>Roofing Projects Across Utah</li>
+      <li>What Our Clients Are Saying</li>
+      <li>Roof Repair vs. Roof Replacement: How to Choose</li>
+      <li>Should You Get Metal Roofing in Utah? 3 Busted Myths</li>
+      <li>The Guide to Permits for Roof Replacements in Utah</li>
+      <li>Superior Roofing Services</li>
+      <li>Utah&#x27;s Trusted Residential and Commercial Roofing Company</li>
+      <li>Your Guide to Roof Replacement Costs in Utah</li>
+      <li>Making Sense of Your Roofing Estimate</li>
+      <li>Choosing The Right Roofing Material For Utah Weather</li>
+      <li>Hidden Factors That Impact Your Final Roofing Cost</li>
+      <li>Thinking Beyond the Price Tag</li>
+      <li>How to Budget and Pay for Your New Roof</li>
+      <li>Common Questions About Roof Replacement Costs</li>
+      <li>© 2025 . All Rights Reserved</li>
+      <li>Designed by BrandMark Digital Media</li>
+    </ul>
+    <p class="note">Use competitor headings for topic ideas only. Do not copy them. Some name other companies, owners or promotions. Bios, promotions and project photos go in only with real facts from the client.</p>
+  </section>
+  <section>
+    <h2>FAQ · real questions from Google</h2>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Question</th><th>Use?</th><th>Where</th></tr></thead>
+      <tbody>
+        <tr><td>What is the average price of a roof repair?</td><td><span class="tag t-warn">Real prices only</span></td><td>Cost page</td></tr>
+        <tr><td>What is the 25% rule for roofing?</td><td><span class="tag t-warn">Check Utah rules</span></td><td>Matching service page</td></tr>
+        <tr><td>What is the typical cost to replace a roof in Utah?</td><td><span class="tag t-warn">Real prices only</span></td><td>Cost page</td></tr>
+        <tr><td>Is $50,000 for a new roof good?</td><td><span class="tag t-warn">Real prices only</span></td><td>Cost page</td></tr>
+        <tr><td>What is the average cost of replacing a roof in Utah?</td><td><span class="tag t-warn">Real prices only</span></td><td>Cost page</td></tr>
+        <tr><td>What is the average cost to replace a roof on a 2000 square-foot home?</td><td><span class="tag t-warn">Real prices only</span></td><td>Cost page</td></tr>
+        <tr><td>Is $30,000 too much for a roof?</td><td><span class="tag t-warn">Real prices only</span></td><td>Cost page</td></tr>
+        <tr><td>What causes roof leaks?</td><td><span class="tag t-good">Yes</span></td><td>Matching service page</td></tr>
+        <tr><td>How much does it cost to reroof a house?</td><td><span class="tag t-warn">Real prices only</span></td><td>Cost page</td></tr>
+        <tr><td>Can a handyman fix a roof leak?</td><td><span class="tag t-good">Yes</span></td><td>Matching service page</td></tr>
+        <tr><td>How much does it cost to replace a roof on a 2000 square foot house in California?</td><td><span class="tag t-bad">Skip</span></td><td>About California, not Utah</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </section>
+  <section>
+    <h2>Rules for the writer</h2>
+    <ul>
+      <li>Start each page with its keyword.</li>
+      <li>Use only facts the client gives you: prices, warranty, years in business, licenses.</li>
+      <li>Do not invent reviews, numbers or photos.</li>
+    </ul>
+    <p class="small">Search numbers: Google Ads monthly searches, pulled 14 Oct 2026. Questions and page topics: live Google results in South Salt Lake, 14 Oct 2026.</p>
+  </section>
+  <section>
+    <h2>Questions for the client</h2>
+    <ol>
+      <li>Which of these do you do: <b>roof installation, roof leak repair, emergency roof repair, storm damage roof repair, gutter installation</b>?</li>
+      <li>Do you work in <b>Salt Lake City, South Jordan, Sandy, Draper</b>? Any recent jobs there we can mention?</li>
+      <li>Can you share <b>real prices or price ranges</b> for your main services?</li>
+      <li>Are the name, phone, address, rating (5 stars · 25 reviews) correct? How should the phone number be shown?</li>
+      <li>Do you help with <b>insurance claims</b> or offer <b>financing</b>? What is your warranty, years in business and licenses?</li>
+      <li>Can you send <b>project photos</b> (before/after), with the city each job was in?</li>
+    </ol>
+  </section>
+  <section>
+    <h2>Next steps</h2>
+    <ul class="check">
+      <li>Send the client questions above (after Angelo approves).</li>
+      <li>Home page: title, H1, first sentence with <code>roofing company south salt lake</code>.</li>
+      <li>Improve the service pages already on the site, naming South Salt Lake on every one.</li>
+      <li>Add "ask client" service pages only for services the client confirms.</li>
+      <li>Build or improve the cost page once real prices arrive.</li>
+      <li>City pages only for cities the client confirms.</li>
+      <li>Add alt text to every image.</li>
+      <li>Re-test mobile speed after changes (target 90+).</li>
+    </ul>
+  </section>
+  <footer>Novarte AI · Draft for internal review · Audit 5 Oct 2026 · Search data 14 Oct 2026</footer>
+</main>
+</body>
+</html>

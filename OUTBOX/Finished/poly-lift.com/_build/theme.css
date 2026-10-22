@@ -1,0 +1,16 @@
+/* poly-lift.com theme: "Back to level". The client's logo green and black, a hard safety-yellow accent (Hilti's single
+   accent, the yellow of a spirit-level vial), foam white, concrete greys. Big Shoulders Display (condensed, engineered,
+   after Ram Jack's bold caps) + Manrope (text) + Red Hat Mono (labels and readouts). */
+:root {
+  --paper: #f3f4f1; --sand: #e5e8e3; --card: #ffffff; --ink: #121a16; --ink2: #3a463f; --mute: #66726b; --line: #d4dad4;
+  --dark: #14211c; --dark2: #1c2d26; --on-dark: #eef3ef; --on-dark2: #a9b9b0; --foot: #0d1612;
+  --accent: #f2c230; --accent-ink: #7a5b00; --on-accent: #121a16; --green: #2f7d4f; --foam: #fbf7e9;
+  --f-disp: "Big Shoulders Display", "Arial Narrow", Impact, sans-serif; --f-body: "Manrope", "Segoe UI", system-ui, sans-serif; --f-mono: "Red Hat Mono", ui-monospace, Menlo, Consolas, monospace;
+  --disp-w: 800; --disp-ls: .005em; --r: 4px; --btn-r: 2px; --hdr: 76px; --logo-h: 40px;
+  --hero-shade: linear-gradient(180deg, rgba(20,33,28,.55), rgba(20,33,28,.9));
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --paper: #0f1714; --sand: #16211c; --card: #1a2722; --ink: #eaf1ec; --ink2: #c3d0c8; --mute: #8fa097; --line: #2b3b33; --accent-ink: #f2c230; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --paper: #0f1714; --sand: #16211c; --card: #1a2722; --ink: #eaf1ec; --ink2: #c3d0c8; --mute: #8fa097; --line: #2b3b33; --accent-ink: #f2c230; color-scheme: dark }

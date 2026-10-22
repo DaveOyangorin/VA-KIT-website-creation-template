@@ -1,0 +1,327 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Instant Quote | Mountain Window Cleaning</title>
+<meta name="description" content="Get an instant window cleaning estimate. Pick your services, count your panes, and see your price. Serving Salt Lake and Utah Counties.">
+<meta name="theme-color" content="#0F2A3F">
+<link rel="icon" type="image/svg+xml" href="assets/mwc-mark.svg">
+<link rel="preload" href="assets/fonts/plus-jakarta-sans-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin="">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap header-row">
+    <a class="brand" href="index.html" aria-label="Mountain Window Cleaning home"><img src="assets/mwc-logo-horizontal.svg" alt="Mountain Window Cleaning" width="275" height="64"></a>
+    <nav class="nav" aria-label="Main"><a href="window-cleaning.html">Window Cleaning</a><a href="solar-panel-cleaning.html">Solar Panels</a><a href="pricing.html">Pricing</a><a href="https://www.google.com/maps/place/Mountain+Window+Cleaning/@40.5902316,-111.8327845,17z/data=!4m7!3m6!1s0x87527d4aa731d2db:0x9c1d3dd56e09d1ff!8m2!3d40.5902222!4d-111.830564!9m1!1b1" target="_blank" rel="noopener">Reviews</a></nav>
+    <div class="header-cta">
+      <a class="phone" href="tel:+18015184062"><small>Call or text</small>801-518-4062</a>
+      <a class="btn btn-quote" href="quote.html">Instant Quote</a>
+      <details class="menu"><summary aria-label="Open menu"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg></summary><nav aria-label="Mobile"><a href="window-cleaning.html">Window Cleaning</a><a href="solar-panel-cleaning.html">Solar Panels</a><a href="pricing.html">Pricing</a><a href="https://www.google.com/maps/place/Mountain+Window+Cleaning/@40.5902316,-111.8327845,17z/data=!4m7!3m6!1s0x87527d4aa731d2db:0x9c1d3dd56e09d1ff!8m2!3d40.5902222!4d-111.830564!9m1!1b1" target="_blank" rel="noopener">Reviews</a><a href="tel:+18015184062">Call or text 801-518-4062</a></nav></details>
+    </div>
+  </div>
+</header>
+<main>
+<section class="page-hero"><div class="wrap"><p class="eyebrow">Instant quote</p><h1>Get your price in about a minute.</h1><p class="lead">Pick your services, count your windows, and see your estimate right away. We confirm the final price before we schedule.</p></div><svg class="ridge" viewBox="0 0 1440 170" preserveAspectRatio="none" aria-hidden="true">
+<path d="M0 120 L140 70 L230 105 L360 30 L470 95 L560 60 L690 118 L820 40 L930 92 L1040 55 L1170 110 L1290 48 L1440 100 V170 H0 Z" fill="#163A55"></path>
+<path d="M360 30 L392 52 L376 50 L360 60 L346 50 L330 52 Z M820 40 L850 60 L836 58 L820 68 L806 58 L792 60 Z M1290 48 L1318 66 L1304 64 L1290 73 L1276 64 L1262 66 Z" fill="#E8EEF2" opacity=".9"></path>
+<path d="M0 145 L120 112 L260 136 L400 96 L540 132 L660 108 L800 140 L950 104 L1100 138 L1230 114 L1440 140 V170 H0 Z" fill="#1E6B53" opacity=".55"></path>
+<path d="M0 158 C240 146 480 164 720 154 C960 144 1200 162 1440 150 V170 H0 Z" fill="#F7FAFB"></path>
+</svg></section>
+
+<style>
+.q-shell{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:32px;align-items:start;margin-top:-72px;position:relative;z-index:2}
+@media (max-width:920px){.q-shell{grid-template-columns:1fr;margin-top:-56px}}
+.q-card{background:var(--raised);border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--shadow)}
+.q-form{padding:clamp(20px,3vw,36px);display:grid;gap:36px}
+.q-step{display:grid;gap:18px;border:0;margin:0;padding:0;min-width:0}
+.q-step legend{padding:0;display:flex;align-items:center;gap:12px;font:800 22px/28px var(--font-display);color:var(--ink);margin-bottom:4px}
+.q-num{display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:var(--navy);color:var(--on-navy);font:800 15px/1 var(--font-display);flex:none}
+.q-hint{font-size:14px;line-height:20px;color:var(--muted)}
+.q-tiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.q-tile{position:relative;display:flex;gap:12px;align-items:center;padding:16px;border:1.5px solid var(--line);border-radius:var(--r-md);cursor:pointer;background:var(--raised);transition:border-color .15s,background .15s}
+.q-tile:hover{border-color:#b9cbd6}
+.q-tile input{position:absolute;opacity:0;pointer-events:none}
+.q-tile svg{width:26px;height:26px;color:var(--glacier-deep);flex:none}
+.q-tile b{display:block;font:700 16px/22px var(--font-display)}
+.q-tile span{font-size:13px;line-height:18px;color:var(--muted)}
+.q-tile:has(input:checked){border-color:var(--glacier-deep);background:var(--glacier-soft)}
+.q-tile:has(input:checked)::after{content:"";position:absolute;top:10px;right:10px;width:18px;height:18px;border-radius:50%;background:var(--glacier-deep) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center/12px no-repeat}
+.q-tile:has(input:focus-visible){outline:2px solid var(--glacier-deep);outline-offset:2px}
+@media (max-width:520px){.q-tiles{grid-template-columns:1fr}}
+.q-seg{display:inline-flex;padding:4px;background:var(--snow);border:1px solid var(--line);border-radius:var(--r-md);gap:4px;flex-wrap:wrap}
+.q-seg label{position:relative;cursor:pointer}
+.q-seg input{position:absolute;opacity:0}
+.q-seg span{display:block;padding:8px 16px;border-radius:var(--r-sm);font:600 15px/20px var(--font-body);color:var(--muted)}
+.q-seg input:checked+span{background:var(--raised);color:var(--ink);box-shadow:0 1px 3px rgba(15,42,63,.12)}
+.q-seg input:focus-visible+span{outline:2px solid var(--glacier-deep)}
+.q-counts{display:grid;gap:0;border:1px solid var(--line);border-radius:var(--r-md);overflow:hidden}
+.q-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px;align-items:center;padding:14px 16px;border-bottom:1px solid var(--line)}
+.q-row:last-child{border-bottom:0}
+.q-row[hidden]{display:none!important}
+.q-row b{display:block;font:600 15px/20px var(--font-body)}
+.q-row small{font-size:13px;color:var(--muted)}
+.stepper{display:inline-grid;grid-template-columns:40px 64px 40px;border:1px solid var(--line);border-radius:var(--r-md);overflow:hidden;background:var(--raised)}
+.stepper button{border:0;background:var(--snow);color:var(--ink);font:600 20px/1 var(--font-body);cursor:pointer}
+.stepper button:hover{background:var(--glacier-soft)}
+.stepper input{width:64px;border:0;border-inline:1px solid var(--line);text-align:center;font:600 16px/1 var(--font-body);font-variant-numeric:tabular-nums;color:var(--ink);-moz-appearance:textfield;padding:10px 0;background:var(--raised)}
+.stepper input::-webkit-outer-spin-button,.stepper input::-webkit-inner-spin-button{-webkit-appearance:none}
+.q-help{display:flex;gap:12px;align-items:flex-start;padding:14px 16px;background:var(--glacier-soft);border-radius:var(--r-md);font-size:14px;line-height:20px;color:var(--ink)}
+.q-help svg{flex:none;width:44px;height:44px}
+.q-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.q-grid .full{grid-column:1/-1}
+@media (max-width:560px){.q-grid{grid-template-columns:1fr}}
+.field{display:grid;gap:6px;min-width:0}
+.field label{font:600 14px/20px var(--font-body);color:var(--ink)}
+.field label i{font-style:normal;color:var(--muted);font-weight:500}
+.field input,.field select,.field textarea{width:100%;min-height:48px;padding:12px 14px;border:1.5px solid var(--line);border-radius:var(--r-sm);font:400 16px/22px var(--font-body);color:var(--ink);background:var(--raised)}
+.field textarea{min-height:96px;resize:vertical}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--glacier-deep);box-shadow:0 0 0 3px rgba(22,114,156,.18)}
+.field.invalid input{border-color:#B42318}
+.field .err{display:none;font-size:13px;color:#B42318}
+.field.invalid .err{display:block}
+.q-submit{display:grid;gap:12px}
+.q-submit .btn{width:100%;min-height:54px;font-size:17px}
+.q-fine{font-size:13px;line-height:18px;color:var(--muted);text-align:center}
+.q-alert{display:none;padding:12px 14px;border-radius:var(--r-sm);background:#FEF3F2;color:#912018;font-size:14px}
+.q-alert.show{display:block}
+/* Estimate panel */
+.q-est{position:sticky;top:96px;padding:24px;display:grid;gap:16px}
+@media (max-width:920px){.q-est{position:static;order:-1}}
+.q-est h2{font-size:14px;line-height:18px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--muted)}
+.q-total{font:800 44px/1 var(--font-display);letter-spacing:-.02em;font-variant-numeric:tabular-nums;color:var(--ink)}
+.q-total small{display:block;margin-top:8px;font:500 14px/20px var(--font-body);letter-spacing:0;color:var(--muted)}
+.q-lines{display:grid;gap:8px;margin:0;padding:0;list-style:none;font-size:14px}
+.q-lines li{display:flex;justify-content:space-between;gap:12px;font-variant-numeric:tabular-nums}
+.q-lines li span:last-child{font-weight:600}
+.q-lines .empty{color:var(--muted)}
+.q-est hr{border:0;border-top:1px solid var(--line);margin:0}
+.q-perks{display:grid;gap:8px;margin:0;padding:0;list-style:none;font-size:14px;color:var(--muted)}
+.q-perks li{display:flex;gap:8px;align-items:flex-start}
+.q-perks svg{width:16px;height:16px;color:var(--evergreen);flex:none;margin-top:2px}
+.q-call{font-size:14px;color:var(--muted)}
+.q-min{font-size:14px;line-height:20px;color:var(--ink);background:var(--alpenglow-soft,#FDF1DE);border-radius:var(--r-sm);padding:8px 12px;margin:0}
+.q-call a{font-weight:600;color:var(--ink)}
+/* Done */
+.q-done{padding:clamp(24px,4vw,48px);display:grid;gap:16px;justify-items:start}
+.q-done .badge{display:grid;place-items:center;width:56px;height:56px;border-radius:50%;background:var(--evergreen-soft);color:var(--evergreen)}
+.q-done .badge svg{width:28px;height:28px}
+.q-done .lead{color:var(--muted)}
+.q-preview-note{font-size:13px;color:var(--muted);background:var(--snow);border:1px dashed var(--line);border-radius:var(--r-sm);padding:10px 12px}
+</style>
+<section class="section" style="padding-top:0">
+  <div class="wrap q-shell">
+    <div class="q-card" id="q-card">
+      <form class="q-form" id="quote-form" novalidate="">
+        <fieldset class="q-step">
+          <legend><span class="q-num">1</span>What do you need cleaned?</legend>
+          <div class="q-seg" role="radiogroup" aria-label="Property type">
+            <label><input type="radio" name="property" value="Home" checked=""><span>Home</span></label>
+            <label><input type="radio" name="property" value="Business"><span>Business</span></label>
+          </div>
+          <div class="q-tiles">
+            <label class="q-tile"><input type="checkbox" name="svc" value="exterior" checked=""><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"></rect><path d="M12 3v18M4 12h16"></path><path d="M7 7.5l2-2"></path></svg><div><b>Outside windows</b><span>$4 per pane</span></div></label>
+            <label class="q-tile"><input type="checkbox" name="svc" value="interior" checked=""><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="1.5"></rect><path d="M8 7h2M14 7h2M8 11h2M14 11h2M8 15h2M14 15h2M10 21v-3h4v3"></path></svg><div><b>Inside windows</b><span>$3 per pane</span></div></label>
+            <label class="q-tile"><input type="checkbox" name="svc" value="screens"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"></rect><path d="M12 3v18M4 12h16"></path><path d="M7 7.5l2-2"></path></svg><div><b>Screens</b><span>$2–3 each</span></div></label>
+            <label class="q-tile"><input type="checkbox" name="svc" value="tracks"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"></path><path d="M19 16v4M17 18h4"></path></svg><div><b>Window tracks</b><span>$5–10 each</span></div></label>
+            <label class="q-tile"><input type="checkbox" name="svc" value="solar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 9h14l2 8H3l2-8z"></path><path d="M4 13h16M9.5 9l-1 8M14.5 9l1 8M12 17v4M9 21h6"></path><path d="M12 2v2M17 4l-1 1.5M7 4l1 1.5"></path></svg><div><b>Solar panels</b><span>$4–6 per panel</span></div></label>
+            <label class="q-tile"><input type="checkbox" name="svc" value="hardwater"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3s6 6.5 6 11a6 6 0 01-12 0c0-4.5 6-11 6-11z"></path><path d="M9.5 14.5a2.5 2.5 0 002.5 2.5"></path></svg><div><b>Hard-water stains</b><span>Quoted after a look</span></div></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="q-step">
+          <legend><span class="q-num">2</span>How many?</legend>
+          <div class="q-help"><svg viewBox="0 0 44 44" aria-hidden="true"><rect x="8" y="3" width="28" height="38" rx="3" fill="#fff" stroke="#16729C" stroke-width="2"></rect><path d="M8 22h28" stroke="#16729C" stroke-width="2"></path><text x="22" y="16" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" font-weight="700" fill="#16729C">1</text><text x="22" y="35" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" font-weight="700" fill="#16729C">2</text></svg><p><b>How to count panes:</b> count each separate piece of glass. A window with a top and bottom section is 2 panes. A best guess is fine.</p></div>
+          <div class="q-counts">
+            <div class="q-row" id="row-panes"><div><b>Window panes</b><small>Count once; we apply it to inside and outside</small></div>
+<div class="stepper"><button type="button" data-step="-1" data-for="panes" aria-label="Fewer window panes">−</button><input id="panes" name="panes" type="number" inputmode="numeric" min="0" max="999" value="25" aria-label="Window panes"><button type="button" data-step="1" data-for="panes" aria-label="More window panes">+</button></div></div>
+            <div class="q-row" id="row-screens" hidden=""><div><b>Screens</b><small>Removable window screens</small></div>
+<div class="stepper"><button type="button" data-step="-1" data-for="screens" aria-label="Fewer screens">−</button><input id="screens" name="screens" type="number" inputmode="numeric" min="0" max="999" value="0" aria-label="Screens"><button type="button" data-step="1" data-for="screens" aria-label="More screens">+</button></div></div>
+            <div class="q-row" id="row-tracks" hidden=""><div><b>Tracks</b><small>Sliding window and door tracks</small></div>
+<div class="stepper"><button type="button" data-step="-1" data-for="tracks" aria-label="Fewer tracks">−</button><input id="tracks" name="tracks" type="number" inputmode="numeric" min="0" max="999" value="0" aria-label="Tracks"><button type="button" data-step="1" data-for="tracks" aria-label="More tracks">+</button></div></div>
+            <div class="q-row" id="row-panels" hidden=""><div><b>Solar panels</b><small>Total panels on the roof</small></div>
+<div class="stepper"><button type="button" data-step="-1" data-for="panels" aria-label="Fewer solar panels">−</button><input id="panels" name="panels" type="number" inputmode="numeric" min="0" max="999" value="0" aria-label="Solar panels"><button type="button" data-step="1" data-for="panels" aria-label="More solar panels">+</button></div></div>
+          </div>
+          <div class="field">
+            <label for="stories" id="stories-label">Home height</label>
+            <select id="stories" name="stories"><option>1 story</option><option selected="">2 stories</option><option>3+ stories</option></select>
+          </div>
+        </fieldset>
+
+        <fieldset class="q-step">
+          <legend><span class="q-num">3</span>Where should we send your quote?</legend>
+          <div class="q-grid">
+            <div class="field"><label for="first">First name</label><input id="first" name="first" autocomplete="given-name" required=""><span class="err">Please add your first name.</span></div>
+            <div class="field"><label for="last">Last name <i>(optional)</i></label><input id="last" name="last" autocomplete="family-name"></div>
+            <div class="field"><label for="phone">Phone</label><input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="801-555-0123"><span class="err">Add a phone number or email so we can reach you.</span></div>
+            <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com"><span class="err">Add a phone number or email so we can reach you.</span></div>
+            <div class="field full"><label for="address">Service address</label><input id="address" name="address" autocomplete="street-address" placeholder="Street, city" required=""><span class="err">Please add the address we'll be cleaning.</span></div>
+            <div class="field"><label for="contact">Best way to reach you</label><select id="contact" name="contact"><option>Text</option><option>Call</option><option>Email</option></select></div>
+            <div class="field"><label for="when">When would you like service?</label><select id="when" name="when"><option>As soon as possible</option><option>Within 2 weeks</option><option>This month</option><option>Just getting a price</option></select></div>
+            <div class="field"><label for="plan">Recurring service</label><select id="plan" name="plan"><option>One-time clean</option><option>Quarterly (discounted)</option><option>Monthly (discounted)</option></select></div>
+            <div class="field full"><label for="notes">Anything we should know? <i>(optional)</i></label><textarea id="notes" name="notes" placeholder="Gate code, skylights, pets, hard-to-reach windows…"></textarea></div>
+          </div>
+        </fieldset>
+
+        <div class="q-submit">
+          <div class="q-alert" id="q-alert" role="alert"></div>
+          <button class="btn btn-quote" type="submit" id="q-send">Send my quote request <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></button>
+          <p class="q-fine">No obligation. We'll confirm your price by <span id="q-via">text</span>, usually the same day.</p>
+          <p class="q-fine">By sending this request, you agree that Mountain Window Cleaning may call, text or email you about your quote and service. Message and data rates may apply. Reply STOP to opt out. See our <a href="privacy-policy.html">Privacy Policy</a>.</p>
+        </div>
+      </form>
+    </div>
+
+    <aside class="q-card q-est" aria-live="polite">
+      <h2>Your estimate</h2>
+      <div class="q-total"><span id="q-total">$175</span><small id="q-sub">Estimate for a one-time clean</small></div>
+      <ul class="q-lines" id="q-lines"><li><span>Outside windows × 25</span><span>$100</span></li><li><span>Inside windows × 25</span><span>$75</span></li></ul>
+      <p class="q-min">Every visit has a <b>$150 minimum</b>.</p>
+      <hr>
+      <ul class="q-perks">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>Pure-water rinse on every outside pane</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>Frames and sills wiped</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>Monthly and quarterly plans save more</li>
+      </ul>
+      <p class="q-call">Prefer to talk? <a href="tel:+18015184062">Call or text 801-518-4062</a></p>
+    </aside>
+  </div>
+</section>
+
+<script>
+(function(){
+  /* Where submissions go. Set this once the Wix form is connected; until then the page runs in preview mode. */
+  var WIX_CLIENT_ID = "f6b87d55-f92e-4038-b33a-32485dcad0ce";
+  var WIX_FORM_ID = "6b0140c1-2c50-490a-b57e-41325715763f";
+  var MIN = 150;
+  var PRICES = {
+    exterior: { lo: 4, hi: 4, unit: "panes", label: "Outside windows" },
+    interior: { lo: 3, hi: 3, unit: "panes", label: "Inside windows" },
+    screens:  { lo: 2, hi: 3, unit: "screens", label: "Screens" },
+    tracks:   { lo: 5, hi: 10, unit: "tracks", label: "Tracks" },
+    solar:    { lo: 4, hi: 6, unit: "panels", label: "Solar panels" }
+  };
+  var form = document.getElementById("quote-form");
+  var $ = function(id){ return document.getElementById(id); };
+  var money = function(n){ return "$" + Math.round(n).toLocaleString("en-US"); };
+  function num(id){ var v = parseInt($(id).value, 10); return isNaN(v) || v < 0 ? 0 : Math.min(v, 999); }
+  function chosen(){ return Array.prototype.map.call(form.querySelectorAll('input[name="svc"]:checked'), function(i){ return i.value; }); }
+  function qty(svc){ return svc === "exterior" || svc === "interior" ? num("panes") : svc === "screens" ? num("screens") : svc === "tracks" ? num("tracks") : svc === "solar" ? num("panels") : 0; }
+  function estimate(){
+    var s = chosen(), lo = 0, hi = 0, lines = [];
+    s.forEach(function(k){ var p = PRICES[k]; if(!p) return; var q = qty(k); if(!q) return; lo += p.lo*q; hi += p.hi*q; lines.push([p.label + " × " + q, p.lo===p.hi ? money(p.lo*q) : money(p.lo*q) + "–" + money(p.hi*q)]); });
+    var minApplied = (lo > 0 || s.indexOf("hardwater") > -1) && lo < MIN;
+    if (minApplied) { lo = Math.max(lo, MIN); hi = Math.max(hi, MIN); }
+    return { lo: lo, hi: hi, lines: lines, hard: s.indexOf("hardwater") > -1, svcs: s, minApplied: minApplied };
+  }
+  function render(){
+    var s = chosen();
+    $("row-panes").hidden = !(s.indexOf("exterior") > -1 || s.indexOf("interior") > -1);
+    $("row-screens").hidden = s.indexOf("screens") < 0;
+    $("row-tracks").hidden = s.indexOf("tracks") < 0;
+    $("row-panels").hidden = s.indexOf("solar") < 0;
+    var e = estimate(), ul = $("q-lines");
+    ul.innerHTML = "";
+    e.lines.forEach(function(l){ var li = document.createElement("li"); li.innerHTML = "<span></span><span></span>"; li.children[0].textContent = l[0]; li.children[1].textContent = l[1]; ul.appendChild(li); });
+    if (e.hard) { var li = document.createElement("li"); li.innerHTML = "<span>Hard-water stains</span><span>Quoted</span>"; ul.appendChild(li); }
+    if (e.minApplied) { var mi = document.createElement("li"); mi.innerHTML = "<span>$150 visit minimum applied</span><span></span>"; ul.appendChild(mi); }
+    if (!ul.children.length) { ul.innerHTML = '<li class="empty">Pick a service to see your estimate.</li>'; }
+    $("q-total").textContent = e.lo === 0 && e.hi === 0 ? "$0" : (e.lo === e.hi ? money(e.lo) : money(e.lo) + "–" + money(e.hi));
+    var plan = $("plan").value;
+    $("q-sub").textContent = plan.indexOf("One-time") === 0 ? "Estimate for a one-time clean" : plan.split(" ")[0] + " plans are discounted from this price";
+    $("q-via").textContent = $("contact").value.toLowerCase();
+    $("stories-label").textContent = form.querySelector('input[name="property"]:checked').value === "Business" ? "Building height" : "Home height";
+  }
+  form.addEventListener("input", render);
+  form.addEventListener("change", render);
+  form.addEventListener("click", function(ev){
+    var b = ev.target.closest("button[data-step]"); if(!b) return;
+    var inp = $(b.dataset.for); inp.value = Math.max(0, Math.min(999, (parseInt(inp.value,10)||0) + parseInt(b.dataset.step,10))); render();
+  });
+  function setInvalid(id, bad){ $(id).closest(".field").classList.toggle("invalid", bad); }
+  form.addEventListener("submit", function(ev){
+    ev.preventDefault();
+    var first = $("first").value.trim(), phone = $("phone").value.trim(), email = $("email").value.trim(), addr = $("address").value.trim();
+    var reach = !!(phone || email);
+    setInvalid("first", !first); setInvalid("address", !addr); setInvalid("phone", !reach); setInvalid("email", !reach);
+    var alert = $("q-alert");
+    if (!first || !addr || !reach || !chosen().length) {
+      alert.textContent = !chosen().length ? "Pick at least one service in step 1." : "A few details are missing. Check the highlighted fields.";
+      alert.classList.add("show");
+      var bad = form.querySelector(".field.invalid input"); if (bad) bad.focus();
+      return;
+    }
+    alert.classList.remove("show");
+    var e = estimate();
+    var data = {
+      first: first, last: $("last").value.trim(), phone: phone, email: email, address: addr,
+      property: form.querySelector('input[name="property"]:checked').value,
+      services: e.svcs.map(function(k){ return ({exterior:"Outside windows",interior:"Inside windows",screens:"Screens",tracks:"Tracks",solar:"Solar panels",hardwater:"Hard-water stains"})[k] || k; }).join(", "), panes: num("panes"), screens: num("screens"), tracks: num("tracks"), panels: num("panels"),
+      stories: $("stories").value, contact: $("contact").value, when: $("when").value, plan: $("plan").value,
+      notes: $("notes").value.trim(), estimate: $("q-total").textContent
+    };
+    var btn = $("q-send"); btn.disabled = true; btn.textContent = "Sending…";
+    function done(preview){
+      var card = $("q-card");
+      card.innerHTML = '<div class="q-done"><span class="badge">' + '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>' + '</span><h2></h2><p class="lead"></p><div class="q-total" style="font-size:36px"></div>' +
+        (preview ? '<p class="q-preview-note">Preview mode: this request was not sent. It will be once the form is connected to Wix.</p>' : '') +
+        '<div class="hero-actions" style="margin-top:8px"><a class="btn btn-quote" href="https://book.housecallpro.com/book/Mountain-Window-Cleaning/e08230c121b84cad9fea4f98730bc0cd" target="_blank" rel="noopener">Book a time online</a><a class="btn btn-line" href="index.html">Back to home</a></div></div>';
+      card.querySelector("h2").textContent = "Thanks, " + first + ". Your request is in.";
+      card.querySelector(".lead").textContent = "We'll " + (data.contact === "Call" ? "call" : data.contact === "Email" ? "email" : "text") + " you to confirm your price, usually the same day. Your estimate:";
+      card.querySelector(".q-total").textContent = data.estimate;
+      window.scrollTo({ top: card.getBoundingClientRect().top + window.scrollY - 100, behavior: "smooth" });
+    }
+    function toE164(p){ var d = (p||"").replace(/\D/g, ""); if (d.length === 10) return "+1" + d; if (d.length === 11 && d[0] === "1") return "+" + d; return p; }
+    var details = "Property: " + data.property + " | Services: " + data.services +
+      " | Panes: " + data.panes + " | Screens: " + data.screens + " | Tracks: " + data.tracks + " | Solar panels: " + data.panels +
+      " | Height: " + data.stories + " | Reach by: " + data.contact + " | When: " + data.when + " | Plan: " + data.plan;
+    var vals = { first_name: data.first, service_address: data.address, estimate: data.estimate, job_details: details };
+    if (data.last) vals.last_name = data.last;
+    if (data.email) vals.email = data.email;
+    if (data.phone) vals.phone = toE164(data.phone);
+    if (data.notes) vals.notes = data.notes;
+    function fail(){ btn.disabled = false; btn.innerHTML = "Send my quote request"; alert.textContent = "We couldn't send your request. Please try again, or call or text 801-518-4062."; alert.classList.add("show"); }
+    fetch("https://www.wixapis.com/oauth2/token", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ clientId: WIX_CLIENT_ID, grantType: "anonymous" }) })
+      .then(function(r){ if(!r.ok) throw new Error("token " + r.status); return r.json(); })
+      .then(function(t){
+        return fetch("https://www.wixapis.com/form-submission-service/v4/submissions", { method: "POST", headers: { "Content-Type": "application/json", "Authorization": t.access_token }, body: JSON.stringify({ submission: { formId: WIX_FORM_ID, submissions: vals } }) });
+      })
+      .then(function(r){
+        if (r.ok) return done(false);
+        throw new Error("submit " + r.status);
+      })
+      .catch(fail);
+  });
+  render();
+})();
+</script>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div style="display:grid;gap:16px;align-content:start">
+        <img src="assets/mwc-logo-horizontal-reverse.svg" alt="Mountain Window Cleaning" width="275" height="64">
+        <p>Premium window and solar panel cleaning for homes and businesses across Salt Lake and Utah Counties.</p>
+      </div>
+      <div><h4>Services</h4><ul>
+        <li><a href="window-cleaning.html">Residential windows</a></li>
+        <li><a href="window-cleaning.html#commercial">Commercial windows</a></li>
+        <li><a href="solar-panel-cleaning.html">Solar panel cleaning</a></li>
+        <li><a href="pricing.html">Pricing</a></li></ul></div>
+      <div><h4>Company</h4><ul>
+        <li><a href="https://www.google.com/maps/place/Mountain+Window+Cleaning/@40.5902316,-111.8327845,17z/data=!4m7!3m6!1s0x87527d4aa731d2db:0x9c1d3dd56e09d1ff!8m2!3d40.5902222!4d-111.830564!9m1!1b1" target="_blank" rel="noopener">Google reviews</a></li>
+        <li><a href="https://www.instagram.com/mountain_window_cleaning/" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="https://book.housecallpro.com/book/Mountain-Window-Cleaning/e08230c121b84cad9fea4f98730bc0cd" target="_blank" rel="noopener">Book online</a></li>
+        <li><a href="privacy-policy.html">Privacy policy</a></li></ul></div>
+      <div><h4>Contact</h4><ul>
+        <li><a href="tel:+18015184062">Call or text 801-518-4062</a></li>
+        <li><a href="quote.html">Instant quote</a></li>
+        <li>Serving Salt Lake &amp; Utah Counties</li></ul></div>
+    </div>
+    <div class="footer-base"><span>© 2026 Mountain Window Cleaning</span><span>Clear glass. Clear pricing.</span></div>
+  </div>
+</footer>
+<div class="action-bar"><a class="btn btn-line" href="tel:+18015184062"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h3.5l2 5-2.5 1.5a11 11 0 005.5 5.5L15 12.5l5 2V18a3 3 0 01-3 3A16 16 0 013 6a3 3 0 012-3z"></path></svg> Call</a><a class="btn btn-quote" href="quote.html">Instant Quote</a></div>
+
+
+</body></html>

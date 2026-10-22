@@ -1,0 +1,11 @@
+/* rasmussenlandscapes.com theme: "Your yard. Our work." Spruce and sod greens from the Rasmussen badge logo, warm limestone and
+   paper for the ground, a soft sun-gold for highlights. Fraunces (soft, organic serif) for display, Work Sans for text, Azeret Mono for
+   small labels. One light garden-journal theme by choice; the header stays white so the white-backed badge logo sits cleanly. */
+:root {
+  --paper: #f7f5ef; --sand: #ece7dc; --card: #ffffff; --ink: #1b2a22; --ink2: #3d4a42; --mute: #6b766f; --line: #dcd6c8;
+  --dark: #1d3328; --dark2: #26402f; --on-dark: #f3f1ea; --on-dark2: #b6c2b8; --foot: #15261d;
+  --accent: #3f7f35; --accent-2: #8fbf5a; --accent-ink: #2f6a27; --on-accent: #ffffff; --sun: #e7b54a;
+  --f-disp: "Fraunces", Georgia, "Times New Roman", serif; --f-body: "Work Sans", "Segoe UI", system-ui, sans-serif; --f-mono: "Azeret Mono", ui-monospace, Menlo, Consolas, monospace;
+  --disp-w: 400; --disp-ls: -.02em; --disp-tt: none; --r: 6px; --btn-r: 999px; --hdr: 84px; --logo-h: 56px;
+  color-scheme: light;
+}

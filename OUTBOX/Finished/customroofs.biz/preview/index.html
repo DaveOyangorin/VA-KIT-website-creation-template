@@ -1,0 +1,364 @@
+<title>Custom Roofing Review</title>
+<meta name="description" content="Review of the Custom Roofing LLC website redesign: audit report, what was fixed, before and after, and a link to open the new site.">
+<style>
+:root {
+  --bg: #f4f5f7; --card: #ffffff; --text: #16181d; --muted: #5f6672; --line: #e1e4ea; --accent: #1f5f8b; --accent-ink: #ffffff;
+  --good: #23784a; --warn: #9a5d00; --bad: #b3261e; --chip: #eef3f7; --shade: rgba(16,24,40,.08);
+  --display: "Space Grotesk", "Segoe UI", system-ui, sans-serif; --body: "Inter", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #111317; --card: #1a1d23; --text: #eceef2; --muted: #a3a9b5; --line: #2c3039; --accent: #7fb6dd; --accent-ink: #0d1a24;
+  --good: #6cc193; --warn: #e0a54a; --bad: #ef7b72; --chip: #232a33; --shade: rgba(0,0,0,.4); color-scheme: dark; } }
+:root[data-theme="dark"] { --bg: #111317; --card: #1a1d23; --text: #eceef2; --muted: #a3a9b5; --line: #2c3039; --accent: #7fb6dd; --accent-ink: #0d1a24;
+  --good: #6cc193; --warn: #e0a54a; --bad: #ef7b72; --chip: #232a33; --shade: rgba(0,0,0,.4); color-scheme: dark; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--text); font: 15px/1.6 var(--body); }
+a { color: var(--accent); }
+.wrap { width: 100%; max-width: 1120px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.topnav { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10; background: color-mix(in srgb, var(--card) 92%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+.topnav .wrap { display: flex; align-items: center; gap: 8px 18px; min-height: 60px; flex-wrap: wrap; padding-block: 8px; }
+.topnav .brand { font: 700 15px/1.2 var(--display); margin-right: auto; }
+.topnav .brand small { display: block; font: 500 11px/1.3 var(--body); color: var(--muted); letter-spacing: .08em; text-transform: uppercase; }
+.topnav nav { display: flex; gap: 2px; flex-wrap: wrap; }
+.topnav nav a { text-decoration: none; color: var(--text); padding: 8px 10px; border-radius: 8px; font-weight: 500; font-size: 14px; }
+.topnav nav a:hover { background: var(--chip); }
+.btn { display: inline-flex; align-items: center; gap: 10px; background: var(--accent); color: var(--accent-ink); text-decoration: none; font-weight: 700; padding: 12px 18px; border-radius: 10px; min-height: 46px; }
+.btn:hover { filter: brightness(1.08); }
+.btn.big { font-size: 17px; padding: 16px 24px; min-height: 56px; }
+.btn.ghost { background: transparent; color: var(--accent); border: 2px solid var(--accent); }
+header.intro { padding-block: 40px 28px; }
+.eyebrow { font: 600 12px/1 var(--body); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+h1 { font: 700 clamp(28px, 4.4vw, 44px)/1.1 var(--display); margin: 10px 0 8px; letter-spacing: -.02em; text-wrap: balance; }
+h2.sec { font: 700 clamp(22px, 3vw, 30px)/1.15 var(--display); margin: 0 0 6px; letter-spacing: -.01em; }
+.lede { color: var(--muted); max-width: 65ch; margin: 0 0 18px; font-size: 16px; }
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin: 24px 0; }
+.stat-tile { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 16px; }
+.stat-tile b { display: block; font: 700 28px/1 var(--display); font-variant-numeric: tabular-nums; }
+.stat-tile span { color: var(--muted); font-size: 13px; }
+.block { padding-block: 34px; border-top: 1px solid var(--line); scroll-margin-top: 70px; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: clamp(16px, 3vw, 28px); }
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 14px; min-width: 560px; }
+th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { color: var(--muted); font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: .06em; }
+.tag { display: inline-block; padding: 2px 9px; border-radius: 99px; font-size: 12px; font-weight: 600; white-space: nowrap; }
+.tag.ok { background: color-mix(in srgb, var(--good) 16%, transparent); color: var(--good); }
+.tag.wait { background: color-mix(in srgb, var(--warn) 16%, transparent); color: var(--warn); }
+.tag.bad { background: color-mix(in srgb, var(--bad) 16%, transparent); color: var(--bad); }
+/* the embedded audit report (its own markup, scoped here) */
+.report section { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 18px; margin-bottom: 14px; }
+.report h1 { font-size: 22px; margin: 0 0 4px; } .report h2 { font: 700 18px/1.3 var(--display); margin: 0 0 10px; } .report h3 { font-size: 15px; margin: 14px 0 6px; }
+.report .sub { color: var(--muted); margin: 0 0 14px; }
+.report .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 10px; }
+.report .stat { border: 1px solid var(--line); border-radius: 8px; padding: 12px; } .report .stat b { display: block; font-size: 20px; } .report .stat span { color: var(--muted); font-size: 13px; }
+.report .t-good { background: color-mix(in srgb, var(--good) 16%, transparent); color: var(--good); }
+.report .t-warn { background: color-mix(in srgb, var(--warn) 16%, transparent); color: var(--warn); }
+.report .t-bad { background: color-mix(in srgb, var(--bad) 16%, transparent); color: var(--bad); }
+.report td.num, .report th.num { text-align: right; font-variant-numeric: tabular-nums; }
+.report dl { display: grid; grid-template-columns: max-content 1fr; gap: 6px 16px; margin: 0; } .report dt { color: var(--muted); } .report dd { margin: 0; }
+.report code { background: var(--chip); padding: 1px 6px; border-radius: 4px; font-size: 13px; }
+.report .note { border-left: 3px solid var(--warn); padding: 8px 12px; background: color-mix(in srgb, var(--warn) 8%, transparent); border-radius: 0 6px 6px 0; margin: 10px 0; }
+.report .check li { list-style: none; margin-left: -20px; } .report .check li::before { content: "☐ "; color: var(--muted); }
+.report-box { max-height: 640px; overflow: auto; border-radius: 14px; border: 1px solid var(--line); padding: 14px; background: var(--bg); }
+.report-box.open { max-height: none; }
+.ba { display: grid; gap: 18px; }
+.ba figure { margin: 0; }
+.ba figcaption { font: 600 13px/1.3 var(--body); color: var(--muted); margin: 10px 0 0; text-transform: uppercase; letter-spacing: .08em; }
+.frame { border-radius: 12px; overflow: hidden; border: 1px solid var(--line); box-shadow: 0 18px 40px -24px var(--shade); background: var(--card); }
+.frame .bar { display: flex; gap: 6px; padding: 9px 12px; border-bottom: 1px solid var(--line); }
+.frame .bar i { width: 10px; height: 10px; border-radius: 50%; background: var(--line); }
+.frame img { display: block; width: 100%; max-width: 100%; height: auto; max-height: 560px; object-fit: cover; object-position: top; }
+.phones { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; max-width: 520px; }
+.phone { border: 8px solid #20232a; border-radius: 26px; overflow: hidden; background: #20232a; }
+.phone img { display: block; width: 100%; max-width: 100%; height: auto; max-height: 520px; object-fit: cover; object-position: top; }
+.pages { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 10px; }
+.pagelink { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 14px 16px; background: var(--card); border: 1px solid var(--line); border-radius: 10px; text-decoration: none; color: var(--text); font-weight: 600; }
+.pagelink:hover { border-color: var(--accent); color: var(--accent); }
+.qs li { margin: 6px 0; }
+.cta-row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+footer.foot { color: var(--muted); font-size: 13px; padding-block: 30px 50px; border-top: 1px solid var(--line); }
+@media (min-width: 860px) { .ba { grid-template-columns: 1fr 1fr; } }
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap">
+
+<div class="topnav"><div class="wrap">
+<div class="brand">Custom Roofing LLC<small>Website redesign review &middot; draft</small></div>
+<nav aria-label="Sections"><a href="#report">Report</a><a href="#fixes">What we fixed</a><a href="#mockup">Before &amp; after</a><a href="#pages">Pages</a><a href="#questions">Questions</a></nav>
+<a class="btn" href="home/index.html">Open website <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a>
+</div></div>
+
+<header class="wrap intro">
+<div class="eyebrow">Draft for review &middot; customroofs.biz &middot; Lehi, UT</div>
+<h1>Custom Roofing LLC: website redesign</h1>
+<p class="lede">Start with the report to see what was wrong, then what we fixed, then the before-and-after. When you're ready, open the new website. Nothing here is live.</p>
+<div class="cta-row"><a class="btn big" href="home/index.html">Open the new website <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a><a class="btn ghost" href="#mockup">See before &amp; after</a></div>
+<div class="stats"><div class="stat-tile"><b>9</b><span>pages built</span></div><div class="stat-tile"><b>1,418</b><span>words in the new blog post</span></div><div class="stat-tile"><b>19</b><span>local WebP images</span></div><div class="stat-tile"><b>0</b><span>QA issues</span></div><div class="stat-tile"><b>10/13</b><span>issues fixed in the draft</span></div></div>
+</header>
+
+<section class="block" id="report"><div class="wrap">
+<h2 class="sec">1. The report</h2><p class="lede">The website plan report from the 5 Oct 2026 audit. It's the reason behind most of the changes below.</p>
+<div class="report-box" id="rbox"><div class="report">
+  <h1>customroofs.biz · Website plan report</h1>
+  <p class="sub">Custom Roofing LLC · Salt Lake City · Prepared 16 Oct 2026. Business facts and audit from 5 Oct 2026; search numbers and Google results from 14 Oct 2026. Draft for Angelo's review.</p>
+
+  <section>
+    <h2>Summary</h2>
+    <ul>
+      <li><b>Check first:</b> this business has <b>the exact same address</b> as another client, Aluminum Lock Roofing Inc (aluminumlockroofing.com). Angelo should look at this before any work starts. See "Business facts".</li>
+      <li><b>Home page target:</b> <code>roofing company salt lake city</code> (170 searches, plus 210 for "roofing company near me"). Same page also covers "roofers salt lake city" and "roofing contractor salt lake city".</li>
+      <li><b>The site is thin:</b> 8 pages, and only one service (copper roofing) has its own page. Roof repair is only named on the home page.</li>
+      <li><b>8 of 10 services are "ask client".</b> The client's answers decide most of the new site, so send the questions early.</li>
+      <li><b>No page names Salt Lake City.</b> Every page on the new site should.</li>
+      <li><b>Biggest opportunities:</b> roof repair (320 + 110 "near me") and metal roofing (170, if they do it).</li>
+      <li><b>Reviews are weaker than competitors':</b> 4.1 stars from 36 reviews. Don't make the rating the headline; lead with services, work photos and process instead.</li>
+      <li><b>Technical fixes:</b> mobile speed 62/100 (aim 90+), images missing alt text.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Business facts</h2>
+    <dl>
+      <dt>Name</dt><dd>Custom Roofing LLC</dd>
+      <dt>Website</dt><dd>customroofs.biz · 8 pages now</dd>
+      <dt>Phone</dt><dd>+1801-889-4220</dd>
+      <dt>Address</dt><dd>1950 S 900 W Ste S2, Salt Lake City, UT 84104</dd>
+      <dt>Google category</dt><dd>Roofing contractor</dd>
+      <dt>Reviews</dt><dd>4.1 stars · 36 reviews</dd>
+    </dl>
+    <p class="alert"><b>Same address as Aluminum Lock Roofing Inc.</b> Both Google profiles list <code>1950 S 900 W Ste S2, Salt Lake City, UT 84104</code>, with different phone numbers. They may be related companies sharing an office, or one of the listings may be wrong. Two roofing businesses at one suite can confuse Google and hurt both in local results. <b>Ask Angelo how to handle this before using the address on either site.</b></p>
+    <p class="note">From the Google profile on 5 Oct 2026. Confirm with the client before it goes on the site. The phone is copied exactly as given (<code>+1801-889-4220</code>). Ask the client how they want it shown; do not reformat it without their OK.</p>
+  </section>
+
+  <section>
+    <h2>Fix on the new site</h2>
+    <div class="grid">
+      <div class="stat"><b>62 / 100</b><span>Mobile speed now · aim for 90+</span></div>
+      <div class="stat"><b>Present</b><span>Meta description</span></div>
+      <div class="stat"><b>Missing</b><span>Alt text on some images</span></div>
+      <div class="stat"><b>0 pages</b><span>Name Salt Lake City</span></div>
+    </div>
+    <h3>What to do</h3>
+    <ul>
+      <li>Compress and resize images; lazy-load images below the fold.</li>
+      <li>Give every image a short alt text that says what is in the photo (for example "copper roof on a home in Salt Lake City").</li>
+      <li>Name Salt Lake City in the title, H1 and first paragraph of every page, and in the footer with the full address.</li>
+      <li>Keep a unique meta description on every new page.</li>
+      <li>Reviews are a Google profile job, not a website one: flag to Angelo that a review request plan would help (4.1 stars from 36 reviews).</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Home page</h2>
+    <dl>
+      <dt>Main keyword</dt><dd><code>roofing company salt lake city</code></dd>
+      <dt>Also use</dt><dd><code>roofers salt lake city</code>, <code>roofing contractor salt lake city</code></dd>
+      <dt>Searches</dt><dd>170 for "roofing company" · 210 for "roofing company near me" (Salt Lake City)</dd>
+      <dt>Placement</dt><dd>Start with the keyword: put it in the title tag, the H1 and the first sentence.</dd>
+    </dl>
+    <p>The home page should link to every service page and to the cost page. If copper and custom work is what sets them apart (the name suggests it), say so near the top, but only if the client confirms it.</p>
+  </section>
+
+  <section>
+    <h2>Service pages · build in this order</h2>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>Service</th><th>Target keyword</th><th class="num">Searches SLC</th><th class="num">"Near me" SLC</th><th class="num">Exact keyword</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Roof repair</td><td><code>roof repair salt lake city</code></td><td class="num">320</td><td class="num">110</td><td class="num">140</td><td><span class="tag t-warn">Home page only</span></td></tr>
+        <tr><td>2</td><td>Copper roofing</td><td><code>copper roofing salt lake city</code></td><td class="num">20</td><td class="num">–</td><td class="num">–</td><td><span class="tag t-good">Has a page</span></td></tr>
+        <tr><td>3</td><td>Metal roofing</td><td><code>metal roofing salt lake city</code></td><td class="num">170</td><td class="num">10</td><td class="num">40</td><td><span class="tag t-bad">Ask client</span></td></tr>
+        <tr><td>4</td><td>Roof installation</td><td><code>roof installation salt lake city</code></td><td class="num">70</td><td class="num">110</td><td class="num">10</td><td><span class="tag t-bad">Ask client</span></td></tr>
+        <tr><td>5</td><td>Roof replacement</td><td><code>roof replacement salt lake city</code></td><td class="num">50</td><td class="num">70</td><td class="num">20</td><td><span class="tag t-bad">Ask client</span></td></tr>
+        <tr><td>6</td><td>Gutter installation</td><td><code>gutter installation salt lake city</code></td><td class="num">70</td><td class="num">30</td><td class="num">10</td><td><span class="tag t-bad">Ask client</span></td></tr>
+        <tr><td>7</td><td>Roof inspection</td><td><code>roof inspection salt lake city</code></td><td class="num">70</td><td class="num">10</td><td class="num">10</td><td><span class="tag t-bad">Ask client</span></td></tr>
+        <tr><td>8</td><td>Roof leak repair</td><td><code>roof leak repair salt lake city</code></td><td class="num">40</td><td class="num">10</td><td class="num">10</td><td><span class="tag t-bad">Ask client</span></td></tr>
+        <tr><td>9</td><td>Commercial roofing</td><td><code>commercial roofing salt lake city</code></td><td class="num">20</td><td class="num">10</td><td class="num">10</td><td><span class="tag t-bad">Ask client</span></td></tr>
+        <tr><td>10</td><td>Flat roof repair</td><td><code>flat roof repair salt lake city</code></td><td class="num">10</td><td class="num">10</td><td class="num">10</td><td><span class="tag t-bad">Ask client</span></td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p style="color:var(--muted);font-size:13px">"Exact keyword" = searches for the keyword with the city name, across Utah (for services read from their site: inside Salt Lake City). "–" = fewer than 10 a month; "10" is Google's lowest number. One page per service. Only build a page if the business really does that service.</p>
+    <h3>Notes on the list</h3>
+    <ul>
+      <li><b>Roof repair:</b> the biggest keyword, and they have no page for it yet. Build it first.</li>
+      <li><b>Copper roofing:</b> few searches, but it is a specialty and they already have a page. Keep it and link it to metal roofing if they do both.</li>
+      <li><b>Metal roofing:</b> the second-biggest keyword. If they do it, build it right after roof repair.</li>
+      <li><b>Roof installation vs. roof replacement:</b> if they do both, the pages must not say the same thing. Suggest: installation = new builds and additions; replacement = tearing off and replacing an old roof.</li>
+      <li><b>Roof leak repair vs. roof repair:</b> close topics. If yes, check with Angelo: own page, or a strong section on the roof repair page.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>More searches Google suggests</h2>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Search</th><th>Use?</th><th>Where</th></tr></thead>
+      <tbody>
+        <tr><td>Residential roof repair salt lake city</td><td><span class="tag t-good">Yes</span></td><td>Roof repair page (section on homes)</td></tr>
+        <tr><td>Best roof repair salt lake city</td><td><span class="tag t-warn">Show, don't claim</span></td><td>Roof repair: reviews, photos, process. Don't call them "the best".</td></tr>
+        <tr><td>Affordable roof repair salt lake city</td><td><span class="tag t-warn">If true</span></td><td>Roof repair: only with real prices or financing from the client</td></tr>
+        <tr><td>Cheap roof replacement salt lake city</td><td><span class="tag t-warn">If true</span></td><td>Cost page: ways to save, only real offers</td></tr>
+        <tr><td>Best roof replacement salt lake city</td><td><span class="tag t-warn">Show, don't claim</span></td><td>Roof replacement page</td></tr>
+        <tr><td>Roof replacement salt lake city cost</td><td><span class="tag t-good">Yes</span></td><td>Cost page</td></tr>
+        <tr><td>Mobile home roof replacement salt lake city</td><td><span class="tag t-bad">Ask client</span></td><td>Section on replacement page if they do it</td></tr>
+        <tr><td>Mobile roof replacement salt lake city</td><td><span class="tag t-bad">Ask client</span></td><td>Same as above (likely means mobile home)</td></tr>
+        <tr><td>Park City Roofing</td><td><span class="tag t-bad">Skip</span></td><td>Another company's name</td></tr>
+        <tr><td>On the Top Roofing</td><td><span class="tag t-bad">Skip</span></td><td>Another company's name</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>Cost page</h2>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Keyword</th><th class="num">Searches SLC</th><th class="num">All Utah</th><th>City version</th><th class="num">All Utah</th></tr></thead>
+      <tbody>
+        <tr><td>roof replacement cost</td><td class="num">30</td><td class="num">170</td><td>roof replacement cost salt lake city</td><td class="num">–</td></tr>
+        <tr><td>roof repair cost</td><td class="num">10</td><td class="num">30</td><td>roof repair cost salt lake city</td><td class="num">–</td></tr>
+        <tr><td>new roof cost</td><td class="num">20</td><td class="num">70</td><td>new roof cost salt lake city</td><td class="num">–</td></tr>
+        <tr><td>metal roof cost</td><td class="num">20</td><td class="num">90</td><td>metal roof cost salt lake city</td><td class="num">–</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p>One cost page covering all four. Cost searchers are close to buying. <b>Use only real prices from the client.</b> If they do copper roofing, a copper section fits here too. If the client will not share prices, explain what changes the price (roof size, material, tear-off, pitch) and invite a free estimate instead.</p>
+  </section>
+
+  <section>
+    <h2>City pages</h2>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>City</th><th>Keyword 1</th><th class="num">All Utah</th><th>Keyword 2</th><th class="num">All Utah</th></tr></thead>
+      <tbody>
+        <tr><td>South Jordan</td><td>roof repair south jordan</td><td class="num">30</td><td>roof replacement south jordan</td><td class="num">–</td></tr>
+        <tr><td>Sandy</td><td>roof repair sandy</td><td class="num">30</td><td>roof replacement sandy</td><td class="num">–</td></tr>
+        <tr><td>Draper</td><td>roof repair draper</td><td class="num">10</td><td>roof replacement draper</td><td class="num">–</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p>Build a city page only if the business really works there. Each needs real local content, not the Salt Lake City page with the name swapped. With only 8 pages now, the service pages come first.</p>
+  </section>
+
+  <section>
+    <h2>What a strong page looks like</h2>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Keyword</th><th class="num">Avg. words (top 3)</th><th class="num">Have FAQ</th><th class="num">Show prices</th></tr></thead>
+      <tbody>
+        <tr><td>roof repair salt lake city</td><td class="num">~1,654</td><td class="num">2 of 3</td><td class="num">0 of 3</td></tr>
+        <tr><td>roof replacement salt lake city</td><td class="num">~1,841</td><td class="num">3 of 3</td><td class="num">0 of 3</td></tr>
+        <tr><td>roof replacement cost salt lake city</td><td class="num">~1,728</td><td class="num">2 of 3</td><td class="num">2 of 3</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <h3>Takeaways</h3>
+    <ul>
+      <li>Aim for about <b>1,600–1,900 words</b> on main service pages, with an FAQ on each.</li>
+      <li>No top repair or replacement page shows prices. Real prices (if the client gives them) would set this site apart.</li>
+      <li>Topics competitors cover: insurance claims and storm damage, a simple step-by-step process, Wasatch Front weather, roof lifespan in Utah, how roof size and material change the cost, metal roof pros and cons, recent projects, why choose us.</li>
+    </ul>
+    <p class="note">Use competitor headings for topic ideas only. Do not copy them. One top result for roof repair is a list of competitors ("Whitaker Roofing", "The Roof Doctor", "Interstate Roofing"...), and others name their owner or run promotions. Owner bios, promotions and project photos go in only with real facts from the client.</p>
+  </section>
+
+  <section>
+    <h2>FAQ · real questions from Google</h2>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Question</th><th>Use?</th><th>Where</th></tr></thead>
+      <tbody>
+        <tr><td>How can I fix cracks in my roof?</td><td><span class="tag t-good">Yes</span></td><td>Roof repair</td></tr>
+        <tr><td>How long do roofs last in Utah?</td><td><span class="tag t-good">Yes</span></td><td>Roof replacement / copper or metal roofing</td></tr>
+        <tr><td>How to pay for roof repair?</td><td><span class="tag t-warn">If client confirms</span></td><td>Roof repair (insurance / financing, only what they offer)</td></tr>
+        <tr><td>What does "roof repair" mean?</td><td><span class="tag t-good">Yes</span></td><td>Roof repair</td></tr>
+        <tr><td>What is the average cost of replacing a roof in Utah?</td><td><span class="tag t-warn">Real prices only</span></td><td>Cost page</td></tr>
+        <tr><td>What is the 25% rule for roofing?</td><td><span class="tag t-warn">Check Utah rules</span></td><td>Roof replacement</td></tr>
+        <tr><td>Is $50,000 for a new roof good?</td><td><span class="tag t-warn">Real prices only</span></td><td>Cost page</td></tr>
+        <tr><td>What is the average cost to replace a roof on a 2000 square foot home?</td><td><span class="tag t-warn">Real prices only</span></td><td>Cost page</td></tr>
+        <tr><td>What is the typical cost of a new roof for a single-family home in Utah?</td><td><span class="tag t-warn">Real prices only</span></td><td>Cost page</td></tr>
+        <tr><td>What is the 25% roof rule in Florida?</td><td><span class="tag t-bad">Skip</span></td><td>Not relevant to Utah</td></tr>
+        <tr><td>What time of year is the cheapest to replace a roof?</td><td><span class="tag t-good">Yes</span></td><td>Roof replacement or cost page</td></tr>
+        <tr><td>Who are some reputable roofers in Salt Lake City, UT?</td><td><span class="tag t-bad">Skip as written</span></td><td>Cover the intent on the home page (reviews, why choose us)</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>Rules for the writer</h2>
+    <ul>
+      <li>Start each page with its keyword.</li>
+      <li>Use only facts the client gives you: prices, warranty, years in business, licenses.</li>
+      <li>Do not invent reviews, numbers or photos.</li>
+    </ul>
+    <p style="color:var(--muted);font-size:13px">Search numbers: Google Ads monthly searches, pulled 14 Oct 2026. Questions and page topics: live Google results in Salt Lake City, 14 Oct 2026.</p>
+  </section>
+
+  <section>
+    <h2>Questions for the client</h2>
+    <ol>
+      <li>Which of these do you do: <b>metal roofing, roof installation, roof replacement, gutter installation, roof inspection, roof leak repair, commercial roofing, flat roof repair</b>?</li>
+      <li>Do you replace <b>mobile home roofs</b>?</li>
+      <li>Can you share <b>real prices or price ranges</b> for repair, replacement, new roof, metal roof and copper roof?</li>
+      <li>Do you work in <b>South Jordan, Sandy and Draper</b>? Any recent jobs there we can mention?</li>
+      <li>Are the name, address, phone, rating (4.1 stars) and review count (36) correct? How should the phone number be shown?</li>
+      <li>Do you share the <b>1950 S 900 W Ste S2</b> office with another business? (Ask Angelo first how to word this.)</li>
+      <li>What makes you different? (copper/custom work, warranty, years in business, licenses)</li>
+      <li>Do you help with <b>insurance claims</b> or offer <b>financing</b>?</li>
+      <li>Can you send <b>project photos</b> (before/after), especially copper work?</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Next steps</h2>
+    <ul class="check">
+      <li><b>Angelo:</b> decide how to handle the shared address with Aluminum Lock Roofing Inc.</li>
+      <li>Send the client questions above (after Angelo approves). Most of the plan waits on question 1.</li>
+      <li>Home page: title, H1, first sentence with <code>roofing company salt lake city</code>.</li>
+      <li>Build the roof repair page first, then keep and improve the copper roofing page.</li>
+      <li>Add the "ask client" service pages only for services the client confirms, starting with metal roofing.</li>
+      <li>Build the cost page once real prices arrive.</li>
+      <li>City pages later, only for cities the client confirms.</li>
+      <li>Speed and alt-text fixes; re-test mobile speed (target 90+).</li>
+      <li>Flag the review count/rating to Angelo for Google profile work.</li>
+    </ul>
+  </section>
+
+  
+</div></div>
+<p style="margin:12px 0 0"><button class="btn ghost" type="button" id="rtoggle" style="cursor:pointer;font:inherit;font-weight:700">Show the whole report</button></p>
+</div></section>
+
+<section class="block" id="fixes"><div class="wrap">
+<h2 class="sec">2. What we fixed</h2><p class="lede">Each problem from the report or the site review, and what the new site does about it.</p>
+<div class="card table-wrap"><table><thead><tr><th>Problem</th><th>What we did</th><th>Status</th></tr></thead><tbody><tr><td>First draft looked templated and plain</td><td>Redesigned as a coppersmith&#x27;s sample book: a copper element tile in the hero that weathers through the five real patina stages as you scroll, the services as copper sample chips on a ring, a standing-seam sheet that ages stage by stage, an arched photo after their curved dormers, and Bodoni serif type</td><td><span class="tag ok">Fixed</span></td></tr><tr><td>Same address as Aluminum Lock Roofing on Google</td><td>No street address on the draft; footer says &quot;Lehi, Utah&quot; as the client&#x27;s site does</td><td><span class="tag wait">Needs Angelo</span></td></tr><tr><td>No page names Salt Lake City</td><td>Home page title, H1 and first sentence target &quot;roofing company Salt Lake City&quot;, worded truthfully (located in Lehi, serving Salt Lake City)</td><td><span class="tag ok">Fixed</span></td></tr><tr><td>Mobile speed 62/100</td><td>Plain HTML, one CSS file, no Elementor, WebP images under 150 KB, lazy-loaded</td><td><span class="tag ok">Fixed, re-test after go-live</span></td></tr><tr><td>Images missing alt text</td><td>Every image has descriptive alt text plus width and height</td><td><span class="tag ok">Fixed</span></td></tr><tr><td>Home page has no H1; other H1s skip the page keyword</td><td>One H1 per page, each starting with its keyword (e.g. &quot;Copper Roofing in Utah&quot;)</td><td><span class="tag ok">Fixed</span></td></tr><tr><td>Years in business contradict (75 / 15+ / 20+)</td><td>All year claims left out until the client confirms one number</td><td><span class="tag wait">Needs client</span></td></tr><tr><td>Broken link: &quot;Gutter&quot; on the services page goes to a 404</td><td>Link removed; gutters listed without a link until a gutter page exists</td><td><span class="tag ok">Fixed</span></td></tr><tr><td>Internal links that redirect (/home/contact, /lehi-custom-roofing/...)</td><td>Links point straight at the final pages</td><td><span class="tag ok">Fixed</span></td></tr><tr><td>Builder templates in the sitemap (elementor-hf)</td><td>Blocked in robots.txt and left out of the new sitemap</td><td><span class="tag ok">Fixed</span></td></tr><tr><td>No schema beyond Yoast basics</td><td>RoofingContractor, Service, FAQPage, BreadcrumbList, BlogPosting schema</td><td><span class="tag ok">Fixed</span></td></tr><tr><td>No blog</td><td>New blog and first post: &quot;Why Does Copper Turn Green?&quot; with 3 cited sources</td><td><span class="tag ok">Fixed</span></td></tr><tr><td>8 of 10 services unconfirmed (roof repair, metal...)</td><td>No new service pages invented; waiting for the client</td><td><span class="tag wait">Needs client</span></td></tr></tbody></table></div>
+</div></section>
+
+<section class="block" id="mockup"><div class="wrap">
+<h2 class="sec">3. Before &amp; after</h2><p class="lede">The home page, old site on the left and the new design on the right. Screenshots from 16 to 17 Oct 2026.</p>
+<div class="ba">
+<figure><div class="frame"><div class="bar"><i></i><i></i><i></i></div><img src="review/old-desktop.webp" alt="Old Custom Roofing LLC home page on desktop" width="1200" height="1917" decoding="async"></div><figcaption>Before: current live site</figcaption></figure>
+<figure><div class="frame"><div class="bar"><i></i><i></i><i></i></div><img src="review/new-desktop.webp" alt="New Custom Roofing LLC home page design on desktop" width="1200" height="1917" decoding="async"></div><figcaption>After: the new design</figcaption></figure>
+</div>
+<h3 style="font:700 18px/1.3 var(--display);margin:30px 0 12px">On a phone</h3>
+<div class="phones"><figure style="margin:0"><div class="phone"><img src="review/old-mobile.webp" alt="Old home page on a phone" width="390" height="1900" decoding="async"></div><figcaption style="font:600 12px var(--body);color:var(--muted);margin-top:8px;text-transform:uppercase;letter-spacing:.08em">Before</figcaption></figure>
+<figure style="margin:0"><div class="phone"><img src="review/new-mobile.webp" alt="New home page on a phone" width="390" height="1900" decoding="async"></div><figcaption style="font:600 12px var(--body);color:var(--muted);margin-top:8px;text-transform:uppercase;letter-spacing:.08em">After</figcaption></figure></div>
+<p style="margin:26px 0 0"><a class="btn big" href="home/index.html">Open the new website <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a></p>
+</div></section>
+
+<section class="block" id="pages"><div class="wrap">
+<h2 class="sec">4. Pages to look at</h2><p class="lede">Jump straight into key pages of the new site. Use the browser back button to come back here.</p>
+<div class="pages"><a class="pagelink" href="home/index.html"><span>Home</span><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a><a class="pagelink" href="copper-roofing-utah/index.html"><span>Copper roofing</span><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a><a class="pagelink" href="custom-roofing-maintenance-utah/index.html"><span>Repair &amp; maintenance</span><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a><a class="pagelink" href="lehi-custom-siding-home-value/index.html"><span>Siding</span><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a><a class="pagelink" href="home/roofing-services-lehi-quality-guaranteed/index.html"><span>Services &amp; newest work</span><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a><a class="pagelink" href="blog/why-does-copper-turn-green/index.html"><span>New blog post</span><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a><a class="pagelink" href="copper-roofing-lehi/index.html"><span>Contact / quote</span><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a></div>
+</div></section>
+
+<section class="block" id="questions"><div class="wrap">
+<h2 class="sec">5. Questions for the client</h2><p class="lede">These need answers before the site goes live. Full details are in the notes file in OUTBOX.</p>
+<div class="card"><ol class="qs"><li>How should the shared address with Aluminum Lock Roofing be handled? (Angelo first)</li><li>How many years in business: 75, 15+ or 20+?</li><li>Confirm 700+ projects, 1000+ clients, the 5-year workmanship warranty and the free consultation</li><li>Do you offer 24/7 emergency repairs?</li><li>Which services do you offer besides copper (roof repair, metal, replacement, gutters...)?</li><li>Is &quot;Sega Nintendo&quot; a real reviewer? (left off the draft)</li><li>Phone format: 801-889-4220, and keep the secondary line?</li><li>Should the Spanish /es/ pages be rebuilt too?</li></ol></div>
+</div></section>
+
+<footer class="wrap foot">Draft preview made by Novarte AI for review. Not the live site. Forms are switched off in this preview.</footer>
+<script>
+(function(){var b=document.getElementById('rtoggle'),x=document.getElementById('rbox');if(!b||!x)return;
+b.addEventListener('click',function(){var o=x.classList.toggle('open');b.textContent=o?'Show less':'Show the whole report';});})();
+</script>

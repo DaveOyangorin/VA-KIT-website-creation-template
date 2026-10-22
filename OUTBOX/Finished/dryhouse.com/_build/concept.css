@@ -1,0 +1,43 @@
+/* dryhouse.com v3 concept: editorial serif italics inside heavy condensed headlines (Layton + Big-D), water line hero (signature) */
+h1 em, h2 em, .big-intro em, blockquote em { font-family: var(--f-serif); font-style: italic; font-weight: 400; text-transform: none; letter-spacing: 0; color: var(--accent-ink) }
+.hero-full h1 { font-size: clamp(2.8rem, 7vw, 6.6rem); max-width: 14ch } .hero-full h1 em { color: var(--accent); font-size: 1.08em }
+.hero-full h1 span { color: #fff }
+.phero-full h1 em, .sec.dark-band h2 em, .dark-split h2 em, .quote-band em { color: var(--accent) }
+h2 { font-size: clamp(2.2rem, 4.6vw, 4.2rem); line-height: .98 }
+.big-intro { font-family: var(--f-body); font-weight: 500; text-transform: none; font-size: clamp(1.5rem, 2.6vw, 2.3rem); max-width: 32ch }
+.big-intro em { font-size: 1.1em }
+/* waterline: two slow waves across the foot of the hero, the "water stops here" line */
+.waterline { position: absolute; left: 0; right: 0; bottom: 0; height: 26%; z-index: -1; pointer-events: none }
+.waterline svg { position: absolute; inset: 0; width: 200%; height: 100% }
+.waterline .wv1 { fill: rgba(47,127,193,.32); animation: wave 14s linear infinite } .waterline .wv2 { fill: rgba(47,127,193,.22); animation: wave 22s linear infinite reverse }
+.waterline span { position: absolute; right: max(20px, env(safe-area-inset-right, 0px)); top: -6px; font: 600 .7rem var(--f-mono); letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.8); border-top: 1px dashed rgba(255,255,255,.6); padding-top: 6px }
+@keyframes wave { from { transform: translateX(0) } to { transform: translateX(-50%) } }
+@media (prefers-reduced-motion: reduce) { .waterline .wv1, .waterline .wv2 { animation: none } }
+.dh-hero .hf-card b { font-family: var(--f-disp); text-transform: uppercase }
+/* story */
+.story .sheet { background: var(--card) } .step h3 { text-transform: uppercase; font-family: var(--f-disp) }
+.story-visual.has-active g[data-layer]:not(.lit) { opacity: .2 } .story-visual g[data-layer] { transition: opacity .45s }
+.story-visual g[data-layer].lit .callout { fill: var(--accent); stroke-width: 2.2 }
+/* product data */
+.dark-band { background: var(--dark); color: var(--on-dark) } .dark-band h2 { color: var(--on-dark) } .dark-band .label { color: var(--accent) }
+.pd-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px } .dark-band .sheet { background: #fbfaf6; border-color: transparent } .dark-band .sheet figcaption { color: #6f6d68 }
+.pd-more { margin-top: 26px }
+.dark-band .f-sheet { fill: #fbfaf6 }
+/* bento: 6-col with four divisions */
+.dh-bento { grid-auto-rows: 240px } .dh-bento .span-1 { grid-column: span 1 }
+/* prints + split */
+.center { text-align: center }
+.dark-split { background: var(--dark); color: var(--on-dark) } .dark-split h2 { color: var(--on-dark) } .dark-split .label { color: var(--accent) }
+.dark-split .timeline span { color: var(--on-dark2) } .dark-split .team { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin: 8px 0 18px; max-width: 420px } .dark-split .team img { border-radius: 4px }
+.phero-full .ph-in.has-art { grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr) } .phero-full .ph-art .sheet { background: #fbfaf6; border: 0 } .phero-full .f-sheet { fill: #fbfaf6 }
+.phero-full .crumbs a { color: inherit }
+@media (max-width: 900px) { .pd-grid { grid-template-columns: 1fr } .dh-bento .span-1 { grid-column: span 2 } .phero-full .ph-in.has-art { grid-template-columns: 1fr } .phero-full .ph-art { display: none } }
+@media (max-width: 640px) { .dh-bento .span-1 { grid-column: span 1 } .waterline span { display: none } }
+.btn.accent { background: var(--accent); border-color: var(--accent); color: var(--on-accent) } .btn.accent:hover { color: var(--on-accent) }
+.hero-full h1 { font-size: clamp(2.6rem, 6vw, 5.6rem); max-width: 16ch }
+.step { min-height: 44vh }
+.waterline span { left: max(20px, env(safe-area-inset-left, 0px)); right: auto; top: auto; bottom: 10px; border-top: 0; border-bottom: 1px dashed rgba(255,255,255,.6); padding: 0 0 4px }
+.waterline .wv1 { fill: rgba(47,127,193,.42) } .waterline .wv2 { fill: rgba(90,165,230,.3) }
+.dh-hero .wrap { padding-bottom: 96px }
+.span-6 { grid-column: span 6 } .dh-bento .span-6 { grid-row: span 1 }
+@media (max-width: 900px) { .span-6 { grid-column: span 2 } } @media (max-width: 640px) { .span-6 { grid-column: span 1 } }

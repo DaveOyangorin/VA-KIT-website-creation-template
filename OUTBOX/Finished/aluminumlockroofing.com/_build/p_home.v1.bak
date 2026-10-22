@@ -1,0 +1,115 @@
+from build import U, S, ARROW, PHONE, img, faq_html, cta, quote_form
+
+SNAPS = [("green-aluminum-shingle-mountain-home", "Mountain home with a green aluminum shingle roof", "Classic Green, mountain home"),
+         ("copper-aluminum-shingle-a-frame", "A-frame home with a copper-colored aluminum shingle roof", "Copper Penny, A-frame"),
+         ("brick-red-aluminum-shingle-stone-cottage", "Stone cottage with a brick-red aluminum shingle roof", "Brick Red, stone cottage"),
+         ("gray-aluminum-shingle-two-story-home", "Two-story home with a gray aluminum shingle roof", "Granite Gray, two-story home"),
+         ("copper-aluminum-shingle-arched-roof", "Arched roof covered in copper-colored aluminum shingles", "Copper Penny, arched roof"),
+         ("red-aluminum-shingle-white-home", "White home with a red aluminum shingle roof", "Brick Red, white home")]
+
+
+def build(r, swatches):
+    snaps = "".join(f'<figure class="snap reveal">{img(n, a)}<figcaption>{c}</figcaption></figure>' for n, a, c in SNAPS)
+    faqs = [
+        ("How does the interlocking roofing system work?",
+         "Four-sided interlocks connect each shingle to the surrounding shingles. The shingles work together with underlayment and properly fitted flashings at edges, valleys, walls and roof penetrations. Roof slope and project details determine the installation approach."),
+        ("Can aluminum shingles be installed over my existing roof?",
+         "A roof-over may be possible on some homes. The condition of the existing roof, the number of roof layers, decking, local requirements and installation instructions determine whether removal is needed. The existing roof needs to be assessed before deciding."),
+        ("Do you sell roofing materials to contractors?",
+         "Yes. We sell aluminum roofing materials to roofers. Contact us with your project location, the products you are considering and approximate quantities to discuss components and ordering arrangements."),
+    ]
+    body = f'''
+<section class="hero">{img("aluminum-shingle-home-deep-snow", "Mountain home with an aluminum shingle roof surrounded by deep snow", priority=True)}
+<div class="wrap">
+<p class="label light">Aluminum Lock Roofing &middot; Salt Lake City, Utah</p>
+<h1>Salt Lake City roofing company for <span>aluminum shingle roofs.</span></h1>
+<p class="lede">Aluminum Lock Roofing is a roofing company in Salt Lake City that manufactures, supplies and installs interlocking aluminum shingle roofs. We give homeowners the classic look of shingles in aluminum, and we sell aluminum roofing materials to roofers.</p>
+<div class="btn-row"><a class="btn" href="@/contact-us/">Start Your Project {ARROW}</a><a class="btn ghost" href="tel:{S["tel"]}">{PHONE} {S["phone"]}</a></div>
+</div></section>
+
+<section class="statband" aria-label="What the roofing system is made of"><div class="wrap">
+<div class="stat"><b>4<sup>sides</sup></b><span>Interlocks connect each shingle to its neighbors</span></div>
+<div class="stat"><b>0<sup>rust</sup></b><span>Aluminum does not rust like steel</span></div>
+<div class="stat"><b>8<sup>colors</sup></b><span>Shingle finishes, from Matte Black to Polar White</span></div>
+<div class="stat"><b>2<sup>ways</sup></b><span>We install roofs and supply materials to roofers</span></div>
+</div></section>
+
+<section class="sec"><div class="wrap split">
+<div class="reveal"><p class="label">Roofers in Salt Lake City</p><h2>Interlocking aluminum roofing built for long-term protection</h2>
+<p>Aluminum Lock Roofing manufactures and supplies aluminum locking roof systems that combine the appearance of traditional shingles with the durability of aluminum. Our focus is a durable roofing system with lasting visual appeal.</p>
+<p>As a roofing contractor in Salt Lake City, we install aluminum shingle roofs for homeowners and help you assess the right installation approach for your property. Performance depends on the complete roof assembly, site conditions and correct installation, so we look at all three.</p>
+<a class="tlink" href="@/about-us/">About Aluminum Lock Roofing {ARROW}</a></div>
+<div class="stack reveal">{img("green-aluminum-shingle-commercial-mountains", "Building with a green aluminum shingle roof below snow-capped mountains")}{img("copper-aluminum-shingle-cabin", "Cabin with a copper-colored aluminum shingle roof", cls="b")}<span class="cap">From the Aluminum Lock gallery</span></div>
+</div></section>
+
+<section class="sec white"><div class="wrap">
+<div class="head reveal"><p class="label">Who we work with</p><h2>Homeowners and roofing professionals</h2></div>
+<div class="who">
+<a class="linkcard reveal" href="@/services/" style="padding:0;overflow:hidden">{img("gray-aluminum-shingle-home-aerial", "Home with a gray aluminum shingle roof seen from above")}<div style="padding:22px;display:grid;gap:6px"><b>Aluminum shingle roof installation</b><span>Planning a new roof? Tell us your location, your current roof and the result you want. We'll talk through preparation, any removal, materials and finishing details.</span></div></a>
+<a class="linkcard reveal" href="@/services/#materials" style="padding:0;overflow:hidden">{img("copper-aluminum-shingle-new-construction", "Copper-colored aluminum shingles going onto a new home")}<div style="padding:22px;display:grid;gap:6px"><b>Materials for roofers and builders</b><span>We supply aluminum roofing materials to roofers. Send your project location, the products you need and approximate quantities.</span></div></a>
+</div></div></section>
+
+<section class="sec dark"><div class="wrap split">
+<div class="reveal"><p class="label light">How it works</p><h2>How the Aluminum Lock roofing system works</h2>
+<p class="lede">The shingles are one part of the system. Underlayment and correctly fitted flashings at eaves, rakes, valleys, walls and penetrations work together to manage water.</p>
+<ul class="spec" style="margin-top:24px">
+<li><span>01</span><div><b>Four-sided interlocks</b><p>Interlocking edges help form a connected roofing surface.</p></div></li>
+<li><span>02</span><div><b>Concealed attachment</b><p>Fewer exposed fasteners across the shingle field.</p></div></li>
+<li><span>03</span><div><b>Room to move</b><p>Installation details accommodate expansion and contraction.</p></div></li>
+<li><span>04</span><div><b>Perimeter flashings</b><p>Flashings direct water at roof edges and transitions.</p></div></li>
+</ul></div>
+<div class="reveal">{img("copper-aluminum-shingle-roof-snow", "Copper-colored aluminum shingle roof with snow along the eaves")}</div>
+</div></section>
+
+<section class="sec brushed"><div class="wrap">
+<div class="head reveal"><p class="label">Shingle colors</p><h2>Eight finishes. The classic look of shingles.</h2><p class="lede">Choose the color that suits your home. Ask to see the finish options for your project; colors on screen are approximate.</p></div>
+<div class="reveal">{swatches}</div>
+</div></section>
+
+<section class="sec"><div class="wrap">
+<div class="head reveal"><p class="label">Gallery</p><h2>Aluminum shingle roofs, home by home</h2><p class="lede">Log homes, cottages, A-frames and two-story houses. A few roofs from the Aluminum Lock gallery.</p></div>
+<div class="snaps">{snaps}</div>
+</div></section>
+
+<section class="sec white"><div class="wrap split">
+<div class="reveal"><p class="label">Plan for your climate</p><h2>Built around Utah snow, wind and sun</h2>
+<p>Every roof faces different conditions. We can discuss the roof assembly and installation details appropriate for your location:</p>
+<ul class="checks" style="list-style:none;padding:0;display:grid;gap:10px">
+<li>&#9632; Snow loads and safe snow-shedding details</li><li>&#9632; Local wind requirements and fastening details</li><li>&#9632; Finish selection and exposure conditions</li><li>&#9632; Thermal movement and moisture management</li><li>&#9632; Roof color, ventilation and thermal performance</li></ul>
+<p>Ask which product specifications and installation requirements apply to your roof before choosing a system.</p></div>
+<div class="reveal">{img("brown-aluminum-shingle-brick-home", "Brick home with a brown aluminum shingle roof")}</div>
+</div></section>
+
+<section class="sec"><div class="wrap split rev">
+<div class="reveal"><p class="label">Before you choose</p><h2>What to ask before choosing a roofing system</h2>
+<p>A durable roof starts with the right materials and the right installation. Before you choose any roofing system, from us or anyone else, get clear answers to a few questions.</p>
+<ul class="checks" style="list-style:none;padding:0;display:grid;gap:10px">
+<li>&#9632; <strong>What does the estimate include?</strong> Preparation, any necessary removal, materials and finishing details.</li>
+<li>&#9632; <strong>Can it go over my existing roof?</strong> That depends on the roof's condition, the number of layers, the decking, local requirements and the installation instructions.</li>
+<li>&#9632; <strong>What does the written warranty cover?</strong> Review its coverage, exclusions and maintenance requirements, and which terms apply to materials and installation.</li>
+<li>&#9632; <strong>Which specifications apply to my roof?</strong> Snow, wind and slope all shape the installation approach.</li>
+</ul></div>
+<div class="reveal">{img("brown-stone-aluminum-shingle-home", "Two-story home with a brown aluminum shingle roof")}</div>
+</div></section>
+
+<section class="sec dark"><div class="wrap split" style="align-items:start">
+<div class="reveal"><p class="label light">Getting started</p><h2>Three simple steps to a new roof</h2>
+<ol class="steps" style="margin-top:24px">
+<li><h3>Send us your project details</h3><p>Your location, current roof type, and whether you need installation or materials.</p></li>
+<li><h3>Consultation</h3><p>We discuss the property, the existing roof and the result you want, and what your estimate includes.</p></li>
+<li><h3>Roof installation</h3><p>Shingles, underlayment and flashings installed as one system.</p></li>
+</ol></div>
+<div class="reveal">{quote_form()}</div>
+</div></section>
+
+<section class="sec"><div class="wrap split" style="align-items:start">
+<div class="reveal"><p class="label">FAQ</p><h2>Questions about aluminum shingles</h2><p class="lede">More answers on the <a href="@/faq/">FAQ page</a>, and the full story on roof-overs in our guide.</p>
+<a class="btn navy" href="@/blog/can-you-put-a-new-roof-over-an-old-roof/">Can you roof over an old roof? {ARROW}</a></div>
+<div class="reveal">{faq_html(faqs)}</div>
+</div></section>
+''' + cta()
+    return {"title": "Roofing Company Salt Lake City | Aluminum Lock Roofing",
+            "meta": "Aluminum Lock Roofing is a Salt Lake City roofing company installing interlocking aluminum shingle roofs and supplying materials to roofers. Call today.",
+            "body": body, "og": "aluminum-shingle-home-deep-snow",
+            "schema": [{"@type": "BreadcrumbList", "@id": U + "#breadcrumb", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": U}]}],
+            "full_biz": True}

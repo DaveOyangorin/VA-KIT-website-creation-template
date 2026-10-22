@@ -1,0 +1,1378 @@
+{
+  "name": "SEO Reporting Workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "5b53102d-55ff-4851-accb-068e1206a2be",
+              "name": "id_sheet",
+              "value": "1QpTLSpf2vV8dKml9YrS7sIQyz_tHonyiJRMiBsGV5lM",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        800,
+        2752
+      ],
+      "id": "9d303706-643d-433b-a3f1-ab103d0d511f",
+      "name": "Set Sheet ID"
+    },
+    {
+      "parameters": {
+        "content": "## 1. Trigger & Input Setup\n1.1 Enter user inputs in the Google Sheets. Fields for input: client_id, name, GA4 property_id, and GSC site_url.\n1.2 Replace the \"id_sheet\" value in the **Set Sheet ID** node.\n1.3 Set \"Status\" to **Ready** in Google Sheets, and execute the n8n workflow.\n*Note: For monthly automation, please set the workflow to \"Active\" status.*",
+        "height": 480,
+        "width": 1136,
+        "color": 3
+      },
+      "id": "e2e71d3b-f835-43b9-baca-8dcad4cbab75",
+      "name": "Sticky Note18",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        480,
+        2448
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "={{ $json.id_sheet }}",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1002397668,
+          "mode": "list",
+          "cachedResultName": "User Input",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Aog284_93tTwQLRUvnLOTD3sN55EoXlDJ5sx7TzCTeQ/edit#gid=1002397668"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "Status",
+              "lookupValue": "Ready"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a84c01ab-a961-4256-984d-df34470e74e4",
+      "name": "Retrieve User Input",
+      "type": "n8n-nodes-base.googleSheets",
+      "position": [
+        1056,
+        2752
+      ],
+      "typeVersion": 4.5
+    },
+    {
+      "parameters": {
+        "content": "## 0. Reminder\n* To use this workflow for your project, please make a copy of the provided **[Google Sheets](https://docs.google.com/spreadsheets/d/1QpTLSpf2vV8dKml9YrS7sIQyz_tHonyiJRMiBsGV5lM/edit?usp=sharing)** template.\n* Credentials required:\n  * Google Search Console\n  * Google Analytics\n  * Google Sheets",
+        "height": 176,
+        "width": 1136,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        480,
+        2944
+      ],
+      "id": "8114a2c3-2a7a-4cec-b2ac-ae04f1ed5bbc",
+      "name": "Sticky Note12"
+    },
+    {
+      "parameters": {
+        "content": "## SEO Reporting Workflow\nAutomates monthly SEO data collection and reporting across GSC and GA4 sources for all client domains.",
+        "height": 1424,
+        "width": 2432
+      },
+      "id": "69247558-6622-4475-8911-af1e239f54e5",
+      "name": "Sticky Note17",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        464,
+        2112
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        560,
+        2592
+      ],
+      "id": "578081c1-ca36-4957-9e81-48c5956dda1d",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        1776,
+        2224
+      ],
+      "id": "1079847a-bf44-4448-902a-43209a6c07e7",
+      "name": "Loop Over Clients"
+    },
+    {
+      "parameters": {
+        "jsCode": "// -------------------------------------------------------\n// Combine \"Get Last Month Field\" (client info) + GSC API data\n// -------------------------------------------------------\n\n// From \"Get Last Month Field\" node\nconst clientData = $json;\n\n// From current node input (GSC API response JSON)\nconst gscResponse = $json;\n\n// Safely extract the GSC metrics\nconst row = gscResponse?.rows?.[0] || {};\nconst clicks = Number(row.clicks || 0);\nconst impressions = Number(row.impressions || 0);\nconst ctr = impressions > 0 ? (clicks / impressions) : 0;\nconst position = Number(row.position || 0);\nconst indexed_pages = 0; // placeholder\n\n// Return combined enriched object\nreturn {\n  client_id: clientData.client_id,\n  name: clientData.name,\n  year_month: clientData.year_month,\n  clicks,\n  impressions,\n  ctr,\n  position,\n  indexed_pages\n};\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2416,
+        2256
+      ],
+      "id": "7be5ebee-5d73-41fa-817e-fcf58fdc7122",
+      "name": "Parse GSC Data"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "={{ $('Get Last Month Field').item.json.sheet_id }}",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1643205052,
+          "mode": "list",
+          "cachedResultName": "GSC Report (Monthly)",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1R9YHSEVOF9935rAnFSoIWUFKaOeVyV3_GsWsWaqmNpM/edit#gid=1643205052"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "client_id": "={{ $json.client_id }}",
+            "name": "={{ $json.name }}",
+            "GSC site_url": "={{ $('Get Last Month Field').item.json['GSC site_url'] }}",
+            "ar_domain_id": "={{ $('Get Last Month Field').item.json.ar_domain_id }}",
+            "lastMonthStart": "={{ $('Get Last Month Field').item.json.lastMonthStart }}",
+            "lastMonthEnd": "={{ $('Get Last Month Field').item.json.lastMonthEnd }}",
+            "year_month": "={{ $('Get Last Month Field').item.json.current_year_month }}",
+            "clicks": "={{ $json.clicks }}",
+            "impressions": "={{ $json.impressions }}",
+            "ctr": "={{ $json.ctr }}",
+            "position": "={{ $json.position }}",
+            "indexed_pages": "={{ $json.indexed_pages }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "client_id",
+              "displayName": "client_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "name",
+              "displayName": "name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "GSC site_url",
+              "displayName": "GSC site_url",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "ar_domain_id",
+              "displayName": "ar_domain_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "year_month",
+              "displayName": "year_month",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "lastMonthStart",
+              "displayName": "lastMonthStart",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "lastMonthEnd",
+              "displayName": "lastMonthEnd",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "clicks",
+              "displayName": "clicks",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "impressions",
+              "displayName": "impressions",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "ctr",
+              "displayName": "ctr",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "position",
+              "displayName": "position",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "indexed_pages",
+              "displayName": "indexed_pages",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        2640,
+        2208
+      ],
+      "id": "639f013d-baa9-4be1-96be-75b0c947a2fe",
+      "name": "Record GSC Data"
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "// Add lastMonthStart / lastMonthEnd (YYYY-MM-DD) and year_month (YYYY-MM)\nconst now = new Date();\nconst firstOfThisMonth = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), 1));\nconst lastMonthEndDate = new Date(firstOfThisMonth - 1);\nconst lastMonthStartDate = new Date(Date.UTC(lastMonthEndDate.getUTCFullYear(), lastMonthEndDate.getUTCMonth(), 1));\n\nfunction fmt(d){ return d.toISOString().slice(0,10); }\n\nreturn {\n  ...$json, // use current item\n  lastMonthStart: fmt(lastMonthStartDate),\n  lastMonthEnd: fmt(lastMonthEndDate),\n  current_year_month: fmt(lastMonthStartDate).slice(0,7),\n  sheet_id: $('Set Sheet ID').first().json.id_sheet\n};\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1312,
+        2752
+      ],
+      "id": "dd9af5b3-0d2d-4518-8a6e-855a29eb5a92",
+      "name": "Get Last Month Field"
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        2208,
+        2256
+      ],
+      "id": "9b1a7cd8-557f-4fcc-b1e5-6927e233abd2",
+      "name": "Merge4"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://www.googleapis.com/webmasters/v3/sites/{{ $json['GSC site_url'] }}/searchAnalytics/query",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "oAuth2Api",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"startDate\": \"{{ $('Get Last Month Field').item.json.lastMonthStart }}\",\n  \"endDate\": \"{{ $('Get Last Month Field').item.json.lastMonthEnd }}\",\n  \"searchType\": \"web\"\n}",
+        "options": {
+          "allowUnauthorizedCerts": false
+        }
+      },
+      "id": "5b689711-11d0-4711-bd6e-06c403e72a3b",
+      "name": "Fetch GSC Data",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [
+        1984,
+        2304
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        1776,
+        2576
+      ],
+      "id": "37c226cd-f224-47a1-aa2e-160f396aff3a",
+      "name": "Loop Over Clients1"
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        2208,
+        2608
+      ],
+      "id": "e345dfd0-2161-4755-84fa-d99ad88cf27e",
+      "name": "Merge5"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "={{ $('Get Last Month Field').item.json.sheet_id }}",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 181261459,
+          "mode": "list",
+          "cachedResultName": "GA4 Report (Monthly)",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1R9YHSEVOF9935rAnFSoIWUFKaOeVyV3_GsWsWaqmNpM/edit#gid=181261459"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "client_id": "={{ $('Get Last Month Field').item.json.client_id }}",
+            "name": "={{ $('Get Last Month Field').item.json.name }}",
+            "GA4 property_id": "={{ $('Get Last Month Field').item.json['GA4 property_id'] }}",
+            "ar_domain_id": "={{ $('Get Last Month Field').item.json.ar_domain_id }}",
+            "year_month": "={{ $('Get Last Month Field').item.json.current_year_month }}",
+            "lastMonthStart": "={{ $('Get Last Month Field').item.json.lastMonthStart }}",
+            "lastMonthEnd": "={{ $('Get Last Month Field').item.json.lastMonthEnd }}",
+            "sessions": "={{ $json.sessions }}",
+            "conversions": "={{ $json.conversions }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "client_id",
+              "displayName": "client_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "name",
+              "displayName": "name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "GA4 property_id",
+              "displayName": "GA4 property_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "ar_domain_id",
+              "displayName": "ar_domain_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "year_month",
+              "displayName": "year_month",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "lastMonthStart",
+              "displayName": "lastMonthStart",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "lastMonthEnd",
+              "displayName": "lastMonthEnd",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "sessions",
+              "displayName": "sessions",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "conversions",
+              "displayName": "conversions",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        2640,
+        2560
+      ],
+      "id": "d62b57b3-505b-4484-baf6-3fdb4aa00a9f",
+      "name": "Record GA4 Data"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://analyticsdata.googleapis.com/v1beta/properties/{{ $json['GA4 property_id'] }}:runReport",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "oAuth2Api",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"dateRanges\": [\n    { \"startDate\": \"{{$json.lastMonthStart}}\", \"endDate\": \"{{$json.lastMonthEnd}}\" }\n  ],\n  \"dimensions\": [\n    { \"name\": \"sessionDefaultChannelGroup\" }\n  ],\n  \"dimensionFilter\": {\n    \"filter\": {\n      \"fieldName\": \"sessionDefaultChannelGroup\",\n      \"stringFilter\": { \"matchType\": \"EXACT\", \"value\": \"Organic Search\" }\n    }\n  },\n  \"metrics\": [\n    { \"name\": \"sessions\" },\n    { \"name\": \"conversions\" }\n  ]\n}",
+        "options": {
+          "allowUnauthorizedCerts": false
+        }
+      },
+      "id": "d358d916-db99-45ad-97a4-cb3732dbee01",
+      "name": "Fetch GA4 Data",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [
+        1984,
+        2656
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Verwacht GA4 response met rows[0].metricValues\nconst client = $json;            // bevat client_id + year_month uit je eerdere Function\nconst resp = items[0].json;\nconst row = resp.rows?.[0];\n\nreturn [{\n  json: {\n    year_month: client.year_month,      // \"YYYY-MM\" uit je date Function\n    client_id: client.client_id,\n    sessions: Number(row?.metricValues?.[0]?.value || 0),\n    conversions: Number(row?.metricValues?.[1]?.value || 0)\n  }\n}];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2416,
+        2608
+      ],
+      "id": "871059ec-5524-42bf-81f0-f03aaf68976a",
+      "name": "Parse GA4 Data"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        1776,
+        3280
+      ],
+      "id": "027d3042-d025-4d2d-aaaa-903b5a7f13f2",
+      "name": "Loop Over Clients2"
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        2208,
+        3312
+      ],
+      "id": "583181bf-d4cb-4a8b-a044-c440df78cfed",
+      "name": "Merge"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://www.googleapis.com/webmasters/v3/sites/{{ $json['GSC site_url'] }}/searchAnalytics/query",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "oAuth2Api",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"startDate\": \"{{ $json.lastMonthStart }}\",\n  \"endDate\": \"{{ $json.lastMonthEnd }}\",\n  \"dimensions\": [\"page\",\"query\"],\n  \"searchType\": \"web\",\n  \"rowLimit\": 25000,\n  \"startRow\": 0,\n  \"aggregationType\": \"auto\",\n  \"dimensionFilterGroups\": []\n}",
+        "options": {
+          "allowUnauthorizedCerts": false
+        }
+      },
+      "id": "c856f5ee-af41-48b2-bc66-8ea9db667aa0",
+      "name": "Fetch GSC Queries",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [
+        1984,
+        3360
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// ---- CONFIG ---------------------------------------------------------------\nconst CFG = {\n  forceHttps: true,\n  dropHash: true,\n  stripParams: true,\n  keepParamsWhitelist: [],   // e.g. ['page']\n  collapseWww: true,\n  forceTrailingSlash: true,\n  lowercaseHost: true,\n  lowercasePath: false,\n\n  minImpressions: 0,         // e.g. 10\n  minClicks: 0,              // e.g. 1\n\n  dedupeMode: 'sum',         // 'sum' or 'max'\n  roundCTR: 6,\n  roundPosition: 4,\n};\n// --------------------------------------------------------------------------\n\nfunction normalizeUrl(u) {\n  if (!u) return '';\n  let url;\n  try { url = new URL(u); }\n  catch { try { url = new URL(u, 'https://x.invalid'); } catch { return (u||'').split('?')[0]; } }\n\n  if (CFG.forceHttps) url.protocol = 'https:';\n\n  let host = CFG.lowercaseHost ? url.host.toLowerCase() : url.host;\n  if (CFG.collapseWww && host.startsWith('www.')) host = host.slice(4);\n\n  let path = url.pathname || '/';\n  if (CFG.lowercasePath) path = path.toLowerCase();\n  path = path.replace(/\\/index\\.(html?|php)$/i, '/').replace(/\\/{2,}/g, '/');\n  if (CFG.forceTrailingSlash) {\n    if (path !== '/' && !path.endsWith('/')) path += '/';\n  } else if (path !== '/' && path.endsWith('/')) {\n    path = path.slice(0, -1);\n  }\n\n  if (CFG.stripParams) {\n    if (CFG.keepParamsWhitelist.length) {\n      const kept = [];\n      for (const [k,v] of url.searchParams.entries()) if (CFG.keepParamsWhitelist.includes(k)) kept.push(`${k}=${v}`);\n      url.search = kept.length ? `?${kept.join('&')}` : '';\n    } else {\n      url.search = '';\n    }\n  }\n  if (CFG.dropHash) url.hash = '';\n\n  return `https://${host}${path}${url.search}`;\n}\n\nfunction roundNum(x, d) {\n  if (typeof x !== 'number') x = Number(x || 0);\n  return Number.isFinite(x) ? Number(x.toFixed(d)) : 0;\n}\n\nfunction passFilters(rec) {\n  if ((rec.Impressions || 0) < CFG.minImpressions) return false;\n  if ((rec.Clicks || 0) < CFG.minClicks) return false;\n  return true;\n}\n\nfunction dedupeRows(rows, mode = 'sum') {\n  const map = new Map();\n  for (const r of rows) {\n    const k = r.Key;\n    const prev = map.get(k);\n    if (!prev) { map.set(k, r); continue; }\n\n    if (mode === 'max') {\n      map.set(k, (r.Impressions||0) > (prev.Impressions||0) ? r : prev);\n    } else {\n      prev.Clicks = (prev.Clicks||0) + (r.Clicks||0);\n      prev.Impressions = (prev.Impressions||0) + (r.Impressions||0);\n      prev.CTR = prev.Impressions ? prev.Clicks / prev.Impressions : 0;\n      const wImp = (prev._wImp||0) + (r.Impressions||0);\n      const wPos = (prev.Position||0) * (prev._wImp||0) + (r.Position||0) * (r.Impressions||0);\n      prev.Position = wImp ? (wPos / wImp) : 0;\n      prev._wImp = wImp;\n      map.set(k, prev);\n    }\n  }\n  const out = [];\n  for (const v of map.values()) {\n    delete v._wImp;\n    v.CTR = roundNum(v.CTR, CFG.roundCTR);\n    v.Position = roundNum(v.Position, CFG.roundPosition);\n    out.push(v);\n  }\n  return out;\n}\n\nfunction getPeriod() {\n  const s = $json.startDate || '';\n  const e = $json.endDate || '';\n  return (s && e) ? `${s}:${e}` : '';\n}\n\nconst period = getPeriod() || new Date().toISOString().slice(0,10);\nconst out = [];\n\nfor (const i of items) {\n  const rows = i.json.rows || [];\n  for (const r of rows) {\n    const pageRaw  = (r.keys && r.keys[0]) || '';\n    const query    = (r.keys && r.keys[1]) || '';\n    const page = normalizeUrl(pageRaw);\n\n    const rec = {\n      Period: period,\n      Page: page,\n      Query: query,\n      Clicks: r.clicks || 0,\n      Impressions: r.impressions || 0,\n      CTR: roundNum(r.ctr || 0, CFG.roundCTR),\n      Position: roundNum(r.position || 0, CFG.roundPosition),\n      Key: `${period}|${page}|${query}`\n    };\n\n    if (passFilters(rec)) out.push(rec);\n  }\n}\n\nconst deduped = dedupeRows(out, CFG.dedupeMode);\nreturn deduped.map(json => ({ json }));"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2416,
+        3312
+      ],
+      "id": "192df082-8eb4-4b76-a3ce-d9a6846c1ea0",
+      "name": "Parse GSC Queries"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "={{ $('Get Last Month Field').item.json.sheet_id }}",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1077027509,
+          "mode": "list",
+          "cachedResultName": "GSC Queries",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1R9YHSEVOF9935rAnFSoIWUFKaOeVyV3_GsWsWaqmNpM/edit#gid=1077027509"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "client_id": "={{ $('Get Last Month Field').item.json.client_id }}",
+            "name": "={{ $('Get Last Month Field').item.json.name }}",
+            "GSC site_url": "={{ $('Get Last Month Field').item.json['GSC site_url'] }}",
+            "Period": "={{ $json.Period }}",
+            "Page": "={{ $json.Page }}",
+            "Query": "={{ $json.Query }}",
+            "Clicks": "={{ $json.Clicks }}",
+            "Impressions": "={{ $json.Impressions }}",
+            "CTR": "={{ $json.CTR }}",
+            "Position": "={{ $json.Position }}",
+            "Key": "={{ $json.Key }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "client_id",
+              "displayName": "client_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "name",
+              "displayName": "name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "GSC site_url",
+              "displayName": "GSC site_url",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Period",
+              "displayName": "Period",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Page",
+              "displayName": "Page",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Query",
+              "displayName": "Query",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Clicks",
+              "displayName": "Clicks",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Impressions",
+              "displayName": "Impressions",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "CTR",
+              "displayName": "CTR",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Position",
+              "displayName": "Position",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Key",
+              "displayName": "Key",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "NormPath",
+              "displayName": "NormPath",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        2640,
+        3264
+      ],
+      "id": "0b641611-ee1f-436b-9d37-ca8506e64aca",
+      "name": "Record GSC Queries"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://www.googleapis.com/webmasters/v3/sites/{{ $json['GSC site_url'] }}/searchAnalytics/query",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "oAuth2Api",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"startDate\": \"{{ $json.lastMonthStart }}\",\n  \"endDate\": \"{{ $json.lastMonthEnd }}\",\n  \"dimensions\": [\"page\"], \n  \"searchType\": \"web\",\n  \"rowLimit\": 25000,\n  \"startRow\": 0,\n  \"aggregationType\": \"auto\",\n  \"dimensionFilterGroups\": []\n}",
+        "options": {
+          "allowUnauthorizedCerts": false
+        }
+      },
+      "id": "f70ea24b-0f14-4797-86f7-eb79391cbfd6",
+      "name": "Fetch GSC Pages",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [
+        1984,
+        3008
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// ---- CONFIG ---------------------------------------------------------------\nconst CFG = {\n  forceHttps: true,\n  dropHash: true,\n  stripParams: true,\n  keepParamsWhitelist: [],   // e.g. ['page']\n  collapseWww: true,\n  forceTrailingSlash: true,\n  lowercaseHost: true,\n  lowercasePath: false,\n\n  minImpressions: 0,         // e.g. 10\n  minClicks: 0,              // e.g. 1\n\n  dedupeMode: 'sum',         // 'sum' or 'max'\n  roundCTR: 6,\n  roundPosition: 4,\n};\n// --------------------------------------------------------------------------\n\nfunction normalizeUrl(u) {\n  if (!u) return '';\n  let url;\n  try { url = new URL(u); }\n  catch { try { url = new URL(u, 'https://x.invalid'); } catch { return (u||'').split('?')[0]; } }\n\n  if (CFG.forceHttps) url.protocol = 'https:';\n\n  let host = CFG.lowercaseHost ? url.host.toLowerCase() : url.host;\n  if (CFG.collapseWww && host.startsWith('www.')) host = host.slice(4);\n\n  let path = url.pathname || '/';\n  if (CFG.lowercasePath) path = path.toLowerCase();\n  path = path.replace(/\\/index\\.(html?|php)$/i, '/').replace(/\\/{2,}/g, '/');\n  if (CFG.forceTrailingSlash) {\n    if (path !== '/' && !path.endsWith('/')) path += '/';\n  } else if (path !== '/' && path.endsWith('/')) {\n    path = path.slice(0, -1);\n  }\n\n  if (CFG.stripParams) {\n    if (CFG.keepParamsWhitelist.length) {\n      const kept = [];\n      for (const [k,v] of url.searchParams.entries()) if (CFG.keepParamsWhitelist.includes(k)) kept.push(`${k}=${v}`);\n      url.search = kept.length ? `?${kept.join('&')}` : '';\n    } else {\n      url.search = '';\n    }\n  }\n  if (CFG.dropHash) url.hash = '';\n\n  return `https://${host}${path}${url.search}`;\n}\n\nfunction roundNum(x, d) {\n  if (typeof x !== 'number') x = Number(x || 0);\n  return Number.isFinite(x) ? Number(x.toFixed(d)) : 0;\n}\n\nfunction passFilters(rec) {\n  if ((rec.Impressions || 0) < CFG.minImpressions) return false;\n  if ((rec.Clicks || 0) < CFG.minClicks) return false;\n  return true;\n}\n\nfunction dedupeRows(rows, mode = 'sum') {\n  const map = new Map();\n  for (const r of rows) {\n    const k = r.Key;\n    const prev = map.get(k);\n    if (!prev) { map.set(k, r); continue; }\n\n    if (mode === 'max') {\n      map.set(k, (r.Impressions||0) > (prev.Impressions||0) ? r : prev);\n    } else {\n      prev.Clicks = (prev.Clicks||0) + (r.Clicks||0);\n      prev.Impressions = (prev.Impressions||0) + (r.Impressions||0);\n      prev.CTR = prev.Impressions ? prev.Clicks / prev.Impressions : 0;\n      const wImp = (prev._wImp||0) + (r.Impressions||0);\n      const wPos = (prev.Position||0) * (prev._wImp||0) + (r.Position||0) * (r.Impressions||0);\n      prev.Position = wImp ? (wPos / wImp) : 0;\n      prev._wImp = wImp;\n      map.set(k, prev);\n    }\n  }\n  const out = [];\n  for (const v of map.values()) {\n    delete v._wImp;\n    v.CTR = roundNum(v.CTR, CFG.roundCTR);\n    v.Position = roundNum(v.Position, CFG.roundPosition);\n    out.push(v);\n  }\n  return out;\n}\n\nfunction getPeriod() {\n  const s = $json.startDate || '';\n  const e = $json.endDate || '';\n  return (s && e) ? `${s}:${e}` : '';\n}\n\nconst period = getPeriod() || new Date().toISOString().slice(0,10); // fallback\nconst out = [];\n\nfor (const i of items) {\n  const rows = i.json.rows || [];\n  for (const r of rows) {\n    const pageRaw = (r.keys && r.keys[0]) || '';\n    const page = normalizeUrl(pageRaw);\n\n    const rec = {\n      Period: period,               // e.g., \"2025-08-04:2025-09-01\"\n      Page: page,\n      Clicks: r.clicks || 0,\n      Impressions: r.impressions || 0,\n      CTR: roundNum(r.ctr || 0, CFG.roundCTR),\n      Position: roundNum(r.position || 0, CFG.roundPosition),\n      Key: `${period}|${page}`\n    };\n\n    if (passFilters(rec)) out.push(rec);\n  }\n}\n\n// (Optional) dedupe if you paginate/merge multiple batches\nconst deduped = dedupeRows(out, CFG.dedupeMode);\nreturn deduped.map(json => ({ json }));"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2416,
+        2960
+      ],
+      "id": "6d752061-b07f-4ac1-bf3a-c8be5e3218e1",
+      "name": "Parse GSC Pages"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        1776,
+        2928
+      ],
+      "id": "40c7ed0f-1acf-485d-8ef4-953571750319",
+      "name": "Loop Over Clients3"
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineByPosition",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        2208,
+        2960
+      ],
+      "id": "7053f67e-8ba5-46b8-9fa3-3b0d36b886ad",
+      "name": "Merge6"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "={{ $('Get Last Month Field').item.json.sheet_id }}",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1169426052,
+          "mode": "list",
+          "cachedResultName": "GSC Pages",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1R9YHSEVOF9935rAnFSoIWUFKaOeVyV3_GsWsWaqmNpM/edit#gid=1169426052"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "client_id": "={{ $('Get Last Month Field').item.json.client_id }}",
+            "name": "={{ $('Get Last Month Field').item.json.name }}",
+            "GSC site_url": "={{ $('Get Last Month Field').item.json['GSC site_url'] }}",
+            "Period": "={{ $json.Period }}",
+            "Page": "={{ $json.Page }}",
+            "Clicks": "={{ $json.Clicks }}",
+            "CTR": "={{ $json.CTR }}",
+            "Impressions": "={{ $json.Impressions }}",
+            "Position": "={{ $json.Position }}",
+            "Key": "={{ $json.Key }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "client_id",
+              "displayName": "client_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "name",
+              "displayName": "name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "GSC site_url",
+              "displayName": "GSC site_url",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Period",
+              "displayName": "Period",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Page",
+              "displayName": "Page",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Clicks",
+              "displayName": "Clicks",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Impressions",
+              "displayName": "Impressions",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "CTR",
+              "displayName": "CTR",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Position",
+              "displayName": "Position",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Key",
+              "displayName": "Key",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "NormPath",
+              "displayName": "NormPath",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        2640,
+        2912
+      ],
+      "id": "8eaf3293-faa8-4f8d-a819-c725ca71d887",
+      "name": "Record GSC Pages"
+    },
+    {
+      "parameters": {
+        "content": "## 2.1 Google Search Console Performance Metrics\nCollects and records each client’s monthly GSC data, including clicks, impressions, CTR, and position, for trend tracking across domains.",
+        "height": 336,
+        "width": 1248,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1632,
+        2128
+      ],
+      "id": "a9338dee-e191-4b2c-a361-27cfa4123d0d",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "content": "## 2.2 Google Analytics 4 Traffic Metrics\nRetrieves GA4 property data for all configured clients, summarizing sessions and conversions into monthly analytics reports.",
+        "height": 336,
+        "width": 1248,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1632,
+        2480
+      ],
+      "id": "aa2fc262-5110-49f6-aa90-af2a9edba916",
+      "name": "Sticky Note1"
+    },
+    {
+      "parameters": {
+        "content": "## 2.3 Google Search Console Pages\nExtracts page-level GSC insights such as impressions and clicks per URL to identify top-performing and under-performing pages.",
+        "height": 336,
+        "width": 1248,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1632,
+        2832
+      ],
+      "id": "57dbc7a2-7261-4247-a272-e8272e29e63c",
+      "name": "Sticky Note2"
+    },
+    {
+      "parameters": {
+        "content": "## 2.4 Search Query Performance\nAnalyzes query-level clicks, impressions, and positions to uncover content opportunities and ranking strengths.",
+        "height": 336,
+        "width": 1248,
+        "color": 5
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1632,
+        3184
+      ],
+      "id": "a3ab072b-b1f3-4e3c-836b-b9870d6fbda3",
+      "name": "Sticky Note3"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "months",
+              "triggerAtDayOfMonth": 2
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        560,
+        2752
+      ],
+      "id": "624cd0d3-f4a4-45af-934f-f9ce6e076cc5",
+      "name": "Schedule Monthly Trigger"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Set Sheet ID": {
+      "main": [
+        [
+          {
+            "node": "Retrieve User Input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Set Sheet ID",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Retrieve User Input": {
+      "main": [
+        [
+          {
+            "node": "Get Last Month Field",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Clients": {
+      "main": [
+        [
+          {
+            "node": "Record GSC Data",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Fetch GSC Data",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Merge4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse GSC Data": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Clients",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Last Month Field": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Clients3",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Loop Over Clients2",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Loop Over Clients1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Loop Over Clients",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge4": {
+      "main": [
+        [
+          {
+            "node": "Parse GSC Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fetch GSC Data": {
+      "main": [
+        [
+          {
+            "node": "Merge4",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Loop Over Clients1": {
+      "main": [
+        [
+          {
+            "node": "Record GA4 Data",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Merge5",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Fetch GA4 Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge5": {
+      "main": [
+        [
+          {
+            "node": "Parse GA4 Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fetch GA4 Data": {
+      "main": [
+        [
+          {
+            "node": "Merge5",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Parse GA4 Data": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Clients1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Clients2": {
+      "main": [
+        [
+          {
+            "node": "Record GSC Queries",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Fetch GSC Queries",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Parse GSC Queries",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fetch GSC Queries": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Parse GSC Queries": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Clients2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Clients3": {
+      "main": [
+        [
+          {
+            "node": "Record GSC Pages",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Merge6",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Fetch GSC Pages",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge6": {
+      "main": [
+        [
+          {
+            "node": "Parse GSC Pages",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse GSC Pages": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Clients3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fetch GSC Pages": {
+      "main": [
+        [
+          {
+            "node": "Merge6",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Record GA4 Data": {
+      "main": [
+        []
+      ]
+    },
+    "Record GSC Data": {
+      "main": [
+        []
+      ]
+    },
+    "Record GSC Pages": {
+      "main": [
+        []
+      ]
+    },
+    "Record GSC Queries": {
+      "main": [
+        []
+      ]
+    },
+    "Schedule Monthly Trigger": {
+      "main": [
+        [
+          {
+            "node": "Set Sheet ID",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "eb30efca-9bc5-48bc-a46e-eb1fba63753f",
+  "meta": {
+    "instanceId": "025ee8620cd28d62d8ca3d228a8c082fd302b060b5c59c13823fea8a4877da55"
+  },
+  "id": "GCaKjXvTysTqn392",
+  "tags": []
+}

@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>stanley-sons-plumbing Website Plan</title>
+<style>
+  :root {
+    --bg: #f7f6f3; --card: #ffffff; --text: #1d1d1b; --muted: #6b6a66; --line: #e3e1dc;
+    --accent: #1f5f8b; --good: #2e7d4f; --warn: #a86400; --bad: #b3261e; --chip: #eef3f7;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #161716; --card: #1f201f; --text: #ecebe7; --muted: #a3a29d; --line: #333431;
+      --accent: #7fb6dd; --good: #6cc193; --warn: #e0a54a; --bad: #ef7b72; --chip: #24303a;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #161716; --card: #1f201f; --text: #ecebe7; --muted: #a3a29d; --line: #333431;
+    --accent: #7fb6dd; --good: #6cc193; --warn: #e0a54a; --bad: #ef7b72; --chip: #24303a;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text);
+    font: 15px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  main { max-width: 960px; margin: 0 auto; padding: 32px 16px 64px; }
+  h1 { font-size: 26px; margin: 0 0 4px; }
+  h2 { font-size: 18px; margin: 0 0 12px; }
+  h3 { font-size: 15px; margin: 16px 0 6px; }
+  .sub { color: var(--muted); margin: 0 0 24px; }
+  section { background: var(--card); border: 1px solid var(--line); border-radius: 10px;
+    padding: 20px; margin-bottom: 16px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; }
+  .stat { border: 1px solid var(--line); border-radius: 8px; padding: 12px; }
+  .stat b { display: block; font-size: 22px; }
+  .stat span { color: var(--muted); font-size: 13px; }
+  .table-wrap { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { color: var(--muted); font-weight: 600; font-size: 13px; }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+  .tag { display: inline-block; padding: 1px 8px; border-radius: 99px; font-size: 12px; white-space: nowrap; }
+  .t-good { background: color-mix(in srgb, var(--good) 15%, transparent); color: var(--good); }
+  .t-warn { background: color-mix(in srgb, var(--warn) 15%, transparent); color: var(--warn); }
+  .t-bad  { background: color-mix(in srgb, var(--bad) 15%, transparent); color: var(--bad); }
+  dl { display: grid; grid-template-columns: max-content 1fr; gap: 6px 16px; margin: 0; }
+  dt { color: var(--muted); }
+  dd { margin: 0; }
+  code { background: var(--chip); padding: 1px 6px; border-radius: 4px; font-size: 13px; }
+  ul, ol { padding-left: 20px; margin: 6px 0; }
+  li { margin: 3px 0; }
+  .note { border-left: 3px solid var(--warn); padding: 8px 12px; background: color-mix(in srgb, var(--warn) 8%, transparent); border-radius: 0 6px 6px 0; margin: 10px 0; }
+  .alert { border-left: 3px solid var(--bad); padding: 8px 12px; background: color-mix(in srgb, var(--bad) 8%, transparent); border-radius: 0 6px 6px 0; margin: 10px 0; }
+  .check li { list-style: none; margin-left: -20px; }
+  .check li::before { content: "☐ "; color: var(--muted); }
+  footer { color: var(--muted); font-size: 13px; text-align: center; margin-top: 24px; }
+  @media (max-width: 560px) { dl { grid-template-columns: 1fr; } dt { margin-top: 6px; } }
+  .small { color: var(--muted); font-size: 13px; }
+</style>
+
+</head>
+<body>
+<main>
+  <h1>Stanley &amp; Sons Plumbing · Website plan report</h1>
+  <p class="sub">Stanley &amp; Sons Plumbing · Salt Lake City · No website on Google · Prepared 21 Oct 2026. Listing facts from 15 Oct 2026; audit and search numbers from 21 Oct 2026. Draft for Angelo's review.</p>
+  <section>
+    <h2>Summary</h2>
+    <ul>
+      <li><b>Home page target:</b> <code>plumber salt lake city</code>. Searches across Utah: 1,600 for “plumber salt lake city”, 8,100 for “plumber near me”.</li>
+      <li><b>No website on Google.</b> People who find the listing have nowhere to click. This is a new build from scratch.</li>
+      <li><b>Reviews:</b> 4.8 stars from 265.</li>
+      <li><b>Biggest service demand:</b> drain cleaning (1,900 "near me" searches across Utah).</li>
+      <li><b>10 of 10 services have no page</b> (ask the client which they really do).</li>
+    </ul>
+  </section>
+  <section>
+    <h2>Reviewer notes</h2>
+    <p><span class="tag t-warn">Priority B</span></p>
+    <p><b>Good plumber (265 reviews, 4.8), no website.</b></p>
+    <ul>
+      <li>Address has "#7100". Confirm it is a real office, not a mailbox; Google does not allow mailbox addresses.</li>
+      <li>Competes with Stott and Gross Family for "plumber salt lake city" (also on this list).</li>
+    </ul>
+  </section>
+  <section>
+    <h2>Business facts</h2>
+    <dl>
+      <dt>Name</dt><dd>Stanley &amp; Sons Plumbing</dd>
+      <dt>Website</dt><dd>none on Google</dd>
+      <dt>Phone</dt><dd>+1385-333-7488</dd>
+      <dt>Address</dt><dd>2346 E Fort Union Blvd #7100, Salt Lake City, UT 84121</dd>
+      <dt>Google category</dt><dd>Plumber</dd>
+      <dt>Reviews</dt><dd>4.8 stars · 265 reviews</dd>
+    </dl>
+    <p class="alert"><b>Not a client yet. Do not contact this business.</b> This report is for planning only. Nothing goes to them unless Angelo says so.</p>
+    <p class="note">From the Google listing (pulled 15 Oct 2026). Confirm with the client before it goes on a site. Name, address and phone are copied exactly as given; do not reformat them.</p>
+  </section>
+  <section>
+    <h2>Why they need a site</h2>
+    <h3>What the audit found</h3>
+    <ul>
+      <li>The Google listing has no website. Searchers who find the listing have no site to click.</li>
+    </ul>
+    <h3>What to do</h3>
+    <ul>
+      <li>Build a new site: home page, one page per confirmed service, a cost page and city pages only where they work.</li>
+      <li>From day one: one H1 per page, a unique meta description, a tap-to-call phone link, business schema, alt text on every image, and the city named in titles and H1s.</li>
+      <li>Aim for 90+ mobile speed and 800+ words on the home page.</li>
+      <li>Once the site is live, add it to the Google listing (Angelo / the client).</li>
+    </ul>
+  </section>
+  <section>
+    <h2>Home page</h2>
+    <dl>
+      <dt>Main keyword</dt><dd><code>plumber salt lake city</code></dd>
+      <dt>Also use</dt><dd><code>plumbing company salt lake city</code>, <code>plumbing services salt lake city</code></dd>
+      <dt>Searches</dt><dd>1,600 for “plumber salt lake city”, 8,100 for “plumber near me” (across Utah)</dd>
+      <dt>Placement</dt><dd>Start with the keyword: title tag, H1 and first sentence.</dd>
+    </dl>
+  </section>
+  <section>
+    <h2>Service pages · build in this order</h2>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>Service</th><th>Target keyword</th><th class="num">With the city</th><th class="num">"Near me"</th><th class="num">+ "utah"</th><th>Now</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Drain cleaning</td><td><code>drain cleaning salt lake city</code></td><td class="num">90</td><td class="num">1,900</td><td class="num">40</td><td><span class="tag t-bad">Ask client</span></td></tr>
+        <tr><td>2</td><td>Emergency plumber</td><td><code>emergency plumber salt lake city</code></td><td class="num">90</td><td class="num">1,600</td><td class="num">10</td><td><span class="tag t-bad">Ask client</span></td></tr>
+        <tr><td>3</td><td>Water heater repair</td><td><code>water heater repair salt lake city</code></td><td class="num">70</td><td class="num">1,300</td><td class="num">10</td><td><span class="tag t-bad">Ask client</span></td></tr>
+        <tr><td>4</td><td>Excavation</td><td><code>excavation salt lake city</code></td><td class="num">140</td><td class="num">140</td><td class="num">20</td><td><span class="tag t-bad">Ask client</span></td></tr>
+        <tr><td>5</td><td>Sewer line repair</td><td><code>sewer line repair salt lake city</code></td><td class="num">30</td><td class="num">880</td><td class="num">10</td><td><span class="tag t-bad">Ask client</span></td></tr>
+        <tr><td>6</td><td>Water heater installation</td><td><code>water heater installation salt lake city</code></td><td class="num">10</td><td class="num">590</td><td class="num">10</td><td><span class="tag t-bad">Ask client</span></td></tr>
+        <tr><td>7</td><td>Hydro jetting</td><td><code>hydro jetting salt lake city</code></td><td class="num">10</td><td class="num">210</td><td class="num">10</td><td><span class="tag t-bad">Ask client</span></td></tr>
+        <tr><td>8</td><td>Repipe</td><td><code>repipe salt lake city</code></td><td class="num">10</td><td class="num">210</td><td class="num">10</td><td><span class="tag t-bad">Ask client</span></td></tr>
+        <tr><td>9</td><td>Leak detection</td><td><code>leak detection salt lake city</code></td><td class="num">10</td><td class="num">170</td><td class="num">110</td><td><span class="tag t-bad">Ask client</span></td></tr>
+        <tr><td>10</td><td>Sewer camera inspection</td><td><code>sewer camera inspection salt lake city</code></td><td class="num">10</td><td class="num">90</td><td class="num">–</td><td><span class="tag t-bad">Ask client</span></td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="small">Monthly searches across Utah. "–" = fewer than 10 a month. One page per service. Only build a page if the business really does that service.</p>
+  </section>
+  <section>
+    <h2>Cost page</h2>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Keyword</th><th class="num">All Utah</th><th class="num">+ "utah"</th><th>With city</th><th class="num">All Utah</th></tr></thead>
+      <tbody>
+        <tr><td>water heater replacement cost</td><td class="num">390</td><td class="num">30</td><td>water heater replacement cost salt lake city</td><td class="num">–</td></tr>
+        <tr><td>sewer line replacement cost</td><td class="num">50</td><td class="num">–</td><td>sewer line replacement cost salt lake city</td><td class="num">–</td></tr>
+        <tr><td>plumber cost</td><td class="num">30</td><td class="num">–</td><td>plumber cost salt lake city</td><td class="num">–</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p>One cost page covering these. Cost searchers are close to buying. <b>Use only real prices from the client.</b></p>
+  </section>
+  <section>
+    <h2>City pages</h2>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>City</th><th>Keyword 1</th><th class="num">All Utah</th><th>Keyword 2</th><th class="num">All Utah</th></tr></thead>
+      <tbody>
+        <tr><td>Sandy</td><td>plumber sandy</td><td class="num">210</td><td>drain cleaning sandy</td><td class="num">10</td></tr>
+        <tr><td>Lehi</td><td>plumber lehi</td><td class="num">210</td><td>drain cleaning lehi</td><td class="num">10</td></tr>
+        <tr><td>West Jordan</td><td>plumber west jordan</td><td class="num">170</td><td>drain cleaning west jordan</td><td class="num">10</td></tr>
+        <tr><td>Midvale</td><td>plumber midvale</td><td class="num">170</td><td>drain cleaning midvale</td><td class="num">10</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p>Build a city page only if the business really works there, with real local content.</p>
+  </section>
+  <section>
+    <h2>What a strong page looks like</h2>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Keyword</th><th class="num">Avg. words (top pages)</th><th class="num">Have FAQ</th><th class="num">Show prices</th></tr></thead>
+      <tbody>
+        <tr><td>plumber salt lake city</td><td class="num">~1,275</td><td class="num">1 of 3</td><td class="num">0 of 3</td></tr>
+        <tr><td>drain cleaning salt lake city</td><td class="num">~2,933</td><td class="num">3 of 3</td><td class="num">2 of 3</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <h3>Headings on the top pages (topic ideas only)</h3>
+    <ul>
+      <li>Salt Lake City, UT</li>
+      <li>How Do You Find the Best Plumber in Salt Lake City?</li>
+      <li>What Should Salt Lake City Residents Verify Before Hiring a Plumber?</li>
+      <li>What Sets the Best Plumbers in Salt Lake City Apart?</li>
+      <li>What Plumbing Services Do Salt Lake City Homes Need Most?</li>
+      <li>Why Roto-Rooter Is a Top Choice for Plumbing in Salt Lake City</li>
+      <li>Frequently Asked Questions</li>
+      <li>Salt Lake City Utah Plumber</li>
+      <li>Why Local Expertise Matters</li>
+      <li>What Is Hydro Jetting?</li>
+      <li>Two Sizes of Jetter for Two Kinds of Drains</li>
+      <li>Hydro Jetting vs. Snaking: Which One Does Your Drain Need?</li>
+      <li>Ready to Stop Dealing with the Same Drain Problems?</li>
+      <li>Family-Owned Since 2002, Not a Franchise</li>
+      <li>What Our Customers Say</li>
+      <li>Areas We Serve</li>
+      <li>24/7 Same Day Service</li>
+    </ul>
+    <p class="note">Use competitor headings for topic ideas only. Do not copy them. Some name other companies, people or prices.</p>
+  </section>
+  <section>
+    <h2>More searches Google suggests</h2>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Search</th><th>Use?</th><th>Where</th></tr></thead>
+      <tbody>
+        <tr><td>Standard Plumbing supply salt Lake City</td><td><span class="tag t-bad">Skip</span></td><td>Looks like a company&#x27;s name</td></tr>
+        <tr><td>Ferguson plumbing salt Lake City</td><td><span class="tag t-bad">Skip</span></td><td>Looks like a company&#x27;s name</td></tr>
+        <tr><td>Standard Plumbing park city</td><td><span class="tag t-bad">Skip</span></td><td>Looks like a company&#x27;s name</td></tr>
+        <tr><td>Standard plumbing supply - locations</td><td><span class="tag t-good">Yes</span></td><td>Matching service page, as a section</td></tr>
+        <tr><td>Plumbing supply near me</td><td><span class="tag t-good">Yes</span></td><td>Matching service page, as a section</td></tr>
+        <tr><td>Peterson Plumbing Supply</td><td><span class="tag t-bad">Skip</span></td><td>Looks like a company&#x27;s name</td></tr>
+        <tr><td>Standard plumbing catalog</td><td><span class="tag t-good">Yes</span></td><td>Matching service page, as a section</td></tr>
+        <tr><td>Standard plumbing supply near me</td><td><span class="tag t-good">Yes</span></td><td>Matching service page, as a section</td></tr>
+        <tr><td>Shower drain cleaning salt lake city</td><td><span class="tag t-good">Yes</span></td><td>Matching service page, as a section</td></tr>
+        <tr><td>Best drain cleaning salt lake city</td><td><span class="tag t-warn">Show, don&#x27;t claim</span></td><td>Real reviews, photos and process. Never claim &quot;the best&quot;.</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </section>
+  <section>
+    <h2>FAQ · real questions from Google</h2>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Question</th><th>Use?</th><th>Where</th></tr></thead>
+      <tbody>
+        <tr><td>What is the largest plumbing company in the United States?</td><td><span class="tag t-good">Yes</span></td><td>Matching service page</td></tr>
+        <tr><td>Do plumbers make good money in Utah?</td><td><span class="tag t-good">Yes</span></td><td>Matching service page</td></tr>
+        <tr><td>What are the two main plumbing codes?</td><td><span class="tag t-good">Yes</span></td><td>Matching service page</td></tr>
+        <tr><td>What is the average call out charge for a plumber?</td><td><span class="tag t-good">Yes</span></td><td>Matching service page</td></tr>
+        <tr><td>Is pouring salt down the drain a good way to unclog it?</td><td><span class="tag t-good">Yes</span></td><td>Matching service page</td></tr>
+        <tr><td>How much does a main line drain cleaning cost?</td><td><span class="tag t-warn">Real prices only</span></td><td>Cost page</td></tr>
+        <tr><td>Does Dawn really unclog drains?</td><td><span class="tag t-good">Yes</span></td><td>Matching service page</td></tr>
+        <tr><td>What is the best way to unclog a kitchen drain?</td><td><span class="tag t-good">Yes</span></td><td>Matching service page</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </section>
+  <section>
+    <h2>Rules for the writer</h2>
+    <ul>
+      <li>Start each page with its keyword.</li>
+      <li>Use only facts the client gives you: prices, warranty, years in business, licenses.</li>
+      <li>Do not invent reviews, numbers or photos.</li>
+      <li><b>This business is not a client yet: do not contact it.</b></li>
+    </ul>
+    <p class="small">Search numbers: Google Ads monthly searches across Utah, pulled 21 Oct 2026. "–" means fewer than 10 a month. Questions and page topics: live Google results in Salt Lake City, 21 Oct 2026.</p>
+  </section>
+  <section>
+    <h2>If they become a client: questions to ask</h2>
+    <p class="small">Only after Angelo signs them up. Do not contact them now.</p>
+    <ol>
+      <li>Which of these services do you really offer: <b>drain cleaning, emergency plumber, water heater repair, excavation, sewer line repair, water heater installation, hydro jetting, repipe, leak detection, sewer camera inspection</b>?</li>
+      <li>Are the name, phone and address on Google correct and how should they appear on the site?</li>
+      <li>Can you share real prices or price ranges?</li>
+      <li>Which cities do you work in?</li>
+      <li>Warranty, years in business, licenses? Any project photos?</li>
+    </ol>
+  </section>
+  <footer>Novarte AI · Draft for internal review · Not a client: do not contact · Data from 21 Oct 2026</footer>
+</main>
+</body>
+</html>

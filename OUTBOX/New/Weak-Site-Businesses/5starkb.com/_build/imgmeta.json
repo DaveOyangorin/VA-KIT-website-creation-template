@@ -1,0 +1,137 @@
+{
+"kb-hero": [
+1024,
+684,
+27
+],
+"kb-navy-kitchen": [
+940,
+625,
+77
+],
+"kb-island-bar": [
+666,
+500,
+49
+],
+"kb-white-kitchen": [
+666,
+500,
+35
+],
+"kb-gray-kitchen": [
+666,
+500,
+23
+],
+"kb-dark-kitchen": [
+1067,
+800,
+60
+],
+"kb-wood-kitchen": [
+1067,
+800,
+62
+],
+"kb-corner-tub": [
+960,
+720,
+74
+],
+"kb-glass-shower": [
+720,
+960,
+66
+],
+"kb-subway-shower": [
+960,
+720,
+44
+],
+"kb-blue-bath": [
+1200,
+799,
+75
+],
+"kb-tan-bath": [
+1200,
+800,
+40
+],
+"kb-vessel-sinks": [
+800,
+1067,
+59
+],
+"kb-waterfall": [
+800,
+600,
+21
+],
+"kb-marble-sink": [
+800,
+599,
+37
+],
+"kb-granite-island": [
+800,
+778,
+96
+],
+"kb-built-in": [
+374,
+500,
+24
+],
+"kb-wine-rack": [
+800,
+523,
+36
+],
+"kb-k1-before": [
+368,
+552,
+19
+],
+"kb-k1-after": [
+368,
+552,
+18
+],
+"kb-k2-before": [
+646,
+699,
+37
+],
+"kb-k2-after": [
+646,
+699,
+47
+],
+"kb-k3-before": [
+817,
+570,
+38
+],
+"kb-k3-after": [
+817,
+570,
+60
+],
+"kb-k4-before": [
+1400,
+2098,
+118
+],
+"kb-k4-after": [
+1400,
+1931,
+150
+],
+"kb-logo": [
+600,
+449,
+30
+]
+}

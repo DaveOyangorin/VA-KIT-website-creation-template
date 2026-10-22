@@ -1,0 +1,97 @@
+{
+"ras-logo": [
+500,
+354,
+71
+],
+"ras-rock-steps": [
+1800,
+1200,
+499
+],
+"ras-yard-trees": [
+1600,
+1200,
+407
+],
+"ras-flower-bed": [
+1600,
+900,
+200
+],
+"ras-bench-lawn": [
+1400,
+788,
+145
+],
+"ras-patio": [
+1400,
+788,
+101
+],
+"ras-sprinkler-spray": [
+1400,
+788,
+127
+],
+"ras-sod-roll": [
+1400,
+788,
+149
+],
+"ras-excavator": [
+640,
+360,
+62
+],
+"ras-excavator-rocks": [
+1400,
+788,
+137
+],
+"ras-fence": [
+787,
+542,
+35
+],
+"ras-pavers": [
+1200,
+675,
+129
+],
+"ras-stone": [
+1200,
+675,
+150
+],
+"ras-brush-cutting": [
+1400,
+788,
+125
+],
+"ras-zinnia": [
+1200,
+675,
+51
+],
+"ras-garden-path": [
+1000,
+1500,
+347
+],
+"ras-fire-pit": [
+640,
+363,
+59
+],
+"ras-crew-sod": [
+640,
+853,
+133
+],
+"ras-crew-sprinkler": [
+640,
+853,
+131
+]
+}

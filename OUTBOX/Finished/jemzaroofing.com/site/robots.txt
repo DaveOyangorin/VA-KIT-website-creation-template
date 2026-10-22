@@ -1,0 +1,22 @@
+# robots.txt for https://jemzaroofing.com
+# Every page is open to search engines and AI search tools.
+# The form scripts (process.php, insert.php) have no content worth crawling.
+
+User-agent: *
+Allow: /
+Disallow: /process.php
+Disallow: /insert.php
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+Sitemap: https://jemzaroofing.com/sitemap.xml

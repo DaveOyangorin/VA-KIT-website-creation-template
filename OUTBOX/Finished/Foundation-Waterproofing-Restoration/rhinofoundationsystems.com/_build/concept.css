@@ -1,0 +1,164 @@
+/* concept: "Down to solid ground" (Rivian scale, STIHL single colour, Carhartt grit). Wide heavy Archivo, a depth ruler motif,
+   soil strata as colour, square corners, a dark subsoil header. */
+h1, h2, .sc-t, .r-head h2 { font-stretch: 125%; letter-spacing: -.02em; line-height: .95 }
+h1 em, h2 em { font-style: normal; color: var(--accent-ink) }
+h2 span { color: var(--accent-ink) }
+.label { color: var(--accent-ink) }
+.btn { font-family: var(--f-body); letter-spacing: .02em; text-transform: uppercase; font-size: .86rem; padding: 1.15em 1.5em }
+.btn.accent:hover { background: var(--dark); border-color: var(--dark); color: #fff }
+
+/* header: subsoil navy with the white rhino */
+.site-header { background: var(--dark); color: var(--on-dark); border-bottom: 1px solid rgba(255,255,255,.08) }
+.site-header .nav a, .site-header .nav summary { color: var(--on-dark); font-family: var(--f-body); font-weight: 600; text-transform: uppercase; font-size: .8rem; letter-spacing: .08em }
+.site-header .nav a:hover, .site-header .nav summary:hover { color: var(--accent-2) } .nav details[open] summary { background: rgba(255,255,255,.08) } .nav summary::after { color: var(--accent-2) }
+.drop { background: var(--dark2); border-color: rgba(255,255,255,.1) } .drop a { color: var(--on-dark) } .drop a:hover { background: var(--accent); color: #fff }
+.head-phone { color: var(--on-dark) } .head-phone svg { color: var(--accent-2) } .head-cta .btn { background: var(--accent); border-color: var(--accent); color: #fff }
+.menu summary { border-color: rgba(255,255,255,.3) } .menu summary span, .menu summary span::before, .menu summary span::after { background: #fff }
+.menu-panel { background: var(--dark); border-top-color: rgba(255,255,255,.1) } .menu-panel a { color: var(--on-dark); border-bottom-color: rgba(255,255,255,.1); font-stretch: 112% }
+.menu-panel .btn { background: var(--accent); border-color: var(--accent); color: #fff } .menu-panel .btn.ghost { background: transparent; border-color: rgba(255,255,255,.5) }
+.brand img { height: 38px }
+
+/* shared heads */
+.r-num { font: 500 .76rem/1 var(--f-mono); letter-spacing: .16em; text-transform: uppercase; color: var(--mute); margin: 0 0 22px; display: flex; align-items: center; gap: 12px }
+.r-num::before { content: ""; width: 34px; height: 2px; background: var(--accent) }
+.r-head { max-width: 860px; margin-bottom: clamp(40px, 5vw, 64px) } .r-head h2 { font-size: clamp(2.3rem, 5vw, 4.6rem) }
+.r-head.light h2 { color: #fff } .r-head.light .lede { color: var(--on-dark2) } .r-head.light .r-num { color: var(--on-dark2) } .r-head.light h2 span { color: var(--accent-2) }
+.split-head { max-width: none; display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 48px; align-items: end } .split-head h2 { margin: 0 } .split-head .lede { margin: 0 0 8px }
+
+/* hero */
+.r-hero { background: var(--dark); color: #fff; padding-top: clamp(40px, 6vw, 80px); overflow: hidden }
+.r-hero-in { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: clamp(30px, 5vw, 70px); align-items: stretch }
+.r-hero-text { padding-bottom: clamp(40px, 6vw, 90px); min-width: 0 }
+.r-kick { display: flex; align-items: center; gap: 12px; font: 500 .78rem/1.4 var(--f-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--on-dark2); margin-bottom: 26px }
+.r-kick span { width: 12px; height: 12px; background: var(--accent) }
+.r-hero h1 { color: #fff; font-size: clamp(2.8rem, 6.4vw, 6.4rem); font-weight: 900; line-height: .9; margin-bottom: 28px }
+.r-hero h1 em { color: var(--accent-2); display: block }
+.r-hero .lede { color: #c9d0d6 }
+.r-hero .btn.ghost { color: #fff; border-color: rgba(255,255,255,.55) } .r-hero .btn.ghost:hover { background: #fff; color: var(--dark) }
+.r-hero-ph { position: relative; margin: 0 calc(-1 * max(20px, (100vw - 1220px) / 2 + 20px)) 0 0; min-width: 0 }
+.r-hero-ph img { width: 100%; height: 100%; min-height: 420px; object-fit: cover; object-position: 30% 60% }
+.r-hero-text { align-self: end }
+.r-hero-ph figcaption { position: absolute; left: 44px; bottom: 16px; font: 500 .7rem var(--f-mono); letter-spacing: .14em; text-transform: uppercase; color: #fff; background: rgba(13,22,32,.75); padding: 7px 10px }
+.ruler { position: absolute; left: 0; top: 0; bottom: 0; width: 30px; z-index: 2; background: var(--dark) repeating-linear-gradient(180deg, rgba(255,255,255,.55) 0 1px, transparent 1px 12px) right / 10px 100% no-repeat; border-right: 1px solid rgba(255,255,255,.25) }
+.ruler::after { content: ""; position: absolute; right: 0; top: 0; bottom: 0; width: 18px; background: repeating-linear-gradient(180deg, rgba(255,255,255,.8) 0 2px, transparent 2px 60px) }
+.r-band { background: var(--accent); color: #fff; overflow: hidden }
+.r-band-in { max-width: 1220px; margin: 0 auto; padding: 16px max(20px, env(safe-area-inset-left, 0px)); display: flex; flex-wrap: wrap; gap: 10px 34px; font: 600 .78rem/1.3 var(--f-mono); letter-spacing: .12em; text-transform: uppercase }
+.r-band-in span { display: inline-flex; align-items: center; gap: 12px } .r-band-in span::before { content: ""; width: 7px; height: 7px; background: #fff }
+
+/* signs */
+.signs { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--ink) }
+.signs li { display: grid; grid-template-columns: 70px minmax(0, 1fr) 280px; gap: 28px; align-items: center; padding: 28px 0; border-bottom: 1px solid var(--line) }
+.signs li:not(.has-ph) { grid-template-columns: 70px minmax(0, 1fr) 280px } .signs li:not(.has-ph)::after { content: ""; }
+.sg-n { font: 800 2.2rem/1 var(--f-disp); font-stretch: 125%; color: var(--accent-ink) }
+.signs h3 { font: 850 clamp(1.5rem, 2.4vw, 2.1rem)/1 var(--f-disp); font-stretch: 118%; margin-bottom: 10px } .signs p { color: var(--ink2); margin: 0; max-width: 60ch }
+.signs figure { margin: 0 } .signs figure img { width: 100%; aspect-ratio: 16/10; object-fit: cover; filter: grayscale(.2) contrast(1.05) }
+
+/* signature: drive the pier */
+.pier-sec { background: var(--dark); color: #fff; padding: clamp(80px, 10vw, 130px) 0 }
+.pier { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: clamp(28px, 4vw, 56px); align-items: start }
+.pr-draw { min-width: 0 } .pr-canvas { position: relative }
+.pier-svg { width: 100%; height: auto; display: block }
+.pier-svg .sky { fill: #142231 } .pier-svg .dot { fill: rgba(0,0,0,.18) }
+.pier-svg .lo { fill: var(--loam) } .pier-svg .si { fill: var(--silt) } .pier-svg .cl { fill: var(--clay) } .pier-svg .sa { fill: var(--sandsoil) } .pier-svg .be { fill: var(--bear) }
+.pier-svg .pl text { font: 600 12px var(--f-mono); letter-spacing: .14em; fill: rgba(255,255,255,.82) } .pier-svg .pl[data-l="3"] text { fill: rgba(18,20,23,.72) }
+.pier-svg .pl rect { transition: filter .3s } .pier[data-layer="0"] .pl[data-l="0"] rect, .pier[data-layer="1"] .pl[data-l="1"] rect, .pier[data-layer="2"] .pl[data-l="2"] rect, .pier[data-layer="3"] .pl[data-l="3"] rect, .pier[data-layer="4"] .pl[data-l="4"] rect { filter: brightness(1.18) saturate(1.1) }
+.pier-svg .frost { stroke: #fff; stroke-width: 1.5; stroke-dasharray: 8 6; opacity: .8 } .pier-svg .frost-t { font: 600 11px var(--f-mono); letter-spacing: .16em; fill: #fff }
+.pier-svg .house { transform-box: view-box; transform-origin: 210px 190px; transition: transform .8s cubic-bezier(.3,1.4,.5,1) }
+.pier-svg .footing { fill: #8e959c } .pier-svg .wall { fill: #e9e4da; stroke: #121417; stroke-width: 2 } .pier-svg .win, .pier-svg .door { fill: #2a3846 }
+.pier-svg .crack { fill: none; stroke: #121417; stroke-width: 2.5; stroke-linejoin: round; transition: opacity .6s, stroke-dashoffset .8s; stroke-dasharray: 120; stroke-dashoffset: 0 }
+.pier[data-bearing="1"] .crack { opacity: 0; stroke-dashoffset: 120 }
+.pier-svg .bracket { fill: #c7ced4; stroke: #121417; stroke-width: 1.5 } .pier-svg .shaft { stroke: #c7ced4; stroke-width: 9 } .pier-svg .helix { fill: #dfe4e8; stroke: #121417; stroke-width: 1.2 } .pier-svg .tip { fill: #c7ced4; stroke: #121417; stroke-width: 1 }
+.pier-svg .gauge line { stroke: rgba(255,255,255,.7); stroke-width: 1 } .pier-svg .gauge text { font: 500 10px var(--f-mono); fill: rgba(255,255,255,.7); letter-spacing: .1em }
+.pier-svg .status { font: 800 22px var(--f-disp); font-stretch: 125%; fill: #ff8a5c; letter-spacing: .02em } .pier[data-bearing="1"] .pier-svg .status { fill: #6fd39a }
+.pr-range { position: absolute; margin: 0; left: calc(856 / 900 * 100%); top: calc(170 / 560 * 100%); width: calc(390 / 900 * 100%); height: 44px; transform-origin: 0 0; transform: rotate(90deg) translate(0, -50%); -webkit-appearance: none; appearance: none; background: transparent; cursor: grab; touch-action: none }
+.pr-range::-webkit-slider-runnable-track { height: 4px; background: rgba(255,255,255,.25) } .pr-range::-moz-range-track { height: 4px; background: rgba(255,255,255,.25) }
+.pr-range::-webkit-slider-thumb { -webkit-appearance: none; width: 30px; height: 30px; margin-top: -13px; background: var(--accent-2); border: 3px solid #fff; border-radius: 0; transform: rotate(45deg); box-shadow: 0 6px 18px rgba(0,0,0,.5) }
+.pr-range::-moz-range-thumb { width: 24px; height: 24px; background: var(--accent-2); border: 3px solid #fff; border-radius: 0 }
+.pr-range:focus-visible { outline: 2px solid #fff; outline-offset: 4px }
+.pr-note { margin: 16px 0 0; font: 500 .72rem/1.4 var(--f-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--on-dark2) }
+.pr-panel { min-width: 0; display: grid; gap: 20px; align-content: start }
+.pr-meter { display: flex; justify-content: space-between; align-items: center; padding: 16px 18px; background: var(--dark2); border-left: 5px solid #ff8a5c; transition: border-color .4s }
+.pr-meter span { font: 500 .72rem var(--f-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--on-dark2) } .pr-meter b { font: 850 1.5rem/1 var(--f-disp); font-stretch: 125%; color: #ff8a5c; transition: color .4s }
+.pier[data-bearing="1"] .pr-meter { border-color: #6fd39a } .pier[data-bearing="1"] .pr-meter b { color: #6fd39a }
+.pr-texts { display: grid } .pr-tx { grid-area: 1 / 1; opacity: 0; visibility: hidden; transition: opacity .35s } .pr-tx.on { opacity: 1; visibility: visible }
+.pr-k { font: 500 .72rem var(--f-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--accent-2); margin-bottom: 10px }
+.pr-tx h3 { font: 850 clamp(1.8rem, 3vw, 2.6rem)/1 var(--f-disp); font-stretch: 120%; color: #fff; margin-bottom: 12px } .pr-tx p:last-child { color: #c9d0d6; margin: 0 }
+.pr-src { font-size: .86rem; color: var(--on-dark2); margin: 0 }
+
+/* services bento */
+.bento { grid-template-columns: repeat(12, minmax(0, 1fr)); grid-auto-rows: auto; gap: 18px }
+.tile { display: grid; grid-template-rows: 1fr auto; align-items: stretch; border-radius: 0; background: var(--dark); color: #fff; min-height: 0 }
+.tile::after { display: none } .tile figure { margin: 0; overflow: hidden; position: relative } .tile figure img { position: static; width: 100%; height: 100%; object-fit: cover; transition: transform .8s cubic-bezier(.2,.7,.2,1) }
+.tile:hover figure img { transform: scale(1.05) }
+.tile > div { padding: 20px 22px 22px; display: grid; gap: 6px; border-top: 4px solid var(--accent) }
+.tile span { font: 500 .7rem var(--f-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--accent-2) }
+.tile b { font: 850 clamp(1.4rem, 2.2vw, 2rem)/1 var(--f-disp); font-stretch: 118% } .tile em { font-style: normal; font-size: .92rem; color: var(--on-dark2); display: inline-flex; gap: 8px; align-items: center } .tile em svg { width: 15px; height: 15px; transition: transform .25s } .tile:hover em svg { transform: translateX(5px) }
+.t-big { grid-column: 1 / 8; grid-row: span 2 } .t-big figure img { aspect-ratio: 4/3 }
+.t-tall { grid-column: 8 / 13 } .t-tall figure img { aspect-ratio: 16/10 }
+.t-wide { grid-column: 8 / 13 } .t-wide figure img { aspect-ratio: 16/10 }
+.t-list { grid-column: 1 / 13; background: var(--card); color: var(--ink); display: grid; grid-template-columns: 160px minmax(0, 1fr); align-items: center; padding: 22px 24px; border-top: 4px solid var(--ink) }
+.t-list span { color: var(--mute) } .t-list ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px 10px }
+.t-list a { display: block; padding: 10px 14px; border: 1px solid var(--line); text-decoration: none; font-weight: 600; background: var(--paper) } .t-list a:hover { background: var(--accent); color: #fff; border-color: var(--accent) }
+
+/* commercial */
+.job-sec { background: var(--sand) }
+.job-in { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: clamp(30px, 6vw, 90px); align-items: center }
+.job-a { margin: 0 } .job-a img { width: 100%; aspect-ratio: 4/3; object-fit: cover } .job-a figcaption { font: 500 .72rem var(--f-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--mute); margin-top: 10px }
+.job-t h2 { font-size: clamp(2rem, 4vw, 3.4rem) }
+
+/* quotes */
+.quote-sec { background: var(--paper) }
+.quotes { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 0; border-top: 2px solid var(--ink) }
+.quotes blockquote { margin: 0; padding: 30px 28px 10px 0; display: flex; flex-direction: column; gap: 18px }
+.quotes blockquote + blockquote { padding-left: 28px; border-left: 1px solid var(--line) }
+.quotes blockquote:first-child p { font: 700 clamp(1.3rem, 2vw, 1.75rem)/1.25 var(--f-disp); font-stretch: 100% }
+.quotes p { margin: 0; color: var(--ink) } .quotes footer { margin-top: auto; display: grid; gap: 2px } .quotes footer b { font: 800 1rem var(--f-disp); font-stretch: 118% } .quotes footer span { font: 500 .72rem var(--f-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--mute) }
+
+/* service area */
+.area-sec { background: var(--card) }
+.counties { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 2px solid var(--ink); border-left: 1px solid var(--line) }
+.cty { padding: 22px 22px 26px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line) }
+.cty h3 { font: 850 1.25rem/1 var(--f-disp); font-stretch: 118%; margin-bottom: 14px } .cty ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px 14px; color: var(--ink2) }
+.cty a { color: var(--accent-ink); font-weight: 700 }
+
+/* faq + guide */
+.guide-mini { display: grid; gap: 6px; margin-top: 34px; padding-top: 20px; border-top: 5px solid var(--accent); text-decoration: none }
+.guide-mini span { font: 500 .72rem var(--f-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--mute) } .guide-mini b { font: 850 1.5rem/1.05 var(--f-disp); font-stretch: 112% }
+.guide-mini em { font-style: normal; font-weight: 700; display: inline-flex; gap: 8px; align-items: center; color: var(--accent-ink) } .guide-mini em svg { width: 15px; height: 15px }
+.form { border-radius: 0; border-top: 5px solid var(--accent) } .form input, .form textarea, .form select { border-radius: 0 }
+
+/* inner pages */
+.phero-full::after { background: linear-gradient(90deg, rgba(13,22,32,.92) 0%, rgba(13,22,32,.7) 55%, rgba(13,22,32,.3) 100%) }
+.phero-full h1 { font-stretch: 120% }
+.phero-full .label { background: var(--accent); color: #fff } .phero-full .label::before { background: #fff }
+.phero-full.no-photo .ph-in.has-art { grid-template-columns: minmax(0, 1.25fr) minmax(0, .75fr); align-items: end }
+.art-card { background: var(--dark2); border: 1px solid rgba(255,255,255,.1); padding: 12px 12px 10px } .art-card span { display: block; font: 500 .72rem var(--f-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--on-dark2); padding-top: 10px }
+.strata-mini { width: 100%; height: auto; display: block } .strata-mini .lo { fill: var(--loam) } .strata-mini .si { fill: var(--silt) } .strata-mini .cl { fill: var(--clay) } .strata-mini .sa { fill: var(--sandsoil) } .strata-mini .be { fill: var(--bear) }
+.strata-mini .mini-house { fill: #e9e4da } .strata-mini .mini-pier { stroke: #dfe4e8; stroke-width: 5 } .strata-mini .mini-helix { stroke: #dfe4e8; stroke-width: 3 } .strata-mini .mini-frost { stroke: #fff; stroke-dasharray: 5 4; opacity: .7 }
+.side-card { border-radius: 0; border-top: 5px solid var(--accent) } .side-card .btn { background: var(--accent) }
+.prose ul li::marker { color: var(--accent) } .prose h2 { font-stretch: 118% }
+.cta { background: var(--dark); position: relative; overflow: hidden } .cta h2 { font-stretch: 122% }
+.cta::before { content: ""; position: absolute; inset: auto 0 0 0; height: 10px; background: linear-gradient(90deg, var(--loam) 0 20%, var(--silt) 20% 40%, var(--clay) 40% 60%, var(--sandsoil) 60% 80%, var(--bear) 80%) }
+.office { border-radius: 0 }
+.site-footer { background: var(--foot) } .flogo img { width: 200px }
+
+@media (prefers-reduced-motion: reduce) { .pier-svg .house, .pier-svg .crack, .tile figure img { transition: none } }
+@media (max-width: 1000px) {
+  .r-hero-in { grid-template-columns: minmax(0, 1fr) } .r-hero-text { padding-bottom: 0 } .r-hero-ph { margin: 0 calc(-1 * max(20px, env(safe-area-inset-right, 0px))) 0 calc(-1 * max(20px, env(safe-area-inset-left, 0px))) }
+  .split-head { grid-template-columns: minmax(0, 1fr); gap: 16px }
+  .signs li, .signs li:not(.has-ph) { grid-template-columns: 54px minmax(0, 1fr) } .signs figure { grid-column: 2 }
+  .pier { grid-template-columns: minmax(0, 1fr) }
+  .t-big, .t-tall, .t-wide, .t-list { grid-column: 1 / -1; grid-row: auto } .t-list { grid-template-columns: minmax(0, 1fr); gap: 12px }
+  .job-in { grid-template-columns: minmax(0, 1fr) }
+  .quotes { grid-template-columns: minmax(0, 1fr) } .quotes blockquote + blockquote { padding-left: 0; border-left: 0; border-top: 1px solid var(--line) }
+  .counties { grid-template-columns: repeat(2, minmax(0, 1fr)) }
+  .phero-full.no-photo .ph-in.has-art { grid-template-columns: minmax(0, 1fr) } .art-card { max-width: 380px }
+}
+@media (max-width: 640px) {
+  .r-hero h1 { font-size: clamp(2.4rem, 11.5vw, 3.6rem) } .r-hero-ph img { height: 300px } .r-hero-ph figcaption { left: 40px }
+  .counties { grid-template-columns: minmax(0, 1fr) }
+  .sg-n { font-size: 1.6rem }
+  .pr-meter b { font-size: 1.2rem }
+}
+/* keep the dark header on the home page too (the kit makes it transparent, then paper on scroll) */
+body.is-home .site-header, body.is-home .site-header.scrolled, html.menu-open body.is-home .site-header { background: var(--dark); color: var(--on-dark); border-bottom-color: rgba(255,255,255,.08) }

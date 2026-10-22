@@ -1,0 +1,16 @@
+/* stgeorgehomeservices.com theme: "The paper trail". Warm paper and ruled-ledger lines, the client's own near-black ink
+   (#171614, from their logo), one red-rock rust for marks and the stamp, and a hard-water blue for links and footnotes.
+   Literata (editorial serif, after Stripe Press) + Archivo (the client's own text face) + Spline Sans Mono (footnotes, receipt). */
+:root {
+  --paper: #f6f2ea; --sand: #ece5d8; --card: #fffdf8; --ink: #171614; --ink2: #3f3b35; --mute: #6f685e; --line: #ddd4c4;
+  --dark: #1c1b18; --dark2: #2a2824; --on-dark: #f3eee5; --on-dark2: #bdb4a6; --foot: #141311;
+  --accent: #a8432a; --accent-ink: #8f3620; --on-accent: #fff; --blue: #2c5d7c; --rule: rgba(44,93,124,.14);
+  --f-disp: "Literata", Georgia, "Times New Roman", serif; --f-body: "Archivo", "Segoe UI", system-ui, sans-serif; --f-mono: "Spline Sans Mono", ui-monospace, Menlo, Consolas, monospace;
+  --disp-w: 500; --disp-ls: -.015em; --r: 4px; --btn-r: 3px; --hdr: 76px; --logo-h: 30px;
+  --hero-shade: linear-gradient(180deg, rgba(23,22,20,.5), rgba(23,22,20,.85));
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --paper: #161512; --sand: #1e1c18; --card: #22201c; --ink: #f1ece3; --ink2: #cdc5b8; --mute: #9b9286; --line: #37332d; --accent-ink: #e0805f; --blue: #8fbcd8; --rule: rgba(143,188,216,.12); color-scheme: dark } }
+:root[data-theme="dark"] {
+  --paper: #161512; --sand: #1e1c18; --card: #22201c; --ink: #f1ece3; --ink2: #cdc5b8; --mute: #9b9286; --line: #37332d; --accent-ink: #e0805f; --blue: #8fbcd8; --rule: rgba(143,188,216,.12); color-scheme: dark }

@@ -1,0 +1,786 @@
+================================================================================
+VA COPY of Angelo's FRAVATA file "FRAVATA_BLOG_SYSTEM.txt" - made 2026-10-11 for the VA kit.
+Kept: Section 3 quality checklist, Section 4 post template, Section 8 website content system (page templates, schema templates, copy checklist, output format).
+Removed: logins and passwords, the publishing pipeline, Novarte's own blog plans,
+prospect audit data, and anything about other businesses.
+Where this file says DataForSEO, MAMMATA, SORDA or a FRAVATA\ folder: use the keyword
+file and facts Angelo put in INBOX\, and save your work in OUTBOX\.
+The kit's rules in CLAUDE.md win over anything in this file.
+================================================================================
+
+SECTION 3 — QUALITY CHECKLIST (every post must pass ALL items)
+================================================================================
+
+CONTENT QUALITY:
+  [ ] Word count ≥ 1,500 (target 2,000–2,500) — NOT a round number
+  [ ] No forbidden phrases (full list in FRAVATA_IDENTITY.txt)
+  [ ] Minimum 1 real case study with specific, messy numbers (not rounded)
+  [ ] Minimum 3 cited external sources with verified, real URLs
+  [ ] Post has a clear opinion / point of view — not neutral, not balanced
+  [ ] At least ONE piece of Information Gain (not in top 10 results)
+  [ ] Conclusion has a specific CTA (free audit link or genuine question)
+  [ ] Author bio present at end (a real, named person from the client's business, not "Fravata")
+
+TECHNICAL SEO:
+  [ ] Title tag: 50–60 characters, primary keyword first
+  [ ] Meta description: 150–160 characters, includes keyword and CTA
+  [ ] Primary keyword in: title, first paragraph, one H2, conclusion
+  [ ] H1 present and unique — NOT a comma-separated keyword list
+  [ ] H2/H3 hierarchy logical, written as natural language questions where possible
+  [ ] Slug is /blog/[keyword-slug]/ format
+  [ ] BlogPosting schema block is complete and valid (all fields filled)
+  [ ] Internal links: minimum 2 (to service pages or other posts)
+  [ ] All external links open in _blank and have rel="noopener"
+  [ ] First paragraph directly answers the primary query (AI Overview eligibility)
+
+AI DETECTION EVASION CHECKLIST (NEW — MANDATORY):
+  [ ] Sentence length variance: shortest < 8 words, longest > 30 words in same section
+  [ ] No 3 consecutive sentences of similar length
+  [ ] Contractions present in every 100-word block (don't, won't, isn't, can't)
+  [ ] Zero forbidden phrases from the master banned list
+  [ ] Zero transition words: Furthermore, Moreover, Additionally, In conclusion
+  [ ] At least 1 sentence fragment used intentionally for emphasis
+  [ ] At least 1 question asked of the reader in the body (not intro/outro)
+  [ ] At least 1 self-correction or "actually, let me reframe that" moment
+  [ ] At least 1 call-back reference to something said earlier in the post
+  [ ] At least 1 tangent with a clear return (em-dashes or parentheses)
+  [ ] At least 1 timestamped knowledge reference (specific month + year)
+  [ ] At least 1 named person referenced (John Mueller, Barry Schwartz, etc.)
+  [ ] At least 1 admission of uncertainty or knowledge limit
+  [ ] Paragraph rhythm varied: no 3 consecutive paragraphs of same length
+  [ ] Lists used max 1 per 600-word section — rest in prose
+  [ ] No "perfectly parallel" bullet structures (vary item lengths)
+  [ ] Not exactly 3 examples every time — sometimes 2, sometimes 4, sometimes 1 deep
+  [ ] Emotional register present: frustration, enthusiasm, or dry humor at least once
+  [ ] At least 1 domain analogy (compare SEO concept to non-SEO real world)
+  [ ] No section ends with a summary sentence more than 2 times per post
+  [ ] Post length is NOT a round number (not exactly 1500, 2000, or 2500 words)
+
+HUMANIZATION CHECK:
+  [ ] Opening does NOT use any banned opener phrase
+  [ ] Post contains specific messy numbers (74%, not 75%; 17 of 23, not "most")
+  [ ] Post contains at least one opinion stated as Fravata's — and defended
+  [ ] No 3 consecutive sentences starting with the same word
+  [ ] Contains at least one personal scene, client conversation, or audit moment
+  [ ] Uncertainty acknowledged with strategic hedging (2-3 instances)
+  [ ] Flesch-Kincaid readability: 40–65 range
+  [ ] Experience markers embedded: tool outputs, process details, unexpected findings
+  [ ] Post disagrees with something — conventional wisdom, Google guidance, or
+      a common agency recommendation — with data to back it up
+
+IMAGE:
+  [ ] Post has a featured image (or KIE Nano Banana Pro prompt prepared)
+  [ ] Alt text written for featured image
+  [ ] Image file name is descriptive (not IMG_0047.jpg)
+
+
+================================================================================
+SECTION 4 — MARKDOWN POST TEMPLATE
+================================================================================
+
+Every post must start with this YAML frontmatter block and follow the
+structure below. Fravata fills in all fields automatically.
+
+---
+title: "[Post Title — 50-60 chars]"
+slug: "/blog/[hyphenated-keyword]/"
+date: "YYYY-MM-DD"
+modified: "YYYY-MM-DD"
+author: "[Author Name]"
+category: "[Technical SEO | Local SEO | AI Marketing | Case Studies | Lead Gen]"
+tags: ["tag1", "tag2", "tag3"]
+description: "[Meta description — 150-160 chars]"
+featured_image: "/blog/images/[image-filename.jpg]"
+featured_image_alt: "[Descriptive alt text]"
+word_count: [number]
+reading_time: "[X min read]"
+primary_keyword: "[keyword]"
+internal_links:
+  - url: "https://[domain]/services/[service]/"
+    anchor: "[anchor text]"
+  - url: "https://[domain]/blog/[related-post]/"
+    anchor: "[anchor text]"
+sources:
+  - name: "[Source Name]"
+    url: "[URL]"
+  - name: "[Source Name]"
+    url: "[URL]"
+  - name: "[Source Name]"
+    url: "[URL]"
+schema: |
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "[Post Title]",
+    "description": "[Meta description]",
+    "author": {
+      "@type": "Person",
+      "name": "[Author Name]",
+      "url": "https://[domain]/about"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "[Business Name]",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://[domain]/assets/logo-new.png"
+      }
+    },
+    "datePublished": "YYYY-MM-DD",
+    "dateModified": "YYYY-MM-DD",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://[domain]/blog/[slug]/"
+    },
+    "image": "https://[domain]/blog/images/[image-filename.jpg]"
+  }
+  </script>
+---
+
+# [Post H1 — matches intent, includes keyword, NOT identical to title tag]
+
+[HOOK PARAGRAPH — opens with tension, counterintuitive fact, or scene.
+3-4 sentences. creates immediate curiosity. NO forbidden phrases.]
+
+[BRIDGE — 1-2 sentences connecting the hook to what the post delivers.
+"In this post, I'll walk through..." is acceptable but try to be more specific:
+"By the end, you'll have a checklist you can run in under 30 minutes."]
+
+---
+
+## [Major Section H2 — specific, keyword-aware]
+
+[2-3 paragraphs. Max 4 sentences per paragraph. Breathing room.]
+
+### [Sub-section H3 if needed]
+
+[Technical explanation, step, or example]
+
+---
+
+## The [Case Study / Real Example Section]
+
+[THIS IS MANDATORY. Use real data from FRAVATA_SEO_KNOWLEDGE.txt Module 2.3
+or request a live audit via DataForSEO. Structure: Situation → What we found →
+What we did → Measurable result.]
+
+Real names are better than "one of our clients." Use prospect/audit data.
+
+---
+
+## [Step-by-step / How-To Section]
+
+[Use numbered lists for sequential steps. Use bullets for non-sequential facts.]
+
+1. **[Step Name]** — [explanation]
+2. **[Step Name]** — [explanation]
+
+---
+
+## [Common Mistakes / What Most People Get Wrong]
+
+[Optional but high-performing. 3-5 specific, opinionated mistakes.]
+
+---
+
+## [Final Key Takeaway Section]
+
+[Not a full recap. Just the one thing the reader must remember.]
+
+---
+
+[CONCLUSION — 2 paragraphs max]
+
+[Paragraph 1: Reframe the problem. Remind them what's possible.]
+
+[Paragraph 2: CTA. Free audit link, related post, or question.]
+
+---
+
+### Sources
+
+- [Source Name] — [URL]
+- [Source Name] — [URL]
+- [Source Name] — [URL]
+
+---
+
+SECTION 8 — WEBSITE CONTENT SYSTEM
+================================================================================
+
+This section governs how Fravata writes website pages — not blog posts.
+The voice and humanization rules from FRAVATA_IDENTITY.txt apply to ALL
+website copy. The SEO rules from FRAVATA_SEO_KNOWLEDGE.txt apply in full.
+
+What's different from blog mode:
+  - Word count per section is shorter (focused, conversion-aware)
+  - Every H1 must contain the primary keyword + location (for local businesses)
+  - CTAs appear at the end of EVERY section, not just at the end of the page
+  - Schema is page-type specific (not BlogPosting — see templates below)
+  - Copy must serve TWO masters: Google crawler + human visitor scanning fast
+
+--------------------------------------------------------------------------------
+8.1 WEBSITE COPY WRITING PROCESS
+--------------------------------------------------------------------------------
+
+When /page or /sitecopy is triggered:
+
+STEP 1 — UNDERSTAND THE BUSINESS
+  Pull from: MAMMATA audit report (if available) or the project brief
+  Establish:
+    → Primary service(s) — what does the business DO?
+    → Primary location(s) — what city/region do they serve?
+    → Target customer — who is the ideal client?
+    → Key differentiators — what makes this business worth calling?
+    → Competitors — who ranks on page 1 for their target keywords?
+
+STEP 2 — KEYWORD MAPPING
+  Every page gets exactly ONE primary keyword. Map before writing.
+  Homepage   : "[service] [city]" or "[brand] [category]"
+  Service pg : "[specific service] [city]" (e.g., "local seo services salt lake city")
+  Location pg: "[service] [neighborhood/city]" (e.g., "chiropractor draper ut")
+  About pg   : "[business name]" + "[founder name] [profession]"
+  Contact pg : "contact [business name]" + "[service] consultation [city]"
+
+  Check volume in the keyword file Angelo put in INBOX before finalizing.
+
+STEP 3 — WRITE CONTENT (follow page templates in 8.2)
+  Every page must have:
+    → A unique H1 (not shared with any other page on the site)
+    → Meta title ≤60 chars (primary keyword first)
+    → Meta description 150–160 chars (keyword + CTA + differentiator)
+    → At least 300 words of body content (target 600–800 for service pages)
+    → Minimum 1 internal link to another page
+    → Schema block (see 8.3 for page-type schemas)
+
+STEP 4 — QUALITY CHECK
+  Run website copy quality check (Section 8.4) before delivering.
+
+STEP 5 — SAVE OUTPUT
+  Save to: OUTBOX\ (see the kit's file names)
+  
+
+
+--------------------------------------------------------------------------------
+8.2 PAGE TEMPLATES — COMPLETE STRUCTURES
+--------------------------------------------------------------------------------
+
+══════════════════════════════════════════════════════════════════
+TEMPLATE A — HOMEPAGE
+══════════════════════════════════════════════════════════════════
+
+Meta title    : [Primary Keyword] — [Brand] | [City] (≤60 chars)
+Meta desc     : [Service + brand + specific result or differentiator + CTA] (150–160 chars)
+Primary KW    : "[service] [city]" or "[brand category] [city]"
+
+---
+
+# [H1: Primary Keyword + Specific Differentiator]
+Examples:
+  "Local SEO Services in Salt Lake City — Built for Service Businesses"
+  "Chiropractic Care in Draper, UT — Same-Week Appointments Available"
+  "Managed IT Support in Athens, GA — 24/7 Helpdesk, No Long-Term Contracts"
+
+Rules for H1:
+  → Primary keyword must appear in the H1
+  → City/location must appear in the H1 (for local businesses)
+  → Must be specific enough that a competitor couldn't claim the same H1
+  → 50–70 characters ideal (fits headline display without truncation)
+
+[HERO SUBHEADLINE — 1 sentence]
+  Expands on the H1. Names the specific problem solved or result delivered.
+  Example: "We audit, fix, and grow your organic search presence — with data
+  you can actually verify in Google Search Console."
+
+[HERO BODY — 2–3 sentences]
+  What you do, who you do it for, and why it works. No jargon.
+  End with one clear CTA button copy.
+
+[PRIMARY CTA]
+  Button text: specific, not generic.
+  Bad:  "Learn More" | "Contact Us" | "Get Started"
+  Good: "Get Your Free SEO Audit" | "Book a Same-Week Appointment" | "See Our Plans"
+
+---
+
+## [SERVICE OVERVIEW SECTION — H2]
+Format: 3–4 service tiles or a brief summary paragraph per service
+Each service: 2–3 sentences MAX. What it is. What it delivers. Link to service page.
+
+---
+
+## Why [Business Name] (or: Why Local Businesses Choose Us)
+[3–4 short paragraphs or a benefits list with prose explanations]
+Each benefit must be SPECIFIC:
+  Bad:  "We're experienced."
+  Good: "[A real, sourced fact from the brief - e.g. years in business or jobs done.]"
+
+---
+
+## [SOCIAL PROOF SECTION — H2]
+Client results, review count, named testimonials, recognizable logos.
+If no social proof exists yet: use a specific stat or audit finding instead.
+  Example: "In our last 23 audits, 17 local businesses had zero schema markup.
+            All 17 were losing map pack visibility they could reclaim in a week."
+
+---
+
+## [LOCAL TRUST SECTION — H2] (for local businesses)
+Embed: city name, neighborhood, years serving the area, community connection.
+Example for chiro: "Serving Draper and South Jordan families since 2012."
+This section is indexed for local relevance signals.
+
+---
+
+## [FINAL CTA SECTION]
+Repeat the primary CTA with urgency or specificity.
+  Example: "Ready to see where you stand? Our free audit takes 48 hours
+            and gives you a 7-signal report — no commitment required."
+
+---
+
+[SCHEMA: Organization + LocalBusiness + WebSite — see 8.3]
+
+
+══════════════════════════════════════════════════════════════════
+TEMPLATE B — SERVICE PAGE
+══════════════════════════════════════════════════════════════════
+
+Meta title    : [Specific Service] in [City] — [Brand] (≤60 chars)
+Meta desc     : [Specific service + result or differentiator + CTA] (150–160 chars)
+Primary KW    : "[specific service] [city]"
+Word count    : 600–1,200 words (competitive service = more words)
+
+---
+
+# [H1: Specific Service + City + Differentiator]
+Example: "Local SEO Services in Salt Lake City — Data-Driven, No Guessing"
+Example: "Chiropractic Adjustments in Draper, UT — Walk-In Welcome"
+Example: "Managed IT Services Athens GA — Fixed Monthly Cost, No Surprises"
+
+[INTRO PARAGRAPH — 3–4 sentences]
+  What is this service? Who is it for? What problem does it solve?
+  Must include primary keyword naturally within the first 50 words.
+  Must NOT begin with a banned opener phrase.
+
+---
+
+## What [Service Name] Actually Means for Your Business
+[2–3 paragraphs explaining the service with specific, measurable outcomes]
+Avoid generic "benefits" language. Use specificity:
+  Bad:  "SEO improves your online visibility."
+  Good: "When we fixed the schema on a Draper auto repair shop's site,
+         they went from 0 map pack appearances to showing in the top 3
+         for 'auto repair Draper UT' within 11 weeks. The fix took one afternoon."
+
+---
+
+## What's Included — [Service Name] at Novarte AI
+[List format IS acceptable here — this is a scope/deliverables section]
+Each item: 1 line label + 1 sentence description.
+Example:
+  **Monthly MAMMATA Audit** — A full 7-signal scan of your site each month,
+  with specific action items ranked by estimated impact.
+
+  **Schema Implementation** — We write and deploy the structured data Google
+  needs to verify your entity and surface you in AI Overviews.
+
+---
+
+## Our Process — How [Service Name] Works
+[Numbered steps — 4–6 steps max]
+Each step: Step name + 2–3 sentences. Concrete, specific, no filler.
+
+1. **Audit** — [what happens, what we look for, what tool we use]
+2. **Strategy** — [how we prioritize, what signals matter most]
+3. **Implementation** — [what gets built/fixed/written]
+4. **Measurement** — [what we track, in what tool, at what cadence]
+
+---
+
+## Frequently Asked Questions
+[4–6 FAQs as H3s — written as the actual question a client would type]
+Example:
+  ### How long does local SEO take to show results?
+  [Answer: 2–4 sentences, specific, honest about timeline]
+
+  ### Do I need to sign a long-term contract?
+  [Answer: specific to this business's terms]
+
+[SCHEMA: FAQPage — covers these questions]
+
+---
+
+## Ready to Get Started?
+[2–3 sentences. Specific CTA. What happens when they click.]
+  Example: "Fill out the form below and we'll send your free site audit
+            within 48 hours — before we talk money or packages."
+
+[CTA button — specific text]
+
+---
+
+[SCHEMA: Service + FAQPage — see 8.3]
+[Internal links: → /contact | → /services/[related-service] | → /blog/[relevant-post]]
+
+
+══════════════════════════════════════════════════════════════════
+TEMPLATE C — LOCATION / CITY PAGE
+══════════════════════════════════════════════════════════════════
+
+Meta title    : [Service] in [City, State] — [Brand] (≤60 chars)
+Meta desc     : [Service + city-specific detail + CTA] (150–160 chars)
+Primary KW    : "[service] [city] [state]"
+Word count    : 500–800 words minimum (must be UNIQUE per city — no duplicate)
+
+Rules:
+  → Every city page must contain genuinely unique content for that city
+  → Never create two city pages with the same body text (swap city name)
+  → Include a real local reference: landmark, neighborhood, zip code, community
+  → This page's ONLY job is to rank for "[service] [city]" and convert that click
+
+---
+
+# [H1: Service + City + State]
+Example: "Local SEO Services in Draper, UT"
+Example: "Chiropractic Care in South Jordan, UT — Walk-In Welcome"
+
+[INTRO — 2 paragraphs]
+  P1: What service you offer in this city. 1–2 sentences.
+  P2: Something specific to this city — geographic detail, client type common
+      in this area, a fact about the market. NOT generic.
+  Example: "Draper sits at the south end of the Salt Lake Valley, and most
+            of the businesses we've worked with here compete against Salt Lake
+            City firms that outspend them on advertising by 10x. SEO is how
+            they compete without matching that budget."
+
+---
+
+## [Service] for [City] Businesses — What We Do Here
+[2–3 paragraphs. Service description in context of this specific city/market.]
+
+---
+
+## Why [City] Businesses Choose [Brand]
+[Specific reasons — not generic. Include local data point if available.]
+
+---
+
+## Serving [City] and Surrounding Areas
+[List nearby cities/neighborhoods also served. Internal links where those
+city pages exist. This helps Google understand service area breadth.]
+
+---
+
+[CTA — book/contact/audit]
+[SCHEMA: LocalBusiness with areaServed — see 8.3]
+
+
+══════════════════════════════════════════════════════════════════
+TEMPLATE D — ABOUT PAGE
+══════════════════════════════════════════════════════════════════
+
+Meta title    : About [Brand] — [Founder Name], [City] (≤60 chars)
+Primary KW    : "[brand name]" + "[founder name] [profession]"
+Word count    : 600–1,000 words (must be substantial — this is E-E-A-T central)
+Schema        : Organization + Person (@id with sameAs links)
+
+This page is the single most important E-E-A-T asset on the site.
+Google's quality raters look here to verify Experience, Expertise, Authority.
+
+---
+
+# About [Brand] — [Short Positioning Statement]
+Example: "About Novarte AI — Technical SEO Built in Utah, Measured Everywhere"
+Example: "About Example Chiropractic — Draper's Family Chiropractor Since 2012"
+
+[FOUNDER STORY — 3–4 paragraphs]
+Rules:
+  → Must be written in first person ("I started Novarte AI because...")
+  → Must include specific dates, places, turning points
+  → Must include a specific result or moment that defines the approach
+  → Must read as a human story, not a corporate bio
+
+Example structure:
+  P1: What I was doing before this business. The problem I kept seeing.
+  P2: The moment I decided to build/start this. What was true then.
+  P3: What I built and how it works. Specific tools, systems, approach.
+  P4: Where we are now. What we've accomplished. One specific result.
+
+---
+
+## What Makes [Brand] Different
+[3–4 specific differentiators — NOT generic, NOT vague]
+Each differentiator: bold label + 2–3 sentence explanation.
+Bad:  "We're experienced and passionate about results."
+Good: "We built our own audit system. MAMMATA runs a 7-signal, 140-point
+       scan on every client site. No manual guessing, no recycled templates.
+       Every recommendation traces to a specific data point."
+
+---
+
+## By the Numbers (if data is available)
+[Optional but powerful: specific stats that build credibility]
+Example: 200+ audits run | 4 years in Utah markets | 37 local businesses served
+
+---
+
+[Google certifications, professional memberships, published work, press]
+
+---
+
+[CTA — work with us / book a call]
+[SCHEMA: Organization + Person — full template with @id and sameAs below]
+
+
+══════════════════════════════════════════════════════════════════
+TEMPLATE E — CONTACT PAGE
+══════════════════════════════════════════════════════════════════
+
+Meta title    : Contact [Brand] — Free SEO Audit in [City] (≤60 chars)
+Meta desc     : [What they get when they contact + how fast + no commitment] (150–160 chars)
+Word count    : 200–400 words (short by design — don't bury the form)
+
+---
+
+# [H1: Action-Oriented, Specific]
+Good: "Get Your Free Technical SEO Audit — No Commitment"
+Good: "Book a Same-Week Chiropractic Appointment in Draper"
+Bad:  "Contact Us"
+
+[INTRO — 2–3 sentences]
+What happens when they fill out the form? How fast? What do they get?
+Remove all uncertainty. People don't fill forms when they don't know
+what comes next.
+Example: "Fill out this form and we'll send a full 7-signal site audit
+to your inbox within 48 hours — before we ask for anything."
+
+---
+
+## What to Expect
+[3–4 bullet points. Numbered process.]
+1. Fill out the form — takes about 90 seconds
+2. We run a live MAMMATA audit on your site
+3. You get the full report within 48 hours — no phone call required yet
+4. If you want to talk through it, we book a 30-minute call. No pitch.
+
+---
+
+## Why Reach Out? (Trust Reinforcement)
+[2–3 short sentences. Social proof or credibility anchor.]
+Example: "We've run over 200 site audits across Utah and Georgia markets.
+The most common finding? Fixable technical problems that have been
+silently blocking rankings for years."
+
+---
+
+[CONTACT FORM — placeholder in copy]
+[NAP: Business name, address, phone — exact match to GBP listing]
+[SCHEMA: ContactPage — see 8.3]
+
+
+--------------------------------------------------------------------------------
+8.3 SCHEMA TEMPLATES PER PAGE TYPE
+--------------------------------------------------------------------------------
+
+HOMEPAGE — Organization + LocalBusiness + WebSite:
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://[domain]/#organization",
+      "name": "[Business Name]",
+      "url": "https://[domain]",
+      "logo": { "@type": "ImageObject", "url": "https://[domain]/assets/logo.png" },
+      "sameAs": [
+        "https://www.facebook.com/[page]",
+        "https://www.linkedin.com/company/[name]",
+        "https://twitter.com/[handle]"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "[phone]",
+        "contactType": "customer service"
+      }
+    },
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://[domain]/#localbusiness",
+      "name": "[Business Name]",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "[street]",
+        "addressLocality": "[city]",
+        "addressRegion": "[state]",
+        "postalCode": "[zip]",
+        "addressCountry": "US"
+      },
+      "telephone": "[phone]",
+      "openingHoursSpecification": [
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "09:00", "closes": "17:00" }
+      ],
+      "geo": { "@type": "GeoCoordinates", "latitude": [lat], "longitude": [lon] },
+      "url": "https://[domain]",
+      "priceRange": "$$"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://[domain]/#website",
+      "url": "https://[domain]",
+      "name": "[Business Name]",
+      "publisher": { "@id": "https://[domain]/#organization" }
+    }
+  ]
+}
+
+SERVICE PAGE — Service + FAQPage:
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "serviceType": "[Service Name]",
+      "provider": { "@id": "https://[domain]/#organization" },
+      "areaServed": { "@type": "City", "name": "[City]" },
+      "description": "[Service description matching meta description]",
+      "url": "https://[domain]/services/[slug]/"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "[FAQ Question 1]",
+          "acceptedAnswer": { "@type": "Answer", "text": "[Answer 1]" }
+        },
+        {
+          "@type": "Question",
+          "name": "[FAQ Question 2]",
+          "acceptedAnswer": { "@type": "Answer", "text": "[Answer 2]" }
+        }
+      ]
+    }
+  ]
+}
+
+ABOUT PAGE — Person + Organization:
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://[domain]/about#[firstname]",
+      "name": "[Full Name]",
+      "jobTitle": "[Title]",
+      "worksFor": { "@id": "https://[domain]/#organization" },
+      "url": "https://[domain]/about",
+      "sameAs": [
+        "https://www.linkedin.com/in/[profile]",
+        "https://twitter.com/[handle]"
+      ],
+      "description": "[2-sentence bio matching about page copy]"
+    }
+  ]
+}
+
+LOCATION PAGE — LocalBusiness with areaServed:
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "[Business Name]",
+  "url": "https://[domain]/[city-slug]/",
+  "areaServed": [
+    { "@type": "City", "name": "[Primary City]" },
+    { "@type": "City", "name": "[Nearby City 1]" }
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "[City]",
+    "addressRegion": "[State]",
+    "postalCode": "[Zip]"
+  }
+}
+
+
+--------------------------------------------------------------------------------
+8.4 WEBSITE COPY QUALITY CHECKLIST
+--------------------------------------------------------------------------------
+
+Run this checklist on every page before delivering copy to the client.
+
+PAGE STRUCTURE:
+  [ ] H1 is unique — not used on any other page on the site
+  [ ] H1 contains the primary keyword AND a differentiator
+  [ ] H1 contains location name (for local pages)
+  [ ] H2s form a logical hierarchy — each is a distinct sub-topic
+  [ ] No heading levels are skipped (H1 → H2 → H3, never H1 → H3)
+  [ ] Every section has at minimum 2 paragraphs of body copy
+
+SEO:
+  [ ] Meta title ≤60 chars, primary keyword first
+  [ ] Meta description 150–160 chars with keyword + CTA
+  [ ] Primary keyword appears in H1, first paragraph, at least one H2
+  [ ] At least 1 internal link (to another page on the same site)
+  [ ] All external links have rel="noopener" and target="_blank"
+  [ ] Schema block complete and valid for this page type (see 8.3)
+  [ ] Page word count ≥300 (avoid thin content flag)
+  [ ] NAP consistent with GBP if this is a local page
+
+COPY QUALITY:
+  [ ] No forbidden phrases from FRAVATA_IDENTITY.txt banned list
+  [ ] No contractions missing — every paragraph uses them
+  [ ] H1 and first paragraph don't start with a banned opener
+  [ ] CTAs are specific (not "Contact Us" or "Learn More")
+  [ ] At least ONE specific, verifiable claim (stat, date, number)
+  [ ] Copy does not make unverifiable promises ("guaranteed results")
+  [ ] Differentiators are SPECIFIC — not generic ("experienced", "passionate")
+  [ ] FAQ section uses natural language questions (as a real client would ask)
+  [ ] About page includes specific dates, places, and turning points
+
+HUMANIZATION (shorter rules apply to web copy vs. blog):
+  [ ] Sentence variety: not all the same length in any paragraph
+  [ ] At least one contraction per visible section
+  [ ] No corporate jargon: "solutions", "synergies", "holistic approach"
+  [ ] Copy can be read aloud without sounding robotic
+  [ ] Emotional register: the copy sounds like a real person, not a template
+
+CONVERSION:
+  [ ] Primary CTA appears above the fold (early in the page)
+  [ ] Secondary CTA appears at the bottom of the page
+  [ ] CTA tells the user exactly what happens next ("we'll send the audit
+      within 48 hours" — not "we'll be in touch")
+  [ ] Trust signal present (review count, years in business, specific result)
+  [ ] There is no reason to leave the page without either calling or
+      filling out the form — all questions answered on the page
+
+
+--------------------------------------------------------------------------------
+8.5 WEBSITE COPY OUTPUT FORMAT
+--------------------------------------------------------------------------------
+
+Save each page as a markdown file with this header:
+
+---
+page_type: "[homepage | service | location | about | contact]"
+client: "[domain or project name]"
+page_url: "https://[domain]/[slug]/"
+primary_keyword: "[keyword]"
+meta_title: "[≤60 chars]"
+meta_description: "[150-160 chars]"
+word_count: [number]
+schema_type: "[Organization | Service | LocalBusiness | Person | etc.]"
+date_written: "YYYY-MM-DD"
+status: "[draft | approved | live]"
+---
+
+[Full page copy below, following the appropriate template from 8.2]
+
+Save to: OUTBOX\ (see the kit's file names)
+
+
+================================================================================
+END OF FRAVATA_BLOG_SYSTEM.txt
+================================================================================
+

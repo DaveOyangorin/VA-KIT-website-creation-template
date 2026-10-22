@@ -1,0 +1,10 @@
+/* triplejlandscaping.com theme: "Grounded". Deep moss green with the teal-to-lime leaf gradient of their logo, and warm flagstone neutrals.
+   Cormorant Garamond echoes their script logo, Outfit for text, JetBrains Mono for zone labels. */
+:root {
+  --paper: #f6f4ee; --sand: #ebe6da; --card: #ffffff; --ink: #1b2a22; --ink2: #3f4c44; --mute: #6e7871; --line: #dcd6c8;
+  --dark: #173226; --dark2: #1f4131; --on-dark: #f1f3ec; --on-dark2: #a8bdaf; --foot: #0f241a;
+  --accent: #39ab57; --accent-2: #a6d64a; --accent-ink: #217a3a; --on-accent: #ffffff; --teal: #2bb5a0; --stone: #b9a17f;
+  --f-disp: "Cormorant Garamond", Georgia, serif; --f-body: "Outfit", "Segoe UI", system-ui, sans-serif; --f-mono: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+  --disp-w: 700; --disp-ls: -.015em; --disp-tt: none; --r: 10px; --btn-r: 999px; --hdr: 82px; --logo-h: 30px;
+  color-scheme: light;
+}

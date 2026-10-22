@@ -1,0 +1,11 @@
+/* greenjanitorialservice.com theme: "Spotless & green". Their name taken literally: a deep forest green with a fresh leaf accent on
+   clean white, like a well-kept lobby with plants. Jost (a geometric face close to the Futura in their logo) for display,
+   Instrument Sans for text, DM Mono for hours and labels. */
+:root {
+  --paper: #f6f8f4; --sand: #e8efe6; --card: #ffffff; --ink: #13241b; --ink2: #3b4c42; --mute: #66756c; --line: #d6e0d6;
+  --dark: #123d2c; --dark2: #1a4e39; --on-dark: #f2f7f3; --on-dark2: #a9c4b4; --foot: #0c2a1e;
+  --accent: #8bd14e; --accent-2: #a8e070; --accent-ink: #2f7a2a; --on-accent: #0f2a1d; --mint: #dff1d2;
+  --f-disp: "Jost", "Century Gothic", system-ui, sans-serif; --f-body: "Instrument Sans", "Segoe UI", system-ui, sans-serif; --f-mono: "DM Mono", ui-monospace, Menlo, Consolas, monospace;
+  --disp-w: 600; --disp-ls: -.01em; --disp-tt: none; --r: 18px; --btn-r: 999px; --hdr: 84px; --logo-h: 42px;
+  color-scheme: light;
+}

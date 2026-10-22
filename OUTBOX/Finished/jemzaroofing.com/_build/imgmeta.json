@@ -1,0 +1,457 @@
+{
+"chimney-shroud-01": [
+1400,
+1050,
+237
+],
+"chimney-shroud-02": [
+1400,
+1050,
+254
+],
+"chimney-shroud-03": [
+1400,
+1050,
+167
+],
+"chimney-shroud-04": [
+1024,
+576,
+62
+],
+"chimney-shroud-05": [
+1400,
+1050,
+125
+],
+"chimney-shroud-06": [
+1400,
+1050,
+168
+],
+"chimney-shroud-07": [
+1400,
+1222,
+151
+],
+"chimney-shroud-08": [
+1024,
+768,
+38
+],
+"chimney-shroud-09": [
+1400,
+1404,
+143
+],
+"chimney-shroud-10": [
+472,
+1024,
+28
+],
+"chimney-shroud-11": [
+1024,
+576,
+69
+],
+"chimney-shroud-12": [
+1400,
+1867,
+159
+],
+"chimney-shroud-13": [
+1400,
+862,
+92
+],
+"chimney-shroud-14": [
+1024,
+576,
+138
+],
+"chimney-shroud-15": [
+1024,
+576,
+116
+],
+"chimney-shroud-16": [
+1024,
+576,
+152
+],
+"chimney-shroud-17": [
+1024,
+576,
+124
+],
+"chimney-01": [
+1400,
+1050,
+179
+],
+"chimney-02": [
+1400,
+788,
+124
+],
+"chimney-03": [
+1400,
+788,
+123
+],
+"chimney-04": [
+1400,
+1050,
+167
+],
+"chimney-05": [
+1400,
+1050,
+150
+],
+"chimney-06": [
+1400,
+1050,
+178
+],
+"chimney-07": [
+1400,
+788,
+165
+],
+"chimney-08": [
+1400,
+1050,
+158
+],
+"chimney-09": [
+1400,
+788,
+155
+],
+"chimney-10": [
+1400,
+1050,
+173
+],
+"asphalt-shingle-roof-01": [
+960,
+720,
+140
+],
+"asphalt-shingle-roof-02": [
+960,
+720,
+122
+],
+"asphalt-shingle-roof-03": [
+960,
+720,
+152
+],
+"asphalt-shingle-roof-04": [
+960,
+720,
+139
+],
+"asphalt-shingle-roof-05": [
+960,
+720,
+112
+],
+"asphalt-shingle-roof-06": [
+960,
+720,
+170
+],
+"roof-project-01": [
+960,
+720,
+173
+],
+"roof-project-02": [
+960,
+720,
+174
+],
+"roof-project-03": [
+960,
+720,
+176
+],
+"roof-project-04": [
+960,
+720,
+207
+],
+"roof-project-05": [
+960,
+720,
+164
+],
+"roof-project-06": [
+960,
+720,
+149
+],
+"roof-project-07": [
+960,
+720,
+155
+],
+"roof-project-08": [
+960,
+720,
+93
+],
+"roof-project-09": [
+960,
+720,
+125
+],
+"roof-project-10": [
+960,
+720,
+121
+],
+"roof-project-11": [
+1024,
+576,
+116
+],
+"roof-project-12": [
+1024,
+576,
+131
+],
+"roof-project-13": [
+1024,
+576,
+166
+],
+"roof-project-14": [
+1024,
+576,
+153
+],
+"roof-project-15": [
+1024,
+576,
+182
+],
+"roof-project-16": [
+1024,
+576,
+146
+],
+"roof-project-17": [
+1024,
+768,
+59
+],
+"gutter-soffit-fascia-01": [
+1400,
+1050,
+159
+],
+"gutter-soffit-fascia-02": [
+1400,
+1050,
+108
+],
+"gutter-soffit-fascia-03": [
+1400,
+1050,
+179
+],
+"gutter-soffit-fascia-04": [
+720,
+960,
+64
+],
+"gutter-soffit-fascia-05": [
+960,
+720,
+72
+],
+"gutter-soffit-fascia-06": [
+960,
+720,
+75
+],
+"gutter-soffit-fascia-07": [
+960,
+720,
+36
+],
+"gutter-soffit-fascia-08": [
+400,
+400,
+46
+],
+"gutter-soffit-fascia-09": [
+400,
+400,
+40
+],
+"gutter-soffit-fascia-10": [
+400,
+400,
+34
+],
+"metal-roof-01": [
+2000,
+1500,
+306
+],
+"metal-roof-02": [
+1400,
+1050,
+193
+],
+"metal-roof-03": [
+1400,
+1050,
+182
+],
+"metal-roof-04": [
+1400,
+1050,
+182
+],
+"metal-roof-05": [
+2000,
+1500,
+330
+],
+"metal-roof-06": [
+1400,
+1050,
+179
+],
+"metal-roof-07": [
+2000,
+1500,
+336
+],
+"metal-roof-08": [
+1400,
+788,
+186
+],
+"metal-roof-09": [
+1400,
+1050,
+171
+],
+"new-roof-01": [
+2000,
+1500,
+296
+],
+"new-roof-02": [
+2000,
+1500,
+272
+],
+"new-roof-03": [
+1400,
+788,
+172
+],
+"new-roof-04": [
+1400,
+788,
+175
+],
+"new-roof-05": [
+1400,
+788,
+168
+],
+"ballasted-paver-roof-01": [
+400,
+400,
+41
+],
+"ballasted-paver-roof-02": [
+400,
+400,
+51
+],
+"snow-bars-01": [
+400,
+400,
+45
+],
+"snow-bars-02": [
+400,
+400,
+41
+],
+"metal-wall-panels-01": [
+1400,
+788,
+175
+],
+"metal-wall-panels-02": [
+1400,
+788,
+170
+],
+"metal-wall-panels-03": [
+1400,
+788,
+168
+],
+"metal-wall-panels-04": [
+1400,
+788,
+154
+],
+"metal-wall-panels-05": [
+1400,
+788,
+156
+],
+"metal-wall-panels-06": [
+400,
+400,
+28
+],
+"metal-and-shingle-home-salt-lake": [
+1900,
+955,
+97
+],
+"rooftop-chimney-shroud-deck": [
+1024,
+576,
+62
+],
+"metal-roof-stone-home": [
+1024,
+576,
+115
+],
+"roof-tear-off-crew": [
+1024,
+768,
+133
+],
+"snow-covered-new-roof": [
+848,
+480,
+46
+],
+"shingle-roof-new-build": [
+848,
+480,
+72
+],
+"jemza-roofing-logo": [
+408,
+152,
+7
+]
+}

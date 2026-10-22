@@ -1,0 +1,81 @@
+404.html                                                                   T 30 M 24 W   23
+about-us/index.html                                                        T 58 M151 W  575
+affordable-new-roofs-in-salt-lake-city/index.html                          T 72 M311 W  771
+affordable-roofing-companies-near-by/index.html                            T 70 M159 W  618
+affordable-roofing-repairs-in-salt-lake-city/index.html                    T 78 M195 W  751
+blog/index.html                                                            T 46 M151 W  263
+category/home-improvement-remodeling/index.html                            T 57 M151 W  267
+category/roofing-maintenance/index.html                                    T 49 M151 W  265
+contact-us/index.html                                                      T 44 M148 W  116
+dt_testimonials/benn-hayden-1216-tierney-cir-sandy-ut/index.html           T 51 M154 W  180
+dt_testimonials/carol-eskelson-salt-lake-city-ut/index.html                T 63 M153 W  152
+dt_testimonials/index.html                                                 T 49 M154 W  408
+dt_testimonials/julee-snow-salt-lake-city-ut/index.html                    T 59 M156 W  134
+dt_testimonials/steve-frank-park-city-utah/index.html                      T 54 M154 W  116
+flat-roofs-for-salt-lake-city/index.html                                   T 63 M237 W  700
+free-estimate/index.html                                                   T 47 M154 W  115
+free-roof-inspection-in-salt-lake-city/index.html                          T 72 M341 W  732
+frequently-asked-questions/index.html                                      T 57 M154 W  634
+gallery/index.html                                                         T 53 M152 W   68
+glossary-of-roofing-terms/index.html                                       T 53 M154 W 1985
+how-far-should-shingles-overhang-the-drip-edge/index.html                  T 55 M154 W 1164
+index.html                                                                 T 52 M156 W 1107
+j-n-roofing-difference/index.html                                          T 58 M147 W  711
+low-slope-roofing/index.html                                               T 51 M159 W  461
+privacy-policy/index.html                                                  T 48 M153 W 1871
+re-roof-salt-lake-city/index.html                                          T 56 M125 W  627
+references/index.html                                                      T 53 M140 W  203
+repair-roofs-salt-lake-city/index.html                                     T 30 M 79 W  592
+roof-repair-salt-lake-city/index.html                                      T 60 M 47 W  514
+roof-salt-lake-city/index.html                                             T 53 M 57 W  527
+roofers-in-salt-lake-city/index.html                                       T 59 M105 W  772
+roofing-companies/index.html                                               T 51 M110 W  610
+roofing-company-near-me/index.html                                         T 57 M143 W  635
+roofing-company-salt-lake-city-2/index.html                                T 64 M152 W  606
+roofing-company-salt-lake-city/index.html                                  T 64 M151 W  477
+roofing-materials/index.html                                               T 51 M233 W  738
+roofing-quote/index.html                                                   T 47 M125 W  613
+roofing-salt-lake-city-ut-2/index.html                                     T 59 M155 W  598
+roofing-salt-lake-city-ut/index.html                                       T 60 M 92 W  536
+roofing-salt-lake-city/index.html                                          T 56 M134 W  620
+salt-lake-ciry-roofing-repairs/index.html                                  T 64 M155 W  611
+salt-lake-city-flat-roof/index.html                                        T 58 M155 W  615
+salt-lake-city-handyman-roofing/index.html                                 T 65 M145 W  901
+salt-lake-city-metal-roofs/index.html                                      T 60 M 77 W  525
+salt-lake-city-new-roof/index.html                                         T 57 M136 W  673
+salt-lake-city-re-roofing/index.html                                       T 59 M125 W  649
+salt-lake-city-roofers/index.html                                          T 56 M 45 W  514
+salt-lake-city-roofing-contractors-2/index.html                            T 68 M100 W  781
+salt-lake-city-roofing-contractors/index.html                              T 68 M 79 W  551
+salt-lake-city-roofing-estimate/index.html                                 T 65 M163 W  646
+salt-lake-city-roofing-quote/index.html                                    T 62 M136 W  633
+salt-lake-city-roofing-repairs/index.html                                  T 64 M197 W  777
+salt-lake-city-roofing-services/index.html                                 T 65 M131 W  827
+salt-lake-city-roofing-shingles/index.html                                 T 65 M154 W  635
+salt-lake-city-roofing/index.html                                          T 56 M 77 W  520
+salt-lake-city-shingles/index.html                                         T 57 M 91 W  578
+search-archives-template/index.html                                        T 46 M151 W  263
+service-areas/index.html                                                   T 47 M143 W   87
+services/consulting/index.html                                             T 55 M157 W  962
+services/gutter-cleaning/index.html                                        T 55 M154 W  968
+services/index.html                                                        T 56 M154 W 1191
+services/low-slope-roofing/index.html                                      T 57 M158 W  896
+services/new-construction/index.html                                       T 60 M158 W  962
+services/re-roof-overlay/index.html                                        T 53 M155 W  982
+services/residential-roofing/index.html                                    T 55 M154 W  948
+services/roof-inspections-maintenance/index.html                           T 56 M158 W 1018
+services/roof-replacement/index.html                                       T 56 M154 W  937
+services/roof-tear-off/index.html                                          T 53 M153 W  955
+services/roof-ventilation/index.html                                       T 56 M150 W  953
+services/roofing-repairs/index.html                                        T 51 M158 W  978
+special-offers/index.html                                                  T 56 M154 W  163
+testimonials/index.html                                                    T 46 M154 W  408
+thank-you/index.html                                                       T 43 M155 W   90
+the-benefits-of-shingles/index.html                                        T 58 M265 W  710
+utah-handyman-roofing/index.html                                           T 55 M150 W  616
+utah-roofing-services/index.html                                           T 55 M129 W  659
+utah-roofing-supplies/index.html                                           T 55 M155 W  656
+warranty-support/index.html                                                T 54 M150 W  191
+what-to-know-buying-a-new-roof/index.html                                  T 64 M187 W  759
+pages: 79 | issues: 0
+titles outside 50-60: 31 | metas outside 150-160: 36

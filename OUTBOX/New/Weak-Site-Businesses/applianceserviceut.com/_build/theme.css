@@ -1,0 +1,10 @@
+/* applianceserviceut.com theme: "Service ticket". The blue of the A.S.I. oval logo, white enamel and chrome greys, and the canary yellow of a
+   carbon-copy service ticket. Rubik for display, Source Sans 3 for text, Courier Prime for the ticket's typed fields. */
+:root {
+  --paper: #f3f5f7; --sand: #e6eaee; --card: #ffffff; --ink: #14212c; --ink2: #3b4a57; --mute: #6b7a87; --line: #d6dde4;
+  --dark: #0f3b5e; --dark2: #164b74; --on-dark: #eef4f9; --on-dark2: #a7bfd3; --foot: #0a2a43;
+  --accent: #1b7dc0; --accent-2: #4fa8e6; --accent-ink: #0f5d93; --on-accent: #ffffff; --canary: #f7e48a; --carbon: #2a2a2a;
+  --f-disp: "Rubik", "Segoe UI", system-ui, sans-serif; --f-body: "Source Sans 3", "Segoe UI", system-ui, sans-serif; --f-mono: "Courier Prime", "Courier New", monospace;
+  --disp-w: 700; --disp-ls: -.02em; --disp-tt: none; --r: 8px; --btn-r: 999px; --hdr: 84px; --logo-h: 54px;
+  color-scheme: light;
+}

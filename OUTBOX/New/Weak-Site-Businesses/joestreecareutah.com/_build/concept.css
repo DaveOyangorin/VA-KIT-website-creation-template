@@ -1,0 +1,80 @@
+/* ===== concept: "Heartwood" (22 Oct 2026). Their own stump-grinder photo banner; before/after sod slider; FAQ-based care calendar. ===== */
+.site-header, body.is-home .site-header { background: var(--dark); color: var(--on-dark); border-bottom: 3px solid var(--accent) }
+.site-header .nav a, .site-header .nav summary, .site-header .head-phone { color: var(--on-dark) } .site-header .nav details[open] summary { background: #1d5039 } .nav summary::after { color: var(--accent) }
+.site-header .head-phone svg { color: var(--accent-2) } .site-header .btn, body.is-home .site-header .btn { background: var(--accent); border-color: var(--accent); color: #fff }
+.site-header .menu summary, body.is-home .site-header .menu summary { border-color: #2a5a44 } .site-header .menu summary span, .site-header .menu summary span::before, .site-header .menu summary span::after { background: var(--on-dark) }
+.drop { background: var(--dark2); border-color: #245a40 } .drop a:hover { background: #22593f; color: #fff } .brand img { height: var(--logo-h); width: auto }
+.label { font: 700 .68rem/1.3 var(--f-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--accent-ink) }
+h1, h2 { font-family: var(--f-disp); font-weight: 700 } h1 em, h2 em { font-style: italic; color: var(--leaf) } h3 { font-family: var(--f-disp) }
+.btn { font-family: var(--f-body); font-weight: 700 } .btn.accent { color: #fff } .btn.accent:hover { background: var(--accent-ink); border-color: var(--accent-ink); color: #fff }
+.draft-strip { background: #0a1f15; color: var(--accent-2) }
+.j-head { max-width: 860px; margin-bottom: 40px } .j-head h2 { font-size: clamp(2.3rem, 4.8vw, 4.2rem); line-height: 1.02 }
+.split-h { max-width: none; display: grid; grid-template-columns: minmax(0, 1.3fr) auto; gap: 30px; align-items: end }
+
+/* hero */
+.j-hero { position: relative; overflow: hidden; isolation: isolate; color: #fff; background: var(--dark); min-height: min(800px, calc(100svh - var(--hdr) - 20px)); display: flex; align-items: flex-end }
+.jh-img { position: absolute; inset: -8% 0 0 0; z-index: -2 } .jh-img img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 55% }
+.j-hero::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, rgba(10,32,22,.9) 0%, rgba(10,32,22,.62) 45%, rgba(10,32,22,.1) 85%), linear-gradient(0deg, rgba(10,32,22,.85), transparent 45%) }
+.jh-in { width: 100%; padding-block: clamp(90px, 10vw, 140px) 46px; display: grid; gap: 34px }
+.jh-txt { max-width: 760px } .j-hero h1 { color: #fff; font-size: clamp(2.7rem, 6vw, 5.6rem); line-height: .98; margin-bottom: .35em } .j-hero h1 em { display: block; color: var(--accent-2) }
+.j-hero .lede { color: rgba(255,255,255,.9); max-width: 58ch } .j-hero .label { color: #cfe9d9 } .j-hero .btn.ghost { color: #fff; border-color: rgba(255,255,255,.6) }
+.jh-stats { list-style: none; padding: 18px 0 0; margin: 0; display: flex; flex-wrap: wrap; gap: 14px 40px; border-top: 1px solid rgba(255,255,255,.3); max-width: 760px }
+.jh-stats b { display: block; font: 700 1.8rem/1 var(--f-disp); color: var(--accent-2) } .jh-stats span { font: 400 .68rem var(--f-mono); letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.75) }
+
+/* services */
+.svc6 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px } .sv { display: grid; background: var(--card); border-radius: var(--r); overflow: hidden; text-decoration: none; border: 1px solid var(--line); transition: transform .2s, box-shadow .2s }
+.sv:hover { transform: translateY(-4px); box-shadow: 0 30px 50px -34px rgba(18,61,42,.5); color: var(--ink) } .sv figure { margin: 0; aspect-ratio: 4 / 3; overflow: hidden; background: var(--sand) } .sv img { width: 100%; height: 100%; object-fit: cover }
+.sv > div { display: grid; gap: 6px; padding: 18px 20px 22px } .sv b { font: 700 1.45rem var(--f-disp) } .sv p { margin: 0; color: var(--ink2) } .sv em { font-style: normal; font-weight: 700; color: var(--accent-ink); display: inline-flex; gap: 6px; align-items: center } .sv em svg { width: 1em; height: 1em }
+.sv:nth-child(2) { margin-top: 30px } .sv:nth-child(5) { margin-top: 30px }
+
+/* signature: before/after */
+.j-sig { background: var(--dark); color: var(--on-dark) } .j-sig h2 { color: #fff; font-size: clamp(2.2rem, 4.4vw, 3.8rem) } .j-sig h2 em { color: var(--accent-2) } .j-sig .lede { color: var(--on-dark2) } .j-sig .label { color: var(--accent-2) } .j-sig .tlink { color: #fff }
+.j-sig-in { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: clamp(28px, 5vw, 70px); align-items: center }
+.ba { margin: 0 } .ba-frame { position: relative; aspect-ratio: 4 / 3; overflow: hidden; background: #000; border-radius: var(--r); border: 8px solid #f5f3ec; box-shadow: 0 40px 70px -40px rgba(0,0,0,.7); touch-action: pan-y }
+.ba-frame img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover } .ba-before { position: absolute; inset: 0; clip-path: inset(0 calc(100% - var(--pos)) 0 0) }
+.ba-tag { position: absolute; top: 12px; z-index: 2; font: 700 .66rem var(--f-mono); letter-spacing: .12em; text-transform: uppercase; padding: 6px 10px; border-radius: 4px; background: rgba(10,32,22,.8); color: #fff } .ba-tag.b { left: 12px } .ba-tag.a { right: 12px; background: var(--accent) }
+.ba-range { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: ew-resize; z-index: 3; margin: 0 }
+.ba-handle { position: absolute; top: 0; bottom: 0; left: var(--pos); width: 3px; margin-left: -1.5px; background: #fff; z-index: 2; pointer-events: none }
+.ba-handle i { position: absolute; top: 50%; left: 50%; width: 48px; height: 48px; margin: -24px 0 0 -24px; border-radius: 50%; background: var(--accent); box-shadow: 0 6px 18px rgba(0,0,0,.4) }
+.ba-handle i::before, .ba-handle i::after { content: ""; position: absolute; top: 50%; border: 6px solid transparent; margin-top: -6px } .ba-handle i::before { left: 8px; border-right-color: #fff } .ba-handle i::after { right: 8px; border-left-color: #fff }
+.ba-range:focus-visible ~ .ba-handle i { outline: 3px solid #fff; outline-offset: 3px }
+.ticks { list-style: none; padding: 0 !important; margin: 16px 0 } .ticks li { padding: 9px 0 9px 28px; border-bottom: 1px solid rgba(127,127,127,.25); position: relative; margin: 0 }
+.ticks li::before { content: ""; position: absolute; left: 0; top: 14px; width: 14px; height: 14px; border-radius: 50%; background: radial-gradient(circle, var(--accent) 0 30%, transparent 32% 52%, var(--accent) 54% 64%, transparent 66%) }
+
+/* calendar */
+.j-cal { background: var(--paper) } .cal { background: var(--card); border: 1px solid var(--line); border-radius: var(--r); padding: clamp(16px, 3vw, 30px) }
+.cal-row { display: grid; grid-template-columns: 180px minmax(0, 1fr) minmax(0, .9fr); gap: 18px; align-items: center; padding: 14px 0; border-top: 1px solid var(--line) } .cal-head { border-top: 0; padding-top: 0 }
+.cal-row b { font: 700 1.15rem var(--f-disp) } .cal-row small { color: var(--ink2); font-size: .92rem } .cells { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 4px }
+.cal-head .cells span { font: 700 .7rem var(--f-mono); text-align: center; color: var(--mute) } .c { height: 26px; border-radius: 4px; background: var(--sand) }
+.r-oil .c.on { background: var(--accent) } .r-fert .c.on { background: var(--leaf) } .c.on.half { opacity: .55 }
+
+/* band, crew */
+.j-band { position: relative; overflow: hidden; color: #fff; padding: clamp(110px, 14vw, 200px) 0; isolation: isolate }
+.band-img { position: absolute; inset: -18% 0; z-index: -2 } .band-img img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30% } .j-band::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, rgba(10,32,22,.86), rgba(10,32,22,.2)) }
+.j-band blockquote { margin: 0; max-width: 40ch } .j-band blockquote p:not(.label) { font: 600 italic clamp(1.6rem, 2.8vw, 2.5rem)/1.2 var(--f-disp); margin: 0 } .j-band .label { color: var(--accent-2) }
+.j-crew-in { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: clamp(28px, 5vw, 70px); align-items: center } .j-crew figure { margin: 0 } .j-crew figure img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: var(--r) }
+.j-crew h2 { font-size: clamp(2rem, 3.8vw, 3.2rem) } .minis { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 18px } .minis img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: var(--r) }
+.j-post { margin-top: 22px; background: var(--dark); color: var(--on-dark); border: 0; padding: 24px !important; gap: 10px } .j-post > :not(img) { padding: 0 !important } .j-post b { font: 700 1.3rem var(--f-disp) } .j-post p { color: var(--on-dark2); margin: 0 } .j-post em, .j-post .label { color: var(--accent-2) } .j-post:hover { color: var(--on-dark) }
+
+/* inner */
+.phero-full::after { background: linear-gradient(90deg, rgba(10,32,22,.9) 0%, rgba(10,32,22,.6) 55%, rgba(10,32,22,.2) 100%) } .phero-full .label { color: #cfe9d9 } .phero-full .label::before { background: var(--accent) }
+.phero-full.no-photo { background: radial-gradient(ellipse at 85% 20%, #2a6a4c, var(--dark) 60%) }
+.answer { border-left-color: var(--accent) } .side-card { background: var(--dark) } .side-card .label { color: var(--accent-2) } .side-card .btn { background: var(--accent); border-color: var(--accent); color: #fff }
+.prose .ba { margin: 14px 0 24px } .prose .ticks li { border-bottom-color: var(--line) }
+.cats { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin: 12px 0 24px } .cat { display: grid; gap: 6px; padding: 20px; background: var(--card); border: 1px solid var(--line); border-top: 5px solid var(--leaf); border-radius: var(--r); text-decoration: none }
+.cat b { font: 700 1.3rem var(--f-disp) } .cat span { color: var(--ink2); font-size: .92rem } .cat em { font-style: normal; font-weight: 700; color: var(--accent-ink); display: inline-flex; gap: 6px; align-items: center } .cat em svg { width: 1em; height: 1em }
+.pgal img { border-radius: var(--r) }
+.cta { background: radial-gradient(ellipse at 85% 20%, #2a6a4c, var(--dark) 60%) } .cta .label { color: var(--accent-2) } .cta h2 em { color: var(--accent-2) } .cta .btn.accent { color: #fff } .office small { color: var(--accent-2) }
+.site-footer { border-top: 4px solid var(--accent) } .flogo img { width: 180px; height: auto } .fareas b, .foot a:hover { color: var(--accent-2) }
+.callbar a:last-child { background: var(--accent); color: #fff; border-color: var(--accent) }
+
+@media (prefers-reduced-motion: reduce) { .sv { transition: none } }
+@media (max-width: 1000px) { .j-sig-in, .j-crew-in, .split-h { grid-template-columns: minmax(0, 1fr) } .svc6 { grid-template-columns: repeat(2, minmax(0, 1fr)) } .sv:nth-child(n) { margin-top: 0 } .cal-row { grid-template-columns: minmax(0, 1fr) } .cal-head b, .cal-head small { display: none } }
+@media (max-width: 640px) {
+  .j-hero { min-height: 0 } .jh-in { padding-block: 110px 30px } .j-hero h1 { font-size: clamp(2.4rem, 11vw, 3.4rem) } .j-hero::after { background: linear-gradient(0deg, rgba(10,32,22,.96) 0%, rgba(10,32,22,.75) 60%, rgba(10,32,22,.45) 100%) }
+  .svc6 { grid-template-columns: minmax(0, 1fr) } .ba-frame { border-width: 5px }
+}
+
+/* keep the dark header when scrolled or with the menu open (premium.css switches it to paper) */
+.site-header.scrolled, body.is-home .site-header.scrolled, body.is-home.menu-open .site-header, html.menu-open body.is-home .site-header, html.menu-open .site-header { background: var(--dark); color: var(--on-dark) }
+.site-header.scrolled .nav a, .site-header.scrolled .nav summary, .site-header.scrolled .head-phone { color: var(--on-dark) }

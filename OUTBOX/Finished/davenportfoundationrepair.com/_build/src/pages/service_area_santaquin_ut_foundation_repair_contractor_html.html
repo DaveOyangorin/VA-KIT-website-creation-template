@@ -1,0 +1,2130 @@
+<html><body><main>
+
+            <p></p>
+
+            <p>
+                <div class="widget widget_citypage_map">
+                <div class="widget_title">
+                    Happy Customers Surrounding Santaquin, UT
+                </div>
+                    <div class="widget_content">
+                                    <script src="https://cdn.treehouseinternetgroup.com/core/js/leaflet/leaflet.js"></script>
+            <script src="https://cdn.treehouseinternetgroup.com/core/js/leaflet/mapbox-gl.js"></script>
+            <script src="https://cdn.treehouseinternetgroup.com/core/js/leaflet/leaflet-mapbox-gl.js"></script>
+            <link rel="stylesheet" href="https://cdn.treehouseinternetgroup.com/core/js/leaflet/leaflet.css"/>
+            <link rel="stylesheet" href="https://cdn.treehouseinternetgroup.com/core/js/leaflet/mapbox-gl.css"/>
+            <script type="text/javascript">
+            if (document.readyState != 'loading'){
+                initialize();
+            } else {
+                document.addEventListener('DOMContentLoaded', initialize);
+            }
+            function initialize() {
+                var cityPageMap = L.map('map_canvas', {
+                    maxZoom: 13,
+                    zoomControl: false
+                }).setView([40.103773, -111.6943225], 13).setZoom(10);
+                var gl = L.mapboxGL({
+                    attribution: '&copy;&nbsp;<a href="https://openmaptiles.org/">OpenMapTiles</a>&nbsp;&copy;&nbsp;<a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>',
+                    accessToken: 'not-needed',
+                    style: 'https://dmlr3b1l99c8h.cloudfront.net/style.js'
+                }).addTo(cityPageMap);
+                L.control.zoom({position: 'bottomright'}).addTo(cityPageMap);
+                
+                
+                var image = L.icon({
+                    iconUrl: 'https://cdn.treehouseinternetgroup.com/cms_images/icons/citypage-map-testimonial.svg'
+                });
+                var video_image = L.icon({
+                    iconUrl: 'https://cdn.treehouseinternetgroup.com/cms_images/icons/citypage-map-video.svg'
+                });
+                var review_image = L.icon({
+                    iconUrl: 'https://cdn.treehouseinternetgroup.com/cms_images/icons/citypage-map-review.svg'
+                });
+                var lead_image = L.icon({
+                    iconUrl: 'https://cdn.treehouseinternetgroup.com/cms_images/icons/citypage-map-lead.svg'
+                });
+
+                                    var infowindow_1 = L.marker([40.017887, -111.648186], {icon: image}).addTo(cityPageMap);
+
+                    infowindow_1.bindPopup('                <div class=\"geo-testimonial\">                    <div class=\"heading\">Woodland Hills Customer Testimonial</div><br/>                    <strong>Judy W.</strong> <em><small>Woodland Hills, UT</small></em><br/>                    <div class=\"comment\">I highly recommend Davenport Foundation Repair.</div>                                    </div>');
+                                    var infowindow_2 = L.marker([40.093030, -111.640524], {icon: image}).addTo(cityPageMap);
+
+                    infowindow_2.bindPopup('                <div class=\"geo-testimonial\">                    <div class=\"heading\">Spanish Fork Customer Testimonial</div><br/>                    <strong>Jeffrey J.</strong> <em><small></small></em><br/>                    <div class=\"comment\">Excellent. Everything from bid to procedure went great.</div>                                    </div>');
+                                    var infowindow_3 = L.marker([39.982785, -111.790319], {icon: image}).addTo(cityPageMap);
+
+                    infowindow_3.bindPopup('                <div class=\"geo-testimonial\">                    <div class=\"heading\">Santaquin Customer Testimonial</div><br/>                    <strong>Adam C.</strong> <em><small></small></em><br/>                    <div class=\"comment\">The PolyLevel team was awesome!</div>                                    </div>');
+                                    var infowindow_4 = L.marker([40.156650, -111.602306], {icon: image}).addTo(cityPageMap);
+
+                    infowindow_4.bindPopup('                <div class=\"geo-testimonial\">                    <div class=\"heading\">Springville Customer Testimonial</div><br/>                    <strong>Kerri R.</strong> <em><small></small></em><br/>                    <div class=\"comment\">&nbsp;Thank you so much for your honesty and professionalism.</div>                                    </div>');
+                                    var infowindow_5 = L.marker([40.159708, -111.578568], {icon: image}).addTo(cityPageMap);
+
+                    infowindow_5.bindPopup('                <div class=\"geo-testimonial\">                    <div class=\"heading\">Springville Customer Testimonial</div><br/>                    <strong>Craig A.</strong> <em><small></small></em><br/>                    <div class=\"comment\">I don\'t write reviews very often and I rarely give 5 stars for any review, but the Davenport Team led by Nate and Kevin deserve a 5 star rating and a RAISE!</div>                                    </div>');
+                                    var infowindow_6 = L.marker([40.165234, -111.610753], {icon: image}).addTo(cityPageMap);
+
+                    infowindow_6.bindPopup('                <div class=\"geo-testimonial\">                    <div class=\"heading\">Sprinville Customer Testimonial</div><br/>                    <strong>Riley H.</strong> <em><small>Sprinville, UT</small></em><br/>                    <div class=\"comment\">I\'m very impressed with how they handled everything! Dave and his guys went above and beyond!</div>                                    </div>');
+                                    var infowindow_7 = L.marker([40.212856, -111.725694], {icon: image}).addTo(cityPageMap);
+
+                    infowindow_7.bindPopup('                <div class=\"geo-testimonial\">                    <div class=\"heading\">Provo Customer Testimonial</div><br/>                    <strong>Marco A.</strong> <em><small>Provo, UT</small></em><br/>                    <div class=\"comment\">Just wanted to thank you guys. Orlando and Jorge were great, very courteous, and professional.&nbsp; We have been dealing with contractors since October and Saber was the best by far.</div>                                    </div>');
+                                    var infowindow_8 = L.marker([40.063774, -111.679458], {icon: image}).addTo(cityPageMap);
+
+                    infowindow_8.bindPopup('                <div class=\"geo-testimonial\">                    <div class=\"heading\">Provo Customer Testimonial</div><br/>                    <strong>Jan C.</strong> <em><small>Provo, UT</small></em><br/>                    <div class=\"comment\">Getting your home assessed couldn\'t be easier.</div>                                    </div>');
+                                                    var infowindow_9 = L.marker([40.036019, -111.683534], {icon: review_image}).addTo(cityPageMap);
+
+                    infowindow_9.bindPopup('                <div class=\'geo-review\' itemprop=\"review\" itemscope itemtype=\"https://schema.org/Review\">                    <div class=\'heading\'>Salem Customer Review</div><br/>                    <div itemprop=\"reviewRating\" itemscope itemtype=\"https://schema.org/Rating\">                        <meta itemprop=\"ratingValue\" content=\"5.0\">                    </div>                                <span itemprop=\"itemReviewed\" itemscope itemtype=\"https://schema.org/LocalBusiness\">                <meta itemprop=\"name\" content=\"Davenport Foundation Repair\">                <span itemprop=\"image\" itemscope itemtype=\"http://schema.org/ImageObject\">                    <meta itemprop=\"url\" content=\"https://cdn.treehouseinternetgroup.com/img/logos/sites/og/821.png\">                </span>                <meta itemprop=\"telephone\" content=\"1-801-429-9989\">                <span itemprop=\'address\' itemscope itemtype=\'http://schema.org/PostalAddress\'>                    <meta itemprop=\"streetAddress\" content=\"9427 S 6400 W\">                    <meta itemprop=\"addressLocality\" content=\"West Jordan\">                    <meta itemprop=\"addressRegion\" content=\"UT\">                    <meta itemprop=\"postalCode\" content=\"84081\">                    <meta itemprop=\"addressCountry\" content=\"US\">                </span>            </span>                            <img alt=\"5.00 out of 5 stars\" src=\"https://cdn.treehouseinternetgroup.com/cms_images/icons/reviews-icon-50.svg\" />5.0/5<br/>                    <b itemprop=\"author\" >Connie V.</b> <i><small></small></i><br/>                    <div class=\'comments\' itemprop=\"reviewBody\" ></div><br/>                    <br/>                </div>');
+                                    var infowindow_10 = L.marker([40.054008, -111.663022], {icon: review_image}).addTo(cityPageMap);
+
+                    infowindow_10.bindPopup('                <div class=\'geo-review\' itemprop=\"review\" itemscope itemtype=\"https://schema.org/Review\">                    <div class=\'heading\'>Salem Customer Review</div><br/>                    <div itemprop=\"reviewRating\" itemscope itemtype=\"https://schema.org/Rating\">                        <meta itemprop=\"ratingValue\" content=\"4.8\">                    </div>                                <span itemprop=\"itemReviewed\" itemscope itemtype=\"https://schema.org/LocalBusiness\">                <meta itemprop=\"name\" content=\"Davenport Foundation Repair\">                <span itemprop=\"image\" itemscope itemtype=\"http://schema.org/ImageObject\">                    <meta itemprop=\"url\" content=\"https://cdn.treehouseinternetgroup.com/img/logos/sites/og/821.png\">                </span>                <meta itemprop=\"telephone\" content=\"1-801-429-9989\">                <span itemprop=\'address\' itemscope itemtype=\'http://schema.org/PostalAddress\'>                    <meta itemprop=\"streetAddress\" content=\"9427 S 6400 W\">                    <meta itemprop=\"addressLocality\" content=\"West Jordan\">                    <meta itemprop=\"addressRegion\" content=\"UT\">                    <meta itemprop=\"postalCode\" content=\"84081\">                    <meta itemprop=\"addressCountry\" content=\"US\">                </span>            </span>                            <img alt=\"4.80 out of 5 stars\" src=\"https://cdn.treehouseinternetgroup.com/cms_images/icons/reviews-icon-45.svg\" />4.8/5<br/>                    <b itemprop=\"author\" >Joann B.</b> <i><small></small></i><br/>                    <div class=\'comments\' itemprop=\"reviewBody\" ></div><br/>                    <br/>                </div>');
+                                    var infowindow_11 = L.marker([39.977223, -111.786055], {icon: review_image}).addTo(cityPageMap);
+
+                    infowindow_11.bindPopup('                <div class=\'geo-review\' itemprop=\"review\" itemscope itemtype=\"https://schema.org/Review\">                    <div class=\'heading\'>Santaquin Customer Review</div><br/>                    <div itemprop=\"reviewRating\" itemscope itemtype=\"https://schema.org/Rating\">                        <meta itemprop=\"ratingValue\" content=\"4.8\">                    </div>                                <span itemprop=\"itemReviewed\" itemscope itemtype=\"https://schema.org/LocalBusiness\">                <meta itemprop=\"name\" content=\"Davenport Foundation Repair\">                <span itemprop=\"image\" itemscope itemtype=\"http://schema.org/ImageObject\">                    <meta itemprop=\"url\" content=\"https://cdn.treehouseinternetgroup.com/img/logos/sites/og/821.png\">                </span>                <meta itemprop=\"telephone\" content=\"1-801-429-9989\">                <span itemprop=\'address\' itemscope itemtype=\'http://schema.org/PostalAddress\'>                    <meta itemprop=\"streetAddress\" content=\"9427 S 6400 W\">                    <meta itemprop=\"addressLocality\" content=\"West Jordan\">                    <meta itemprop=\"addressRegion\" content=\"UT\">                    <meta itemprop=\"postalCode\" content=\"84081\">                    <meta itemprop=\"addressCountry\" content=\"US\">                </span>            </span>                            <img alt=\"4.80 out of 5 stars\" src=\"https://cdn.treehouseinternetgroup.com/cms_images/icons/reviews-icon-45.svg\" />4.8/5<br/>                    <b itemprop=\"author\" >Carlotte O.</b> <i><small></small></i><br/>                    <div class=\'comments\' itemprop=\"reviewBody\" ></div><br/>                    <br/>                </div>');
+                                    var infowindow_12 = L.marker([40.095779, -111.624501], {icon: review_image}).addTo(cityPageMap);
+
+                    infowindow_12.bindPopup('                <div class=\'geo-review\' itemprop=\"review\" itemscope itemtype=\"https://schema.org/Review\">                    <div class=\'heading\'>Spanish Fork Customer Review</div><br/>                    <div itemprop=\"reviewRating\" itemscope itemtype=\"https://schema.org/Rating\">                        <meta itemprop=\"ratingValue\" content=\"5.0\">                    </div>                                <span itemprop=\"itemReviewed\" itemscope itemtype=\"https://schema.org/LocalBusiness\">                <meta itemprop=\"name\" content=\"Davenport Foundation Repair\">                <span itemprop=\"image\" itemscope itemtype=\"http://schema.org/ImageObject\">                    <meta itemprop=\"url\" content=\"https://cdn.treehouseinternetgroup.com/img/logos/sites/og/821.png\">                </span>                <meta itemprop=\"telephone\" content=\"1-801-429-9989\">                <span itemprop=\'address\' itemscope itemtype=\'http://schema.org/PostalAddress\'>                    <meta itemprop=\"streetAddress\" content=\"9427 S 6400 W\">                    <meta itemprop=\"addressLocality\" content=\"West Jordan\">                    <meta itemprop=\"addressRegion\" content=\"UT\">                    <meta itemprop=\"postalCode\" content=\"84081\">                    <meta itemprop=\"addressCountry\" content=\"US\">                </span>            </span>                            <img alt=\"5.00 out of 5 stars\" src=\"https://cdn.treehouseinternetgroup.com/cms_images/icons/reviews-icon-50.svg\" />5.0/5<br/>                    <b itemprop=\"author\" >Lindsey F.</b> <i><small></small></i><br/>                    <div class=\'comments\' itemprop=\"reviewBody\" ></div><br/>                    <br/>                </div>');
+                                    var infowindow_13 = L.marker([40.096370, -111.625386], {icon: review_image}).addTo(cityPageMap);
+
+                    infowindow_13.bindPopup('                <div class=\'geo-review\' itemprop=\"review\" itemscope itemtype=\"https://schema.org/Review\">                    <div class=\'heading\'>Spanish Fork Customer Review</div><br/>                    <div itemprop=\"reviewRating\" itemscope itemtype=\"https://schema.org/Rating\">                        <meta itemprop=\"ratingValue\" content=\"5.0\">                    </div>                                <span itemprop=\"itemReviewed\" itemscope itemtype=\"https://schema.org/LocalBusiness\">                <meta itemprop=\"name\" content=\"Davenport Foundation Repair\">                <span itemprop=\"image\" itemscope itemtype=\"http://schema.org/ImageObject\">                    <meta itemprop=\"url\" content=\"https://cdn.treehouseinternetgroup.com/img/logos/sites/og/821.png\">                </span>                <meta itemprop=\"telephone\" content=\"1-801-429-9989\">                <span itemprop=\'address\' itemscope itemtype=\'http://schema.org/PostalAddress\'>                    <meta itemprop=\"streetAddress\" content=\"9427 S 6400 W\">                    <meta itemprop=\"addressLocality\" content=\"West Jordan\">                    <meta itemprop=\"addressRegion\" content=\"UT\">                    <meta itemprop=\"postalCode\" content=\"84081\">                    <meta itemprop=\"addressCountry\" content=\"US\">                </span>            </span>                            <img alt=\"5.00 out of 5 stars\" src=\"https://cdn.treehouseinternetgroup.com/cms_images/icons/reviews-icon-50.svg\" />5.0/5<br/>                    <b itemprop=\"author\" >Patrick A.</b> <i><small></small></i><br/>                    <div class=\'comments\' itemprop=\"reviewBody\" ></div><br/>                    <br/>                </div>');
+                                    var infowindow_14 = L.marker([40.129710, -111.627918], {icon: review_image}).addTo(cityPageMap);
+
+                    infowindow_14.bindPopup('                <div class=\'geo-review\' itemprop=\"review\" itemscope itemtype=\"https://schema.org/Review\">                    <div class=\'heading\'>Spanish Fork Customer Review</div><br/>                    <div itemprop=\"reviewRating\" itemscope itemtype=\"https://schema.org/Rating\">                        <meta itemprop=\"ratingValue\" content=\"5.0\">                    </div>                                <span itemprop=\"itemReviewed\" itemscope itemtype=\"https://schema.org/LocalBusiness\">                <meta itemprop=\"name\" content=\"Davenport Foundation Repair\">                <span itemprop=\"image\" itemscope itemtype=\"http://schema.org/ImageObject\">                    <meta itemprop=\"url\" content=\"https://cdn.treehouseinternetgroup.com/img/logos/sites/og/821.png\">                </span>                <meta itemprop=\"telephone\" content=\"1-801-429-9989\">                <span itemprop=\'address\' itemscope itemtype=\'http://schema.org/PostalAddress\'>                    <meta itemprop=\"streetAddress\" content=\"9427 S 6400 W\">                    <meta itemprop=\"addressLocality\" content=\"West Jordan\">                    <meta itemprop=\"addressRegion\" content=\"UT\">                    <meta itemprop=\"postalCode\" content=\"84081\">                    <meta itemprop=\"addressCountry\" content=\"US\">                </span>            </span>                            <img alt=\"5.00 out of 5 stars\" src=\"https://cdn.treehouseinternetgroup.com/cms_images/icons/reviews-icon-50.svg\" />5.0/5<br/>                    <b itemprop=\"author\" >Kaylin</b> <i><small></small></i><br/>                    <div class=\'comments\' itemprop=\"reviewBody\" ></div><br/>                    <br/>                </div>');
+                                    var infowindow_15 = L.marker([40.141623, -111.567349], {icon: review_image}).addTo(cityPageMap);
+
+                    infowindow_15.bindPopup('                <div class=\'geo-review\' itemprop=\"review\" itemscope itemtype=\"https://schema.org/Review\">                    <div class=\'heading\'>Mapleton Customer Review</div><br/>                    <div itemprop=\"reviewRating\" itemscope itemtype=\"https://schema.org/Rating\">                        <meta itemprop=\"ratingValue\" content=\"5.0\">                    </div>                                <span itemprop=\"itemReviewed\" itemscope itemtype=\"https://schema.org/LocalBusiness\">                <meta itemprop=\"name\" content=\"Davenport Foundation Repair\">                <span itemprop=\"image\" itemscope itemtype=\"http://schema.org/ImageObject\">                    <meta itemprop=\"url\" content=\"https://cdn.treehouseinternetgroup.com/img/logos/sites/og/821.png\">                </span>                <meta itemprop=\"telephone\" content=\"1-801-429-9989\">                <span itemprop=\'address\' itemscope itemtype=\'http://schema.org/PostalAddress\'>                    <meta itemprop=\"streetAddress\" content=\"9427 S 6400 W\">                    <meta itemprop=\"addressLocality\" content=\"West Jordan\">                    <meta itemprop=\"addressRegion\" content=\"UT\">                    <meta itemprop=\"postalCode\" content=\"84081\">                    <meta itemprop=\"addressCountry\" content=\"US\">                </span>            </span>                            <img alt=\"5.00 out of 5 stars\" src=\"https://cdn.treehouseinternetgroup.com/cms_images/icons/reviews-icon-50.svg\" />5.0/5<br/>                    <b itemprop=\"author\" >Mr. & Mrs. Dungan</b> <i><small></small></i><br/>                    <div class=\'comments\' itemprop=\"reviewBody\" ></div><br/>                    <br/>                </div>');
+                                    var infowindow_16 = L.marker([40.153632, -111.585617], {icon: review_image}).addTo(cityPageMap);
+
+                    infowindow_16.bindPopup('                <div class=\'geo-review\' itemprop=\"review\" itemscope itemtype=\"https://schema.org/Review\">                    <div class=\'heading\'>Springville Customer Review</div><br/>                    <div itemprop=\"reviewRating\" itemscope itemtype=\"https://schema.org/Rating\">                        <meta itemprop=\"ratingValue\" content=\"4.4\">                    </div>                                <span itemprop=\"itemReviewed\" itemscope itemtype=\"https://schema.org/LocalBusiness\">                <meta itemprop=\"name\" content=\"Davenport Foundation Repair\">                <span itemprop=\"image\" itemscope itemtype=\"http://schema.org/ImageObject\">                    <meta itemprop=\"url\" content=\"https://cdn.treehouseinternetgroup.com/img/logos/sites/og/821.png\">                </span>                <meta itemprop=\"telephone\" content=\"1-801-429-9989\">                <span itemprop=\'address\' itemscope itemtype=\'http://schema.org/PostalAddress\'>                    <meta itemprop=\"streetAddress\" content=\"9427 S 6400 W\">                    <meta itemprop=\"addressLocality\" content=\"West Jordan\">                    <meta itemprop=\"addressRegion\" content=\"UT\">                    <meta itemprop=\"postalCode\" content=\"84081\">                    <meta itemprop=\"addressCountry\" content=\"US\">                </span>            </span>                            <img alt=\"4.40 out of 5 stars\" src=\"https://cdn.treehouseinternetgroup.com/cms_images/icons/reviews-icon-40.svg\" />4.4/5<br/>                    <b itemprop=\"author\" >Paula L.</b> <i><small></small></i><br/>                    <div class=\'comments\' itemprop=\"reviewBody\" ></div><br/>                    <br/>                </div>');
+                                    var infowindow_17 = L.marker([40.221888, -111.637495], {icon: review_image}).addTo(cityPageMap);
+
+                    infowindow_17.bindPopup('                <div class=\'geo-review\' itemprop=\"review\" itemscope itemtype=\"https://schema.org/Review\">                    <div class=\'heading\'>Provo Customer Review</div><br/>                    <div itemprop=\"reviewRating\" itemscope itemtype=\"https://schema.org/Rating\">                        <meta itemprop=\"ratingValue\" content=\"5.0\">                    </div>                                <span itemprop=\"itemReviewed\" itemscope itemtype=\"https://schema.org/LocalBusiness\">                <meta itemprop=\"name\" content=\"Davenport Foundation Repair\">                <span itemprop=\"image\" itemscope itemtype=\"http://schema.org/ImageObject\">                    <meta itemprop=\"url\" content=\"https://cdn.treehouseinternetgroup.com/img/logos/sites/og/821.png\">                </span>                <meta itemprop=\"telephone\" content=\"1-801-429-9989\">                <span itemprop=\'address\' itemscope itemtype=\'http://schema.org/PostalAddress\'>                    <meta itemprop=\"streetAddress\" content=\"9427 S 6400 W\">                    <meta itemprop=\"addressLocality\" content=\"West Jordan\">                    <meta itemprop=\"addressRegion\" content=\"UT\">                    <meta itemprop=\"postalCode\" content=\"84081\">                    <meta itemprop=\"addressCountry\" content=\"US\">                </span>            </span>                            <img alt=\"5.00 out of 5 stars\" src=\"https://cdn.treehouseinternetgroup.com/cms_images/icons/reviews-icon-50.svg\" />5.0/5<br/>                    <b itemprop=\"author\" >William B.</b> <i><small></small></i><br/>                    <div class=\'comments\' itemprop=\"reviewBody\" ></div><br/>                    <br/>                </div>');
+                                    var infowindow_18 = L.marker([40.233844, -111.658534], {icon: review_image}).addTo(cityPageMap);
+
+                    infowindow_18.bindPopup('                <div class=\'geo-review\' itemprop=\"review\" itemscope itemtype=\"https://schema.org/Review\">                    <div class=\'heading\'>Provo, Utah, 84604 Customer Review</div><br/>                    <div itemprop=\"reviewRating\" itemscope itemtype=\"https://schema.org/Rating\">                        <meta itemprop=\"ratingValue\" content=\"4.8\">                    </div>                                <span itemprop=\"itemReviewed\" itemscope itemtype=\"https://schema.org/LocalBusiness\">                <meta itemprop=\"name\" content=\"Davenport Foundation Repair\">                <span itemprop=\"image\" itemscope itemtype=\"http://schema.org/ImageObject\">                    <meta itemprop=\"url\" content=\"https://cdn.treehouseinternetgroup.com/img/logos/sites/og/821.png\">                </span>                <meta itemprop=\"telephone\" content=\"1-801-429-9989\">                <span itemprop=\'address\' itemscope itemtype=\'http://schema.org/PostalAddress\'>                    <meta itemprop=\"streetAddress\" content=\"9427 S 6400 W\">                    <meta itemprop=\"addressLocality\" content=\"West Jordan\">                    <meta itemprop=\"addressRegion\" content=\"UT\">                    <meta itemprop=\"postalCode\" content=\"84081\">                    <meta itemprop=\"addressCountry\" content=\"US\">                </span>            </span>                            <img alt=\"4.80 out of 5 stars\" src=\"https://cdn.treehouseinternetgroup.com/cms_images/icons/reviews-icon-45.svg\" />4.8/5<br/>                    <b itemprop=\"author\" >Randy E.</b> <i><small>Provo, Utah, 84604, UT</small></i><br/>                    <div class=\'comments\' itemprop=\"reviewBody\" >Very impressed with the work that was completed. Of course we haven\'t had a heavy rain yet but I\'m confident the room is now waterproof.</div><br/>                    <br/>                </div>');
+                                    var infowindow_19 = L.marker([40.077522, -111.696127], {icon: review_image}).addTo(cityPageMap);
+
+                    infowindow_19.bindPopup('                <div class=\'geo-review\' itemprop=\"review\" itemscope itemtype=\"https://schema.org/Review\">                    <div class=\'heading\'>Provo Customer Review</div><br/>                    <div itemprop=\"reviewRating\" itemscope itemtype=\"https://schema.org/Rating\">                        <meta itemprop=\"ratingValue\" content=\"5.0\">                    </div>                                <span itemprop=\"itemReviewed\" itemscope itemtype=\"https://schema.org/LocalBusiness\">                <meta itemprop=\"name\" content=\"Davenport Foundation Repair\">                <span itemprop=\"image\" itemscope itemtype=\"http://schema.org/ImageObject\">                    <meta itemprop=\"url\" content=\"https://cdn.treehouseinternetgroup.com/img/logos/sites/og/821.png\">                </span>                <meta itemprop=\"telephone\" content=\"1-801-429-9989\">                <span itemprop=\'address\' itemscope itemtype=\'http://schema.org/PostalAddress\'>                    <meta itemprop=\"streetAddress\" content=\"9427 S 6400 W\">                    <meta itemprop=\"addressLocality\" content=\"West Jordan\">                    <meta itemprop=\"addressRegion\" content=\"UT\">                    <meta itemprop=\"postalCode\" content=\"84081\">                    <meta itemprop=\"addressCountry\" content=\"US\">                </span>            </span>                            <img alt=\"5.00 out of 5 stars\" src=\"https://cdn.treehouseinternetgroup.com/cms_images/icons/reviews-icon-50.svg\" />5.0/5<br/>                    <b itemprop=\"author\" >Deann G.</b> <i><small>Provo, UT</small></i><br/>                    <div class=\'comments\' itemprop=\"reviewBody\" ></div><br/>                    <br/>                </div>');
+                                    var infowindow_20 = L.marker([40.083287, -111.664048], {icon: review_image}).addTo(cityPageMap);
+
+                    infowindow_20.bindPopup('                <div class=\'geo-review\' itemprop=\"review\" itemscope itemtype=\"https://schema.org/Review\">                    <div class=\'heading\'>Provo Customer Review</div><br/>                    <div itemprop=\"reviewRating\" itemscope itemtype=\"https://schema.org/Rating\">                        <meta itemprop=\"ratingValue\" content=\"5.0\">                    </div>                                <span itemprop=\"itemReviewed\" itemscope itemtype=\"https://schema.org/LocalBusiness\">                <meta itemprop=\"name\" content=\"Davenport Foundation Repair\">                <span itemprop=\"image\" itemscope itemtype=\"http://schema.org/ImageObject\">                    <meta itemprop=\"url\" content=\"https://cdn.treehouseinternetgroup.com/img/logos/sites/og/821.png\">                </span>                <meta itemprop=\"telephone\" content=\"1-801-429-9989\">                <span itemprop=\'address\' itemscope itemtype=\'http://schema.org/PostalAddress\'>                    <meta itemprop=\"streetAddress\" content=\"9427 S 6400 W\">                    <meta itemprop=\"addressLocality\" content=\"West Jordan\">                    <meta itemprop=\"addressRegion\" content=\"UT\">                    <meta itemprop=\"postalCode\" content=\"84081\">                    <meta itemprop=\"addressCountry\" content=\"US\">                </span>            </span>                            <img alt=\"5.00 out of 5 stars\" src=\"https://cdn.treehouseinternetgroup.com/cms_images/icons/reviews-icon-50.svg\" />5.0/5<br/>                    <b itemprop=\"author\" >Brad E.</b> <i><small>Provo, UT</small></i><br/>                    <div class=\'comments\' itemprop=\"reviewBody\" ></div><br/>                    <br/>                </div>');
+                                    var infowindow_21 = L.marker([40.235241, -111.648704], {icon: review_image}).addTo(cityPageMap);
+
+                    infowindow_21.bindPopup('                <div class=\'geo-review\' itemprop=\"review\" itemscope itemtype=\"https://schema.org/Review\">                    <div class=\'heading\'>Provo Customer Review</div><br/>                    <div itemprop=\"reviewRating\" itemscope itemtype=\"https://schema.org/Rating\">                        <meta itemprop=\"ratingValue\" content=\"4.2\">                    </div>                                <span itemprop=\"itemReviewed\" itemscope itemtype=\"https://schema.org/LocalBusiness\">                <meta itemprop=\"name\" content=\"Davenport Foundation Repair\">                <span itemprop=\"image\" itemscope itemtype=\"http://schema.org/ImageObject\">                    <meta itemprop=\"url\" content=\"https://cdn.treehouseinternetgroup.com/img/logos/sites/og/821.png\">                </span>                <meta itemprop=\"telephone\" content=\"1-801-429-9989\">                <span itemprop=\'address\' itemscope itemtype=\'http://schema.org/PostalAddress\'>                    <meta itemprop=\"streetAddress\" content=\"9427 S 6400 W\">                    <meta itemprop=\"addressLocality\" content=\"West Jordan\">                    <meta itemprop=\"addressRegion\" content=\"UT\">                    <meta itemprop=\"postalCode\" content=\"84081\">                    <meta itemprop=\"addressCountry\" content=\"US\">                </span>            </span>                            <img alt=\"4.20 out of 5 stars\" src=\"https://cdn.treehouseinternetgroup.com/cms_images/icons/reviews-icon-40.svg\" />4.2/5<br/>                    <b itemprop=\"author\" >Tyler M.</b> <i><small></small></i><br/>                    <div class=\'comments\' itemprop=\"reviewBody\" ></div><br/>                    <br/>                </div>');
+                                    var infowindow_22 = L.marker([40.259462, -111.686493], {icon: review_image}).addTo(cityPageMap);
+
+                    infowindow_22.bindPopup('                <div class=\'geo-review\' itemprop=\"review\" itemscope itemtype=\"https://schema.org/Review\">                    <div class=\'heading\'>Provo Customer Review</div><br/>                    <div itemprop=\"reviewRating\" itemscope itemtype=\"https://schema.org/Rating\">                        <meta itemprop=\"ratingValue\" content=\"4.6\">                    </div>                                <span itemprop=\"itemReviewed\" itemscope itemtype=\"https://schema.org/LocalBusiness\">                <meta itemprop=\"name\" content=\"Davenport Foundation Repair\">                <span itemprop=\"image\" itemscope itemtype=\"http://schema.org/ImageObject\">                    <meta itemprop=\"url\" content=\"https://cdn.treehouseinternetgroup.com/img/logos/sites/og/821.png\">                </span>                <meta itemprop=\"telephone\" content=\"1-801-429-9989\">                <span itemprop=\'address\' itemscope itemtype=\'http://schema.org/PostalAddress\'>                    <meta itemprop=\"streetAddress\" content=\"9427 S 6400 W\">                    <meta itemprop=\"addressLocality\" content=\"West Jordan\">                    <meta itemprop=\"addressRegion\" content=\"UT\">                    <meta itemprop=\"postalCode\" content=\"84081\">                    <meta itemprop=\"addressCountry\" content=\"US\">                </span>            </span>                            <img alt=\"4.60 out of 5 stars\" src=\"https://cdn.treehouseinternetgroup.com/cms_images/icons/reviews-icon-45.svg\" />4.6/5<br/>                    <b itemprop=\"author\" >George B.</b> <i><small></small></i><br/>                    <div class=\'comments\' itemprop=\"reviewBody\" >I like the product and the installer was the best. I was not as satisfied as to what it would look like when it was completed. How ever that only applied to the 1911 no 1500 west driveway. It would be nice to have someone come out and look at it.</div><br/>                    <br/>                </div>');
+                                        
+                                    var infowindow_23 = L.marker([39.968937, -111.772662], {icon: lead_image}).addTo(cityPageMap);
+
+                    infowindow_23.bindPopup('                    <div class=\'citypage-job-item\'>                        <b>Project Location: </b> <i><small>Santaquin, UT</small></i><br/>                        <div class=\'comment\'>Cracked driveway sunken back patio</div>                    </div>');
+                                    var infowindow_24 = L.marker([39.962103, -111.783918], {icon: lead_image}).addTo(cityPageMap);
+
+                    infowindow_24.bindPopup('                    <div class=\'citypage-job-item\'>                        <b>Project Location: </b> <i><small>Santaquin, UT</small></i><br/>                        <div class=\'comment\'>4\' wide Sidewalk at front porch needs to be lifted approx 2\".</div>                    </div>');
+                                    var infowindow_25 = L.marker([39.986504, -111.787267], {icon: lead_image}).addTo(cityPageMap);
+
+                    infowindow_25.bindPopup('                    <div class=\'citypage-job-item\'>                        <b>Project Location: </b> <i><small>Santaquin, UT</small></i><br/>                        <div class=\'comment\'>We have settled concrete steps and surfaces that we want to see if we can lift instead of replace. Also cracks that need to be sealed.</div>                    </div>');
+                                    var infowindow_26 = L.marker([39.978663, -111.770305], {icon: lead_image}).addTo(cityPageMap);
+
+                    infowindow_26.bindPopup('                    <div class=\'citypage-job-item\'>                        <b>Project Location: </b> <i><small>Santaquin, UT</small></i><br/>                        <div class=\'comment\'>Heavy rains cause small leaks into basement.</div>                    </div>');
+                                    var infowindow_27 = L.marker([39.954058, -111.792522], {icon: lead_image}).addTo(cityPageMap);
+
+                    infowindow_27.bindPopup('                    <div class=\'citypage-job-item\'>                        <b>Project Location: </b> <i><small>Santaquin, UT</small></i><br/>                        <div class=\'comment\'>Weeds growing in basement cracks. Long horizontal cracks along entire side of house in the stucco. Wondering if all of this is a sign of foundation issues and what to do? Please contact via email</div>                    </div>');
+                                    var infowindow_28 = L.marker([39.967224, -111.776348], {icon: lead_image}).addTo(cityPageMap);
+
+                    infowindow_28.bindPopup('                    <div class=\'citypage-job-item\'>                        <b>Project Location: </b> <i><small>Santaquin, UT</small></i><br/>                        <div class=\'comment\'>Need driveway slab\'s to be leveled</div>                    </div>');
+                                    var infowindow_29 = L.marker([39.948084, -111.819994], {icon: lead_image}).addTo(cityPageMap);
+
+                    infowindow_29.bindPopup('                    <div class=\'citypage-job-item\'>                        <b>Project Location: </b> <i><small>SANTAQUIN, UT</small></i><br/>                        <div class=\'comment\'>I have a new home (2021) and the basement has been slowly leaking water through one of the metal rods about 6 1/2 feet up as well as through small crack running through the edge corner of the basement. It\'s unfinished and so far has only been getting the insulation wet, and only majorly leaked during the snow melt. Now it leaks a small amount with rain and watering the lawn.</div>                    </div>');
+                                    var infowindow_30 = L.marker([39.990592, -111.787061], {icon: lead_image}).addTo(cityPageMap);
+
+                    infowindow_30.bindPopup('                    <div class=\'citypage-job-item\'>                        <b>Project Location: </b> <i><small>Santaquin, UT</small></i><br/>                        <div class=\'comment\'>A room in our basement has a damp floor near the outer wall and won\'t dry out.</div>                    </div>');
+                                    var infowindow_31 = L.marker([39.967938, -111.821296], {icon: lead_image}).addTo(cityPageMap);
+
+                    infowindow_31.bindPopup('                    <div class=\'citypage-job-item\'>                        <b>Project Location: </b> <i><small>Santaquin, UT</small></i><br/>                        <div class=\'comment\'>I have a railroad tie retaining wall that is only a year old that is already showing signs of failure. It is a hard to access place at the back of our property between two fences.</div>                    </div>');
+                                    var infowindow_32 = L.marker([39.987184, -111.788831], {icon: lead_image}).addTo(cityPageMap);
+
+                    infowindow_32.bindPopup('                    <div class=\'citypage-job-item\'>                        <b>Project Location: </b> <i><small>Santaquin, UT</small></i><br/>                        <div class=\'comment\'>U have some sinking drive way squares and side walks i need repaird</div>                    </div>');
+                            }
+            </script>
+            <div id="map_canvas" style="width:100%; height:300px"></div>
+            <div class="citypage_map_legend">
+                                                            <div class="citypage-map-legend-item citypage-map-legend-item-testimonials" title="Testimonials from our customers">Testimonials</div>
+                                                                                    <div class="citypage-map-legend-item citypage-map-legend-item-reviews" title="Reviews from our customers">Reviews</div>
+                                                                <div class="citypage-map-legend-item citypage-map-legend-item-jobs" title="Work requests in Santaquin, UT area">Work Requests</div>
+                                                                <p>Click the icons to see what our customers had to say.</p>
+                                                 </div>
+        
+
+<noscript>
+
+<h3>Work requests in Santaquin, UT</h3>
+
+
+                        <div class="citypage-job-item">
+
+
+                            <b>Project Location: </b> <i><small>Santaquin, UT</small></i><br/>
+
+
+                            <div class="comments">Cracked driveway sunken back patio</div>
+
+
+                        </div>
+                    
+                        <div class="citypage-job-item">
+
+
+                            <b>Project Location: </b> <i><small>Santaquin, UT</small></i><br/>
+
+
+                            <div class="comments">4' wide Sidewalk at front porch needs to be lifted approx 2".</div>
+
+
+                        </div>
+                    
+                        <div class="citypage-job-item">
+
+
+                            <b>Project Location: </b> <i><small>Santaquin, UT</small></i><br/>
+
+
+                            <div class="comments">We have settled concrete steps and surfaces that we want to see if we can lift instead of replace. Also cracks that need to be sealed.</div>
+
+
+                        </div>
+                    
+                        <div class="citypage-job-item">
+
+
+                            <b>Project Location: </b> <i><small>Santaquin, UT</small></i><br/>
+
+
+                            <div class="comments">Heavy rains cause small leaks into basement.</div>
+
+
+                        </div>
+                    
+                        <div class="citypage-job-item">
+
+
+                            <b>Project Location: </b> <i><small>Santaquin, UT</small></i><br/>
+
+
+                            <div class="comments">Weeds growing in basement cracks. Long horizontal cracks along entire side of house in the stucco. Wondering if all of this is a sign of foundation issues and what to do? Please contact via email</div>
+
+
+                        </div>
+                    
+                        <div class="citypage-job-item">
+
+
+                            <b>Project Location: </b> <i><small>Santaquin, UT</small></i><br/>
+
+
+                            <div class="comments">Need driveway slab's to be leveled</div>
+
+
+                        </div>
+                    
+                        <div class="citypage-job-item">
+
+
+                            <b>Project Location: </b> <i><small>Santaquin, UT</small></i><br/>
+
+
+                            <div class="comments">A room in our basement has a damp floor near the outer wall and won't dry out.</div>
+
+
+                        </div>
+                    
+                        <div class="citypage-job-item">
+
+
+                            <b>Project Location: </b> <i><small>Santaquin, UT</small></i><br/>
+
+
+                            <div class="comments">I have a railroad tie retaining wall that is only a year old that is already showing signs of failure. It is a hard to access place at the back of our property between two fences.</div>
+
+
+                        </div>
+                    
+                        <div class="citypage-job-item">
+
+
+                            <b>Project Location: </b> <i><small>Santaquin, UT</small></i><br/>
+
+
+                            <div class="comments">U have some sinking drive way squares and side walks i need repaird</div>
+
+
+                        </div>
+                    <h3>Testimonials from our customers in Santaquin, UT</h3>
+
+
+                    <div class="geo-testimonial">
+
+
+                    <b>Adam C.</b> <i><small></small></i><br/>
+
+
+                    <div class="comments">The PolyLevel team was awesome!</div>
+
+
+                    </div>
+                <h3>Reviews from our customers in Santaquin, UT</h3>
+
+
+                    <div class="geo-review"  itemprop="review" itemscope itemtype="https://schema.org/Review">
+
+
+                        <div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
+
+
+                             <meta itemprop="ratingValue" content="5.0">
+
+
+                        </div>
+
+
+                        
+            <span itemprop="itemReviewed" itemscope itemtype="https://schema.org/LocalBusiness">
+                <meta itemprop="name" content="Davenport Foundation Repair">
+                <span itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+                    <meta itemprop="url" content="https://cdn.treehouseinternetgroup.com/img/logos/sites/og/821.png">
+                </span>
+                <meta itemprop="telephone" content="1-801-429-9989">
+                <span itemprop='address' itemscope itemtype='http://schema.org/PostalAddress'>
+                    <meta itemprop="streetAddress" content="9427 S 6400 W">
+                    <meta itemprop="addressLocality" content="West Jordan">
+                    <meta itemprop="addressRegion" content="UT">
+                    <meta itemprop="postalCode" content="84081">
+                    <meta itemprop="addressCountry" content="US">
+                </span>
+            </span>
+
+
+        
+                        <img alt="5.00 out of 5 stars" src="https://cdn.treehouseinternetgroup.com/cms_images/icons/reviews-icon-50.svg" />5.0/5<br/>
+
+
+                        <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">
+                        <b>Connie V.</b>
+                        </span></span>
+                        <b  >Connie V.</b> <i><small></small></i><br/>
+
+
+                        <div class="comments" itemprop="reviewBody"></div><br/>
+
+
+                        <br/>
+
+
+                    </div>
+                
+                    <div class="geo-review"  itemprop="review" itemscope itemtype="https://schema.org/Review">
+
+
+                        <div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
+
+
+                             <meta itemprop="ratingValue" content="4.8">
+
+
+                        </div>
+
+
+                        
+            <span itemprop="itemReviewed" itemscope itemtype="https://schema.org/LocalBusiness">
+                <meta itemprop="name" content="Davenport Foundation Repair">
+                <span itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+                    <meta itemprop="url" content="https://cdn.treehouseinternetgroup.com/img/logos/sites/og/821.png">
+                </span>
+                <meta itemprop="telephone" content="1-801-429-9989">
+                <span itemprop='address' itemscope itemtype='http://schema.org/PostalAddress'>
+                    <meta itemprop="streetAddress" content="9427 S 6400 W">
+                    <meta itemprop="addressLocality" content="West Jordan">
+                    <meta itemprop="addressRegion" content="UT">
+                    <meta itemprop="postalCode" content="84081">
+                    <meta itemprop="addressCountry" content="US">
+                </span>
+            </span>
+
+
+        
+                        <img alt="4.80 out of 5 stars" src="https://cdn.treehouseinternetgroup.com/cms_images/icons/reviews-icon-45.svg" />4.8/5<br/>
+
+
+                        <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">
+                        <b>Joann B.</b>
+                        </span></span>
+                        <b  >Joann B.</b> <i><small></small></i><br/>
+
+
+                        <div class="comments" itemprop="reviewBody"></div><br/>
+
+
+                        <br/>
+
+
+                    </div>
+                
+                    <div class="geo-review"  itemprop="review" itemscope itemtype="https://schema.org/Review">
+
+
+                        <div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
+
+
+                             <meta itemprop="ratingValue" content="4.8">
+
+
+                        </div>
+
+
+                        
+            <span itemprop="itemReviewed" itemscope itemtype="https://schema.org/LocalBusiness">
+                <meta itemprop="name" content="Davenport Foundation Repair">
+                <span itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+                    <meta itemprop="url" content="https://cdn.treehouseinternetgroup.com/img/logos/sites/og/821.png">
+                </span>
+                <meta itemprop="telephone" content="1-801-429-9989">
+                <span itemprop='address' itemscope itemtype='http://schema.org/PostalAddress'>
+                    <meta itemprop="streetAddress" content="9427 S 6400 W">
+                    <meta itemprop="addressLocality" content="West Jordan">
+                    <meta itemprop="addressRegion" content="UT">
+                    <meta itemprop="postalCode" content="84081">
+                    <meta itemprop="addressCountry" content="US">
+                </span>
+            </span>
+
+
+        
+                        <img alt="4.80 out of 5 stars" src="https://cdn.treehouseinternetgroup.com/cms_images/icons/reviews-icon-45.svg" />4.8/5<br/>
+
+
+                        <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">
+                        <b>Carlotte O.</b>
+                        </span></span>
+                        <b  >Carlotte O.</b> <i><small></small></i><br/>
+
+
+                        <div class="comments" itemprop="reviewBody"></div><br/>
+
+
+                        <br/>
+
+
+                    </div>
+                
+                    <div class="geo-review"  itemprop="review" itemscope itemtype="https://schema.org/Review">
+
+
+                        <div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
+
+
+                             <meta itemprop="ratingValue" content="5.0">
+
+
+                        </div>
+
+
+                        
+            <span itemprop="itemReviewed" itemscope itemtype="https://schema.org/LocalBusiness">
+                <meta itemprop="name" content="Davenport Foundation Repair">
+                <span itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+                    <meta itemprop="url" content="https://cdn.treehouseinternetgroup.com/img/logos/sites/og/821.png">
+                </span>
+                <meta itemprop="telephone" content="1-801-429-9989">
+                <span itemprop='address' itemscope itemtype='http://schema.org/PostalAddress'>
+                    <meta itemprop="streetAddress" content="9427 S 6400 W">
+                    <meta itemprop="addressLocality" content="West Jordan">
+                    <meta itemprop="addressRegion" content="UT">
+                    <meta itemprop="postalCode" content="84081">
+                    <meta itemprop="addressCountry" content="US">
+                </span>
+            </span>
+
+
+        
+                        <img alt="5.00 out of 5 stars" src="https://cdn.treehouseinternetgroup.com/cms_images/icons/reviews-icon-50.svg" />5.0/5<br/>
+
+
+                        <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">
+                        <b>Lindsey F.</b>
+                        </span></span>
+                        <b  >Lindsey F.</b> <i><small></small></i><br/>
+
+
+                        <div class="comments" itemprop="reviewBody"></div><br/>
+
+
+                        <br/>
+
+
+                    </div>
+                
+                    <div class="geo-review"  itemprop="review" itemscope itemtype="https://schema.org/Review">
+
+
+                        <div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
+
+
+                             <meta itemprop="ratingValue" content="5.0">
+
+
+                        </div>
+
+
+                        
+            <span itemprop="itemReviewed" itemscope itemtype="https://schema.org/LocalBusiness">
+                <meta itemprop="name" content="Davenport Foundation Repair">
+                <span itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+                    <meta itemprop="url" content="https://cdn.treehouseinternetgroup.com/img/logos/sites/og/821.png">
+                </span>
+                <meta itemprop="telephone" content="1-801-429-9989">
+                <span itemprop='address' itemscope itemtype='http://schema.org/PostalAddress'>
+                    <meta itemprop="streetAddress" content="9427 S 6400 W">
+                    <meta itemprop="addressLocality" content="West Jordan">
+                    <meta itemprop="addressRegion" content="UT">
+                    <meta itemprop="postalCode" content="84081">
+                    <meta itemprop="addressCountry" content="US">
+                </span>
+            </span>
+
+
+        
+                        <img alt="5.00 out of 5 stars" src="https://cdn.treehouseinternetgroup.com/cms_images/icons/reviews-icon-50.svg" />5.0/5<br/>
+
+
+                        <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">
+                        <b>Patrick A.</b>
+                        </span></span>
+                        <b  >Patrick A.</b> <i><small></small></i><br/>
+
+
+                        <div class="comments" itemprop="reviewBody"></div><br/>
+
+
+                        <br/>
+
+
+                    </div>
+                
+                    <div class="geo-review"  itemprop="review" itemscope itemtype="https://schema.org/Review">
+
+
+                        <div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
+
+
+                             <meta itemprop="ratingValue" content="5.0">
+
+
+                        </div>
+
+
+                        
+            <span itemprop="itemReviewed" itemscope itemtype="https://schema.org/LocalBusiness">
+                <meta itemprop="name" content="Davenport Foundation Repair">
+                <span itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+                    <meta itemprop="url" content="https://cdn.treehouseinternetgroup.com/img/logos/sites/og/821.png">
+                </span>
+                <meta itemprop="telephone" content="1-801-429-9989">
+                <span itemprop='address' itemscope itemtype='http://schema.org/PostalAddress'>
+                    <meta itemprop="streetAddress" content="9427 S 6400 W">
+                    <meta itemprop="addressLocality" content="West Jordan">
+                    <meta itemprop="addressRegion" content="UT">
+                    <meta itemprop="postalCode" content="84081">
+                    <meta itemprop="addressCountry" content="US">
+                </span>
+            </span>
+
+
+        
+                        <img alt="5.00 out of 5 stars" src="https://cdn.treehouseinternetgroup.com/cms_images/icons/reviews-icon-50.svg" />5.0/5<br/>
+
+
+                        <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">
+                        <b>Kaylin</b>
+                        </span></span>
+                        <b  >Kaylin</b> <i><small></small></i><br/>
+
+
+                        <div class="comments" itemprop="reviewBody"></div><br/>
+
+
+                        <br/>
+
+
+                    </div>
+                
+                    <div class="geo-review"  itemprop="review" itemscope itemtype="https://schema.org/Review">
+
+
+                        <div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
+
+
+                             <meta itemprop="ratingValue" content="5.0">
+
+
+                        </div>
+
+
+                        
+            <span itemprop="itemReviewed" itemscope itemtype="https://schema.org/LocalBusiness">
+                <meta itemprop="name" content="Davenport Foundation Repair">
+                <span itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+                    <meta itemprop="url" content="https://cdn.treehouseinternetgroup.com/img/logos/sites/og/821.png">
+                </span>
+                <meta itemprop="telephone" content="1-801-429-9989">
+                <span itemprop='address' itemscope itemtype='http://schema.org/PostalAddress'>
+                    <meta itemprop="streetAddress" content="9427 S 6400 W">
+                    <meta itemprop="addressLocality" content="West Jordan">
+                    <meta itemprop="addressRegion" content="UT">
+                    <meta itemprop="postalCode" content="84081">
+                    <meta itemprop="addressCountry" content="US">
+                </span>
+            </span>
+
+
+        
+                        <img alt="5.00 out of 5 stars" src="https://cdn.treehouseinternetgroup.com/cms_images/icons/reviews-icon-50.svg" />5.0/5<br/>
+
+
+                        <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">
+                        <b>Mr. & Mrs. Dungan</b>
+                        </span></span>
+                        <b  >Mr. & Mrs. Dungan</b> <i><small></small></i><br/>
+
+
+                        <div class="comments" itemprop="reviewBody"></div><br/>
+
+
+                        <br/>
+
+
+                    </div>
+                
+                    <div class="geo-review"  itemprop="review" itemscope itemtype="https://schema.org/Review">
+
+
+                        <div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
+
+
+                             <meta itemprop="ratingValue" content="4.4">
+
+
+                        </div>
+
+
+                        
+            <span itemprop="itemReviewed" itemscope itemtype="https://schema.org/LocalBusiness">
+                <meta itemprop="name" content="Davenport Foundation Repair">
+                <span itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+                    <meta itemprop="url" content="https://cdn.treehouseinternetgroup.com/img/logos/sites/og/821.png">
+                </span>
+                <meta itemprop="telephone" content="1-801-429-9989">
+                <span itemprop='address' itemscope itemtype='http://schema.org/PostalAddress'>
+                    <meta itemprop="streetAddress" content="9427 S 6400 W">
+                    <meta itemprop="addressLocality" content="West Jordan">
+                    <meta itemprop="addressRegion" content="UT">
+                    <meta itemprop="postalCode" content="84081">
+                    <meta itemprop="addressCountry" content="US">
+                </span>
+            </span>
+
+
+        
+                        <img alt="4.40 out of 5 stars" src="https://cdn.treehouseinternetgroup.com/cms_images/icons/reviews-icon-40.svg" />4.4/5<br/>
+
+
+                        <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">
+                        <b>Paula L.</b>
+                        </span></span>
+                        <b  >Paula L.</b> <i><small></small></i><br/>
+
+
+                        <div class="comments" itemprop="reviewBody"></div><br/>
+
+
+                        <br/>
+
+
+                    </div>
+                
+                    <div class="geo-review"  itemprop="review" itemscope itemtype="https://schema.org/Review">
+
+
+                        <div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
+
+
+                             <meta itemprop="ratingValue" content="5.0">
+
+
+                        </div>
+
+
+                        
+            <span itemprop="itemReviewed" itemscope itemtype="https://schema.org/LocalBusiness">
+                <meta itemprop="name" content="Davenport Foundation Repair">
+                <span itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+                    <meta itemprop="url" content="https://cdn.treehouseinternetgroup.com/img/logos/sites/og/821.png">
+                </span>
+                <meta itemprop="telephone" content="1-801-429-9989">
+                <span itemprop='address' itemscope itemtype='http://schema.org/PostalAddress'>
+                    <meta itemprop="streetAddress" content="9427 S 6400 W">
+                    <meta itemprop="addressLocality" content="West Jordan">
+                    <meta itemprop="addressRegion" content="UT">
+                    <meta itemprop="postalCode" content="84081">
+                    <meta itemprop="addressCountry" content="US">
+                </span>
+            </span>
+
+
+        
+                        <img alt="5.00 out of 5 stars" src="https://cdn.treehouseinternetgroup.com/cms_images/icons/reviews-icon-50.svg" />5.0/5<br/>
+
+
+                        <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">
+                        <b>William B.</b>
+                        </span></span>
+                        <b  >William B.</b> <i><small></small></i><br/>
+
+
+                        <div class="comments" itemprop="reviewBody"></div><br/>
+
+
+                        <br/>
+
+
+                    </div>
+                
+                    <div class="geo-review"  itemprop="review" itemscope itemtype="https://schema.org/Review">
+
+
+                        <div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
+
+
+                             <meta itemprop="ratingValue" content="4.8">
+
+
+                        </div>
+
+
+                        
+            <span itemprop="itemReviewed" itemscope itemtype="https://schema.org/LocalBusiness">
+                <meta itemprop="name" content="Davenport Foundation Repair">
+                <span itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+                    <meta itemprop="url" content="https://cdn.treehouseinternetgroup.com/img/logos/sites/og/821.png">
+                </span>
+                <meta itemprop="telephone" content="1-801-429-9989">
+                <span itemprop='address' itemscope itemtype='http://schema.org/PostalAddress'>
+                    <meta itemprop="streetAddress" content="9427 S 6400 W">
+                    <meta itemprop="addressLocality" content="West Jordan">
+                    <meta itemprop="addressRegion" content="UT">
+                    <meta itemprop="postalCode" content="84081">
+                    <meta itemprop="addressCountry" content="US">
+                </span>
+            </span>
+
+
+        
+                        <img alt="4.80 out of 5 stars" src="https://cdn.treehouseinternetgroup.com/cms_images/icons/reviews-icon-45.svg" />4.8/5<br/>
+
+
+                        <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">
+                        <b>Randy E.</b>
+                        </span></span>
+                        <b  >Randy E.</b> <i><small>Provo, Utah, 84604, UT</small></i><br/>
+
+
+                        <div class="comments" itemprop="reviewBody">Very impressed with the work that was completed. Of course we haven't had a heavy rain yet but I'm confident the room is now waterproof.</div><br/>
+
+
+                        <br/>
+
+
+                    </div>
+                
+                    <div class="geo-review"  itemprop="review" itemscope itemtype="https://schema.org/Review">
+
+
+                        <div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
+
+
+                             <meta itemprop="ratingValue" content="5.0">
+
+
+                        </div>
+
+
+                        
+            <span itemprop="itemReviewed" itemscope itemtype="https://schema.org/LocalBusiness">
+                <meta itemprop="name" content="Davenport Foundation Repair">
+                <span itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+                    <meta itemprop="url" content="https://cdn.treehouseinternetgroup.com/img/logos/sites/og/821.png">
+                </span>
+                <meta itemprop="telephone" content="1-801-429-9989">
+                <span itemprop='address' itemscope itemtype='http://schema.org/PostalAddress'>
+                    <meta itemprop="streetAddress" content="9427 S 6400 W">
+                    <meta itemprop="addressLocality" content="West Jordan">
+                    <meta itemprop="addressRegion" content="UT">
+                    <meta itemprop="postalCode" content="84081">
+                    <meta itemprop="addressCountry" content="US">
+                </span>
+            </span>
+
+
+        
+                        <img alt="5.00 out of 5 stars" src="https://cdn.treehouseinternetgroup.com/cms_images/icons/reviews-icon-50.svg" />5.0/5<br/>
+
+
+                        <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">
+                        <b>Deann G.</b>
+                        </span></span>
+                        <b  >Deann G.</b> <i><small>Provo, UT</small></i><br/>
+
+
+                        <div class="comments" itemprop="reviewBody"></div><br/>
+
+
+                        <br/>
+
+
+                    </div>
+                
+                    <div class="geo-review"  itemprop="review" itemscope itemtype="https://schema.org/Review">
+
+
+                        <div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
+
+
+                             <meta itemprop="ratingValue" content="5.0">
+
+
+                        </div>
+
+
+                        
+            <span itemprop="itemReviewed" itemscope itemtype="https://schema.org/LocalBusiness">
+                <meta itemprop="name" content="Davenport Foundation Repair">
+                <span itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+                    <meta itemprop="url" content="https://cdn.treehouseinternetgroup.com/img/logos/sites/og/821.png">
+                </span>
+                <meta itemprop="telephone" content="1-801-429-9989">
+                <span itemprop='address' itemscope itemtype='http://schema.org/PostalAddress'>
+                    <meta itemprop="streetAddress" content="9427 S 6400 W">
+                    <meta itemprop="addressLocality" content="West Jordan">
+                    <meta itemprop="addressRegion" content="UT">
+                    <meta itemprop="postalCode" content="84081">
+                    <meta itemprop="addressCountry" content="US">
+                </span>
+            </span>
+
+
+        
+                        <img alt="5.00 out of 5 stars" src="https://cdn.treehouseinternetgroup.com/cms_images/icons/reviews-icon-50.svg" />5.0/5<br/>
+
+
+                        <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">
+                        <b>Brad E.</b>
+                        </span></span>
+                        <b  >Brad E.</b> <i><small>Provo, UT</small></i><br/>
+
+
+                        <div class="comments" itemprop="reviewBody"></div><br/>
+
+
+                        <br/>
+
+
+                    </div>
+                
+                    <div class="geo-review"  itemprop="review" itemscope itemtype="https://schema.org/Review">
+
+
+                        <div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
+
+
+                             <meta itemprop="ratingValue" content="4.2">
+
+
+                        </div>
+
+
+                        
+            <span itemprop="itemReviewed" itemscope itemtype="https://schema.org/LocalBusiness">
+                <meta itemprop="name" content="Davenport Foundation Repair">
+                <span itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+                    <meta itemprop="url" content="https://cdn.treehouseinternetgroup.com/img/logos/sites/og/821.png">
+                </span>
+                <meta itemprop="telephone" content="1-801-429-9989">
+                <span itemprop='address' itemscope itemtype='http://schema.org/PostalAddress'>
+                    <meta itemprop="streetAddress" content="9427 S 6400 W">
+                    <meta itemprop="addressLocality" content="West Jordan">
+                    <meta itemprop="addressRegion" content="UT">
+                    <meta itemprop="postalCode" content="84081">
+                    <meta itemprop="addressCountry" content="US">
+                </span>
+            </span>
+
+
+        
+                        <img alt="4.20 out of 5 stars" src="https://cdn.treehouseinternetgroup.com/cms_images/icons/reviews-icon-40.svg" />4.2/5<br/>
+
+
+                        <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">
+                        <b>Tyler M.</b>
+                        </span></span>
+                        <b  >Tyler M.</b> <i><small></small></i><br/>
+
+
+                        <div class="comments" itemprop="reviewBody"></div><br/>
+
+
+                        <br/>
+
+
+                    </div>
+                
+                    <div class="geo-review"  itemprop="review" itemscope itemtype="https://schema.org/Review">
+
+
+                        <div itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
+
+
+                             <meta itemprop="ratingValue" content="4.6">
+
+
+                        </div>
+
+
+                        
+            <span itemprop="itemReviewed" itemscope itemtype="https://schema.org/LocalBusiness">
+                <meta itemprop="name" content="Davenport Foundation Repair">
+                <span itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+                    <meta itemprop="url" content="https://cdn.treehouseinternetgroup.com/img/logos/sites/og/821.png">
+                </span>
+                <meta itemprop="telephone" content="1-801-429-9989">
+                <span itemprop='address' itemscope itemtype='http://schema.org/PostalAddress'>
+                    <meta itemprop="streetAddress" content="9427 S 6400 W">
+                    <meta itemprop="addressLocality" content="West Jordan">
+                    <meta itemprop="addressRegion" content="UT">
+                    <meta itemprop="postalCode" content="84081">
+                    <meta itemprop="addressCountry" content="US">
+                </span>
+            </span>
+
+
+        
+                        <img alt="4.60 out of 5 stars" src="https://cdn.treehouseinternetgroup.com/cms_images/icons/reviews-icon-45.svg" />4.6/5<br/>
+
+
+                        <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">
+                        <b>George B.</b>
+                        </span></span>
+                        <b  >George B.</b> <i><small></small></i><br/>
+
+
+                        <div class="comments" itemprop="reviewBody">I like the product and the installer was the best. I was not as satisfied as to what it would look like when it was completed. How ever that only applied to the 1911 no 1500 west driveway. It would be nice to have someone come out and look at it.</div><br/>
+
+
+                        <br/>
+
+
+                    </div>
+                
+
+</noscript>
+
+
+                    </div>
+                </div></p>
+
+        </div>
+
+    </div>
+
+    
+
+    <div class="contact_form page_widget us">
+
+<div class="cp-inline-form">
+
+	<div class="cp-inline-form-inner">
+
+		<div class="inline-free-estimate-container">
+
+			<div id="form-heading">
+
+				<p class="free-estimate-form-heading">Get a Free Estimate</p>
+
+				<p class="free-estimate-form-desc">Fill out the form below to have Davenport Foundation Repair contact you shortly, or call <span id="numberassigned_3" class="mongoose_phone">1-801-569-2302</span> to contact Davenport Foundation Repair immediately.</p>
+
+			</div>
+
+			<form id="contact_form" action="https://www.davenportfoundationrepair.com/free-estimate/confirmation.html" method="post">
+
+				<input type="hidden" name="save" value="1">
+
+                <!-- Circles which indicates the steps of the form: -->
+
+                <div class="step-dot-container">
+
+                    <span class="dot active"><small>1</small></span>
+
+                    <span class="dot dot-lines"><small>2</small></span>
+
+                    <span class="dot"><small>3</small></span>
+
+                </div>
+
+                <!-- One "tab" for each step in the form: -->
+
+                <div class="tab current">
+
+                    <div class="tab-content-wrap">
+
+                        <div id="fname-wrap" class="grid-span-6">
+
+                            <label class="input-labels" for="First_Name">First Name</label>
+
+                            <input type="text" name="First_Name" maxlength="50" required id="First_Name" data-validate-name>
+
+                        </div>
+
+                        <div id="lname-wrap" class="grid-span-6">
+
+                            <label class="input-labels" for="Last_Name">Last Name</label>
+
+                            <input type="text" name="Last_Name" maxlength="50" required id="Last_Name" data-validate-name data-validate-notequal="#First_Name">
+
+                        </div>
+
+                        <div id="email-wrap" class="grid-span-8">
+
+                            <label class="input-labels" for="Email_Address">Email</label>
+
+                            <input id="Email_Address" name="Email_Address" type="email" required>
+
+                        </div>
+
+                        <div id="phonenum-wrap" class="grid-span-4">
+
+                            <label class="input-labels" for="Phone">Phone</label>
+
+                            <input type="text" id="Phone" name="Phone" required>
+
+                        </div>
+
+                        <div id="sms-wrap" class="grid-span-12">
+
+                            <div>
+<div>
+	<input type="hidden" name="sms_consent" value="0">
+	<input id="sms_consent" type="checkbox" name="sms_consent" value="1" checked>
+	<label id="sms_consent-label" for="sms_consent">By checking, you are consenting to receive <b>transactional/informational SMS</b> communications regarding appointment setting, account notifications, customer care, etc. from <b>Davenport Foundation Repair</b>. Message frequency may vary. Data rates may apply, <b>reply STOP to opt-out</b>. <a href="/terms-of-use.html" target="_blank">Terms of Use</a> | <a href="/privacy-policy.html" target="_blank">Privacy</a></label>
+</div>
+	</div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="tab">
+
+                    <div class="tab-content-wrap">
+
+                        <div id="street-wrap" class="grid-span-12">
+
+                            <label class="input-labels" for="Street">Street</label>
+
+                            <input type="text" id="Street" name="Street" maxlength="300" data-validate-address>
+
+                        </div>
+
+                        <div id="zip-wrap" class="grid-span-4">
+
+                            <label class="input-labels" for="Zip_Code">Zip Code</label>
+
+                            <input type="text" id="Zip" name="Zip_Code" maxlength="10" required>
+
+                        </div>
+
+                        <div id="city-wrap" class="grid-span-4">
+
+                            <label class="input-labels" for="City">City</label>
+
+                            <input id="City" type="text" name="City" maxlength="255" required>
+
+                        </div>
+
+                        <div id="state-wrap" class="grid-span-4">
+
+                            <label class="input-labels" for="State">State</label>
+
+                            
+	<select name="State" id="State" required>
+		<option value="">Please select...</option>
+		<option value="AL">Alabama</option>
+		<option value="AK">Alaska</option>
+		<option value="AZ">Arizona</option>
+		<option value="AR">Arkansas</option>
+		<option value="CA">California</option>
+		<option value="CO">Colorado</option>
+		<option value="CT">Connecticut</option>
+		<option value="DE">Delaware</option>
+		<option value="DC">District of Columbia</option>
+		<option value="FL">Florida</option>
+		<option value="GA">Georgia</option>
+		<option value="HI">Hawaii</option>
+		<option value="ID">Idaho</option>
+		<option value="IL">Illinois</option>
+		<option value="IN">Indiana</option>
+		<option value="IA">Iowa</option>
+		<option value="KS">Kansas</option>
+		<option value="KY">Kentucky</option>
+		<option value="LA">Louisiana</option>
+		<option value="ME">Maine</option>
+		<option value="MD">Maryland</option>
+		<option value="MA">Massachusetts</option>
+		<option value="MI">Michigan</option>
+		<option value="MN">Minnesota</option>
+		<option value="MS">Mississippi</option>
+		<option value="MO">Missouri</option>
+		<option value="MT">Montana</option>
+		<option value="NE">Nebraska</option>
+		<option value="NV">Nevada</option>
+		<option value="NH">New Hampshire</option>
+		<option value="NJ">New Jersey</option>
+		<option value="NM">New Mexico</option>
+		<option value="NY">New York</option>
+		<option value="NC">North Carolina</option>
+		<option value="ND">North Dakota</option>
+		<option value="OH">Ohio</option>
+		<option value="OK">Oklahoma</option>
+		<option value="OR">Oregon</option>
+		<option value="PA">Pennsylvania</option>
+		<option value="RI">Rhode Island</option>
+		<option value="SC">South Carolina</option>
+		<option value="SD">South Dakota</option>
+		<option value="TN">Tennessee</option>
+		<option value="TX">Texas</option>
+		<option value="UT" selected="selected">Utah</option>
+		<option value="VT">Vermont</option>
+		<option value="VA">Virginia</option>
+		<option value="WA">Washington</option>
+		<option value="WV">West Virginia</option>
+		<option value="WI">Wisconsin</option>
+		<option value="WY">Wyoming</option>
+	</select>
+	
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="tab">
+
+                    <div class="tab-content-wrap">
+
+                        <div id="whatprompted-wrap" class="grid-span-12">
+
+                            
+		<div class="field-wrap what-prompted">
+			<label for="lead_what_prompted_id">What prompted you to contact us today?</label>
+			<input type="hidden" id="lead_what_prompted_response" name="What_Prompted_Response" value=""/>
+			<select id="lead_what_prompted_id" name="What_Prompted_Id" data-validate-select-one required>
+				<option value="">Please select...</option>
+	<option value="1">Referral</option><option value="2">Previous Customer</option><option value="3">Internet / Web Search</option><option value="4">TV</option><option value="5">Radio</option><option value="6">Mail</option><option value="7">Other</option>
+			</select>
+		</div>
+		<div id="display_lead_what_prompted_followup">
+		</div>
+	
+
+                        </div>
+
+                        <div id="message-wrap" class="grid-span-12">
+
+                            <label class="input-labels" for="Message">Tell us what is going on in a few words-a short sentence is best:</label>
+
+                            <textarea id="Message" name="Message" data-validate-comment></textarea>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div>
+
+                    <div class="btn-container">
+
+                        <button type="button" id="nextBtn">Next step</button>
+
+                        <button type="submit" name="save" style="display: none;">Send</button>
+
+                        <button type="button" id="prevBtn" style="display: none;">Previous step</button>
+
+                    </div>
+
+                </div>
+
+			</form>
+
+		</div>
+
+	</div>
+
+</div>
+
+</div>
+
+	
+            <div class="reviews_sidebar_widget widget" itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating">
+                <meta itemprop="image" content="https://cdn.treehouseinternetgroup.com/img/logos/sites/og/821.png">
+                <meta itemprop="reviewCount" content="14">
+                <meta itemprop="ratingValue" content="4.83">
+        
+                <span itemprop="itemReviewed" itemscope itemtype="https://schema.org/LocalBusiness">
+                    <meta itemprop="name" content="Davenport Foundation Repair">
+                    <span itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
+                    <meta itemprop="url" content="https://cdn.treehouseinternetgroup.com/img/logos/sites/og/821.png">
+                    </span>
+                    <meta itemprop="telephone" content="1-801-429-9989">
+                    <span itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+                        <meta itemprop="streetAddress" content="9427 S 6400 W">
+                        <meta itemprop="addressLocality" content="West Jordan">
+                        <meta itemprop="addressRegion" content="UT">
+                        <meta itemprop="postalCode" content="84081">
+                        <meta itemprop="addressCountry" content="US">
+                    </span>
+                </span>
+            
+            </div>
+        
+
+	
+
+     	<div class="citypage_text_generated_content">
+
+			<style> #service-area{display:none;}</style><h2>Expert Foundation Repair&nbsp;Contractor Serving Santaquin, UT</h2>
+
+<p>We not only adhere to the highest industry standards, we strive to be the industry leader in the home improvement related services we provide. We are a trusted dealer of the renowned Foundation Supportworks, Inc., the leading manufacturer of foundation repair and stabilization products in the U.S. and Canada, as well as Basement Systems, the innovative basement waterproofing network. If your home is having foundation problems or a wet or flooded basement, call us today for a FREE estimate!</p>
+
+<h2>Santaquin&rsquo;s Expert Foundation Repair Contractor</h2>
+
+<p>Foundation repair is often seen as stressful and aggravating but at Davenport Foundation Repair we do everything in our power to make sure you feel cared for respected by our crews. We have worked to improve our process from start to finish to make sure you get the very best service possible. Foundation repair can vary in both damages and cost so one thing we like to stress at Davenport Foundation Repair is early detection. Early detection for foundation repair is crucial because then we have the best chance to find permanent and effective solutions. If the issues can be caught before they become too severe that greatly helps our crews with the repair process and more than likely will save you money. Our talented professionals are experts at not only recognizing problems early but also at effectively coming up with solutions. At Davenport Foundation Repair, we have effective, warrantied solutions for foundation repairs of all types, and we have the training, techniques, and top-quality products you need to permanently solve your foundation repair problems. To learn more about the products only available from us and our expertise about foundation repair call or click today!</p>
+
+<div style="text-align: center;"><a class="button wide" href="https://www.davenportfoundationrepair.com/free-estimate.html">Click to Schedule a FREE Estimate!</a></div>
+
+<h2>Foundation Repair Services:</h2>
+
+<ul class="checks" style="margin: 5px 0 20px;">
+
+<li>Wall anchor installation to straighten walls</li>
+
+<li>Bowing and tilting wall stabilization</li>
+
+<li>Slab &amp; foundation pier installation to resolve settlement problems</li>
+
+<li>Crawl space jack post installation to support sagging floors</li>
+
+<li>Affordable wall stabilization</li>
+
+<li>Concrete leveling &amp; lifting</li>
+
+<li>Commercial foundation repair</li>
+
+<li>25-year warranty against manufacturing defects on foundation products.</li>
+
+<li><strong>Financing options available</strong></li>
+
+<li><strong>FREE written estimates and inspections, and fast installation</strong></li>
+
+</ul>
+
+<h2>Fast, Effective Concrete Leveling &amp; Repair</h2>
+
+<p>Concrete used for walkways and driveways looks great when it's new but over time the concrete slab will eventually start to shift as the ground does. The result can look disastrous and can create a dangerous tripping hazards as well. This far cry from the originally smoothly poured concrete often leads to frustration and a hopeless feeling. If you have had a similar experience with your home know that you&rsquo;re not alone and that you are in the right place! Davenport Foundation Repair has dedicated teams of knowledgeable and experienced professionals that use our patented leveling product simply known as PolyLevel&reg;. This revolutionary concrete lifting &amp; leveling product is capable of lifting, leveling and stabilizing concrete slab in an extremely efficient and cost-effective way. The process for concrete lifting and leveling begins by drilling a few small holes in the slab and then pouring the PolyLevel polymer into the hole. The polymer will mix and expand beneath the slab, raising it to the desired height and stabilizing it in the process. PolyLevel only takes about 15 minutes to dry and the product is environmentally friendly.</p>
+
+<p>Davenport Foundation Repair also provides concrete sealing services. Our SealantPro system seals in quality and protects against damage for 3 x 5 times longer than other concrete sealants. To learn more about our concrete lifting and leveling solutions call or <a href="https://www.davenportfoundationrepair.com/free-estimate.html">click</a> today!</p>
+
+<p>&nbsp;</p>
+
+<div style="text-align: center;"><a class="button wide" href="https://www.davenportfoundationrepair.com/free-estimate.html">Click to Schedule a FREE Estimate!</a></div>
+
+<h2>Crawl Space &amp; Basement Waterproofing Company</h2>
+
+<p>As an experienced basement waterproofing company, Davenport Foundation Repair helps homeowners solve their basement problems fast.&nbsp;&nbsp;If you have musty smells, walls that feel damp, or if your basement floods with heavy rain, we can help. Not sure what&rsquo;s causing your home&rsquo;s wet basement? Let one of our basement waterproofing experts take a look.&nbsp;&nbsp;All of our patented basement waterproofing products, like the award-winning WaterGuard drainage channel, are custom designed to fit your home and will be installed by one of our industry experts based upon your home's needs.&nbsp; It is important to not let your damp or wet basement problems go untreated.&nbsp; Prolonged issues can result in bigger issues and costs such as,&nbsp;mold, mildew, rot, structural damage, and a variety of health problems.&nbsp; Key&nbsp;indicators that basement waterproofing is needed are:&nbsp;</p>
+
+<ul class="arrows" style="margin: 5px 0 20px;">
+
+<li>Wet or damp basement floor</li>
+
+<li>Leaking or damp basement walls</li>
+
+<li>Pooling or standing water</li>
+
+<li>crystalline deposit on concrete surfaces</li>
+
+<li>Musty odors</li>
+
+<li>Condensation</li>
+
+<li>Sump pump issues</li>
+
+<li>Leaky basement windows</li>
+
+</ul>
+
+<p>We offer free inspections and estimates &ndash; schedule yours today! Call&nbsp;<span id="numberassigned_3" class="mongoose_phone">1-877-732-9964&nbsp;</span>or <a href="https://www.davenportfoundationrepair.com/free-estimate.html">click</a> today.&nbsp;&nbsp;</p>
+
+<h2>Crawl Space &amp; Basement Waterproofing Services:</h2>
+
+<ul class="checks" style="margin: 5px 0 20px;">
+
+<li>Basement drainage systems, dehumidifiers, wall options, and other products</li>
+
+<li>Sump pump installation</li>
+
+<li>Wet/flooded basement waterproofing solutions</li>
+
+<li>Crawl space encapsulation</li>
+
+<li><strong>Financing Available</strong></li>
+
+<li><strong>FREE estimates</strong></li>
+
+</ul>
+
+<p style="text-align: center;"><a class="button wide" href="https://www.davenportfoundationrepair.com/free-estimate.html">Click to Schedule a FREE Estimate!</a></p>
+
+		</div>
+
+		<div class="cp-row">
+
+		    
+
+		</div>
+
+		
+
+	
+
+	
+
+<style>
+
+.cp-reviews {
+
+        margin: 0 0 2rem;
+
+        background: #F8F8F8;
+
+    }
+
+.cp-review-star {
+
+    fill:#F8C026;
+
+}
+
+.cp-reviews h2 {
+
+    color: #000 !important;
+
+    font-family: 'tg-adventor-bold', sans-serif;
+
+    text-align: center;
+
+    margin: 0 0 2rem 0;
+
+}
+
+.cp-reviews-inner {
+
+    max-width: 900px;
+
+    margin: 0 auto;
+
+    width: 100%;
+
+    padding: 2rem;
+
+}
+
+.cp-reviews-wrap {
+
+    display: grid;
+
+    grid-gap: 2rem;
+
+    margin-bottom: 2rem;
+
+}
+
+.cp-review {
+
+    box-shadow: 0px 3px 16px #00000027;
+
+    padding: 1.5rem;
+
+    background: #fff;
+
+}
+
+.cp-review-stars {
+
+    margin-bottom: .5rem;
+
+}
+
+.cp-review-text {
+
+    font-size: 14px;
+
+    margin-bottom: 1rem;
+
+    color: #000;
+
+}
+
+.cp-review-name {
+
+    font-family: 'tg-adventor-bold', sans-serif;
+
+    margin: 0;
+
+    font-size: 14px;
+
+    color: #000;
+
+}
+
+.cp-reviews .review_aggregate_rating {
+
+    display: none;
+
+}
+
+.cp-reviews-more {
+
+    text-align: center;
+
+}
+
+.cp-reviews-more a {
+
+    text-decoration: underline;
+
+    font-family: 'tg-adventor-bold', sans-serif;
+
+    font-weight: bold;
+
+    color: var(--cp-clr-primary);
+
+}
+
+@media screen and (min-width:861px) {
+
+    .cp-reviews-more {
+
+        text-align: left;
+
+    }
+
+    .cp-reviews {
+
+        margin: 0 0 4rem;
+
+    }
+
+    .cp-reviews-inner {
+
+        padding:3rem 2rem;
+
+    }
+
+    .cp-reviews h2 {
+
+        text-align: left;
+
+        font-size: 30px !important;
+
+    }
+
+    .cp-reviews-wrap {
+
+        grid-template-columns: repeat(2,1fr);
+
+        justify-content: center;
+
+    }
+
+    .cp-review {
+
+        padding: 2rem 3rem 2rem;
+
+    }
+
+    .cp-review-stars {
+
+        margin-bottom: 1rem;
+
+    }
+
+    .cp-review-stars img {
+
+        width: 30px;
+
+    }
+
+    .cp-review-text {
+
+        font-size: 16px;
+
+        margin-bottom: 0;
+
+    }
+
+    .cp-review-name {
+
+        font-size: 16px;
+
+    }
+
+}
+
+</style>
+
+<div class="cp-reviews">
+
+    <div class="cp-reviews-inner">
+
+        <h2> Reviews From Santaquin</h2>
+
+        <div class="cp-reviews-wrap">
+
+            
+
+<a href="https://www.davenportfoundationrepair.com/about-us/reviews/29988-santaquin-ut.html" class="cp-review">
+
+    <div class="cp-review-stars">
+
+        <img alt="full star" src="https://cdn.treehouseinternetgroup.com/cms_core/template/layout/site/star-new-full.svg" width="20" height="20"><img alt="full star" src="https://cdn.treehouseinternetgroup.com/cms_core/template/layout/site/star-new-full.svg" width="20" height="20"><img alt="full star" src="https://cdn.treehouseinternetgroup.com/cms_core/template/layout/site/star-new-full.svg" width="20" height="20"><img alt="full star" src="https://cdn.treehouseinternetgroup.com/cms_core/template/layout/site/star-new-full.svg" width="20" height="20"><img alt="full star" src="https://cdn.treehouseinternetgroup.com/cms_core/template/layout/site/star-new-full.svg" width="20" height="20">
+
+    </div>
+
+    <p class="cp-review-text">"Dugan was really great to work with he let me watch and..."</p>
+
+    <p class="cp-review-name">By Carlotte O. of Santaquin, UT</p>
+
+</a>
+
+
+
+        </div>
+
+        <div class="cp-reviews-more">
+
+            <a href="https://www.davenportfoundationrepair.com/about-us/reviews.html">Read More Reviews</a>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+	
+
+	
+
+<style>
+
+.cp-ba {
+
+    margin: 0 0 2rem;
+
+}
+
+.cp-ba-inner {
+
+    max-width: 1200px;
+
+    box-shadow: 0px 3px 16px #00000027;
+
+    margin: 2rem auto;
+
+    width: 100%;
+
+    padding: 2rem;
+
+}
+
+.cp-ba-content {
+
+    max-width: 900px;
+
+    margin: 0 auto;
+
+}
+
+.cp-ba h2 {
+
+    color: black;
+
+    font-family: 'tg-adventor-bold', sans-serif;
+
+    font-weight: bold;
+
+    text-align: center;
+
+    margin: 0 0 2rem 0;
+
+}
+
+@media screen and (min-width:861px) {
+
+    .cp-ba {
+
+        margin: 0 0 4rem;
+
+    }
+
+    .cp-ba-inner {
+
+        padding:3rem 2rem;
+
+    }
+
+    .cp-ba h2 {
+
+        text-align: left;
+
+        font-size: 30px;
+
+    }
+
+}
+
+.cp-scrollbar {
+
+    padding-right: .75rem;
+
+}
+
+.cp-scrollbar::-webkit-scrollbar {
+
+    width: 12px;
+
+}
+
+.cp-scrollbar::-webkit-scrollbar-track {
+
+    background: #fff;
+
+    border-radius: 10px;
+
+}
+
+.cp-scrollbar::-webkit-scrollbar-thumb {
+
+    background: #D8D8D8;
+
+    border-radius: 10px;
+
+}
+
+.cp-ba h2,
+
+#content-wrap .cp-ba h2{
+
+    color: #000 !important;
+
+    font-family: 'tg-adventor-bold', sans-serif;
+
+}
+
+.swipe-info {
+
+    text-align: center;
+
+    font-size: 12px;
+
+    margin-bottom: .5rem;
+
+}
+
+.cp-ba-slider {
+
+    display: flex;
+
+    overflow-x: auto;
+
+    scroll-snap-type: x mandatory;
+
+    margin: 0 auto 1rem;
+
+    max-width: 400px;
+
+}
+
+.cp-ba-slide {
+
+    flex: none;
+
+    scroll-snap-align: start;
+
+    width: 100%;
+
+    margin-bottom: .5rem;
+
+}
+
+.cp-ba-slide:first-child {
+
+    border-right: 3px solid transparent;
+
+}
+
+.cp-ba-slide-img img {
+
+    width: 100%;
+
+    object-fit: cover;
+
+    height: 200px;
+
+}
+
+.cp-ba-slide-title {
+
+    display: block;
+
+    text-align: center;
+
+    padding: .5rem;
+
+    background: var(--cp-clr-primary);
+
+    color: #fff;
+
+    text-transform: uppercase;
+
+}
+
+.cp-ba-desc {
+
+    max-height: 150px;
+
+    overflow-y: scroll;
+
+    margin-bottom: 2rem;
+
+}
+
+.cp-ba-desc p {
+
+    font-size: 14px;
+
+}
+
+.cp-ba-more {
+
+    text-align: center;
+
+}
+
+.cp-ba-more a {
+
+    text-decoration: underline;
+
+    font-family: 'tg-adventor-bold', sans-serif;
+
+    font-weight: bold;
+
+    color: var(--cp-clr-primary);
+
+}
+
+@media screen and (min-width:861px) {
+
+    .cp-ba-more {
+
+        text-align: left;
+
+    }
+
+    .cp-ba-slider {
+
+        max-width: none;
+
+        margin: 0 auto 2rem;
+
+    }
+
+    .cp-ba-slide {
+
+        display: grid;
+
+        grid-template-columns: 100px 1fr 100px;
+
+        grid-template-rows: 1fr 40px;
+
+        width: 50%;
+
+        margin-bottom: 0;
+
+    }
+
+    .cp-ba-slide:first-child {
+
+        border: none;
+
+    }
+
+    .cp-ba-slide-img {
+
+        grid-column: 1/-1;
+
+        grid-row: 1/-1;
+
+    }
+
+    .cp-ba-slide-title {
+
+        grid-column: 1;
+
+        grid-row: 2;
+
+    }
+
+    .cp-ba-slide:last-child .cp-ba-slide-title {
+
+        grid-column: 3;
+
+    }
+
+    .swipe-info {
+
+        display: none;
+
+    }
+
+    .cp-ba-desc {
+
+        max-height: none;
+
+        overflow-y: unset;
+
+    }
+
+    .cp-ba-desc p {
+
+        font-size: 16px;
+
+    }
+
+    .cp-ba-slide-img img {
+
+        height: 100%;
+
+        max-height: 450px;
+
+    }
+
+}
+
+</style>
+
+<div class="cp-ba">
+
+    <div class="cp-ba-inner">
+
+        <div class="cp-ba-content">
+
+            <h2>Before and After Pictures from Santaquin</h2>
+
+            <p class="swipe-info">Swipe to see the After Photo</p>
+
+            
+
+<div class="cp-ba-slider cp-scrollbar">
+
+    <div class="cp-ba-slide">
+
+        <div class="cp-ba-slide-img">
+
+            <img src="https://cdn.treehouseinternetgroup.com/uploads/before_after/1264/medium/6900f6329f472_concrete-driveway-crack-repair-before-santaquin-ut.jpg" alt="Before">
+
+        </div>
+
+        <span class="cp-ba-slide-title">Before</span>
+
+    </div>
+
+    <div class="cp-ba-slide">
+
+        <div class="cp-ba-slide-img">
+
+            <img src="https://cdn.treehouseinternetgroup.com/uploads/before_after/1264/medium/6900f633a5fdb_concrete-driveway-repair-after-polylevel-nexuspro-santaquin-ut.jpg" alt="After">
+
+        </div>
+
+        <span class="cp-ba-slide-title">After</span>
+
+    </div>
+
+</div>
+
+<div class="cp-ba-desc cp-scrollbar">
+
+    <p>This residential driveway in Santaquin, Utah, had multiple cracks and uneven concrete slabs caused by soil settlement and moisture changes. Our crew used <strong data-start="405" data-end="419">PolyLevel&reg;</strong> to lift and stabilize the sunken sections, followed by <strong data-start="475" data-end="502">NexusPro&reg; joint sealant</strong> to fill and protect the cracks from future water intrusion. The result is a smoother, safer, and longer-lasting driveway with restored curb appeal.</p>
+
+</div>
+
+
+
+            <div class="cp-ba-more">
+
+                <a href="https://www.davenportfoundationrepair.com/about-us/before-after.html">View More Before &amp; After Photos</a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+	
+
+	
+
+	
+
+	
+
+	
+
+<div class="widget widget_job_stories">
+
+    <div class="widget_title">Job Stories From Santaquin, UT</div>
+
+    <div class="widget_content" style="max-height: 600px; overflow-y: scroll">
+
+        
+
+<div class="widget_item">
+
+    <div class="widget_item_title">Large Sinkhole Under Walkway in Santaquin, Utah</div>
+
+    <div class="widget_item_content" data-story-group><p>The slabs of concrete leading to Adam C.s home had a giant sinkhole underneath. Water would run under the slabs and into the basement. Davenport Foundation Repair was able to come out and give a free estimate and some cost-effective solutions.</p>
+
+<p>Our crew pumped 56 pounds of our innovative PolyLevel injection foam under his 12-foot-long walkway. In the past, mud jacking was the best way to fix sinking concrete stairs, driveways, sidewalks, etc. However, mud jacking didn't completely solve the problem. PolyLevel cures in 15 minutes and only requires a dime-sized hole to be drilled into the concrete to inject the foam. Learn more about why PolyLevel&reg; is the better solution<a href="https://www.davenportfoundationrepair.com/concrete-leveling/polylevel-injection.html"> here</a>.</p>
+
+<p>Now Adam can enjoy a dry basement and a level walkway to home. We are pleased when our customers send us a review to let us know how we did. &ldquo;The crew was great, and really knew what they were doing,&rdquo; Adam said. Davenport Foundation Repair is pleased we provide Adam with permanent, cost-effective solutions in Santaquin, Utah.</p><a class="job_summary_image" data-story-modal rel="job_summary_13808" href="https://cdn.treehouseinternetgroup.com/uploads/images/48000/medium/48004.jpg"><img alt="Large Sinkhole Under Walkway in Santaquin, Utah - Photo 1" src="https://cdn.treehouseinternetgroup.com/uploads/images/48000/thumb/48004.jpg" loading="lazy"></a></div>
+
+</div>
+
+
+
+    </div>
+
+</div>
+
+
+
+	
+                    
+                    <div class="widget widget_work_requests" >
+                        <div class="widget_title">Work Requests From Santaquin, UT</div>
+                        <div class="widget_content" style="max-height: 300px; overflow-y: scroll">
+                            
+                    <div class="widget_item">
+                        <div class="widget_item_content">
+                        <div class="citypage-job-item">
+
+
+                            <b>Project Location: </b> <i><small>Santaquin, UT</small></i><br/>
+
+
+                            <div class="comments">Cracked driveway sunken back patio</div>
+
+
+                        </div>
+                    </div>
+                    </div>
+                    <div class="widget_item">
+                        <div class="widget_item_content">
+                        <div class="citypage-job-item">
+
+
+                            <b>Project Location: </b> <i><small>Santaquin, UT</small></i><br/>
+
+
+                            <div class="comments">4' wide Sidewalk at front porch needs to be lifted approx 2".</div>
+
+
+                        </div>
+                    </div>
+                    </div>
+                    <div class="widget_item">
+                        <div class="widget_item_content">
+                        <div class="citypage-job-item">
+
+
+                            <b>Project Location: </b> <i><small>Santaquin, UT</small></i><br/>
+
+
+                            <div class="comments">We have settled concrete steps and surfaces that we want to see if we can lift instead of replace. Also cracks that need to be sealed.</div>
+
+
+                        </div>
+                    </div>
+                    </div>
+                    <div class="widget_item">
+                        <div class="widget_item_content">
+                        <div class="citypage-job-item">
+
+
+                            <b>Project Location: </b> <i><small>Santaquin, UT</small></i><br/>
+
+
+                            <div class="comments">Heavy rains cause small leaks into basement.</div>
+
+
+                        </div>
+                    </div>
+                    </div>
+                    <div class="widget_item">
+                        <div class="widget_item_content">
+                        <div class="citypage-job-item">
+
+
+                            <b>Project Location: </b> <i><small>Santaquin, UT</small></i><br/>
+
+
+                            <div class="comments">Weeds growing in basement cracks. Long horizontal cracks along entire side of house in the stucco. Wondering if all of this is a sign of foundation issues and what to do? Please contact via email</div>
+
+
+                        </div>
+                    </div>
+                    </div>
+                    <div class="widget_item">
+                        <div class="widget_item_content">
+                        <div class="citypage-job-item">
+
+
+                            <b>Project Location: </b> <i><small>Santaquin, UT</small></i><br/>
+
+
+                            <div class="comments">Need driveway slab's to be leveled</div>
+
+
+                        </div>
+                    </div>
+                    </div>
+                    <div class="widget_item">
+                        <div class="widget_item_content">
+                        <div class="citypage-job-item">
+
+
+                            <b>Project Location: </b> <i><small>Santaquin, UT</small></i><br/>
+
+
+                            <div class="comments">A room in our basement has a damp floor near the outer wall and won't dry out.</div>
+
+
+                        </div>
+                    </div>
+                    </div>
+                    <div class="widget_item">
+                        <div class="widget_item_content">
+                        <div class="citypage-job-item">
+
+
+                            <b>Project Location: </b> <i><small>Santaquin, UT</small></i><br/>
+
+
+                            <div class="comments">I have a railroad tie retaining wall that is only a year old that is already showing signs of failure. It is a hard to access place at the back of our property between two fences.</div>
+
+
+                        </div>
+                    </div>
+                    </div>
+                    <div class="widget_item">
+                        <div class="widget_item_content">
+                        <div class="citypage-job-item">
+
+
+                            <b>Project Location: </b> <i><small>Santaquin, UT</small></i><br/>
+
+
+                            <div class="comments">U have some sinking drive way squares and side walks i need repaird</div>
+
+
+                        </div>
+                    </div>
+                    </div>
+                    <div class="widget_item">
+                        <div class="widget_item_content">
+                        <div class="citypage-job-item">
+
+
+                            <b>Project Location: </b> <i><small>Santaquin, UT</small></i><br/>
+
+
+                            <div class="comments">Sinkiing floor in garage</div>
+
+
+                        </div>
+                    </div>
+                    </div>
+                    <div class="widget_item">
+                        <div class="widget_item_content">
+                        <div class="citypage-job-item">
+
+
+                            <b>Project Location: </b> <i><small>Santaquin, UT</small></i><br/>
+
+
+                            <div class="comments">Foundation at porch has settled effecting corner of house.  Bricks could start falling out.</div>
+
+
+                        </div>
+                    </div>
+                    </div>
+                        </div>
+                        
+                    </div>
+
+	
+
+		
+
+</div>                    
+
+                  
+
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    </div><!-- end #silo-page-wrap -->
+
+
+
+        <div class="container home" </main></body></html>

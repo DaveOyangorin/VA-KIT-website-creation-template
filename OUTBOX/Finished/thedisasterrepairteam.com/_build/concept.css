@@ -1,0 +1,67 @@
+/* thedisasterrepairteam.com concept: Four kinds of bad day */
+.el-water { --el: var(--water) } .el-fire { --el: var(--fire) } .el-smoke { --el: var(--smoke) } .el-mold { --el: var(--mold) } .el-sewage { --el: #8a7a52 } .el-foundation { --el: #b0a493 } .el-insulation { --el: #e58fb0 } .el-commercial { --el: var(--water) }
+h2 { font-size: clamp(2rem, 4.2vw, 3.4rem); line-height: 1.02 } h2 span, .h1-sub, .quote-band blockquote span { color: var(--el) }
+.label { font-family: var(--f-mono); letter-spacing: .08em; color: var(--accent-ink) }
+.brand img { height: var(--logo-h); width: auto }
+.btn.accent { background: var(--accent); border-color: var(--accent); color: #fff }
+.flogo img { height: 52px; width: auto; background: #fff; border-radius: 6px; padding: 4px }
+body[class^="el-"] .phero-full .label, body[class*=" el-"] .phero-full .label { color: var(--el) }
+body[class^="el-"] .phero-full::before { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 5px; background: var(--el); z-index: 2 }
+.phero-full { position: relative }
+.phero-full.no-photo { background: radial-gradient(ellipse at 80% 20%, color-mix(in srgb, var(--el) 30%, var(--dark)), var(--dark) 65%) }
+
+/* hero with the damage switcher */
+.dr-hero { position: relative; isolation: isolate; background: var(--dark); color: var(--on-dark); padding: clamp(44px, 6vw, 90px) 0; overflow: hidden; transition: --el .4s }
+.eb-wrap { position: absolute; inset: 0; z-index: -2 } .eb { position: absolute; inset: 0; margin: 0; opacity: 0; transition: opacity .7s } .eb.on { opacity: 1 } .eb img { width: 100%; height: 100%; object-fit: cover }
+.eb[data-el="smoke"] img { filter: grayscale(1) contrast(1.1) brightness(.9) }
+.dr-hero::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, rgba(14,17,22,.95) 30%, rgba(14,17,22,.72) 60%, color-mix(in srgb, var(--el) 35%, rgba(14,17,22,.6))); transition: background .6s }
+.dh-grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); gap: clamp(28px, 4vw, 60px); align-items: center }
+.dr-hero h1 { color: #fff; font-size: clamp(2.3rem, 4.8vw, 4.2rem); line-height: 1.02; margin: .25em 0 .4em; text-wrap: balance } .h1-sub { display: block; transition: color .4s }
+.dr-hero .lede { color: var(--on-dark2); max-width: 54ch } .dr-hero .label { color: var(--on-dark2); display: flex; gap: 10px; align-items: center }
+.pulse { width: 9px; height: 9px; border-radius: 50%; background: var(--accent); animation: pz 1.8s infinite } @keyframes pz { 70% { box-shadow: 0 0 0 10px rgba(232,84,42,0) } 0% { box-shadow: 0 0 0 0 rgba(232,84,42,.6) } }
+.dr-hero .btn.ghost { color: #fff; border-color: rgba(255,255,255,.4) }
+.dh-facts { list-style: none; padding: 0; margin: 22px 0 0; display: flex; flex-wrap: wrap; gap: 8px } .dh-facts li { font: 500 .74rem var(--f-mono); border: 1px solid rgba(255,255,255,.2); padding: 6px 10px; border-radius: 999px; color: var(--on-dark2) }
+.dh-panel { background: rgba(14,17,22,.78); border: 1px solid rgba(255,255,255,.12); border-top: 4px solid var(--el); border-radius: 12px; padding: 22px; backdrop-filter: blur(8px); transition: border-color .4s }
+.dp-q { font: 400 1.6rem var(--f-disp); color: #fff; margin: 0 0 12px }
+.etabs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; margin-bottom: 18px }
+.et { display: flex; align-items: center; justify-content: center; gap: 8px; font: 600 .95rem var(--f-body); padding: 11px 6px; border-radius: 8px; border: 1px solid rgba(255,255,255,.16); background: transparent; color: var(--on-dark2); cursor: pointer; transition: all .25s }
+.et .ed { width: 10px; height: 10px; border-radius: 50%; background: var(--el) } .et-water { --el: var(--water) } .et-fire { --el: var(--fire) } .et-smoke { --el: var(--smoke) } .et-mold { --el: var(--mold) }
+.et[aria-selected="true"] { background: var(--el); border-color: var(--el); color: #0e1116 } .et[aria-selected="true"] .ed { background: #0e1116 }
+.ep .label { color: var(--el) } .esteps { list-style: none; padding: 0; margin: 10px 0 16px; display: grid; gap: 10px }
+.esteps li { display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 2px 10px } .esteps span { grid-row: span 2; font: 500 .8rem var(--f-mono); color: var(--el); padding-top: 3px } .esteps b { color: #fff; font-size: 1rem } .esteps p { margin: 0; font-size: .86rem; color: var(--on-dark2) }
+
+/* one-team line */
+.split-head { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: end } .split-head p { color: var(--ink2) }
+.handoff { margin-top: 30px; display: grid; gap: 18px; background: var(--dark); color: var(--on-dark); border-radius: 14px; padding: clamp(20px, 3vw, 36px) }
+.hrow { display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 16px; align-items: center } .hl { font: 500 .76rem var(--f-mono); text-transform: uppercase; letter-spacing: .08em; color: var(--on-dark2) }
+.hrow ol { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); position: relative }
+.hrow li { position: relative; display: grid; gap: 8px; justify-items: center; text-align: center } .hrow li span { width: 18px; height: 18px; border-radius: 50%; background: var(--dark); border: 3px solid var(--on-dark2); position: relative; z-index: 1 }
+.hrow li b { font-size: .86rem; color: var(--on-dark2); font-weight: 500 }
+.hrow li::before { content: ""; position: absolute; top: 8px; left: 50%; width: 100%; height: 3px; background: var(--on-dark2) } .hrow li:last-child::before { display: none }
+.hrow.broken li::before { background: repeating-linear-gradient(90deg, rgba(164,171,182,.6) 0 10px, transparent 10px 22px); width: 100% }
+.hrow.broken li:nth-child(odd)::after { content: "handoff"; position: absolute; top: -18px; left: 100%; transform: translateX(-50%); font: 500 .62rem var(--f-mono); color: var(--accent); text-transform: uppercase; letter-spacing: .08em }
+.hrow.broken li:last-child::after { display: none }
+.hrow.one li span { border-color: var(--accent); background: var(--accent) } .hrow.one li b { color: #fff } .hrow.one .hl { color: #fff }
+.hrow.one li::before { background: var(--accent); transform-origin: left; transform: scaleX(0); transition: transform .5s ease } .handoff.in .hrow.one li::before { transform: scaleX(1) }
+.handoff.in .hrow.one li:nth-child(2)::before { transition-delay: .4s } .handoff.in .hrow.one li:nth-child(3)::before { transition-delay: .8s }
+
+/* services */
+.svc-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin-top: 26px }
+.sv { position: relative; display: grid; align-content: end; gap: 6px; min-height: 280px; padding: 20px; border-radius: 12px; overflow: hidden; color: #fff; text-decoration: none; isolation: isolate; border-top: 4px solid var(--el) }
+.sv img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; transition: transform .8s } .sv::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(14,17,22,.1), rgba(14,17,22,.92)) }
+.sv b { font: 400 1.35rem var(--f-disp) } .sv span { font-size: .88rem; color: rgba(255,255,255,.82) } .sv:hover img { transform: scale(1.05) } .sv:hover { color: #fff }
+.sv.plain { background: var(--dark2); min-height: 200px } .sv.plain::after { display: none }
+.svc-grid .sv:nth-child(1) { grid-column: span 2; grid-row: span 2 }
+.quote-band footer { text-transform: none; letter-spacing: 0; font: 400 1rem/1.5 var(--f-body); max-width: 60ch } .quote-band footer a { color: #f6a07f } .quote-band { --el: var(--mold) }
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 24px 0 }
+.loc { background: var(--dark); color: var(--on-dark); padding: 22px; border-radius: 12px; display: grid; gap: 6px; border-left: 4px solid var(--accent) } .loc .label { color: var(--on-dark2) } .loc .lp { font: 400 2rem var(--f-disp); color: #fff; text-decoration: none } .loc p { margin: 0; color: var(--on-dark2) }
+.locs { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 14px 0 20px } .locs .loc .lp { font-size: 1.5rem }
+.guide-mini { display: grid; gap: 4px; margin-top: 24px; padding: 18px; border: 1px solid var(--line); border-radius: var(--r); color: var(--ink); text-decoration: none } .guide-mini em { font-style: normal; color: var(--accent-ink); display: flex; gap: 6px; align-items: center } .guide-mini em svg { width: 16px }
+.svc-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 10px; margin: 6px 0 26px }
+.svc-card { display: flex; align-items: center; gap: 10px; padding: 14px 16px; border: 1px solid var(--line); border-left: 4px solid var(--el); border-radius: var(--r); background: var(--card); color: var(--ink); text-decoration: none } .svc-card b { flex: 1; font-weight: 600 } .svc-card .dot { display: none } .svc-card em svg { width: 16px }
+.ticks { list-style: none; padding: 0 } .ticks li { padding: 5px 0 5px 26px; position: relative } .ticks li::before { content: ""; position: absolute; left: 4px; top: 12px; width: 11px; height: 6px; border-left: 2px solid var(--accent); border-bottom: 2px solid var(--accent); transform: rotate(-45deg) }
+.form select { width: 100%; font: inherit; padding: 12px 14px; border: 1px solid var(--line); border-radius: var(--r); background: var(--card); color: var(--ink) }
+@media (max-width: 1000px) { .dh-grid, .split-head { grid-template-columns: 1fr } .svc-grid { grid-template-columns: 1fr 1fr } }
+@media (max-width: 700px) { .etabs { grid-template-columns: 1fr 1fr } .hrow { grid-template-columns: 1fr } .hrow li b { font-size: .72rem } .svc-grid { grid-template-columns: 1fr } .svc-grid .sv:nth-child(1) { grid-column: auto; grid-row: auto } .two, .locs { grid-template-columns: 1fr } }
+@media (prefers-reduced-motion: reduce) { .eb, .pulse, .hrow.one li::before { transition: none; animation: none } .hrow.one li::before { transform: none } }
+.svc-grid .sv:nth-child(6), .svc-grid .sv:nth-child(7) { grid-column: span 2 } @media (max-width: 1000px) { .svc-grid .sv:nth-child(6), .svc-grid .sv:nth-child(7) { grid-column: auto } } @media (max-width: 700px) { .svc-grid .sv:nth-child(n) { grid-column: auto } }

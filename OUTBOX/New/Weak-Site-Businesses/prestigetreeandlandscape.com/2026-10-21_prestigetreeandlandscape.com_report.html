@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>prestigetreeandlandscape.com Website Plan</title>
+<style>
+  :root {
+    --bg: #f7f6f3; --card: #ffffff; --text: #1d1d1b; --muted: #6b6a66; --line: #e3e1dc;
+    --accent: #1f5f8b; --good: #2e7d4f; --warn: #a86400; --bad: #b3261e; --chip: #eef3f7;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #161716; --card: #1f201f; --text: #ecebe7; --muted: #a3a29d; --line: #333431;
+      --accent: #7fb6dd; --good: #6cc193; --warn: #e0a54a; --bad: #ef7b72; --chip: #24303a;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #161716; --card: #1f201f; --text: #ecebe7; --muted: #a3a29d; --line: #333431;
+    --accent: #7fb6dd; --good: #6cc193; --warn: #e0a54a; --bad: #ef7b72; --chip: #24303a;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text);
+    font: 15px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  main { max-width: 960px; margin: 0 auto; padding: 32px 16px 64px; }
+  h1 { font-size: 26px; margin: 0 0 4px; }
+  h2 { font-size: 18px; margin: 0 0 12px; }
+  h3 { font-size: 15px; margin: 16px 0 6px; }
+  .sub { color: var(--muted); margin: 0 0 24px; }
+  section { background: var(--card); border: 1px solid var(--line); border-radius: 10px;
+    padding: 20px; margin-bottom: 16px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; }
+  .stat { border: 1px solid var(--line); border-radius: 8px; padding: 12px; }
+  .stat b { display: block; font-size: 22px; }
+  .stat span { color: var(--muted); font-size: 13px; }
+  .table-wrap { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { color: var(--muted); font-weight: 600; font-size: 13px; }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+  .tag { display: inline-block; padding: 1px 8px; border-radius: 99px; font-size: 12px; white-space: nowrap; }
+  .t-good { background: color-mix(in srgb, var(--good) 15%, transparent); color: var(--good); }
+  .t-warn { background: color-mix(in srgb, var(--warn) 15%, transparent); color: var(--warn); }
+  .t-bad  { background: color-mix(in srgb, var(--bad) 15%, transparent); color: var(--bad); }
+  dl { display: grid; grid-template-columns: max-content 1fr; gap: 6px 16px; margin: 0; }
+  dt { color: var(--muted); }
+  dd { margin: 0; }
+  code { background: var(--chip); padding: 1px 6px; border-radius: 4px; font-size: 13px; }
+  ul, ol { padding-left: 20px; margin: 6px 0; }
+  li { margin: 3px 0; }
+  .note { border-left: 3px solid var(--warn); padding: 8px 12px; background: color-mix(in srgb, var(--warn) 8%, transparent); border-radius: 0 6px 6px 0; margin: 10px 0; }
+  .alert { border-left: 3px solid var(--bad); padding: 8px 12px; background: color-mix(in srgb, var(--bad) 8%, transparent); border-radius: 0 6px 6px 0; margin: 10px 0; }
+  .check li { list-style: none; margin-left: -20px; }
+  .check li::before { content: "☐ "; color: var(--muted); }
+  footer { color: var(--muted); font-size: 13px; text-align: center; margin-top: 24px; }
+  @media (max-width: 560px) { dl { grid-template-columns: 1fr; } dt { margin-top: 6px; } }
+  .small { color: var(--muted); font-size: 13px; }
+</style>
+
+</head>
+<body>
+<main>
+  <h1>prestigetreeandlandscape.com · Website plan report</h1>
+  <p class="sub">Prestige Tree And Landscape · Murray · Website down or broken · Prepared 21 Oct 2026. Listing facts from 15 Oct 2026; audit and search numbers from 21 Oct 2026. Draft for Angelo's review.</p>
+  <section>
+    <h2>Summary</h2>
+    <ul>
+      <li><b>Home page target:</b> <code>tree service murray</code>. Searches across Utah: – for “tree service murray”, 880 for “tree service near me”.</li>
+      <li><b>Website down:</b> The home page loads blank in Chrome: no title, about 13 words.</li>
+      <li><b>Strong reviews:</b> 4.4 stars from 350. A good site would turn that trust into calls.</li>
+      <li><b>Biggest service demand:</b> tree pruning (720 "near me" searches across Utah).</li>
+      <li><b>Main problems:</b> mobile speed 19/100; only 72 words on the home page (standard 800+); 0 H1 headings (should be 1); no tap-to-call link; no business schema; no page names Murray.</li>
+      <li><b>9 of 9 services have no page</b> (ask the client which they really do).</li>
+    </ul>
+  </section>
+  <section>
+    <h2>Reviewer notes</h2>
+    <p><span class="tag t-good">Priority A: strong prospect</span></p>
+    <p><b>Home page loads blank and mobile speed is 19/100, the worst on this list.</b></p>
+    <ul>
+      <li>The sitemap has 35 pages, so content exists. The home page itself is broken (no title, about 13 words).</li>
+      <li>Tree pruning and trimming (720 each "near me") are the biggest services.</li>
+      <li>4.4 stars from 350.</li>
+    </ul>
+  </section>
+  <section>
+    <h2>Business facts</h2>
+    <dl>
+      <dt>Name</dt><dd>Prestige Tree And Landscape</dd>
+      <dt>Website</dt><dd>prestigetreeandlandscape.com · 35 pages now</dd>
+      <dt>Phone</dt><dd>+1801-859-9786</dd>
+      <dt>Address</dt><dd>4780 S Commerce Dr, Murray, UT 84107</dd>
+      <dt>Google category</dt><dd>Tree service</dd>
+      <dt>Reviews</dt><dd>4.4 stars · 350 reviews</dd>
+    </dl>
+    <p class="alert"><b>Not a client yet. Do not contact this business.</b> This report is for planning only. Nothing goes to them unless Angelo says so.</p>
+    <p class="note">From the Google listing (pulled 15 Oct 2026). Confirm with the client before it goes on a site. Name, address and phone are copied exactly as given; do not reformat them.</p>
+  </section>
+  <section>
+    <h2>Fix on the new site</h2>
+    <div class="grid">
+      <div class="stat"><b>19 / 100</b><span>Mobile speed · aim 90+</span></div>
+      <div class="stat"><b>72</b><span>Home page words · aim 800+</span></div>
+      <div class="stat"><b>0</b><span>H1 headings · should be 1</span></div>
+      <div class="stat"><b>0 of 6</b><span>Images without alt text</span></div>
+      <div class="stat"><b>No</b><span>Tap-to-call link</span></div>
+      <div class="stat"><b>No</b><span>Business schema</span></div>
+      <div class="stat"><b>0</b><span>Pages that name Murray</span></div>
+    </div>
+    <h3>What the audit found</h3>
+    <ul>
+      <li>The home page loads blank in Chrome: no title, about 13 words.</li>
+      <li>Mobile speed now: 19/100. Aim for 90+.</li>
+      <li>Home page words: 72. Our standard is 800+.</li>
+      <li>Pages in the sitemap: 35.</li>
+      <li>Meta description: present.</li>
+      <li>H1 headings on the home page: 0 (should be 1).</li>
+      <li>Tap-to-call phone link: no.</li>
+      <li>Business schema: no.</li>
+      <li>Images without alt text: 0 of 6.</li>
+      <li>Pages that name Murray: 0.</li>
+    </ul>
+    <h3>What to do</h3>
+    <ul>
+      <li><b>Get the site back up first</b>, or rebuild it. Right now Google sends customers to a broken page.</li>
+      <li>Speed: 19/100 now. Compress images, lazy-load, remove unneeded scripts. Target 90+.</li>
+      <li>Home page has 72 words. Write 800+ useful words (services, area, process, FAQ).</li>
+      <li>Use exactly one H1 per page (home page has 0).</li>
+      <li>Add a tap-to-call phone link in the header.</li>
+      <li>Add LocalBusiness schema with the exact name, address and phone.</li>
+      <li>Name Murray in the title, H1 and first paragraph of every service page.</li>
+    </ul>
+  </section>
+  <section>
+    <h2>Home page</h2>
+    <dl>
+      <dt>Main keyword</dt><dd><code>tree service murray</code></dd>
+      <dt>Also use</dt><dd><code>tree removal murray</code>, <code>arborist murray</code></dd>
+      <dt>Searches</dt><dd>– for “tree service murray”, 880 for “tree service near me” (across Utah)</dd>
+      <dt>Placement</dt><dd>Start with the keyword: title tag, H1 and first sentence.</dd>
+    </dl>
+  </section>
+  <section>
+    <h2>Service pages · build in this order</h2>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>Service</th><th>Target keyword</th><th class="num">With the city</th><th class="num">"Near me"</th><th class="num">+ "utah"</th><th>Now</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Tree pruning</td><td><code>tree pruning murray</code></td><td class="num">–</td><td class="num">720</td><td class="num">20</td><td><span class="tag t-bad">Ask client</span></td></tr>
+        <tr><td>2</td><td>Tree trimming</td><td><code>tree trimming murray</code></td><td class="num">–</td><td class="num">720</td><td class="num">20</td><td><span class="tag t-bad">Ask client</span></td></tr>
+        <tr><td>3</td><td>Tree removal</td><td><code>tree removal murray</code></td><td class="num">10</td><td class="num">480</td><td class="num">40</td><td><span class="tag t-bad">Ask client</span></td></tr>
+        <tr><td>4</td><td>Stump grinding</td><td><code>stump grinding murray</code></td><td class="num">–</td><td class="num">170</td><td class="num">30</td><td><span class="tag t-bad">Ask client</span></td></tr>
+        <tr><td>5</td><td>Stump removal</td><td><code>stump removal murray</code></td><td class="num">–</td><td class="num">90</td><td class="num">10</td><td><span class="tag t-bad">Ask client</span></td></tr>
+        <tr><td>6</td><td>Land clearing</td><td><code>land clearing murray</code></td><td class="num">–</td><td class="num">50</td><td class="num">10</td><td><span class="tag t-bad">Ask client</span></td></tr>
+        <tr><td>7</td><td>Certified arborist</td><td><code>certified arborist murray</code></td><td class="num">–</td><td class="num">40</td><td class="num">10</td><td><span class="tag t-bad">Ask client</span></td></tr>
+        <tr><td>8</td><td>Emergency tree removal</td><td><code>emergency tree removal murray</code></td><td class="num">–</td><td class="num">10</td><td class="num">–</td><td><span class="tag t-bad">Ask client</span></td></tr>
+        <tr><td>9</td><td>Tree planting</td><td><code>tree planting murray</code></td><td class="num">–</td><td class="num">10</td><td class="num">10</td><td><span class="tag t-bad">Ask client</span></td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="small">Monthly searches across Utah. "–" = fewer than 10 a month. One page per service. Only build a page if the business really does that service.</p>
+  </section>
+  <section>
+    <h2>Cost page</h2>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Keyword</th><th class="num">All Utah</th><th class="num">+ "utah"</th><th>With city</th><th class="num">All Utah</th></tr></thead>
+      <tbody>
+        <tr><td>tree removal cost</td><td class="num">70</td><td class="num">10</td><td>tree removal cost salt lake city</td><td class="num">–</td></tr>
+        <tr><td>stump grinding cost</td><td class="num">30</td><td class="num">–</td><td>stump grinding cost salt lake city</td><td class="num">–</td></tr>
+        <tr><td>tree trimming cost</td><td class="num">40</td><td class="num">–</td><td>tree trimming cost salt lake city</td><td class="num">–</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p>One cost page covering these. Cost searchers are close to buying. <b>Use only real prices from the client.</b></p>
+  </section>
+  <section>
+    <h2>City pages</h2>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>City</th><th>Keyword 1</th><th class="num">All Utah</th><th>Keyword 2</th><th class="num">All Utah</th></tr></thead>
+      <tbody>
+        <tr><td>Salt Lake City</td><td>tree service salt lake city</td><td class="num">110</td><td>tree removal salt lake city</td><td class="num">210</td></tr>
+        <tr><td>Sandy</td><td>tree service sandy</td><td class="num">10</td><td>tree removal sandy</td><td class="num">30</td></tr>
+        <tr><td>West Jordan</td><td>tree service west jordan</td><td class="num">10</td><td>tree removal west jordan</td><td class="num">20</td></tr>
+        <tr><td>South Jordan</td><td>tree service south jordan</td><td class="num">10</td><td>tree removal south jordan</td><td class="num">10</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p>Build a city page only if the business really works there, with real local content.</p>
+  </section>
+  <section>
+    <h2>What a strong page looks like</h2>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Keyword</th><th class="num">Avg. words (top pages)</th><th class="num">Have FAQ</th><th class="num">Show prices</th></tr></thead>
+      <tbody>
+        <tr><td>tree service murray</td><td class="num">~1,088</td><td class="num">0 of 3</td><td class="num">1 of 3</td></tr>
+        <tr><td>tree removal murray</td><td class="num">~1,362</td><td class="num">3 of 3</td><td class="num">1 of 3</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <h3>Headings on the top pages (topic ideas only)</h3>
+    <ul>
+      <li>Professional tree service for Murray, Utah homes and businesses</li>
+      <li>Tree services we offer in Murray</li>
+      <li>Why Murray property owners choose Alpine Arborists</li>
+      <li>Serving Murray and nearby Salt Lake Valley cities</li>
+      <li>Request a Free Estimate</li>
+      <li>Certifications, Licensing &amp; Insurance</li>
+      <li>Why Choose Alpine Arborists</li>
+      <li>Meet the Murray Team</li>
+      <li>Professional Tree Service in Murray, UT</li>
+      <li>Healthier Trees with Effective Trimming Practices</li>
+      <li>Trimming and Removal Services</li>
+      <li>Expert Care for Your Trees</li>
+      <li>The Best Choice for tree services in Murray, Utah</li>
+      <li>Contact The Experts To Get A Free Quote</li>
+      <li>Thanks for your interest in</li>
+      <li>Rent A Monkey tree Service</li>
+      <li>Top 10 Best Tree Removal Companies in Murray</li>
+      <li>How Much Does Tree Removal Cost in Murray?</li>
+    </ul>
+    <p class="note">Use competitor headings for topic ideas only. Do not copy them. Some name other companies, people or prices.</p>
+  </section>
+  <section>
+    <h2>More searches Google suggests</h2>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Search</th><th>Use?</th><th>Where</th></tr></thead>
+      <tbody>
+        <tr><td>Tree removal murray cost</td><td><span class="tag t-warn">Real prices only</span></td><td>Cost page</td></tr>
+        <tr><td>Free tree removal murray</td><td><span class="tag t-warn">If true</span></td><td>Only with real offers from the client</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </section>
+  <section>
+    <h2>FAQ · real questions from Google</h2>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Question</th><th>Use?</th><th>Where</th></tr></thead>
+      <tbody>
+        <tr><td>What is a reasonable price to cut down a tree?</td><td><span class="tag t-warn">Real prices only</span></td><td>Cost page</td></tr>
+        <tr><td>Can seniors get free tree removal?</td><td><span class="tag t-good">Yes</span></td><td>Matching service page</td></tr>
+        <tr><td>How much does it cost to cut down a 40 ft tree?</td><td><span class="tag t-warn">Real prices only</span></td><td>Cost page</td></tr>
+        <tr><td>What is the cheapest time of year for tree removal?</td><td><span class="tag t-warn">Real prices only</span></td><td>Cost page</td></tr>
+        <tr><td>Do arborists trim trees?</td><td><span class="tag t-good">Yes</span></td><td>Matching service page</td></tr>
+        <tr><td>How close is too close for a tree to be to a house?</td><td><span class="tag t-good">Yes</span></td><td>Matching service page</td></tr>
+        <tr><td>What is the easiest way to remove tree roots?</td><td><span class="tag t-good">Yes</span></td><td>Matching service page</td></tr>
+        <tr><td>What are good tree service company names?</td><td><span class="tag t-good">Yes</span></td><td>Matching service page</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </section>
+  <section>
+    <h2>Rules for the writer</h2>
+    <ul>
+      <li>Start each page with its keyword.</li>
+      <li>Use only facts the client gives you: prices, warranty, years in business, licenses.</li>
+      <li>Do not invent reviews, numbers or photos.</li>
+      <li><b>This business is not a client yet: do not contact it.</b></li>
+    </ul>
+    <p class="small">Search numbers: Google Ads monthly searches across Utah, pulled 21 Oct 2026. "–" means fewer than 10 a month. Questions and page topics: live Google results in Murray, 21 Oct 2026.</p>
+  </section>
+  <section>
+    <h2>If they become a client: questions to ask</h2>
+    <p class="small">Only after Angelo signs them up. Do not contact them now.</p>
+    <ol>
+      <li>Which of these services do you really offer: <b>tree pruning, tree trimming, tree removal, stump grinding, stump removal, land clearing, certified arborist, emergency tree removal, tree planting</b>?</li>
+      <li>Are the name, phone and address on Google correct and how should they appear on the site?</li>
+      <li>Can you share real prices or price ranges?</li>
+      <li>Which cities do you work in?</li>
+      <li>Warranty, years in business, licenses? Any project photos?</li>
+    </ol>
+  </section>
+  <footer>Novarte AI · Draft for internal review · Not a client: do not contact · Data from 21 Oct 2026</footer>
+</main>
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Weak-Site Businesses Overview</title>
+<style>
+  :root {
+    --bg: #f7f6f3; --card: #ffffff; --text: #1d1d1b; --muted: #6b6a66; --line: #e3e1dc;
+    --accent: #1f5f8b; --good: #2e7d4f; --warn: #a86400; --bad: #b3261e; --chip: #eef3f7;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #161716; --card: #1f201f; --text: #ecebe7; --muted: #a3a29d; --line: #333431;
+      --accent: #7fb6dd; --good: #6cc193; --warn: #e0a54a; --bad: #ef7b72; --chip: #24303a;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #161716; --card: #1f201f; --text: #ecebe7; --muted: #a3a29d; --line: #333431;
+    --accent: #7fb6dd; --good: #6cc193; --warn: #e0a54a; --bad: #ef7b72; --chip: #24303a;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text);
+    font: 15px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  main { max-width: 1200px; margin: 0 auto; padding: 32px 16px 64px; }
+  h1 { font-size: 26px; margin: 0 0 4px; }
+  h2 { font-size: 18px; margin: 0 0 12px; }
+  h3 { font-size: 15px; margin: 16px 0 6px; }
+  .sub { color: var(--muted); margin: 0 0 24px; }
+  section { background: var(--card); border: 1px solid var(--line); border-radius: 10px;
+    padding: 20px; margin-bottom: 16px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; }
+  .stat { border: 1px solid var(--line); border-radius: 8px; padding: 12px; }
+  .stat b { display: block; font-size: 22px; }
+  .stat span { color: var(--muted); font-size: 13px; }
+  .table-wrap { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { color: var(--muted); font-weight: 600; font-size: 13px; }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+  .tag { display: inline-block; padding: 1px 8px; border-radius: 99px; font-size: 12px; white-space: nowrap; }
+  .t-good { background: color-mix(in srgb, var(--good) 15%, transparent); color: var(--good); }
+  .t-warn { background: color-mix(in srgb, var(--warn) 15%, transparent); color: var(--warn); }
+  .t-bad  { background: color-mix(in srgb, var(--bad) 15%, transparent); color: var(--bad); }
+  dl { display: grid; grid-template-columns: max-content 1fr; gap: 6px 16px; margin: 0; }
+  dt { color: var(--muted); }
+  dd { margin: 0; }
+  code { background: var(--chip); padding: 1px 6px; border-radius: 4px; font-size: 13px; }
+  ul, ol { padding-left: 20px; margin: 6px 0; }
+  li { margin: 3px 0; }
+  .note { border-left: 3px solid var(--warn); padding: 8px 12px; background: color-mix(in srgb, var(--warn) 8%, transparent); border-radius: 0 6px 6px 0; margin: 10px 0; }
+  .alert { border-left: 3px solid var(--bad); padding: 8px 12px; background: color-mix(in srgb, var(--bad) 8%, transparent); border-radius: 0 6px 6px 0; margin: 10px 0; }
+  .check li { list-style: none; margin-left: -20px; }
+  .check li::before { content: "☐ "; color: var(--muted); }
+  footer { color: var(--muted); font-size: 13px; text-align: center; margin-top: 24px; }
+  @media (max-width: 560px) { dl { grid-template-columns: 1fr; } dt { margin-top: 6px; } }
+  .small { color: var(--muted); font-size: 13px; }
+</style>
+
+</head>
+<body>
+<main>
+  <h1>Weak-site businesses · Overview</h1>
+  <p class="sub">43 Salt Lake Valley service businesses with no website, a broken website or a weak one. Reviewed 21 Oct 2026 from the light audits and Google data of 21 Oct 2026. Draft for Angelo's review.</p>
+  <p class="alert"><b>None of these businesses are clients. Do not contact them.</b> These reports are for planning only.</p>
+
+  <section>
+    <h2>At a glance</h2>
+    <div class="grid">
+      <div class="stat"><b>9</b><span>Priority A: strong prospects</span></div>
+      <div class="stat"><b>23</b><span>Priority B</span></div>
+      <div class="stat"><b>8</b><span>Priority C: smaller wins</span></div>
+      <div class="stat"><b>3</b><span>Check with Angelo first</span></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>What stands out</h2>
+    <ul>
+      <li><b>Strongest prospects:</b> RoofTek (1,403 reviews) and Stott Plumbing &amp; Excavating (1,172) have <b>no website at all</b>. Pestx (1,003), The Repair Pros (942) and EZ Electric (641) have big review counts on very small or broken sites.</li>
+      <li><b>Quick wins:</b> Tru Solutions Utah Moving (540 reviews) and Marble Builders show a hosting "Account Suspended" page. Renewing the hosting would fix it the same day.</li>
+      <li><b>Tell Angelo:</b> Jackson Family Plumbing's site title says "Colorado 24/7 Plumbing Call". Blue Chip Carpet Cleaning shows a "BEST WEBSITE DEALS!" heading. Proformance Heating's site (dsihvac.com) doesn't load and its address says "dsi".</li>
+      <li><b>Weak ratings:</b> Advanced Community Services and Investment Realty Advisors (both 3.2 stars). A new site won't fix that.</li>
+      <li><b>Same trade, same city:</b> three Salt Lake City plumbers with no site (Stott, Stanley &amp; Sons, Gross Family), two appliance repair shops (The Repair Pros, ASI), two electricians (EZ Electric, Any &amp; All), two HVAC companies (Affordable, Vogl) and two tree services (Joe's, Sterling). If Angelo signs more than one, they would compete.</li>
+      <li><b>8 listings have no address</b>, so they're service-area businesses. Several listings have 435 phone numbers or high suite numbers. Copy them exactly and confirm.</li>
+      <li><b>Search numbers on this list are across all of Utah</b>, not one city. "Near me" searches are much larger than city-name searches for almost every trade.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>No website on Google · 9</h2>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>Business</th><th>City</th><th>Website</th><th>Priority</th><th>Reviewer verdict</th><th>Report</th></tr></thead>
+      <tbody>
+        <tr><td>01</td><td><b>RoofTek</b><br><span class="small">Roofing contractor · 1,403 reviews</span></td><td>Millcreek</td><td>none</td><td><span class="tag t-good">A</span></td><td>Top prospect: 1,403 reviews and no website at all.</td><td><a href="rooftek/2026-10-21_rooftek_report.html">Open report</a></td></tr>
+        <tr><td>02</td><td><b>Stott Plumbing &amp; Excavating</b><br><span class="small">Plumber · 1,172 reviews</span></td><td>Salt Lake City</td><td>none</td><td><span class="tag t-good">A</span></td><td>Top prospect: 1,172 reviews, no website, big plumbing market.</td><td><a href="stott-plumbing-excavating/2026-10-21_stott-plumbing-excavating_report.html">Open report</a></td></tr>
+        <tr><td>03</td><td><b>Eagle Locksmith inc</b><br><span class="small">Locksmith · 756 reviews</span></td><td>Salt Lake City</td><td>none</td><td><span class="tag t-warn">B</span></td><td>Big review count (756), no website, but a lower rating (4.2).</td><td><a href="eagle-locksmith-inc/2026-10-21_eagle-locksmith-inc_report.html">Open report</a></td></tr>
+        <tr><td>04</td><td><b>Conrad&#x27;s Roofing &amp; Construction</b><br><span class="small">Roofing contractor · 406 reviews</span></td><td>Lehi</td><td>none</td><td><span class="tag t-good">A</span></td><td>Strong roofer (406 reviews, 4.8) with no website.</td><td><a href="conrad-s-roofing-construction/2026-10-21_conrad-s-roofing-construction_report.html">Open report</a></td></tr>
+        <tr><td>05</td><td><b>Stanley &amp; Sons Plumbing</b><br><span class="small">Plumber · 265 reviews</span></td><td>Salt Lake City</td><td>none</td><td><span class="tag t-warn">B</span></td><td>Good plumber (265 reviews, 4.8), no website.</td><td><a href="stanley-sons-plumbing/2026-10-21_stanley-sons-plumbing_report.html">Open report</a></td></tr>
+        <tr><td>06</td><td><b>Sean&#x27;s Plumbing</b><br><span class="small">Plumber · 254 reviews</span></td><td>South Jordan</td><td>none</td><td><span class="tag t-warn">B</span></td><td>Good plumber (254 reviews, 4.9), no website.</td><td><a href="sean-s-plumbing/2026-10-21_sean-s-plumbing_report.html">Open report</a></td></tr>
+        <tr><td>07</td><td><b>Superior Locksmith</b><br><span class="small">Locksmith · 247 reviews</span></td><td>West Jordan</td><td>none</td><td><span class="tag t-warn">B</span></td><td>Locksmith with 247 reviews (4.8), no website.</td><td><a href="superior-locksmith/2026-10-21_superior-locksmith_report.html">Open report</a></td></tr>
+        <tr><td>08</td><td><b>Husky Property Maintenance</b><br><span class="small">Handyman/Handywoman/Handyperson · 196 reviews</span></td><td>Midvale</td><td>none</td><td><span class="tag t-warn">B</span></td><td>Handyman with 196 reviews, no website.</td><td><a href="husky-property-maintenance/2026-10-21_husky-property-maintenance_report.html">Open report</a></td></tr>
+        <tr><td>09</td><td><b>Gross Family Plumbing LLC</b><br><span class="small">Plumber · 163 reviews</span></td><td>Salt Lake City</td><td>none</td><td><span class="tag t-warn">B</span></td><td>Plumber with 163 reviews (4.8), no website.</td><td><a href="gross-family-plumbing-llc/2026-10-21_gross-family-plumbing-llc_report.html">Open report</a></td></tr>
+      </tbody>
+    </table>
+    </div>
+  </section>
+  <section>
+    <h2>Website down or broken · 5</h2>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>Business</th><th>City</th><th>Website</th><th>Priority</th><th>Reviewer verdict</th><th>Report</th></tr></thead>
+      <tbody>
+        <tr><td>10</td><td><b>Tru Solutions Utah Moving Company</b><br><span class="small">Mover · 540 reviews</span></td><td>Midvale</td><td>trusolutionsutahmoving.com</td><td><span class="tag t-good">A</span></td><td>Quick win: the site shows a hosting &quot;Account Suspended&quot; page.</td><td><a href="trusolutionsutahmoving.com/2026-10-21_trusolutionsutahmoving.com_report.html">Open report</a></td></tr>
+        <tr><td>11</td><td><b>Prestige Tree And Landscape</b><br><span class="small">Tree service · 350 reviews</span></td><td>Murray</td><td>prestigetreeandlandscape.com</td><td><span class="tag t-good">A</span></td><td>Home page loads blank and mobile speed is 19/100, the worst on this list.</td><td><a href="prestigetreeandlandscape.com/2026-10-21_prestigetreeandlandscape.com_report.html">Open report</a></td></tr>
+        <tr><td>12</td><td><b>Marble Builders</b><br><span class="small">General contractor · 198 reviews</span></td><td>Riverton</td><td>marble-builders.com</td><td><span class="tag t-warn">B</span></td><td>Site shows a hosting &quot;Account Suspended&quot; page.</td><td><a href="marble-builders.com/2026-10-21_marble-builders.com_report.html">Open report</a></td></tr>
+        <tr><td>13</td><td><b>Proformance Heating and Air</b><br><span class="small">HVAC contractor · 191 reviews</span></td><td>Draper</td><td>dsihvac.com</td><td><span class="tag t-bad">Check first</span></td><td>Check first: the website does not load, and its address says &quot;dsi&quot;, not Proformance.</td><td><a href="dsihvac.com/2026-10-21_dsihvac.com_report.html">Open report</a></td></tr>
+        <tr><td>14</td><td><b>Jackson Family Plumbing &amp; HVAC</b><br><span class="small">Plumber · 170 reviews</span></td><td>West Jordan</td><td>jacksonplumbinghvac.com</td><td><span class="tag t-bad">Check first</span></td><td>Tell Angelo: the site&#x27;s title says &quot;Colorado 24/7 Plumbing Call&quot;. It does not match this Utah business.</td><td><a href="jacksonplumbinghvac.com/2026-10-21_jacksonplumbinghvac.com_report.html">Open report</a></td></tr>
+      </tbody>
+    </table>
+    </div>
+  </section>
+  <section>
+    <h2>Weak website · 29</h2>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>Business</th><th>City</th><th>Website</th><th>Priority</th><th>Reviewer verdict</th><th>Report</th></tr></thead>
+      <tbody>
+        <tr><td>15</td><td><b>Pestx</b><br><span class="small">Pest control service · 1,003 reviews</span></td><td>Midvale</td><td>pestx.org</td><td><span class="tag t-good">A</span></td><td>1,003 reviews (4.9) on an 18-page site with basic errors.</td><td><a href="pestx.org/2026-10-21_pestx.org_report.html">Open report</a></td></tr>
+        <tr><td>16</td><td><b>The Repair Pros</b><br><span class="small">Appliance repair service · 942 reviews</span></td><td>Salt Lake City</td><td>therepairpros.com</td><td><span class="tag t-good">A</span></td><td>942 reviews (4.8) on a 3-page site.</td><td><a href="therepairpros.com/2026-10-21_therepairpros.com_report.html">Open report</a></td></tr>
+        <tr><td>17</td><td><b>Pineapple Property Group</b><br><span class="small">Property management company · 720 reviews</span></td><td>Salt Lake City</td><td>pineapplepropertygroup.com</td><td><span class="tag t-warn">B</span></td><td>Big review count (720) but 4.2 stars; home page has 5 H1s.</td><td><a href="pineapplepropertygroup.com/2026-10-21_pineapplepropertygroup.com_report.html">Open report</a></td></tr>
+        <tr><td>18</td><td><b>EZ Electric</b><br><span class="small">Electrician · 641 reviews</span></td><td>Salt Lake City</td><td>ezelectric.com</td><td><span class="tag t-good">A</span></td><td>641 reviews (4.9) on a 6-page site with no H1.</td><td><a href="ezelectric.com/2026-10-21_ezelectric.com_report.html">Open report</a></td></tr>
+        <tr><td>19</td><td><b>Rasmussen Landscapes</b><br><span class="small">Landscaper · 629 reviews</span></td><td>South Salt Lake</td><td>rasmussenlandscapes.com</td><td><span class="tag t-warn">B</span></td><td>Large site (94 pages) with a thin home page (269 words).</td><td><a href="rasmussenlandscapes.com/2026-10-21_rasmussenlandscapes.com_report.html">Open report</a></td></tr>
+        <tr><td>20</td><td><b>Affordable Heating &amp; Cooling, Inc.</b><br><span class="small">HVAC contractor · 565 reviews</span></td><td>Salt Lake City</td><td>ahc-utah.com</td><td><span class="tag t-good">A</span></td><td>565 reviews (4.9), but a 153-word home page and the phone is not tap-to-call.</td><td><a href="ahc-utah.com/2026-10-21_ahc-utah.com_report.html">Open report</a></td></tr>
+        <tr><td>21</td><td><b>5 Star Kitchen and Bath</b><br><span class="small">Bathroom remodeler · 527 reviews</span></td><td>Midvale</td><td>5starkb.com</td><td><span class="tag t-warn">B</span></td><td>Slow site (35/100) with 6 H1 headings, some empty.</td><td><a href="5starkb.com/2026-10-21_5starkb.com_report.html">Open report</a></td></tr>
+        <tr><td>22</td><td><b>Lockthesmith</b><br><span class="small">Locksmith · 521 reviews</span></td><td>West Valley City</td><td>lockthesmithut.com</td><td><span class="tag t-warn">B</span></td><td>Fast site (93/100) left half-finished: the tab title is &quot;lockthesmithut&quot; and test pages are live.</td><td><a href="lockthesmithut.com/2026-10-21_lockthesmithut.com_report.html">Open report</a></td></tr>
+        <tr><td>23</td><td><b>Abode House Cleaning</b><br><span class="small">House cleaning service · 521 reviews</span></td><td>Draper</td><td>abode.cleaning</td><td><span class="tag t-warn">B</span></td><td>521 reviews; site lacks tap-to-call, schema and a single H1.</td><td><a href="abode.cleaning/2026-10-21_abode.cleaning_report.html">Open report</a></td></tr>
+        <tr><td>24</td><td><b>Equity Real Estate Property Management Division</b><br><span class="small">Property management company · 464 reviews</span></td><td>Sandy</td><td>equitypmusa.com</td><td><span class="tag t-bad">C</span></td><td>Thin home page (196 words), 4.4 stars.</td><td><a href="equitypmusa.com/2026-10-21_equitypmusa.com_report.html">Open report</a></td></tr>
+        <tr><td>25</td><td><b>RWK Construction</b><br><span class="small">General contractor · 458 reviews</span></td><td>Bluffdale</td><td>rwkconstruction.com</td><td><span class="tag t-warn">B</span></td><td>458 reviews (4.9), home page has 6 H1s.</td><td><a href="rwkconstruction.com/2026-10-21_rwkconstruction.com_report.html">Open report</a></td></tr>
+        <tr><td>26</td><td><b>Advanced Community Services</b><br><span class="small">Property management company · 406 reviews</span></td><td>Lehi</td><td>acs-hoa.com</td><td><span class="tag t-bad">C</span></td><td>Weak rating: 3.2 stars from 406.</td><td><a href="acs-hoa.com/2026-10-21_acs-hoa.com_report.html">Open report</a></td></tr>
+        <tr><td>27</td><td><b>Mountain Window Cleaning</b><br><span class="small">Window cleaning service · 390 reviews</span></td><td>Sandy</td><td>mountainwindowcleaning.com</td><td><span class="tag t-warn">B</span></td><td>Good site speed (92) and 5 stars from 390, but almost no service pages.</td><td><a href="mountainwindowcleaning.com/2026-10-21_mountainwindowcleaning.com_report.html">Open report</a></td></tr>
+        <tr><td>28</td><td><b>Vogl Direct - Heating &amp; Air Conditioning (HVAC)</b><br><span class="small">HVAC contractor · 334 reviews</span></td><td>Salt Lake City</td><td>vogldirect.com</td><td><span class="tag t-warn">B</span></td><td>334 reviews (4.9), slow site (49/100).</td><td><a href="vogldirect.com/2026-10-21_vogldirect.com_report.html">Open report</a></td></tr>
+        <tr><td>29</td><td><b>Trusty Appliance Repair</b><br><span class="small">Appliance repair service · 311 reviews</span></td><td>Sandy</td><td>trustyappliancerepairutah.com</td><td><span class="tag t-warn">B</span></td><td>Has tip articles but no page for each repair service.</td><td><a href="trustyappliancerepairutah.com/2026-10-21_trustyappliancerepairutah.com_report.html">Open report</a></td></tr>
+        <tr><td>30</td><td><b>Blue Chip Carpet Cleaning</b><br><span class="small">Carpet cleaning service · 292 reviews</span></td><td>Salt Lake City</td><td>utahbluechipcarpetcleaning.com</td><td><span class="tag t-bad">Check first</span></td><td>Tell Angelo: the page shows an H1 &quot;BEST WEBSITE DEALS!&quot; and the Google phone is not on the home page.</td><td><a href="utahbluechipcarpetcleaning.com/2026-10-21_utahbluechipcarpetcleaning.com_report.html">Open report</a></td></tr>
+        <tr><td>31</td><td><b>Joe&#x27;s Stump Grinding</b><br><span class="small">Tree service · 292 reviews</span></td><td>Salt Lake City</td><td>joestreecareutah.com</td><td><span class="tag t-warn">B</span></td><td>5 stars from 292; home page has 4 H1s.</td><td><a href="joestreecareutah.com/2026-10-21_joestreecareutah.com_report.html">Open report</a></td></tr>
+        <tr><td>32</td><td><b>Triple J Landscaping</b><br><span class="small">Landscaper · 241 reviews</span></td><td>Salt Lake City</td><td>triplejlandscaping.com</td><td><span class="tag t-warn">B</span></td><td>5 stars from 241 on a 7-page site.</td><td><a href="triplejlandscaping.com/2026-10-21_triplejlandscaping.com_report.html">Open report</a></td></tr>
+        <tr><td>33</td><td><b>ASI Appliance Services</b><br><span class="small">Appliance repair service · 234 reviews</span></td><td>Salt Lake City</td><td>applianceserviceut.com</td><td><span class="tag t-bad">C</span></td><td>4-page site, 4.2 stars.</td><td><a href="applianceserviceut.com/2026-10-21_applianceserviceut.com_report.html">Open report</a></td></tr>
+        <tr><td>34</td><td><b>Investment Realty Advisors, LLC</b><br><span class="small">Property management company · 227 reviews</span></td><td>Midvale</td><td>iraut.com</td><td><span class="tag t-bad">C</span></td><td>Weak rating: 3.2 stars from 227, and a 101-word home page.</td><td><a href="iraut.com/2026-10-21_iraut.com_report.html">Open report</a></td></tr>
+        <tr><td>35</td><td><b>Everwork Property Maintenance &amp; Landscaping</b><br><span class="small">Lawn care service · 210 reviews</span></td><td>Sandy</td><td>everworklandscape.com</td><td><span class="tag t-bad">C</span></td><td>Best of the weak sites: 4 service pages exist and 1 page names Sandy.</td><td><a href="everworklandscape.com/2026-10-21_everworklandscape.com_report.html">Open report</a></td></tr>
+        <tr><td>36</td><td><b>Emet Plumbing Heating &amp; Air</b><br><span class="small">Plumber · 201 reviews</span></td><td>Taylorsville</td><td>emetplumbingservices.com</td><td><span class="tag t-warn">B</span></td><td>Slow (42/100), no H1, 287-word home page.</td><td><a href="emetplumbingservices.com/2026-10-21_emetplumbingservices.com_report.html">Open report</a></td></tr>
+        <tr><td>37</td><td><b>Green Janitorial Services Utah</b><br><span class="small">Janitorial service · 201 reviews</span></td><td>South Salt Lake</td><td>greenjanitorialservice.com</td><td><span class="tag t-warn">B</span></td><td>5 stars from 201; 376-word home page with 2 H1s.</td><td><a href="greenjanitorialservice.com/2026-10-21_greenjanitorialservice.com_report.html">Open report</a></td></tr>
+        <tr><td>38</td><td><b>Daniel&#x27;s Wildlife &amp; Pest Control</b><br><span class="small">Pest control service · 198 reviews</span></td><td>Cottonwood Heights</td><td>danielswildlife.com</td><td><span class="tag t-warn">B</span></td><td>Wildlife-focused pest company: 5 stars from 198, thin home page (118 words).</td><td><a href="danielswildlife.com/2026-10-21_danielswildlife.com_report.html">Open report</a></td></tr>
+        <tr><td>39</td><td><b>Action Lawn and Yard</b><br><span class="small">Lawn care service · 187 reviews</span></td><td>Murray</td><td>actionyardcare.com</td><td><span class="tag t-bad">C</span></td><td>Tiny site: 4 pages, 83 words on the home page.</td><td><a href="actionyardcare.com/2026-10-21_actionyardcare.com_report.html">Open report</a></td></tr>
+        <tr><td>40</td><td><b>Sterling Tree Company</b><br><span class="small">Tree service · 185 reviews</span></td><td>Salt Lake City</td><td>sterlingtreeco.godaddysites.com</td><td><span class="tag t-warn">B</span></td><td>One-page free GoDaddy site, no own domain.</td><td><a href="sterlingtreeco.godaddysites.com/2026-10-21_sterlingtreeco.godaddysites.com_report.html">Open report</a></td></tr>
+        <tr><td>41</td><td><b>Any &amp; All Services</b><br><span class="small">Electrician · 165 reviews</span></td><td>Salt Lake City</td><td>anyandallservices.com</td><td><span class="tag t-bad">C</span></td><td>Electrician with a generic name; 157-word home page, 2 H1s.</td><td><a href="anyandallservices.com/2026-10-21_anyandallservices.com_report.html">Open report</a></td></tr>
+        <tr><td>42</td><td><b>Cowboy Heating &amp; Air LLC</b><br><span class="small">HVAC contractor · 162 reviews</span></td><td>Lehi</td><td>hvaccowboy.com</td><td><span class="tag t-warn">B</span></td><td>Home page has only 10 words: effectively empty.</td><td><a href="hvaccowboy.com/2026-10-21_hvaccowboy.com_report.html">Open report</a></td></tr>
+        <tr><td>43</td><td><b>White Pine Plumbing</b><br><span class="small">Plumber · 160 reviews</span></td><td>South Jordan</td><td>whitepineplumbingut.com</td><td><span class="tag t-bad">C</span></td><td>4-page site, 5 stars from 160.</td><td><a href="whitepineplumbingut.com/2026-10-21_whitepineplumbingut.com_report.html">Open report</a></td></tr>
+      </tbody>
+    </table>
+    </div>
+  </section>
+
+  <footer>Novarte AI · Draft for internal review · Not clients: do not contact · Data from 21 Oct 2026</footer>
+</main>
+</body>
+</html>

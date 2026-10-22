@@ -1,0 +1,25 @@
+# robots.txt for https://pioneerroofingutah.com
+# Every page is open to search engines and AI search tools.
+# The 20-second crawl delay is kept from the current site (Google ignores it; Bing and others honor it).
+# The thank-you page and the old home copy carry a noindex tag instead of a block, so search engines can read it.
+
+User-agent: *
+Crawl-delay: 20
+Allow: /
+Disallow: /wp-admin/
+Allow: /wp-admin/admin-ajax.php
+Disallow: /elementor-hf/
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+Sitemap: https://pioneerroofingutah.com/sitemap.xml

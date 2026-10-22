@@ -1,0 +1,65 @@
+Home
+/
+Our Services
+/services
+Service Page 1
+/service-name-1
+Service Page 2
+/service-name-2
+Service Areas
+/service-areas
+Service Location
+Page 1
+/[service-in]-[city-
+or-neighborhood-1]-
+[region-name-1]
+Service Location
+Page 2
+/[service-in]-[city-
+or-neighborhood-
+2]-[region-name-1]
+About Us
+/about
+Contact
+/contact
+Get an Estimate
+/estimate
+Thank You
+/thank-you
+Call Now
+tel:123-456-7890
+FAQ
+/faq
+Contact
+/contact
+Careers
+/careers
+About
+/about
+Privacy Policy
+/privacy-policy
+Complaints Policy
+/complaints-policy
+Disclaimer
+/disclaimer
+Accessibility
+/accessibility
+Referral Marketing
+Disclosure
+/referral-marketing-
+disclosure
+Terms and
+Conditions
+/terms-conditions
+Meet the team
+/meet-the-team
+Call Now
+tel:123-456-7890
+Core Page
+Templated
+Conversion
+Support Page
+MAIN
+FOOTER
+SECTION
+Microsites Structure Blueprint

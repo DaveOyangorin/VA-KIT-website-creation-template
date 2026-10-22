@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>marble-builders.com Website Plan</title>
+<style>
+  :root {
+    --bg: #f7f6f3; --card: #ffffff; --text: #1d1d1b; --muted: #6b6a66; --line: #e3e1dc;
+    --accent: #1f5f8b; --good: #2e7d4f; --warn: #a86400; --bad: #b3261e; --chip: #eef3f7;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #161716; --card: #1f201f; --text: #ecebe7; --muted: #a3a29d; --line: #333431;
+      --accent: #7fb6dd; --good: #6cc193; --warn: #e0a54a; --bad: #ef7b72; --chip: #24303a;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #161716; --card: #1f201f; --text: #ecebe7; --muted: #a3a29d; --line: #333431;
+    --accent: #7fb6dd; --good: #6cc193; --warn: #e0a54a; --bad: #ef7b72; --chip: #24303a;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text);
+    font: 15px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  main { max-width: 960px; margin: 0 auto; padding: 32px 16px 64px; }
+  h1 { font-size: 26px; margin: 0 0 4px; }
+  h2 { font-size: 18px; margin: 0 0 12px; }
+  h3 { font-size: 15px; margin: 16px 0 6px; }
+  .sub { color: var(--muted); margin: 0 0 24px; }
+  section { background: var(--card); border: 1px solid var(--line); border-radius: 10px;
+    padding: 20px; margin-bottom: 16px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; }
+  .stat { border: 1px solid var(--line); border-radius: 8px; padding: 12px; }
+  .stat b { display: block; font-size: 22px; }
+  .stat span { color: var(--muted); font-size: 13px; }
+  .table-wrap { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { color: var(--muted); font-weight: 600; font-size: 13px; }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+  .tag { display: inline-block; padding: 1px 8px; border-radius: 99px; font-size: 12px; white-space: nowrap; }
+  .t-good { background: color-mix(in srgb, var(--good) 15%, transparent); color: var(--good); }
+  .t-warn { background: color-mix(in srgb, var(--warn) 15%, transparent); color: var(--warn); }
+  .t-bad  { background: color-mix(in srgb, var(--bad) 15%, transparent); color: var(--bad); }
+  dl { display: grid; grid-template-columns: max-content 1fr; gap: 6px 16px; margin: 0; }
+  dt { color: var(--muted); }
+  dd { margin: 0; }
+  code { background: var(--chip); padding: 1px 6px; border-radius: 4px; font-size: 13px; }
+  ul, ol { padding-left: 20px; margin: 6px 0; }
+  li { margin: 3px 0; }
+  .note { border-left: 3px solid var(--warn); padding: 8px 12px; background: color-mix(in srgb, var(--warn) 8%, transparent); border-radius: 0 6px 6px 0; margin: 10px 0; }
+  .alert { border-left: 3px solid var(--bad); padding: 8px 12px; background: color-mix(in srgb, var(--bad) 8%, transparent); border-radius: 0 6px 6px 0; margin: 10px 0; }
+  .check li { list-style: none; margin-left: -20px; }
+  .check li::before { content: "☐ "; color: var(--muted); }
+  footer { color: var(--muted); font-size: 13px; text-align: center; margin-top: 24px; }
+  @media (max-width: 560px) { dl { grid-template-columns: 1fr; } dt { margin-top: 6px; } }
+  .small { color: var(--muted); font-size: 13px; }
+</style>
+
+</head>
+<body>
+<main>
+  <h1>marble-builders.com · Website plan report</h1>
+  <p class="sub">Marble Builders · Riverton · Website down or broken · Prepared 21 Oct 2026. Listing facts from 15 Oct 2026; audit and search numbers from 21 Oct 2026. Draft for Angelo's review.</p>
+  <section>
+    <h2>Summary</h2>
+    <ul>
+      <li><b>Home page target:</b> <code>general contractor riverton</code>. Searches across Utah: – for “general contractor riverton”, 1,300 for “general contractor near me”.</li>
+      <li><b>Website down:</b> The web address shows a Bluehost &quot;Account Suspended&quot; page.</li>
+      <li><b>Reviews:</b> 4.6 stars from 198.</li>
+      <li><b>Biggest service demand:</b> kitchen remodeling (880 "near me" searches across Utah).</li>
+      <li><b>Main problems:</b> only 16 words on the home page (standard 800+); no meta description; 0 H1 headings (should be 1); no tap-to-call link; no business schema; no page names Riverton; no sitemap.</li>
+      <li><b>9 of 9 services have no page</b> (ask the client which they really do).</li>
+    </ul>
+  </section>
+  <section>
+    <h2>Reviewer notes</h2>
+    <p><span class="tag t-warn">Priority B</span></p>
+    <p><b>Site shows a hosting "Account Suspended" page.</b></p>
+    <ul>
+      <li>Renewing the hosting is the first fix. Kitchen (880) and bathroom remodeling (720) are the biggest services.</li>
+      <li>RWK Construction (also on this list) targets the same general-contractor keywords nearby.</li>
+    </ul>
+  </section>
+  <section>
+    <h2>Business facts</h2>
+    <dl>
+      <dt>Name</dt><dd>Marble Builders</dd>
+      <dt>Website</dt><dd>marble-builders.com</dd>
+      <dt>Phone</dt><dd>+1801-828-5540</dd>
+      <dt>Address</dt><dd>12166 S Redwood Rd, Riverton, UT 84065</dd>
+      <dt>Google category</dt><dd>General contractor</dd>
+      <dt>Reviews</dt><dd>4.6 stars · 198 reviews</dd>
+    </dl>
+    <p class="alert"><b>Not a client yet. Do not contact this business.</b> This report is for planning only. Nothing goes to them unless Angelo says so.</p>
+    <p class="note">From the Google listing (pulled 15 Oct 2026). Confirm with the client before it goes on a site. Name, address and phone are copied exactly as given; do not reformat them.</p>
+  </section>
+  <section>
+    <h2>Fix on the new site</h2>
+    <div class="grid">
+      <div class="stat"><b>90 / 100</b><span>Mobile speed · aim 90+</span></div>
+      <div class="stat"><b>16</b><span>Home page words · aim 800+</span></div>
+      <div class="stat"><b>0</b><span>H1 headings · should be 1</span></div>
+      <div class="stat"><b>No</b><span>Tap-to-call link</span></div>
+      <div class="stat"><b>No</b><span>Business schema</span></div>
+      <div class="stat"><b>0</b><span>Pages that name Riverton</span></div>
+    </div>
+    <h3>What the audit found</h3>
+    <ul>
+      <li>The web address shows a Bluehost &quot;Account Suspended&quot; page.</li>
+      <li>Mobile speed now: 90/100. Aim for 90+.</li>
+      <li>Home page words: 16. Our standard is 800+.</li>
+      <li>Pages in the sitemap: no sitemap.</li>
+      <li>Meta description: missing.</li>
+      <li>H1 headings on the home page: 0 (should be 1).</li>
+      <li>Tap-to-call phone link: no.</li>
+      <li>Business schema: no.</li>
+      <li>Pages that name Riverton: 0.</li>
+    </ul>
+    <h3>What to do</h3>
+    <ul>
+      <li><b>Get the site back up first</b>, or rebuild it. Right now Google sends customers to a broken page.</li>
+      <li>Home page has 16 words. Write 800+ useful words (services, area, process, FAQ).</li>
+      <li>Add a unique meta description to every page.</li>
+      <li>Use exactly one H1 per page (home page has 0).</li>
+      <li>Add a tap-to-call phone link in the header.</li>
+      <li>Add LocalBusiness schema with the exact name, address and phone.</li>
+      <li>Name Riverton in the title, H1 and first paragraph of every service page.</li>
+      <li>Add an XML sitemap and submit it in Search Console.</li>
+    </ul>
+  </section>
+  <section>
+    <h2>Home page</h2>
+    <dl>
+      <dt>Main keyword</dt><dd><code>general contractor riverton</code></dd>
+      <dt>Also use</dt><dd><code>home remodeling riverton</code>, <code>construction company riverton</code></dd>
+      <dt>Searches</dt><dd>– for “general contractor riverton”, 1,300 for “general contractor near me” (across Utah)</dd>
+      <dt>Placement</dt><dd>Start with the keyword: title tag, H1 and first sentence.</dd>
+    </dl>
+  </section>
+  <section>
+    <h2>Service pages · build in this order</h2>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>Service</th><th>Target keyword</th><th class="num">With the city</th><th class="num">"Near me"</th><th class="num">+ "utah"</th><th>Now</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Kitchen remodeling</td><td><code>kitchen remodeling riverton</code></td><td class="num">–</td><td class="num">880</td><td class="num">70</td><td><span class="tag t-bad">Ask client</span></td></tr>
+        <tr><td>2</td><td>Bathroom remodeling</td><td><code>bathroom remodeling riverton</code></td><td class="num">–</td><td class="num">720</td><td class="num">110</td><td><span class="tag t-bad">Ask client</span></td></tr>
+        <tr><td>3</td><td>Deck builder</td><td><code>deck builder riverton</code></td><td class="num">–</td><td class="num">480</td><td class="num">40</td><td><span class="tag t-bad">Ask client</span></td></tr>
+        <tr><td>4</td><td>Basement finishing</td><td><code>basement finishing riverton</code></td><td class="num">10</td><td class="num">320</td><td class="num">140</td><td><span class="tag t-bad">Ask client</span></td></tr>
+        <tr><td>5</td><td>Home remodeling</td><td><code>home remodeling riverton</code></td><td class="num">–</td><td class="num">260</td><td class="num">90</td><td><span class="tag t-bad">Ask client</span></td></tr>
+        <tr><td>6</td><td>Home additions</td><td><code>home additions riverton</code></td><td class="num">–</td><td class="num">70</td><td class="num">20</td><td><span class="tag t-bad">Ask client</span></td></tr>
+        <tr><td>7</td><td>Garage builder</td><td><code>garage builder riverton</code></td><td class="num">–</td><td class="num">50</td><td class="num">20</td><td><span class="tag t-bad">Ask client</span></td></tr>
+        <tr><td>8</td><td>Commercial construction</td><td><code>commercial construction riverton</code></td><td class="num">–</td><td class="num">40</td><td class="num">10</td><td><span class="tag t-bad">Ask client</span></td></tr>
+        <tr><td>9</td><td>Custom homes</td><td><code>custom homes riverton</code></td><td class="num">–</td><td class="num">10</td><td class="num">390</td><td><span class="tag t-bad">Ask client</span></td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="small">Monthly searches across Utah. "–" = fewer than 10 a month. One page per service. Only build a page if the business really does that service.</p>
+  </section>
+  <section>
+    <h2>Cost page</h2>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Keyword</th><th class="num">All Utah</th><th class="num">+ "utah"</th><th>With city</th><th class="num">All Utah</th></tr></thead>
+      <tbody>
+        <tr><td>basement finishing cost</td><td class="num">40</td><td class="num">–</td><td>basement finishing cost salt lake city</td><td class="num">–</td></tr>
+        <tr><td>home addition cost</td><td class="num">30</td><td class="num">10</td><td>home addition cost salt lake city</td><td class="num">–</td></tr>
+        <tr><td>general contractor cost</td><td class="num">10</td><td class="num">–</td><td>general contractor cost salt lake city</td><td class="num">–</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p>One cost page covering these. Cost searchers are close to buying. <b>Use only real prices from the client.</b></p>
+  </section>
+  <section>
+    <h2>City pages</h2>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>City</th><th>Keyword 1</th><th class="num">All Utah</th><th>Keyword 2</th><th class="num">All Utah</th></tr></thead>
+      <tbody>
+        <tr><td>Salt Lake City</td><td>general contractor salt lake city</td><td class="num">260</td><td>home remodeling salt lake city</td><td class="num">50</td></tr>
+        <tr><td>Lehi</td><td>general contractor lehi</td><td class="num">10</td><td>home remodeling lehi</td><td class="num">10</td></tr>
+        <tr><td>Sandy</td><td>general contractor sandy</td><td class="num">–</td><td>home remodeling sandy</td><td class="num">–</td></tr>
+        <tr><td>West Jordan</td><td>general contractor west jordan</td><td class="num">–</td><td>home remodeling west jordan</td><td class="num">–</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p>Build a city page only if the business really works there, with real local content.</p>
+  </section>
+  <section>
+    <h2>What a strong page looks like</h2>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Keyword</th><th class="num">Avg. words (top pages)</th><th class="num">Have FAQ</th><th class="num">Show prices</th></tr></thead>
+      <tbody>
+        <tr><td>general contractor riverton</td><td class="num">~2,344</td><td class="num">1 of 3</td><td class="num">0 of 3</td></tr>
+        <tr><td>home remodeling riverton</td><td class="num">~1,060</td><td class="num">0 of 2</td><td class="num">1 of 2</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <h3>Headings on the top pages (topic ideas only)</h3>
+    <ul>
+      <li>office@ssbuildersutah.com |</li>
+      <li>mon-fri 8am-5pm | 801-243-0926</li>
+      <li>Riverton, Utah General Contractor</li>
+      <li>Riverton, Utah Custom Home General Contractor</li>
+      <li>Riverton, Utah Home Remodeling Pros</li>
+      <li>Riverton, Utah Basement Finishing Pros</li>
+      <li>Riverton, Utah Accessibility Remodeling</li>
+      <li>Request a Consultation</li>
+      <li>925 Results within</li>
+      <li>What are you looking for?</li>
+      <li>What Customers Are Saying</li>
+      <li>Be the first to review</li>
+      <li>What we found about Remodeling Concepts Inc.</li>
+      <li>We found 1 way to raise your score.</li>
+      <li>ð¥ Blazing Businesses</li>
+      <li>You Might Also Like</li>
+      <li>See What&#x27;s Happening Around Utah</li>
+      <li>Report an Issue</li>
+    </ul>
+    <p class="note">Use competitor headings for topic ideas only. Do not copy them. Some name other companies, people or prices.</p>
+  </section>
+  <section>
+    <h2>More searches Google suggests</h2>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Search</th><th>Use?</th><th>Where</th></tr></thead>
+      <tbody>
+        <tr><td>Residential general contractor riverton</td><td><span class="tag t-good">Yes</span></td><td>Matching service page, as a section</td></tr>
+        <tr><td>General contractor riverton reviews</td><td><span class="tag t-warn">Show, don&#x27;t claim</span></td><td>Real reviews, photos and process. Never claim &quot;the best&quot;.</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </section>
+  <section>
+    <h2>FAQ · real questions from Google</h2>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Question</th><th>Use?</th><th>Where</th></tr></thead>
+      <tbody>
+        <tr><td>How much do general contractors cost per hour?</td><td><span class="tag t-warn">Real prices only</span></td><td>Cost page</td></tr>
+        <tr><td>How much should I pay my general contractor?</td><td><span class="tag t-warn">Real prices only</span></td><td>Cost page</td></tr>
+        <tr><td>What do most general contractors charge?</td><td><span class="tag t-good">Yes</span></td><td>Matching service page</td></tr>
+        <tr><td>What&#x27;s the difference between a contractor and a general contractor?</td><td><span class="tag t-good">Yes</span></td><td>Matching service page</td></tr>
+        <tr><td>What is the best way to find a good contractor?</td><td><span class="tag t-bad">Skip as written</span></td><td>Cover the intent on the home page (reviews, why choose us)</td></tr>
+        <tr><td>What is the 30% rule for renovations?</td><td><span class="tag t-warn">Check Utah rules</span></td><td>Matching service page</td></tr>
+        <tr><td>Is $10,000 enough for a bathroom remodel?</td><td><span class="tag t-warn">Real prices only</span></td><td>Cost page</td></tr>
+        <tr><td>How much would it cost to renovate a 2000 sq ft house?</td><td><span class="tag t-warn">Real prices only</span></td><td>Cost page</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </section>
+  <section>
+    <h2>Rules for the writer</h2>
+    <ul>
+      <li>Start each page with its keyword.</li>
+      <li>Use only facts the client gives you: prices, warranty, years in business, licenses.</li>
+      <li>Do not invent reviews, numbers or photos.</li>
+      <li><b>This business is not a client yet: do not contact it.</b></li>
+    </ul>
+    <p class="small">Search numbers: Google Ads monthly searches across Utah, pulled 21 Oct 2026. "–" means fewer than 10 a month. Questions and page topics: live Google results in Riverton, 21 Oct 2026.</p>
+  </section>
+  <section>
+    <h2>If they become a client: questions to ask</h2>
+    <p class="small">Only after Angelo signs them up. Do not contact them now.</p>
+    <ol>
+      <li>Which of these services do you really offer: <b>kitchen remodeling, bathroom remodeling, deck builder, basement finishing, home remodeling, home additions, garage builder, commercial construction, custom homes</b>?</li>
+      <li>Are the name, phone and address on Google correct and how should they appear on the site?</li>
+      <li>Can you share real prices or price ranges?</li>
+      <li>Which cities do you work in?</li>
+      <li>Warranty, years in business, licenses? Any project photos?</li>
+    </ol>
+  </section>
+  <footer>Novarte AI · Draft for internal review · Not a client: do not contact · Data from 21 Oct 2026</footer>
+</main>
+</body>
+</html>

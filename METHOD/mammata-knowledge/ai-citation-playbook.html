@@ -1,0 +1,1640 @@
+<title>AI Citation Playbook</title>
+<style>
+  :root{
+    --ink:#12182a; --ink-2:#3d465e; --ink-3:#6b7590;
+    --bg:#f7f8fb; --surface:#ffffff; --surface-2:#eef1f7;
+    --line:#dde2ec; --line-2:#c8d0e0;
+    --navy:#16305c; --navy-2:#24467f;
+    --orange:#e8681c; --orange-2:#c9540f; --orange-soft:#fdf0e6;
+    --good:#1c6b52; --good-soft:#e6f3ee;
+    --bad:#a32020; --bad-soft:#fbeaea;
+    --warn:#8a6100; --warn-soft:#fdf4e0;
+    --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
+    --sans:"Söhne",-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
+    --maxw:920px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --ink:#e8ecf5; --ink-2:#b3bccf; --ink-3:#7d879e;
+      --bg:#0c1018; --surface:#141a26; --surface-2:#1c2432;
+      --line:#28313f; --line-2:#3a4557;
+      --navy:#8fb2e8; --navy-2:#6f9adc;
+      --orange:#ff8b45; --orange-2:#ffa46a; --orange-soft:#2a1a10;
+      --good:#5fc39c; --good-soft:#11291f;
+      --bad:#f07070; --bad-soft:#2a1414;
+      --warn:#e0b34d; --warn-soft:#2a2210;
+    }
+  }
+  :root[data-theme="dark"]{
+    --ink:#e8ecf5; --ink-2:#b3bccf; --ink-3:#7d879e;
+    --bg:#0c1018; --surface:#141a26; --surface-2:#1c2432;
+    --line:#28313f; --line-2:#3a4557;
+    --navy:#8fb2e8; --navy-2:#6f9adc;
+    --orange:#ff8b45; --orange-2:#ffa46a; --orange-soft:#2a1a10;
+    --good:#5fc39c; --good-soft:#11291f;
+    --bad:#f07070; --bad-soft:#2a1414;
+    --warn:#e0b34d; --warn-soft:#2a2210;
+  }
+
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:var(--sans); font-size:16px; line-height:1.62;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 24px 120px}
+
+  /* ---------- masthead ---------- */
+  header.top{
+    border-bottom:1px solid var(--line);
+    background:var(--surface);
+    padding:56px 0 44px;
+    margin-bottom:0;
+  }
+  header.top .wrap{padding-bottom:0}
+  .eyebrow{
+    font-family:var(--mono); font-size:11px; letter-spacing:.16em;
+    text-transform:uppercase; color:var(--orange); margin:0 0 14px;
+  }
+  h1{
+    font-size:clamp(30px,5.2vw,50px); line-height:1.08; margin:0 0 18px;
+    letter-spacing:-.022em; font-weight:640; color:var(--ink);
+  }
+  .standfirst{
+    font-size:clamp(16px,2.1vw,19px); color:var(--ink-2); margin:0 0 26px;
+    max-width:62ch; line-height:1.55;
+  }
+  .meta{
+    display:flex; flex-wrap:wrap; gap:8px 22px;
+    font-family:var(--mono); font-size:11.5px; color:var(--ink-3);
+    border-top:1px solid var(--line); padding-top:18px;
+  }
+  .meta b{color:var(--ink-2); font-weight:500}
+
+  /* ---------- sections ---------- */
+  section{padding-top:64px; scroll-margin-top:20px}
+  h2{
+    font-size:clamp(21px,3vw,27px); letter-spacing:-.015em; font-weight:620;
+    margin:0 0 6px; color:var(--ink); line-height:1.2;
+  }
+  h2 .num{
+    font-family:var(--mono); font-size:12px; color:var(--orange);
+    display:block; margin-bottom:9px; letter-spacing:.1em; font-weight:400;
+  }
+  h3{
+    font-size:17px; font-weight:620; margin:36px 0 8px; color:var(--ink);
+    letter-spacing:-.008em;
+  }
+  h4{font-size:14px; font-weight:640; margin:24px 0 6px; color:var(--ink-2)}
+  p{margin:0 0 15px; color:var(--ink-2)}
+  p.lede{color:var(--ink); font-size:17px}
+  a{color:var(--navy); text-decoration:underline; text-underline-offset:2px; text-decoration-thickness:1px}
+  a:hover{color:var(--orange)}
+  strong{color:var(--ink); font-weight:620}
+  code{
+    font-family:var(--mono); font-size:.86em; background:var(--surface-2);
+    padding:1px 5px; border-radius:3px; color:var(--ink); border:1px solid var(--line);
+  }
+  ul,ol{margin:0 0 16px; padding-left:22px; color:var(--ink-2)}
+  li{margin-bottom:7px}
+  hr{border:0; border-top:1px solid var(--line); margin:44px 0}
+
+  /* ---------- TOC ---------- */
+  nav.toc{
+    background:var(--surface); border:1px solid var(--line);
+    border-radius:10px; padding:22px 24px; margin-top:44px;
+  }
+  nav.toc p{
+    font-family:var(--mono); font-size:11px; letter-spacing:.14em;
+    text-transform:uppercase; color:var(--ink-3); margin:0 0 12px;
+  }
+  nav.toc ol{
+    margin:0; padding:0; list-style:none;
+    columns:2; column-gap:32px;
+  }
+  nav.toc li{
+    margin:0 0 7px; break-inside:avoid;
+    font-size:14.5px; display:flex; gap:10px;
+  }
+  nav.toc li span{font-family:var(--mono); font-size:11.5px; color:var(--orange); padding-top:3px; flex:0 0 20px}
+  nav.toc a{text-decoration:none; color:var(--ink-2)}
+  nav.toc a:hover{color:var(--orange); text-decoration:underline}
+  @media(max-width:640px){nav.toc ol{columns:1}}
+
+  /* ---------- findings cards ---------- */
+  .findings{display:grid; gap:1px; background:var(--line); border:1px solid var(--line); border-radius:10px; overflow:hidden; margin:26px 0}
+  .finding{background:var(--surface); padding:20px 22px}
+  .finding .k{
+    font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase;
+    color:var(--orange); margin:0 0 7px;
+  }
+  .finding .h{font-weight:620; color:var(--ink); margin:0 0 6px; font-size:16.5px; line-height:1.35}
+  .finding p{margin:0; font-size:14.5px; line-height:1.55}
+
+  /* ---------- tables ---------- */
+  .tbl{overflow-x:auto; margin:20px 0; border:1px solid var(--line); border-radius:10px; background:var(--surface)}
+  table{border-collapse:collapse; width:100%; font-size:14px; min-width:520px}
+  caption{
+    text-align:left; font-family:var(--mono); font-size:11px; letter-spacing:.12em;
+    text-transform:uppercase; color:var(--ink-3); padding:14px 18px 0;
+  }
+  th{
+    text-align:left; font-weight:620; color:var(--ink); font-size:12px;
+    letter-spacing:.04em; text-transform:uppercase; padding:12px 16px;
+    border-bottom:1px solid var(--line-2); background:var(--surface-2);
+    white-space:nowrap;
+  }
+  td{padding:11px 16px; border-bottom:1px solid var(--line); color:var(--ink-2); vertical-align:top}
+  tr:last-child td{border-bottom:0}
+  td.num,th.num{text-align:right; font-family:var(--mono); font-size:13px; white-space:nowrap}
+  td b{color:var(--ink)}
+  .dom{font-family:var(--mono); font-size:13px; color:var(--ink)}
+
+  /* bar cell */
+  .bar{position:relative; min-width:150px}
+  .bar i{
+    display:block; height:7px; border-radius:2px; background:var(--navy-2);
+    opacity:.85;
+  }
+  .bar.hot i{background:var(--orange)}
+
+  /* pills */
+  .pill{
+    display:inline-block; font-family:var(--mono); font-size:10.5px;
+    letter-spacing:.07em; text-transform:uppercase; padding:2px 7px;
+    border-radius:3px; white-space:nowrap; font-weight:500;
+  }
+  .p-yes{background:var(--good-soft); color:var(--good)}
+  .p-no{background:var(--bad-soft); color:var(--bad)}
+  .p-mid{background:var(--warn-soft); color:var(--warn)}
+  .p-un{background:var(--surface-2); color:var(--ink-3)}
+
+  /* ---------- callouts ---------- */
+  .call{
+    border-left:3px solid var(--orange); background:var(--orange-soft);
+    padding:16px 20px; border-radius:0 8px 8px 0; margin:22px 0;
+  }
+  .call.stop{border-left-color:var(--bad); background:var(--bad-soft)}
+  .call.ok{border-left-color:var(--good); background:var(--good-soft)}
+  .call .lbl{
+    font-family:var(--mono); font-size:10.5px; letter-spacing:.14em;
+    text-transform:uppercase; color:var(--orange); margin:0 0 6px; font-weight:600;
+  }
+  .call.stop .lbl{color:var(--bad)}
+  .call.ok .lbl{color:var(--good)}
+  .call p:last-child{margin-bottom:0}
+  .call p{color:var(--ink-2); font-size:15px}
+
+  /* ---------- prompt blocks ---------- */
+  details.cat{
+    border:1px solid var(--line); border-radius:8px; margin:0 0 8px;
+    background:var(--surface); overflow:hidden;
+  }
+  details.cat > summary{
+    cursor:pointer; padding:13px 18px; font-weight:600; font-size:14.5px;
+    color:var(--ink); list-style:none; display:flex; justify-content:space-between;
+    gap:14px; align-items:baseline;
+  }
+  details.cat > summary::-webkit-details-marker{display:none}
+  details.cat > summary::after{content:"+"; font-family:var(--mono); color:var(--orange); font-size:16px}
+  details.cat[open] > summary::after{content:"–"}
+  details.cat > summary:hover{background:var(--surface-2)}
+  details.cat .why{
+    font-weight:400; color:var(--ink-3); font-size:12.5px; font-family:var(--mono);
+    text-align:right; flex:0 1 auto;
+  }
+  details.cat .body{padding:0 18px 16px}
+  pre{
+    margin:0; background:var(--surface-2); border:1px solid var(--line);
+    border-radius:6px; padding:14px 16px; overflow-x:auto;
+    font-family:var(--mono); font-size:12.5px; line-height:1.75; color:var(--ink-2);
+    white-space:pre; tab-size:2;
+  }
+
+  /* ---------- footer ---------- */
+  footer{
+    border-top:1px solid var(--line); margin-top:80px; padding-top:26px;
+    font-size:13.5px; color:var(--ink-3);
+  }
+  footer p{color:var(--ink-3); font-size:13.5px}
+
+  .srconly{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+</style>
+
+<header class="top">
+  <div class="wrap">
+    <p class="eyebrow">Novarte AI · Internal Playbook · 25 August 2026</p>
+    <h1>AI Citation Playbook</h1>
+    <p class="standfirst">Which directories the AI engines actually read, what it takes to get listed on each, the levers nobody is using, and the 157 questions you run to prove it worked. Reusable on any client.</p>
+    <div class="meta">
+      <span><b>Scope</b> ChatGPT · Google AI Overviews · AI Mode · Perplexity · Claude · Gemini · Copilot · Grok</span>
+      <span><b>Original data</b> DataForSEO LLM-mentions, US/en, pulled 25 Aug 2026</span>
+      <span><b>Status</b> v1.2 — complete</span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+<nav class="toc" aria-label="Contents">
+  <p>Contents</p>
+  <ol>
+    <li><span>01</span><a href="#verdict">The verdict</a></li>
+    <li><span>02</span><a href="#data">Who AI actually cites</a></li>
+    <li><span>03</span><a href="#gate">The gatekeeper: robots.txt</a></li>
+    <li><span>04</span><a href="#dirs">Directory-by-directory audit</a></li>
+    <li><span>05</span><a href="#levers">Twelve hidden levers</a></li>
+    <li><span>06</span><a href="#rank">The rank-segmented rule</a></li>
+    <li><span>07</span><a href="#prompts">The 157-question matrix</a></li>
+    <li><span>08</span><a href="#measure">Measurement &amp; the noise floor</a></li>
+    <li><span>09</span><a href="#stop">Stop selling these</a></li>
+    <li><span>10</span><a href="#danger">What gets you sanctioned</a></li>
+    <li><span>11</span><a href="#run">The 90-day run sheet</a></li>
+    <li><span>12</span><a href="#native">AI directories &amp; direct feeds</a></li>
+    <li><span>13</span><a href="#schema">Schema, type by type</a></li>
+    <li><span>14</span><a href="#firewall">The firewall audit</a></li>
+    <li><span>15</span><a href="#fresh">Sitemaps, canonical, freshness</a></li>
+    <li><span>16</span><a href="#gaps">Gaps &amp; unverified</a></li>
+  </ol>
+</nav>
+
+<!-- ============ 01 ============ -->
+<section id="verdict">
+  <h2><span class="num">01</span>The verdict</h2>
+  <p class="lede">Six findings that change what we sell. Everything after this section is the evidence.</p>
+
+  <div class="findings">
+    <div class="finding">
+      <p class="k">Finding 01</p>
+      <p class="h">A listing is worthless if the directory blocks the AI bot</p>
+      <p>Yelp is the <b>#1 cited source</b> for "near me" answers in Google AI Overviews — and gets <b>zero</b> citations in ChatGPT. Yelp's <code>robots.txt</code> blocks AI crawlers from <code>/biz/</code> but never blocked Googlebot. Same listing, opposite result, depending on the engine. Nobody checks this before selling a listing.</p>
+    </div>
+    <div class="finding">
+      <p class="k">Finding 02</p>
+      <p class="h">The same tactic helps weak pages and hurts strong ones</p>
+      <p>Adding citations, quotes and statistics gives a rank-5 page <b>+115%</b> AI visibility and costs a rank-1 page <b>−30%</b>. Generic "add stats" advice actively damages our best-performing clients. Advice must be segmented by current rank.</p>
+    </div>
+    <div class="finding">
+      <p class="k">Finding 03</p>
+      <p class="h">Most agencies block the wrong bot</p>
+      <p><code>GPTBot</code> is the <em>training</em> crawler. <code>OAI-SearchBot</code> is the one that decides whether you appear in ChatGPT answers. The 2024 "block the AI scrapers" wave taught thousands of sites to block the harmless one — and some blocked the critical one by accident.</p>
+    </div>
+    <div class="finding">
+      <p class="k">Finding 04</p>
+      <p class="h">Earned media is 84% of all AI citations. Paid is 0.3%.</p>
+      <p>Across 25M+ links and three study editions, advertorial and paid placement account for <b>0.3%</b> of citations. Press releases are under 2%. You cannot buy a citation. You can only earn one or be structurally readable enough to be picked.</p>
+    </div>
+    <div class="finding">
+      <p class="k">Finding 05</p>
+      <p class="h">Half our standard AEO deliverables are net-negative</p>
+      <p>A matched controlled test (1,885 pages vs 4,000 controls) found adding schema moved Google AI Overview citations <b>−4.6%</b>. FAQ blocks score <b>−5.74%</b> on absorption. Keyword density scores <b>−8.3%</b>. <code>llms.txt</code> was fetched by zero AI bots across 137,210 domains.</p>
+    </div>
+    <div class="finding">
+      <p class="k">Finding 06</p>
+      <p class="h">One AI answer proves nothing at all</p>
+      <p>Reliability of a single response is <b>≈1%</b>. The brand you are measuring accounts for <b>0.7%</b> of total variance in AI answers. Any tool or report built on running a prompt once is selling noise. Minimum defensible spec is 5 runs per prompt, 60+ prompts, 3+ engines.</p>
+    </div>
+  </div>
+
+  <div class="call stop">
+    <p class="lbl">⏱ Time-critical — 15 September 2026</p>
+    <p><b>Cloudflare changes its defaults in three weeks, and the change has already broken sites.</b> New domains will block Training and Agent crawlers on ad-displaying pages. The trap: Cloudflare judges multi-purpose crawlers on <em>all</em> their behaviours, so <b>setting "AI Training = Block" also returns 403 to Googlebot, Bingbot and Applebot.</b> That is not theoretical — it was reported and confirmed in August 2026, with Googlebot getting 403s on sitemap fetches. <b>Check every client zone before the 15th.</b> Full detail and the opt-out path in Section 14.</p>
+  </div>
+
+  <div class="call">
+    <p class="lbl">The one-line version</p>
+    <p>Stop selling submissions. Start selling <b>crawler access audits, rank-segmented content surgery, earned placement on the five directories that are actually readable, and measurement with a stated error bar.</b></p>
+  </div>
+</section>
+
+<!-- ============ 02 ============ -->
+<section id="data">
+  <h2><span class="num">02</span>Who AI actually cites</h2>
+  <p class="lede">Original pull, not a vendor blog. DataForSEO LLM-mentions index, United States, English, 25 August 2026. "Mentions" = the number of times a domain appeared as a cited <em>source</em> inside an AI answer.</p>
+
+  <h3>Google AI Overviews — questions containing "best"</h3>
+  <p>Denominator: <b>10,481,476</b> source mentions. Shares exceed 100% in total because one AI answer cites many sources.</p>
+  <div class="tbl">
+    <table>
+      <caption>Top cited sources · Google AI Overviews · "best" queries</caption>
+      <thead><tr><th>#</th><th>Source domain</th><th class="num">Mentions</th><th class="num">Share</th><th>Relative</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td class="dom">youtube.com</td><td class="num">6,091,451</td><td class="num"><b>58.1%</b></td><td class="bar hot"><i style="width:100%"></i></td></tr>
+        <tr><td>2</td><td class="dom">reddit.com</td><td class="num">4,864,192</td><td class="num"><b>46.4%</b></td><td class="bar hot"><i style="width:80%"></i></td></tr>
+        <tr><td>3</td><td class="dom">google.com</td><td class="num">1,829,466</td><td class="num">17.5%</td><td class="bar"><i style="width:30%"></i></td></tr>
+        <tr><td>4</td><td class="dom">facebook.com</td><td class="num">1,470,540</td><td class="num">14.0%</td><td class="bar"><i style="width:24%"></i></td></tr>
+        <tr><td>5</td><td class="dom">quora.com</td><td class="num">534,787</td><td class="num">5.1%</td><td class="bar"><i style="width:9%"></i></td></tr>
+        <tr><td>6</td><td class="dom">amazon.com</td><td class="num">146,304</td><td class="num">1.4%</td><td class="bar"><i style="width:3%"></i></td></tr>
+        <tr><td>7</td><td class="dom">instagram.com</td><td class="num">138,944</td><td class="num">1.3%</td><td class="bar"><i style="width:3%"></i></td></tr>
+        <tr><td>8</td><td class="dom">tiktok.com</td><td class="num">89,856</td><td class="num">0.9%</td><td class="bar"><i style="width:2%"></i></td></tr>
+        <tr><td>9</td><td class="dom">en.wikipedia.org</td><td class="num">77,952</td><td class="num">0.7%</td><td class="bar"><i style="width:2%"></i></td></tr>
+        <tr><td>10</td><td class="dom">tripadvisor.com</td><td class="num">75,968</td><td class="num">0.7%</td><td class="bar"><i style="width:2%"></i></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>ChatGPT — questions containing "best"</h3>
+  <p>Denominator: <b>1,923,551</b> source mentions. Note how little this list overlaps with the one above.</p>
+  <div class="tbl">
+    <table>
+      <caption>Top cited sources · ChatGPT · "best" queries</caption>
+      <thead><tr><th>#</th><th>Source domain</th><th class="num">Mentions</th><th class="num">Share</th><th>Relative</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td class="dom">reddit.com</td><td class="num">382,293</td><td class="num"><b>19.9%</b></td><td class="bar hot"><i style="width:100%"></i></td></tr>
+        <tr><td>2</td><td class="dom">en.wikipedia.org</td><td class="num">194,783</td><td class="num"><b>10.1%</b></td><td class="bar hot"><i style="width:51%"></i></td></tr>
+        <tr><td>3</td><td class="dom">forbes.com</td><td class="num">49,242</td><td class="num">2.6%</td><td class="bar"><i style="width:13%"></i></td></tr>
+        <tr><td>4</td><td class="dom">healthline.com</td><td class="num">29,269</td><td class="num">1.5%</td><td class="bar"><i style="width:8%"></i></td></tr>
+        <tr><td>5</td><td class="dom">techradar.com</td><td class="num">27,043</td><td class="num">1.4%</td><td class="bar"><i style="width:7%"></i></td></tr>
+        <tr><td>6</td><td class="dom">tomsguide.com</td><td class="num">8,805</td><td class="num">0.5%</td><td class="bar"><i style="width:3%"></i></td></tr>
+        <tr><td>7</td><td class="dom">goodhousekeeping.com</td><td class="num">8,094</td><td class="num">0.4%</td><td class="bar"><i style="width:2%"></i></td></tr>
+        <tr><td>8</td><td class="dom">consumerreports.org</td><td class="num">7,375</td><td class="num">0.4%</td><td class="bar"><i style="width:2%"></i></td></tr>
+        <tr><td>9</td><td class="dom">tripadvisor.com</td><td class="num">6,883</td><td class="num">0.4%</td><td class="bar"><i style="width:2%"></i></td></tr>
+        <tr><td>10</td><td class="dom">bobvila.com</td><td class="num">6,053</td><td class="num">0.3%</td><td class="bar"><i style="width:2%"></i></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Google AI Overviews — "near me" (local intent)</h3>
+  <p>Denominator: <b>2,175,010</b> source mentions. This is the table that matters for every local services client we have.</p>
+  <div class="tbl">
+    <table>
+      <caption>Top cited sources · Google AI Overviews · "near me" queries</caption>
+      <thead><tr><th>#</th><th>Source domain</th><th class="num">Mentions</th><th class="num">Share</th><th>Relative</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td class="dom">m.yelp.com</td><td class="num">355,904</td><td class="num"><b>16.4%</b></td><td class="bar hot"><i style="width:100%"></i></td></tr>
+        <tr><td>2</td><td class="dom">facebook.com</td><td class="num">246,600</td><td class="num">11.3%</td><td class="bar"><i style="width:69%"></i></td></tr>
+        <tr><td>3</td><td class="dom">walmart.com</td><td class="num">214,519</td><td class="num">9.9%</td><td class="bar"><i style="width:60%"></i></td></tr>
+        <tr><td>4</td><td class="dom">target.com</td><td class="num">127,076</td><td class="num">5.8%</td><td class="bar"><i style="width:36%"></i></td></tr>
+        <tr><td>5</td><td class="dom">google.com</td><td class="num">127,000</td><td class="num">5.8%</td><td class="bar"><i style="width:36%"></i></td></tr>
+        <tr><td>6</td><td class="dom">reddit.com</td><td class="num">50,176</td><td class="num">2.3%</td><td class="bar"><i style="width:14%"></i></td></tr>
+        <tr><td>7</td><td class="dom">youtube.com</td><td class="num">45,184</td><td class="num">2.1%</td><td class="bar"><i style="width:13%"></i></td></tr>
+        <tr><td>8</td><td class="dom">instagram.com</td><td class="num">41,472</td><td class="num">1.9%</td><td class="bar"><i style="width:12%"></i></td></tr>
+        <tr><td>9</td><td class="dom">www.yelp.com</td><td class="num">38,144</td><td class="num">1.8%</td><td class="bar"><i style="width:11%"></i></td></tr>
+        <tr><td>10</td><td class="dom">tripadvisor.com</td><td class="num">30,720</td><td class="num">1.4%</td><td class="bar"><i style="width:9%"></i></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="call">
+    <p class="lbl">The Yelp paradox — and what it teaches</p>
+    <p>Yelp's two hostnames combine to <b>393,048</b> mentions — Yelp is the single biggest source of local AI answers on Google, ahead of every Google-owned property. Yet a parallel pull found <b>zero</b> Yelp citations across 7,472 restaurant-query mentions in ChatGPT, and yellowpages.com outranked it there at 438.</p>
+    <p>The explanation is one file. Yelp's <code>robots.txt</code> blocks <code>GPTBot</code>, <code>OAI-SearchBot</code> and friends from <code>/biz/</code> — while leaving Googlebot alone. Google AI Overviews rides the ordinary Google index, so it reads Yelp fine. ChatGPT cannot see it at all.</p>
+    <p><b>The general rule:</b> a directory's value is not its authority or its traffic. It is whether that specific engine's crawler is allowed through the door. Fetch <code>robots.txt</code> before recommending any listing, every time.</p>
+  </div>
+
+  <h4>Cross-checks against published datasets</h4>
+  <ul>
+    <li><b>Profound</b> (680M citations) — ChatGPT: Wikipedia 7.8%, Reddit 1.8%, Forbes 1.1%, <b>G2 1.1%</b>. Perplexity: Reddit 6.6%, YouTube 2.0%, <b>Gartner 1.0%</b>, Yelp 0.8%.</li>
+    <li><b>Semrush</b> (230K prompts) — documents a hard break: ChatGPT's Reddit reliance fell from ~60% of responses to ~10% around <b>11 Sep 2025</b>. Any benchmark older than that is stale.</li>
+    <li><b>Cross-engine overlap is 11%.</b> Only 11% of domains are cited by both ChatGPT and Perplexity. AI Overviews and AI Mode cite the same URL just 13.7% of the time. <b>One directory list cannot serve all engines.</b></li>
+  </ul>
+
+  <div class="call stop">
+    <p class="lbl">Denominator warning — do not skip</p>
+    <p>Published "most cited" numbers disagree by 10×+ because they measure different things. "Reddit is 1.8% of ChatGPT citations" and "Reddit appears in 60% of ChatGPT responses" are <em>both true at once</em>. Always state whether you are quoting <b>share of all citations</b>, <b>share of responses containing the domain</b>, or <b>share of top-10 sources</b>. Never average across them.</p>
+  </div>
+</section>
+
+<!-- ============ 03 ============ -->
+<section id="gate">
+  <h2><span class="num">03</span>The gatekeeper: robots.txt</h2>
+  <p class="lede">This is the layer almost every "get listed everywhere" playbook ignores, and it decides whether a listing can be cited at all. Modern <code>robots.txt</code> splits AI bots into two tiers that behave completely differently.</p>
+
+  <h3>Training bots vs retrieval bots</h3>
+  <p><b>Training</b> crawlers feed model weights. <b>Retrieval</b> crawlers decide whether you show up in a live answer today. Blocking training while allowing retrieval keeps you citable while withholding your data from the next model. Many sites do exactly this on purpose — and many block the wrong one by accident.</p>
+
+  <div class="tbl">
+    <table>
+      <caption>Bot decision matrix · what each block actually costs</caption>
+      <thead><tr><th>Bot</th><th>Tier</th><th>Block it?</th><th>Consequence of blocking</th></tr></thead>
+      <tbody>
+        <tr><td class="dom">OAI-SearchBot</td><td>Retrieval</td><td><span class="pill p-no">Never</span></td><td>OpenAI, verbatim: sites opted out "<b>will not be shown in ChatGPT search answers</b>."</td></tr>
+        <tr><td class="dom">Claude-SearchBot</td><td>Retrieval</td><td><span class="pill p-no">Never</span></td><td>Removes you from Claude's live web answers.</td></tr>
+        <tr><td class="dom">PerplexityBot</td><td>Retrieval</td><td><span class="pill p-no">Never</span></td><td>Explicitly "not used to crawl content for AI foundation models" — it is purely your visibility lever.</td></tr>
+        <tr><td class="dom">Googlebot / bingbot</td><td>Retrieval</td><td><span class="pill p-no">Never</span></td><td>Kills AI Overviews, AI Mode and Copilot simultaneously.</td></tr>
+        <tr><td class="dom">ChatGPT-User<br>Claude-User<br>Perplexity-User</td><td>User-triggered</td><td><span class="pill p-no">Never</span></td><td>These fires <em>are</em> live citation events. Blocking them blocks the moment of the mention.</td></tr>
+        <tr><td class="dom">GPTBot</td><td>Training</td><td><span class="pill p-mid">Client's call</span></td><td>Does <b>nothing</b> to ChatGPT citations. Frequently blocked in error believing it does.</td></tr>
+        <tr><td class="dom">ClaudeBot / CCBot<br>Bytespider / meta-externalagent</td><td>Training</td><td><span class="pill p-mid">Client's call</span></td><td>No study establishes crawl → later mention. CCBot is the widest-reach one: it feeds C4, RefinedWeb, Dolma and FineWeb. Blocking CCBot is a bigger self-inflicted wound than blocking GPTBot.</td></tr>
+        <tr><td class="dom">Google-Extended</td><td>Training + Gemini grounding</td><td><span class="pill p-yes">Safe</span></td><td>Does <b>not</b> affect Search, AI Overviews or AI Mode. It <em>does</em> silently kill Gemini app grounding — the mirror-image trap.</td></tr>
+        <tr><td class="dom">Applebot-Extended</td><td>Training</td><td><span class="pill p-yes">Safe</span></td><td>Apple Intelligence training only. Note: it is a robots.txt token only and never appears in server logs.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="call stop">
+    <p class="lbl">Two silent killers to audit on every new client</p>
+    <p><b>1. <code>nosnippet</code> / <code>max-snippet:0</code>.</b> Google's own docs: a page must "be eligible to be shown in Google Search <b>with a snippet</b>" to appear in AI Overviews. Sites that set these defensively removed themselves from AI Overviews entirely while keeping their blue links. Nobody audits for it.</p>
+    <p><b>2. <code>Google-Extended: Disallow</code>.</b> Removes you from Gemini grounding while leaving AI Overviews untouched. Clients who "opted out of AI" in 2024 usually have no idea which half they turned off.</p>
+  </div>
+
+  <h3>Two more access facts worth money</h3>
+  <ul>
+    <li><b>AI crawlers do not run JavaScript.</b> A one-month study across nextjs.org and the Vercel network found <b>no JS execution</b> by OpenAI, Anthropic, Meta, ByteDance or Perplexity crawlers. Only AppleBot and Gemini render. A JS-rendered client site is invisible to most of the field.</li>
+    <li><b>Broken links are eating a third of the crawl budget.</b> Same study: <b>34.8% of ChatGPT fetches and 34.2% of Claude fetches hit 404s</b>, versus 8.2% for Googlebot. That is an immediately billable audit finding on nearly every site.</li>
+    <li><b>ChatGPT's retriever strips JSON-LD</b> during HTML→Markdown conversion, ignores meta descriptions, and <b>rejects pages over 4 MB outright</b> with an HTTP 400.</li>
+    <li><b>Cloudflare's new default from 15 Sep 2026</b> blocks Training and Agent crawlers on ad-displaying pages. Landmine: multi-purpose crawlers are judged on <em>all</em> their behaviours, so an aggressive Training block can take Googlebot down with it.</li>
+  </ul>
+</section>
+
+<!-- ============ 04 ============ -->
+<section id="dirs">
+  <h2><span class="num">04</span>Directory-by-directory audit</h2>
+  <p class="lede">For each: is it genuinely cited, what does it cost, how long does approval take, and — the question nobody asks — does it let the AI bots in.</p>
+
+  <div class="tbl">
+    <table>
+      <caption>Master directory matrix</caption>
+      <thead>
+        <tr><th>Platform</th><th>Cited?</th><th>Training bots</th><th>Retrieval bots</th><th>Cost</th><th>Approval</th><th>Verdict</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><b>Wikidata</b></td><td><span class="pill p-yes">Feeds KG</span></td><td colspan="2">Open</td>
+          <td>Free</td><td>Instant</td><td><b>Do first, always.</b> Highest value per minute in the report.</td>
+        </tr>
+        <tr>
+          <td><b>Capterra</b> (now G2 Digital Markets)</td><td><span class="pill p-yes">Yes</span></td><td><span class="pill p-yes">Allowed</span></td><td><span class="pill p-yes">Allowed</span></td>
+          <td>Free listing;<br>PPC $500/mo min, $2/click floor</td><td>5 biz days</td><td><b>Best-in-class access.</b> The only major review directory that allows GPTBot and ClaudeBot outright. Best training-data door that exists.</td>
+        </tr>
+        <tr>
+          <td><b>Crunchbase</b></td><td><span class="pill p-yes">Yes</span></td><td><span class="pill p-no">Blocked</span></td><td><span class="pill p-yes">Allowed</span></td>
+          <td>Free to list<br>($99/mo gates <em>reading</em>)</td><td>~days</td><td>Textbook two-tier. Citable live, excluded from training. Doubles as Wikidata evidence (property P2088).</td>
+        </tr>
+        <tr>
+          <td><b>G2</b></td><td><span class="pill p-yes">#4 on ChatGPT</span></td><td><span class="pill p-no">Blocked</span></td><td><span class="pill p-mid">Partial</span></td>
+          <td>Free tier;<br>paid ~$2.3–3K/yr up</td><td>3–5 biz days</td><td>Citations arrive via the Bing index and licensing, not open crawl. Needs <b>10 reviews</b> for Grid inclusion. Paid profiles cross the citation threshold 94.6% vs 78.8% free.</td>
+        </tr>
+        <tr>
+          <td><b>Trustpilot</b></td><td><span class="pill p-yes">Top 5 ChatGPT</span></td><td colspan="2"><span class="pill p-mid">Profile path only</span></td>
+          <td>Free tier;<br>$99 / $319 / $799 per mo</td><td>Email or DNS TXT</td><td><b>Critical nuance:</b> <code>/reviews/</code> (plural) is blocked, <code>/review/{domain}</code> is <b>not</b>. Your profile is citable; the listing pages are not. Link the singular path.</td>
+        </tr>
+        <tr>
+          <td><b>Clutch</b></td><td><span class="pill p-yes">Yes (agencies)</span></td><td colspan="2"><span class="pill p-yes">No AI blocks</span></td>
+          <td>Free;<br><b>Verified $499/yr</b></td><td>Analyst phone interview, &lt;15 min</td><td>Verified needs <b>3 collected reviews</b>. Reviews are conducted as recorded analyst calls and the transcript is published. Target the city×service programmatic grids, not the national page.</td>
+        </tr>
+        <tr>
+          <td><b>Yelp</b></td><td><span class="pill p-mid">Google only</span></td><td><span class="pill p-no">Blocked site-wide</span></td><td><span class="pill p-no">/biz/ blocked</span></td>
+          <td>Free</td><td>Instant</td><td><b>#1 for Google "near me". Zero in ChatGPT.</b> Still claim and maintain it — but never sell "Yelp optimisation for AI visibility". Yelp bans <em>all</em> review solicitation, including review-gating; violators lose Yelp Ads for a year.</td>
+        </tr>
+        <tr>
+          <td><b>Google Business Profile</b></td><td><span class="pill p-yes">Confirmed</span></td><td colspan="2">n/a — first-party</td>
+          <td>Free</td><td>Video verify, 30s–2min</td><td>Google confirmed June 2026 that <b>Gemini directly manages and edits GBP data</b>. Public Q&amp;A was killed 3 Dec 2025 and replaced by Gemini-powered "Ask Maps". Keyword-stuffed names now risk both suspension <em>and</em> an FTC deception count.</td>
+        </tr>
+        <tr>
+          <td><b>Bing Places</b></td><td><span class="pill p-mid">Copilot</span></td><td colspan="2">n/a</td>
+          <td>Free</td><td>Auto if GBP verified</td><td>One-click import from GBP with optional ongoing sync. The sync toggle is rarely enabled, so listings silently drift out of NAP consistency. Five-minute free fix.</td>
+        </tr>
+        <tr>
+          <td><b>Apple Business Connect</b></td><td><span class="pill p-un">Unverified</span></td><td colspan="2">n/a</td>
+          <td>Free</td><td>Days</td><td>Lever nobody uses: <b>Showcases</b> — free editable mini-landing-pages inside Apple Maps, surfaced in Maps, Siri and Wallet.</td>
+        </tr>
+        <tr>
+          <td><b>BBB</b></td><td><span class="pill p-yes">Yes (low)</span></td><td colspan="2">Open</td>
+          <td><b>Free unaccredited listing exists</b>;<br>accreditation $500–1,225/yr</td><td>3–6 weeks (accredited)</td><td>Most SMBs assume BBB is paid-only and skip the free profile. Requires 6 months trading for accreditation.</td>
+        </tr>
+        <tr>
+          <td><b>Yellow Pages</b></td><td><span class="pill p-yes">Yes</span></td><td colspan="2">Open</td>
+          <td>Free claim</td><td>Instant</td><td>Do not dismiss it. <b>438 mentions</b> in a live restaurant pull — outperforming Yelp entirely, precisely because it does not block crawlers.</td>
+        </tr>
+        <tr>
+          <td><b>AlternativeTo</b></td><td><span class="pill p-mid">Low</span></td><td colspan="2">Open</td>
+          <td>Free;<br>$5 one-time priority review</td><td>1–2 days paid,<br>months free</td><td>The real lever is <b>reciprocal linking</b> — after listing, add yourself as an alternative on every competitor page. That graph is why it punches above its authority. Most agencies skip it.</td>
+        </tr>
+        <tr>
+          <td><b>DesignRush</b></td><td><span class="pill p-mid">Present</span></td><td colspan="2">Open</td>
+          <td><b>$200–500/mo, 1-yr prepaid</b></td><td>Not published</td><td>Openly pay-to-play — Premium buys a Top-10 slot. $2,400–6,000/yr. Only if it clears a specific RFP-pipeline hurdle.</td>
+        </tr>
+        <tr>
+          <td><b>Wikipedia</b></td><td><span class="pill p-yes">#1–2 everywhere</span></td><td colspan="2">Open</td>
+          <td>Free</td><td>3–12 weeks</td><td><b>Do this last, or not at all.</b> Company drafts approve at <b>16%</b>; startups/tech at <b>~6%</b>. A failed attempt risks a permanent paid-editing block. A Wikidata item does <b>not</b> require a Wikipedia article.</td>
+        </tr>
+        <tr>
+          <td><b>Product Hunt</b></td><td><span class="pill p-no">Not in top 20</span></td><td colspan="2">Open</td>
+          <td>Free</td><td>Instant</td><td>Backlink/discovery surface, not a citation surface. Relaunch locked to 6-month cycles.</td>
+        </tr>
+        <tr>
+          <td><b>UpCity</b></td><td><span class="pill p-un">Unverified</span></td><td colspan="2">Open</td>
+          <td><span class="pill p-un">Sources conflict</span></td><td>Unknown</td><td>Do not quote a price to a client — public estimates conflict irreconcilably. Profile completeness is one of 9 ranking signals independent of review count, so a complete free profile may beat a sparse paid one. Test before spending.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Where review-platform citations actually concentrate</h3>
+  <p>30,000 commercial keywords, 22,729 AI Overviews, 23 platforms measured. <b>Five platforms take 88% of all review-platform citations.</b></p>
+  <div class="tbl">
+    <table>
+      <caption>Review platform share of AI Overview citations</caption>
+      <thead><tr><th>Platform</th><th class="num">Share</th><th>Relative</th><th class="num">Organic traffic, Jan 24 → Dec 25</th></tr></thead>
+      <tbody>
+        <tr><td class="dom">Gartner Peer Insights</td><td class="num"><b>26.0%</b></td><td class="bar hot"><i style="width:100%"></i></td><td class="num">−76.5%</td></tr>
+        <tr><td class="dom">G2</td><td class="num"><b>23.1%</b></td><td class="bar hot"><i style="width:89%"></i></td><td class="num">−84.5%</td></tr>
+        <tr><td class="dom">Capterra</td><td class="num">17.8%</td><td class="bar"><i style="width:68%"></i></td><td class="num">−89.0%</td></tr>
+        <tr><td class="dom">Software Advice</td><td class="num">12.8%</td><td class="bar"><i style="width:49%"></i></td><td class="num">—</td></tr>
+        <tr><td class="dom">TrustRadius</td><td class="num">8.3%</td><td class="bar"><i style="width:32%"></i></td><td class="num">−92.2%</td></tr>
+        <tr><td class="dom">GetApp</td><td class="num">2.5%</td><td class="bar"><i style="width:10%"></i></td><td class="num">—</td></tr>
+        <tr><td class="dom">Clutch</td><td class="num">2.4%</td><td class="bar"><i style="width:9%"></i></td><td class="num">−87.0%</td></tr>
+        <tr><td class="dom">AlternativeTo · SaaSHub · FinancesOnline</td><td class="num"><b>0%</b></td><td class="bar"><i style="width:0"></i></td><td class="num">—</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="call ok">
+    <p class="lbl">Negotiating leverage</p>
+    <p>These platforms have lost <b>76–92% of their organic traffic</b> in two years while remaining AI-citation-critical. They know it. That is the moment to negotiate placement terms, not to pay rate card.</p>
+  </div>
+
+  <h4>Two structural facts that reframe the category</h4>
+  <ul>
+    <li><b>G2 bought Capterra, Software Advice and GetApp from Gartner for ~$110M</b> — announced 29 Jan 2026, closed 5 Feb 2026. Any playbook treating these as four competitors is stale. One portal now: <code>app.g2digitalmarkets.com</code>.</li>
+    <li><b>Second-tier open directories beat first-tier walled ones.</b> RestaurantJi, RestaurantGuru, GoodFirms, TheManifest, Sortlist and ToolRadar get cited <em>because they are crawlable</em>. Authority is not the variable. Access is.</li>
+  </ul>
+
+  <h4>Query type inverts the assumption</h4>
+  <p>Explicit "review" queries pull in a review platform <b>49%</b> of the time. "Software/tools" queries <b>39.4%</b>. But <b>"best/top" queries — only 17.1%</b>. Directory listings defend the bottom of the funnel. They do not win the discovery question.</p>
+</section>
+
+<!-- ============ 05 ============ -->
+<section id="levers">
+  <h2><span class="num">05</span>Twelve hidden levers</h2>
+  <p class="lede">Under-exploited because they are counter-intuitive, undocumented, or buried in a policy page nobody reads.</p>
+
+  <div class="findings">
+    <div class="finding"><p class="k">Lever 01 · Access</p><p class="h">Bing Webmaster Tools "AI Performance"</p><p>The only first-party AI-citation dataset any engine publishes, and it is <b>free</b>. Launched Feb 2026, expanded June 2026 with Intents, Topics, Citation Share and Compare. It even shows the <em>grounding queries</em> Copilot generated internally. Set it up on every client on day one.</p></div>
+
+    <div class="finding"><p class="k">Lever 02 · Content</p><p class="h">Your H1 and first ~200 characters <em>is</em> your ChatGPT snippet</p><p>ChatGPT's own index freezes a snippet per URL at index time — not per query. Hard cap <b>202 characters</b>, contains the H1 in 8 of 10 cases. Meta descriptions are ignored entirely. The first image's alt text eats ~50 characters of that budget.</p></div>
+
+    <div class="finding"><p class="k">Lever 03 · Video</p><p class="h">YouTube views and subscribers are ~zero-correlated with citation</p><p>Correlation of views to citation: <b>r ≈ −0.03</b>. Subscribers: −0.03. Meanwhile <b>40.8% of AI-cited videos have under 1,000 views</b> and 35% of cited channels have under 10k subs. What weakly predicts it: description length (0.31) and recency (0.3). Long-form is 94% of citations. <b>LLMs read transcripts, not audio</b> — an indexed transcript is the necessary condition.</p></div>
+
+    <div class="finding"><p class="k">Lever 04 · Retrieval</p><p class="h">Claude's backend is almost certainly Brave</p><p>Brave joined Anthropic's subprocessor list Mar 2025; result-overlap testing found <b>86.7% match with Brave's top organic results (p&lt;0.0001)</b>, implying little re-ranking. Brave's index is far cheaper to penetrate than Google's. Never officially confirmed — treat as a strong working hypothesis.</p></div>
+
+    <div class="finding"><p class="k">Lever 05 · Reddit</p><p class="h">Cited Reddit threads are old, unpopular and comparison-shaped</p><p><b>80% of AI-cited Reddit posts have under 20 upvotes. 70% have under 20 comments. Average age ~900 days.</b> Q&amp;A threads are over half of all Reddit citations. Median cited post is ~80 words. Virality is irrelevant. You cannot buy this — and Reddit demonstrated in court that it plants honeypots to catch scrapers.</p></div>
+
+    <div class="finding"><p class="k">Lever 06 · Claude</p><p class="h">Keep your quotable claim inside 150 contiguous characters</p><p>Claude's <code>cited_text</code> is hard-capped at <b>150 characters</b>. A claim that cannot survive inside one contiguous 150-character span cannot be quoted cleanly.</p></div>
+
+    <div class="finding"><p class="k">Lever 07 · Grok</p><p class="h">X posts are direct index insertion</p><p>Grok's <code>x_search</code> reads X natively — no crawl, no robots.txt, no indexation lag. It is the only surface where publishing <em>is</em> indexing. Also the priority engine for reputation/risk testing, because of the social corpus.</p></div>
+
+    <div class="finding"><p class="k">Lever 08 · Gemini</p><p class="h">The API hands you the fan-out queries for free</p><p>Gemini's API exposes <code>google_search_call.queries</code> — the actual sub-queries the model generated to decompose a commercial question. Free reconnaissance on how an engine breaks down your client's category. Nobody mines this.</p></div>
+
+    <div class="finding"><p class="k">Lever 09 · Entity</p><p class="h">Wikidata external-identifier seeding</p><p>Wikidata notability is met by "an entity describable with serious and publicly available references" — no Wikipedia article needed. Cite an SEC filing, Crunchbase listing, OpenCorporates registration or GLEIF LEI, attach the matching ID properties (P2088 Crunchbase, P4264 LinkedIn, P1320 OpenCorporates), and the Q-node works as an entity anchor immediately. Free, instant, contestable.</p></div>
+
+    <div class="finding"><p class="k">Lever 10 · Reporting</p><p class="h">"Cited" and "mentioned" are different KPIs that diverge 62% of the time</p><p><b>61.7% of appearances are "ghost citations"</b> — the site is cited as a source but the brand is never named. ChatGPT: 87% citation rate but only <b>20.7% mention rate</b>. Gemini is inverted: 21.4% citation, <b>83.7% mention</b>. Selling "citations" when the client wants to be <em>named</em> is a mis-sold deliverable most of the time.</p></div>
+
+    <div class="finding"><p class="k">Lever 11 · Query shape</p><p class="h">Short conversational queries produce 30–50× more brand mentions</p><p>…than long structured prompts. And comparative queries produce <b>2.4× more mentions</b> than informational ones. This shapes both what content to build and what prompts to test.</p></div>
+
+    <div class="finding"><p class="k">Lever 12 · Commerce</p><p class="h">OpenAI's product feed has a literal visibility boolean</p><p><code>is_eligible_search</code> — a flag in OpenAI's merchant product feed spec controlling ChatGPT search visibility for a catalog. Approved partners only; apply at <code>chatgpt.com/merchants</code>. Also new: <code>OAI-AdsBot</code>. ChatGPT now has a paid surface alongside organic citation.</p></div>
+  </div>
+
+  <h3>What the correlations say about where equity actually comes from</h3>
+  <p>Spearman correlation against AI mention volume, n = 75,000 brands:</p>
+  <div class="tbl">
+    <table>
+      <caption>Brand signal vs AI mention volume (correlation, not causation)</caption>
+      <thead><tr><th>Signal</th><th class="num">AI Overviews</th><th class="num">AI Mode</th><th>Strength</th></tr></thead>
+      <tbody>
+        <tr><td><b>YouTube mentions</b></td><td class="num">0.737</td><td class="num">0.737</td><td class="bar hot"><i style="width:100%"></i></td></tr>
+        <tr><td><b>Branded web mentions</b> (unlinked)</td><td class="num">0.656</td><td class="num">0.709</td><td class="bar hot"><i style="width:96%"></i></td></tr>
+        <tr><td>Branded anchors</td><td class="num">0.527</td><td class="num">0.628</td><td class="bar"><i style="width:85%"></i></td></tr>
+        <tr><td>Branded search volume</td><td class="num">0.392</td><td class="num">0.466</td><td class="bar"><i style="width:63%"></i></td></tr>
+        <tr><td>Domain Rating</td><td class="num">0.326</td><td class="num">0.285</td><td class="bar"><i style="width:44%"></i></td></tr>
+        <tr><td>Number of site pages</td><td class="num">0.194</td><td class="num">—</td><td class="bar"><i style="width:26%"></i></td></tr>
+        <tr><td><b>Backlinks</b></td><td class="num" colspan="2">"weak"</td><td class="bar"><i style="width:12%"></i></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p><b>Unlinked brand mentions beat backlinks roughly 3:1. Programmatic page volume is near-worthless (0.194).</b> Caveat, stated by the study's own authors: this is correlation, and no controlled test isolating unlinked mentions exists.</p>
+
+  <div class="call stop">
+    <p class="lbl">The tension you must hold</p>
+    <p>Mentions correlate at r≈0.66 — but Google's Gary Illyes stated publicly on <b>15 May 2026</b> that <em>bought</em> mentions are treated like paid links: "detect, disregard, and ultimately ignore." Google's own AI guidance names "seeking inauthentic mentions" as a spam behaviour. <b>The correlational data measures earned mentions. Do not build a mention-buying product.</b></p>
+  </div>
+</section>
+
+<!-- ============ 06 ============ -->
+<section id="rank">
+  <h2><span class="num">06</span>The rank-segmented rule</h2>
+  <p class="lede">The single most commercially useful finding in the literature, and it is buried in Table 2 of a paper everyone only quotes Table 1 from.</p>
+
+  <p>The KDD 2024 GEO study ran 10,000 queries with controlled edits. Table 1 is famous — quotations and statistics lift visibility by up to +41%, keyword stuffing costs −8.3%. Table 2 is the one nobody quotes:</p>
+
+  <div class="tbl">
+    <table>
+      <caption>Relative change in AI visibility, by the page's current SERP rank</caption>
+      <thead><tr><th>Optimization applied</th><th class="num">Rank 1</th><th class="num">Rank 2</th><th class="num">Rank 3</th><th class="num">Rank 4</th><th class="num">Rank 5</th></tr></thead>
+      <tbody>
+        <tr><td>Cite Sources</td><td class="num" style="color:var(--bad)"><b>−30.3%</b></td><td class="num">+2.5%</td><td class="num">+20.4%</td><td class="num">+15.5%</td><td class="num" style="color:var(--good)"><b>+115.1%</b></td></tr>
+        <tr><td>Quotation Addition</td><td class="num" style="color:var(--bad)"><b>−22.9%</b></td><td class="num">−7.0%</td><td class="num">+3.5%</td><td class="num">+25.1%</td><td class="num" style="color:var(--good)"><b>+99.7%</b></td></tr>
+        <tr><td>Statistics Addition</td><td class="num" style="color:var(--bad)"><b>−20.6%</b></td><td class="num">−3.9%</td><td class="num">+8.1%</td><td class="num">+10.0%</td><td class="num" style="color:var(--good)"><b>+97.9%</b></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="call">
+    <p class="lbl">How this becomes a service</p>
+    <p><b>Rank 1–2 pages:</b> leave them alone. Aggressive citation and statistics injection <em>costs</em> them 20–30% visibility. Protect, don't optimize.</p>
+    <p><b>Rank 3–5 pages:</b> this is the whole opportunity. Same edits, up to <b>+115%</b>. Every content hour should go here.</p>
+    <p><b>Best combination:</b> Fluency Optimization + Statistics Addition, more than 5.5% above any single method. Cite Sources is weak alone but averages <b>+31.4% in combination</b> — sequence it second, never first.</p>
+  </div>
+
+  <h3>Per-factor causal effect sizes</h3>
+  <p>252,000 paired trials, exactly one factor manipulated per trial, 6 models, brand-anonymised, position-counterbalanced. Odds ratios for being selected:</p>
+  <div class="tbl">
+    <table>
+      <caption>What actually decides whether your page gets used</caption>
+      <thead><tr><th>Tier</th><th>Factor</th><th class="num">Odds ratio</th></tr></thead>
+      <tbody>
+        <tr><td><span class="pill p-yes">Gatekeeper</span></td><td>On-topic vs off-topic</td><td class="num">&gt;10,000</td></tr>
+        <tr><td><span class="pill p-yes">Gatekeeper</span></td><td>Position 1 vs 2 in the retrieved list</td><td class="num">1,795 – &gt;10,000</td></tr>
+        <tr><td><span class="pill p-yes">Gatekeeper</span></td><td><b>Recent vs old timestamp</b></td><td class="num">14.4 – &gt;10,000</td></tr>
+        <tr><td><span class="pill p-yes">Gatekeeper</span></td><td><b>Price present vs absent</b></td><td class="num">6.26 – &gt;10,000</td></tr>
+        <tr><td><span class="pill p-mid">Strong</span></td><td>Specs present vs absent</td><td class="num">8.63 – &gt;10,000</td></tr>
+        <tr><td><span class="pill p-mid">Strong</span></td><td>Deep vs shallow coverage</td><td class="num">3.98 – &gt;10,000</td></tr>
+        <tr><td><span class="pill p-mid">Strong</span></td><td><b>Confident vs hedged phrasing</b></td><td class="num">2.67 – 754</td></tr>
+        <tr><td><span class="pill p-un">Moderate</span></td><td>Comparisons present</td><td class="num">1.61 – 7.45</td></tr>
+        <tr><td><span class="pill p-un">Weak</span></td><td><b>No timestamp vs old timestamp</b></td><td class="num">1.31 – 2.32</td></tr>
+        <tr><td><span class="pill p-no">~Null</span></td><td><b>Structured vs dense formatting</b></td><td class="num">0.79 – 1.68</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="call">
+    <p class="lbl">Three rules that fall straight out of that table</p>
+    <p><b>1. An old visible date is worse than no date at all.</b> Either keep dates current or remove them.</p>
+    <p><b>2. Concrete facts beat prose polish.</b> Price and specs are near-decisive. Pure formatting is statistically null.</p>
+    <p><b>3. Hedged writing loses by up to 754×.</b> "May help" and "can sometimes" are costing citations.</p>
+  </div>
+
+  <h3>Structure works — architecturally, not cosmetically</h3>
+  <p>A separate study (200 articles, 377 real queries, 6 engines) found restructuring lifts citation rate <b>+17.3%</b>, p&lt;0.001. The ablation is the useful part:</p>
+  <ul>
+    <li><b>Macro-structure — 44.9%</b> of the effect. Heading hierarchy, logical progression, internal linking, reference distribution.</li>
+    <li><b>Meso-structure — 39.7%.</b> Paragraph-length variance, per-chunk topic coherence, content-density distribution.</li>
+    <li><b>Micro-structure — 15.4%.</b> Emphasis markers, keyword placement, reading ease.</li>
+  </ul>
+  <p>This reconciles the apparent contradiction with the null on formatting: <b>retrievability is architectural. Prettiness is the 15.4% slice.</b></p>
+
+  <h4>Evidence-genre uplift (21,143 citations, 18,151 pages)</h4>
+  <p>Mean influence uplift when the genre is present: <b>Code +76.9% · Numbers/statistics +61.6% · Definitions +57.3% · Comparisons +55.3% · How-to procedures +41.2% · Q&amp;A formatting −5.7%</b>. Top-quartile pages carry 11.4× the word count and 12.5× the headings of bottom-quartile pages.</p>
+</section>
+
+<!-- ============ 07 ============ -->
+<section id="prompts">
+  <h2><span class="num">07</span>The 157-question matrix</h2>
+  <p class="lede">Fill the placeholders once per client. Run the set on every engine. This is how you prove any of the above worked.</p>
+
+  <h3>Placeholders</h3>
+  <p>Define once in a <code>variables.yaml</code> per client: <code>{brand}</code> <code>{domain}</code> <code>{service}</code> <code>{service_2}</code> <code>{category}</code> <code>{industry}</code> <code>{city}</code> <code>{region}</code> <code>{neighborhood}</code> <code>{competitor}</code> <code>{competitor_b}</code> <code>{problem}</code> <code>{persona}</code> <code>{budget}</code> <code>{urgency}</code> <code>{qualifier}</code> <code>{year}</code></p>
+
+  <div class="call">
+    <p class="lbl">Write prompts the way real people actually type</p>
+    <p>Two-thirds of real AI prompts are <b>15 words or fewer</b>; the median is about 8. 60% are phrased as questions. 24.5% contain the word "best". 28% mention price. 32% include a personal attribute. <b>Target library mix: ~30% short keyword-shaped, ~70% conversational.</b> Do not fill the library with 60-word synthetic prompts no human types.</p>
+  </div>
+
+  <h3>The library</h3>
+
+  <details class="cat"><summary>D — Discovery / unbranded <span class="why">20 · brand name never appears</span></summary>
+  <div class="body"><p>The category that decides whether any of this is working. If discovery is flat, nothing else matters.</p><pre>D01  best {service} in {city}
+D02  who is the best {category} in {city}
+D03  top {category} companies in {city}
+D04  best {service} near {neighborhood} {city}
+D05  recommend a {category} in {city}
+D06  I need a {service} in {city}, who should I use
+D07  top rated {category} {city} {year}
+D08  which {category} in {city} do people actually recommend
+D09  best {qualifier} {category} in {city}
+D10  who does the best {service} in {region}
+D11  most trusted {category} in {city}
+D12  {city} {category} recommendations
+D13  best {service_2} companies serving {city}
+D14  who should I hire for {service} in {city}
+D15  shortlist me 5 {category} companies in {city} with pros and cons
+D16  best {category} for {persona} in {city}
+D17  which {category} in {city} has the best reputation
+D18  I'm a {persona} in {city} and I need {service}. Give me three options.
+D19  best {service} in {city} {budget}
+D20  who are the leading {category} businesses in {region}</pre></div></details>
+
+  <details class="cat"><summary>C — Comparison <span class="why">12 · reveals your peer set</span></summary>
+  <div class="body"><pre>C01  {brand} vs {competitor}
+C02  {brand} vs {competitor} vs {competitor_b}
+C03  is {brand} better than {competitor}
+C04  {brand} or {competitor} for {service}
+C05  compare {brand} and {competitor} on price, quality and warranty
+C06  which is more reliable, {brand} or {competitor}
+C07  {brand} vs {competitor}: which is better for {persona}
+C08  pros and cons of {brand} compared to other {category} in {city}
+C09  make me a comparison table of {brand}, {competitor} and {competitor_b}
+C10  how does {brand} compare to the biggest {category} in {city}
+C11  {competitor} vs {brand} reviews
+C12  I got quotes from {brand} and {competitor}. Which should I pick?</pre></div></details>
+
+  <details class="cat"><summary>A — Alternatives <span class="why">10 · displacement</span></summary>
+  <div class="body"><pre>A01  alternatives to {competitor}
+A02  companies like {competitor} in {city}
+A03  {competitor} alternatives {year}
+A04  cheaper alternative to {competitor}
+A05  who competes with {competitor} in {city}
+A06  I had a bad experience with {competitor}, who else does {service} in {city}
+A07  best {competitor} alternatives for {persona}
+A08  {competitor} is booked out. Who else in {city} does {service}?
+A09  local alternatives to {competitor} for {service}
+A10  small business alternatives to {competitor} in {region}</pre></div></details>
+
+  <details class="cat"><summary>V — Validation / trust <span class="why">13 · bottom of funnel</span></summary>
+  <div class="body"><pre>V01  is {brand} legit
+V02  {brand} reviews
+V03  is {brand} a good {category}
+V04  can I trust {brand}
+V05  {brand} reputation
+V06  is {brand} licensed and insured
+V07  how long has {brand} been in business
+V08  {brand} ratings and customer feedback
+V09  what do customers say about {brand}
+V10  should I hire {brand} for {service}
+V11  is {brand} legit or a scam
+V12  {brand} BBB rating and accreditation
+V13  summarize the customer reviews for {brand} and tell me the common themes</pre></div></details>
+
+  <details class="cat"><summary>P — Pricing <span class="why">13 · 28% of real prompts mention price</span></summary>
+  <div class="body"><p>Where brands get replaced by directory averages. Price presence is also a near-decisive selection factor (odds ratio 6.26 – &gt;10,000).</p><pre>P01  how much does {service} cost in {city}
+P02  average cost of {service} in {region} {year}
+P03  {service} price range {city}
+P04  how much should I pay for {service}
+P05  is {budget} reasonable for {service} in {city}
+P06  what does {brand} charge for {service}
+P07  cheapest {service} in {city}
+P08  {service} cost calculator {city}
+P09  why is {service} so expensive in {city}
+P10  what's included in a typical {service} quote
+P11  hidden costs of {service}
+P12  {service} financing options in {city}
+P13  I have {budget} for {service} in {city} — what can I realistically get?</pre></div></details>
+
+  <details class="cat"><summary>B — Problem-first <span class="why">13 · highest-value category</span></summary>
+  <div class="body"><p>Customer describes a symptom with no category vocabulary. This is where an unknown brand can break in.</p><pre>B01  {problem}, who do I call
+B02  {problem} — is this an emergency
+B03  {problem} in {city}, what do I do
+B04  {problem}. How much will this cost to fix?
+B05  {problem} and I need it fixed {urgency}
+B06  who fixes {problem} in {city}
+B07  {problem} — can I fix it myself or do I need a pro
+B08  what kind of contractor handles {problem}
+B09  {problem}, and my insurance may cover it. What's the process?
+B10  I'm a {persona} in {city} with {problem}. Walk me through what to do.
+B11  {problem} — what happens if I ignore it
+B12  {problem} keeps coming back. Who in {city} actually fixes it properly?
+B13  emergency {service} {city} {urgency}</pre></div></details>
+
+  <details class="cat"><summary>Y — Buying process <span class="why">11 · the model's checklist becomes the customer's</span></summary>
+  <div class="body"><pre>Y01  what should I ask before hiring a {category}
+Y02  questions to ask a {category} before signing a contract
+Y03  how do I choose a {category} in {city}
+Y04  red flags when hiring a {category}
+Y05  what credentials should a {category} have in {region}
+Y06  how many quotes should I get for {service}
+Y07  what should be in a {service} contract
+Y08  how do I verify a {category} is licensed in {region}
+Y09  deposit norms for {service} — how much is normal upfront
+Y10  give me a checklist for hiring a {category} in {city}, and name companies that meet it
+Y11  what warranty should I expect on {service}</pre></div></details>
+
+  <details class="cat"><summary>F — Definitional / category <span class="why">11 · topical authority</span></summary>
+  <div class="body"><pre>F01  what is {category}
+F02  what does a {category} do
+F03  what is {service} and when do you need it
+F04  {service} explained for a {persona}
+F05  types of {service}
+F06  how does {service} work step by step
+F07  {service} vs {service_2} — what's the difference
+F08  how long does {service} take
+F09  what's new in {industry} in {year}
+F10  who are the leading companies in {industry}
+F11  explain {category} to me like I know nothing, and give examples of firms doing it well</pre></div></details>
+
+  <details class="cat"><summary>L — Local / near-me <span class="why">12 · different retrieval path</span></summary>
+  <div class="body"><p><b>Run rule:</b> these are only valid with a location signal explicitly set and logged. A "near me" run with unset location is a discarded run.</p><pre>L01  {service} near me
+L02  {category} near me
+L03  best {category} near me
+L04  {service} near me open now
+L05  {category} near {neighborhood}
+L06  {service} in {city} that serves {neighborhood}
+L07  is there a {category} close to me in {city}
+L08  {category} within 20 miles of {city}
+L09  who covers {neighborhood} for {service}
+L10  local family owned {category} in {city}
+L11  {category} near me with good reviews
+L12  same day {service} near me</pre></div></details>
+
+  <details class="cat"><summary>LT — Multi-turn journeys <span class="why">12 chains · 44 turns · score each turn</span></summary>
+  <div class="body"><p>Turn-1 mention rate is not turn-4 mention rate. Score every turn separately.</p><pre>LT01 · Five-stage journey
+  T1  {problem}. What's going on?
+  T2  Okay, so I need {service}. What are my options in {city}?
+  T3  Who are the best companies in {city} for that?
+  T4  Compare the top two on price and warranty.
+  T5  Which one would you actually book, and why?
+
+LT02 · Budget-constrained
+  T1  I have {budget} and I need {service} in {city}.
+  T2  Is that realistic? What corners would I be cutting?
+  T3  Name companies in {city} that work in that range.
+  T4  Which of those has the best reviews?
+
+LT03 · Skeptic
+  T1  I've been quoted for {service} in {city} and I think I'm being overcharged.
+  T2  What's a fair price?
+  T3  Who in {city} is known for honest pricing on {service}?
+  T4  How do I verify that?
+
+LT04 · Referral
+  T1  A friend recommended {brand} for {service}. Do you know them?
+  T2  What are they known for?
+  T3  Who else in {city} should I get a quote from?
+  T4  Rank all of them for me.
+
+LT05 · Persona
+  T1  I'm a {persona} in {city}. I've never hired a {category} before.
+  T2  What do I need to know?
+  T3  Who should I call?
+  T4  What should I ask them?
+
+LT06 · Urgency
+  T1  {problem} and it's {urgency}.
+  T2  Who in {city} can come out that fast?
+  T3  Will it cost more for emergency service?
+
+LT07 · Competitor exit
+  T1  {competitor} did {service} for me and I'm not happy.
+  T2  What are my options?
+  T3  Who else in {city} should I use instead?
+
+LT08 · Research to decision
+  T1  what is {service}
+  T2  do I need it for {problem}
+  T3  best providers in {city}
+  T4  book me a shortlist with phone numbers
+
+LT09 · Insurance path
+  T1  Will my insurance cover {service} for {problem}?
+  T2  What documentation do I need?
+  T3  Which {category} in {city} handle insurance claims well?
+
+LT10 · Comparison deep-dive
+  T1  {brand} vs {competitor}
+  T2  Which has better warranty terms?
+  T3  Any complaints about either one?
+  T4  Final recommendation for a {persona}?
+
+LT11 · Follow-up / retention
+  T1  I just had {service} done in {city}. What maintenance do I need?
+  T2  How often?
+  T3  Who does that in {city}?
+
+LT12 · Voice-style natural language
+  T1  hey so my {problem} and I don't really know who to call, I'm in {city}, help
+  T2  ok which of those is cheapest
+  T3  which one would you call first</pre></div></details>
+
+  <details class="cat"><summary>S — Source extraction &amp; belief mapping <span class="why">18 · belief data, NOT citation data</span></summary>
+  <div class="body">
+  <p><b>Read this before using them.</b> A model asked "what sources did you use?" will confabulate plausible domains. These prompts map what the model <em>believes</em> about the brand. They are never evidence of a citation. Ground truth is the API citation object or the rendered citation chips — nothing else.</p>
+  <pre>S01  What sources did you use to answer that? List every URL.
+S02  For each company you just named, cite the specific page you got that from.
+S03  Search the web for "best {category} in {city}" and tell me exactly which pages you opened.
+S04  Which directories and review sites do you consider authoritative for {category} in {city}?
+S05  What websites would you check to verify a {category} in {city} is legitimate?
+S06  Rank the top 10 websites you'd trust for information about {industry}.
+S07  Where does your information about {brand} come from?
+S08  Do you have information about {domain}? What is on that site?
+S09  Summarize what {domain} says it does, and tell me where you got it.
+S10  What do you know about {brand}? Everything — services, location, owners, years in business, pricing, reputation.
+S11  What is {brand}'s service area, and what's your source for that?
+S12  List every business you associate with the phrase "{service} {city}", and the source for each.
+S13  If you had to fact-check a claim about {brand}, which three sources would you use?
+S14  What search queries would you run to answer "best {category} in {city}"?
+S15  Show me your reasoning: what did you search, what did you find, what did you discard?
+S16  Which of these is more authoritative for {category} and why: {domain}, Yelp, Angi, BBB, Google Business Profile, Reddit?
+S17  What review platforms carry the most weight for {category} in {region}?
+S18  Is there anything about {brand} you're uncertain about or can't verify?</pre>
+  </div></details>
+
+  <details class="cat"><summary>N — Negative / risk <span class="why">12 · run these even unasked</span></summary>
+  <div class="body">
+  <p>Grok is the priority engine here because of the X corpus. <b>Escalation rule:</b> any run returning a factual-sounding negative claim goes to the account lead within 24 hours with the full transcript and citation set, <em>before</em> any optimization work.</p>
+  <pre>N01  problems with {brand}
+N02  {brand} complaints
+N03  {brand} lawsuit
+N04  {brand} bad reviews
+N05  has anyone been scammed by {brand}
+N06  why do people not like {brand}
+N07  {brand} reddit
+N08  {brand} negative reviews — what are the common complaints
+N09  is {brand} going out of business
+N10  {brand} license revoked OR suspended
+N11  worst {category} in {city}
+N12  {category} in {city} to avoid</pre></div></details>
+
+  <h3>The reverse-engineering step everyone skips</h3>
+  <p>Every engine exposes two different lists: what it <b>retrieved</b> and what it <b>cited</b>. The gap between them is the most valuable dataset in the whole programme.</p>
+  <div class="tbl">
+    <table>
+      <caption>Ground-truth citation fields by engine</caption>
+      <thead><tr><th>Engine</th><th>Retrieved set</th><th>Cited set</th><th>Model's own queries</th></tr></thead>
+      <tbody>
+        <tr><td><b>Claude API</b></td><td><code>web_search_tool_result</code></td><td><code>citations[]</code> + <code>cited_text</code> (≤150 chars)</td><td><span class="pill p-yes">Yes</span> <code>server_tool_use.input.query</code></td></tr>
+        <tr><td><b>OpenAI Responses</b></td><td><code>sources</code> (all consulted)</td><td><code>url_citation</code> annotations</td><td><span class="pill p-mid">Partial</span></td></tr>
+        <tr><td><b>Gemini API</b></td><td><code>groundingChunks</code></td><td><code>groundingSupports</code></td><td><span class="pill p-yes">Yes</span> <code>webSearchQueries</code></td></tr>
+        <tr><td><b>Perplexity Sonar</b></td><td><code>search_results</code></td><td><code>citations</code></td><td><span class="pill p-no">No</span></td></tr>
+        <tr><td><b>Google AI Mode</b></td><td colspan="2">scraper <code>references</code> array</td><td><span class="pill p-no">Inferred only</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="call ok">
+    <p class="lbl">The diagnosis that changes the fix</p>
+    <p>If the client domain appears in the <b>retrieved</b> set but never in the <b>cited</b> set, they were <em>found and rejected</em>. That is a content and format problem, not a discovery problem — and it demands the opposite fix. Roughly 85% of pages ChatGPT retrieves are never cited. Claude's API is uniquely good for this: it returns the retrieved set, the cited subset, the quoted text, and the model's own search queries.</p>
+  </div>
+
+  <h3>Running the panel</h3>
+  <div class="tbl">
+    <table>
+      <caption>Engine execution notes</caption>
+      <thead><tr><th>Engine</th><th>API</th><th>Location control</th><th>Consumer parity</th><th>Method</th></tr></thead>
+      <tbody>
+        <tr><td><b>ChatGPT</b></td><td><span class="pill p-yes">Yes</span></td><td><code>user_location</code></td><td><span class="pill p-no">Low</span></td><td>API for scale + DataForSEO <code>chat_gpt_scraper</code> with <code>force_web_search</code> for truth</td></tr>
+        <tr><td><b>Claude</b></td><td><span class="pill p-yes">Yes</span></td><td>Approximate city/region</td><td><span class="pill p-mid">Medium</span></td><td>API. Best citation objects of any engine</td></tr>
+        <tr><td><b>Gemini</b></td><td><span class="pill p-yes">Yes</span></td><td><span class="pill p-no">None documented</span></td><td><span class="pill p-mid">Medium</span></td><td>API for belief mapping; scraper for geo work</td></tr>
+        <tr><td><b>Perplexity</b></td><td><span class="pill p-yes">Yes</span></td><td>lat/lng/city/region</td><td><span class="pill p-yes">High</span></td><td>API. Tightest API↔product parity of the field</td></tr>
+        <tr><td><b>Google AI Mode / AI Overviews</b></td><td><span class="pill p-no">No</span></td><td>City-level</td><td>n/a — it is the surface</td><td>DataForSEO <code>serp/google/ai_mode/*</code>. <b>Track AI Mode and AI Overviews separately — they are different surfaces.</b></td></tr>
+        <tr><td><b>Copilot</b></td><td><span class="pill p-no">No parity</span></td><td>Bing market params</td><td><span class="pill p-no">Low</span></td><td>Manual or browser automation. Plus the free Bing Webmaster AI Performance report</td></tr>
+        <tr><td><b>Grok</b></td><td><span class="pill p-yes">Yes</span></td><td>Limited</td><td><span class="pill p-mid">Medium</span></td><td>API. Mandatory for the N-series risk prompts</td></tr>
+        <tr><td><b>Meta AI</b></td><td><span class="pill p-no">No</span></td><td>Account-derived</td><td>n/a</td><td>Burner account only. Lowest-confidence engine — caveat it or drop it</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h4>Session hygiene — non-negotiable on every manual run</h4>
+  <ul>
+    <li>Logged out, or a burner account with memory disabled and custom instructions empty.</li>
+    <li><b>Fresh incognito window per prompt</b> — not per session. Conversation context bleeds.</li>
+    <li>Location set explicitly <em>and logged</em>. Unlogged locale = discarded run.</li>
+    <li>Screenshot every answer including the citation chips. The screenshot is the audit artifact; parsed text is the data.</li>
+    <li>Same language across the panel — language is 31.6% of total variance, the largest controllable factor.</li>
+    <li><b>Never blend an API mention rate with a UI mention rate into one number.</b> They are different products.</li>
+  </ul>
+</section>
+
+<!-- ============ 08 ============ -->
+<section id="measure">
+  <h2><span class="num">08</span>Measurement &amp; the noise floor</h2>
+  <p class="lede">This section is what separates an agency from a dashboard reseller. It is also the section that manages client expectations before they form.</p>
+
+  <h3>Where the variance actually comes from</h3>
+  <p>12,933 responses, 20 brands, 3 models, 8 languages, generalizability theory with four crossed facets:</p>
+  <div class="tbl">
+    <table>
+      <caption>Variance decomposition in LLM brand answers</caption>
+      <thead><tr><th>Source</th><th class="num">Share of variance</th><th>Relative</th></tr></thead>
+      <tbody>
+        <tr><td>Within-prompt resampling (same prompt, run again)</td><td class="num"><b>34.8%</b></td><td class="bar hot"><i style="width:100%"></i></td></tr>
+        <tr><td>Query language</td><td class="num"><b>31.6%</b></td><td class="bar hot"><i style="width:91%"></i></td></tr>
+        <tr><td>Higher-order interactions</td><td class="num">22.3%</td><td class="bar"><i style="width:64%"></i></td></tr>
+        <tr><td>Brand × language</td><td class="num">8.6%</td><td class="bar"><i style="width:25%"></i></td></tr>
+        <tr><td>Model identity</td><td class="num">1.7%</td><td class="bar"><i style="width:5%"></i></td></tr>
+        <tr><td><b>Brand — the thing you are measuring</b></td><td class="num"><b>0.7%</b></td><td class="bar"><i style="width:2%"></i></td></tr>
+        <tr><td>Prompt variation</td><td class="num">0.3%</td><td class="bar"><i style="width:1%"></i></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Reliability of a <b>single response ≈ 0.01</b>. A full crossed design tops out around 0.36. The signal you are selling is 0.7% of what moves.</p>
+
+  <h3>Where to spend measurement budget</h3>
+  <p>Variance reduction per additional query, ranked. <b>Repeats are dead last.</b></p>
+  <ol>
+    <li><b>More languages</b> — 6.16 × 10⁻⁵ per query</li>
+    <li><b>More paraphrases</b> — 5.00 × 10⁻⁵</li>
+    <li><b>More engines</b> — 3.33 × 10⁻⁵</li>
+    <li><b>More repeats</b> — 1.19 × 10⁻⁵</li>
+  </ol>
+  <p>A repeat past the fifth reduces relative-error variance by <b>0.0003</b>. Going from 1 to 20 repeats moves reliability only 0.347 → 0.365. <b>Fix reps at 5, forever. Every dollar past that buys more prompts, more engines, more locales.</b></p>
+
+  <h3>Panel tiers</h3>
+  <div class="tbl">
+    <table>
+      <caption>Run design by service tier</caption>
+      <thead><tr><th>Tier</th><th class="num">Prompts</th><th class="num">Paraphrases</th><th class="num">Engines</th><th class="num">Reps</th><th class="num">Runs / cycle</th><th>Cadence</th></tr></thead>
+      <tbody>
+        <tr><td><b>Pulse</b></td><td class="num">20 core</td><td class="num">1</td><td class="num">4</td><td class="num">5</td><td class="num">400</td><td>Weekly</td></tr>
+        <tr><td><b>Standard</b></td><td class="num">60</td><td class="num">2</td><td class="num">6</td><td class="num">5</td><td class="num">3,600</td><td>Monthly</td></tr>
+        <tr><td><b>Full</b></td><td class="num">157</td><td class="num">3</td><td class="num">8</td><td class="num">5</td><td class="num">37,680</td><td>Quarterly</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Core 20 for Pulse = 8 discovery, 4 problem-first, 3 comparison, 2 validation, 2 local, 1 negative. <b>Never change the core 20 mid-engagement</b> — it is the trend line.</p>
+
+  <h3>The noise floor — read this to any client wanting weekly wins</h3>
+  <div class="tbl">
+    <table>
+      <caption>Minimum detectable change, by prompt count</caption>
+      <thead><tr><th>Prompts per engine</th><th class="num">Effective n</th><th class="num">Single-cycle CI</th><th class="num">Smallest real change</th></tr></thead>
+      <tbody>
+        <tr><td>20 <span class="pill p-un">Pulse</span></td><td class="num">33</td><td class="num">±15.6 pp</td><td class="num" style="color:var(--bad)"><b>±22 pp</b></td></tr>
+        <tr><td>40</td><td class="num">67</td><td class="num">±11.0 pp</td><td class="num">±15.5 pp</td></tr>
+        <tr><td>60 <span class="pill p-un">Standard</span></td><td class="num">100</td><td class="num">±9.0 pp</td><td class="num">±12.7 pp</td></tr>
+        <tr><td>157 <span class="pill p-un">Full</span></td><td class="num">262</td><td class="num">±5.6 pp</td><td class="num" style="color:var(--good)"><b>±7.9 pp</b></td></tr>
+        <tr><td>300</td><td class="num">500</td><td class="num">±4.0 pp</td><td class="num">±5.7 pp</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p><b>At the weekly Pulse tier a 20-point swing is noise.</b> Weekly reporting is anomaly detection, not results reporting. Precision comes from prompt count, never from re-running the same 20 prompts more often.</p>
+  <p><b>Power boost:</b> because the same prompts run every cycle, test change with <b>McNemar's paired test</b>, not an unpaired two-proportion test. Cuts the detectable threshold 30–40% on identical data.</p>
+
+  <h3>What to report</h3>
+  <ul>
+    <li><b>Prompt Coverage (the "3 of 5" rule)</b> — the share of prompts where the brand appears in at least 3 of 5 runs. <b>This is the number to put in front of a client.</b> It answers "does this question reliably surface us?" and it collapses the largest variance component.</li>
+    <li><b>Recommendation Rate</b> — does the model actively advise hiring them. <b>Use this, not sentiment.</b> 91.9% of sentiment scores come back exactly neutral, making sentiment a near-useless outcome.</li>
+    <li><b>Share of Voice, position-weighted</b>, restricted to competitors appearing in ≥10% of runs. Never count one-off mentions.</li>
+    <li><b>Citation Rate, split three ways</b> — owned (expect ~3%), earned third-party editorial (this is where the volume is: 59% of page-level citations), and platform (YouTube, Reddit, directories, GBP).</li>
+    <li><b>Bootstrap confidence intervals, 10,000 resamples, resampled at the prompt level.</b> A composite without a CI is exactly the failure mode the research condemns.</li>
+  </ul>
+
+  <h4>Controls that make the dataset defensible</h4>
+  <ul>
+    <li><b>Canary prompt</b> — one branded control (<code>what is {brand}</code>) that must return a mention. Canary fails → discard the whole cycle, the config broke.</li>
+    <li><b>Holdout brands</b> — two non-clients tracked alongside. If everyone moved together, the engine changed, not your SEO. <b>Do not bill that as a win.</b></li>
+    <li>All engines inside a 6-hour window. Cross-day comparison inside a cycle is invalid.</li>
+    <li>Randomize prompt order per rep. Space reps ≥5 minutes apart.</li>
+    <li>Leave temperature at engine default. You are measuring the product, not the model.</li>
+  </ul>
+
+  <h4>GA4 — and the caveat that goes in every report</h4>
+  <p>Custom channel group regex:</p>
+  <pre>chatgpt\.com|perplexity\.ai|claude\.ai|gemini\.google\.com|copilot\.microsoft\.com|x\.ai|grok\.com|meta\.ai</pre>
+  <p style="margin-top:14px"><b>Four gaps to state plainly, every time:</b> ChatGPT free-tier users send no referrer and land in Direct, so AI traffic share is understated. AI Overview and AI Mode clicks arrive as <code>google / organic</code> and are <b>not separable in GA4</b> — anyone selling "AI Overview traffic in GA4" is inferring. Native apps strip referrers. Agentic browsers identify as plain Chrome and drag engagement metrics down. And the mention itself is unmeasurable from analytics at all — most mentions produce no click.</p>
+</section>
+
+<!-- ============ 09 ============ -->
+<section id="stop">
+  <h2><span class="num">09</span>Stop selling these</h2>
+  <p class="lede">Each line has a controlled study or a first-party policy statement behind it. These are refund-and-credibility risks, not penalties.</p>
+
+  <div class="tbl">
+    <table>
+      <caption>Deliverables the evidence does not support</caption>
+      <thead><tr><th>Deliverable</th><th>The evidence</th></tr></thead>
+      <tbody>
+        <tr><td><b>llms.txt</b></td><td>137,210 domains studied. 28% publish one. <b>97% of those files received zero requests</b> in the month measured. Zero AI bots even probed for a missing one. Google, on record three times, most recently July 2026: it "will neither harm nor help your site's visibility." The spec itself concedes agent consumption "was largely a prediction."</td></tr>
+        <tr><td><b>Schema as an AI-citation lever</b></td><td>Matched difference-in-differences: 1,885 pages that added JSON-LD vs <b>4,000 matched controls</b>. Google AI Overviews <b>−4.6%</b> (significant). AI Mode +2.4% and ChatGPT +2.2%, both indistinguishable from zero. AI-cited pages were 3× more likely to have JSON-LD — and that correlation vanished under experimental manipulation. <b>Sell schema for rich results, Merchant feeds and entity disambiguation. Never for AI citations.</b></td></tr>
+        <tr><td><b>FAQ blocks &amp; FAQ schema for AEO</b></td><td>Q&amp;A formatting scores <b>−5.74%</b> on absorption influence. A separate 129,000-domain study found FAQ sections underperform (3.8 vs 4.1) and FAQ schema scores 3.6. Google deprecated FAQ rich results. <b>Net negative, twice measured.</b></td></tr>
+        <tr><td><b>Question-style headings</b></td><td>3.4 citations vs <b>4.3 for direct headings</b>. The opposite of standard AEO advice.</td></tr>
+        <tr><td><b>Keyword density</b></td><td><b>−8.3%</b> in the controlled GEO experiment. −10% when validated live on Perplexity.</td></tr>
+        <tr><td><b>Newswire press releases</b></td><td><b>Under 2%</b> of all citations; 0.04% in one 4M-citation study; roughly zero on buyer-intent queries. ~$750 per release. The famous "61 citations in 6 hours" demo was crawler user-agent hits in a server log, not answer citations — n=1, no control, published by the author's own company.</td></tr>
+        <tr><td><b>Programmatic page volume</b></td><td>r = <b>0.194</b> against AI mentions — the weakest signal measured. Google's own guidance now warns that creating separate pages for query variations violates scaled content abuse.</td></tr>
+        <tr><td><b>"We'll get you a Wikipedia page"</b></td><td>Business drafts approve at <b>16%</b>, startups/tech at <b>~6%</b>. WP:NCORP explicitly excludes funding rounds, hires, launches, and local-only coverage as trivial. For ~95% of SMB clients this is not an achievable deliverable, and failure risks a permanent block.</td></tr>
+        <tr><td><b>A Wikidata QID as a citation lever</b></td><td>Zero controlled evidence exists that a QID lifts LLM mentions. It is still worth doing — as <b>cheap entity hygiene and disambiguation insurance</b>. Sell it as that, honestly.</td></tr>
+        <tr><td><b>Weekly AI-visibility deltas</b></td><td>Below ~10–14 percentage points at n≈100 it is noise. Brand identity is 0.7% of total variance. A weekly number without an error bar is a fiction.</td></tr>
+        <tr><td><b>AI tool directory submissions</b></td><td>Tested 25 Aug 2026 on both engines: theresanaiforthat.com and futurepedia.io are <b>absent from the cited sources for AI-tool questions</b> — the exact query they exist to answer — despite <code>robots.txt</code> files that let every AI crawler through. Meanwhile <b>Zapier's own blog is the #3 cited source on Google with 4,077 mentions.</b> Build the listicle; don't buy the listing. Full working in Section 12.</td></tr>
+        <tr><td><b>Yelp optimisation for AI visibility</b></td><td>Zero ChatGPT citations observed; <code>/biz/</code> blocked to every AI crawler. Claim and maintain the listing for Google AI Overviews — but do not price it as an AI deliverable, and never solicit reviews there (Yelp bans it outright, including review-gating, and bars offenders from Yelp Ads for a year).</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="call ok">
+    <p class="lbl">What to sell instead</p>
+    <p><b>Crawler access audit</b> (robots.txt, <code>nosnippet</code>, <code>Google-Extended</code>, 404 rate, JS dependency, 4MB page weight) · <b>rank-segmented content surgery</b> (protect 1–2, rebuild 3–5) · <b>earned placement</b> on the five directories that are readable in that client's vertical · <b>YouTube with indexed transcripts</b> · <b>Bing Webmaster AI Performance</b> setup and monitoring · <b>measurement with a stated error bar</b>.</p>
+  </div>
+</section>
+
+<!-- ============ 10 ============ -->
+<section id="danger">
+  <h2><span class="num">10</span>What gets you sanctioned</h2>
+  <p class="lede">Ranked by documented downside. Several of these are actively sold by competitors. Two now carry personal liability for named principals.</p>
+
+  <div class="tbl">
+    <table>
+      <caption>Prohibited tactics and their worst documented outcome</caption>
+      <thead><tr><th>#</th><th>Tactic</th><th>Worst documented outcome</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td><b>Fake, incentivized or AI-generated reviews; fake listings; bought followers</b></td><td>16 CFR Part 465, no small-business exemption. <b>$53,088 per violation.</b> FTC v. Vanilla Chip — $4M judgment, principals personally named. FTC + Illinois v. B.E.S.T. GDR — thousands of fake home-repair listings with keyword-stuffed names, <b>CEO personally named, referred to DOJ</b>. That case criminalizes the exact stack some local-SEO shops sell.</td></tr>
+        <tr><td>2</td><td><b>Site reputation abuse / parasite SEO</b></td><td>Folder-level deindexing of CNN Underscored (down to ~10 URLs), Forbes Advisor, USA Today, LA Times, WSJ Buyside, Newsweek Vault. Nov 2024 closed the editor loophole: violations occur "regardless of first-party involvement or oversight."</td></tr>
+        <tr><td>3</td><td><b>Prompt injection / hidden text</b></td><td>Tested across 7 engines April 2026: <b>no AI platform followed the injection. Copilot flagged the page unsafe and blocked it. Gemini read the injection and reported it to the user.</b> Microsoft catalogued 50+ poisoning attempts from 31 named companies. Google scans Common Crawl for it and names "manipulating AI rankings" as a category. A Connecticut court rescinded a firm's e-filing privileges over it in Aug 2026. <b>It does not work, and the failure mode is public humiliation in front of your prospect.</b></td></tr>
+        <tr><td>4</td><td><b>Cloaking / separate content for AI crawlers</b></td><td>Google's spam policy, updated 15 May 2026, now covers "attempting to manipulate generative AI responses in Google Search." Bing stated publicly it double-crawls to diff the versions. Precedent: BMW.de fully deindexed. Proven Google downside against unproven AI upside.</td></tr>
+        <tr><td>5</td><td><b>Buying brand mentions for AI visibility</b></td><td>Google's Gary Illyes, 15 May 2026, compared it directly to paid links: systems "detect, disregard, and ultimately ignore." Google's AI guidance names "seeking inauthentic mentions" explicitly.</td></tr>
+        <tr><td>6</td><td><b>Mass low-quality directory submission</b></td><td>Named verbatim in Google's link spam policy examples.</td></tr>
+        <tr><td>7</td><td><b>Scaled AI content / query-variant page farms</b></td><td>Scaled content abuse policy, explicitly extended in July 2026 to AI-motivated chunking and per-variation pages.</td></tr>
+        <tr><td>8</td><td><b>Undisclosed Wikipedia / Wikidata editing</b></td><td>A Terms of Use obligation, not a guideline. Two employees of a firm charging $5–10M/year were blocked as sockpuppets in May 2026. Because Wikipedia is a top-2 cited domain everywhere, a COI block that deletes the article is <b>entity erasure</b>, not embarrassment.</td></tr>
+        <tr><td>9</td><td><b>Keyword-stuffed Google Business Profile names</b></td><td>Profile suspension — and now, after B.E.S.T. GDR, an FTC deception count as well.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>If an AI says something false about a client</h3>
+  <p>The landscape just changed and most agencies have not caught up.</p>
+  <ul>
+    <li><b>Germany, 28 May 2026 (LG München I):</b> the first liability holding anywhere. The court held <b>AI Overviews constitute original speech by Google</b>, not display of third-party content, and enjoined repetition. Fines up to €250,000 per violation.</li>
+    <li><b>United States:</b> much harder. <em>Walters v. OpenAI</em> granted summary judgment for OpenAI in May 2025, partly because hallucination disclaimers meant a reasonable reader could not take output as actual fact. The disclaimer defence substantially insulates providers in US courts.</li>
+    <li><b>Providers largely cannot correct output.</b> OpenAI has stated it cannot correct inaccurate information — only filter or block a name, which suppresses <em>all</em> information about that subject. <b>Suppression is not correction</b>, and these channels are weak-to-absent for companies.</li>
+  </ul>
+  <div class="call stop">
+    <p class="lbl">Recourse ladder</p>
+    <p>Fix the underlying corpus first — thin authoritative content is usually <em>why</em> the negative source wins. Preserve evidence with model, version, prompt and timestamp. Send a written correction demand before litigating. Then litigate — hard in the US, meaningfully easier in the EU. <b>Never respond by seeding reviews or injecting prompts. That converts a reputation problem into an FTC problem.</b></p>
+  </div>
+
+  <h3>And the honesty clause</h3>
+  <p>GEO is zero-sum and the window is closing. A benchmark study found most current tactics "not only largely ineffective but also frequently have a negative impact on document ranking," and that gains shrink as adoption rises — "a congested and zero-sum nature." A separate scan of 10,095 live pages found <b>8.9% are already GEO-optimized, rising to 16.4% among pages modified in 2026</b> — and that GEO-optimized content is now detectable at <b>F1 0.944</b>. Assume the engines can classify it.</p>
+</section>
+
+<!-- ============ 11 ============ -->
+<section id="run">
+  <h2><span class="num">11</span>The 90-day run sheet</h2>
+  <p class="lede">The order matters. Access before content, content before measurement, measurement before any claim.</p>
+
+  <h3>Week 1 — Access audit (do this before anything else)</h3>
+  <ol>
+    <li>Fetch and read the client's <code>robots.txt</code>. Confirm <code>OAI-SearchBot</code>, <code>Claude-SearchBot</code>, <code>PerplexityBot</code>, <code>Googlebot</code>, <code>bingbot</code> and all three <code>*-User</code> bots are allowed.</li>
+    <li>Grep the site for <code>nosnippet</code>, <code>data-nosnippet</code>, <code>max-snippet</code>. Any of these kills AI Overview eligibility.</li>
+    <li>Check for <code>Google-Extended: Disallow</code>. It silently kills Gemini grounding.</li>
+    <li>Check the Cloudflare / WAF bot rules. From 15 Sep 2026 new defaults may block more than intended, and multi-purpose crawlers are judged on all their behaviours.</li>
+    <li>Measure the 404 rate for AI crawlers in server logs. Expect ~35% and bill the fix.</li>
+    <li>Test whether key content renders without JavaScript. Most AI crawlers do not run it.</li>
+    <li>Check page weight — ChatGPT rejects pages over 4 MB outright.</li>
+    <li><b>Set up Bing Webmaster Tools and enable AI Performance.</b> Free, first-party, and the only real citation data any engine gives you.</li>
+    <li><b>Set up IndexNow.</b> Free. Host the key file at the domain root, wire the ping into the publish flow. Gets new pages into Bing's index in a day or two instead of weeks — which is the candidate pool Copilot draws from. See Section 12 for exact mechanics.</li>
+  </ol>
+
+  <h3>Week 2 — Entity foundation</h3>
+  <ol>
+    <li>Create or claim the <b>Wikidata</b> item. Seed with external identifiers (Crunchbase P2088, LinkedIn P4264, OpenCorporates P1320). Disclose paid editing on your user page.</li>
+    <li>Claim <b>Crunchbase</b>. It doubles as Wikidata notability evidence.</li>
+    <li>Add <code>Organization</code> schema with consistent <code>sameAs</code> links on the client's own domain. <b>For Knowledge Graph entity resolution — not as an AI citation lever.</b></li>
+    <li>Audit NAP consistency across Google Business Profile, Bing Places (enable the auto-sync toggle), Apple Business Connect (configure Showcases), BBB free listing, Yellow Pages.</li>
+  </ol>
+
+  <h3>Week 3 — Baseline measurement, before you change anything</h3>
+  <ol>
+    <li>Fill the placeholder dictionary. Derive competitors from what the models actually return, not from what the client thinks.</li>
+    <li>Run the <b>Standard</b> tier: 60 prompts × 2 paraphrases × 6 engines × 5 reps.</li>
+    <li>Capture retrieved-vs-cited for every run. Flag every case where the client domain was retrieved but not cited.</li>
+    <li>Run the full <b>N-series</b> risk prompts on Grok first. Escalate anything factual-sounding within 24 hours.</li>
+    <li>Record bootstrap CIs. This is the baseline every later claim is measured against.</li>
+  </ol>
+
+  <h3>Weeks 4–8 — Content surgery, rank-segmented</h3>
+  <ol>
+    <li>Pull current SERP rank for every money page. <b>Split into 1–2 (protect) and 3–5+ (rebuild).</b></li>
+    <li>Rank 3–5 pages only: add statistics with dates, direct quotes, price, specs. Sequence fluency first, citations second.</li>
+    <li>Replace hedged phrasing with confident phrasing throughout.</li>
+    <li>Fix dates: current, or removed. An old visible date is worse than none.</li>
+    <li>Restructure at the macro level — heading hierarchy, logical progression, internal linking. That is 45% of the structural effect; cosmetics are 15%.</li>
+    <li><b>Remove FAQ blocks and FAQ schema</b> from priority pages. Both measure net-negative.</li>
+    <li>Rewrite every H1 and opening 200 characters — that is literally the ChatGPT snippet.</li>
+  </ol>
+
+  <h3>Weeks 6–12 — Earned surfaces, routed by vertical</h3>
+  <ul>
+    <li><b>B2B software:</b> G2 Digital Markets free listing (Capterra is the only directory that lets training bots through). Drive to 10 reviews for Grid inclusion. Target award and comparison pages, not just the profile.</li>
+    <li><b>Agencies:</b> Clutch Verified at $499/yr — needs 3 collected reviews via analyst phone interview. Target city×service programmatic grids.</li>
+    <li><b>Consumer / ecommerce:</b> Trustpilot. The lever is <b>responding</b> to reviews, not volume. Link the singular <code>/review/{domain}</code> path, which is crawlable, never <code>/reviews/</code>, which is not.</li>
+    <li><b>Everyone:</b> YouTube with a proper indexed transcript. Long-form. Description length matters more than views — and views correlate at r ≈ −0.03.</li>
+    <li><b>Everyone:</b> earned media. It is 84% of all AI citations; paid is 0.3%. Cited releases carry 2× the statistics and 2.5× the bullet points of uncited ones.</li>
+    <li><b>Reddit:</b> rules-compliant participation only, 90/10 at most, affiliation disclosed. Position it to the client as <b>high-yield and high-volatility, not a durable asset</b> — Reddit is currently litigating against two AI labs and blocks every crawler in its public robots.txt.</li>
+  </ul>
+
+  <h3>Week 13 — Re-measure and report</h3>
+  <ol>
+    <li>Re-run the identical Standard panel. Same 60 prompts, same paraphrases, same engines.</li>
+    <li>Test with <b>McNemar's paired test</b>, not an unpaired comparison.</li>
+    <li>Report only changes that clear the minimum detectable threshold for the tier <b>and</b> have non-overlapping CIs <b>and</b> persist for two cycles <b>and</b> did not move the holdout brands.</li>
+    <li>Everything else is labelled <b>"directional, not yet significant"</b> with the threshold printed beside it.</li>
+  </ol>
+</section>
+
+<!-- ============ 12 ============ -->
+<section id="native">
+  <h2><span class="num">12</span>AI directories &amp; direct feeds</h2>
+  <p class="lede">The surfaces that only exist because of LLMs — and the three places you can hand an engine your data directly instead of waiting to be crawled.</p>
+
+  <h3>AI tool directories: fully open, and still not cited</h3>
+  <p>There's An AI For That is the largest AI directory measured — <b>51,946 tools</b> listed. Submission is one field, the tool URL. Listing costs <b>$49</b> one-time for a review, or <b>$347</b> for the package with a newsletter placement. Futurepedia and dozens of clones work the same way. Every guide in the category claims these directories "show up in ChatGPT and Perplexity recommendations."</p>
+  <p>I tested that claim two ways.</p>
+
+  <h4>Test 1 — the access check</h4>
+  <p>Both directories' <code>robots.txt</code> were fetched directly on 25 Aug 2026. Neither names a single AI crawler. Both fall to a permissive <code>User-agent: *</code> that blocks only <code>/api/</code>, <code>/cgi-bin/</code> and similar plumbing. Notably, TAAFT explicitly blocks <b>AhrefsBot and every SemrushBot variant</b> — it locks out the SEO tools while leaving every AI bot wide open. <b>Access is not the problem here.</b></p>
+
+  <h4>Test 2 — do they actually get cited, on their own home turf</h4>
+  <p>I pulled the top cited sources for AI-tool questions on both engines. If these directories work anywhere, it is here.</p>
+
+  <div class="tbl">
+    <table>
+      <caption>Top cited sources · "ai tool" questions · 25 Aug 2026</caption>
+      <thead><tr><th>#</th><th>ChatGPT <span class="pill p-un">n=513</span></th><th class="num">Mentions</th><th>Google AI Overviews <span class="pill p-un">n=14,144</span></th><th class="num">Mentions</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td class="dom">reddit.com</td><td class="num">135</td><td class="dom">youtube.com</td><td class="num">9,463</td></tr>
+        <tr><td>2</td><td class="dom">en.wikipedia.org</td><td class="num">73</td><td class="dom">reddit.com</td><td class="num">5,898</td></tr>
+        <tr><td>3</td><td class="dom">techradar.com</td><td class="num">59</td><td class="dom"><b>zapier.com</b></td><td class="num"><b>4,077</b></td></tr>
+        <tr><td>4</td><td class="dom">linkedin.com</td><td class="num">42</td><td class="dom">canva.com</td><td class="num">2,136</td></tr>
+        <tr><td>5</td><td class="dom">tomsguide.com</td><td class="num">21</td><td class="dom">lindy.ai</td><td class="num">1,131</td></tr>
+        <tr><td>—</td><td class="dom" style="color:var(--bad)"><b>theresanaiforthat.com</b></td><td class="num" style="color:var(--bad)"><b>absent</b></td><td class="dom" style="color:var(--bad)"><b>theresanaiforthat.com</b></td><td class="num" style="color:var(--bad)"><b>absent</b></td></tr>
+        <tr><td>—</td><td class="dom" style="color:var(--bad)"><b>futurepedia.io</b></td><td class="num" style="color:var(--bad)"><b>absent</b></td><td class="dom" style="color:var(--bad)"><b>futurepedia.io</b></td><td class="num" style="color:var(--bad)"><b>absent</b></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="call stop">
+    <p class="lbl">Verdict — and the rule it proves</p>
+    <p><b>AI tool directories are wide open to every AI crawler and still get cited zero times on their own core query.</b> They are a backlink and discovery surface, not a citation surface. Do not price them as an AI-visibility deliverable, and do not pay $347 for one.</p>
+    <p>This closes a loop from Section 03. <b>Crawler access is necessary but not sufficient.</b> Yelp shows what happens when a high-quality source is locked out. These directories show what happens when a low-quality source is let in. You need both the open door <em>and</em> a source the engine trusts.</p>
+  </div>
+
+  <div class="call ok">
+    <p class="lbl">The finding worth more than the directories</p>
+    <p><b>Zapier's own blog is the #3 cited source for AI-tool questions on Google — 4,077 mentions, ahead of every dedicated AI directory combined.</b> Canva (2,136) and Lindy (1,131) are right behind it. These are vendors ranking on their own "best tools" listicles.</p>
+    <p>Which matches the broader data: listicles are <b>21.9% of all AI citations</b>, the single highest page type. <b>Building the comparison listicle yourself beats buying a slot in someone else's directory</b> — and it costs less than the $347.</p>
+  </div>
+
+  <h3>IndexNow — the free push channel into Bing, Copilot and ChatGPT</h3>
+  <p>Everything above is about being <em>crawled</em>. IndexNow is about being <em>told about</em>. It is an open protocol — not a Bing feature — that pings participating engines the moment a URL is added, changed or removed, instead of waiting for a crawl cycle.</p>
+  <p>Why it matters for AI: when Copilot or ChatGPT Search needs live information, they pull candidates from Bing's index. <b>If Bing has not indexed the page, it is not in the candidate pool and cannot be cited</b> — no matter how well it would have answered. IndexNow shortens that gap from weeks to a day or two.</p>
+
+  <div class="tbl">
+    <table>
+      <caption>IndexNow · exact mechanics</caption>
+      <thead><tr><th>Item</th><th>Detail</th></tr></thead>
+      <tbody>
+        <tr><td>Single URL</td><td><code>https://&lt;searchengine&gt;/indexnow?url=&lt;changed-url&gt;&amp;key=&lt;your-key&gt;</code></td></tr>
+        <tr><td>Batch</td><td>POST JSON to <code>/indexnow</code> with <code>host</code>, <code>key</code>, <code>urlList</code>. <b>Up to 10,000 URLs per request.</b></td></tr>
+        <tr><td>Key format</td><td>8–128 characters, hexadecimal set only: a–z, A–Z, 0–9 and dashes.</td></tr>
+        <tr><td>Ownership proof</td><td>Host <code>{your-key}.txt</code> at the domain root containing the key. <b>Recommended.</b></td></tr>
+        <tr><td>Alternative proof</td><td><code>keyLocation</code> parameter — but a key file at <code>/catalog/key.txt</code> can then <em>only</em> submit URLs under <code>/catalog/</code>. Easy to get wrong.</td></tr>
+        <tr><td>Response codes</td><td><code>200</code> OK · <code>202</code> pending key validation · <code>400</code> bad format · <code>403</code> invalid key · <code>422</code> URL/host mismatch · <code>429</code> rate limited</td></tr>
+        <tr><td>Reach</td><td>One ping reaches every participating engine — they share submissions with each other. Bing, Yandex, Seznam and Naver participate.</td></tr>
+        <tr><td>Cost</td><td><b>Free.</b></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p><b>Add IndexNow to the Week 1 access audit.</b> It pairs with the Bing Webmaster AI Performance report from Section 05 — one pushes pages in, the other tells you whether Copilot and ChatGPT used them.</p>
+
+  <div class="call">
+    <p class="lbl">Caveat that stops you overselling it</p>
+    <p>ChatGPT is <b>no longer Bing-exclusive.</b> Its retrieval stack now blends OpenAI's own index, scraped Google results and publisher licensing alongside Bing. IndexNow is a genuine, free, fast lane into <em>one</em> of those inputs — and the primary one for Copilot. It is not a lever on ChatGPT's own index, and it does nothing for Google AI Overviews, Perplexity, Claude or Gemini.</p>
+  </div>
+
+  <h3>Direct submission: what actually exists</h3>
+  <p>Three real programmes. Note what is missing: <b>no AI vendor operates a general "submit your business" listing programme.</b> Every route below is either commerce or publishing. If someone sells you "AI directory submission" as a service, there is no directory to submit to.</p>
+
+  <div class="tbl">
+    <table>
+      <caption>Direct data channels into the AI engines</caption>
+      <thead><tr><th>Programme</th><th>Who it is for</th><th>How to get in</th><th>What it controls</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><b>OpenAI Product Feed</b></td>
+          <td>Merchants with a catalogue</td>
+          <td>Apply at <code>chatgpt.com/merchants</code>. Company details, website, categories, SKU count. <b>Waitlist — approval required.</b> A self-serve platform is promised but not shipped.</td>
+          <td>Feed flags <code>enable_search</code> and <code>enable_checkout</code> — literal booleans gating discoverability and purchase inside ChatGPT. Accepts CSV, TSV, XML, JSON. Updates every 15 minutes.</td>
+        </tr>
+        <tr>
+          <td><b>Perplexity merchant programme</b></td>
+          <td>Merchants with a catalogue</td>
+          <td>Product feed submission — structurally a next-generation Google Merchant Center.</td>
+          <td>Structured catalogue data supplied directly instead of scraped.</td>
+        </tr>
+        <tr>
+          <td><b>Perplexity Comet Plus</b></td>
+          <td>Publishers</td>
+          <td>Formalised Jan 2026 from the July 2024 revenue-share pilot. <b>300+ partners.</b></td>
+          <td>Pays participating publishers <b>80% of an initial $42.5M pool</b> when their content is cited. A revenue channel, not a visibility lever — but it signals which outlets Perplexity is structurally committed to citing.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="call">
+    <p class="lbl">Where this lands in the run sheet</p>
+    <p><b>Week 1, add:</b> set up IndexNow alongside Bing Webmaster Tools. Free, and it feeds Copilot directly.</p>
+    <p><b>Ecommerce clients only:</b> apply to the OpenAI merchant portal. It is a waitlist, so start it early — and it is one of the very few places a literal switch controls AI visibility.</p>
+    <p><b>Everyone else:</b> there is no submission route. Your levers are the ones in Sections 03 through 06 — access, entity, structure and earned placement.</p>
+  </div>
+</section>
+
+<!-- ============ 13 ============ -->
+<section id="schema">
+  <h2><span class="num">13</span>Schema, type by type</h2>
+  <p class="lede">Section 09 says schema does not raise AI citations. That is true and stays true. This section is the other half: schema still does real work for rich results and entity resolution, and knowing which types are alive in 2026 is billable on its own.</p>
+
+  <h3>Where the evidence actually landed</h3>
+  <ul>
+    <li><b>Google, in writing:</b> "You don't need to create new machine readable files, AI text files, or markup to appear in these features. There's also no special schema.org structured data that you need to add."</li>
+    <li><b>But Google also uses it internally.</b> A Google structured-data engineer at Search Central Live Toronto (21 Apr 2026): "Schema is used as context served to models when doing fanouts." Reconcile the two as: <b>not required for eligibility, but consumed as retrieval context inside Google's own pipeline.</b></li>
+    <li><b>Microsoft is the only AI vendor on record.</b> Bing's Fabrice Canel confirmed on stage (March 2025) that schema helps Microsoft's LLMs including Copilot.</li>
+    <li><b>OpenAI, Anthropic and Perplexity mention schema nowhere</b> in any crawler documentation. Verified by direct fetch.</li>
+    <li><b>The only positive per-type AI signal found anywhere:</b> in a 730-citation controlled study, generic schema (Article, Organization, BreadcrumbList) showed <b>zero</b> advantage — but <b>Product/Review schema with populated attributes was cited 61.7% vs 41.6%</b> (p=.012), strongest on domains with DR ≤ 60. Organic rank still dominated everything (position 1 → 43% citation rate; position 7 → 5%).</li>
+  </ul>
+
+  <div class="tbl">
+    <table>
+      <caption>Schema type verdicts · August 2026</caption>
+      <thead><tr><th>Type</th><th>Rich result?</th><th>Entity / KG use</th><th>Verdict</th></tr></thead>
+      <tbody>
+        <tr><td><b>Product / Offer</b></td><td><span class="pill p-yes">Yes</span> product snippet, merchant listing, variants, return policy, shipping</td><td>Product identity via gtin/sku</td><td><b>Ship it.</b> Only type family with a positive AI signal. Populate the attributes — bare markup does nothing.</td></tr>
+        <tr><td><b>Review / AggregateRating</b></td><td><span class="pill p-yes">Yes</span> review snippet</td><td>No</td><td><b>Ship it — but know the trap.</b> Google, verbatim: if the entity being reviewed controls the reviews about itself, its LocalBusiness or Organization pages are <b>ineligible</b> for stars. Self-hosted reviews earn nothing.</td></tr>
+        <tr><td><b>Organization</b></td><td><span class="pill p-no">No</span> standalone</td><td><span class="pill p-yes">Strongest documented case</span></td><td><b>Ship it — for entity work, not AI.</b> Google says it helps "disambiguate your organization" and controls which logo shows in the knowledge panel. Zero measurable AI-citation advantage.</td></tr>
+        <tr><td><b>LocalBusiness</b></td><td><span class="pill p-yes">Yes</span></td><td>Yes, same panel path</td><td>Ship it. Subject to the self-review restriction above.</td></tr>
+        <tr><td><b>Article / NewsArticle</b></td><td><span class="pill p-mid">Partial</span> enhanced title/image/date</td><td>Author attribution</td><td>Ship it, but expect nothing from AI. <b>Not required for Top Stories</b> — Google says there is no markup requirement there.</td></tr>
+        <tr><td><b>BreadcrumbList</b></td><td><span class="pill p-mid">Desktop only</span></td><td>No</td><td>Ship it. Google's advice: represent a <em>typical user path</em>, not the URL structure.</td></tr>
+        <tr><td><b>Event · JobPosting · Recipe · VideoObject</b></td><td><span class="pill p-yes">Yes</span></td><td>No</td><td>All alive and supported. VideoObject also drives key moments and the LIVE badge. Note "estimated salary" and "learning video" were <b>removed</b> Sept 2025 — do not confuse those with the parent types.</td></tr>
+        <tr><td><b>ProfilePage</b></td><td><span class="pill p-yes">Yes</span> Discussions &amp; Forums</td><td>Creator/author identity</td><td>The closest thing to person-entity markup Google documents.</td></tr>
+        <tr><td><b>sameAs</b></td><td><span class="pill p-no">No</span></td><td><span class="pill p-mid">Partial</span></td><td>Google documents it inside the org property set that disambiguates. <b>But Google's own Knowledge Panel help page never mentions schema, markup or sameAs.</b> Do it — it is cheap — but do not promise a knowledge panel.</td></tr>
+        <tr><td><b>FAQPage</b></td><td><span class="pill p-no">DEAD</span></td><td>No</td><td><b>Rich results stopped 7 May 2026.</b> Reporting and Rich Results Test support removed June 2026; API support removed August 2026. Combined with the −5.74% absorption score, there is now no reason to ship it.</td></tr>
+        <tr><td><b>HowTo</b></td><td><span class="pill p-no">DEAD</span></td><td>No</td><td>Deprecated Sept 2023. <b>Documentation removed entirely.</b> Produces nothing on desktop or mobile.</td></tr>
+        <tr><td><b>Speakable</b></td><td><span class="pill p-no">No visible result</span></td><td>No</td><td>Still beta. <b>US-based English news publishers only</b>, Google Assistant smart speakers. Dead weight for almost every client.</td></tr>
+        <tr><td><b>Dataset</b></td><td><span class="pill p-no">Not in Search</span></td><td>No</td><td>Google clarified 5 Nov 2025: used by <b>Dataset Search only</b>, not Google Search.</td></tr>
+        <tr><td><b>Service</b></td><td><span class="pill p-no">Not supported</span></td><td>No</td><td>Absent from the entire Search Gallery. Produces nothing, ever. Agencies still ship it.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h4>Other 2025–26 removals to check for on client sites</h4>
+  <p>Documentation removed Sept 2025: <b>course info, estimated salary, learning video, special announcement, vehicle listing</b>. Retirement banners added June 2025 to those plus <b>book actions</b> and <b>ClaimReview</b>. <b>Practice problem</b> deprecated Nov 2025, docs removed Jan 2026. <b>Sitelinks search box</b> retired globally Nov 2024 (the WebSite type itself survives for site names).</p>
+  <p><b>New in March 2026:</b> QAPage and DiscussionForumPosting gained <code>commentCount</code> and <code>digitalSourceType</code> — the latter declares whether content is AI-generated. Omitting it means Google assumes human.</p>
+
+  <div class="call stop">
+    <p class="lbl">Never put a fact only in markup</p>
+    <p>A controlled test across 5 engines and 8 injection scenarios found <b>JSON-LD-only content was extracted by zero engines</b> — even when the value appeared nowhere else on the page. Hidden microdata and hidden RDFa also scored zero. Where visible HTML and JSON-LD disagreed, every engine trusted the visible HTML. A separate test found the JSON-LD block <em>does</em> survive into the model's context as raw text — but as prose, not as a parsed graph.</p>
+    <p>Both studies converge on the same rule, and it matches Google's own policy ("don't mark up content that is not visible to readers"): <b>markup is a duplicate of visible content, never a substitute for it.</b></p>
+  </div>
+
+  <h4>Two more format facts</h4>
+  <ul>
+    <li><b>Stay on JSON-LD.</b> There is no positive evidence that any AI engine parses microdata or RDFa. Google Search parses all three, so the format choice matters for Google and is irrelevant for AI.</li>
+    <li><b>Client-side-injected schema was missed by every engine tested.</b> If your CMS or tag manager writes the JSON-LD after page load, it does not exist as far as AI is concerned.</li>
+  </ul>
+
+  <div class="call">
+    <p class="lbl">The +30% study, read correctly</p>
+    <p>A controlled RAG experiment across four domains found JSON-LD markup alone gave "only modest improvements" (effect size d = 0.18) — but a full <b>entity hub page</b> with agent instructions, breadcrumbs and interlinking produced <b>+29.6% to +29.8%</b>. That result gets quoted as proof schema works. It is not. <b>It is a content-architecture finding wearing a markup costume.</b> Build the entity hub; the markup is the smallest part of it.</p>
+  </div>
+</section>
+
+<!-- ============ 14 ============ -->
+<section id="firewall">
+  <h2><span class="num">14</span>The firewall audit</h2>
+  <p class="lede">A repeatable procedure for the single most common invisible failure: a WAF, CDN or host quietly refusing AI crawlers while the client insists nothing is blocked. Run this on every new account.</p>
+
+  <div class="call stop">
+    <p class="lbl">The deadline, in full</p>
+    <p><b>Announced 1 July 2026, effective 15 September 2026.</b> Cloudflare, verbatim: "New domains onboarding to Cloudflare receive updated defaults: Bots classified as Training or as Agent are blocked on pages that display ads, while Search remains allowed."</p>
+    <p>And the part that breaks sites, also verbatim: <b>"Multi-purpose crawlers that combine Search and Training will be affected by the new defaults to block Training."</b> Cloudflare names them — <b>Googlebot, Applebot and BingBot.</b> Cloudflare Radar's own May 2026 figure is that <b>35.7% of AI crawler traffic comes from mixed-use crawlers.</b></p>
+    <p><b>Opt-out path:</b> <code>dash.cloudflare.com/?to=/:account/:zone/security/settings</code>. The legacy "Block AI bots" toggle deprecates the same day. Scope caveat: Cloudflare's primary sources say <em>new domains</em>; aggregators claim it also hits existing free zones. Check per-zone rather than assuming either way.</p>
+  </div>
+
+  <h3>Documented accidents — the symptom patterns to recognise</h3>
+  <ul>
+    <li><b>August 2026, confirmed and current.</b> A site owner set <b>AI Training = Block</b>. Googlebot and Bingbot immediately began receiving <b>HTTP 403 on sitemap fetches</b>. Cloudflare's own dashboard showed them as <em>blocked</em>, not spoofed — ruling out impersonation. Reversed instantly on disabling. Google's John Mueller asked the reporter to DM him so Google could investigate.</li>
+    <li><b>Bot Fight Mode blocking Googlebot</b> — recurring since 2021. One reported case: <b>75% organic traffic drop.</b> Bot Fight Mode runs <em>outside</em> Cloudflare's rules engine, so it cannot be customised and has no verified-bot exemption. Cloudflare's own docs warn it may challenge API and mobile traffic.</li>
+    <li><b>Cloudflare vs Perplexity, Aug 2025.</b> Cloudflare ran honeypot domains — newly registered, unindexed, <code>Disallow: /</code> — and Perplexity summarised them anyway, using an undeclared Chrome-on-macOS user agent rotating across IPs outside its published ranges, at 3–6M requests/day. Cloudflare <b>delisted Perplexity as a verified bot.</b> This case matters for your audit: <em>your spoofed test request looks exactly like Perplexity's stealth crawler</em>, which is why the next box exists.</li>
+  </ul>
+
+  <div class="call">
+    <p class="lbl">The rule that keeps your findings defensible</p>
+    <p>A spoofed user agent from your office IP <b>is</b> an impersonator. A 403 on that probe proves nothing by itself. Run a differential: same IP, same minute, same URL, browser UA vs bot UA.</p>
+  </div>
+
+  <div class="tbl">
+    <table>
+      <caption>Reading the differential probe</caption>
+      <thead><tr><th>Browser UA</th><th>Bot UA</th><th>Verdict</th></tr></thead>
+      <tbody>
+        <tr><td class="num">200</td><td class="num">200</td><td>No block. Crawler reachable.</td></tr>
+        <tr><td class="num">200</td><td class="num">403 / 1010</td><td><b>Reportable finding.</b> A user-agent-conditional rule exists. On Free and Pro Cloudflare, detection is UA-string-based, so the real bot hits the same rule.</td></tr>
+        <tr><td class="num">403</td><td class="num">403</td><td><b>Not AI-specific.</b> Your IP, ASN or country is blocked, or the site denies all non-browser clients. Re-test from another network before concluding anything.</td></tr>
+        <tr><td class="num">200</td><td>challenge page</td><td><b>Ambiguous by design.</b> A JS challenge blocks any non-JS client — which is most AI crawlers — unless verified bots are exempted. Escalate to logs; do not call it.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h4>Never write these three sentences in a client report</h4>
+  <ol>
+    <li>"GPTBot is blocked" — from a spoofed-UA 403 alone.</li>
+    <li>"Google-Extended returned 403" — <b>it has no user agent and makes zero requests.</b> It is a robots.txt token only. Any tool showing a status code for it is fabricating. Same for Applebot-Extended.</li>
+    <li>"You lost ChatGPT citations because of this" — no vendor publishes that diagnostic.</li>
+  </ol>
+  <p>Write instead: <em>"A request identifying as GPTBot from an unverified IP receives 403 while a browser request receives 200. This proves a user-agent-conditional rule exists. Confirming the genuine GPTBot IP range is also blocked requires access logs or the AI Crawl Control dashboard."</em> That sentence survives a conversation with the client's IT team.</p>
+
+  <h3>Reading the response</h3>
+  <div class="tbl">
+    <table>
+      <caption>Block signatures by vendor</caption>
+      <thead><tr><th>Signal</th><th>Means</th></tr></thead>
+      <tbody>
+        <tr><td><code>403</code> + <code>cf-ray</code> header</td><td>Cloudflare. <b>403 is AI Crawl Control's default block code.</b></td></tr>
+        <tr><td><code>402 Payment Required</code></td><td>Cloudflare <b>Pay Per Crawl</b>. Unambiguous — nothing else returns 402 to a crawler.</td></tr>
+        <tr><td><code>cf-mitigated: challenge</code> · body "Just a moment..."</td><td>Challenge page, not a flat block. <b>The interstitial carries <code>noindex,nofollow</code></b> — a challenged crawler gets a valid-looking page that actively de-indexes.</td></tr>
+        <tr><td>Cloudflare <b>1010</b></td><td>"Banned based on your browser's signature" — the classic AI-crawler blocklist code.</td></tr>
+        <tr><td>Cloudflare <b>1015</b> · <code>429</code> + <code>Retry-After</code></td><td>Rate limit, <b>not policy.</b> Retest after cooldown. A deterministic block never sends <code>Retry-After</code>.</td></tr>
+        <tr><td>Cloudflare <b>1006 / 1007 / 1008 / 1009</b></td><td><b>Your IP or country is banned — the whole test run is invalid.</b></td></tr>
+        <tr><td><code>200</code> + body "Incapsula incident ID"</td><td><b>Imperva block returned as HTTP 200.</b> Status-code-only checks miss it entirely.</td></tr>
+        <tr><td>Body "Access Denied" + "Reference #18.&lt;hex&gt;"</td><td>Akamai edge deny. The third segment is the <b>Unix timestamp of the decision</b> — hand that to the client's host.</td></tr>
+        <tr><td><code>405</code> + <code>x-amzn-waf-action: captcha</code></td><td>AWS WAF CAPTCHA.</td></tr>
+        <tr><td><code>Netlify-Agent-Category</code> header</td><td>Netlify tells you its own classification of your probe — <code>crawler;ai</code>, <code>ai-agent;user</code>, <code>ai-agent;search</code>.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p><b>Rate limit vs rule — the decisive test:</b> a rate limit needs volume; a UA rule fires on request #1 from a cold IP. Space probes at least a second apart so you never manufacture a 429 and misread it.</p>
+
+  <h3>Hosts that block with nobody touching a setting</h3>
+  <div class="tbl">
+    <table>
+      <caption>Platform default posture</caption>
+      <thead><tr><th>Platform</th><th>Blocks AI by default?</th><th>Detail</th></tr></thead>
+      <tbody>
+        <tr><td><b>WP Engine</b></td><td><span class="pill p-no">YES — hidden</span></td><td><b>Highest-value finding for an agency.</b> A controlled test: 60 requests with a ClaudeBot user agent returned <b>HTTP 429 every single time</b>, while browser and Googlebot UAs returned 200. User-agent based, not path or rate based. The block sits between Cloudflare and WordPress, below anything a plugin can see. <b>The nasty detail:</b> WP Engine's edge cache serves ClaudeBot fine, so a cached page looks healthy — <b>only cache-<em>miss</em> requests hit the origin handler and get 429.</b> That means new and low-traffic pages fail while your spot-check of the homepage passes. No customer toggle exists; only a support escalation.</td></tr>
+        <tr><td><b>SiteGround</b></td><td><span class="pill p-no">YES — documented</span></td><td>Their own KB, verbatim: <b>"We block crawlers intended for AI model training to protect our clients' website data and intellectual property and save resources."</b> So GPTBot, ClaudeBot, Bytespider and CCBot are blocked; ChatGPT-User, OAI-SearchBot, Claude-User and Claude-SearchBot are allowed. <b>Remediation path:</b> Help Desk → Other → <b>AI Crawlers Setup</b>. Support reviews and applies it case by case.</td></tr>
+        <tr><td><b>AWS WAF Bot Control</b></td><td><span class="pill p-mid">If deployed</span></td><td><code>CategoryAI</code> is in the Common protection level with action <b>Block</b>, and it is the <b>only category rule that blocks verified bots too</b>. Audit question: is Bot Control attached, and was CategoryAI left on Block or switched to Count?</td></tr>
+        <tr><td><b>Squarespace</b></td><td><span class="pill p-mid">Toggle, off by default</span></td><td>Settings → Crawlers → "Block known artificial intelligence crawlers". When on it disallows ~26 agents. <b>Easy for a well-meaning client to have flipped on. Always check it.</b></td></tr>
+        <tr><td><b>Akamai · Fastly · Imperva · Sucuri</b></td><td><span class="pill p-yes">Opt-in</span></td><td>Detection signals ship, but nothing blocks until someone writes a rule.</td></tr>
+        <tr><td><b>Kinsta · Wix · Shopify · Vercel · Netlify</b></td><td><span class="pill p-yes">No</span></td><td>Vercel's block template is not preinstalled and defaults to <b>Log, not Deny</b>. Netlify explicitly advises against blocking AI agent traffic.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Cloudflare controls: what each one actually does</h3>
+  <ul>
+    <li><b>AI Crawl Control</b> (renamed from AI Audit) — Dashboard → domain → AI Crawl Control. Tabs: Overview / Crawlers / Metrics / Robots.txt / Settings. <b>This is the best free AI-bot tool that exists</b> — real observed traffic per crawler with allowed/blocked counts and status codes. It is edge log data, not a probe, so it settles the impersonation ambiguity outright.</li>
+    <li><b>Configure AI bot policies</b> (new) — Security → Settings → Bot traffic. Three options per behaviour: Block on all pages / Block on ad-displaying pages / Allow. <b>Blocking now lives in two separate places and both write WAF rules. An audit checking only one will miss the other.</b></li>
+    <li><b>AI Labyrinth</b> — does <em>not</em> block. Serves invisible honeypot links into AI-generated decoy pages to waste crawl budget. Cloudflare says it does not impact SEO.</li>
+    <li><b>Managed robots.txt</b> — <b>signals only, does not block</b>, off by default. Cloudflare: "compliance is voluntary… does not prevent crawlers from accessing your content at a technical level."</li>
+    <li><b>Content Signals Policy</b> — a robots.txt extension with three directives: <code>search</code>, <code>ai-input</code> (RAG and grounding) and <code>ai-train</code>. Rolled out at scale defaulting to <code>search=yes, ai-train=no</code>. A signal, not enforcement.</li>
+  </ul>
+
+  <div class="call stop">
+    <p class="lbl">Applebot is classified "AI Search", not "Search Engine"</p>
+    <p>A client who blocks the AI Search category loses <b>Siri and Spotlight</b> surfacing. Flag it explicitly — nobody expects it.</p>
+  </div>
+
+  <h3>The procedure</h3>
+  <p><b>Phase 1 — no access needed, 5 minutes.</b> Identify the edge from response headers (<code>server</code>, <code>cf-ray</code>, <code>x-iinfo</code>, <code>x-sucuri-id</code>, <code>Netlify-Agent-Category</code>). Fetch robots.txt and grep for the ~20 AI tokens plus any <code>Content-Signal:</code> lines — <b>this is the only IP-independent test, and the only way to check Google-Extended and Applebot-Extended.</b> Then run the differential probe with real user-agent strings, at least a second apart.</p>
+  <p><b>Phase 2 — client dashboard, 15 minutes.</b> Cloudflare → AI Crawl Control → Crawlers: look specifically for <b>Googlebot with a non-zero blocked count</b> — that is the August 2026 mixed-crawler bug, diagnosable on one screen. Check Security → Settings for Bot Fight Mode, Super Bot Fight Mode, AI bot policies and managed robots.txt. <b>Check the 15 September opt-out.</b> Then Search Console → Crawl Stats → Host status, and Page Indexing for "Blocked due to access forbidden (403)".</p>
+  <p><b>Phase 3 — logs, definitive.</b> Pull AI-bot hits by status code. Then verify every claimed bot IP against the vendor's published list, to separate <em>a genuine bot being blocked</em> (a real problem) from <em>a spoofer being blocked</em> (correct behaviour). <b>This is the step that turns an opinion into a finding.</b></p>
+
+  <h4>Verification: there is no DNS shortcut for AI bots</h4>
+  <p>Google, Apple, Bing and Common Crawl publish reverse-DNS patterns you can check in one command. <b>OpenAI, Anthropic, Perplexity, Meta and ByteDance publish none</b> — IP lists only, and ByteDance publishes nothing at all. Server-side verification means downloading and matching the JSON lists:</p>
+  <ul>
+    <li>OpenAI — <code>openai.com/gptbot.json</code>, <code>searchbot.json</code>, <code>chatgpt-user.json</code>, <code>adsbot.json</code></li>
+    <li>Anthropic — <b>all three bots in one file</b>: <code>claude.com/crawling/bots.json</code></li>
+    <li>Perplexity — <code>perplexity.com/perplexitybot.json</code> and <code>perplexity-user.json</code></li>
+    <li>Google — <b>note the March 2026 relocation</b> to <code>developers.google.com/static/crawling/ipranges/common-crawlers.json</code> (was <code>googlebot.json</code>), plus a new <code>user-triggered-agents.json</code> for AI-agent fetches</li>
+    <li>Meta and ByteDance — <b>nothing published.</b></li>
+  </ul>
+
+  <h4>Which free tools can actually prove anything</h4>
+  <p><b>Authoritative</b> — these use the real crawler's own infrastructure: <b>Search Console URL Inspection → Test Live URL</b> (the only tool that can definitively prove Googlebot's status), <b>Bing Webmaster URL Inspection</b>, the <b>GSC robots.txt report</b> (catches a WAF serving Googlebot a different file), and <b>Cloudflare AI Crawl Control</b>.</p>
+  <p><b>Indicative only</b> — Screaming Frog SEO Spider with AI bot UA presets, run from your own network so you control the IP variable.</p>
+  <div class="call stop">
+    <p class="lbl">Ignore the "AI crawler access checker" websites</p>
+    <p>Nearly all of them only parse robots.txt and meta-robots. The few that make live requests make them <b>from their own IP</b>. They can tell you whether your <em>rules</em> would block a named bot. They cannot detect an IP-based WAF block and they cannot prove Googlebot's status. Their accuracy claims are marketing.</p>
+  </div>
+
+  <div class="call">
+    <p class="lbl">Provenance — what in this section is confirmed</p>
+    <p><b>Independently confirmed at the primary source:</b> the Cloudflare 15 September 2026 default change and its exact wording · the August 2026 Googlebot-403-on-sitemaps incident · the WP Engine 429 test including the cache-miss behaviour · SiteGround's policy text and remediation path · the OpenAI, Anthropic and Perplexity crawler docs and their IP-range endpoints · Google-Extended and Applebot-Extended having no user agent.</p>
+    <p><b>Single-sourced, use but verify before quoting to a client:</b> the AWS <code>CategoryAI</code> default action · Akamai, Fastly, Imperva and Sucuri block-signature formats · the exact Cloudflare dashboard menu paths (they move) · Web Bot Auth adoption. <b>None of these change the procedure</b> — they are labels on symptoms you will confirm from logs in Phase 3 anyway.</p>
+  </div>
+</section>
+
+<!-- ============ 15 ============ -->
+<section id="fresh">
+  <h2><span class="num">15</span>Sitemaps, canonical, freshness</h2>
+  <p class="lede">Three questions every client asks. Two have real answers. One is built almost entirely on a number that does not exist.</p>
+
+  <h3>Do AI crawlers read your sitemap?</h3>
+  <p><b>Only Bing says so.</b> Every other vendor's crawler documentation is silent on sitemaps — verified by direct fetch of OpenAI's, Anthropic's, Perplexity's, Meta's, Amazon's and Apple's pages. Bing is first-party explicit: a submitted sitemap is fetched immediately and revisited <b>"typically at least once per day."</b></p>
+  <p>Log evidence that the others read sitemaps exists but is thin. A 48-day single-domain log study (288,566 log files, 12,099 AI-bot requests, 19 bots) recorded sitemap hits from Bingbot (139) and Claude-SearchBot (135) — but <b>ClaudeBot's first-ever sitemap request was 18 March 2026 and GPTBot's was 19 March, two requests total.</b> That is not a basis for a promise.</p>
+  <div class="call">
+    <p class="lbl">Two corrections that matter more than the sitemap answer</p>
+    <p><b>1. ChatGPT no longer runs on Bing.</b> Direct measurement across 1,200 ChatGPT answers and 88,000 results found ChatGPT uses its own index — <b>only 1.5% of its URLs appear in Bing's top 20</b> for the same queries. Bing is now the substrate for <b>Copilot only</b>. Any playbook telling you to "optimise for Bing to win ChatGPT" is running on 2024 information.</p>
+    <p><b>2. From the same 48-day log study: zero AI bots requested llms.txt.</b> Independent confirmation of Section 09.</p>
+  </div>
+  <p><b>Keep the sitemap clean anyway.</b> It is cheap, Google AI Overviews and Copilot both depend on it, and AI crawlers are wildly inefficient without one — <b>34.8% of ChatGPT fetches and 34.2% of Claude fetches hit 404s</b> versus Googlebot's 8.2%. They are guessing at URLs. And as Section 14 shows, sitemap 403s are a real, documented failure mode.</p>
+
+  <h4>Does <code>&lt;lastmod&gt;</code> make AI crawlers come back?</h4>
+  <p><b>For Google and Bing, yes</b> — with the caveat that Google treats lastmod trust as effectively binary per site, and ignores <code>&lt;priority&gt;</code> and <code>&lt;changefreq&gt;</code> entirely. Since AI Overviews and AI Mode ride the Google index, that transfers.</p>
+  <p><b>For OpenAI, Anthropic and Perplexity: no evidence either way, and one strong counter-signal.</b> ChatGPT's reading cache <b>ignores <code>Cache-Control</code> entirely</b>, holds a ~30-minute freshness window, has been observed serving pages 90+ days after first fetch — and re-crawl frequency is driven by <b>how often users ask about the page</b>, not by a schedule or a date you supply. Anyone telling you lastmod drives GPTBot re-crawl is asserting something with no published basis.</p>
+
+  <h3>Canonical, duplicates and pagination</h3>
+  <p><b>Google is the only engine where canonical behaviour is first-party established</b> — AI Overviews and AI Mode inherit the normal Search canonicalization pipeline.</p>
+  <p><b>Everywhere else it is a coin flip.</b> The only real test — nine publishers syndicating to Yahoo and MSN, four engines — found: Perplexity <b>consistently cited the syndication partner</b>, sometimes above the original. ChatGPT was mixed. <b>Claude frequently cited both URLs side by side in the same answer.</b> Gemini often cited neither. Cross-domain canonical was described as "not foolproof — both urls are often indexed." <b>The recommendation from that work: noindex the syndicated copy rather than relying on canonical.</b></p>
+
+  <div class="call stop">
+    <p class="lbl">Infinite scroll is invisible. This one is not close.</p>
+    <p>A 41-day controlled experiment on ~2,400 pages with sitemaps deliberately disabled found <b>GPTBot, ClaudeBot, Bingbot and every other AI crawler discovered exactly ZERO pages behind JavaScript navigation.</b> Googlebot reached 2%.</p>
+    <p>Corroborated independently: a study of <b>500M+ GPTBot fetches</b> found <b>zero evidence of JavaScript execution</b>. ChatGPT fetches JS files in 11.5% of requests and Claude in 23.8% — and never runs them.</p>
+    <p>A third study (a single page with 62 tagged content-injection methods, tested across 6 assistants — <span class="pill p-un">vendor-run, n=1 page</span>) reports the same for lazy-loading: content 2,000px below the fold scored <b>0 of 6</b>. Its more useful secondary finding, worth verifying yourself before acting on: <b>tabs and accordions are fine</b> — collapsed content in the HTML scored 5–6 of 6 and <code>display:none</code> is read — while CSS-generated <code>::before</code>/<code>::after</code> content scored zero.</p>
+    <p><b>The rule:</b> paginated content must live at real, server-rendered, linkable URLs in the raw HTML. Infinite scroll layered <em>over</em> real URLs is safe. Infinite scroll <em>instead of</em> URLs is invisible to ChatGPT, Claude and Gemini. "View all" pages are fine if server-rendered and <b>under 4 MB</b> — ChatGPT rejects larger pages outright.</p>
+  </div>
+
+  <h4>A small practical one worth knowing</h4>
+  <p>ChatGPT appends <code>utm_source=chatgpt.com</code> to outbound citation links. So every AI-referred visitor lands on a unique URL variant, full-page and CDN caches miss, and <b>your best-cited content serves slowest to exactly the traffic you worked for.</b></p>
+
+  <h3>Freshness: what survives scrutiny</h3>
+
+  <div class="call stop">
+    <p class="lbl">Reject: "95% of ChatGPT citations are under 10 months old"</p>
+    <p>This number is everywhere. It has no study behind it. Traced to a <b>verbal remark by a vendor CEO during a webinar</b>, then restated by dozens of blogs — and mutated along the way from "pages <em>updated</em> within 10 months" to "content <em>published</em> under 10 months," a different claim.</p>
+    <p>It is contradicted by the two largest datasets. Across <b>16,975,000 cited URLs</b>, the mean age of a ChatGPT-cited page is <b>958 days — about 2.6 years.</b> A separate 1.4M-prompt study puts the median at ~500 days. Neither is compatible with 95% under 10 months.</p>
+    <p>Also reject, all with no traceable original: "76.4% of most-cited pages updated within 30 days" · "content under 30 days old earns 3.2× more citations" · "4.5-week citation half-life" · "40–60% visibility loss per year."</p>
+  </div>
+
+  <h4>The real numbers</h4>
+  <p>The only peer-reviewed per-engine dataset (accepted at EDBT/ICDT 2026) reports <b>median</b> age of cited content:</p>
+  <div class="tbl">
+    <table>
+      <caption>Median age of cited content, by engine</caption>
+      <thead><tr><th>Engine</th><th class="num">Consumer electronics</th><th class="num">Automotive</th></tr></thead>
+      <tbody>
+        <tr><td><b>Claude</b></td><td class="num"><b>62 days</b></td><td class="num"><b>148 days</b></td></tr>
+        <tr><td>ChatGPT</td><td class="num">80 days</td><td class="num">162 days</td></tr>
+        <tr><td>Perplexity</td><td class="num">90 days</td><td class="num">217 days</td></tr>
+        <tr><td>Google Search</td><td class="num">130 days</td><td class="num">493 days</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p><b>Claude is genuinely the freshest-citing engine</b> — independently corroborated by a 25M-link dataset which found Claude about <b>3× more likely than ChatGPT to cite content 2–4 weeks old</b>, with ChatGPT dropping off sharply after about one week.</p>
+  <p><b>Use medians for planning, never means.</b> The 958-day mean above and the 62-day median here are both correct — means are dragged by an evergreen long tail.</p>
+
+  <h4>How long until a new page gets cited</h4>
+  <p>The only controlled experiment that exists: <b>81 test pages published on a high-authority domain, tracked daily for 30 days.</b></p>
+  <div class="tbl">
+    <table>
+      <caption>Share of 81 new pages cited, by day</caption>
+      <thead><tr><th class="num">Day</th><th class="num">Google AI Mode</th><th class="num">ChatGPT Search</th></tr></thead>
+      <tbody>
+        <tr><td class="num">1</td><td class="num">36%</td><td class="num">10%</td></tr>
+        <tr><td class="num">~6–7</td><td class="num"><b>peak ~59%</b></td><td class="num">~17%</td></tr>
+        <tr><td class="num">14</td><td class="num">falling</td><td class="num">~35%</td></tr>
+        <tr><td class="num">30</td><td class="num">26%</td><td class="num"><b>42%</b></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size:13.5px;color:var(--ink-3)">Day-1 and day-30 figures are confirmed against the published study. Mid-window numbers vary slightly between the study text and its summaries, so they are shown as shape rather than precise points — the shape is the finding, and it is not close.</p>
+  <p><b>Two completely different shapes.</b> Google AI Mode is fast but volatile — it cites within 24 hours, peaks around day 7, then decays hard. ChatGPT Search is slow but sticky — once it cites you, it keeps citing you, and coverage accumulates. <b>Neither platform ever cited all 81 pages.</b> Set client expectations accordingly: a week-one Google result that vanishes is normal, not a failure.</p>
+
+  <div class="call ok">
+    <p class="lbl">The best-supported freshness finding: update, don't publish</p>
+    <p>Across <b>216,524 pages in 20 niches</b>: content updated within the past three months averages <b>6.0 citations vs 3.6</b> for older equivalents — <b>+67% on the same page.</b> Meanwhile brand-new content under two months old averages 3.6, statistically indistinguishable from content 1.5 to 5 years old at 3.1.</p>
+    <p>Independently corroborated on 7,683 pages and 47,097 citations across three engines and four verticals: <b>"The freshness LLMs reward is being manufactured by updates, not by new publishing."</b> Among pages with both dates readable, 72% looked fresh by update date but only 42% were actually published in the last year. Refreshed older content beat genuinely new pages in all four verticals.</p>
+    <p><b>Honest counterweight:</b> in the 17M-citation dataset the premium on last-updated date (13.1%) is <em>half</em> the premium on publication date (25.7%). And no true A/B — update URL A vs publish new URL B, matched topics — has ever been published. Two large observational datasets agree; that is strong, not conclusive.</p>
+  </div>
+
+  <h4>Keep freshness in proportion</h4>
+  <p>From the same 216,524-page model, ranked by predictive power: <b>referring domains are the strongest single predictor</b> (under 2,500 referring domains → 1.6 citations; over 350,000 → 8.4). Pages over 20,000 characters average <b>10.18</b> citations versus 2.39 for very short pages. Sections of <b>120–180 words between headings</b> average 4.6 versus 2.7 for sections under 50 words. <b>Authority and depth both outrank freshness.</b> Update cadence is a multiplier on a page that already deserves to be cited — it is not a substitute for one.</p>
+
+  <div class="call stop">
+    <p class="lbl">Crawl is not citation — the most common error in this field</p>
+    <p>One site received <b>78,000 GPTBot requests but only 642 ChatGPT-User requests.</b> High GPTBot volume is evidence that OpenAI is building its index. It is not evidence of AI visibility. <b>Report user-triggered fetches, not crawl volume.</b></p>
+  </div>
+</section>
+
+<!-- ============ 16 ============ -->
+<section id="gaps">
+  <h2><span class="num">16</span>Gaps &amp; unverified</h2>
+  <p class="lede">Stated plainly so nothing here gets into a client deck without a second source.</p>
+
+  <h3>Explicitly unverified — do not quote without a second source</h3>
+  <ul>
+    <li><b>Copilot citation data.</b> No credible dataset exists in any source reviewed.</li>
+    <li><b>G2, TrustRadius, UpCity, SourceForge and Clutch Sponsored pricing.</b> Aggregated deal data or conflicting third-party estimates, not published rate cards. UpCity estimates conflict irreconcilably — quote nothing.</li>
+    <li><b>Anthropic has never confirmed Brave on the record.</b> The 86.7% overlap finding is strong but circumstantial.</li>
+    <li><b>Perplexity's index blend, Meta AI's blend, and xAI's backend entirely.</b></li>
+    <li><b>ChatGPT's current index composition.</b> The best evidence rests on one instrumented third-party study whose key API field was removed on 21 Jul 2026 — no longer independently reproducible.</li>
+    <li><b>Whether training crawls produce later parametric mentions.</b> No study establishes crawl → citation causation or lag in either direction. Sell it as a per-client hypothesis tested against their own logs, never as fact.</li>
+    <li><b>"Alternatives to" pages measured at under 3% of citations</b> — contradicts prevailing GEO advice, single vendor source, no sample size disclosed. Worth original testing.</li>
+    <li><b>Whether Google Search Console's new AI report splits AI Overviews from AI Mode.</b> Sources conflict; verify in a live property.</li>
+    <li><b>Apple's own confirmation that Siri reads Business Connect data</b> — universally asserted by SEO sources, confirmed by none at primary-source level.</li>
+    <li><b>Data aggregators' role in LLM pipelines.</b> Asserted, never confirmed.</li>
+    <li><b>The claimed −86.4% Reddit collapse in ChatGPT on 14 Aug 2026.</b> Single source, could not be corroborated.</li>
+    <li><b>There's An AI For That review turnaround time.</b> Pricing is published ($49 / $347); approval time is not, in any source found.</li>
+    <li><b>Perplexity merchant programme mechanics.</b> Confirmed to exist; feed spec, eligibility and approval process are not documented in reachable sources the way OpenAI's are.</li>
+    <li><b>Vendor-specific WAF block signatures</b> for Akamai, Fastly, Imperva and Sucuri, the AWS <code>CategoryAI</code> default action, and Cloudflare's exact dashboard menu paths. Single-sourced. See the provenance note in Section 14 — the audit procedure does not depend on them.</li>
+    <li><b>Whether AI crawlers other than Bingbot meaningfully use XML sitemaps.</b> Only Bing confirms it first-party. The log evidence for GPTBot and ClaudeBot amounts to roughly 16 requests on one domain starting mid-March 2026. Keep sitemaps clean regardless — it is cheap and Google AI surfaces depend on it — but do not promise it moves AI citations.</li>
+    <li><b>Whether <code>&lt;lastmod&gt;</code> drives re-fetch for GPTBot, ClaudeBot or PerplexityBot.</b> No vendor documents it and no study measures it. One mechanistic counter-signal: ChatGPT's re-crawl appears demand-driven, not date-driven.</li>
+    <li><b>Update-an-existing-URL vs publish-a-new-one.</b> Two large observational datasets agree that updating wins. <b>No controlled A/B has ever been published.</b> Strong, not conclusive.</li>
+    <li><b>Whether IndexNow submission measurably changes AI citation rate.</b> The causal chain — ping → Bing index → Copilot candidate pool → citation — is sound and each link is documented, but no study measures the end-to-end effect. It is free, so do it anyway; just do not promise a number.</li>
+  </ul>
+
+  <div class="call">
+    <p class="lbl">Also worth re-testing yourself</p>
+    <p>The AI-tool-directory result in Section 12 is a single pull on one query family, taken 25 Aug 2026. It is a large and clean null — both directories absent from both engines while fully crawlable — but it is one test. Re-run it before quoting it in a pitch, and widen the query set.</p>
+  </div>
+
+  <div class="call ok">
+    <p class="lbl">The open opportunity nobody owns yet</p>
+    <p><b>No controlled study exists measuring Google Business Profile completeness, review volume or NAP consistency against local AI-answer inclusion.</b> Meanwhile 45% of US consumers have now asked an AI for a business recommendation — up from 6% a year earlier — and 88% fact-check the sources. For an agency with a portfolio of local clients, that is the highest-value proprietary dataset available to build, and it is unclaimed.</p>
+  </div>
+</section>
+
+<footer>
+  <p><b>Novarte AI · AI Citation Playbook v1.2 · 25 August 2026</b></p>
+  <p>Original data: DataForSEO AI Optimization LLM-mentions index, United States / English, pulled 25 Aug 2026. Secondary evidence drawn from Profound, Semrush, Ahrefs, SE Ranking, seRanking, Otterly, Muck Rack, Cloudflare, Vercel, Resoneo and peer-reviewed work at KDD and on arXiv, plus first-party documentation from OpenAI, Anthropic, Google, Microsoft, Perplexity and xAI. Every claim is tagged in the source dossier as proven, plausible or unverified.</p>
+  <p>Re-audit quarterly. Model names, crawler policies and directory ownership all changed materially inside the last six months.</p>
+</footer>
+
+</div>

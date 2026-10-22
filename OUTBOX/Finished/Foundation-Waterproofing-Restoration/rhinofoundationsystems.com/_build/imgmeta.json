@@ -1,0 +1,57 @@
+{
+"rhino-logo": [
+600,
+138,
+28
+],
+"rhinoink-logo": [
+600,
+138,
+25
+],
+"rhino-truck": [
+1800,
+1350,
+198
+],
+"helical-piers": [
+1800,
+1350,
+214
+],
+"push-pier-install": [
+800,
+600,
+99
+],
+"basement-waterproofing-install": [
+800,
+600,
+55
+],
+"slab-lip-measured": [
+1600,
+1067,
+147
+],
+"sidewalk-settled": [
+1300,
+1282,
+150
+],
+"driveway-uneven": [
+640,
+480,
+33
+],
+"wall-crack-door": [
+800,
+533,
+9
+],
+"brick-stair-crack": [
+800,
+533,
+145
+]
+}

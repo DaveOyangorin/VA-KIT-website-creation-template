@@ -1,0 +1,313 @@
+<html><body><main>';
+
+						var company = "Davenport Foundation Repair";
+						company = company.replace("'", "\\'")
+
+						if (!data.review_sites || data.review_sites.length === 0) {
+							message += 
+								'<p>We really value your feedback and appreciate your time.</p>' +
+								'';
+						} else {
+							message +=
+								'<p><img src="https://cdn.treehouseinternetgroup.com/cms_images/687/5-star-reviews.png" alt="5 Star Reviews" width="162" height="33" /></p>' +
+								'' +
+								'<p>&nbsp;</p>' +
+								'<table cellpadding="8" cellspacing="1" border="0" width="100%">';
+							
+							for (var i = 0; i < data.review_sites.length; ++i) {
+								var directory = data.review_sites[i];
+
+								var dName;
+								if (directory['id'] == 110) {
+									if (language == 'FR') {
+										dName = 'Google';
+									} else {
+										dName = directory['name'] + ' (' + directory['display_address'] + ')';
+									}
+								} else {
+									dName = directory ['name'];
+								}
+
+								var imgSrc = '<img src="https://3775e8678082b1ddf982-f98968ce14ebd4f6420d838d61762fa6.ssl.cf1.rackcdn.com/' + directory['logo_url'] + '" border="0" alt="Review us on ' + dName + '" style="width: 200px;" />';
+								var aHref = '<a href="' + directory['url'] + '" title="' + dName + '" target="_blank">';
+
+								message +=
+								'<tr>' +
+									'<td valign="top">' +
+										aHref + imgSrc + '</a>' +
+										'<p>&nbsp;</p>' +
+									'</td>' +
+									'<td valign="top">';
+
+								switch (+directory['id']) {
+									case 5:
+										if (language == 'FR') {
+											message += 
+										'<p>' +
+											'<strong>' + aHref + 'Nous commenter sur ' + dName + '</a></strong><br />' +
+											'Si vous avez un compte ' + dName + ' veuillez nous commenter sur. Si vous n\'avez pas un compte, ' +
+											'vous pouvez cr&eacute;er un compte gratuit pour partagez vos commentaires sur notre equipe. Cliquez simplement ' +
+											'sur le logo, qui vous m&egrave;nera &agrave; notre ' + dName + ' profil.' +
+										'</p>';
+										} else {
+											message +=
+										'<p>' +
+											'<strong>' + aHref + 'Review us on ' + dName + '</a></strong><br />' +
+											'If you have an ' + dName + ' account, please review us on ' + dName + '. If you\'re not a member ' +
+											'you can create a free, non-member account to share your feedback about our crew. Simply click on the ' + dName +
+											' logo, and it will take you directly to our ' + dName + ' profile.' +
+										'</p>'
+										}
+										break;
+									case 9:
+										if (language == 'FR') {
+											message +=
+										'<p>' +
+											'<strong>' + aHref + 'Nous commenter sur ' + dName + '</a></strong><br />' +
+											'Si vous voulez faire un commentaire &agrave; propos de nous sur ' + dName + ', cliquez simplement sur le ' +
+											dName + ' logo. Cela vous m&egrave;nera &agrave; notre profil de Better Business Bureau. ' +
+											'Ensuite, cliquez sur le lien qui dit "Submit a Customer Review", et vous pourriez &eacute;crire et soumettre ' +
+											'votre commentaire.' +
+										'</p>'
+										} else {
+											message +=
+										'<p>' +
+											'<strong>' + aHref + 'Review us on ' + dName + '</a></strong><br />' +
+											'If you want to review us on the ' + dName + ', simply click on the ' +
+											dName + ' logo. This will take you to our Better Business Bureau profile. ' +
+											'Then, click the link that says "Submit a Customer Review", and you can write ' +
+											'and submit your review.' +
+										'</p>'
+										}
+										break;
+									case 24:
+										if (language == 'FR') {
+											message +=
+										'<p>' + 
+											'<strong>' + aHref + 'Veuillez donner votre avis sur notre site</a></strong><br />' + 
+											'Dites aux futurs clients de ' + company + ' &agrave; propos votre exp&eacute;rience avec nous. ' +
+											'Il vous suffit de cliquer sur le lien ci-dessus qui vous conduira &agrave; la page d&rsquo;opinion de notre compagnie.' + 
+										'</p>'
+										} else {
+											message +=
+										'<p>' + 
+											'<strong>' + aHref + 'Please review us on our site</a></strong><br />' +
+											'Tell future ' + company + ' customers about your experience with us. ' +
+											'Simply click on the link above which will take you to our company\'s review page.' +
+										'</p>'
+										}
+										break;
+									default:
+										if (language == 'FR') {
+											message +=
+										'<p>' +
+											'<strong>' + aHref + 'Nous commenter &eacute;valuer sur ' + dName + '</a></strong><br />' +
+											'Si vous avez un compte ' + dName + ' veuillez nous &eacute;valuer l&agrave;-dessus. ' +
+											'Cliquez simplement sur le logo, ce qui vous m&egrave;nera &agrave; notre profil et ' +
+											'vous pourriez nous &eacute;valuer.' +
+										'</p>'
+										} else {
+											message +=
+										'<p>' +
+											'<strong>' + aHref + 'Review us on ' + dName + '</a></strong><br />' +
+											'If you have a ' + dName + ' Account, please review us on ' +
+											'' + dName + '. Simply click on the ' + dName + ' logo ' +
+											'which will take you to our ' + dName + ' Profile and you can write a ' +
+											'review there.' +
+										'</p>'
+										}
+										break;
+								}
+
+								message +=
+										'<p>&nbsp;</p>' +
+									'</td>' +
+								'</tr>';
+							}
+
+							
+							message += '</table>';
+						}
+
+						$('.opinion.module').html(message);
+					}
+				}
+
+				if (+formData['question_50']) {
+					submitLead(formData, data.key, callback);
+				} else {
+					callback();
+				}
+			},
+			error: function(err) {
+				var message = 
+					'<h1>We\'re Sorry!</h1>' +
+					'<p>Your request cannot be processed at this time. Please call <span id="numberassigned_3" class="mongoose_phone">1-801-569-2302</span>.</p>';
+
+				$('.opinion.module').html(message)
+			}
+		});
+	}
+</script>
+
+<div class="opinion module">
+	<form id="opinion_form" autocomplete="off">
+		<input type="hidden" name="type" value="18" />
+		<input type="hidden" name="source" value="www.davenportfoundationrepair.com/opinion.html" />
+		<input type="hidden" name="auto_live" value="1" />
+		<input type="hidden" name="send_confirmation" value="1" />
+		<input type="hidden" name="page" value="68205" />
+		<input type="hidden" name="opinion_timestamp" value="1792402183" />
+		<input type="hidden" name="show_additional_reviews" value="0" />
+		<input type="hidden" name="site" value="821" />
+		<input type="hidden" name="customerid" value="" />
+        <input type="hidden" name="session" value="1167540694" />
+		<h1>How did we perform?</h1>
+
+<p>First of all, thank you for choosing Davenport Foundation Repair to serve you. We value our customer's feedback on the jobs we perform on a daily basis. We would like to know your opinion on our complete work process from your first call to sales to installation and everything in between.</p>		<p>&nbsp;</p>
+		<hr />
+		<table cellspacing="1" cellpadding="6" align="center" width="100%" id="opinion">
+			<tbody>
+			<tr>
+				<td colspan="3" align="left" bgcolor="#e5e5e5">
+					All fields with (*) are required..
+				</td>
+			</tr>
+
+			<tr>
+				<td width="39%" align="right">
+					<label for="name">
+						Your Name:*
+					</label>
+				</td>
+				<td width="61%" colspan="2" align="left">
+					<input id="name" maxLength="50" size="25" name="name" value="" />
+				</td>
+			</tr>
+
+			<tr>
+				<td align="right">
+					<label for="address">
+						Street Address:
+					</label>
+				</td>
+				<td colspan="2" align="left">
+					<input id="address" maxlength="50" size="25" name="street" value="" />
+				</td>
+			</tr>
+
+			<tr>
+				<td align="right">
+					<label for="city">
+						City:*
+					</label>
+				</td>
+				<td colspan="2" align="left">
+					<input id="city" maxLength="30" size="15" name="city" value="" />
+				</td>
+			</tr>
+
+			<tr>
+				<td align="right">
+					<label for="state">
+						State:*
+					</label>
+				</td>
+					<td colspan="2" align="left">
+						<select name="state">
+							<option value="">Please Select...</option>
+							<option value="AL">Alabama</option><option value="AK">Alaska</option><option value="AZ">Arizona</option><option value="AR">Arkansas</option><option value="CA">California</option><option value="CO">Colorado</option><option value="CT">Connecticut</option><option value="DE">Delaware</option><option value="DC">District of Columbia</option><option value="FL">Florida</option><option value="GA">Georgia</option><option value="HI">Hawaii</option><option value="ID">Idaho</option><option value="IL">Illinois</option><option value="IN">Indiana</option><option value="IA">Iowa</option><option value="KS">Kansas</option><option value="KY">Kentucky</option><option value="LA">Louisiana</option><option value="ME">Maine</option><option value="MD">Maryland</option><option value="MA">Massachusetts</option><option value="MI">Michigan</option><option value="MN">Minnesota</option><option value="MS">Mississippi</option><option value="MO">Missouri</option><option value="MT">Montana</option><option value="NE">Nebraska</option><option value="NV">Nevada</option><option value="NH">New Hampshire</option><option value="NJ">New Jersey</option><option value="NM">New Mexico</option><option value="NY">New York</option><option value="NC">North Carolina</option><option value="ND">North Dakota</option><option value="OH">Ohio</option><option value="OK">Oklahoma</option><option value="OR">Oregon</option><option value="PA">Pennsylvania</option><option value="RI">Rhode Island</option><option value="SC">South Carolina</option><option value="SD">South Dakota</option><option value="TN">Tennessee</option><option value="TX">Texas</option><option value="UT">Utah</option><option value="VT">Vermont</option><option value="VA">Virginia</option><option value="WA">Washington</option><option value="WV">West Virginia</option><option value="WI">Wisconsin</option><option value="WY">Wyoming</option>						</select>
+				</td>
+			</tr>
+
+			<tr>
+				<td align="right">
+					<label for="zip">
+						Zip Code:*
+					</label>
+				</td>
+				<td colspan="2" align="left">
+					<input id="zip" maxlength="8" size="5" name="zip" value="" />
+				</td>
+			</tr>
+
+			<tr>
+				<td align="right">
+					<label for="phone">
+						Phone:
+					</label>
+				</td>
+				<td colspan="2" align="left">
+					<input maxlength="50" size="25" type="tel" name="phone" class="phone" value="" />
+				</td>
+			</tr>
+
+			<tr>
+				<td align="right">
+					<label for="email">
+						Email:*
+					</label>
+				</td>
+				<td colspan="2" align="left">
+					<input id="email" maxlength="50" size="25" name="email" value="" />
+				</td>
+			</tr>
+			
+							<input type="hidden" name="question_80" value="0"/>
+				<input type="hidden" name="question_79" value="0"/>
+			<tr><td align="right" bgcolor="#f8f8f8">
+				<label for="Overall satisfaction with our company">
+					Overall satisfaction with our company:
+				</label>
+			</td>
+			<td align="left" colspan="1" bgcolor="#f8f8f8">
+				<select id="Overall satisfaction with our company" name="question_1" size="1" class="required" message="This field is not required">
+					<option value="" selected="selected">Please Select...</option>
+					<option value="5">5 - BEST</option>
+					<option value="4">4</option>
+					<option value="3">3</option>
+					<option value="2">2</option>
+					<option value="1">1 - WORST</option>
+					<option value="0">N/A</option>
+				</select>
+			</td><td align="left"bgcolor="#f8f8f8">
+					<textarea name="question_1_comment" rows="2" cols="25" placeholder="Comments..."></textarea>
+				</td></tr><tr style="">
+						<td align="right" colspan="2">
+							<label for="yes_no_question_10">
+								May we use this review in our marketing/website:
+			</label>
+						</td>
+							<td align="left">
+								<select id="yes_no_question_10" name="question_10" size="1">
+									<option value="1" selected="selected">Yes</option>
+									<option value="0">No</option>
+								</select>
+							</td>
+			</tr>            <tr>
+                <td colspan="3" align="left">
+                    <label id="sms_consent-label" for="sms_consent"><input id="sms_consent" checked type="checkbox" name="sms_consent" value="1" style="float:left;width:auto;box-shadow:none;margin:1rem;"> By checking, you are consenting to receive <b>transactional/informational SMS</b> communications regarding appointment setting, account notifications, customer care, etc. from <b>Davenport Foundation Repair</b>. Message frequency may vary. Data rates may apply, <b>reply STOP to opt-out</b>. <a href="/terms-of-use.html" target="_blank">Terms of Use</a> | <a href="/privacy-policy.html" target="_blank">Privacy</a></label>
+                </td>
+            </tr>
+			<tr>
+				<td align="center" colspan="3">
+					<button id="submit" onclick="submitSurvey(); return false">Submit Survey</button>
+					<input type="hidden" name="save" value="1" />
+				</td>
+			</tr>
+		</tbody></table>
+	</form>
+	<script>
+		tags = {"1":"Basement Waterproofing","233":"Concrete Lifting & Leveling","374":"Concrete Repair","84":"Crawl Space Repair","6":"Foundation Repair","85":"Sump Pump"};
+	</script>
+</div>
+
+</p>                    
+
+                  
+
+
+
+            </div>
+
+            <div class="medium-3 medium-pull-9 large-2 large-pull-10 columns" id="</main></body></html>

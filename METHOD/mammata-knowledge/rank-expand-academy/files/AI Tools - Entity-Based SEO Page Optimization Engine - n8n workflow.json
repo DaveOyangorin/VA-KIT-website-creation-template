@@ -1,0 +1,2969 @@
+{
+  "name": "Entity-Based SEO Page Optimization Engine",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        1552,
+        832
+      ],
+      "id": "b239ba15-6787-43e1-98a7-8b76e892abdf",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "={{ $json.id_sheet }}",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1002397668,
+          "mode": "list",
+          "cachedResultName": "User Input",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1kUjExiAXHt47NbXbDGn1h8ae-Pwtd6ubtyMq3HW9lGo/edit#gid=1002397668"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "Status",
+              "lookupValue": "Ready"
+            }
+          ]
+        },
+        "options": {
+          "returnFirstMatch": true
+        }
+      },
+      "id": "30577197-5866-405a-a714-21ce0984f3b9",
+      "name": "Retrieve User Input",
+      "type": "n8n-nodes-base.googleSheets",
+      "position": [
+        2032,
+        832
+      ],
+      "typeVersion": 4.5
+    },
+    {
+      "parameters": {
+        "content": "## 1. Trigger & Input Setup\n1.1 Enter user inputs in the Google Sheets. Fields for input: User Page URL, Location, and Language.\n1.2 Replace the \"id_sheet\" and \"Google API\" value in the **Set Variables** node.\n1.3 Set \"Status\" to **Ready** in Google Sheets, and execute the n8n workflow.\n*Note: This workflow will only execute one row at a time.*",
+        "height": 320,
+        "width": 736,
+        "color": 3
+      },
+      "id": "c5998025-1bad-4991-beae-5b70045df018",
+      "name": "Sticky Note20",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1472,
+        688
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "## 0. Reminder\n* To use this workflow for your project, please make a copy of the provided **[Google Sheets](https://docs.google.com/spreadsheets/d/1Di_NArmwnnMtuxWFdlVdWeaH53qnC2h0PgqH2vBHA10/edit?usp=sharing)** template.\n* Credentials required:\n  * DataforSEO\n  * OpenAI\n  * Google Sheets\n  * Google API",
+        "height": 208,
+        "width": 736,
+        "color": 6
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1472,
+        1024
+      ],
+      "id": "ef6b11e5-3abe-4d10-b7f1-06d6c3c9aa6b",
+      "name": "Sticky Note13"
+    },
+    {
+      "parameters": {
+        "content": "## Entity-Based SEO Page Optimization Engine\nA fully automated workflow that transforms Google entities into structured, page-ready content improvements.",
+        "height": 1152,
+        "width": 9392
+      },
+      "id": "44e571cd-24f1-4c88-9309-3c22eab06525",
+      "name": "Sticky Note21",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1456,
+        592
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n  \"keywords\": [\n    {\n      \"keyword\": \"homeowners insurance\",\n      \"type\": \"primary\",\n      \"reasoning\": \"This keyword represents the main topic of the page and appears prominently in the title, headings, and core explanatory sections.\"\n    },\n    {\n      \"keyword\": \"home insurance coverage\",\n      \"type\": \"secondary\",\n      \"reasoning\": \"The page includes multiple sections explaining what homeowners insurance covers, such as dwelling, personal property, and liability.\"\n    },\n    {\n      \"keyword\": \"property insurance\",\n      \"type\": \"secondary\",\n      \"reasoning\": \"Property insurance is referenced as a broader category that contextualizes homeowners insurance within the insurance market.\"\n    },\n    {\n      \"keyword\": \"insurance premiums\",\n      \"type\": \"secondary\",\n      \"reasoning\": \"The page discusses cost factors, pricing considerations, and what affects homeowners insurance premiums.\"\n    },\n    {\n      \"keyword\": \"home insurance claims\",\n      \"type\": \"secondary\",\n      \"reasoning\": \"The claims process is explained through examples and guidance on filing and managing homeowners insurance claims.\"\n    }\n  ]\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        2512,
+        1488
+      ],
+      "id": "843b57eb-e3a5-436d-b5a1-7208ff50bc50",
+      "name": "Structured Output Parser"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4.1-mini",
+          "mode": "list",
+          "cachedResultName": "gpt-4.1-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        2336,
+        1488
+      ],
+      "id": "82f328a2-3fc4-4aaa-a6fe-808110e0aed3",
+      "name": "OpenAI Chat Model"
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "={{ $('Set Variables').first().json.id_sheet }}",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1002397668,
+          "mode": "list",
+          "cachedResultName": "User Input",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1TFJG5FeA7TjG2gCsj3B8nT4lVXdgjbJbnfRqQ0mYk0I/edit#gid=1002397668"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "#": "={{ $('Retrieve User Input').item.json['#'] }}",
+            "Status": "Success",
+            "Last Generated At": "={{ new Date().toISOString().replace('T',' ').replace(/\\.\\d+Z$/, ' UTC') }}"
+          },
+          "matchingColumns": [
+            "#"
+          ],
+          "schema": [
+            {
+              "id": "#",
+              "displayName": "#",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "User Page URL",
+              "displayName": "User Page URL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Location (check [Reference] List of Location & Language)",
+              "displayName": "Location (check [Reference] List of Location & Language)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Language (check [Reference] List of Location & Language)",
+              "displayName": "Language (check [Reference] List of Location & Language)",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Last Generated At",
+              "displayName": "Last Generated At",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        10592,
+        1040
+      ],
+      "id": "0a859f6b-185f-4b1d-83c0-d37dbdc1828a",
+      "name": "Update Final Status",
+      "executeOnce": false
+    },
+    {
+      "parameters": {
+        "content": "## 2.1. Fetch User Page Entities\nExtracts Google entities present on the user page.",
+        "height": 416,
+        "width": 2640,
+        "color": 5
+      },
+      "id": "d10714a7-a93f-4c1a-b003-e4d045227e2c",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        2224,
+        624
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "## 9. Update Final Status\nRecords workflow outcomes and updates completion status for tracking and reporting.",
+        "height": 336,
+        "width": 336,
+        "color": 4
+      },
+      "id": "9c426ddb-b606-49c7-a432-da6215227c82",
+      "name": "Sticky Note7",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        10496,
+        912
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "7eb900f7-7eac-4d5f-b22c-e36110fa3bbe",
+              "name": "user_page_url",
+              "value": "={{ $json.tasks[0].data.url }}",
+              "type": "string"
+            },
+            {
+              "id": "0c594adb-785d-461f-ac13-ac12686ca6aa",
+              "name": "user_page_markdown",
+              "value": "={{ $json.tasks[0].result[0].items[0].page_as_markdown }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2560,
+        832
+      ],
+      "id": "9d9054ba-b47b-4ebd-ad44-30deb097175e",
+      "name": "Set User Page Content"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.dataforseo.com/v3/on_page/content_parsing/live",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBasicAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "=[\n    {\n        \"url\": \"{{ $json['User Page URL'] }}\",\n        \"markdown_view\": true\n    }\n]",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2320,
+        832
+      ],
+      "id": "3e845bd1-24de-4b68-ab6c-7e3f24e79a72",
+      "name": "Fetch User Page"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://language.googleapis.com/v1/documents:analyzeEntities?key= {{ $('Set Variables').item.json['Google API'] }}",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"document\": {\n    \"type\": \"PLAIN_TEXT\",\n    \"content\": {{ JSON.stringify($json.user_page_markdown) }}\n  }\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2800,
+        832
+      ],
+      "id": "71004828-2e4f-4cd5-b70c-6227bcdc98b0",
+      "name": "Analyze User Page Entities"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "7eb900f7-7eac-4d5f-b22c-e36110fa3bbe",
+              "name": "user_page_entities",
+              "value": "={{ $json.name }}",
+              "type": "string"
+            },
+            {
+              "id": "0c594adb-785d-461f-ac13-ac12686ca6aa",
+              "name": "user_page_entities_type",
+              "value": "={{ $json.type }}",
+              "type": "string"
+            },
+            {
+              "id": "aa094204-349d-4dcb-8598-0d7b5ea000bf",
+              "name": "user_page_entities_salience",
+              "value": "={{ $json.salience }}",
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3280,
+        832
+      ],
+      "id": "62b14d08-eeda-4419-892a-87865a9fdcf9",
+      "name": "Set User Page Entities"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=## Context\n\nYou are an AI assistant specializing in SEO content analysis and topical relevance.\n\nYour role is to analyze a user-provided page markdown content and identify the most representative keywords that already exist within the page. These keywords will be used to guide downstream SEO workflows such as SERP analysis, semantic entity extraction, and content gap evaluation.\n\nYou must rely only on the content provided and must not introduce keywords that are not clearly supported by the text.\n\n⸻\n\n## Instructions\n1.  Use ONLY the provided inputs:\n•\tuser_page_markdown: cleaned markdown extracted from the user-provided URL\n2.  Identify the primary keyword that best represents the central topic and intent of the page\n3.  Identify four secondary keywords that:\n•\tAre clearly present or strongly implied in the content\n•\tSupport or expand on the primary keyword\n•\tRepresent meaningful subtopics, concepts, or closely related search intents\n4.  Prioritize keywords that:\n•\tAppear in headings, titles, or repeated thematic sections\n•\tReflect informational or commercial intent appropriate to the page\n5.  Do not:\n•\tInvent keywords\n•\tAdd location modifiers unless they are clearly part of the topic\n•\tInclude branded terms unless the brand is central to the page topic\n\n⸻\n\n## Task\nReturn ONLY valid JSON in the exact structure shown below.\nDo NOT add extra keys.\nDo NOT include explanations outside JSON.\n{\n  \"keywords\": [\n    {\n      \"keyword\": \"homeowners insurance\",\n      \"type\": \"primary\",\n      \"reasoning\": \"This keyword represents the main topic of the page and appears prominently in the title, headings, and core explanatory sections.\"\n    },\n    {\n      \"keyword\": \"home insurance coverage\",\n      \"type\": \"secondary\",\n      \"reasoning\": \"The page includes multiple sections explaining what homeowners insurance covers, such as dwelling, personal property, and liability.\"\n    },\n    {\n      \"keyword\": \"property insurance\",\n      \"type\": \"secondary\",\n      \"reasoning\": \"Property insurance is referenced as a broader category that contextualizes homeowners insurance within the insurance market.\"\n    },\n    {\n      \"keyword\": \"insurance premiums\",\n      \"type\": \"secondary\",\n      \"reasoning\": \"The page discusses cost factors, pricing considerations, and what affects homeowners insurance premiums.\"\n    },\n    {\n      \"keyword\": \"home insurance claims\",\n      \"type\": \"secondary\",\n      \"reasoning\": \"The claims process is explained through examples and guidance on filing and managing homeowners insurance claims.\"\n    }\n  ]\n}\n\n⸻\n\n## Inputs to Consider\nuser_page_markdown: {{ $json.user_page_markdown }}",
+        "hasOutputParser": true,
+        "options": {}
+      },
+      "id": "1e483d04-6096-4380-b146-1ba55678a51a",
+      "name": "Analyze User Page Keywords",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "position": [
+        2336,
+        1248
+      ],
+      "typeVersion": 2.2,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "entities",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        3040,
+        832
+      ],
+      "id": "553d0d29-172b-4035-a55d-64e0779153cd",
+      "name": "Split Out User Page Entities"
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "output.keywords",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        2704,
+        1232
+      ],
+      "id": "56d3c35e-3679-4616-8beb-f9f86b7668c2",
+      "name": "Split Out User Page Keywords"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "c7aeae43-7693-44ae-959c-56659301b516",
+              "name": "keyword",
+              "value": "={{ $json.keyword}}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2704,
+        1472
+      ],
+      "id": "a2cdb5b5-1ef3-4b2c-bb6f-8958a8f6f869",
+      "name": "Set User Page Keywords"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        2992,
+        1232
+      ],
+      "id": "644be5c8-6726-476b-b2d0-55830da251ab",
+      "name": "Loop Over Items"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.dataforseo.com/v3/serp/google/organic/live/regular",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBasicAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "=[\n    {\n        \"keyword\": \"{{ $json.keyword }}\",\n        \"location_name\": \"{{ $('Retrieve User Input').item.json['Location (check [Reference] List of Location & Language)'] }}\",\n        \"language_name\": \"{{ $('Retrieve User Input').item.json['Language (check [Reference] List of Location & Language)'] }}\",\n        \"depth\": 20\n    }\n]",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        3232,
+        1248
+      ],
+      "id": "6da99344-0d5b-4922-bfad-c31e274f99be",
+      "name": "Fetch SERP for Keyword"
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "tasks[0].result[0].items",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        3472,
+        1248
+      ],
+      "id": "f0e33920-5b03-4e13-9159-08c35b24a9fd",
+      "name": "Split Out SERP"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "9508e76a-1ddc-4341-9d73-afd45c3b9b87",
+              "leftValue": "={{ $json.competitor_page_type }}",
+              "rightValue": "organic",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.3,
+      "position": [
+        3232,
+        1504
+      ],
+      "id": "8b7a89ec-768c-451d-a49d-c1308369c98a",
+      "name": "Filter by Organic Type"
+    },
+    {
+      "parameters": {
+        "content": "## 2.4. Fetch Competitor Page Entities\nExtracts Google entities present on the competitor pages.",
+        "height": 672,
+        "width": 1200,
+        "color": 5
+      },
+      "id": "21b9f678-3a87-4a6f-8ba7-415288b71af3",
+      "name": "Sticky Note1",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        3664,
+        1056
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "maxItems": 3
+      },
+      "type": "n8n-nodes-base.limit",
+      "typeVersion": 1,
+      "position": [
+        3472,
+        1504
+      ],
+      "id": "eb4cc97c-7c1a-4fdb-bd32-f9fa059f27d0",
+      "name": "Limit to Top 3 Pages"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "4e21e2f9-67a3-48b0-8e20-15e9dea7ab23",
+              "name": "keyword",
+              "value": "={{ $('Fetch SERP for Keyword').item.json.tasks[0].data.keyword }}",
+              "type": "string"
+            },
+            {
+              "id": "565dd5a5-1ad7-48c4-8df3-ee1a5bdc5954",
+              "name": "competitor_page_type",
+              "value": "={{ $json.type }}",
+              "type": "string"
+            },
+            {
+              "id": "954e5122-a410-4f67-9464-ec9491c24301",
+              "name": "competitor_page_url",
+              "value": "={{ $json.url }}",
+              "type": "string"
+            },
+            {
+              "id": "7949ab7c-d994-4a88-9ec0-09a9ab84b785",
+              "name": "competitor_page_rank_group",
+              "value": "={{ $json.rank_group }}",
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3008,
+        1456
+      ],
+      "id": "3758faf9-fc88-4c2e-8f1b-ea34893945ae",
+      "name": "Set Competitor Page"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "={{ $('Set Variables').item.json.id_sheet }}",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 154298835,
+          "mode": "list",
+          "cachedResultName": "Full List of User Page Entities",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1TFJG5FeA7TjG2gCsj3B8nT4lVXdgjbJbnfRqQ0mYk0I/edit#gid=154298835"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "User Page URL": "={{ $('Retrieve User Input').item.json['User Page URL'] }}",
+            "User Page Entities": "={{ $json.user_page_entities }}",
+            "User Page Entities Type": "={{ $json.user_page_entities_type }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "User Page URL",
+              "displayName": "User Page URL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "User Page Entities",
+              "displayName": "User Page Entities",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "User Page Entities Type",
+              "displayName": "User Page Entities Type",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        3520,
+        672
+      ],
+      "id": "505b521a-a89c-4ad7-867d-de78d053ec4c",
+      "name": "Record User Page Entities",
+      "executeOnce": false
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n  \"entity\": \"liability coverage\",\n  \"relevancy_classification\": \"supporting_topic\",\n  \"relevancy_classification_reason\": \"The entity represents a standard insurance coverage component that aligns with the user page’s intent to explain insurance protections and risk exposure, even if not fully detailed.\",\n  \"optimization_directions\": \"Use this entity to improve topical completeness by clarifying coverage scope, illustrating protection scenarios, and strengthening the user page’s explanation of insurance benefits.\"\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        7536,
+        1088
+      ],
+      "id": "c81568c1-6f98-4902-a4da-7e17fe87c97d",
+      "name": "Structured Output Parser1"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4.1-mini",
+          "mode": "list",
+          "cachedResultName": "gpt-4.1-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        7360,
+        1088
+      ],
+      "id": "32ff7a08-1f9a-47cd-9f9d-b7c77cf568e9",
+      "name": "OpenAI Chat Model1"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "={{ $('Set Variables').item.json.id_sheet }}",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1501866077,
+          "mode": "list",
+          "cachedResultName": "Full List of New Entities",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1TFJG5FeA7TjG2gCsj3B8nT4lVXdgjbJbnfRqQ0mYk0I/edit#gid=1501866077"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "User Page URL": "={{ $('Retrieve User Input').item.json['User Page URL'] }}",
+            "Entities from Competitor Pages": "={{ $json.new_entities }}",
+            "Entities Type": "={{ $json.new_entities_type }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "User Page URL",
+              "displayName": "User Page URL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Entities from Competitor Pages",
+              "displayName": "Entities from Competitor Pages",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Entities Type",
+              "displayName": "Entities Type",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        5680,
+        1072
+      ],
+      "id": "6fb70172-58b6-4cfc-b384-bf327ca7578c",
+      "name": "Record New Entities",
+      "executeOnce": false
+    },
+    {
+      "parameters": {
+        "compare": "selectedFields",
+        "fieldsToCompare": "competitor_page_entities_normalized",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.removeDuplicates",
+      "typeVersion": 2,
+      "position": [
+        4688,
+        1152
+      ],
+      "id": "c9ad02a9-de84-40c2-adfe-7cef3909ba37",
+      "name": "Remove Duplicates from Competitor Pages"
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "advanced": true,
+        "mergeByFields": {
+          "values": [
+            {
+              "field1": "user_page_entities_normalized",
+              "field2": "competitor_page_entities_normalized"
+            }
+          ]
+        },
+        "joinMode": "keepNonMatches",
+        "outputDataFrom": "input2",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        4960,
+        848
+      ],
+      "id": "074437a6-473e-4606-834e-930ae4df66b4",
+      "name": "Compare Entities"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "80785a0b-3904-4520-8737-4aac94ad061b",
+              "name": "competitor_page_found",
+              "value": false,
+              "type": "boolean"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        4336,
+        1504
+      ],
+      "id": "4c5893ea-1b36-41ba-beba-e85eb05229ba",
+      "name": "Set Error Output"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "={{ $('Set Variables').item.json.id_sheet }}",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 2050812325,
+          "mode": "list",
+          "cachedResultName": "Full List of Competitor Page Entities",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1TFJG5FeA7TjG2gCsj3B8nT4lVXdgjbJbnfRqQ0mYk0I/edit#gid=2050812325"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "User Page URL": "={{ $('Retrieve User Input').item.json['User Page URL'] }}",
+            "Keyword": "={{ $('Limit to Top 3 Pages').item.json.keyword }}",
+            "Competitor Page URL": "={{ $('Limit to Top 3 Pages').item.json.competitor_page_url }}",
+            "Competitor Page Entities Type": "={{ $json.competitor_page_entities_type }}",
+            "Competitor Page Entities": "={{ $json.competitor_page_entities }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "User Page URL",
+              "displayName": "User Page URL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Keyword",
+              "displayName": "Keyword",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Competitor Page URL",
+              "displayName": "Competitor Page URL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Competitor Page Entities",
+              "displayName": "Competitor Page Entities",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Competitor Page Entities Type",
+              "displayName": "Competitor Page Entities Type",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        4224,
+        1152
+      ],
+      "id": "19844798-f813-409a-a457-0a8c872e8b97",
+      "name": "Record Competitor Page Entities",
+      "executeOnce": false
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "7eb900f7-7eac-4d5f-b22c-e36110fa3bbe",
+              "name": "competitor_page_url",
+              "value": "={{ $json.tasks[0].data.url }}",
+              "type": "string"
+            },
+            {
+              "id": "0c594adb-785d-461f-ac13-ac12686ca6aa",
+              "name": "competitor_page_markdown",
+              "value": "={{ $json.tasks[0].result[0].items[0].page_as_markdown }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3760,
+        1488
+      ],
+      "id": "2240d364-2a6a-45d4-86fb-df707931ae0a",
+      "name": "Set Competitor Page Content"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "7eb900f7-7eac-4d5f-b22c-e36110fa3bbe",
+              "name": "competitor_page_entities",
+              "value": "={{ $json.name }}",
+              "type": "string"
+            },
+            {
+              "id": "0c594adb-785d-461f-ac13-ac12686ca6aa",
+              "name": "competitor_page_entities_type",
+              "value": "={{ $json.type }}",
+              "type": "string"
+            },
+            {
+              "id": "aa094204-349d-4dcb-8598-0d7b5ea000bf",
+              "name": "competitor_page_entities_salience",
+              "value": "={{ $json.salience }}",
+              "type": "number"
+            },
+            {
+              "id": "786f423e-9ea8-4544-a257-33e734864b03",
+              "name": "competitor_page_found",
+              "value": true,
+              "type": "boolean"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        4448,
+        1344
+      ],
+      "id": "9ef731f1-4fb2-4ff5-a22e-73e73d15e01b",
+      "name": "Set Competitor Page Entities"
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "entities",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        4224,
+        1344
+      ],
+      "id": "289407f0-6c8a-458c-819e-4c4d4ed49c0f",
+      "name": "Split Out Competitor Page Entities"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://language.googleapis.com/v1/documents:analyzeEntities?key= {{ $('Set Variables').item.json['Google API'] }}",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"document\": {\n    \"type\": \"PLAIN_TEXT\",\n    \"content\": {{ JSON.stringify($json.competitor_page_markdown) }}\n  }\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        3984,
+        1488
+      ],
+      "id": "a025827e-2ed0-4465-8910-5aa5287a22fd",
+      "name": "Analyze Competitor Page Entities",
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.dataforseo.com/v3/on_page/content_parsing/live",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBasicAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "=[\n    {\n        \"url\": \"{{ $json.competitor_page_url }}\",\n        \"markdown_view\": true\n    }\n]",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        3984,
+        1296
+      ],
+      "id": "e1eabea4-78ff-4951-a5b7-cff809802d11",
+      "name": "Fetch Competitor Page",
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        3744,
+        1216
+      ],
+      "id": "2b43b6a5-6891-448c-993b-5ab3e6a86052",
+      "name": "Loop Over Items1"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        4688,
+        1488
+      ],
+      "id": "d252ea0c-dfc3-49e8-a7e9-7880cc032b50",
+      "name": "Merge1"
+    },
+    {
+      "parameters": {
+        "sortFieldsUi": {
+          "sortField": [
+            {
+              "fieldName": "new_entities"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.sort",
+      "typeVersion": 1,
+      "position": [
+        5680,
+        848
+      ],
+      "id": "612b197b-470c-4a20-9345-cf8b5982d2a0",
+      "name": "Sort by Alphabetical Order"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "3a14adc5-defb-4b44-8d88-4da3906c02e0",
+              "name": "new_entities",
+              "value": "={{ $('Record Competitor Page Entities').item.json['Competitor Page Entities'] }}",
+              "type": "string"
+            },
+            {
+              "id": "c60db08b-62ce-40c4-93c8-3db80bb84719",
+              "name": "new_entities_type",
+              "value": "={{ $('Record Competitor Page Entities').item.json['Competitor Page Entities Type'] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        5200,
+        848
+      ],
+      "id": "afaa3028-98cc-4421-9b16-1c91be9d6a33",
+      "name": "Set New Entities"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "2ee4c355-d73f-4669-95bb-08fc0d0e653a",
+              "leftValue": "={{ $json.new_entities_type }}",
+              "rightValue": "PRICE",
+              "operator": {
+                "type": "string",
+                "operation": "notEquals"
+              }
+            },
+            {
+              "id": "4e145aae-ed79-4e69-94af-c58102a0f007",
+              "leftValue": "={{ $json.new_entities_type }}",
+              "rightValue": "DATE",
+              "operator": {
+                "type": "string",
+                "operation": "notEquals"
+              }
+            },
+            {
+              "id": "27d4eda0-dfd8-420c-a437-e3f95a90625f",
+              "leftValue": "={{ $json.new_entities_type }}",
+              "rightValue": "NUMBER",
+              "operator": {
+                "type": "string",
+                "operation": "notEquals"
+              }
+            },
+            {
+              "id": "a617a60b-2cbe-4867-9bcf-188e3fe048f8",
+              "leftValue": "={{ $json.new_entities_type }}",
+              "rightValue": "PHONE_NUMBER",
+              "operator": {
+                "type": "string",
+                "operation": "notEquals"
+              }
+            },
+            {
+              "id": "03bdf056-8183-4489-bd23-6ee03ed7777f",
+              "leftValue": "={{ $json.new_entities_type }}",
+              "rightValue": "ADDRESS",
+              "operator": {
+                "type": "string",
+                "operation": "notEquals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.3,
+      "position": [
+        5440,
+        848
+      ],
+      "id": "70626708-d5f2-48d6-ad4c-7c33d81087e9",
+      "name": "Filter Out Entities"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "eedc9150-a1f1-4929-9d92-f489427eb733",
+              "name": "competitor_page_entities_normalized",
+              "value": "={{    $json['Competitor Page Entities']     ?.toString()     .toLowerCase()  .replace(/\\s+/g, ' ')     .trim() }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        4448,
+        1152
+      ],
+      "id": "01e84443-787f-409c-9f3d-8f864a7cbaf0",
+      "name": "Lowercase Competitor Page Entities"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "eedc9150-a1f1-4929-9d92-f489427eb733",
+              "name": "user_page_entities_normalized",
+              "value": "={{    $json.user_page_entities     ?.toString()     .toLowerCase()  .replace(/\\s+/g, ' ')     .trim() }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        4448,
+        832
+      ],
+      "id": "7ece7edf-05be-4337-ad74-6a72ff09e19d",
+      "name": "Lowercase User Page Entities"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "={{ $('Set Variables').item.json.id_sheet }}",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1190018044,
+          "mode": "list",
+          "cachedResultName": "Clean List of New Entities",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1TFJG5FeA7TjG2gCsj3B8nT4lVXdgjbJbnfRqQ0mYk0I/edit#gid=1190018044"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "User Page URL": "={{ $('Retrieve User Input').item.json['User Page URL'] }}",
+            "Entities from Competitor Pages": "={{ $json.new_entities }}",
+            "Entities Type": "={{ $json.new_entities_type }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "User Page URL",
+              "displayName": "User Page URL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Entities from Competitor Pages",
+              "displayName": "Entities from Competitor Pages",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Entities Type",
+              "displayName": "Entities Type",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        6512,
+        1072
+      ],
+      "id": "57a2a9e8-fb6a-4339-b4c2-b081c4d4260d",
+      "name": "Record Cleaned New Entities",
+      "executeOnce": false
+    },
+    {
+      "parameters": {
+        "sortFieldsUi": {
+          "sortField": [
+            {
+              "fieldName": "new_entities_length",
+              "order": "descending"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.sort",
+      "typeVersion": 1,
+      "position": [
+        6864,
+        848
+      ],
+      "id": "32da5c96-3488-4602-a04c-da4456d25412",
+      "name": "Sort by Entities Length"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "2d455938-5e72-44b0-b421-06cf1d19452c",
+              "leftValue": "={{ $json.entities_relevancy_classification }}",
+              "rightValue": "discard",
+              "operator": {
+                "type": "string",
+                "operation": "notEquals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.3,
+      "position": [
+        8000,
+        832
+      ],
+      "id": "252450e8-1cc2-40bf-8d1e-21eb56ebd6c1",
+      "name": "Remove Irrelevant Entities",
+      "alwaysOutputData": false
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "028caa03-0182-4b97-979b-d58c965e9987",
+              "leftValue": "={{ $json.new_entities_length }}",
+              "rightValue": 7,
+              "operator": {
+                "type": "number",
+                "operation": "gte"
+              }
+            },
+            {
+              "id": "ae72f705-fc95-4ce3-bb01-b23e624b38b2",
+              "leftValue": "={{ $json.new_entities_word_count }}",
+              "rightValue": 7,
+              "operator": {
+                "type": "number",
+                "operation": "lte"
+              }
+            },
+            {
+              "id": "bd29db2a-3249-4524-8ada-0b5d4565fec9",
+              "leftValue": "={{ $json.new_entities_digit_count }}",
+              "rightValue": 7,
+              "operator": {
+                "type": "number",
+                "operation": "lte"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.3,
+      "position": [
+        6512,
+        848
+      ],
+      "id": "8f15c316-42e5-408e-86ca-47ae12e31da4",
+      "name": "Entities Relevancy Pre-Filter (Remove Too Short & Too Long Entities)"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "028caa03-0182-4b97-979b-d58c965e9987",
+              "leftValue": "={{ $json.new_entities }}",
+              "rightValue": "https://",
+              "operator": {
+                "type": "string",
+                "operation": "notContains"
+              }
+            },
+            {
+              "id": "70898aec-af91-41d1-938b-6d94eda9ba9c",
+              "leftValue": "={{ $json.new_entities }}",
+              "rightValue": "http://",
+              "operator": {
+                "type": "string",
+                "operation": "notContains"
+              }
+            },
+            {
+              "id": "4fac0f60-e82e-44b0-a9d6-1e2431dcb144",
+              "leftValue": "={{ $json.new_entities }}",
+              "rightValue": "www.",
+              "operator": {
+                "type": "string",
+                "operation": "notContains"
+              }
+            },
+            {
+              "id": "a66b5ffd-735a-4473-86b5-e238cb0f811f",
+              "leftValue": "={{ $json.new_entities }}",
+              "rightValue": ".com",
+              "operator": {
+                "type": "string",
+                "operation": "notContains"
+              }
+            },
+            {
+              "id": "f3d177a4-689d-4fdf-96ae-c3d27bb34952",
+              "leftValue": "={{ $json.new_entities }}",
+              "rightValue": ".org",
+              "operator": {
+                "type": "string",
+                "operation": "notContains"
+              }
+            },
+            {
+              "id": "b79978fa-be59-44b7-946d-4a84c9ccdded",
+              "leftValue": "={{ $json.new_entities }}",
+              "rightValue": ".net",
+              "operator": {
+                "type": "string",
+                "operation": "notContains"
+              }
+            },
+            {
+              "id": "b607f7a0-b3a5-4b49-b455-ef2ce23c3fb3",
+              "leftValue": "={{ $json.new_entities }}",
+              "rightValue": ".edu",
+              "operator": {
+                "type": "string",
+                "operation": "notContains"
+              }
+            },
+            {
+              "id": "14d26bb7-e8b7-405c-b9f8-e1044cbcb7c6",
+              "leftValue": "={{ $json.new_entities }}",
+              "rightValue": "|",
+              "operator": {
+                "type": "string",
+                "operation": "notContains"
+              }
+            },
+            {
+              "id": "b012ad4d-4436-41ed-a0f2-30e4e93af451",
+              "leftValue": "={{ $json.new_entities }}",
+              "rightValue": "#",
+              "operator": {
+                "type": "string",
+                "operation": "notContains"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.3,
+      "position": [
+        6032,
+        848
+      ],
+      "id": "22949e19-ce8a-47f2-ba50-8a2c9ee06731",
+      "name": "Entities Relevancy Pre-Filter (Remove URLs etc)"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "b4bd66d0-3a09-4b0c-9207-d71a96f024db",
+              "name": "new_entities_length",
+              "value": "={{ $json.new_entities.toString().length }}",
+              "type": "number"
+            },
+            {
+              "id": "c8ebb107-d727-4bee-a095-caea8ae765ee",
+              "name": "new_entities_word_count",
+              "value": "={{ \n  $json.new_entities\n    .toString()\n    .trim()\n    .split(/\\s+/)\n    .length \n}}",
+              "type": "number"
+            },
+            {
+              "id": "f75bc4e4-8bc5-4172-ac9a-0581e196f43c",
+              "name": "new_entities_digit_count",
+              "value": "={{ ($json.new_entities.match(/\\d/g) || []).length }}",
+              "type": "number"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        6272,
+        848
+      ],
+      "id": "85e00024-a324-4075-8203-ae1ab7c6b2b0",
+      "name": "Count Entities Length, Word & Digit Count"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=## Context\n\nYou are an Entity Relevance Classification Agent used in a semantic SEO optimization workflow.\n\nYour task is to evaluate whether a given entity is relevant to a specific user page based on:\n• the page’s primary intent\n• its topical scope\n• what a comprehensive, high-quality page of this type should reasonably cover\n\nYou must explain:\n1) why the entity is relevant (or not) to the user page’s intent and topical scope, and  \n2) how the user page could be optimized using this entity at a high level.\n\nImportant:\nAn entity may be relevant even if it is not explicitly mentioned in the user page content, as long as it logically belongs to the page’s expected topical coverage and would improve completeness, clarity, or authority.\n\nYou are not generating new entities.\nYou are not rewriting content.\nYou are not grouping entities.\nYou are not suggesting exact text, sections, or snippets.\n\nYou only analyze the provided entity relative to the provided page.\n\n⸻\n\n## Instructions\n1.  Use ONLY the provided inputs:\n•\tuser_page_markdown: cleaned markdown extracted from the user-provided URL\n•\tentity: the exact entity string to evaluate\n2.  Determine whether the entity is relevant to the user page’s intent and topical scope, and classify it into exactly one category:\n•\tcore_topic: The entity represents a primary subject the user page should explicitly cover to satisfy user intent.\n•\tsupporting_topic: The entity meaningfully supports, explains, or contextualizes core topics and strengthens topical completeness.\n•\tdiscard: The entity does not meaningfully improve topical understanding, coverage, or intent alignment for the user page.\n3.  Explain why the entity falls into that category in relation to the user page’s intent and topical scope.\n• Do NOT rely solely on whether the entity is explicitly mentioned in the user page.\n4.  Provide high-level optimization directions describing how the entity could improve the user page.\n•   Focus on topical coverage, clarity, depth, or authority\n•   Do NOT suggest exact wording\n•   Do NOT reference specific headings or sections\n•   Do NOT write copy\n5.  Return the exact same entity string as provided. \n•\tDo NOT modify the entity text in any way.\n•\tDo NOT rewrite\n•\tDo NOT normalize\n•\tDo NOT correct spelling\n•\tDo NOT expand acronyms\n6.  Output valid JSON only.\n\n⸻\n\n## Task\nReturn ONLY valid JSON in the exact example structure shown below.\nDo NOT add extra keys.\nDo NOT include explanations outside JSON.\n{\n  \"entity\": \"liability coverage\",\n  \"relevancy_classification\": \"supporting_topic\",\n  \"relevancy_classification_reason\": \"The entity represents a standard insurance coverage component that aligns with the user page’s intent to explain insurance protections and risk exposure, even if not fully detailed.\",\n  \"optimization_directions\": \"Use this entity to improve topical completeness by clarifying coverage scope, illustrating protection scenarios, and strengthening the user page’s explanation of insurance benefits.\"\n}\n\n⸻\n\n## Inputs to Consider\nuser_page_markdown: {{ $('Set User Page Content').item.json.user_page_markdown }}\nentity: {{ $json.new_entities }}",
+        "hasOutputParser": true,
+        "options": {}
+      },
+      "id": "903e43d3-0202-4895-ba04-3908875c048a",
+      "name": "Analyze Entities Relevancy to User Page",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "position": [
+        7360,
+        848
+      ],
+      "typeVersion": 2.2,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "68262672-02cc-4cc0-ad46-578f06b5250b",
+              "name": "entities",
+              "value": "={{ $json.output.entity }}",
+              "type": "string"
+            },
+            {
+              "id": "60dc976e-6108-4326-987c-b616a304c467",
+              "name": "entities_relevancy_classification",
+              "value": "={{ $json.output.relevancy_classification }}",
+              "type": "string"
+            },
+            {
+              "id": "3ba09228-7ba4-45c0-9915-706e6f873756",
+              "name": "entities_relevancy_classification_reason",
+              "value": "={{ $json.output.relevancy_classification_reason }}",
+              "type": "string"
+            },
+            {
+              "id": "df97f64b-e46b-40a6-a65a-171750fb69a8",
+              "name": "entities_optimization_directions",
+              "value": "={{ $json.output.optimization_directions }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        7760,
+        832
+      ],
+      "id": "6e734a20-6f62-47c7-af4e-f2d1e88b0c4b",
+      "name": "Set Entities Relevancy"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4.1-mini",
+          "mode": "list",
+          "cachedResultName": "gpt-4.1-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        8480,
+        1072
+      ],
+      "id": "f48cff76-d5ff-4a8b-ab9a-2a29c2f1dc66",
+      "name": "OpenAI Chat Model2"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=## Context\n\nYou are an Entity Semantic Clustering Agent used in a semantic SEO optimization workflow.\n\nYour task is to group relevant entities into meaningful semantic clusters that represent coherent topical themes.\n\nAll entities provided have already been:\n•\tvalidated for relevance to the user page\n•\tclassified as core or supporting topics\n•\taccompanied by high-level optimization directions\n\nYou do not decide relevance.\nYou do not rewrite content.\nYou do not generate new entities.\nYou do not suggest optimizations.\n\nYou only organize the given entities into logical semantic groupings.\n\n⸻\n\n## Instructions\n1.  Use ONLY the provided inputs from entity_data:\n•\tentity: the exact entity string to evaluate\n•\tentity_relevancy_classification: core_topic or supporting_topic\n•\tentity_relevancy_classification_reason: explanation of entity relevance\n•\tentity_optimization_directions: high-level guidance for how the entity could improve the user page\n2.  Group entities into semantic clusters based on:\n•\tshared meaning\n•\tconceptual relationship\n•\ttopical proximity in semantic SEO contexts\n•\tsimilar optimization intent (secondary signal only)\nWhen clustering, prioritize:\na)  semantic meaning and subject matter\nb)  topical relationship in SEO contexts\nc)  optimization intent similarity\n3.  Use the classification reasons and optimization directions only as signals to improve clustering accuracy.\n•   Do NOT re-classify entities\n•   Do NOT rewrite or reinterpret the inputs\n4.  Follow these strict rules:\n•   Do NOT modify entity text in any way\n•   Do NOT normalize, rewrite, or merge entities\n•   Do NOT invent or add entities\n•   Do NOT discard entities\n•   Every input entity must appear in exactly one cluster\n5.  Name clusters descriptively, but keep names short and neutral\n•   Do NOT use generic cluster names such as \"General\", \"Other\", or \"Miscellaneous\"\n•   Prefer fewer, well-formed clusters over many small clusters\n6.  Output valid JSON only.\n\n⸻\n\n## Task\nReturn ONLY valid JSON in the exact example structure shown below.\nDo NOT add extra keys.\nDo NOT include explanations outside JSON.\n{\n  \"clusters\": [\n    {\n      \"cluster_name\": \"Coverage Types\",\n      \"entities\": [\n        \"liability coverage\",\n        \"property damage coverage\",\n        \"personal belongings coverage\"\n      ]\n    },\n    {\n      \"cluster_name\": \"Risk Factors & Threats\",\n      \"entities\": [\n        \"cyber attacks\",\n        \"natural disasters\",\n        \"fire damage\"\n      ]\n    }\n  ]\n}\n\n⸻\n\n## Inputs to Consider\nentity_data: {{ JSON.stringify($json.data, null, 2) }}",
+        "hasOutputParser": true,
+        "options": {}
+      },
+      "id": "af73a43a-22c8-4c8f-946b-4b60901c6753",
+      "name": "Entities Clustering",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "position": [
+        8480,
+        832
+      ],
+      "typeVersion": 2.2,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n  \"clusters\": [\n    {\n      \"cluster_name\": \"Coverage Types\",\n      \"entities\": [\n        \"liability coverage\",\n        \"property damage coverage\",\n        \"personal belongings coverage\"\n      ]\n    },\n    {\n      \"cluster_name\": \"Risk Factors & Threats\",\n      \"entities\": [\n        \"cyber attacks\",\n        \"natural disasters\",\n        \"fire damage\"\n      ]\n    }\n  ]\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        8656,
+        1072
+      ],
+      "id": "fc3f11fb-e059-4035-8fe6-0c4c2cdd8cb8",
+      "name": "Structured Output Parser2"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "68262672-02cc-4cc0-ad46-578f06b5250b",
+              "name": "cluster",
+              "value": "={{ $json.cluster_name }}",
+              "type": "string"
+            },
+            {
+              "id": "60dc976e-6108-4326-987c-b616a304c467",
+              "name": "cluster_entities",
+              "value": "={{ $json.entities }}",
+              "type": "array"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        8880,
+        1040
+      ],
+      "id": "8f447230-1848-4dda-9d1a-0243abee34e3",
+      "name": "Set Clusters"
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "output.clusters",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        8880,
+        816
+      ],
+      "id": "fa89efc9-c3e4-43b9-af87-7f4c9b257a6b",
+      "name": "Split Out Clusters"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4.1-mini",
+          "mode": "list",
+          "cachedResultName": "gpt-4.1-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        9184,
+        1072
+      ],
+      "id": "24a0f3ca-0c64-4697-87eb-e875322907b7",
+      "name": "OpenAI Chat Model3"
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n  \"cluster\": \"Coverage Types\",\n  \"cluster_recommended_action\": \"expand\",\n  \"cluster_action_target_area\": \"Existing content discussing insurance protections and policy coverage\",\n  \"cluster_action_target_excerpt\": \"Insurance policies provide financial protection against unexpected events, including damage to property and liability claims.\",\n  \"entities_to_apply\": [\n    \"liability coverage\",\n    \"property damage coverage\",\n    \"personal belongings coverage\"\n  ],\n  \"cluster_action_rationale\": \"The page references coverage concepts broadly but does not clearly distinguish or explain the key coverage types users expect when evaluating insurance options.\"\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        9360,
+        1072
+      ],
+      "id": "6effe570-ea49-4b48-96f3-a63e1c0a46da",
+      "name": "Structured Output Parser3"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=## Context\n\nYou are a Page–Cluster Alignment Agent used in a semantic SEO optimization workflow.\n\nYour role is to analyze how a semantic entity cluster aligns with an existing user page and determine:\n• the correct high-level content action, and\n• the best reference location on the page for that action\n\nYou do not write content.\nYou do not edit the page.\nYou do not generate new entities.\n\nYou only decide action type and reference location.\n\n⸻\n\n## Instructions\n1.  Use ONLY the provided inputs:\n•\tuser_page_markdown: the full cleaned markdown of the user page\n•\tcluster: the semantic cluster name\n•\tcluster_entities: the list of entities belonging to this cluster\n2.  Determine exactly ONE recommended action for this cluster:\n•\tChoose one and only one of the following:\na)\tadd: Use when the cluster represents an important topic that is missing or not meaningfully addressed on the page. IMPORTANT: \"add\" means adding a NEW standalone section (new header + body content) in the user page.\nb)\texpand: Use when the cluster topic exists on the page but lacks sufficient depth, clarity, or coverage.\nc)\treplace: Use when the page covers the topic weakly, vaguely, or inaccurately, and would benefit from a clearer rewrite aligned to the cluster entities.\nd)  ignore: Use when the cluster is topically relevant but would NOT materially improve this page if acted on (low impact, redundant, tangential, or already sufficiently covered).\n3.  Analyze the user page holistically\n•   Consider overall topical coverage, not exact wording\n•   Infer intent from the user page content itself (do not invent intent)\n•   Do NOT rely on headings, line numbers, or structural markers for decision-making\n4.  Identify a target reference area and excerpt:\n•   You must output cluster_action_target_area, a short description of where the action applies\n•   You must output cluster_action_target_excerpt, a short verbatim excerpt from user_page_markdown that anchors the location\n•   Rules for cluster_action_target_excerpt:\n    •   MUST be copied verbatim from user_page_markdown\n    •   Be 1–2 sentences and no more than 300 characters\n    •   Be used only as a reference, not as editable output\n    •   The excerpt must be copied verbatim from the page (no paraphrasing)\n    •   For:\n        •   add → choose the most relevant nearby passage where a new section would logically follow\n        •   expand / replace → choose a passage that represents the content being expanded or replaced\n        •   ignore → set cluster_action_target_area and cluster_action_target_excerpt to null\n5.  Explain your decision clearly\n•   Explain why this action is appropriate for the user page\n•   Focus on topical completeness, clarity, user expectations, and semantic coverage\n•   Keep rationale high-level and structural\n6.  Follow these strict rules:\n•   Do NOT modify cluster names or entity text\n•   Do NOT suggest exact copy, headings, or snippets\n•   Do NOT provide multiple actions\n•   Do NOT invent new entities or clusters\n•   Output valid JSON only\n\n⸻\n\n## Task\nReturn ONLY valid JSON in the exact example structure shown below.\nDo NOT add extra keys.\nDo NOT include explanations outside JSON.\nIf cluster_recommended_action is \"ignore\", then cluster_action_target_area and cluster_action_target_excerpt MUST be null, and entities_to_apply MUST still be returned unchanged.\n{\n  \"cluster\": \"Coverage Types\",\n  \"cluster_recommended_action\": \"expand\",\n  \"cluster_action_target_area\": \"Existing content discussing insurance protections and policy coverage\",\n  \"cluster_action_target_excerpt\": \"Insurance policies provide financial protection against unexpected events, including damage to property and liability claims.\",\n  \"entities_to_apply\": [\n    \"liability coverage\",\n    \"property damage coverage\",\n    \"personal belongings coverage\"\n  ],\n  \"cluster_action_rationale\": \"The page references coverage concepts broadly but does not clearly distinguish or explain the key coverage types users expect when evaluating insurance options.\"\n}\n\n⸻\n\n## Inputs to Consider\nuser_page_markdown: {{ $('Set User Page Content').item.json.user_page_markdown }}\ncluster: {{ $json.cluster }}\ncluster_entities: {{ $json.cluster_entities }}",
+        "hasOutputParser": true,
+        "options": {}
+      },
+      "id": "eb8507a5-fd6f-4281-8c47-ab09e3aeefce",
+      "name": "Align Clusters to User Page",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "position": [
+        9184,
+        832
+      ],
+      "typeVersion": 2.2,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4.1-mini",
+          "mode": "list",
+          "cachedResultName": "gpt-4.1-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        9888,
+        1072
+      ],
+      "id": "e6807907-a341-4cdf-a69d-1c9ba65977a4",
+      "name": "OpenAI Chat Model4"
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n  \"cluster\": \"Coverage Types\",\n  \"entities_applied\": [\n    \"liability coverage\",\n    \"property damage coverage\"\n  ],\n  \"entities_not_applied\": [\n    \"personal belongings coverage\"\n  ],\n  \"action\": \"expand\",\n  \"area_to_optimize\": \"Expand after text content: \\\"Insurance policies provide financial protection against unexpected events.\\\"\",\n  \"optimized_content\": \"Coverage within an insurance policy varies depending on the type of protection involved. **Liability coverage** addresses claims related to injuries or property damage affecting others, while **property damage coverage** applies to repairs or rebuilding costs associated with physical structures.\"\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        10064,
+        1072
+      ],
+      "id": "f426d569-ab25-4ca9-a981-57c60c8ab642",
+      "name": "Structured Output Parser4"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=## Context\n\nYou are a Content Optimization Execution Agent used in a semantic SEO optimization workflow.\n\nYour task is to produce final, page-ready content that executes an already approved cluster-level optimization plan.\n\nAll strategic decisions — including relevance, clustering, action type, target area, and rationale — have been completed upstream.\n\nYou do NOT:\n•\tdecide what to optimize\n•\tchange the optimization strategy\n•\tredesign page structure\n\nYou ONLY execute the approved plan by generating the optimized content.\n\n⸻\n\n## Instructions\n1.  Use ONLY the provided inputs:\n•\tuser_page_markdown: the full cleaned markdown of the user page\n•\tcluster: the name of the semantic cluster\n•\tcluster_entities: the full list of entity strings associated with the cluster\n•\tcluster_recommended_action: One of: add | expand | replace\n•\tcluster_action_target_area: A descriptive explanation of where on the page the action applies\n•\tcluster_action_target_excerpt: a verbatim excerpt from the user page used for reference\n•\tcluster_action_rationale: Explanation of why the cluster should be applied to the user page\n2.  Identify the area to optimize (ACTION + LOCATION)\n•\tYou MUST output a single field called area_to_optimize.\n•\tRules:\n    •\tIt MUST describe both the action and location\n    •\tIt MUST reference verbatim page text (copied exactly)\n    •\tIt is for human understanding and traceability only\n    •\tIt does NOT define the scope or length of optimized content\n•\tFormatting rules:\n    •\tFor add → \"Add after text content: \\\"<verbatim excerpt>\\\"\"\n    •\tFor expand → \"Expand after text content: \\\"<verbatim excerpt>\\\"\"\n    •\tFor replace → \"Replace the text content: \\\"<verbatim excerpt>\\\"\"\n3.  Action-specific content rules (STRICT)\na)\tIf action = add:\n    •\tWrite entirely new content\n    •\toptimized_content MUST:\n        •  Start with a Markdown section heading (## or ###)\n        •  Follow immediately with body content\n    •\tContent length:\n        •  As long as appropriate for a new section\n        •  Must feel natural within the full page flow\n    •\tDo NOT paraphrase, summarize, or restate the referenced page text\nb)\tIf action = expand:\n    •\tExpand the existing idea, not the page\n    •\tRules:\n        •  Preserve original intent and tone\n        •  Improve clarity, specificity, or entity grounding\n        •  Maintain proportional length\n    •\tGuardrails:\n        •  1 sentence → 1–2 sentences\n        •  Short paragraph → 1 refined paragraph\n        •  Do NOT escalate into section-level content\nc)\tIf action = replace:\n    •\tFully rewrite the referenced text\n    •\tRules:\n        •  Similar length to original\n        •  Clearer, more precise, better structured\n        •  No added scope or new subtopics\n4.  Page-flow & proportionality rules (VERY IMPORTANT)\n•   Optimized content MUST read smoothly when the full page is read end-to-end\n•  Do NOT:\n    •  dramatically increase local density\n    •  introduce abrupt shifts in depth\n    •  create intro-level content mid-page\n•   The goal is local improvement, not global rewriting\n5.  Entity usage & reporting rules\n•   Use the provided entities naturally and accurately\n•   Do NOT modify entity text\n•   Do NOT invent new entities\n•   Avoid unnecessary repetition or entity stuffing\n•   From the provided cluster_entities:\n    •   Identify which entities were actually and meaningfully used in the optimized_content, output ONLY those entities in the field `entities_applied`  \n    •   Output the remaining unused entities in `entities_not_applied`\n    •   Every input entity MUST appear in exactly one of these two fields  \n    •   An entity is considered “entities_applied” only if it is explicitly mentioned in the optimized_content using the same wording, allowing for natural sentence capitalization.\n    •   When an entity from `entities_applied` appears in optimized_content, wrap the visible entity text in Markdown bold syntax (**), preserving normal grammatical capitalization.\n    • Do NOT bold partial matches or modified forms.\n    • Do NOT bold entities listed in `entities_not_applied`.\n6.  Content quality rules:\n•   Neutral, informative, professional tone\n•   Improve clarity, depth, and topical completeness\n•   Align with user expectations inferred from the page\n7.  Structural rules\n•   Do NOT refer to headings, sections, or placement descriptively (e.g. ‘this section’, ‘below’, ‘the heading above’)\n•   Do NOT describe where the content should be inserted\n•   Output ONLY the content itself\n8.  Strict prohibitions:\n•   Do NOT re-evaluate relevance\n•   Do NOT suggest alternative actions\n•   Do NOT output multiple versions\n•   Do NOT include commentary outside JSON\n9.  Pass-through rules (STRICT):\n•   The output field `cluster` MUST exactly match the input `cluster`\n•   The output field `action` MUST exactly match the input `cluster_recommended_action`\n•   Do NOT rewrite, rename, expand, or reinterpret any of these fields\n\n⸻\n\n## Task\nReturn ONLY valid JSON in the exact example structure shown below.\nDo NOT add extra keys.\nDo NOT include explanations outside JSON.\n{\n  \"cluster\": \"Coverage Types\",\n  \"entities_applied\": [\n    \"liability coverage\",\n    \"property damage coverage\"\n  ],\n  \"entities_not_applied\": [\n    \"personal belongings coverage\"\n  ],\n  \"action\": \"expand\",\n  \"area_to_optimize\": \"Expand after text content: \\\"Insurance policies provide financial protection against unexpected events.\\\"\",\n  \"optimized_content\": \"Coverage within an insurance policy varies depending on the type of protection involved. **Liability coverage** addresses claims related to injuries or property damage affecting others, while **property damage coverage** applies to repairs or rebuilding costs associated with physical structures.\"\n}\n\n⸻\n\n## Inputs to Consider\nuser_page_markdown: {{ $('Set User Page Content').item.json.user_page_markdown }}\ncluster: {{ $json.cluster }}\ncluster_entities: {{ $json.cluster_entities }}\ncluster_recommended_action: {{ $json.cluster_recommended_action }}\ncluster_action_target_area: {{ $json.cluster_action_target_area }}\ncluster_action_target_excerpt: {{ $json.cluster_action_target_excerpt }}\ncluster_action_rationale: {{ $json.cluster_action_rationale }}",
+        "hasOutputParser": true,
+        "options": {}
+      },
+      "id": "fc008540-0668-4ea0-8562-0a14e0ad4d4e",
+      "name": "Optimize User Page Content",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "position": [
+        9888,
+        832
+      ],
+      "typeVersion": 2.2,
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "92341404-f452-4c48-af27-fb0117520d93",
+              "leftValue": "={{ $json.cluster_recommended_action }}",
+              "rightValue": "ignore",
+              "operator": {
+                "type": "string",
+                "operation": "notEquals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.3,
+      "position": [
+        9600,
+        1040
+      ],
+      "id": "2a2f54b3-a5cf-4c35-90a8-786531c97b20",
+      "name": "Filter \"Ignore\" Action"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "68262672-02cc-4cc0-ad46-578f06b5250b",
+              "name": "cluster",
+              "value": "={{ $json.output.cluster }}",
+              "type": "string"
+            },
+            {
+              "id": "60dc976e-6108-4326-987c-b616a304c467",
+              "name": "cluster_entities",
+              "value": "={{ $json.output.entities_to_apply }}",
+              "type": "array"
+            },
+            {
+              "id": "6cdcab62-15f8-476b-9c68-7565195e19d6",
+              "name": "cluster_recommended_action",
+              "value": "={{ $json.output.cluster_recommended_action }}",
+              "type": "string"
+            },
+            {
+              "id": "c2690559-58da-40b6-81ec-cfff23d449fb",
+              "name": "cluster_action_target_area",
+              "value": "={{ $json.output.cluster_action_target_area }}",
+              "type": "string"
+            },
+            {
+              "id": "8188f108-6ae1-4b5a-a5d7-79997dffee2e",
+              "name": "cluster_action_target_excerpt",
+              "value": "={{ $json.output.cluster_action_target_excerpt }}",
+              "type": "string"
+            },
+            {
+              "id": "d0ff0287-a766-404f-8888-98448c7e0075",
+              "name": "cluster_action_rationale",
+              "value": "={{ $json.output.cluster_action_rationale }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        9600,
+        816
+      ],
+      "id": "a6eaaa73-62d8-4428-972d-c4e9693b5253",
+      "name": "Set Cluster Action Plan"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "68262672-02cc-4cc0-ad46-578f06b5250b",
+              "name": "cluster",
+              "value": "={{ $json.output.cluster }}",
+              "type": "string"
+            },
+            {
+              "id": "60dc976e-6108-4326-987c-b616a304c467",
+              "name": "cluster_entities_applied",
+              "value": "={{ $json.output.entities_applied }}",
+              "type": "array"
+            },
+            {
+              "id": "ff918724-9493-4e69-9991-836f65af5b18",
+              "name": "cluster_entities_not_applied",
+              "value": "={{ $json.output.entities_not_applied }}",
+              "type": "array"
+            },
+            {
+              "id": "6160cf9a-7c3f-4eaf-aa30-bd73586c8bfc",
+              "name": "page_area_to_optimize",
+              "value": "={{ $json.output.area_to_optimize }}",
+              "type": "string"
+            },
+            {
+              "id": "8188f108-6ae1-4b5a-a5d7-79997dffee2e",
+              "name": "page_optimized_content",
+              "value": "={{ $json.output.optimized_content }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        10288,
+        816
+      ],
+      "id": "1d6e0e47-07eb-433d-bb35-395a48b8912f",
+      "name": "Set Content Optimization Plan"
+    },
+    {
+      "parameters": {
+        "aggregate": "aggregateAllItemData",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.aggregate",
+      "typeVersion": 1,
+      "position": [
+        8240,
+        832
+      ],
+      "id": "b3fee725-1488-49f4-89db-421acc9eda81",
+      "name": "Aggregate Entities"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "={{ $('Set Variables').item.json.id_sheet }}",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1882968711,
+          "mode": "list",
+          "cachedResultName": "Optimization Report",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1TFJG5FeA7TjG2gCsj3B8nT4lVXdgjbJbnfRqQ0mYk0I/edit#gid=1882968711"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "User Page URL": "={{ $('Retrieve User Input').item.json['User Page URL'] }}",
+            "Cluster": "={{ $json.cluster }}",
+            "Entities Applied": "={{ Array.isArray($json.cluster_entities_applied) \n  ? $json.cluster_entities_applied.join(', ') \n  : '' }}",
+            "Optimized Content": "={{ $json.page_optimized_content }}",
+            "Area to Optimize": "={{ $json.page_area_to_optimize }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "User Page URL",
+              "displayName": "User Page URL",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Cluster",
+              "displayName": "Cluster",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Entities Applied",
+              "displayName": "Entities Applied",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Area to Optimize",
+              "displayName": "Area to Optimize",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Optimized Content",
+              "displayName": "Optimized Content",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        10288,
+        1040
+      ],
+      "id": "c0fcd7eb-67a3-423b-87f8-58fba81877f2",
+      "name": "Record Optimization Report",
+      "executeOnce": false
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "5b53102d-55ff-4851-accb-068e1206a2be",
+              "name": "id_sheet",
+              "value": "1Di_NArmwnnMtuxWFdlVdWeaH53qnC2h0PgqH2vBHA10",
+              "type": "string"
+            },
+            {
+              "id": "8afd219f-ea31-498d-afbc-717a2c8d4d48",
+              "name": "Google API",
+              "value": "your_google_api_key",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1792,
+        832
+      ],
+      "id": "c1d97ced-2f7c-42d5-8253-15fb3049b1dd",
+      "name": "Set Variables"
+    },
+    {
+      "parameters": {
+        "maxItems": 300
+      },
+      "type": "n8n-nodes-base.limit",
+      "typeVersion": 1,
+      "position": [
+        7104,
+        848
+      ],
+      "id": "cadb3ef1-0292-4f79-a0ce-ed2e2b56d0e6",
+      "name": "Limit to Top 300 Entities"
+    },
+    {
+      "parameters": {
+        "content": "## 2.2. Analyze User Page Keywords\nDerives keyword signals from the user page to support competitor discovery.",
+        "height": 672,
+        "width": 672,
+        "color": 5
+      },
+      "id": "a48e5642-f102-4c3c-820a-2feeabc93397",
+      "name": "Sticky Note3",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        2224,
+        1056
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "## 2.3. Get List of Competitor Pages\nIdentifies top competing pages from search results based on page keywords.",
+        "height": 672,
+        "width": 736,
+        "color": 5
+      },
+      "id": "cc248586-4c9f-439a-b754-38496312fbd7",
+      "name": "Sticky Note4",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        2912,
+        1056
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "## 3. Compile Full List of New Entities\nBuilds a comprehensive list of potential new entities for evaluation.",
+        "height": 512,
+        "width": 1056,
+        "color": 5
+      },
+      "id": "81aae17d-2664-4241-99b4-8929b19b9b19",
+      "name": "Sticky Note5",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        4880,
+        736
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "028caa03-0182-4b97-979b-d58c965e9987",
+              "leftValue": "={{ $json.competitor_page_found }}",
+              "rightValue": true,
+              "operator": {
+                "type": "boolean",
+                "operation": "equals"
+              }
+            },
+            {
+              "id": "2229292f-7120-4d42-8e6c-ae1d37522d66",
+              "leftValue": "={{ $json.competitor_page_entities }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "or"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.3,
+      "position": [
+        3984,
+        1152
+      ],
+      "id": "8a686cdf-c2ae-4da5-a049-f5cdaf5463c4",
+      "name": "Filter Empty Data"
+    },
+    {
+      "parameters": {
+        "content": "## 4. Compile Clean List of New Entities\nProduces a clean, optimized entity list for relevance analysis.",
+        "height": 512,
+        "width": 816,
+        "color": 5
+      },
+      "id": "931ccf58-1c7a-4c34-838c-8e91cf1a5e8f",
+      "name": "Sticky Note6",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        5952,
+        736
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "## 5. Analyze Entities Relevancy\nEvaluates entity relevance against the user page’s topic.",
+        "height": 512,
+        "width": 1376,
+        "color": 5
+      },
+      "id": "363ed301-7ce4-4024-8c8f-0ce28b5f1136",
+      "name": "Sticky Note8",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        6784,
+        736
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "## 6. Create Entities Clusters\nGroups related entities into meaningful semantic clusters.",
+        "height": 512,
+        "width": 896,
+        "color": 5
+      },
+      "id": "0a0b6672-4e1a-4cc2-b121-ac05c6a03194",
+      "name": "Sticky Note9",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        8176,
+        736
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "## 7. Align Clusters to User Page Content\nDetermines how each semantic cluster should be applied to the user page.",
+        "height": 512,
+        "width": 704,
+        "color": 5
+      },
+      "id": "e815775e-3aa1-4f69-8e02-a7250d8fdfbe",
+      "name": "Sticky Note10",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        9088,
+        736
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "content": "## 8. Optimize User Page Content\nGenerates final, page-ready optimized content.",
+        "height": 512,
+        "width": 672,
+        "color": 5
+      },
+      "id": "7904fa76-5bbc-4143-84fe-065c339978b9",
+      "name": "Sticky Note11",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        9808,
+        736
+      ],
+      "typeVersion": 1
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Set Variables",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Retrieve User Input": {
+      "main": [
+        [
+          {
+            "node": "Fetch User Page",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Analyze User Page Keywords",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Analyze User Page Keywords",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set User Page Content": {
+      "main": [
+        [
+          {
+            "node": "Analyze User Page Entities",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Analyze User Page Keywords",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fetch User Page": {
+      "main": [
+        [
+          {
+            "node": "Set User Page Content",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Analyze User Page Entities": {
+      "main": [
+        [
+          {
+            "node": "Split Out User Page Entities",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set User Page Entities": {
+      "main": [
+        [
+          {
+            "node": "Record User Page Entities",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Lowercase User Page Entities",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Analyze User Page Keywords": {
+      "main": [
+        [
+          {
+            "node": "Split Out User Page Keywords",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out User Page Entities": {
+      "main": [
+        [
+          {
+            "node": "Set User Page Entities",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out User Page Keywords": {
+      "main": [
+        [
+          {
+            "node": "Set User Page Keywords",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set User Page Keywords": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Fetch SERP for Keyword",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fetch SERP for Keyword": {
+      "main": [
+        [
+          {
+            "node": "Split Out SERP",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out SERP": {
+      "main": [
+        [
+          {
+            "node": "Set Competitor Page",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter by Organic Type": {
+      "main": [
+        [
+          {
+            "node": "Limit to Top 3 Pages",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Limit to Top 3 Pages": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Competitor Page": {
+      "main": [
+        [
+          {
+            "node": "Filter by Organic Type",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Record User Page Entities": {
+      "main": [
+        []
+      ]
+    },
+    "Structured Output Parser1": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Analyze Entities Relevancy to User Page",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Analyze Entities Relevancy to User Page",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Record New Entities": {
+      "main": [
+        []
+      ]
+    },
+    "Remove Duplicates from Competitor Pages": {
+      "main": [
+        [
+          {
+            "node": "Compare Entities",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Set Error Output": {
+      "main": [
+        [
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Record Competitor Page Entities": {
+      "main": [
+        [
+          {
+            "node": "Lowercase Competitor Page Entities",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Competitor Page Content": {
+      "main": [
+        [
+          {
+            "node": "Analyze Competitor Page Entities",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Competitor Page Entities": {
+      "main": [
+        [
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out Competitor Page Entities": {
+      "main": [
+        [
+          {
+            "node": "Set Competitor Page Entities",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Analyze Competitor Page Entities": {
+      "main": [
+        [
+          {
+            "node": "Split Out Competitor Page Entities",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Set Error Output",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fetch Competitor Page": {
+      "main": [
+        [
+          {
+            "node": "Set Competitor Page Content",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items1": {
+      "main": [
+        [
+          {
+            "node": "Filter Empty Data",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Fetch Competitor Page",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge1": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Compare Entities": {
+      "main": [
+        [
+          {
+            "node": "Set New Entities",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set New Entities": {
+      "main": [
+        [
+          {
+            "node": "Filter Out Entities",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Sort by Alphabetical Order": {
+      "main": [
+        [
+          {
+            "node": "Record New Entities",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Entities Relevancy Pre-Filter (Remove URLs etc)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter Out Entities": {
+      "main": [
+        [
+          {
+            "node": "Sort by Alphabetical Order",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Lowercase Competitor Page Entities": {
+      "main": [
+        [
+          {
+            "node": "Remove Duplicates from Competitor Pages",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Lowercase User Page Entities": {
+      "main": [
+        [
+          {
+            "node": "Compare Entities",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Sort by Entities Length": {
+      "main": [
+        [
+          {
+            "node": "Limit to Top 300 Entities",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Entities Relevancy Pre-Filter (Remove Too Short & Too Long Entities)": {
+      "main": [
+        [
+          {
+            "node": "Record Cleaned New Entities",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Sort by Entities Length",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Entities Relevancy Pre-Filter (Remove URLs etc)": {
+      "main": [
+        [
+          {
+            "node": "Count Entities Length, Word & Digit Count",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Count Entities Length, Word & Digit Count": {
+      "main": [
+        [
+          {
+            "node": "Entities Relevancy Pre-Filter (Remove Too Short & Too Long Entities)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Analyze Entities Relevancy to User Page": {
+      "main": [
+        [
+          {
+            "node": "Set Entities Relevancy",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Entities Relevancy": {
+      "main": [
+        [
+          {
+            "node": "Remove Irrelevant Entities",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model2": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Entities Clustering",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser2": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Entities Clustering",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Entities Clustering": {
+      "main": [
+        [
+          {
+            "node": "Split Out Clusters",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Remove Irrelevant Entities": {
+      "main": [
+        [
+          {
+            "node": "Aggregate Entities",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out Clusters": {
+      "main": [
+        [
+          {
+            "node": "Set Clusters",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model3": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Align Clusters to User Page",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser3": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Align Clusters to User Page",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Clusters": {
+      "main": [
+        [
+          {
+            "node": "Align Clusters to User Page",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Align Clusters to User Page": {
+      "main": [
+        [
+          {
+            "node": "Set Cluster Action Plan",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model4": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Optimize User Page Content",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser4": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Optimize User Page Content",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter \"Ignore\" Action": {
+      "main": [
+        [
+          {
+            "node": "Optimize User Page Content",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Optimize User Page Content": {
+      "main": [
+        [
+          {
+            "node": "Set Content Optimization Plan",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Cluster Action Plan": {
+      "main": [
+        [
+          {
+            "node": "Filter \"Ignore\" Action",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Aggregate Entities": {
+      "main": [
+        [
+          {
+            "node": "Entities Clustering",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Content Optimization Plan": {
+      "main": [
+        [
+          {
+            "node": "Record Optimization Report",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Record Optimization Report": {
+      "main": [
+        [
+          {
+            "node": "Update Final Status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Variables": {
+      "main": [
+        [
+          {
+            "node": "Retrieve User Input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Limit to Top 300 Entities": {
+      "main": [
+        [
+          {
+            "node": "Analyze Entities Relevancy to User Page",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter Empty Data": {
+      "main": [
+        [
+          {
+            "node": "Record Competitor Page Entities",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "ba7a73fd-c6eb-4d80-afcf-2d61e6cdb9a5",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "025ee8620cd28d62d8ca3d228a8c082fd302b060b5c59c13823fea8a4877da55"
+  },
+  "id": "5gSj6evMGYuFJD6K",
+  "tags": []
+}

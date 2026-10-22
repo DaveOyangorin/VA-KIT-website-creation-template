@@ -1,0 +1,17 @@
+/* jsprofinish.com theme: "Bare studs to finished". Drywall white and joint-compound grey grounds, charcoal ink (their header),
+   framing-lumber pine as the accent, chalk-line blue for marks. Bricolage Grotesque (display) + Newsreader italic (accents,
+   after Sun Design's editorial serif) + JetBrains Mono (tape-measure labels). */
+:root {
+  --paper: #f4f2ee; --sand: #e8e4dc; --card: #fbfaf7; --ink: #1d1a17; --ink2: #47423c; --mute: #77706a; --line: #d9d3c8;
+  --dark: #1d1a17; --dark2: #2a2622; --on-dark: #f4f1ec; --on-dark2: #bdb5ab; --foot: #151310;
+  --accent: #c17a3a; --accent-ink: #94561f; --on-accent: #fff; --chalk: #2f5d8a; --tape: #e9c547;
+  --f-disp: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif; --f-body: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --f-serif: "Newsreader", Georgia, "Times New Roman", serif; --f-mono: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+  --disp-w: 700; --disp-ls: -.025em; --r: 6px; --btn-r: 999px; --hdr: 74px; --logo-h: 34px;
+  --hero-shade: linear-gradient(180deg, rgba(29,26,23,.5) 0%, rgba(29,26,23,.15) 40%, rgba(29,26,23,.85) 100%);
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --paper: #161412; --sand: #1f1c19; --card: #24201c; --ink: #f1ede7; --ink2: #cfc7bd; --mute: #9d948a; --line: #38332d; --accent-ink: #e39a5a; --chalk: #7fa8d1; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --paper: #161412; --sand: #1f1c19; --card: #24201c; --ink: #f1ede7; --ink2: #cfc7bd; --mute: #9d948a; --line: #38332d; --accent-ink: #e39a5a; --chalk: #7fa8d1; color-scheme: dark }

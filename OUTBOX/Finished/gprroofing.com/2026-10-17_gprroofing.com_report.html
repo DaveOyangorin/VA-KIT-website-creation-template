@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>gprroofing.com Website Plan</title>
+<style>
+  :root {
+    --bg: #f7f6f3; --card: #ffffff; --text: #1d1d1b; --muted: #6b6a66; --line: #e3e1dc;
+    --accent: #1f5f8b; --good: #2e7d4f; --warn: #a86400; --bad: #b3261e; --chip: #eef3f7;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #161716; --card: #1f201f; --text: #ecebe7; --muted: #a3a29d; --line: #333431;
+      --accent: #7fb6dd; --good: #6cc193; --warn: #e0a54a; --bad: #ef7b72; --chip: #24303a;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #161716; --card: #1f201f; --text: #ecebe7; --muted: #a3a29d; --line: #333431;
+    --accent: #7fb6dd; --good: #6cc193; --warn: #e0a54a; --bad: #ef7b72; --chip: #24303a;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text);
+    font: 15px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  main { max-width: 960px; margin: 0 auto; padding: 32px 16px 64px; }
+  h1 { font-size: 26px; margin: 0 0 4px; }
+  h2 { font-size: 18px; margin: 0 0 12px; }
+  h3 { font-size: 15px; margin: 16px 0 6px; }
+  .sub { color: var(--muted); margin: 0 0 24px; }
+  section { background: var(--card); border: 1px solid var(--line); border-radius: 10px;
+    padding: 20px; margin-bottom: 16px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; }
+  .stat { border: 1px solid var(--line); border-radius: 8px; padding: 12px; }
+  .stat b { display: block; font-size: 22px; }
+  .stat span { color: var(--muted); font-size: 13px; }
+  .table-wrap { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { color: var(--muted); font-weight: 600; font-size: 13px; }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+  .tag { display: inline-block; padding: 1px 8px; border-radius: 99px; font-size: 12px; white-space: nowrap; }
+  .t-good { background: color-mix(in srgb, var(--good) 15%, transparent); color: var(--good); }
+  .t-warn { background: color-mix(in srgb, var(--warn) 15%, transparent); color: var(--warn); }
+  .t-bad  { background: color-mix(in srgb, var(--bad) 15%, transparent); color: var(--bad); }
+  dl { display: grid; grid-template-columns: max-content 1fr; gap: 6px 16px; margin: 0; }
+  dt { color: var(--muted); }
+  dd { margin: 0; }
+  code { background: var(--chip); padding: 1px 6px; border-radius: 4px; font-size: 13px; }
+  ul, ol { padding-left: 20px; margin: 6px 0; }
+  li { margin: 3px 0; }
+  .note { border-left: 3px solid var(--warn); padding: 8px 12px; background: color-mix(in srgb, var(--warn) 8%, transparent); border-radius: 0 6px 6px 0; margin: 10px 0; }
+  .alert { border-left: 3px solid var(--bad); padding: 8px 12px; background: color-mix(in srgb, var(--bad) 8%, transparent); border-radius: 0 6px 6px 0; margin: 10px 0; }
+  .check li { list-style: none; margin-left: -20px; }
+  .check li::before { content: "☐ "; color: var(--muted); }
+  footer { color: var(--muted); font-size: 13px; text-align: center; margin-top: 24px; }
+  @media (max-width: 560px) { dl { grid-template-columns: 1fr; } dt { margin-top: 6px; } }
+  .small { color: var(--muted); font-size: 13px; }
+</style>
+
+</head>
+<body>
+<main>
+  <h1>gprroofing.com · Website plan report</h1>
+  <p class="sub">Go Pro Roofing · West Valley City · Prepared 17 Oct 2026. Business facts and audit from 5 Oct 2026; search numbers and Google results from 14 Oct 2026. Draft for Angelo's review.</p>
+  <section>
+    <h2>Summary</h2>
+    <ul>
+      <li><b>Home page target:</b> <code>roofing company west valley city</code> (40 for “roofing company”, 70 for “roofing company near me”).</li>
+      <li><b>Site size:</b> 35 pages. 8 of 10 services have their own page, 2 only named on the home page, 0 not on the site.</li>
+      <li><b>Biggest keyword:</b> roof repair (50 searches + 20 "near me"). They already have a page.</li>
+      <li><b>Weak local signal:</b> only 2 pages name West Valley City.</li>
+      <li><b>Mobile speed is 26/100.</b> Very slow. Fix it first; the target is 90+.</li>
+      <li><b>Meta descriptions are missing.</b> Every key page needs one.</li>
+      <li><b>Reviews:</b> 5 stars from 62.</li>
+    </ul>
+  </section>
+  <section>
+    <h2>Business facts</h2>
+    <dl>
+      <dt>Name</dt><dd>Go Pro Roofing</dd>
+      <dt>Website</dt><dd>gprroofing.com · 35 pages now</dd>
+      <dt>Phone</dt><dd>+1801-232-5823</dd>
+      <dt>Address</dt><dd>5291 W Ted Wy, West Valley City, UT 84120</dd>
+      <dt>Google category</dt><dd>Roofing contractor</dd>
+      <dt>Reviews</dt><dd>5 stars · 62 reviews</dd>
+    </dl>
+    <p class="note">From the Google profile on 5 Oct 2026. Confirm with the client before it goes on the site. The phone is copied exactly as given (<code>+1801-232-5823</code>). Ask the client how they want it shown; do not reformat it without their OK.</p>
+  </section>
+  <section>
+    <h2>Fix on the new site</h2>
+    <div class="grid">
+      <div class="stat"><b>26 / 100</b><span>Mobile speed now · aim for 90+</span></div>
+      <div class="stat"><b>Missing</b><span>Meta description</span></div>
+      <div class="stat"><b>Missing</b><span>Alt text on some images</span></div>
+      <div class="stat"><b>2 of 35</b><span>Pages that name West Valley City</span></div>
+    </div>
+    <h3>What to do</h3>
+    <ul>
+      <li>Compress and resize images, lazy-load images below the fold, and remove scripts or plugins the page does not need. At this score, speed comes first.</li>
+      <li><b>Write meta descriptions</b> for the home page and every service page. One unique description per page, with the keyword and "West Valley City".</li>
+      <li>Give every image a short alt text that says what is in the photo, naming West Valley City where it fits.</li>
+      <li>Name West Valley City in the title, H1 and first paragraph of every service page.</li>
+    </ul>
+  </section>
+  <section>
+    <h2>Home page</h2>
+    <dl>
+      <dt>Main keyword</dt><dd><code>roofing company west valley city</code></dd>
+      <dt>Also use</dt><dd><code>roofers west valley city</code>, <code>roofing contractor west valley city</code></dd>
+      <dt>Searches</dt><dd>40 for “roofing company”, 70 for “roofing company near me”</dd>
+      <dt>Placement</dt><dd>Start with the keyword: put it in the title tag, the H1 and the first sentence.</dd>
+    </dl>
+    <p>The home page should link to every service page and the cost page. Show the rating and review count once the client confirms them.</p>
+  </section>
+  <section>
+    <h2>Service pages · build in this order</h2>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>Service</th><th>Target keyword</th><th class="num">Searches</th><th class="num">"Near me"</th><th class="num">Exact keyword</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Roof repair</td><td><code>roof repair west valley city</code></td><td class="num">50</td><td class="num">20</td><td class="num">–</td><td><span class="tag t-good">Has a page</span></td></tr>
+        <tr><td>2</td><td>Metal roofing</td><td><code>metal roofing west valley city</code></td><td class="num">40</td><td class="num">10</td><td class="num">–</td><td><span class="tag t-good">Has a page</span></td></tr>
+        <tr><td>3</td><td>Roof replacement</td><td><code>roof replacement west valley city</code></td><td class="num">10</td><td class="num">20</td><td class="num">–</td><td><span class="tag t-good">Has a page</span></td></tr>
+        <tr><td>4</td><td>Roof installation</td><td><code>roof installation west valley city</code></td><td class="num">10</td><td class="num">20</td><td class="num">–</td><td><span class="tag t-good">Has a page</span></td></tr>
+        <tr><td>5</td><td>Emergency roof repair</td><td><code>emergency roof repair west valley city</code></td><td class="num">10</td><td class="num">10</td><td class="num">–</td><td><span class="tag t-warn">Home page only</span></td></tr>
+        <tr><td>6</td><td>Roof inspection</td><td><code>roof inspection west valley city</code></td><td class="num">10</td><td class="num">10</td><td class="num">–</td><td><span class="tag t-warn">Home page only</span></td></tr>
+        <tr><td>7</td><td>Commercial roofing</td><td><code>commercial roofing west valley city</code></td><td class="num">10</td><td class="num">10</td><td class="num">–</td><td><span class="tag t-good">Has a page</span></td></tr>
+        <tr><td>8</td><td>Metal roofing contractors</td><td><code>metal roofing contractors west valley city</code></td><td class="num">10</td><td class="num">10</td><td class="num">–</td><td><span class="tag t-good">Has a page</span></td></tr>
+        <tr><td>9</td><td>Asphalt shingle roofing</td><td><code>asphalt shingle roofing west valley city</code></td><td class="num">10</td><td class="num">–</td><td class="num">–</td><td><span class="tag t-good">Has a page</span></td></tr>
+        <tr><td>10</td><td>Residential roof installation</td><td><code>residential roof installation west valley city</code></td><td class="num">10</td><td class="num">–</td><td class="num">–</td><td><span class="tag t-good">Has a page</span></td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="small">Searches and "near me" are inside West Valley City. "Exact keyword" = searches for the keyword with the city name, across Utah (for services read from their site: inside West Valley City). "–" = fewer than 10 a month; "10" is Google's lowest number. One page per service. Only build a page if the business really does that service.</p>
+    <h3>Notes on the list</h3>
+    <ul>
+      <li><b>Roof repair and Emergency roof repair</b> are very close topics. Keep each page clearly different, or ask Angelo whether one should be a section of the other, so they don't compete.</li>
+      <li><b>Metal roofing and Metal roofing contractors</b> are very close topics. Keep each page clearly different, or ask Angelo whether one should be a section of the other, so they don't compete.</li>
+      <li><b>Roof installation and Residential roof installation</b> are very close topics. Keep each page clearly different, or ask Angelo whether one should be a section of the other, so they don't compete.</li>
+      <li><b>Roof installation vs. roof replacement:</b> keep them different. Suggest: installation = new builds and additions; replacement = tearing off and replacing an old roof.</li>
+      <li><b>Emergency roof repair:</b> only claim "24/7" or "same-day" if the client confirms it.</li>
+    </ul>
+  </section>
+  <section>
+    <h2>More searches Google suggests</h2>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Search</th><th>Use?</th><th>Where</th></tr></thead>
+      <tbody>
+        <tr><td>Residential roof repair west valley city</td><td><span class="tag t-good">Yes</span></td><td>Matching service page, as a section</td></tr>
+        <tr><td>Free roof repair west valley city</td><td><span class="tag t-warn">If true</span></td><td>Only with real offers from the client</td></tr>
+        <tr><td>Free roof replacement west valley city</td><td><span class="tag t-warn">If true</span></td><td>Only with real offers from the client</td></tr>
+        <tr><td>Roof replacement west valley city cost</td><td><span class="tag t-warn">Real prices only</span></td><td>Cost page</td></tr>
+        <tr><td>Roof replacement cost west valley city calculator</td><td><span class="tag t-warn">Real prices only</span></td><td>Cost page</td></tr>
+        <tr><td>Metal roof replacement cost west valley city</td><td><span class="tag t-warn">Real prices only</span></td><td>Cost page</td></tr>
+        <tr><td>roof repair near salt lake city</td><td><span class="tag t-warn">Other city</span></td><td>Only if they work in Salt Lake City (city page)</td></tr>
+        <tr><td>ut</td><td><span class="tag t-good">Yes</span></td><td>Matching service page, as a section</td></tr>
+        <tr><td>roof repair near west valley city</td><td><span class="tag t-good">Yes</span></td><td>Matching service page, as a section</td></tr>
+        <tr><td>ut</td><td><span class="tag t-good">Yes</span></td><td>Matching service page, as a section</td></tr>
+        <tr><td>Metal roof repair near me</td><td><span class="tag t-good">Yes</span></td><td>Matching service page, as a section</td></tr>
+        <tr><td>Best roof repair near me</td><td><span class="tag t-warn">Show, don&#x27;t claim</span></td><td>Use real reviews, photos and process. Don&#x27;t claim &quot;the best&quot;.</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="small">Sorted automatically. Check any "company name" row by eye before skipping it.</p>
+  </section>
+  <section>
+    <h2>Cost page</h2>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Keyword</th><th class="num">Searches West Valley City</th><th class="num">All Utah</th><th>City version</th><th class="num">All Utah</th></tr></thead>
+      <tbody>
+        <tr><td>roof replacement cost</td><td class="num">10</td><td class="num">170</td><td>roof replacement cost west valley city</td><td class="num">–</td></tr>
+        <tr><td>roof repair cost</td><td class="num">10</td><td class="num">30</td><td>roof repair cost west valley city</td><td class="num">–</td></tr>
+        <tr><td>new roof cost</td><td class="num">10</td><td class="num">70</td><td>new roof cost west valley city</td><td class="num">–</td></tr>
+        <tr><td>metal roof cost</td><td class="num">10</td><td class="num">90</td><td>metal roof cost west valley city</td><td class="num">–</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p>One cost page covering all of these. Cost searchers are close to buying. <b>Use only real prices from the client.</b> If the client will not share prices, explain what changes the price and invite a free estimate instead.</p>
+  </section>
+  <section>
+    <h2>City pages</h2>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>City</th><th>Keyword 1</th><th class="num">All Utah</th><th>Keyword 2</th><th class="num">All Utah</th></tr></thead>
+      <tbody>
+        <tr><td>Salt Lake City</td><td>roof repair salt lake city</td><td class="num">140</td><td>roof replacement salt lake city</td><td class="num">20</td></tr>
+        <tr><td>South Jordan</td><td>roof repair south jordan</td><td class="num">30</td><td>roof replacement south jordan</td><td class="num">–</td></tr>
+        <tr><td>Sandy</td><td>roof repair sandy</td><td class="num">30</td><td>roof replacement sandy</td><td class="num">–</td></tr>
+        <tr><td>Draper</td><td>roof repair draper</td><td class="num">10</td><td>roof replacement draper</td><td class="num">–</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p>Build a city page only if the business really works there. Salt Lake City has the most searches (140 for "roof repair salt lake city" across Utah). Each page needs real local content (jobs done there, neighborhoods), not the West Valley City page with the name swapped.</p>
+  </section>
+  <section>
+    <h2>What a strong page looks like</h2>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Keyword</th><th class="num">Avg. words (top pages)</th><th class="num">Have FAQ</th><th class="num">Show prices</th></tr></thead>
+      <tbody>
+        <tr><td>roof repair west valley city</td><td class="num">~590</td><td class="num">2 of 3</td><td class="num">0 of 3</td></tr>
+        <tr><td>roof replacement west valley city</td><td class="num">~1,163</td><td class="num">3 of 3</td><td class="num">0 of 3</td></tr>
+        <tr><td>roof replacement cost west valley city</td><td class="num">~1,862</td><td class="num">2 of 3</td><td class="num">2 of 3</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <h3>Takeaways</h3>
+    <ul>
+      <li>Aim for <b>about 600–1,200 words</b> on the main service pages, with an FAQ on each.</li>
+      <li>No top service page shows prices. Real prices (if the client gives them) would set this site apart.</li>
+    </ul>
+    <h3>Headings on the top pages (topic ideas only)</h3>
+    <ul>
+      <li>Weather That Damages Roofs in West Valley City</li>
+      <li>West Valley City Neighborhoods We Serve</li>
+      <li>Roofing Services in West Valley City</li>
+      <li>Frequently Asked Questions</li>
+      <li>QUALITY ROOFING IN ALL OF UTAH</li>
+      <li>Comprehensive Roofing Services in West Valley &amp; Salt Lake City</li>
+      <li>Our Seamless Roofing Process</li>
+      <li>Our Roofing Services in West Valley &amp; Salt Lake City</li>
+      <li>Frequently Asked Questions (FAQs)</li>
+      <li>Wasatch Front Performance for West Valley City</li>
+      <li>Storm Damage &amp; Insurance Hub: West Valley City</li>
+      <li>Plan your roofing project in West Valley City</li>
+      <li>Premium Roof Replacements in West Valley City</li>
+      <li>Why West Valley City Homes Need Expert Roofing</li>
+      <li>Reroofing Built to Uncompromising Standards</li>
+      <li>West Valley City Housing &amp; Roofing Context</li>
+      <li>Serving West Valley City &amp; Surrounding Communities</li>
+    </ul>
+    <p class="note">Use competitor headings for topic ideas only. Do not copy them. Some name other companies, owners or promotions. Bios, promotions and project photos go in only with real facts from the client.</p>
+  </section>
+  <section>
+    <h2>FAQ · real questions from Google</h2>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Question</th><th>Use?</th><th>Where</th></tr></thead>
+      <tbody>
+        <tr><td>How do you do valleys with metal roofing?</td><td><span class="tag t-good">Yes</span></td><td>Matching service page</td></tr>
+        <tr><td>How to pay for roof repair?</td><td><span class="tag t-warn">If client confirms</span></td><td>Only what the client really offers</td></tr>
+        <tr><td>Who are the major manufacturers of shingles in the USA?</td><td><span class="tag t-bad">Skip as written</span></td><td>Cover the intent on the home page (reviews, why choose us)</td></tr>
+        <tr><td>How long do roofs last in Utah?</td><td><span class="tag t-good">Yes</span></td><td>Matching service page</td></tr>
+        <tr><td>How to get your roof replaced for cheap?</td><td><span class="tag t-warn">Real prices only</span></td><td>Cost page</td></tr>
+        <tr><td>What is the average cost to replace a roof on a 2000 square-foot home?</td><td><span class="tag t-warn">Real prices only</span></td><td>Cost page</td></tr>
+        <tr><td>What is the 25% rule for roofing?</td><td><span class="tag t-warn">Check Utah rules</span></td><td>Matching service page</td></tr>
+        <tr><td>Is $30,000 too much for a roof?</td><td><span class="tag t-warn">Real prices only</span></td><td>Cost page</td></tr>
+        <tr><td>Will insurance cover a 20 year old roof?</td><td><span class="tag t-warn">If client confirms</span></td><td>Only what the client really offers</td></tr>
+        <tr><td>What is the average price of a roof repair?</td><td><span class="tag t-warn">Real prices only</span></td><td>Cost page</td></tr>
+        <tr><td>How much should I pay for a roof repair?</td><td><span class="tag t-warn">Real prices only</span></td><td>Cost page</td></tr>
+        <tr><td>Who is the best person to fix a leaking roof?</td><td><span class="tag t-good">Yes</span></td><td>Matching service page</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </section>
+  <section>
+    <h2>Rules for the writer</h2>
+    <ul>
+      <li>Start each page with its keyword.</li>
+      <li>Use only facts the client gives you: prices, warranty, years in business, licenses.</li>
+      <li>Do not invent reviews, numbers or photos.</li>
+    </ul>
+    <p class="small">Search numbers: Google Ads monthly searches, pulled 14 Oct 2026. Questions and page topics: live Google results in West Valley City, 14 Oct 2026.</p>
+  </section>
+  <section>
+    <h2>Questions for the client</h2>
+    <ol>
+      <li>Do you work in <b>Salt Lake City, South Jordan, Sandy, Draper</b>? Any recent jobs there we can mention?</li>
+      <li>Can you share <b>real prices or price ranges</b> for your main services?</li>
+      <li>Are the name, phone, address, rating (5 stars · 62 reviews) correct? How should the phone number be shown?</li>
+      <li>Do you help with <b>insurance claims</b> or offer <b>financing</b>? What is your warranty, years in business and licenses?</li>
+      <li>Can you send <b>project photos</b> (before/after), with the city each job was in?</li>
+    </ol>
+  </section>
+  <section>
+    <h2>Next steps</h2>
+    <ul class="check">
+      <li>Send the client questions above (after Angelo approves).</li>
+      <li>Fix mobile speed first (26 → 90+).</li>
+      <li>Write meta descriptions for the home page and every service page.</li>
+      <li>Home page: title, H1, first sentence with <code>roofing company west valley city</code>.</li>
+      <li>Improve the service pages already on the site, naming West Valley City on every one.</li>
+      <li>Build or improve the cost page once real prices arrive.</li>
+      <li>City pages only for cities the client confirms.</li>
+      <li>Add alt text to every image.</li>
+      <li>Re-test mobile speed after changes (target 90+).</li>
+    </ul>
+  </section>
+  <footer>Novarte AI · Draft for internal review · Audit 5 Oct 2026 · Search data 14 Oct 2026</footer>
+</main>
+</body>
+</html>

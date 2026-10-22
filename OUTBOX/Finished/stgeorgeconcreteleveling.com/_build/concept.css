@@ -1,0 +1,46 @@
+/* stgeorgeconcreteleveling.com concept: Measure the lip */
+h2 { font-size: clamp(2rem, 4.2vw, 3.4rem); line-height: 1.02 } h2 span, h1 span, .quote-band blockquote span { color: var(--accent-ink) }
+.lg-hero h1 span, .proc-sec h2 span, .quote-band blockquote span { color: var(--accent) }
+.label { font-family: var(--f-mono); letter-spacing: .04em; color: var(--accent-ink); font-size: .74rem }
+.brand img { height: var(--logo-h); width: auto; background: #fff; border-radius: 8px; padding: 3px }
+.flogo img { height: 54px; width: auto; background: #fff; border-radius: 8px; padding: 3px }
+.btn.accent { background: var(--accent); border-color: var(--accent); color: #191d21 }
+
+/* hero + gauge */
+.lg-hero { background: var(--dark); color: var(--on-dark); padding: clamp(40px, 6vw, 84px) 0; background-image: linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px); background-size: 32px 32px }
+.lg-grid { display: grid; grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr); gap: clamp(28px, 4vw, 60px); align-items: center }
+.lg-hero h1 { color: #fff; font-size: clamp(2.3rem, 4.8vw, 4.2rem); line-height: 1.02; margin: .25em 0 .4em; text-wrap: balance } .lg-hero .lede { color: var(--on-dark2); max-width: 54ch } .lg-hero .label { color: var(--accent) }
+.lg-hero .btn.ghost { color: #fff; border-color: rgba(255,255,255,.4) }
+.lg-gauge { background: #161a1e; border: 1px solid rgba(255,255,255,.1); border-radius: 14px; padding: 20px }
+.g-q { font: 700 1.3rem var(--f-disp); color: #fff; margin: 0 0 10px } .g-q span { font: 400 .8rem var(--f-mono); color: var(--on-dark2); margin-left: 8px }
+.gauge { --lip: .375; --c: var(--warn) } .g-svg { width: 100%; height: auto; display: block }
+.g-svg .soil { fill: #6e3a22 } .g-svg .sdot { fill: rgba(255,255,255,.12) } .g-svg .slab { fill: #b9bdbb; stroke: #8b908e; stroke-width: 2 }
+.g-svg .drop { transform: translateY(calc(var(--lip) * 48px)); transition: transform .15s } .g-svg .tg { font: 700 11px var(--f-mono); fill: rgba(255,255,255,.55); letter-spacing: .08em }
+.g-svg .cal-arm, .g-svg .cal-jaw { stroke: var(--c); stroke-width: 4; stroke-linecap: round; fill: none; transition: stroke .2s } .g-svg .cal-jaw.b { transform: translateY(calc(var(--lip) * 48px)); transition: transform .15s }
+.g-read { display: grid; grid-template-columns: auto 1fr; gap: 16px; align-items: center; margin: 12px 0 }
+.g-num { display: grid; justify-items: center; background: var(--c); color: #161a1e; border-radius: 10px; padding: 10px 14px; min-width: 110px; transition: background .2s } .g-num span { font: 700 2rem/1 var(--f-mono) } .g-num small { font: 700 .66rem var(--f-mono); text-transform: uppercase; letter-spacing: .06em }
+.g-rule b { display: block; font: 700 1.25rem var(--f-disp); color: #fff } .g-rule span { color: var(--on-dark2); font-size: .9rem }
+.g-range { width: 100%; accent-color: #ffcc33 } .g-scale { position: relative; height: 18px; font: 400 .7rem var(--f-mono); color: var(--on-dark2) } .g-scale span { position: absolute; left: var(--at); transform: translateX(-50%) } .g-scale span:first-child { transform: none } .g-scale span:last-child { transform: translateX(-100%) }
+.g-src { font-size: .78rem; color: var(--on-dark2); margin: 10px 0 0 } .g-src a { color: var(--accent) }
+
+/* surfaces */
+.split-head { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: end } .split-head p { color: var(--ink2) }
+.sfgrid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin: 26px 0 20px }
+.sf { position: relative; display: grid; gap: 6px; padding: 14px 16px 18px; background: var(--card); border: 1px solid var(--line); border-radius: 12px; color: var(--ink); text-decoration: none; transition: transform .25s, border-color .25s }
+.sf b { font: 700 1.15rem var(--f-disp) } .sf em { position: absolute; right: 14px; bottom: 16px; color: var(--accent-ink) } .sf em svg { width: 18px } .sf:hover { transform: translateY(-3px); border-color: var(--accent) }
+.surf { width: 100%; height: auto } .surf .s-top { fill: #c8cbc9; stroke: #8b908e; stroke-width: 1.5 } .surf .s-top.s3 { fill: #d4d7d5 } .surf .s-side { fill: #a4a8a6 } .surf .s-side2 { fill: #8f9391 }
+.surf .sunk .s-top { fill: #b0b4b2 } .surf .foam { fill: #ffe38a; stroke: #e0b630 } .surf .ln { fill: none; stroke: #6b727a; stroke-width: 2; stroke-linecap: round } .surf .water { fill: rgba(80,170,220,.5); stroke: #4aa3d4 }
+.art-card { background: #161a1e; border: 1px solid rgba(255,255,255,.12); border-radius: 14px; padding: 18px 18px 14px; display: grid; gap: 8px } .art-card span { font: 700 .74rem var(--f-mono); color: var(--accent); text-transform: uppercase; letter-spacing: .08em }
+
+/* process */
+.proc-sec { background: var(--dark); color: var(--on-dark) } .proc-sec h2 { color: #fff } .proc-sec .label { color: var(--accent) }
+.procline { list-style: none; padding: 0; margin: 28px 0 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0; border-top: 2px solid rgba(255,255,255,.15) }
+.procline li { position: relative; padding: 24px 18px 0 0 } .procline li::before { content: ""; position: absolute; top: -7px; left: 0; width: 12px; height: 12px; border-radius: 50%; background: var(--accent) }
+.procline span { font: 700 .8rem var(--f-mono); color: var(--accent) } .procline b { display: block; font: 700 1.15rem var(--f-disp); color: #fff; margin: 6px 0 } .procline p { margin: 0; color: var(--on-dark2); font-size: .9rem }
+.quote-band footer { text-transform: none; letter-spacing: 0; font: 400 1rem/1.5 var(--f-body); max-width: 60ch } .quote-band footer a { color: var(--accent) }
+.towns li a { color: var(--ink) } .credits { font: 400 .72rem var(--f-mono); color: var(--mute); padding: 16px 0 6px; margin: 0 } .credits a { color: inherit }
+.guide-mini { display: grid; gap: 4px; margin-top: 24px; padding: 18px; border: 1px solid var(--line); border-radius: var(--r); color: var(--ink); text-decoration: none } .guide-mini em { font-style: normal; color: var(--accent-ink); display: flex; gap: 6px; align-items: center } .guide-mini em svg { width: 16px }
+.phero-full.no-photo { background: var(--dark); background-image: linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px); background-size: 32px 32px }
+.phero-full .ph-in.has-art { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr); gap: clamp(24px, 4vw, 56px); align-items: center }
+@media (max-width: 1000px) { .lg-grid, .split-head { grid-template-columns: 1fr } .sfgrid { grid-template-columns: 1fr 1fr } .procline { grid-template-columns: 1fr; border-top: 0; border-left: 2px solid rgba(255,255,255,.15) } .procline li { padding: 0 0 22px 22px } .procline li::before { left: -7px; top: 4px } .phero-full .ph-in.has-art { grid-template-columns: 1fr } .phero-full .ph-art { max-width: 380px } }
+@media (max-width: 520px) { .g-read { grid-template-columns: 1fr } }

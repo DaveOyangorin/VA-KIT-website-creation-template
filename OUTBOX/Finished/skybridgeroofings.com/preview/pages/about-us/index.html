@@ -1,0 +1,615 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About Sky Bridge Roofing | Roofers in South Salt Lake, UT</title>
+<meta name="description" content="Meet Sky Bridge Roofing, a South Salt Lake roofing company for homes and commercial buildings. Our mission, how we plan every roof, and how to reach us.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<link rel="canonical" href="https://skybridgeroofings.com/pages/about-us">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Sky Bridge Roofing">
+<meta property="og:title" content="About Sky Bridge Roofing | Roofers in South Salt Lake, UT">
+<meta property="og:description" content="Meet Sky Bridge Roofing, a South Salt Lake roofing company for homes and commercial buildings. Our mission, how we plan every roof, and how to reach us.">
+<meta property="og:url" content="https://skybridgeroofings.com/pages/about-us">
+<meta property="og:image" content="https://skybridgeroofings.com/assets/img/sky-bridge-roofing-team.webp">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0a1520">
+<link rel="icon" type="image/png" href="../../assets/img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@500;700;800;900&family=Red+Hat+Text:ital,wght@0,400;0,500;0,600;1,400&family=Red+Hat+Mono:wght@400;500&display=swap">
+<style>
+/* Sky Bridge Roofing, South Salt Lake. "Drawing board to rooftop".
+   Their own office film shows the team working roof details on screens and a whiteboard, and their drone film shows the
+   standing-seam roof that came out of it. So the site reads like a set of construction documents laid over real footage:
+   a blueprint grid, title blocks, and one original section drawing per roofing system.
+   References: architectural drawing sets (title blocks, detail callouts), Snøhetta and BIG project pages (full-bleed film,
+   restrained type), Carlisle and Firestone detail libraries (one detail per system).
+   Colors: night navy, drafting-film blue lines, sky blue accent (the "sky" in Sky Bridge), concrete white. The client's
+   logo is black and white, so the palette stays cool and lets it sit cleanly in the header.
+   Type: Red Hat Display (headings), Red Hat Text (body), Red Hat Mono (labels, sheet numbers). */
+:root {
+  --night: #0a1520; --night-2: #102030; --night-3: #18304a; --line: #d5dde4; --line-d: rgba(160,205,240,.18);
+  --sky: #8fd0ff; --sky-2: #c9e8ff; --sky-ink: #1e6fae; --paper: #f2f5f7; --white: #fbfcfd; --ink: #0d1822; --ink-2: #44525f; --mute: #6e7c88;
+  --display: "Red Hat Display", "Segoe UI", Arial, sans-serif; --body: "Red Hat Text", "Segoe UI", system-ui, sans-serif; --mono: "Red Hat Mono", ui-monospace, Consolas, monospace;
+  --wrap: 1300px; --head: 88px; --r: 2px;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; scroll-padding-top: 100px; }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 400 1.06rem/1.66 var(--body); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+img, video, svg { max-width: 100%; display: block; }
+img { height: auto; }
+a { color: inherit; text-underline-offset: 3px; }
+h1, h2, h3 { font-family: var(--display); font-weight: 800; letter-spacing: -.025em; line-height: 1.02; margin: 0 0 .45em; text-wrap: balance; }
+h1 { font-size: clamp(2.6rem, 6vw, 5.6rem); }
+h2 { font-size: clamp(2rem, 4vw, 3.4rem); }
+h3 { font-size: 1.3rem; letter-spacing: -.015em; }
+h1 span, h2 span { color: var(--sky-ink); }
+.dark h2 span, .hero h1 span, .phero h1 span, .cta h2 span, .desk h2 span, .team-band span { color: var(--sky); }
+p { margin: 0 0 1em; }
+.wrap { max-width: var(--wrap); margin: 0 auto; padding-left: max(24px, env(safe-area-inset-left, 0px)); padding-right: max(24px, env(safe-area-inset-right, 0px)); }
+.mono { font-family: var(--mono); font-weight: 500; letter-spacing: .06em; }
+.small { font-size: .82rem; }
+.skip { position: absolute; left: -9999px; } .skip:focus { left: 12px; top: 12px; z-index: 99; background: #fff; padding: 10px 14px; }
+:focus-visible { outline: 2px solid var(--sky); outline-offset: 3px; }
+.label { display: inline-flex; align-items: center; gap: 10px; margin: 0 0 20px; font: 500 .74rem/1 var(--mono); letter-spacing: .16em; text-transform: uppercase; color: var(--sky-ink); }
+.label::before { content: ""; width: 26px; height: 1px; background: currentColor; box-shadow: 0 -4px 0 currentColor, 0 4px 0 transparent; }
+.label.light { color: var(--sky); }
+.lede { font-size: clamp(1.1rem, 1.5vw, 1.25rem); color: var(--ink-2); max-width: 58ch; }
+.draft-strip { position: relative; z-index: 60; background: var(--sky); color: var(--night); text-align: center; font: 500 .74rem/1.3 var(--mono); letter-spacing: .1em; text-transform: uppercase; padding: 7px 16px; }
+
+/* blueprint grid overlay */
+.grid-ov { position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background-image: linear-gradient(rgba(143,208,255,.09) 1px, transparent 1px), linear-gradient(90deg, rgba(143,208,255,.09) 1px, transparent 1px), linear-gradient(rgba(143,208,255,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(143,208,255,.05) 1px, transparent 1px);
+  background-size: 120px 120px, 120px 120px, 24px 24px, 24px 24px; mask-image: linear-gradient(90deg, rgba(0,0,0,.3), #000 70%); -webkit-mask-image: linear-gradient(90deg, rgba(0,0,0,.3), #000 70%); }
+
+/* buttons */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 12px; min-height: 54px; padding: 0 26px; border: 1px solid var(--sky); background: var(--sky); color: var(--night); text-decoration: none; border-radius: var(--r);
+  font: 700 1rem/1 var(--display); letter-spacing: .01em; cursor: pointer; transition: background .25s, color .25s, border-color .25s; }
+.btn svg { width: 18px; height: 18px; transition: transform .25s; flex: none; }
+.btn:hover { background: #fff; border-color: #fff; } .btn:hover svg { transform: translateX(4px); }
+.btn.ghost { background: transparent; color: var(--ink); border-color: currentColor; }
+.btn.ghost.light { color: #fff; border-color: rgba(255,255,255,.45); }
+.btn.ghost:hover { background: #fff; color: var(--night); border-color: #fff; }
+.sec:not(.dark) .btn:not(.ghost):hover { background: var(--night); color: #fff; border-color: var(--night); }
+.btn[disabled] { opacity: .55; cursor: not-allowed; }
+.btn-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+.tlink { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font: 700 1rem/1 var(--display); padding-bottom: 8px; border-bottom: 1px solid var(--sky-ink); }
+.tlink svg { width: 16px; height: 16px; } .tlink.light { color: #fff; border-color: var(--sky); }
+
+/* header */
+.site-header { position: sticky; top: 0; z-index: 50; margin-bottom: calc(var(--head) * -1); color: #fff; transition: background .35s, box-shadow .35s; }
+.site-header::before { content: ""; position: absolute; inset: 0 0 -60px; background: linear-gradient(rgba(5,11,17,.75), transparent); pointer-events: none; transition: opacity .35s; }
+.site-header.scrolled { background: rgba(10,21,32,.95); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); box-shadow: 0 1px 0 var(--line-d); }
+.site-header.scrolled::before { opacity: 0; }
+.site-header .wrap { position: relative; height: var(--head); display: flex; align-items: center; gap: 28px; }
+.brand { flex: none; } .brand img { height: 62px; width: auto; }
+.nav { margin-left: auto; }
+.nav ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 2px; align-items: center; }
+.nav a, .nav summary { display: block; padding: 10px 14px; text-decoration: none; font: 600 .98rem/1 var(--display); cursor: pointer; list-style: none; color: rgba(255,255,255,.9); }
+.nav summary::-webkit-details-marker { display: none; }
+.nav summary { display: flex; gap: 8px; align-items: center; } .nav summary::after { content: ""; width: 6px; height: 6px; border: solid currentColor; border-width: 0 1.5px 1.5px 0; transform: rotate(45deg) translateY(-3px); }
+.nav > ul > li > a:hover, .nav summary:hover { color: var(--sky); }
+.nav details { position: relative; }
+.drop { position: absolute; left: -10px; top: calc(100% + 16px); width: 340px; display: grid; padding: 10px; background: var(--night-2); border: 1px solid var(--line-d); box-shadow: 0 30px 60px -20px rgba(0,0,0,.6); }
+.drop a { display: grid; grid-template-columns: 34px 1fr; padding: 11px 10px; font: 500 .98rem/1.2 var(--body); color: #fff; }
+.drop a .mono { color: var(--sky); font-size: .78rem; }
+.drop a:hover { background: rgba(143,208,255,.08); }
+.head-cta { display: flex; align-items: center; gap: 20px; }
+.head-phone { text-decoration: none; font: 800 1.15rem/1.1 var(--display); text-align: right; }
+.head-phone small { display: block; font: 500 .64rem/1.3 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--sky); }
+.head-cta .btn { min-height: 48px; padding: 0 20px; }
+.menu { display: none; margin-left: auto; }
+.menu summary { list-style: none; width: 50px; height: 50px; display: grid; place-items: center; cursor: pointer; border: 1px solid rgba(255,255,255,.3); }
+.menu summary::-webkit-details-marker { display: none; }
+.menu summary span, .menu summary span::before, .menu summary span::after { display: block; width: 20px; height: 2px; background: #fff; position: relative; transition: transform .2s; }
+.menu summary span::before, .menu summary span::after { content: ""; position: absolute; } .menu summary span::before { top: -6px; } .menu summary span::after { top: 6px; }
+.menu[open] summary span { background: transparent; } .menu[open] summary span::before { transform: translateY(6px) rotate(45deg); } .menu[open] summary span::after { transform: translateY(-6px) rotate(-45deg); }
+.menu-panel { position: fixed; left: 0; right: 0; top: var(--head); bottom: 0; overflow-y: auto; background: var(--night); padding: 16px max(22px, env(safe-area-inset-left, 0px)) 120px; display: flex; flex-direction: column; }
+.menu-panel > a { padding: 14px 0; border-bottom: 1px solid var(--line-d); text-decoration: none; font: 800 1.6rem/1 var(--display); }
+.menu-panel .mh { margin: 20px 0 4px; font: 500 .74rem/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--sky); }
+.menu-panel .sub { display: grid; padding-bottom: 10px; border-bottom: 1px solid var(--line-d); }
+.menu-panel .sub a { display: grid; grid-template-columns: 30px 1fr; padding: 8px 0; text-decoration: none; color: rgba(255,255,255,.85); }
+.menu-panel .sub .mono { color: var(--sky); font-size: .78rem; }
+.menu-panel .btn { margin-top: 22px; } .menu-phone { margin-top: 14px; text-align: center; font: 800 1.3rem/1 var(--display); text-decoration: none; }
+
+/* hero with drone film */
+.hero { position: relative; min-height: max(800px, 100svh); display: flex; align-items: flex-end; color: #fff; background: var(--night); overflow: hidden; isolation: isolate; }
+.hero-media { position: absolute; inset: 0; z-index: -2; }
+.hero-media video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.hv-tall { display: none; }
+.hero-media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(95deg, rgba(6,13,20,.93) 0%, rgba(6,13,20,.72) 48%, rgba(6,13,20,.2) 100%), linear-gradient(0deg, rgba(6,13,20,.85), transparent 55%); }
+.hero-in { width: 100%; display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 60px; align-items: end; padding-top: calc(var(--head) + 120px); padding-bottom: 110px; }
+.hero-text { min-width: 0; }
+.hero h1 { max-width: 15ch; margin-bottom: 26px; }
+.hero h1 span { display: block; }
+.hero .lede, .phero .lede, .cta .lede { color: rgba(255,255,255,.82); }
+.hero-cap { position: absolute; left: 50%; bottom: 22px; transform: translateX(-50%); width: min(calc(100% - 48px), 1252px); margin: 0; font-size: .7rem; text-transform: uppercase; color: rgba(255,255,255,.55); }
+.hero-cap::before { content: ""; display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #ff5a4f; margin-right: 10px; animation: rec 1.4s steps(2, start) infinite; }
+@keyframes rec { to { visibility: hidden; } }
+.tblock { margin: 0; display: grid; border: 1px solid rgba(143,208,255,.45); background: rgba(10,21,32,.55); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+.tblock div { display: grid; grid-template-columns: 82px 1fr; border-top: 1px solid rgba(143,208,255,.25); }
+.tblock div:first-child { border-top: 0; }
+.tblock dt { padding: 10px 12px; font: 500 .64rem/1.3 var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--sky); border-right: 1px solid rgba(143,208,255,.25); }
+.tblock dd { margin: 0; padding: 10px 12px; font: 600 .9rem/1.3 var(--display); }
+
+/* at a glance strip */
+.strip { background: var(--night-2); color: #fff; border-top: 1px solid var(--line-d); }
+.strip-in { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.strip-in div { padding: 30px 22px; border-left: 1px solid var(--line-d); }
+.strip-in div:first-child { border-left: 0; padding-left: 0; }
+.strip b { display: block; font: 800 2rem/1 var(--display); color: var(--sky); letter-spacing: -.02em; }
+.strip span { display: block; margin-top: 8px; font-size: .92rem; color: rgba(255,255,255,.72); }
+
+/* sections */
+.sec { padding: clamp(80px, 10vw, 130px) 0; }
+.sec.dark { background: var(--night); color: #fff; position: relative; isolation: isolate; }
+.sec.dark .lede { color: rgba(255,255,255,.75); }
+.head { max-width: 860px; margin-bottom: 56px; }
+.split { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 80px; align-items: center; }
+.split > * { min-width: 0; }
+
+/* system index: one detail per system */
+.sys-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+.sys { position: relative; display: flex; flex-direction: column; gap: 6px; padding: 20px 18px 22px; text-decoration: none; background: var(--white); border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); transition: background .3s; }
+.sys:hover { background: var(--night); color: #fff; }
+.sys-n { position: absolute; right: 14px; top: 14px; font-size: .74rem; color: var(--mute); }
+.sys-d { display: block; margin: 0 -6px 10px; }
+.sys b { font: 800 1.2rem/1.1 var(--display); }
+.sys small { color: var(--ink-2); font-size: .9rem; line-height: 1.45; }
+.sys:hover small { color: rgba(255,255,255,.75); }
+.sys em { margin-top: auto; padding-top: 10px; display: inline-flex; gap: 8px; align-items: center; font: 500 .7rem/1 var(--mono); letter-spacing: .12em; text-transform: uppercase; font-style: normal; color: var(--sky-ink); }
+.sys:hover em { color: var(--sky); } .sys em svg { width: 14px; height: 14px; }
+.sys-grid.small { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+
+/* detail drawings */
+.detail { width: 100%; height: auto; font-family: var(--mono); }
+.detail .sheet { fill: #fff; stroke: #c6d3dd; }
+.detail text { font-size: 9.5px; fill: #31475a; letter-spacing: .04em; }
+.detail .tb path { stroke: #c6d3dd; fill: none; } .detail .tb text { font-size: 8.5px; fill: #6e7c88; letter-spacing: .12em; }
+.detail .lead { stroke: #1e6fae; stroke-width: .9; fill: none; } .detail .dot { fill: #1e6fae; }
+.detail .ln { stroke: #31475a; stroke-width: 1.2; fill: none; } .detail .ln-heavy { stroke: #0d1822; stroke-width: 3; fill: none; stroke-linejoin: round; } .detail .ln-black { stroke: #111; stroke-width: 5; fill: none; }
+.detail .fill-deck { fill: #e4d3b8; stroke: #8a7556; stroke-width: .8; } .detail .fill-under { fill: #2f3a44; } .detail .fill-sh { fill: #5f6b76; stroke: #2a333b; stroke-width: .8; }
+.detail .fill-ins { fill: #f4eedb; stroke: #b9ad86; stroke-width: .8; } .detail .fill-board { fill: #d9dde0; stroke: #8e979e; stroke-width: .8; } .detail .fill-clip { fill: #8fd0ff; stroke: #1e6fae; stroke-width: .8; }
+.detail .weld { fill: rgba(255,120,60,.35); } .detail .tape { fill: #8fd0ff; }
+.detail .fill-old { fill: #8a8f93; } .detail .coat { fill: #8fd0ff; stroke: #1e6fae; stroke-width: .8; } .detail .roller rect { fill: #e6eef4; stroke: #31475a; } .detail .roller path { stroke: #31475a; stroke-width: 2; fill: none; }
+.detail .fill-fascia { fill: #e4d3b8; stroke: #8a7556; } .detail .hanger { stroke: #1e6fae; stroke-width: 1.2; stroke-dasharray: 3 2; } .detail .water { stroke: #1e90d6; stroke-width: 1.5; fill: none; stroke-dasharray: 4 3; }
+.detail .fill-stud { fill: #e4d3b8; stroke: #8a7556; } .detail .fill-wall { fill: #ece6dc; stroke: #a59a88; } .detail .flash { stroke: #1e6fae; stroke-width: 2.2; fill: none; } .detail .leak { stroke: #1e90d6; stroke-width: 1.6; fill: none; stroke-dasharray: 3 3; }
+.detail .old { fill: rgba(95,107,118,.35); stroke: #5f6b76; stroke-dasharray: 4 3; } .detail .arrow { stroke: #1e6fae; stroke-width: 1.6; fill: none; }
+.detail .fill-plan { fill: #f4f7f9; stroke: #31475a; } .detail .mark { fill: #8fd0ff; stroke: #1e6fae; } .detail .mk { font-size: 10px; font-weight: 600; fill: #0d1822; } .detail .note { font-size: 7.5px; fill: #6e7c88; }
+
+/* drawing board band (office film) */
+.desk { position: relative; min-height: 640px; display: flex; align-items: center; color: #fff; background: var(--night); overflow: hidden; isolation: isolate; }
+.desk-media { position: absolute; inset: 0; z-index: -2; }
+.desk-media video { width: 100%; height: 100%; object-fit: cover; }
+.desk-media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(6,13,20,.92) 0%, rgba(6,13,20,.65) 50%, rgba(6,13,20,.25)); }
+.desk-in { width: 100%; padding-block: 90px; }
+.desk-card { max-width: 560px; }
+.desk-card p { color: rgba(255,255,255,.82); }
+.desk-card a:not(.tlink) { color: var(--sky); }
+
+/* work grid */
+.work-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr; grid-template-rows: 300px 300px; gap: 12px; }
+.work-grid figure { position: relative; margin: 0; overflow: hidden; background: var(--night); }
+.work-grid img { width: 100%; height: 100%; object-fit: cover; transition: transform 1s cubic-bezier(.2,.7,.2,1); }
+.work-grid figure:hover img { transform: scale(1.04); }
+.w1 { grid-row: span 2; } .w4 { grid-column: span 2; }
+.work-grid figcaption { position: absolute; left: 12px; bottom: 12px; display: flex; gap: 10px; align-items: center; padding: 8px 12px; background: rgba(10,21,32,.85); color: #fff; font: 600 .86rem/1 var(--display); }
+.work-grid figcaption .mono { color: var(--sky); font-size: .72rem; }
+
+/* flow + form */
+.flow { list-style: none; counter-reset: f; margin: 30px 0 0; padding: 0; border-top: 1px solid var(--line-d); }
+.flow li { counter-increment: f; position: relative; padding: 22px 0 20px 64px; border-bottom: 1px solid var(--line-d); }
+.flow li::before { content: "0" counter(f); position: absolute; left: 0; top: 22px; font: 500 .9rem/1 var(--mono); color: var(--sky); border: 1px solid var(--sky); padding: 8px 9px; }
+.flow b { display: block; font: 800 1.25rem/1.15 var(--display); }
+.flow p { margin: 6px 0 0; color: rgba(255,255,255,.7); }
+.form { display: grid; gap: 16px; padding: 34px; background: var(--white); color: var(--ink); border-top: 3px solid var(--sky); box-shadow: 0 40px 70px -40px rgba(0,0,0,.6); }
+.form h3 { font-size: 1.8rem; margin: 0; }
+.form .row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 14px; }
+.form label { display: grid; gap: 6px; font: 600 .85rem/1.3 var(--body); color: var(--ink-2); }
+.form input, .form textarea { width: 100%; min-width: 0; font: 400 1rem/1.4 var(--body); padding: 13px 14px; border: 1px solid var(--line); background: var(--paper); color: var(--ink); border-radius: var(--r); }
+.form input:focus, .form textarea:focus { outline: none; border-color: var(--sky-ink); background: #fff; }
+.form textarea { min-height: 110px; resize: vertical; }
+.ptype { border: 0; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.ptype legend { font: 500 .7rem/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--mute); margin-bottom: 10px; }
+.ptype label { position: relative; display: block; }
+.ptype input { position: absolute; opacity: 0; }
+.ptype span { display: block; padding: 12px 10px; border: 1px solid var(--line); text-align: center; font: 700 .86rem/1.2 var(--display); color: var(--ink); cursor: pointer; transition: background .2s, border-color .2s; }
+.ptype input:checked + span { background: var(--night); color: #fff; border-color: var(--night); }
+.ptype input:focus-visible + span { outline: 2px solid var(--sky-ink); outline-offset: 2px; }
+.note { font-size: .8rem; color: var(--mute); margin: 0; }
+
+/* team band */
+.team-band { position: relative; min-height: 760px; display: flex; align-items: flex-end; color: #fff; overflow: hidden; isolation: isolate; background: var(--night); }
+.team-img { position: absolute; inset: 0; z-index: -2; } .team-img img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; }
+.team-img::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(6,13,20,.97) 0%, rgba(6,13,20,.85) 28%, rgba(6,13,20,.1) 60%); }
+.team-band .wrap { width: 100%; padding-block: 70px; }
+.team-card { max-width: 820px; }
+.team-card blockquote { margin: 0 0 16px; font: 800 clamp(1.8rem, 3.6vw, 3rem)/1.1 var(--display); letter-spacing: -.02em; }
+.team-card .mono { font-size: .74rem; color: var(--sky); text-transform: uppercase; }
+
+/* faq, guide */
+.faq { border-top: 1px solid var(--ink); }
+.faq details { border-bottom: 1px solid var(--line); }
+.faq summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: 54px 1fr 30px; align-items: center; padding: 20px 0; font: 700 1.15rem/1.3 var(--display); }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; width: 30px; height: 30px; display: grid; place-items: center; border: 1px solid var(--sky-ink); color: var(--sky-ink); font: 400 1.2rem/1 var(--body); transition: transform .25s; }
+.faq details[open] summary::after { transform: rotate(45deg); }
+.q-n { font: 500 .74rem/1 var(--mono); color: var(--mute); }
+.faq .a { padding: 0 30px 20px 54px; color: var(--ink-2); } .faq .a p:last-child { margin: 0; }
+.guide { display: grid; gap: 8px; margin-top: 30px; padding: 24px; text-decoration: none; background: var(--night); color: #fff; max-width: 440px; }
+.guide .mono { font-size: .7rem; color: var(--sky); text-transform: uppercase; }
+.guide b { font: 800 1.35rem/1.15 var(--display); }
+.guide em { font-style: normal; display: inline-flex; gap: 8px; align-items: center; color: var(--sky); font-size: .92rem; } .guide em svg { width: 15px; height: 15px; }
+
+/* cta */
+.cta { position: relative; color: #fff; padding: clamp(110px, 12vw, 170px) 0; overflow: hidden; isolation: isolate; background: var(--night); }
+.cta-bg { position: absolute; inset: 0; z-index: -2; } .cta-bg img { width: 100%; height: 112%; object-fit: cover; }
+.cta-bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(6,13,20,.95), rgba(6,13,20,.78) 55%, rgba(6,13,20,.45)); }
+.cta .wrap { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 60px; align-items: end; }
+.cta h2 { font-size: clamp(2.4rem, 5vw, 4.4rem); }
+.cta-side { display: grid; gap: 18px; justify-items: start; }
+.cta-phone { text-decoration: none; }
+.cta-phone small { display: block; font: 500 .72rem/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--sky); margin-bottom: 10px; }
+.cta-phone b { font: 900 clamp(2.4rem, 4.6vw, 3.8rem)/1 var(--display); letter-spacing: -.03em; white-space: nowrap; }
+.cta-side .mono { color: rgba(255,255,255,.65); margin: 0; }
+
+/* page hero */
+.phero { position: relative; min-height: 560px; display: flex; align-items: flex-end; color: #fff; background: var(--night); overflow: hidden; isolation: isolate; }
+.ph-bg { position: absolute; inset: 0; z-index: -2; } .ph-bg img { width: 100%; height: 100%; object-fit: cover; }
+.ph-bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(95deg, rgba(6,13,20,.94) 0%, rgba(6,13,20,.78) 55%, rgba(6,13,20,.35) 100%), linear-gradient(0deg, rgba(6,13,20,.7), transparent 55%); }
+.ph-bg.plan { background: var(--night); } .ph-bg.plan::after { display: none; }
+.ph-in { width: 100%; display: grid; grid-template-columns: minmax(0, 1fr) 280px; gap: 60px; align-items: end; padding-top: calc(var(--head) + 90px); padding-bottom: 80px; }
+.ph-text { min-width: 0; }
+.phero h1 { font-size: clamp(2.4rem, 5.2vw, 4.6rem); max-width: 17ch; }
+.crumbs { list-style: none; margin: 0 0 24px; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; font: 500 .72rem/1.4 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.6); }
+.crumbs li + li::before { content: "/"; margin-right: 8px; color: var(--sky); }
+.crumbs a { color: #fff; text-decoration: none; }
+.crumbs li[aria-current] { max-width: 40ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+/* service pages */
+.sv-grid { display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 80px; align-items: start; }
+.prose { max-width: 72ch; min-width: 0; }
+.prose h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); margin-top: 1.4em; }
+.prose a { color: var(--sky-ink); text-decoration-thickness: 1px; font-weight: 600; }
+.prose ul, .prose ol { padding-left: 1.2em; } .prose li { margin-bottom: .5em; } .prose li::marker { color: var(--sky-ink); }
+.answer { font-size: 1.15rem; line-height: 1.6; padding: 22px 24px; background: var(--white); border-left: 3px solid var(--sky-ink); margin-bottom: 1.6em; }
+.sv-sec h2 { display: flex; align-items: baseline; gap: 14px; }
+.checks { list-style: none; padding: 0 !important; margin: 1.2em 0; display: grid; grid-template-columns: 1fr 1fr; gap: 10px 24px; }
+.checks li { display: grid; grid-template-columns: 22px 1fr; gap: 10px; margin: 0 !important; }
+.checks i { width: 22px; height: 22px; display: grid; place-items: center; border: 1px solid var(--sky-ink); color: var(--sky-ink); }
+.checks svg { width: 12px; height: 12px; }
+.steps { list-style: none; counter-reset: s; padding: 0 !important; }
+.steps li { counter-increment: s; position: relative; padding: 14px 0 14px 52px; border-top: 1px solid var(--line); margin: 0 !important; }
+.steps li::before { content: "0" counter(s); position: absolute; left: 0; top: 14px; font: 500 .82rem/1.6 var(--mono); color: var(--sky-ink); }
+.opt3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 1.2em 0; }
+.opt3.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.opt3 > div { padding: 20px; background: var(--white); border-top: 2px solid var(--night); }
+.opt3 b { font: 800 1.1rem/1.15 var(--display); display: block; margin-bottom: 6px; }
+.opt3 p { margin: 0; font-size: .95rem; color: var(--ink-2); }
+.sv-side { position: sticky; top: 110px; display: grid; gap: 18px; }
+.sheetfig { margin: 0; } .sheetfig figcaption { margin-top: 8px; font: 500 .7rem/1 var(--mono); letter-spacing: .08em; color: var(--mute); }
+.side-card { padding: 26px; background: var(--night); color: #fff; }
+.side-card h3 { font-size: 1.6rem; } .side-card p { color: rgba(255,255,255,.75); font-size: .95rem; }
+.side-phone { display: block; margin: 8px 0 14px; font: 900 2rem/1 var(--display); letter-spacing: -.02em; color: var(--sky); text-decoration: none; white-space: nowrap; }
+.side-card .btn { width: 100%; } .side-card .mono { color: rgba(255,255,255,.55); margin: 12px 0 0; }
+.side-rel ul { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+.side-rel a { display: grid; gap: 2px; padding: 12px 0; border-bottom: 1px solid var(--line); text-decoration: none; font-size: .92rem; color: var(--ink-2); }
+.side-rel a .mono { color: var(--ink); font-weight: 600; font-size: .82rem; text-transform: uppercase; }
+
+/* about / contact / blog */
+.pull { margin: 1em 0 1.4em; padding-left: 22px; border-left: 3px solid var(--sky-ink); font: 700 1.4rem/1.3 var(--display); letter-spacing: -.01em; }
+.frame-img { margin: 0; position: relative; } .frame-img img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; outline: 1px solid var(--line); outline-offset: 10px; }
+.frame-img figcaption { margin-top: 18px; font: 500 .72rem/1 var(--mono); letter-spacing: .08em; color: var(--mute); }
+.channels { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--line); border: 1px solid var(--line); margin-bottom: 30px; }
+.ch { display: grid; gap: 6px; padding: 22px; background: var(--white); text-decoration: none; min-width: 0; }
+.ch .mono { font-size: .7rem; color: var(--sky-ink); text-transform: uppercase; }
+.ch b { font: 800 1.2rem/1.25 var(--display); overflow-wrap: anywhere; }
+.ch small { color: var(--mute); }
+a.ch:hover { background: var(--night); color: #fff; }
+.posts { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; }
+.postcard { display: grid; text-decoration: none; background: var(--white); border: 1px solid var(--line); }
+.postcard img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+.postcard .in { padding: 22px; display: grid; gap: 8px; }
+.postcard .mono { font-size: .7rem; color: var(--sky-ink); text-transform: uppercase; }
+.postcard b { font: 800 1.4rem/1.15 var(--display); }
+.postcard p { margin: 0; color: var(--ink-2); font-size: .95rem; }
+.postcard em { font-style: normal; color: var(--sky-ink); display: inline-flex; gap: 8px; align-items: center; font-weight: 600; } .postcard em svg { width: 15px; height: 15px; }
+.post-grid { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 80px; align-items: start; }
+.meta-line { font-size: .74rem; color: var(--mute); text-transform: uppercase; }
+.sources { margin-top: 2.4em; padding-top: 1.2em; border-top: 1px solid var(--ink); font-size: .9rem; color: var(--ink-2); }
+.sources h3 { font-size: 1rem; }
+
+/* footer */
+.site-footer { background: var(--night); color: rgba(255,255,255,.66); padding-top: 90px; }
+.foot-top { display: flex; justify-content: space-between; align-items: end; gap: 30px; flex-wrap: wrap; padding-bottom: 56px; border-bottom: 1px solid var(--line-d); }
+.foot-say { margin: 0; font: 800 clamp(2.2rem, 4.8vw, 4rem)/1.02 var(--display); letter-spacing: -.03em; color: #fff; }
+.foot-say span { color: var(--sky); }
+.foot-call { display: grid; gap: 16px; justify-items: end; }
+.fphone { font: 900 2.2rem/1 var(--display); color: #fff; text-decoration: none; white-space: nowrap; }
+.foot { display: grid; grid-template-columns: 1.2fr 1.4fr .8fr 1fr; gap: 44px; padding: 56px 0; }
+.foot > * { min-width: 0; }
+.fbrand .logo { height: 80px; width: auto; margin-bottom: 18px; }
+.fbrand address { font-style: normal; color: #fff; }
+.fbrand .mono { font-size: .76rem; margin-top: 10px; }
+.site-footer h3 { font: 500 .72rem/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--sky); margin-bottom: 16px; }
+.site-footer ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 9px; }
+.site-footer .cols2 { grid-template-columns: 1fr 1fr; column-gap: 20px; }
+.site-footer a { text-decoration: none; overflow-wrap: anywhere; } .site-footer a:hover { color: #fff; }
+.fbottom { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; padding: 22px 0 30px; border-top: 1px solid var(--line-d); font-size: .84rem; }
+.fbottom .mono { font-size: .72rem; }
+.callbar { display: none; }
+
+/* motion */
+.js .reveal.pre { opacity: 0; transform: translateY(24px); }
+.reveal { transition: opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1); }
+@media (prefers-reduced-motion: reduce) { .reveal { transition: none; } html { scroll-behavior: auto; } .hero-cap::before { animation: none; } }
+
+/* responsive */
+@media (max-width: 1180px) {
+  .nav, .head-phone { display: none; }
+  .menu { display: block; } .head-cta { margin-left: auto; }
+  .sys-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 960px) {
+  .hero-in, .ph-in, .split, .sv-grid, .post-grid, .cta .wrap { grid-template-columns: minmax(0, 1fr); gap: 40px; }
+  .tblock { max-width: 360px; }
+  .sv-side { position: static; }
+  .strip-in { grid-template-columns: 1fr 1fr; } .strip-in div { border-left: 0; padding-left: 0; border-top: 1px solid var(--line-d); }
+  .work-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; grid-auto-rows: 240px; }
+  .w1 { grid-column: span 2; grid-row: auto; } .w4 { grid-column: span 2; }
+  .foot { grid-template-columns: 1fr 1fr; }
+  .foot-call { justify-items: start; }
+}
+@media (max-width: 640px) {
+  :root { --head: 72px; }
+  body { padding-bottom: 60px; }
+  .wrap { padding-left: max(18px, env(safe-area-inset-left, 0px)); padding-right: max(18px, env(safe-area-inset-right, 0px)); }
+  .brand img { height: 50px; }
+  .head-cta .btn { display: none; }
+  .hv-wide { display: none; } .hv-tall { display: block; }
+  .hero-in { padding-top: calc(var(--head) + 70px); padding-bottom: 80px; }
+  .hero h1 { font-size: clamp(2.3rem, 10vw, 3.1rem); }
+  .btn-row .btn { flex: 1 1 100%; }
+  .sys-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .sys { padding: 14px 12px 16px; } .sys small, .sys em { display: none; } .sys b { font-size: 1rem; } .sys-n { display: none; }
+  .checks, .opt3, .opt3.two, .channels, .form .row { grid-template-columns: minmax(0, 1fr); }
+  .ptype { grid-template-columns: minmax(0, 1fr); }
+  .form { padding: 22px; }
+  .work-grid { grid-template-columns: minmax(0, 1fr); } .w1, .w4 { grid-column: auto; }
+  .desk { min-height: 560px; }
+  .phero { min-height: 480px; } .ph-in { padding-top: calc(var(--head) + 60px); padding-bottom: 56px; }
+  .phero h1 { font-size: clamp(2.1rem, 9.5vw, 2.9rem); }
+  .crumbs li[aria-current] { max-width: 22ch; }
+  .foot { grid-template-columns: minmax(0, 1fr); }
+  .faq .a { padding-left: 0; padding-right: 0; }
+  .callbar { display: grid; grid-template-columns: repeat(3, 1fr); position: fixed; left: 0; right: 0; bottom: 0; z-index: 40; background: var(--night); border-top: 1px solid var(--line-d); padding-bottom: env(safe-area-inset-bottom, 0px); }
+  .callbar a { display: flex; gap: 8px; align-items: center; justify-content: center; padding: 16px 6px; color: #fff; text-decoration: none; font: 700 .98rem/1 var(--display); }
+  .callbar a:last-child { background: var(--sky); color: var(--night); }
+  .callbar svg { width: 17px; height: 17px; }
+}
+
+</style>
+<script>document.documentElement.classList.add('js')</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "RoofingContractor",
+   "@id": "https://skybridgeroofings.com/#business",
+   "name": "Sky Bridge Roofing",
+   "url": "https://skybridgeroofings.com/",
+   "telephone": "+14356594915",
+   "email": "cesar@skybridgeroofing.com",
+   "logo": "https://skybridgeroofings.com/assets/img/sky-bridge-roofing-logo.png",
+   "image": "https://skybridgeroofings.com/assets/img/drone-metal-roof-new-build.webp",
+   "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "3007 S W Temple St",
+    "addressLocality": "South Salt Lake",
+    "addressRegion": "UT",
+    "postalCode": "84115",
+    "addressCountry": "US"
+   },
+   "openingHoursSpecification": [
+    {
+     "@type": "OpeningHoursSpecification",
+     "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday"
+     ],
+     "opens": "08:00",
+     "closes": "18:00"
+    }
+   ],
+   "description": "Sky Bridge Roofing is a roofing company in South Salt Lake, Utah: roof repair and replacement, metal and shingle roofing, TPO and EPDM membranes, roof coatings, gutters, wall panels and free roof inspections.",
+   "areaServed": [
+    {
+     "@type": "City",
+     "name": "South Salt Lake",
+     "containedInPlace": {
+      "@type": "State",
+      "name": "Utah"
+     }
+    }
+   ],
+   "knowsAbout": [
+    "Roof Repair",
+    "Roof Replacement",
+    "Metal Roofing",
+    "Roof Inspection",
+    "Shingle Roofing",
+    "TPO Roofing",
+    "EPDM Roofing",
+    "Roof Coatings",
+    "Gutters",
+    "Wall Panels"
+   ]
+  },
+  {
+   "@type": "WebSite",
+   "@id": "https://skybridgeroofings.com/#website",
+   "url": "https://skybridgeroofings.com/",
+   "name": "Sky Bridge Roofing",
+   "publisher": {
+    "@id": "https://skybridgeroofings.com/#business"
+   },
+   "inLanguage": "en-US"
+  },
+  {
+   "@type": "BreadcrumbList",
+   "@id": "https://skybridgeroofings.com/pages/about-us#breadcrumb",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://skybridgeroofings.com/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "About Us",
+     "item": "https://skybridgeroofings.com/pages/about-us"
+    }
+   ]
+  },
+  {
+   "@type": "AboutPage",
+   "@id": "https://skybridgeroofings.com/pages/about-us#page",
+   "url": "https://skybridgeroofings.com/pages/about-us",
+   "about": {
+    "@id": "https://skybridgeroofings.com/#business"
+   }
+  }
+ ]
+}
+</script>
+<style>
+/* MFIX-2026-10-19: mobile header fix */
+html, body { overflow-x: hidden; overflow-x: clip; }
+.site-header { position: -webkit-sticky; position: sticky; top: 0; padding-top: env(safe-area-inset-top, 0px); }
+@media (max-width: 1024px) {
+  .site-header { -webkit-backdrop-filter: none !important; backdrop-filter: none !important; }
+  .menu-panel { position: fixed !important; inset: var(--hdr-bottom, 76px) 0 0 0 !important; top: var(--hdr-bottom, 76px) !important; bottom: 0 !important; height: auto !important; max-height: none !important; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; z-index: 60; }
+  html.menu-open { overflow: hidden !important; }
+}
+</style>
+</head>
+<body>
+<div class="draft-strip">DRAFT PREVIEW for skybridgeroofings.com &middot; made by Novarte AI for review &middot; not the live site</div>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header"><div class="wrap">
+<a class="brand" href="../../home/index.html" aria-label="Sky Bridge Roofing home"><img src="../../assets/img/sky-bridge-roofing-logo.webp" alt="Sky Bridge Roofing" width="458" height="350" decoding="async"></a>
+<nav class="nav" aria-label="Main"><ul>
+<li><details><summary>Services</summary><div class="drop"><a href="../../pages/roof-repair/index.html"><span class="mono">01</span>Roof Repair</a><a href="../../pages/roof-raplecement/index.html"><span class="mono">02</span>Roof Replacement</a><a href="../../pages/metal-roofing/index.html"><span class="mono">03</span>Metal Roofing</a><a href="../../pages/roof-inspection/index.html"><span class="mono">04</span>Roof Inspection</a><a href="../../pages/shingles/index.html"><span class="mono">05</span>Shingle Roofing</a><a href="../../pages/tpo/index.html"><span class="mono">06</span>TPO Roofing</a><a href="../../pages/epdm/index.html"><span class="mono">07</span>EPDM Roofing</a><a href="../../pages/roof-coatings/index.html"><span class="mono">08</span>Roof Coatings</a><a href="../../pages/gutters/index.html"><span class="mono">09</span>Gutters</a><a href="../../pages/wall-panels/index.html"><span class="mono">10</span>Wall Panels</a></div></details></li>
+<li><a href="../../pages/about-us/index.html">About</a></li><li><a href="../../blogs/noticias/index.html">Guides</a></li><li><a href="../../pages/contact/index.html">Contact</a></li></ul></nav>
+<div class="head-cta"><a class="head-phone" href="tel:+14356594915"><small>Call or text</small>(435) 659-4915</a><a class="btn" href="../../pages/contact/index.html">Free Estimate</a></div>
+<details class="menu"><summary aria-label="Open menu"><span></span></summary><div class="menu-panel">
+<a href="../../home/index.html">Home</a><p class="mh">Services</p><div class="sub"><a href="../../pages/roof-repair/index.html"><span class="mono">01</span>Roof Repair</a><a href="../../pages/roof-raplecement/index.html"><span class="mono">02</span>Roof Replacement</a><a href="../../pages/metal-roofing/index.html"><span class="mono">03</span>Metal Roofing</a><a href="../../pages/roof-inspection/index.html"><span class="mono">04</span>Roof Inspection</a><a href="../../pages/shingles/index.html"><span class="mono">05</span>Shingle Roofing</a><a href="../../pages/tpo/index.html"><span class="mono">06</span>TPO Roofing</a><a href="../../pages/epdm/index.html"><span class="mono">07</span>EPDM Roofing</a><a href="../../pages/roof-coatings/index.html"><span class="mono">08</span>Roof Coatings</a><a href="../../pages/gutters/index.html"><span class="mono">09</span>Gutters</a><a href="../../pages/wall-panels/index.html"><span class="mono">10</span>Wall Panels</a></div>
+<a href="../../pages/about-us/index.html">About</a><a href="../../blogs/noticias/index.html">Guides</a><a href="../../pages/contact/index.html">Contact</a>
+<a class="btn" href="../../pages/contact/index.html">Get a Free Estimate</a><a class="menu-phone" href="tel:+14356594915">(435) 659-4915</a></div></details>
+</div></header>
+<main id="main">
+<section class="phero"><div class="ph-bg"><img src="../../assets/img/sky-bridge-crew-trucks.webp" alt="Three Sky Bridge Roofing crew members in front of a company truck" width="1600" height="1278" fetchpriority="high" decoding="async"></div><div class="grid-ov" aria-hidden="true"></div><div class="wrap ph-in">
+<div class="ph-text"><nav aria-label="Breadcrumb"><ol class="crumbs"><li><a href="../../home/index.html">Home</a></li><li aria-current="page">About Us</li></ol></nav><p class="label light">About us</p><h1>About Sky Bridge Roofing, South Salt Lake</h1><p class="lede">A South Salt Lake roofing team that works the job out at the desk before it goes up on the roof.</p><div class="btn-row"><a class="btn" href="../../pages/contact/index.html">Get a Free Estimate <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a><a class="btn ghost light" href="tel:+14356594915"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg> (435) 659-4915</a></div></div>
+<dl class="tblock"><div><dt>Project</dt><dd>Sky Bridge Roofing</dd></div><div><dt>Location</dt><dd>South Salt Lake, UT</dd></div><div><dt>Sheet</dt><dd>A-01</dd></div></dl></div></section>
+<section class="sec"><div class="wrap split">
+<div class="reveal prose"><p class="answer">Sky Bridge Roofing is a roofing company based in South Salt Lake, Utah, working on homes and commercial buildings. We repair and replace roofs, install metal, shingle, TPO and EPDM systems, apply roof coatings, and install gutters and metal wall panels.</p>
+<h2>Our mission</h2>
+<blockquote class="pull">&ldquo;At Sky Bridge Roofing, our mission is to deliver superior roofing solutions with unmatched craftsmanship, integrity, and professionalism.&rdquo;</blockquote>
+<p>In practice that means three things we care about: quality materials and careful work, honest advice about whether a roof needs repairing or replacing, and the same standard on a small repair as on a commercial roof.</p>
+<h2>How we work</h2>
+<p>A roof is a system: deck, underlayment, flashing, the covering and the details where they meet walls, chimneys and drains. We plan those details before the crew goes up, and on commercial projects we work from the drawings. Send blueprints and RFPs to <a href="mailto:cesar@skybridgeroofing.com">cesar@skybridgeroofing.com</a>.</p></div>
+<figure class="reveal frame-img"><img src="../../assets/img/office-whiteboard-detail.webp" alt="A Sky Bridge team member sketching a roof detail on a whiteboard" width="1600" height="900" loading="lazy" decoding="async"><figcaption>Working out a detail in the office.</figcaption></figure>
+</div></section>
+<section class="desk">
+<div class="desk-media"><video class="dv" autoplay muted loop playsinline preload="metadata" poster="../../assets/img/office-project-review.webp" aria-label="The Sky Bridge Roofing team at work in the office"><source src="../../assets/video/team-office.mp4" type="video/mp4"></video></div>
+<div class="wrap desk-in"><div class="desk-card reveal"><p class="label light">The office</p><h2>Plans, drawings <span>and a phone that gets answered.</span></h2><p>Call or text (435) 659-4915, Monday &ndash; Friday: 8:00 AM &ndash; 6:00 PM. Emergency response is available.</p><a class="tlink light" href="../../pages/contact/index.html">Contact us <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a></div></div></section>
+<section class="team-band"><div class="team-img"><img src="../../assets/img/sky-bridge-roofing-team.webp" alt="The Sky Bridge Roofing team" width="1600" height="899" loading="lazy" decoding="async"></div>
+<div class="wrap"><div class="team-card reveal"><p class="label light">The team</p><blockquote>Quality. Trust. Excellence.</blockquote><p class="mono">The three values Sky Bridge builds on</p></div></div></section>
+<section class="cta"><div class="cta-bg"><img src="../../assets/img/drone-metal-roof-barn.webp" alt="" width="1536" height="480" loading="lazy" decoding="async"></div><div class="grid-ov" aria-hidden="true"></div><div class="wrap">
+<div class="reveal"><p class="label light">Free estimate</p><h2>Tell us about the roof.</h2><p class="lede">Residential, commercial or just a question: call, text or send a few details and we&rsquo;ll set up a free estimate.</p></div>
+<div class="reveal cta-side"><a class="cta-phone" href="tel:+14356594915"><small>Call or text</small><b>(435) 659-4915</b></a><a class="btn" href="../../pages/contact/index.html">Get a Free Estimate <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a><p class="mono small">Monday &ndash; Friday: 8:00 AM &ndash; 6:00 PM</p></div></div></section>
+</main>
+<footer class="site-footer"><div class="wrap">
+<div class="foot-top"><p class="foot-say">Drawn at the desk.<br><span>Built on the roof.</span></p>
+<div class="foot-call"><a class="fphone" href="tel:+14356594915">(435) 659-4915</a><a class="btn" href="../../pages/contact/index.html">Get a Free Estimate <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a></div></div>
+<div class="foot">
+<div class="fbrand"><img src="../../assets/img/sky-bridge-roofing-logo.webp" alt="Sky Bridge Roofing logo" width="458" height="350" class="logo" loading="lazy" decoding="async">
+<address>3007 S W Temple St<br>South Salt Lake, UT 84115</address><p class="mono">Monday &ndash; Friday: 8:00 AM &ndash; 6:00 PM<br>Emergency response available.</p></div>
+<div><h3>Services</h3><ul class="cols2"><li><a href="../../pages/roof-repair/index.html">Roof Repair</a></li><li><a href="../../pages/roof-raplecement/index.html">Roof Replacement</a></li><li><a href="../../pages/metal-roofing/index.html">Metal Roofing</a></li><li><a href="../../pages/roof-inspection/index.html">Roof Inspection</a></li><li><a href="../../pages/shingles/index.html">Shingle Roofing</a></li><li><a href="../../pages/tpo/index.html">TPO Roofing</a></li><li><a href="../../pages/epdm/index.html">EPDM Roofing</a></li><li><a href="../../pages/roof-coatings/index.html">Roof Coatings</a></li><li><a href="../../pages/gutters/index.html">Gutters</a></li><li><a href="../../pages/wall-panels/index.html">Wall Panels</a></li></ul></div>
+<div><h3>Company</h3><ul><li><a href="../../pages/about-us/index.html">About us</a></li><li><a href="../../pages/contact/index.html">Contact</a></li><li><a href="../../blogs/noticias/index.html">Guides</a></li><li><a href="../../sitemap.xml">Sitemap</a></li></ul></div>
+<div><h3>Reach us</h3><ul><li><a href="tel:+14356594915">Call (435) 659-4915</a></li><li><a href="sms:+14356594915">Text (435) 659-4915</a></li><li><a href="mailto:cesar@skybridgeroofing.com">cesar@skybridgeroofing.com</a></li></ul></div>
+</div>
+<div class="fbottom"><span>&copy; 2026 Sky Bridge Roofing &middot; South Salt Lake, Utah</span><span class="mono">SBR &middot; Sheet 00 of 16</span></div></div></footer>
+<div class="callbar"><a href="tel:+14356594915"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg> Call</a><a href="sms:+14356594915">Text</a><a href="../../pages/contact/index.html">Estimate</a></div>
+<script>
+(function () {
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var header = document.querySelector('.site-header');
+
+  // Content is visible at rest; sections that start below the fold get a gentle rise.
+  if ('IntersectionObserver' in window && !reduce) {
+    var vh = window.innerHeight;
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.remove('pre'); io.unobserve(e.target); } });
+    }, { rootMargin: '0px 0px -6% 0px', threshold: 0.06 });
+    document.querySelectorAll('.reveal').forEach(function (el) { if (el.getBoundingClientRect().top > vh) { el.classList.add('pre'); io.observe(el); } });
+  }
+
+  // Header turns solid on scroll; CTA photos drift slightly.
+  var par = reduce ? [] : Array.prototype.slice.call(document.querySelectorAll('.cta-bg img'));
+  var ticking = false;
+  function onScroll() {
+    if (header) header.classList.toggle('scrolled', window.scrollY > 8);
+    par.forEach(function (im) {
+      var r = im.parentElement.getBoundingClientRect();
+      if (r.bottom < 0 || r.top > window.innerHeight) return;
+      im.style.transform = 'translate3d(0,' + ((r.top / (window.innerHeight + r.height)) * -10).toFixed(2) + '%,0)';
+    });
+    ticking = false;
+  }
+  window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
+  onScroll();
+
+  // Films don't play for people who asked for less motion.
+  if (reduce) document.querySelectorAll('video[autoplay]').forEach(function (v) { v.removeAttribute('autoplay'); v.pause(); });
+
+  var drops = document.querySelectorAll('.nav details');
+  document.addEventListener('click', function (e) { drops.forEach(function (d) { if (!d.contains(e.target)) d.open = false; }); });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') { drops.forEach(function (d) { d.open = false; }); var m = document.querySelector('.menu'); if (m) m.open = false; }
+  });
+})();
+
+</script>
+<script>
+/* MFIX-2026-10-19: mobile header fix */
+(function () {
+  var h = document.querySelector('.site-header'); if (!h) return;
+  var root = document.documentElement;
+  function y() { return Math.max(window.pageYOffset || 0, root.scrollTop || 0, document.body ? document.body.scrollTop || 0 : 0); }
+  function upd() {
+    var b = Math.max(0, Math.round(h.getBoundingClientRect().bottom));
+    root.style.setProperty('--hdr-bottom', b + 'px');
+    h.classList.toggle('scrolled', y() > 6);
+  }
+  window.addEventListener('scroll', upd, { passive: true });
+  window.addEventListener('resize', upd, { passive: true });
+  document.addEventListener('scroll', upd, { passive: true, capture: true });
+  document.querySelectorAll('.menu').forEach(function (m) {
+    m.addEventListener('toggle', function () { upd(); root.classList.toggle('menu-open', m.open); });
+    m.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { m.open = false; }); });
+  });
+  upd(); setTimeout(upd, 300);
+})();
+</script>
+</body>
+</html>

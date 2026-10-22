@@ -1,0 +1,66 @@
+/* ===== concept: "Lineup card" (22 Oct 2026). Crew photo banner, varsity type, safety lime; the lineup card builds a quote request. ===== */
+.site-header, body.is-home .site-header { background: var(--card); color: var(--ink); border-bottom: 4px solid var(--accent) } .site-header .head-phone svg { color: var(--turf) }
+.site-header .btn, body.is-home .site-header .btn { background: var(--dark); border-color: var(--dark); color: var(--accent) } .brand img { height: var(--logo-h); width: auto }
+.varsity { font-family: var(--f-varsity); font-weight: 400; letter-spacing: .02em }
+.label { font: 700 .82rem/1.3 var(--f-disp); letter-spacing: .14em; text-transform: uppercase; color: var(--accent-ink) }
+h1, h2, h3 { font-family: var(--f-disp); font-weight: 800; text-transform: uppercase; letter-spacing: .005em } h1 em, h2 em { font-style: normal; color: var(--turf) }
+.btn { font-family: var(--f-disp); font-weight: 700; text-transform: uppercase; letter-spacing: .06em } .btn.accent { background: var(--accent); border-color: var(--accent); color: var(--on-accent) } .btn.accent:hover { background: var(--accent-2); border-color: var(--accent-2); color: var(--on-accent) }
+.draft-strip { background: var(--dark); color: var(--accent) }
+.a-head { max-width: 900px; margin-bottom: 34px } .a-head h2 { font-size: clamp(2.4rem, 5vw, 4.4rem); line-height: .95 }
+.split-h { max-width: none; display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr); gap: 30px; align-items: end } .split-h .lede { margin: 0 }
+
+/* hero */
+.a-hero { position: relative; overflow: hidden; isolation: isolate; color: #fff; background: var(--dark) }
+.ah-img { position: absolute; inset: -8% 0 0 0; z-index: -2 } .ah-img img { width: 100%; height: 100%; object-fit: cover; object-position: 60% 40% }
+.a-hero::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, rgba(10,12,10,.92) 0%, rgba(10,12,10,.7) 46%, rgba(10,12,10,.15) 100%) }
+.ah-in { min-height: min(640px, calc(100svh - var(--hdr) - 110px)); display: flex; align-items: center; padding-block: clamp(80px, 9vw, 120px) 60px }
+.ah-txt { max-width: 760px } .a-hero h1 { color: #fff; font-size: clamp(2.6rem, 5.6vw, 5.2rem); line-height: .94; margin-bottom: .4em } .a-hero h1 .varsity { display: block; color: var(--accent); font-size: 1.12em; text-transform: uppercase; line-height: 1 } .a-hero h1 em { color: #fff }
+.a-hero .lede { color: rgba(255,255,255,.9); max-width: 58ch } .a-hero .label { color: var(--accent) } .a-hero .btn.ghost { color: #fff; border-color: rgba(255,255,255,.6) }
+.ah-strip { background: var(--accent); color: var(--dark) } .ah-strip .wrap { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)) }
+.ah-strip span { padding: 14px; border-left: 3px solid var(--dark); font: 700 1rem var(--f-disp); text-transform: uppercase; letter-spacing: .04em; display: flex; gap: 10px; align-items: center } .ah-strip span:first-child { border-left: 0; padding-left: 0 } .ah-strip b { font-size: 2rem; line-height: 1 }
+
+/* lineup */
+.a-lineup { background: var(--paper) }
+.lu { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, .75fr); gap: clamp(20px, 3vw, 40px); align-items: start }
+.lu-pick { display: grid; gap: 22px } .lu-gh { display: flex; align-items: center; gap: 12px; font: 800 1.5rem var(--f-disp); text-transform: uppercase; margin: 0 0 10px } .lu-gh .varsity { background: var(--dark); color: var(--accent); padding: 4px 8px; font-size: 1rem; border-radius: 3px }
+.lu-chips { display: flex; flex-wrap: wrap; gap: 8px } .lu-chip { appearance: none; cursor: pointer; border: 2px solid var(--dark); background: var(--card); color: var(--ink); border-radius: 3px; padding: 9px 13px; font: 600 .98rem var(--f-body); transition: background .15s }
+.lu-chip:hover { background: var(--sand) } .lu-chip[aria-pressed="true"] { background: var(--accent); border-color: var(--dark) } .lu-chip[aria-pressed="true"]::before { content: "+ "; font-weight: 800 } .lu-chip:focus-visible { outline: 3px solid var(--turf); outline-offset: 2px }
+.lu-card { position: sticky; top: calc(var(--hdr) + 16px); background: var(--card); border: 3px solid var(--dark); border-radius: 6px; padding: 0 0 18px; box-shadow: 8px 8px 0 var(--dark); display: grid; gap: 12px }
+.lu-top { background: var(--dark); color: var(--accent); padding: 12px 18px; display: flex; justify-content: space-between; align-items: center; font: 700 .9rem var(--f-disp); text-transform: uppercase; letter-spacing: .12em } .lu-top .varsity { font-size: 1.5rem; letter-spacing: .04em }
+.lu-list { list-style: none; margin: 0; padding: 0 18px; display: grid; gap: 0; min-height: 60px } .lu-list li { display: flex; gap: 12px; align-items: center; padding: 8px 0; border-bottom: 1px solid var(--line); font-weight: 600 }
+.lu-list .varsity { width: 30px; height: 30px; border-radius: 50%; background: var(--accent); display: grid; place-items: center; font-size: .9rem; flex: none } .lu-empty { color: var(--mute); font-weight: 500 !important; border-bottom: 1px dashed var(--line) !important }
+.lu-l { padding: 0 18px; display: grid; gap: 6px; font: 600 .9rem var(--f-body); color: var(--ink2) } .lu-l input { font: 500 1rem var(--f-body); padding: 10px 12px; border: 1.5px solid var(--line); border-radius: 3px; background: var(--paper); color: var(--ink) }
+.lu-msg { padding: 0 18px } .lu-ml { margin: 0 0 6px; font: 700 .8rem var(--f-disp); letter-spacing: .12em; text-transform: uppercase; color: var(--accent-ink) } .lu-msg textarea { width: 100%; box-sizing: border-box; font: 500 .92rem/1.45 var(--f-body); padding: 10px 12px; border: 1.5px solid var(--line); border-radius: 3px; background: var(--paper); color: var(--ink); resize: vertical }
+.lu-act { padding: 0 18px; display: flex; flex-wrap: wrap; gap: 8px } .lu-act .btn.ghost { color: var(--ink); border-color: var(--dark) } .lu-act .btn:disabled { opacity: .5; cursor: not-allowed }
+.lu-fine { padding: 0 18px; margin: 0; font-size: .82rem; color: var(--mute) }
+
+/* calendar */
+.a-cal { background: var(--card) } .cal { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0; border-top: 4px solid var(--dark) }
+.cr { padding: 18px 16px 20px; border-right: 1px solid var(--line); display: grid; gap: 6px; align-content: start } .cr:last-child { border-right: 0 } .cr b { font: 800 1.6rem var(--f-disp); text-transform: uppercase }
+.cr-w { font: 700 .82rem var(--f-disp); letter-spacing: .08em; text-transform: uppercase; background: var(--accent); color: var(--dark); padding: 3px 8px; justify-self: start; border-radius: 2px } .cr p { margin: 0; color: var(--ink2); font-size: .95rem } .cr em { font-style: normal; font-weight: 600; font-size: .88rem; color: var(--turf) }
+
+/* groups, crew */
+.grp { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px } .gc { background: var(--card); border: 1px solid var(--line); border-top: 6px solid var(--dark); border-radius: 4px; padding: 22px; position: relative; overflow: hidden }
+.gc-n { position: absolute; right: 12px; top: 0; font-size: 4.6rem; line-height: 1; color: var(--accent); opacity: .55 } .gc h3 { font-size: 2rem; margin: 0 0 6px; position: relative } .gc p { color: var(--ink2); margin: 0 0 12px; position: relative }
+.gc ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 6px } .gc li { padding-left: 18px; position: relative } .gc li::before { content: ""; position: absolute; left: 0; top: .55em; width: 9px; height: 9px; background: var(--turf); transform: rotate(45deg) }
+.a-crew { background: var(--dark); color: var(--on-dark); padding-block: clamp(60px, 8vw, 110px) } .a-crew-in { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; align-items: center }
+.a-crew figure { margin: 0; aspect-ratio: 3 / 4; overflow: hidden; border-radius: 4px; border-bottom: 6px solid var(--accent) } .a-crew img { width: 100%; height: 100%; object-fit: cover }
+.a-crew-t h2 { color: #fff; font-size: clamp(2rem, 3.6vw, 3.2rem); line-height: .98 } .a-crew-t h2 em { color: var(--accent) } .a-crew-t .label { color: var(--accent) } .a-crew-t p { color: var(--on-dark2) } .a-crew-t .tlink { color: #fff }
+.a-post { margin-top: 22px; background: var(--dark); color: var(--on-dark); border: 0; padding: 24px !important; gap: 10px } .a-post > :not(img) { padding: 0 !important } .a-post b { font: 800 1.4rem var(--f-disp); text-transform: uppercase } .a-post p { color: var(--on-dark2); margin: 0 } .a-post em, .a-post .label { color: var(--accent) } .a-post:hover { color: var(--on-dark) }
+
+/* inner */
+.phero-full::after { background: linear-gradient(90deg, rgba(10,12,10,.92) 0%, rgba(10,12,10,.62) 55%, rgba(10,12,10,.2) 100%) } .phero-full .label { color: var(--accent) } .phero-full .label::before { background: var(--accent) }
+.phero-full.no-photo { background: radial-gradient(ellipse at 85% 20%, #2f4a1e, var(--dark) 62%) }
+.answer { border-left-color: var(--accent) } .side-card { background: var(--dark) } .side-card .label { color: var(--accent) } .side-card .btn { background: var(--accent); border-color: var(--accent); color: var(--on-accent) }
+.prose .lu { grid-template-columns: minmax(0, 1fr); margin: 10px 0 30px } .prose .lu-card { position: static }
+.pgal img { border-radius: 4px }
+.cta { background: var(--dark) } .cta .label { color: var(--accent) } .cta h2 em { color: var(--accent) } .office small { color: var(--accent) }
+.site-footer { border-top: 4px solid var(--accent) } .flogo img { width: 200px; height: auto; filter: invert(1) } .fareas b, .foot a:hover { color: var(--accent) }
+.callbar a:last-child { background: var(--accent); color: var(--on-accent); border-color: var(--accent) }
+
+@media (prefers-reduced-motion: reduce) { .lu-chip { transition: none } }
+@media (max-width: 1000px) { .split-h, .lu { grid-template-columns: minmax(0, 1fr) } .lu-card { position: static } .grp { grid-template-columns: minmax(0, 1fr) } .cal { grid-template-columns: repeat(2, minmax(0, 1fr)) } .cr { border-bottom: 1px solid var(--line) } .a-crew-in { grid-template-columns: 1fr 1fr } .a-crew-t { grid-column: 1 / -1 } .ah-strip .wrap { grid-template-columns: repeat(2, minmax(0, 1fr)) } .ah-strip span:nth-child(3) { border-left: 0; padding-left: 0 } }
+@media (max-width: 640px) {
+  .ah-in { min-height: 0; padding-block: 100px 40px } .a-hero h1 { font-size: clamp(2.2rem, 10vw, 3.2rem) } .a-hero::after { background: linear-gradient(0deg, rgba(10,12,10,.95) 0%, rgba(10,12,10,.78) 60%, rgba(10,12,10,.5) 100%) }
+  .cal { grid-template-columns: minmax(0, 1fr) } .cr { border-right: 0 } .lu-card { box-shadow: 5px 5px 0 var(--dark) } .ah-strip span { font-size: .9rem }
+}

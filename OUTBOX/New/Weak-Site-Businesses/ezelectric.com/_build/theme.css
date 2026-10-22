@@ -1,0 +1,11 @@
+/* ezelectric.com theme: "Flip it on". Dusk navy from their landscape-lighting photo for the dark grounds, EZ red from the logo's
+   lightning ring, warm bulb amber for anything "on". Unbounded (round, energetic, a little playful like the EZ puns) for display,
+   Albert Sans for text, DM Mono for circuit labels. Light pages with dark signature bands. */
+:root {
+  --paper: #f5f3ee; --sand: #ebe7de; --card: #ffffff; --ink: #0d1424; --ink2: #3a4152; --mute: #687083; --line: #dcd8ce;
+  --dark: #0b1220; --dark2: #141d31; --on-dark: #f2f0ea; --on-dark2: #9aa4b8; --foot: #080d18;
+  --accent: #e8261c; --accent-2: #ff5a4e; --accent-ink: #c41d14; --on-accent: #ffffff; --amber: #ffc24d;
+  --f-disp: "Unbounded", "Arial Black", "Segoe UI", system-ui, sans-serif; --f-body: "Albert Sans", "Segoe UI", system-ui, sans-serif; --f-mono: "DM Mono", ui-monospace, Menlo, Consolas, monospace;
+  --disp-w: 700; --disp-ls: -.03em; --disp-tt: none; --r: 14px; --btn-r: 999px; --hdr: 78px; --logo-h: 40px;
+  color-scheme: light;
+}

@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ezroofingnow.com Website Plan</title>
+<style>
+  :root {
+    --bg: #f7f6f3; --card: #ffffff; --text: #1d1d1b; --muted: #6b6a66; --line: #e3e1dc;
+    --accent: #1f5f8b; --good: #2e7d4f; --warn: #a86400; --bad: #b3261e; --chip: #eef3f7;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #161716; --card: #1f201f; --text: #ecebe7; --muted: #a3a29d; --line: #333431;
+      --accent: #7fb6dd; --good: #6cc193; --warn: #e0a54a; --bad: #ef7b72; --chip: #24303a;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #161716; --card: #1f201f; --text: #ecebe7; --muted: #a3a29d; --line: #333431;
+    --accent: #7fb6dd; --good: #6cc193; --warn: #e0a54a; --bad: #ef7b72; --chip: #24303a;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text);
+    font: 15px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  main { max-width: 960px; margin: 0 auto; padding: 32px 16px 64px; }
+  h1 { font-size: 26px; margin: 0 0 4px; }
+  h2 { font-size: 18px; margin: 0 0 12px; }
+  h3 { font-size: 15px; margin: 16px 0 6px; }
+  .sub { color: var(--muted); margin: 0 0 24px; }
+  section { background: var(--card); border: 1px solid var(--line); border-radius: 10px;
+    padding: 20px; margin-bottom: 16px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; }
+  .stat { border: 1px solid var(--line); border-radius: 8px; padding: 12px; }
+  .stat b { display: block; font-size: 22px; }
+  .stat span { color: var(--muted); font-size: 13px; }
+  .table-wrap { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { color: var(--muted); font-weight: 600; font-size: 13px; }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+  .tag { display: inline-block; padding: 1px 8px; border-radius: 99px; font-size: 12px; white-space: nowrap; }
+  .t-good { background: color-mix(in srgb, var(--good) 15%, transparent); color: var(--good); }
+  .t-warn { background: color-mix(in srgb, var(--warn) 15%, transparent); color: var(--warn); }
+  .t-bad  { background: color-mix(in srgb, var(--bad) 15%, transparent); color: var(--bad); }
+  dl { display: grid; grid-template-columns: max-content 1fr; gap: 6px 16px; margin: 0; }
+  dt { color: var(--muted); }
+  dd { margin: 0; }
+  code { background: var(--chip); padding: 1px 6px; border-radius: 4px; font-size: 13px; }
+  ul, ol { padding-left: 20px; margin: 6px 0; }
+  li { margin: 3px 0; }
+  .note { border-left: 3px solid var(--warn); padding: 8px 12px; background: color-mix(in srgb, var(--warn) 8%, transparent); border-radius: 0 6px 6px 0; margin: 10px 0; }
+  .alert { border-left: 3px solid var(--bad); padding: 8px 12px; background: color-mix(in srgb, var(--bad) 8%, transparent); border-radius: 0 6px 6px 0; margin: 10px 0; }
+  .check li { list-style: none; margin-left: -20px; }
+  .check li::before { content: "☐ "; color: var(--muted); }
+  footer { color: var(--muted); font-size: 13px; text-align: center; margin-top: 24px; }
+  @media (max-width: 560px) { dl { grid-template-columns: 1fr; } dt { margin-top: 6px; } }
+</style>
+</head>
+<body>
+<main>
+  <h1>ezroofingnow.com · Website plan report</h1>
+  <p class="sub">EZ Roofing Utah · Salt Lake City · Prepared 17 Oct 2026. Business facts and audit from 5 Oct 2026; search numbers and Google results from 14 Oct 2026. Draft for Angelo's review.</p>
+
+  <section>
+    <h2>Summary</h2>
+    <ul>
+      <li><b>Home page target:</b> <code>roofing company salt lake city</code> (170 searches, plus 210 for "roofing company near me"). Same page also covers "roofers salt lake city" and "roofing contractor salt lake city".</li>
+      <li><b>Big site, good basics:</b> 246 pages, mobile speed 90/100, alt text already on images. All 10 services in the plan already have a page. The job is to <b>fix and localize</b>, not build from scratch.</li>
+      <li><b>No page names Salt Lake City</b>, out of 246. This is the biggest win.</li>
+      <li><b>Meta descriptions are missing.</b> Every key page needs one.</li>
+      <li><b>Two pages compete:</b> "commercial roofing" and "commercial roof". Merge them.</li>
+      <li><b>Two odd rows:</b> "pre cast concrete" is not roofing, and "roofing reviews" is a reviews page, not a service. Check both with Angelo.</li>
+      <li><b>Toll-free phone</b> (+1888) on the Google profile. A local number usually helps local search. Ask the client; do not change it without their OK.</li>
+      <li><b>Reviews:</b> 4.7 stars from 51.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Business facts</h2>
+    <dl>
+      <dt>Name</dt><dd>EZ Roofing Utah</dd>
+      <dt>Website</dt><dd>ezroofingnow.com · 246 pages now</dd>
+      <dt>Phone</dt><dd>+1888-575-3025</dd>
+      <dt>Address</dt><dd>357 S 200 E #205, Salt Lake City, UT 84111</dd>
+      <dt>Google category</dt><dd>Roofing contractor</dd>
+      <dt>Reviews</dt><dd>4.7 stars · 51 reviews</dd>
+    </dl>
+    <p class="note"><b>Name:</b> the client list row says "Z Roofing Utah", but the Google profile says "EZ Roofing Utah". This report uses the Google name. The list row probably lost its "E".</p>
+    <p class="note"><b>Phone:</b> the Google profile shows a toll-free number (<code>+1888-575-3025</code>), copied exactly as given. Ask the client if they also have a local 801 number. The site and the Google profile must show the same number.</p>
+    <p class="note">From the Google profile on 5 Oct 2026. Confirm with the client before it goes on the site.</p>
+  </section>
+
+  <section>
+    <h2>Fix on the new site</h2>
+    <div class="grid">
+      <div class="stat"><b>90 / 100</b><span>Mobile speed now · right at the target</span></div>
+      <div class="stat"><b>Missing</b><span>Meta description</span></div>
+      <div class="stat"><b>OK</b><span>Images have alt text</span></div>
+      <div class="stat"><b>0 of 246</b><span>Pages that name Salt Lake City</span></div>
+    </div>
+    <h3>What to do</h3>
+    <ul>
+      <li><b>Write meta descriptions</b> for the home page, every service page and the cost page first. One unique description per page, with the keyword and "Salt Lake City".</li>
+      <li><b>Name Salt Lake City</b> in the title, H1 and first paragraph of the home page and every service page.</li>
+      <li><b>Keep the speed.</b> 90 is just on the line. New images, sliders or plugins can drop it. Re-test after every change.</li>
+      <li><b>Keep the page addresses (URLs).</b> With 246 pages live, changing URLs can lose rankings. If one must change or two pages merge, Angelo sets up a redirect.</li>
+      <li><b>246 pages is a lot</b> for a roofer. Ask Angelo for a quick check for thin or repeat pages (for example many near-identical city or blog pages). Those may be better merged.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Home page</h2>
+    <dl>
+      <dt>Main keyword</dt><dd><code>roofing company salt lake city</code></dd>
+      <dt>Also use</dt><dd><code>roofers salt lake city</code>, <code>roofing contractor salt lake city</code></dd>
+      <dt>Searches</dt><dd>170 for "roofing company" · 210 for "roofing company near me" (Salt Lake City)</dd>
+      <dt>Placement</dt><dd>Start with the keyword: put it in the title tag, the H1 and the first sentence.</dd>
+    </dl>
+    <p>The home page should link to every service page, the cost page and the reviews page. Show the 4.7-star rating from 51 reviews once the client confirms it.</p>
+  </section>
+
+  <section>
+    <h2>Service pages · build in this order</h2>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>Service</th><th>Target keyword</th><th class="num">Searches SLC</th><th class="num">"Near me" SLC</th><th class="num">Exact keyword</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Roof repair</td><td><code>roof repair salt lake city</code></td><td class="num">320</td><td class="num">110</td><td class="num">140</td><td><span class="tag t-good">Has a page</span></td></tr>
+        <tr><td>2</td><td>Metal roofing</td><td><code>metal roofing salt lake city</code></td><td class="num">170</td><td class="num">10</td><td class="num">40</td><td><span class="tag t-good">Has a page</span></td></tr>
+        <tr><td>3</td><td>Roof installation</td><td><code>roof installation salt lake city</code></td><td class="num">70</td><td class="num">110</td><td class="num">10</td><td><span class="tag t-good">Has a page</span></td></tr>
+        <tr><td>4</td><td>Roof replacement</td><td><code>roof replacement salt lake city</code></td><td class="num">50</td><td class="num">70</td><td class="num">20</td><td><span class="tag t-good">Has a page</span></td></tr>
+        <tr><td>5</td><td>Roof inspection</td><td><code>roof inspection salt lake city</code></td><td class="num">70</td><td class="num">10</td><td class="num">10</td><td><span class="tag t-good">Has a page</span></td></tr>
+        <tr><td>6</td><td>Pre cast concrete</td><td><code>pre cast concrete salt lake city</code></td><td class="num">50</td><td class="num">10</td><td class="num">–</td><td><span class="tag t-warn">Check with Angelo</span></td></tr>
+        <tr><td>7</td><td>Commercial roofing</td><td><code>commercial roofing salt lake city</code></td><td class="num">20</td><td class="num">10</td><td class="num">10</td><td><span class="tag t-good">Has a page</span></td></tr>
+        <tr><td>8</td><td>Flat roof repair</td><td><code>flat roof repair salt lake city</code></td><td class="num">10</td><td class="num">10</td><td class="num">10</td><td><span class="tag t-good">Has a page</span></td></tr>
+        <tr><td>9</td><td>Commercial roof</td><td><code>commercial roof salt lake city</code></td><td class="num">20</td><td class="num">–</td><td class="num">10</td><td><span class="tag t-warn">Merge with #7</span></td></tr>
+        <tr><td>10</td><td>Roofing reviews</td><td><code>roofing reviews salt lake city</code></td><td class="num">10</td><td class="num">10</td><td class="num">10</td><td><span class="tag t-warn">Not a service</span></td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p style="color:var(--muted);font-size:13px">"Exact keyword" = searches for the keyword with the city name, across Utah (for services read from their site: inside Salt Lake City). "–" = fewer than 10 a month; "10" is Google's lowest number. One page per service.</p>
+    <h3>Notes on the list</h3>
+    <ul>
+      <li><b>Pre cast concrete:</b> this is not roofing. People searching it are likely looking for concrete suppliers, not a roofer. Ask Angelo whether the page is a real service (for example concrete roof tiles) or should be left alone and not optimized.</li>
+      <li><b>Commercial roofing + commercial roof:</b> same topic, two pages. They compete with each other. Suggest one page targeting <code>commercial roofing salt lake city</code>, with the other redirected to it. Angelo decides.</li>
+      <li><b>Roofing reviews:</b> keep it as a reviews page with real customer reviews only. Never write or change reviews.</li>
+      <li><b>Roof installation vs. roof replacement:</b> both have pages; keep them different. Suggest: installation = new builds and additions; replacement = tearing off and replacing an old roof.</li>
+      <li><b>Flat roof repair</b> links naturally to commercial roofing.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>More searches Google suggests</h2>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Search</th><th>Use?</th><th>Where</th></tr></thead>
+      <tbody>
+        <tr><td>Residential roof repair salt lake city</td><td><span class="tag t-good">Yes</span></td><td>Roof repair page (section on homes)</td></tr>
+        <tr><td>Best roof repair salt lake city</td><td><span class="tag t-warn">Show, don't claim</span></td><td>Roof repair: reviews, photos, process. Don't call them "the best".</td></tr>
+        <tr><td>Affordable roof repair salt lake city</td><td><span class="tag t-warn">If true</span></td><td>Only with real prices or financing from the client</td></tr>
+        <tr><td>Cheap roof replacement salt lake city</td><td><span class="tag t-warn">If true</span></td><td>Cost page: ways to save, only real offers</td></tr>
+        <tr><td>Best roof replacement salt lake city</td><td><span class="tag t-warn">Show, don't claim</span></td><td>Roof replacement page</td></tr>
+        <tr><td>Roof replacement salt lake city cost</td><td><span class="tag t-good">Yes</span></td><td>Cost page</td></tr>
+        <tr><td>Mobile home roof replacement salt lake city</td><td><span class="tag t-bad">Ask client</span></td><td>Section on replacement page if they do it</td></tr>
+        <tr><td>Mobile roof replacement salt lake city</td><td><span class="tag t-bad">Ask client</span></td><td>Same as above (likely means mobile home)</td></tr>
+        <tr><td>Park City Roofing</td><td><span class="tag t-bad">Skip</span></td><td>Another company's name</td></tr>
+        <tr><td>On the Top Roofing</td><td><span class="tag t-bad">Skip</span></td><td>Another company's name</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>Cost page</h2>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Keyword</th><th class="num">Searches SLC</th><th class="num">All Utah</th><th>City version</th><th class="num">All Utah</th></tr></thead>
+      <tbody>
+        <tr><td>roof replacement cost</td><td class="num">30</td><td class="num">170</td><td>roof replacement cost salt lake city</td><td class="num">–</td></tr>
+        <tr><td>roof repair cost</td><td class="num">10</td><td class="num">30</td><td>roof repair cost salt lake city</td><td class="num">–</td></tr>
+        <tr><td>new roof cost</td><td class="num">20</td><td class="num">70</td><td>new roof cost salt lake city</td><td class="num">–</td></tr>
+        <tr><td>metal roof cost</td><td class="num">20</td><td class="num">90</td><td>metal roof cost salt lake city</td><td class="num">–</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p>One cost page covering all four. With 246 pages, check first whether a cost page already exists; if so, improve it instead of adding a new one. Cost searchers are close to buying. <b>Use only real prices from the client.</b> If the client will not share prices, explain what changes the price (roof size, material, tear-off, pitch) and invite a free estimate instead.</p>
+  </section>
+
+  <section>
+    <h2>City pages</h2>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>City</th><th>Keyword 1</th><th class="num">All Utah</th><th>Keyword 2</th><th class="num">All Utah</th></tr></thead>
+      <tbody>
+        <tr><td>South Jordan</td><td>roof repair south jordan</td><td class="num">30</td><td>roof replacement south jordan</td><td class="num">–</td></tr>
+        <tr><td>Sandy</td><td>roof repair sandy</td><td class="num">30</td><td>roof replacement sandy</td><td class="num">–</td></tr>
+        <tr><td>Draper</td><td>roof repair draper</td><td class="num">10</td><td>roof replacement draper</td><td class="num">–</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p>Build a city page only if the business really works there. Check first whether these cities already have pages among the 246. Each needs real local content, not the Salt Lake City page with the name swapped.</p>
+  </section>
+
+  <section>
+    <h2>What a strong page looks like</h2>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Keyword</th><th class="num">Avg. words (top 3)</th><th class="num">Have FAQ</th><th class="num">Show prices</th></tr></thead>
+      <tbody>
+        <tr><td>roof repair salt lake city</td><td class="num">~1,654</td><td class="num">2 of 3</td><td class="num">0 of 3</td></tr>
+        <tr><td>roof replacement salt lake city</td><td class="num">~1,841</td><td class="num">3 of 3</td><td class="num">0 of 3</td></tr>
+        <tr><td>roof replacement cost salt lake city</td><td class="num">~1,728</td><td class="num">2 of 3</td><td class="num">2 of 3</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <h3>Takeaways</h3>
+    <ul>
+      <li>Aim for about <b>1,600–1,900 words</b> on the main service pages, with an FAQ on each. Compare the current pages against this.</li>
+      <li>No top repair or replacement page shows prices. Real prices (if the client gives them) would set this site apart.</li>
+      <li>Topics competitors cover: insurance claims and storm damage, a simple step-by-step process, Wasatch Front weather, roof lifespan in Utah, how roof size and material change the cost, metal roof pros and cons, recent projects, why choose us.</li>
+    </ul>
+    <p class="note">Use competitor headings for topic ideas only. Do not copy them. One top result for roof repair is a list of competitors ("Whitaker Roofing", "The Roof Doctor"…), and others name their owner or run promotions. Owner bios, promotions and project photos go in only with real facts from the client.</p>
+  </section>
+
+  <section>
+    <h2>FAQ · real questions from Google</h2>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Question</th><th>Use?</th><th>Where</th></tr></thead>
+      <tbody>
+        <tr><td>How can I fix cracks in my roof?</td><td><span class="tag t-good">Yes</span></td><td>Roof repair</td></tr>
+        <tr><td>How long do roofs last in Utah?</td><td><span class="tag t-good">Yes</span></td><td>Roof replacement / metal roofing</td></tr>
+        <tr><td>How to pay for roof repair?</td><td><span class="tag t-warn">If client confirms</span></td><td>Roof repair (insurance / financing, only what they offer)</td></tr>
+        <tr><td>What does "roof repair" mean?</td><td><span class="tag t-good">Yes</span></td><td>Roof repair</td></tr>
+        <tr><td>What is the average cost of replacing a roof in Utah?</td><td><span class="tag t-warn">Real prices only</span></td><td>Cost page</td></tr>
+        <tr><td>What is the 25% rule for roofing?</td><td><span class="tag t-warn">Check Utah rules</span></td><td>Roof replacement</td></tr>
+        <tr><td>Is $50,000 for a new roof good?</td><td><span class="tag t-warn">Real prices only</span></td><td>Cost page</td></tr>
+        <tr><td>What is the average cost to replace a roof on a 2000 square foot home?</td><td><span class="tag t-warn">Real prices only</span></td><td>Cost page</td></tr>
+        <tr><td>What is the typical cost of a new roof for a single-family home in Utah?</td><td><span class="tag t-warn">Real prices only</span></td><td>Cost page</td></tr>
+        <tr><td>What is the 25% roof rule in Florida?</td><td><span class="tag t-bad">Skip</span></td><td>Not relevant to Utah</td></tr>
+        <tr><td>What time of year is the cheapest to replace a roof?</td><td><span class="tag t-good">Yes</span></td><td>Roof replacement or cost page</td></tr>
+        <tr><td>Who are some reputable roofers in Salt Lake City, UT?</td><td><span class="tag t-bad">Skip as written</span></td><td>Cover the intent on the home page and reviews page</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>Rules for the writer</h2>
+    <ul>
+      <li>Start each page with its keyword.</li>
+      <li>Use only facts the client gives you: prices, warranty, years in business, licenses.</li>
+      <li>Do not invent reviews, numbers or photos.</li>
+    </ul>
+    <p style="color:var(--muted);font-size:13px">Search numbers: Google Ads monthly searches, pulled 14 Oct 2026. Questions and page topics: live Google results in Salt Lake City, 14 Oct 2026.</p>
+  </section>
+
+  <section>
+    <h2>Questions for the client</h2>
+    <ol>
+      <li>Is your business name <b>"EZ Roofing Utah"</b>? (Our list says "Z Roofing Utah".)</li>
+      <li>Do you have a <b>local 801 phone number</b>, or should the site keep the toll-free +1888 number? How should it be shown?</li>
+      <li>What is your <b>pre cast concrete</b> page for? Is it a service you offer?</li>
+      <li>OK to <b>merge</b> the "commercial roofing" and "commercial roof" pages into one?</li>
+      <li>Do you replace <b>mobile home roofs</b>?</li>
+      <li>Can you share <b>real prices or price ranges</b> for repair, replacement, new roof and metal roof?</li>
+      <li>Do you work in <b>South Jordan, Sandy and Draper</b>?</li>
+      <li>Are the address, rating (4.7 stars) and review count (51) correct?</li>
+      <li>Do you help with <b>insurance claims</b> or offer <b>financing</b>?</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Next steps</h2>
+    <ul class="check">
+      <li>Send the client questions above (after Angelo approves).</li>
+      <li>Write meta descriptions for the home page and every service page.</li>
+      <li>Home page: title, H1, first sentence with <code>roofing company salt lake city</code>.</li>
+      <li>Add "Salt Lake City" to the title, H1 and first paragraph of every service page. Keep the URLs the same.</li>
+      <li>Angelo: decide on merging the two commercial pages and on the pre cast concrete page.</li>
+      <li>Bring roof repair, metal roofing and replacement up to ~1,600–1,900 words with an FAQ.</li>
+      <li>Angelo: quick check of the 246 pages for thin or repeat pages.</li>
+      <li>Build or improve the cost page once real prices arrive.</li>
+      <li>Re-test mobile speed after changes (keep it 90+).</li>
+    </ul>
+  </section>
+
+  <footer>Novarte AI · Draft for internal review · Audit 5 Oct 2026 · Search data 14 Oct 2026</footer>
+</main>
+</body>
+</html>

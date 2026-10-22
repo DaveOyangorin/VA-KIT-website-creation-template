@@ -1,0 +1,10 @@
+/* utahbluechipcarpetcleaning.com theme: "Spotless", after their tagline. Their logo navy and teal, with the madder red and wool cream of the
+   antique Persian rugs the company started out restoring. Fraunces (old-style warmth) for display, Figtree for text, DM Mono for prices. */
+:root {
+  --paper: #f7f4ee; --sand: #ede7dc; --card: #ffffff; --ink: #13265c; --ink2: #3b4766; --mute: #6c7389; --line: #ddd6c8;
+  --dark: #13265c; --dark2: #1b3274; --on-dark: #f3f1eb; --on-dark2: #aeb6cf; --foot: #0d1b44;
+  --accent: #1aa0c8; --accent-2: #54c4e3; --accent-ink: #0b6f8f; --on-accent: #ffffff; --madder: #a8322a; --wool: #f1e6d0;
+  --f-disp: "Fraunces", Georgia, serif; --f-body: "Figtree", "Segoe UI", system-ui, sans-serif; --f-mono: "DM Mono", ui-monospace, Menlo, Consolas, monospace;
+  --disp-w: 600; --disp-ls: -.02em; --disp-tt: none; --r: 12px; --btn-r: 999px; --hdr: 88px; --logo-h: 62px;
+  color-scheme: light;
+}

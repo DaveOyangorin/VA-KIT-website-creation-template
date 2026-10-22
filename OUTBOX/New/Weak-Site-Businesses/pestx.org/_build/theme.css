@@ -1,0 +1,11 @@
+/* pestx.org theme: "A field guide to the Utah home". Pestx plum #82234C (their mark) and fog #F2F3F0 (their ground); a deep
+   specimen-drawer slate for the dark bands; the site's own type: Libre Baskerville for display, Manrope for text, Fragment Mono for
+   plate labels. One light brand theme by choice (a printed field guide). */
+:root {
+  --paper: #f2f3f0; --sand: #e7e9e2; --card: #fbfbf8; --ink: #161616; --ink2: #3a3c39; --mute: #676a65; --line: #d6d9d0;
+  --dark: #1e292c; --dark2: #283639; --on-dark: #eef0ec; --on-dark2: #a9b3b0; --foot: #172023;
+  --accent: #82234c; --accent-2: #c25c86; --accent-ink: #82234c; --on-accent: #ffffff;
+  --f-disp: "Libre Baskerville", Baskerville, Georgia, "Times New Roman", serif; --f-body: "Manrope", "Segoe UI", system-ui, sans-serif; --f-mono: "Fragment Mono", ui-monospace, Menlo, Consolas, monospace;
+  --disp-w: 400; --disp-ls: -.02em; --disp-tt: none; --r: 2px; --btn-r: 999px; --hdr: 76px; --logo-h: 38px;
+  color-scheme: light;
+}

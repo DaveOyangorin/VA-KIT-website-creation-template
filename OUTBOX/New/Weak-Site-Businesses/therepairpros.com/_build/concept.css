@@ -1,0 +1,120 @@
+/* ===== concept: "The service manual" (21 Oct 2026). Numbered sections, figure captions, spec readouts, a printed work order. ===== */
+body.is-home .site-header { background: var(--paper); color: var(--ink); border-bottom-color: var(--line) }
+body.is-home .site-header .menu summary { border-color: var(--line) }
+body.is-home .site-header .btn, .head-cta .btn { background: var(--accent); border-color: var(--accent); color: var(--on-accent) }
+.label { font: 500 .68rem/1.4 var(--f-mono); letter-spacing: .08em; color: var(--ink2); display: inline-flex; gap: 8px; align-items: center }
+.label .dot { width: 8px; height: 8px; border-radius: 50%; background: #2fb350; box-shadow: 0 0 0 4px rgba(47,179,80,.18) }
+h1 span, h2 span { color: var(--mute) } h2 em { color: var(--ink) }
+.btn.accent { color: var(--on-accent) } .btn.accent:hover { color: var(--on-accent); background: var(--accent-2) } .tlink { border-bottom-color: var(--accent) }
+.draft-strip { background: var(--ink); color: var(--accent) }
+.m-head { max-width: 880px; margin-bottom: 44px } .m-head h2 { font-size: clamp(2.2rem, 4.8vw, 4.2rem); line-height: .98 } .m-head .label { margin-bottom: 18px }
+.split-h { max-width: none; display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr); gap: 40px; align-items: end } .split-h .lede { margin: 0 }
+.sec { border-top: 1px solid var(--line) }
+
+/* hero */
+.m-hero { padding-top: clamp(30px, 4vw, 60px); overflow: hidden }
+.m-hero-in { display: grid; grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr); gap: clamp(28px, 4vw, 64px); align-items: end; padding-bottom: 40px }
+.m-hero h1 { font-size: clamp(2.6rem, 5.8vw, 5.6rem); line-height: .93; letter-spacing: -.045em; margin-bottom: .4em } .m-hero h1 span { display: block; color: var(--mute) }
+.spec { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin: 34px 0 0; border: 1px solid var(--ink); background: var(--card) }
+.spec div { padding: 12px 14px } .spec div + div { border-left: 1px solid var(--ink) } .spec dt { font: 500 .6rem var(--f-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--mute) }
+.spec dd { margin: 6px 0 0; font: 800 clamp(1.25rem, 2vw, 1.8rem)/1 var(--f-disp); letter-spacing: -.03em }
+.m-van { margin: 0 calc(-1 * max(20px, env(safe-area-inset-right, 0px))) 0 0; position: relative }
+.m-van img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; object-position: 40% 55%; border-radius: var(--r) 0 0 var(--r) }
+.m-van figcaption, .g-n { font: 500 .62rem var(--f-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--mute) } .m-van figcaption { margin-top: 10px } .m-van figcaption span, .g-n { color: var(--ink); background: var(--accent); padding: 2px 6px; margin-right: 8px }
+.brandline { background: var(--ink); color: var(--on-dark); padding: 14px 0 } .brandline .wrap { display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 28px }
+.brandline span { font: 500 .62rem var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--accent) } .brandline b { font: 800 1.3rem var(--f-disp); letter-spacing: -.02em } .brandline .bl-more { color: var(--on-dark2); margin-left: auto }
+
+/* signature: diagnose -> work order */
+.m-diag { background: var(--sand) }
+.dg-in { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: clamp(24px, 4vw, 60px); align-items: start }
+.step-k { display: flex; gap: 10px; align-items: center; font: 500 .7rem var(--f-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--ink2); margin: 0 0 12px }
+.step-k b { width: 26px; height: 26px; border-radius: 50%; background: var(--ink); color: var(--accent); display: grid; place-items: center; font-weight: 500 }
+.dg-tabs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin-bottom: 30px }
+.dg-tab, .dg-sy button { font: 700 1rem var(--f-body); text-align: left; padding: 16px 16px; border: 1px solid var(--ink); background: var(--card); color: var(--ink); border-radius: var(--r); cursor: pointer; transition: background .15s, transform .15s }
+.dg-tab:hover, .dg-sy button:hover { transform: translateY(-2px) } .dg-tab.on { background: var(--ink); color: var(--accent) }
+.dg-sy { display: none; flex-wrap: wrap; gap: 8px } .dg-sy.on { display: flex } .dg-sy button { padding: 12px 16px; font-weight: 600 } .dg-sy button.on { background: var(--accent); border-color: var(--accent) }
+.ticket { position: sticky; top: calc(var(--hdr) + 20px); perspective: 900px }
+.tk-paper { position: relative; background: #fffdf3; border: 1px solid #cfcab5; padding: 22px 22px 26px; font-family: var(--f-mono); box-shadow: 0 30px 60px -36px rgba(0,0,0,.45); transform-origin: top; background-image: repeating-linear-gradient(0deg, transparent 0 31px, rgba(0,0,0,.035) 31px 32px) }
+.tk-paper.tk-pr { animation: tkpr .7s cubic-bezier(.2,.7,.2,1) } @keyframes tkpr { from { transform: translateY(-14px) rotateX(10deg); opacity: .4 } to { transform: none; opacity: 1 } }
+.tk-head { display: flex; justify-content: space-between; font: 500 .64rem var(--f-mono); letter-spacing: .1em; text-transform: uppercase; border-bottom: 2px dashed var(--ink); padding-bottom: 12px; margin-bottom: 6px }
+.tk-head span:first-child { font: 900 italic 1rem var(--f-disp); letter-spacing: -.02em; text-transform: none }
+.tk-paper dl { margin: 0 } .tk-paper dl div { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 10px; padding: 10px 0; border-bottom: 1px dotted #b9b39b }
+.tk-paper dt { font-size: .6rem; letter-spacing: .08em; text-transform: uppercase; color: var(--mute); padding-top: 3px } .tk-paper dd { margin: 0; font: 500 .8rem/1.5 var(--f-mono) } .tk-paper dd b { background: var(--accent); padding: 0 4px; font-weight: 500 }
+[data-tk-app], [data-tk-sym] { font: 800 1.15rem/1.2 var(--f-disp) !important; letter-spacing: -.02em } [data-tk-sym].empty { color: var(--mute); font-weight: 600 !important }
+.tk-foot { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-top: 18px } .tk-call { display: inline-flex; gap: 6px; align-items: center; font: 500 .8rem var(--f-mono); text-decoration: none } .tk-call svg { width: 14px; height: 14px }
+.tk-tear { position: absolute; left: 0; right: 0; bottom: -10px; height: 10px; background: radial-gradient(circle at 8px -2px, transparent 7px, #fffdf3 7.5px) 0 0 / 16px 10px repeat-x }
+
+/* gallery of their jobs */
+.m-gal { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 18px; align-items: start }
+.g { display: grid; gap: 6px; text-decoration: none; align-content: start } .g figure { margin: 0 0 8px; overflow: hidden; border-radius: var(--r); background: var(--sand) } .g img { width: 100%; object-fit: cover; transition: transform .8s cubic-bezier(.2,.7,.2,1) } .g:hover img { transform: scale(1.04) }
+.g b { font: 800 1.5rem/1 var(--f-disp); letter-spacing: -.03em } .g p { margin: 0; color: var(--ink2); font-size: .95rem } .g .g-n { justify-self: start }
+.g1 { grid-column: 1 / 5 } .g1 img { aspect-ratio: 3 / 4 } .g2 { grid-column: 5 / 9; margin-top: 70px } .g2 img { aspect-ratio: 3 / 4 } .g3 { grid-column: 9 / 13; margin-top: 20px } .g3 img { aspect-ratio: 3 / 4; object-position: 50% 70% }
+.g4 { grid-column: 1 / 5; margin-top: -40px } .g4 img { aspect-ratio: 1 } .g5 { grid-column: 5 / 11; margin-top: 30px } .g5 img { aspect-ratio: 16 / 8 }
+.g6 { grid-column: 11 / 13; margin-top: 30px; background: var(--ink); color: var(--on-dark); padding: 20px; border-radius: var(--r) } .g6 b { font-size: 1.15rem } .g6 p { color: var(--on-dark2) } .g6 .tlink { color: var(--accent); margin-top: 8px } .g6 .g-n { background: var(--accent) }
+
+/* brands */
+.m-brands { background: var(--dark); color: var(--on-dark) } .m-brands h2 { color: var(--on-dark) } .m-brands h2 span { color: var(--on-dark2) } .m-brands .label { color: var(--accent) }
+.br-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid rgba(255,255,255,.18) }
+.br { padding: 26px 22px 30px 0; display: grid; gap: 8px; align-content: start } .br + .br { padding-left: 22px; border-left: 1px solid rgba(255,255,255,.18) }
+.br-k { font: 500 .62rem var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--accent) } .br b { font: 900 clamp(1.8rem, 3vw, 2.6rem)/1 var(--f-disp); letter-spacing: -.04em } .br p { margin: 0; color: var(--on-dark2) }
+.br-other { margin: 30px 0 0; padding-top: 20px; border-top: 1px solid rgba(255,255,255,.18); color: var(--on-dark2) } .br-other b { color: var(--on-dark) }
+
+/* how it works */
+.steps { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; counter-reset: s; position: relative }
+.steps::before { content: ""; position: absolute; left: 0; right: 0; top: 22px; height: 2px; background: repeating-linear-gradient(90deg, var(--ink) 0 8px, transparent 8px 14px) }
+.steps li { position: relative; padding: 0 22px 0 0; display: grid; gap: 8px } .st-n { width: 46px; height: 46px; border-radius: 50%; background: var(--accent); border: 2px solid var(--ink); display: grid; place-items: center; font: 500 .8rem var(--f-mono); position: relative; margin-bottom: 10px }
+.steps b { font: 800 1.45rem/1.05 var(--f-disp); letter-spacing: -.03em } .steps p { margin: 0; color: var(--ink2) }
+
+/* price gauges */
+.m-price { background: var(--accent) } .m-price .label { color: var(--ink) } .m-price h2 { font-size: clamp(2.2rem, 4.4vw, 3.8rem); line-height: .98 } .m-price p { max-width: 50ch }
+.m-price-in { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: clamp(28px, 5vw, 80px); align-items: center }
+.gauge { display: grid; gap: 0; border: 2px solid var(--ink); background: var(--paper) } .gg { display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 4px 20px; padding: 18px 20px; align-items: center } .gg + .gg { border-top: 2px solid var(--ink) }
+.gg small { grid-column: 1 / -1; font: 500 .62rem var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--mute) } .gg b { font: 900 clamp(2.2rem, 4vw, 3.4rem)/1 var(--f-disp); letter-spacing: -.05em } .gg b i { font-style: normal; color: var(--mute); font-size: .6em } .gg span { color: var(--ink2) }
+
+/* why + quotes */
+.why { list-style: none; padding: 0; margin: 0 0 56px; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); border-top: 2px solid var(--ink) }
+.why li { padding: 18px 18px 0 0 } .why li + li { padding-left: 18px; border-left: 1px solid var(--line) } .why b { font: 800 1.2rem/1.1 var(--f-disp); letter-spacing: -.02em } .why p { margin: 8px 0 0; color: var(--ink2); font-size: .95rem }
+.quotes { position: relative; display: grid; background: var(--card); border: 1px solid var(--line); padding: clamp(24px, 4vw, 50px); min-height: 280px }
+.q { grid-area: 1 / 1; margin: 0; opacity: 0; visibility: hidden; transition: opacity .4s, visibility .4s } .q.on { opacity: 1; visibility: visible }
+.q p { font: 700 clamp(1.3rem, 2.4vw, 2rem)/1.25 var(--f-disp); letter-spacing: -.02em; max-width: 40ch; margin: 0 0 18px } .q footer { font: 500 .72rem var(--f-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--mute) } .q footer::before { content: "\2014  " }
+.q-nav { grid-area: 1 / 1; align-self: end; justify-self: end; display: flex; gap: 10px; align-items: center; font: 500 .7rem var(--f-mono) } .q-nav button { width: 42px; height: 42px; border: 1px solid var(--ink); background: transparent; border-radius: 50%; cursor: pointer; font-size: 1rem; color: var(--ink) } .q-nav button:hover { background: var(--accent) }
+
+/* service area */
+.ar { display: grid; grid-template-columns: 300px minmax(0, 1fr); gap: 0; border: 1px solid var(--ink); background: var(--card) }
+.ar-tabs { display: grid; align-content: start; border-right: 1px solid var(--ink) } .ar-tab { text-align: left; padding: 18px 20px; border: 0; border-bottom: 1px solid var(--line); background: transparent; font: 800 1.25rem var(--f-disp); letter-spacing: -.02em; cursor: pointer; color: var(--ink) }
+.ar-tab small { display: block; font: 500 .62rem var(--f-mono); letter-spacing: .06em; color: var(--mute); margin-top: 4px } .ar-tab.on { background: var(--accent) } .ar-tab.on small { color: var(--ink) }
+.ar-list { display: none; list-style: none; margin: 0; padding: 22px; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 18px; align-content: start } .ar-list.on { display: grid }
+.ar-list li { padding: 9px 0; border-bottom: 1px solid var(--line); font-weight: 600 } .ar-list li::before { content: "\25CF"; color: var(--accent); margin-right: 8px; font-size: .7em; vertical-align: 2px; -webkit-text-stroke: 1px var(--ink) }
+
+/* book */
+.m-book h2 { font-size: clamp(2.2rem, 4.4vw, 3.6rem) } .faq-h { margin-top: 34px; font-size: 1.1rem } .sms { font-size: .76rem; color: var(--mute); line-height: 1.5; margin: 0 }
+.form select { font: 400 1rem var(--f-body); color: var(--ink); background: var(--paper); border: 1px solid var(--line); border-radius: 4px; padding: 12px; width: 100% }
+.form input, .form textarea { border-radius: 4px } .form { border: 2px solid var(--ink); border-radius: var(--r) } .form.flash { animation: flash 1.2s ease } @keyframes flash { 0%, 100% { box-shadow: none } 30% { box-shadow: 0 0 0 6px var(--accent) } }
+.post-band { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 24px; align-items: center; padding: 26px 28px; border: 2px solid var(--ink); text-decoration: none; background: var(--card); border-radius: var(--r) }
+.post-band b { font: 800 clamp(1.3rem, 2.4vw, 2rem)/1.1 var(--f-disp); letter-spacing: -.03em } .post-band em { font-style: normal; font-weight: 700; display: inline-flex; gap: 6px; align-items: center; background: var(--accent); padding: 10px 14px; border-radius: 4px } .post-band em svg { width: 1em; height: 1em }
+.m-blog { padding: 56px 0 }
+
+/* cta, footer, inner pages */
+.cta { background: var(--dark) } .cta .label { color: var(--accent) } .cta .btn.accent { background: var(--accent); border-color: var(--accent); color: var(--on-accent) } .office small { color: var(--accent) }
+.site-footer { border-top: 6px solid var(--accent) } .flogo img { width: 220px } .fareas b { color: var(--accent) } .foot a:hover { color: var(--accent) }
+.callbar a:last-child { background: var(--accent); color: var(--on-accent) }
+.phero-full .label { color: var(--accent) } .phero-full.no-photo { background: var(--dark) } .phero-full h1 { letter-spacing: -.04em }
+.side-card { background: var(--dark) } .side-card .label { color: var(--accent) } .side-card .btn { background: var(--accent); border-color: var(--accent); color: var(--on-accent) }
+.answer { border-left-color: var(--accent) }
+.tbl { overflow-x: auto; margin: 1.2em 0 } .tbl table { border-collapse: collapse; width: 100%; font-size: .95rem; background: var(--card); border: 1px solid var(--ink) } .tbl th, .tbl td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--line) } .tbl th { font: 500 .66rem var(--f-mono); letter-spacing: .06em; text-transform: uppercase; background: var(--ink); color: var(--accent) } .tbl td:last-child { font: 800 1.1rem var(--f-disp) }
+
+@media (prefers-reduced-motion: reduce) { .tk-paper.tk-pr { animation: none } .g img, .dg-tab, .dg-sy button { transition: none } .form.flash { animation: none } }
+@media (max-width: 1100px) { .why { grid-template-columns: repeat(3, minmax(0, 1fr)) } .why li:nth-child(4) { padding-left: 0; border-left: 0 } }
+@media (max-width: 900px) {
+  .m-hero-in, .dg-in, .m-price-in, .split-h, .ar { grid-template-columns: minmax(0, 1fr) } .m-van { margin: 0 } .m-van img { border-radius: var(--r) } .ticket { position: static }
+  .br-grid, .steps { grid-template-columns: repeat(2, minmax(0, 1fr)) } .br:nth-child(3) { padding-left: 0; border-left: 0 } .steps { row-gap: 30px } .steps::before { display: none }
+  .m-gal { grid-template-columns: repeat(2, minmax(0, 1fr)) } .g1, .g2, .g3, .g4, .g5, .g6 { grid-column: auto; margin-top: 0 } .g5 { grid-column: 1 / -1 } .g6 { grid-column: 1 / -1 }
+  .ar-tabs { grid-template-columns: repeat(2, minmax(0, 1fr)); border-right: 0; border-bottom: 1px solid var(--ink) } .ar-tab:nth-child(odd) { border-right: 1px solid var(--line) } .ar-list { grid-template-columns: repeat(2, minmax(0, 1fr)) }
+}
+@media (max-width: 640px) {
+  .m-hero h1 { font-size: clamp(2.4rem, 11vw, 3.4rem) } .spec { grid-template-columns: repeat(2, minmax(0, 1fr)) } .spec div:nth-child(3) { border-left: 0 } .spec div:nth-child(n+3) { border-top: 1px solid var(--ink) }
+  .dg-tabs { grid-template-columns: repeat(2, minmax(0, 1fr)) } .dg-tab { padding: 13px 12px; font-size: .95rem } .tk-paper dl div { grid-template-columns: 78px minmax(0, 1fr) }
+  .why, .br-grid, .steps { grid-template-columns: minmax(0, 1fr) } .why li, .why li + li, .br, .br + .br { padding-left: 0; border-left: 0 } .why li + li, .br + .br { border-top: 1px solid var(--line) }
+  .br + .br { border-top-color: rgba(255,255,255,.18) } .gg { grid-template-columns: minmax(0, 1fr) } .m-gal { grid-template-columns: minmax(0, 1fr) } .g img { aspect-ratio: 4 / 3 !important }
+  .ar-list { grid-template-columns: minmax(0, 1fr) 1fr; padding: 14px } .ar-tab { font-size: 1.05rem; padding: 14px } .post-band { grid-template-columns: minmax(0, 1fr) } .brandline .bl-more { margin-left: 0 } .quotes { min-height: 380px }
+}

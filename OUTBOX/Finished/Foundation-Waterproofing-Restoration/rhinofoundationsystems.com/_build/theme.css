@@ -1,0 +1,13 @@
+/* rhinofoundationsystems.com theme: "Down to solid ground". The black rhino logo and Rhino blue #1478A2 from their own banners;
+   a deep subsoil navy for the dark grounds; bone-white paper; soil strata (loam, silt, clay, sand, bearing) as the secondary palette.
+   Archivo at its widest (wdth 125) for heavy, planted display type; Public Sans for text; JetBrains Mono for depth readouts.
+   One light brand theme by choice. */
+:root {
+  --paper: #f1eee8; --sand: #e6e1d7; --card: #fbfaf7; --ink: #121417; --ink2: #3c4148; --mute: #676b70; --line: #d5cfc3;
+  --dark: #0d1620; --dark2: #16222e; --on-dark: #eef1f3; --on-dark2: #a2adb7; --foot: #0a1118;
+  --accent: #1478a2; --accent-2: #3fa9d6; --accent-ink: #0f6489; --on-accent: #ffffff;
+  --loam: #4b3a2b; --silt: #a38c6b; --clay: #9a5b3e; --sandsoil: #d4bf92; --bear: #59606a;
+  --f-disp: "Archivo", "Arial Black", "Segoe UI", system-ui, sans-serif; --f-body: "Public Sans", "Segoe UI", system-ui, sans-serif; --f-mono: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+  --disp-w: 850; --disp-ls: -.01em; --disp-tt: none; --r: 2px; --btn-r: 2px; --hdr: 80px; --logo-h: 40px;
+  color-scheme: light;
+}
