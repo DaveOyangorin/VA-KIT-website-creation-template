@@ -11,6 +11,30 @@ Last updated: 19 Oct 2026
 
 ## Website redesigns (this kit)
 
+### anyandallservices.com: Any & All Services (Salt Lake City)
+- **Preview link:** https://claude.ai/artifact/XEDjGNAfB6LMNFGr43ZTfv
+- **Sharing:** Private until shared (open the link, Share, Anyone with the link)
+- **Mobile header:** Applied and checked 22 Oct (incl. scrolled header)
+- **Made:** 22 Oct 2026 · premium: "Breaker panel", from researched references (Studio McGee, Dwell, ArchDaily). Credited Commons photo of Salt Lake City at night as banner; signature breaker panel (flip project parts → a one-line description dropped into their estimate form).
+- **What it is:** ⚠ NOT A CLIENT YET. Do not contact this business. ⚠ The live site now says they CONNECT homeowners with electricians (referral model): check before pitching. 6 pages at the same URLs + 1 new post. Home targets "electrician salt lake city", honestly framed, one H1. ⚠ 13 vs 14 years on their own site. Wix template legal pages kept noindex. New blog post: "6 signs you need an electrician, according to NFPA" (1,145 words, NFPA and UL sources).
+- **Files:** `OUTBOX\New\Weak-Site-Businesses\anyandallservices.com\`
+  - `site\` = files to put live
+  - `preview\` = the review copy behind the link
+  - `2026-10-22_anyandallservices.com_site-notes.md` = notes and questions for Angelo
+  - `2026-10-21_anyandallservices.com_report.html` = the website plan report
+
+### sterlingtreeco.godaddysites.com: Sterling Tree Co. (Salt Lake City)
+- **Preview link:** https://claude.ai/artifact/VneVXfgXqnNncKDiy9ey2e
+- **Sharing:** Private until shared (open the link, Share, Anyone with the link)
+- **Mobile header:** Applied and checked 22 Oct (incl. scrolled header)
+- **Made:** 22 Oct 2026 · premium: "Canopy", from researched references (Studio McGee, Dwell, ArchDaily). Full-width photo of their arborist in a London plane above Salt Lake City; signature tree check (ISA's 11-question tree risk checklist drawn onto a tree, with ISA's management options matched to their services).
+- **What it is:** ⚠ NOT A CLIENT YET. Do not contact this business. 1 page at the same URL (free GoDaddy subdomain) rebuilt as a full home page (137 → 743 words) + 1 new post. Home targets "tree service salt lake city". ⚠ Phone is a 315 (New York) number: copied exactly, ask for a local one. Rating left out until confirmed. New blog post: "Why topping hurts trees (and what arborists do instead)" (1,218 words, ISA sources).
+- **Files:** `OUTBOX\New\Weak-Site-Businesses\sterlingtreeco.godaddysites.com\`
+  - `site\` = files to put live
+  - `preview\` = the review copy behind the link
+  - `2026-10-22_sterlingtreeco.godaddysites.com_site-notes.md` = notes and questions for Angelo
+  - `2026-10-21_sterlingtreeco.godaddysites.com_report.html` = the website plan report
+
 ### actionyardcare.com: Action Lawn & Yardcare (Murray)
 - **Preview link:** https://claude.ai/artifact/MJNDgF8Xq98TbyiBSk6fTv
 - **Sharing:** Private until shared (open the link, Share, Anyone with the link)

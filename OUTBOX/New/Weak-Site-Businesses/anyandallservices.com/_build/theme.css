@@ -1,0 +1,11 @@
+/* anyandallservices.com theme: "Breaker panel". Their logo is a black hexagon with a red rule; the site's idea is plain talk, not a
+   sales pitch. So: matte black and panel grey, a single signal red, warm filament amber for "on". Oswald (condensed, like panel labels)
+   for display, Inter for text, Share Tech Mono for breaker labels. */
+:root {
+  --paper: #f4f4f2; --sand: #e7e7e3; --card: #ffffff; --ink: #161618; --ink2: #44464b; --mute: #6f7177; --line: #d8d8d3;
+  --dark: #0e0e10; --dark2: #1c1c20; --on-dark: #f3f3f1; --on-dark2: #a9abb1; --foot: #08080a;
+  --accent: #d6262f; --accent-2: #ef4a51; --accent-ink: #b01c24; --on-accent: #ffffff; --amber: #ffb547;
+  --f-disp: "Oswald", "Arial Narrow", system-ui, sans-serif; --f-body: "Inter", "Segoe UI", system-ui, sans-serif; --f-mono: "Share Tech Mono", ui-monospace, Menlo, Consolas, monospace;
+  --disp-w: 600; --disp-ls: .01em; --disp-tt: uppercase; --r: 6px; --btn-r: 4px; --hdr: 84px; --logo-h: 50px;
+  color-scheme: light;
+}

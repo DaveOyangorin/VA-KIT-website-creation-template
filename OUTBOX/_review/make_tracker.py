@@ -14,6 +14,8 @@ SHARED = {"customroofs.biz", "mandmgutters.com", "roofwiseut.com", "jordanriverr
 # Mobile header fix (sticky header + mobile menu panel), applied to every redesign and republished 18 Oct 2026.
 MOBILE_FIX = "Fixed and republished 18 Oct"
 STATUS = {
+    "anyandallservices.com": ("Premium", "Built premium from the start (21 Oct)"),
+    "sterlingtreeco.godaddysites.com": ("Premium", "Built premium from the start (21 Oct)"),
     "actionyardcare.com": ("Premium", "Built premium from the start (21 Oct)"),
     "danielswildlife.com": ("Premium", "Built premium from the start (21 Oct)"),
     "greenjanitorialservice.com": ("Premium", "Built premium from the start (21 Oct)"),

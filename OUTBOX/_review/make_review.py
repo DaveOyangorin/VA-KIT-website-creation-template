@@ -14,6 +14,23 @@ SHOTS = sys.argv[2]
 
 CLIENTS = [
     {
+        "key": "New/Weak-Site-Businesses/anyandallservices.com", "name": "Any & All Services", "city": "Salt Lake City, UT", "title": "Any & All Services Review",
+        "report": "2026-10-21_anyandallservices.com_report.html", "old": "old_aa", "new": "new_aa",
+        "stats": [("6", "pages, same URLs (+1 post)"), ("8", "breakers on the project panel"), ("508", "home page words (was 157)"), ("0", "QA issues")],
+        "fixes": [
+            ("Not a client yet", "Draft only. Do not contact this business.", "Needs Angelo"),
+            ("Business model changed", "The live site now says it connects homeowners with trusted local electricians (\"we handle the shopping around\"). The draft says exactly that. Targeting \"electrician salt lake city\" for a referral service needs Angelo's call.", "Needs Angelo"),
+            ("Home target \"electrician salt lake city\"; 2 H1s; no page names Salt Lake City; no tap-to-call", "One H1 naming an electrician in Salt Lake City, honestly framed; tap-to-call throughout; LocalBusiness schema without an address (service-area business)", "Fixed"),
+            ("Years conflict", "Page says over 14 years; meta says over 13. Draft uses the page's 14; flagged", "Needs client"),
+            ("No photos of their own", "Banner is a credited Wikimedia Commons photo of Salt Lake City at night; no stock image is presented as their work", "Fixed"),
+            ("Template look", "\"Breaker panel\": black and red from their logo; signature breaker panel that turns the project parts you switch on into a description and drops it into their estimate form", "Fixed"),
+            ("Legal pages are unedited Wix templates", "Kept at their URLs, noindex, with a notice pointing to their email; real policies needed from the client", "Needs client"),
+            ("No blog", "A new 1145-word post on signs you need an electrician (NFPA and UL sources)", "Fixed"),
+        ],
+        "questions": ["Do you still do electrical work yourselves, or only connect homeowners with electricians?", "Over 13 years or over 14 years?", "Which project types and HVAC work should we list as services?", "Do you have real privacy, terms and refund policies to replace the Wix templates?"],
+        "pages": [("Home", "home/index.html"), ("New blog post", "signs-you-need-an-electrician/index.html"), ("Book online", "book-online/index.html")],
+    },
+    {
         "key": "New/Weak-Site-Businesses/sterlingtreeco.godaddysites.com", "name": "Sterling Tree Co.", "city": "Salt Lake City, UT", "title": "Sterling Tree Co. Review",
         "report": "2026-10-21_sterlingtreeco.godaddysites.com_report.html", "old": "old_st", "new": "new_st",
         "stats": [("1", "page, same URL (+1 post)"), ("11", "ISA checklist questions on the tree"), ("743", "home page words (was 137)"), ("0", "QA issues")],
