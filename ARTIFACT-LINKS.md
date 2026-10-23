@@ -11,6 +11,90 @@ Last updated: 19 Oct 2026
 
 ## Website redesigns (this kit)
 
+### jacksonplumbinghvac.com: Jackson Family Plumbing & HVAC (West Jordan)
+- **Preview link:** https://claude.ai/artifact/CPRKjw5jkso5N8x2fxqYxi
+- **Sharing:** Private until shared (open the link, Share, Anyone with the link)
+- **Mobile header:** Applied and checked 23 Oct (incl. scrolled header)
+- **Made:** 23 Oct 2026 · premium (lean): "Main line", art-directed from design references (smart-meter dashboards, Dwell). Navy, copper, frost blue; credited West Jordan aerial banner; signature working two-hour water-meter leak test (EPA WaterSense method and figures).
+- **What it is:** ⚠ NOT A CLIENT YET. Do not contact this business. ⚠ The live page is a "Colorado 24/7 Plumbing Call" template with no phone and nothing to recover (archive back to 2024 is the same). Built from the Google listing only: home + contact + 1 new post. Home targets "plumber west jordan" (630 words; no services, hours, licenses or rating invented). New blog post: "How to keep pipes from freezing (and what to do if they do)" (1,175 words, IBHS, USU Extension and NWS sources).
+- **Files:** `OUTBOX\New\Weak-Site-Businesses\jacksonplumbinghvac.com\`
+  - `site\` = files to put live
+  - `preview\` = the review copy behind the link
+  - `2026-10-23_jacksonplumbinghvac.com_site-notes.md` = notes and questions for Angelo
+  - `2026-10-21_jacksonplumbinghvac.com_report.html` = the website plan report
+
+### dsihvac.com: Proformance Heating and Air (Draper)
+- **Preview link:** https://claude.ai/artifact/AL6qDWamg184CgbJaLR3Db
+- **Sharing:** Private until shared (open the link, Share, Anyone with the link)
+- **Mobile header:** Applied and checked 23 Oct (incl. scrolled header)
+- **Made:** 23 Oct 2026 · premium: "Swing", art-directed from design references (Nest, Carrier, Dwell). Slate, furnace orange and coil blue; credited Corner Canyon banner; signature "Maintain, repair or replace?" thermostat dial built on their three services and ENERGY STAR guidance. Their own install photos and 2018 Trane award.
+- **What it is:** ⚠ NOT A CLIENT YET. Do not contact this business. ⚠ CHECK FIRST: the domain and old site say "DSI HVAC", Google says Proformance (same phone number). Site down, so it was rebuilt from Internet Archive captures (Nov 2025 and Jan 2026): 7 pages at the same Wix URLs + 1 new post. Home targets "hvac company draper". DSI logo not used; rating left out. New blog post: "How often to change your furnace filter (and what MERV rating to buy)" (1,269 words, EPA and ENERGY STAR sources).
+- **Files:** `OUTBOX\New\Weak-Site-Businesses\dsihvac.com\`
+  - `site\` = files to put live
+  - `preview\` = the review copy behind the link
+  - `2026-10-23_dsihvac.com_site-notes.md` = notes and questions for Angelo
+  - `2026-10-21_dsihvac.com_report.html` = the website plan report
+
+### marble-builders.com: Marble Builders (Riverton)
+- **Preview link:** https://claude.ai/artifact/Q9dcVxd3VWZVsbNmCdKHfv
+- **Sharing:** Private until shared (open the link, Share, Anyone with the link)
+- **Mobile header:** Applied and checked 23 Oct (incl. scrolled header)
+- **Made:** 23 Oct 2026 · premium: "Veined", from researched references (Studio McGee, Dwell, ArchDaily). Honed charcoal, CSS-drawn marble veining, brass; credited Lone Peak banner; signature two-lane "After the damage" rebuild timeline (restoration company vs Marble), written from their own posts.
+- **What it is:** ⚠ NOT A CLIENT YET. Do not contact this business. Live site suspended, so it was rebuilt from Internet Archive captures (Mar–Sep 2025): 60 pages at the same WordPress URLs + 1 new post. Home targets "general contractor riverton". ⚠ Three phone numbers (Google's 801-828-5540 used); copied "Marble Homes" FAQs removed; no project photos archived; 10 unrecoverable pages and the WordPress demo pages kept noindex; rating left out. New blog post: "Lead paint and asbestos: what to know before remodeling an older home" (1,249 words, five EPA sources).
+- **Files:** `OUTBOX\New\Weak-Site-Businesses\marble-builders.com\`
+  - `site\` = files to put live
+  - `preview\` = the review copy behind the link
+  - `2026-10-23_marble-builders.com_site-notes.md` = notes and questions for Angelo
+  - `2026-10-21_marble-builders.com_report.html` = the website plan report
+
+### prestigetreeandlandscape.com: Prestige Tree And Landscape (Murray)
+- **Preview link:** https://claude.ai/artifact/WPVS4xgTgXQWwQDBK3atWJ
+- **Sharing:** Private until shared (open the link, Share, Anyone with the link)
+- **Mobile header:** Applied and checked 23 Oct (incl. scrolled header)
+- **Made:** 23 Oct 2026 · premium: "Growth rings", from researched references (Studio McGee, Dwell, ArchDaily). Credited Big Cottonwood Canyon banner; signature cut trunk with one ring per year since 1978 (gold rings tell their milestones). The arborist's own crane and climbing photos.
+- **What it is:** ⚠ NOT A CLIENT YET. Do not contact this business. 35 pages at the same .php URLs (site build writes real .php files) + 1 new post. Blank live home page replaced; home targets "tree service murray". ⚠ 1996 vs 1997 certification; WSJ/Disney claims and rating left out. Live backup files kept noindex (should be deleted). New blog post: "How to mulch around trees (and why mulch volcanoes hurt them)" (1,251 words, ISA and USDA Forest Service sources).
+- **Files:** `OUTBOX\New\Weak-Site-Businesses\prestigetreeandlandscape.com\`
+  - `site\` = files to put live
+  - `preview\` = the review copy behind the link
+  - `2026-10-23_prestigetreeandlandscape.com_site-notes.md` = notes and questions for Angelo
+  - `2026-10-21_prestigetreeandlandscape.com_report.html` = the website plan report
+
+### pineapplepropertygroup.com: Pineapple Property Group (Salt Lake City)
+- **Preview link:** https://claude.ai/artifact/R6DVER57ftYS7bXc55rs8e
+- **Sharing:** Private until shared (open the link, Share, Anyone with the link)
+- **Mobile header:** Applied and checked 23 Oct (incl. scrolled header)
+- **Made:** 23 Oct 2026 · premium: "The owner's ledger", from researched references (Studio McGee, Dwell, ArchDaily). Credited Commons photo of the Belvedere Apartments downtown with a "90 days, then 5%" tag; signature working valuation tool (owner statement: NOI, cap rate, cash flow, cash on cash, 5% vs 10% fee, value of 90 free days). The live tool shows lorem ipsum.
+- **What it is:** ⚠ NOT A CLIENT YET. Do not contact this business. ⚠ Live site blocks our network: built from Internet Archive captures (2025–2026). 10 pages at the same URLs (2 empty duplicates kept noindex) + 1 new post. Home targets "property management salt lake city", now one H1 (was 5). Their KPI and property-return figures kept and labelled as theirs; rating left out. New blog post: "Fair housing basics every Salt Lake City landlord should know" (1,145 words, Fair Housing Act text and U.S. DOJ sources).
+- **Files:** `OUTBOX\New\Weak-Site-Businesses\pineapplepropertygroup.com\`
+  - `site\` = files to put live
+  - `preview\` = the review copy behind the link
+  - `2026-10-23_pineapplepropertygroup.com_site-notes.md` = notes and questions for Angelo
+  - `2026-10-21_pineapplepropertygroup.com_report.html` = the website plan report
+
+### whitepineplumbingut.com: White Pine Plumbing (South Jordan)
+- **Preview link:** https://claude.ai/artifact/FXe8rjPexaoeJu8UMYx5Nm
+- **Sharing:** Private until shared (open the link, Share, Anyone with the link)
+- **Mobile header:** Applied and checked 22 Oct (incl. scrolled header)
+- **Made:** 22 Oct 2026 · premium: "Rooted & flowing", from researched references (Studio McGee, Dwell, ArchDaily). Credited Commons sunset over South Jordan, their five-person team front and center; signature pipeline (five valves open their five process steps, water flows along the pipe).
+- **What it is:** ⚠ NOT A CLIENT YET. Do not contact this business. 4 pages at the same URLs (empty /blank/ becomes the blog index) + 1 new post. Home targets "plumber south jordan", now with one H1. ⚠ Phone is a 435 number: copied exactly. Stock images not used; rating left out. New blog post: "Hard water and your plumbing: what it does and how to check yours" (1,121 words, USGS and EPA sources).
+- **Files:** `OUTBOX\New\Weak-Site-Businesses\whitepineplumbingut.com\`
+  - `site\` = files to put live
+  - `preview\` = the review copy behind the link
+  - `2026-10-22_whitepineplumbingut.com_site-notes.md` = notes and questions for Angelo
+  - `2026-10-21_whitepineplumbingut.com_report.html` = the website plan report
+
+### hvaccowboy.com: Cowboy Heating & Air (Lehi)
+- **Preview link:** https://claude.ai/artifact/MC4t41ej3hDwZ5cSmFUf2K
+- **Sharing:** Private until shared (open the link, Share, Anyone with the link)
+- **Mobile header:** Applied and checked 22 Oct (incl. scrolled header)
+- **Made:** 22 Oct 2026 · premium: "Home or business", from researched references (Studio McGee, Dwell, ArchDaily). Their branded car under a Utah Valley sunset; signature rope switch (Homeowner / Business) that re-saddles headline, services, job photos and the quote form.
+- **What it is:** ⚠ NOT A CLIENT YET. Do not contact this business. Live site is a JavaScript app (search engines see 10 words): rebuilt as plain HTML (630 readable words) + 1 new post. Home targets "hvac company lehi". ⚠ Live schema says 3 reviews vs 162 on Google: rating left out. Award and Daikin/Bryant claims kept, to confirm. New blog post: "Carbon monoxide and your furnace: what to know before winter" (1,065 words, EPA and NFPA sources).
+- **Files:** `OUTBOX\New\Weak-Site-Businesses\hvaccowboy.com\`
+  - `site\` = files to put live
+  - `preview\` = the review copy behind the link
+  - `2026-10-22_hvaccowboy.com_site-notes.md` = notes and questions for Angelo
+  - `2026-10-21_hvaccowboy.com_report.html` = the website plan report
+
 ### anyandallservices.com: Any & All Services (Salt Lake City)
 - **Preview link:** https://claude.ai/artifact/XEDjGNAfB6LMNFGr43ZTfv
 - **Sharing:** Private until shared (open the link, Share, Anyone with the link)

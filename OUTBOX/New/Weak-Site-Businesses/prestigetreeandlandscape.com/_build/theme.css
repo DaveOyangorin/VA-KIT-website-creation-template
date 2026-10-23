@@ -1,0 +1,10 @@
+/* prestigetreeandlandscape.com theme: "Growth rings". The cross-section of a trunk: heartwood brown, sapwood cream, bark-dark green,
+   a gold medal accent for the Arbor Day honours. Fraunces for headings, Outfit for text, Spline Sans Mono for years. */
+:root {
+  --paper: #f5f0e4; --sand: #ebe2cf; --card: #fffcf5; --ink: #1d231c; --ink2: #434a40; --mute: #6e7366; --line: #ddd2bb;
+  --dark: #1f2b21; --dark2: #2a3a2c; --on-dark: #f4f0e4; --on-dark2: #b6bfa8; --foot: #161f18;
+  --accent: #c8a24a; --accent-2: #dfbe6c; --accent-ink: #7f5f12; --on-accent: #1f2b21; --heart: #8a5a34; --leaf: #6f9a4a;
+  --f-disp: "Fraunces", Georgia, serif; --f-body: "Outfit", "Segoe UI", system-ui, sans-serif; --f-mono: "Spline Sans Mono", ui-monospace, Menlo, Consolas, monospace;
+  --disp-w: 400; --disp-ls: -.01em; --disp-tt: none; --r: 10px; --btn-r: 999px; --hdr: 84px; --logo-h: 46px;
+  color-scheme: light;
+}

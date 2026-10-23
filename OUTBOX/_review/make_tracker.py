@@ -14,6 +14,13 @@ SHARED = {"customroofs.biz", "mandmgutters.com", "roofwiseut.com", "jordanriverr
 # Mobile header fix (sticky header + mobile menu panel), applied to every redesign and republished 18 Oct 2026.
 MOBILE_FIX = "Fixed and republished 18 Oct"
 STATUS = {
+    "jacksonplumbinghvac.com": ("Premium", "Built premium from the start (21 Oct)"),
+    "dsihvac.com": ("Premium", "Built premium from the start (21 Oct)"),
+    "marble-builders.com": ("Premium", "Built premium from the start (21 Oct)"),
+    "prestigetreeandlandscape.com": ("Premium", "Built premium from the start (21 Oct)"),
+    "pineapplepropertygroup.com": ("Premium", "Built premium from the start (21 Oct)"),
+    "whitepineplumbingut.com": ("Premium", "Built premium from the start (21 Oct)"),
+    "hvaccowboy.com": ("Premium", "Built premium from the start (21 Oct)"),
     "anyandallservices.com": ("Premium", "Built premium from the start (21 Oct)"),
     "sterlingtreeco.godaddysites.com": ("Premium", "Built premium from the start (21 Oct)"),
     "actionyardcare.com": ("Premium", "Built premium from the start (21 Oct)"),

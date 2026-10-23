@@ -1,0 +1,10 @@
+/* hvaccowboy.com theme: "Home or business". Their logo's navy script with an amber underline, on saddle-leather cream, with a
+   rope-stitch rule. Zilla Slab for headings, Work Sans for text, Rye (a western display face) only for the big accent words. */
+:root {
+  --paper: #f6f1e7; --sand: #ece3d2; --card: #fffdf8; --ink: #1a2138; --ink2: #434a5f; --mute: #6c7286; --line: #ddd2bd;
+  --dark: #1e3a8a; --dark2: #182f6f; --on-dark: #f4f6fc; --on-dark2: #b6c2e4; --foot: #121f4a;
+  --accent: #f59e0b; --accent-2: #fbbf3c; --accent-ink: #9a5b00; --on-accent: #1a2138; --leather: #8a5a2b;
+  --f-disp: "Zilla Slab", Georgia, serif; --f-body: "Work Sans", "Segoe UI", system-ui, sans-serif; --f-mono: "Work Sans", system-ui, sans-serif; --f-west: "Rye", Georgia, serif;
+  --disp-w: 700; --disp-ls: -.01em; --disp-tt: none; --r: 8px; --btn-r: 999px; --hdr: 88px; --logo-h: 54px;
+  color-scheme: light;
+}

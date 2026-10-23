@@ -1,0 +1,10 @@
+/* whitepineplumbingut.com theme: "Rooted & flowing". Their name and tagline as a palette: deep pine green, clean-water blue, birch
+   white, with a copper accent for the pipes. Fraunces for headings, DM Sans for text, DM Mono for step numbers. */
+:root {
+  --paper: #f5f7f4; --sand: #e7ede8; --card: #ffffff; --ink: #14231d; --ink2: #3c4b44; --mute: #66756e; --line: #d4ddd7;
+  --dark: #16352a; --dark2: #1f4537; --on-dark: #f2f7f4; --on-dark2: #a6c0b4; --foot: #0e2219;
+  --accent: #c27a45; --accent-2: #d99363; --accent-ink: #8f5124; --on-accent: #ffffff; --water: #2f8fc4; --water-2: #8fd0f0;
+  --f-disp: "Fraunces", Georgia, serif; --f-body: "DM Sans", "Segoe UI", system-ui, sans-serif; --f-mono: "DM Mono", ui-monospace, Menlo, Consolas, monospace;
+  --disp-w: 700; --disp-ls: -.015em; --disp-tt: none; --r: 12px; --btn-r: 999px; --hdr: 84px; --logo-h: 42px;
+  color-scheme: light;
+}

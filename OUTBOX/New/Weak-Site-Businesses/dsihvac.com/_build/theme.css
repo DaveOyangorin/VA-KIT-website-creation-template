@@ -1,0 +1,11 @@
+/* dsihvac.com theme: "Swing". Utah's swing from 100-degree summers to inversion winters: a deep slate frame, furnace orange for heat,
+   coil blue for cooling, on a cool off-white. Big Shoulders Display (condensed, gauge-like) for headings, Public Sans for text,
+   JetBrains Mono for readouts. */
+:root {
+  --paper: #f3f4f2; --sand: #e6e9e8; --card: #ffffff; --ink: #161e28; --ink2: #3e4855; --mute: #66707c; --line: #d5dadd;
+  --dark: #161e28; --dark2: #212b37; --on-dark: #f5f3ee; --on-dark2: #aeb6c0; --foot: #10161e;
+  --accent: #e86a33; --accent-2: #f2925f; --accent-ink: #b0461a; --on-accent: #161e28; --cool: #54a6e0; --cool-ink: #1f6aa5;
+  --f-disp: "Big Shoulders Display", "Arial Narrow", Impact, sans-serif; --f-body: "Public Sans", "Segoe UI", system-ui, sans-serif; --f-mono: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+  --disp-w: 800; --disp-ls: .005em; --disp-tt: uppercase; --r: 10px; --btn-r: 999px; --hdr: 80px; --logo-h: 38px;
+  color-scheme: light;
+}

@@ -1,0 +1,73 @@
+/* ===== concept: "Rooted & flowing" (22 Oct 2026). South Jordan sunset banner, the team up front, the five-valve pipeline. ===== */
+.site-header, body.is-home .site-header { background: var(--card); color: var(--ink); border-bottom: 3px solid var(--dark) } .site-header .head-phone svg { color: var(--water) }
+.site-header .btn, body.is-home .site-header .btn { background: var(--dark); border-color: var(--dark); color: #fff } .brand img { height: var(--logo-h); width: auto }
+.label { font: 700 .76rem/1.3 var(--f-body); letter-spacing: .14em; text-transform: uppercase; color: var(--accent-ink) } .mono { font: 500 .78rem var(--f-mono); letter-spacing: .06em; color: var(--accent-ink) }
+h1, h2 { font-family: var(--f-disp); font-weight: 700; letter-spacing: -.015em } h1 em, h2 em { font-style: italic; font-weight: 600; color: var(--water) } h3 { font-family: var(--f-disp); font-weight: 700 }
+.btn { font-family: var(--f-body); font-weight: 700 } .btn.accent { background: var(--accent); border-color: var(--accent); color: #fff } .btn.accent:hover { background: var(--accent-2); border-color: var(--accent-2); color: #fff }
+.draft-strip { background: var(--dark); color: var(--water-2) }
+.w-head { max-width: 880px; margin-bottom: 34px } .w-head h2 { font-size: clamp(2.2rem, 4.6vw, 4rem); line-height: 1.02 }
+.split-h { max-width: none; display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr); gap: 30px; align-items: end } .split-h .lede { margin: 0 }
+.credit { position: absolute; right: max(16px, env(safe-area-inset-right, 0px)); bottom: 10px; margin: 0; font: 400 .66rem var(--f-mono); color: rgba(255,255,255,.78); z-index: 1 }
+
+/* hero */
+.w-hero { position: relative; overflow: hidden; isolation: isolate; color: #fff; background: var(--foot) }
+.wh-img { position: absolute; inset: -8% 0 0 0; z-index: -2 } .wh-img img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 45% }
+.w-hero::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, rgba(10,26,20,.9) 0%, rgba(10,26,20,.6) 48%, rgba(10,26,20,.08) 100%) }
+.wh-in { min-height: min(640px, calc(100svh - var(--hdr) - 40px)); display: flex; align-items: center; padding-block: clamp(80px, 9vw, 120px) 70px }
+.wh-txt { max-width: 740px } .w-hero h1 { color: #fff; font-size: clamp(2.5rem, 5.4vw, 5rem); line-height: 1; margin-bottom: .35em } .w-hero h1 em { display: block; color: var(--water-2) }
+.w-hero .lede { color: rgba(255,255,255,.92); max-width: 56ch } .w-hero .label { color: var(--water-2) } .w-hero .btn.ghost { color: #fff; border-color: rgba(255,255,255,.6) }
+
+/* team band */
+.w-team-band { background: var(--dark); color: var(--on-dark); padding-block: clamp(50px, 7vw, 90px) } .w-tb-in { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: clamp(24px, 4vw, 60px); align-items: center }
+.w-team-band figure { margin: 0; border-radius: var(--r); overflow: hidden; box-shadow: 0 30px 60px -30px rgba(0,0,0,.6) } .w-team-band figure img { width: 100%; height: auto; display: block }
+.w-team-band h2 { color: #fff; font-size: clamp(2rem, 3.8vw, 3.2rem); line-height: 1.04 } .w-team-band h2 em { color: var(--water-2) } .w-team-band .label { color: var(--accent-2) } .w-team-band p { color: var(--on-dark2) } .w-team-band .tlink { color: #fff }
+.faces { display: flex; margin: 18px 0 20px } .faces span { width: 58px; height: 58px; border-radius: 50%; overflow: hidden; border: 3px solid var(--dark); margin-left: -10px; background: var(--dark2) } .faces span:first-child { margin-left: 0 } .faces img { width: 100%; height: 100%; object-fit: cover }
+
+/* services */
+.serv { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px } .sv { background: var(--card); border: 1px solid var(--line); border-radius: var(--r); padding: 22px; display: grid; gap: 6px; align-content: start; position: relative; overflow: hidden }
+.sv::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 4px; background: linear-gradient(90deg, var(--accent), var(--water)) } .sv h3 { font-size: 1.45rem; margin: 0 } .sv p { margin: 0; color: var(--ink2) }
+.jobs { display: grid; grid-template-columns: 1.1fr 1fr; gap: 14px; margin-top: 16px } .jobs img { width: 100%; height: 320px; object-fit: cover; border-radius: var(--r) }
+
+/* pipeline */
+.w-proc { background: var(--sand) }
+.pipe-run { position: relative; height: 150px; margin: 10px 0 18px }
+.pipe-tube { position: absolute; left: 0; right: 0; top: 40px; height: 22px; border-radius: 11px; background: linear-gradient(180deg, #d9915c, #a5602f 70%, #8a4c22); box-shadow: inset 0 3px 0 rgba(255,255,255,.35), 0 8px 18px -10px rgba(0,0,0,.5); overflow: hidden }
+.pipe-water { position: absolute; left: 0; top: 5px; bottom: 5px; width: var(--fill, 10%) !important; border-radius: 6px; background: linear-gradient(90deg, var(--water), var(--water-2)); transition: width .6s ease; background-size: 40px 100%; animation: flow 1.2s linear infinite }
+@keyframes flow { from { background-position: 0 0 } to { background-position: 40px 0 } }
+.vlv { position: absolute; left: var(--x); top: 0; transform: translateX(-50%); appearance: none; background: none; border: 0; cursor: pointer; display: grid; justify-items: center; gap: 6px; padding: 0; color: var(--ink); width: 130px }
+.vlv-w { width: 44px; height: 44px; border-radius: 50%; background: var(--card); border: 4px solid var(--dark); position: relative; transition: transform .4s, background .3s }
+.vlv-w::before, .vlv-w::after { content: ""; position: absolute; left: 50%; top: 50%; width: 26px; height: 4px; margin: -2px 0 0 -13px; background: var(--dark); border-radius: 2px } .vlv-w::after { transform: rotate(90deg) }
+.vlv-n { font: 500 .78rem var(--f-mono); color: var(--mute); margin-top: 26px } .vlv-t { font: 700 1rem var(--f-disp); text-align: center; line-height: 1.15 }
+.vlv[aria-pressed="true"] .vlv-w { background: var(--water); border-color: var(--water); transform: rotate(90deg) } .vlv[aria-pressed="true"] .vlv-w::before, .vlv[aria-pressed="true"] .vlv-w::after { background: #fff } .vlv[aria-pressed="true"] .vlv-t { color: var(--water) }
+.vlv.done .vlv-w { border-color: var(--water) } .vlv:focus-visible .vlv-w { outline: 3px solid var(--accent); outline-offset: 3px }
+.pc { background: var(--card); border: 1px solid var(--line); border-left: 6px solid var(--water); border-radius: var(--r); padding: 24px 26px; max-width: 760px } .pc h3 { font-size: 2rem; margin: 4px 0 8px } .pc p:last-child { margin: 0; color: var(--ink2) }
+.pipe-nav { display: flex; gap: 10px; margin-top: 16px } .pipe-nav .btn.ghost { color: var(--ink); border-color: var(--line) } .pipe-nav .btn:disabled { opacity: .45; cursor: not-allowed }
+
+/* promise, team page */
+.w-promise { background: var(--card) } .w-promise h2 { font-size: clamp(2rem, 3.8vw, 3.2rem) }
+.w-post { margin-top: 22px; background: var(--dark); color: var(--on-dark); border: 0; padding: 24px !important; gap: 10px } .w-post > :not(img) { padding: 0 !important } .w-post b { font: 700 1.35rem var(--f-disp) } .w-post p { color: var(--on-dark2); margin: 0 } .w-post em, .w-post .label { color: var(--water-2) } .w-post:hover { color: var(--on-dark) }
+.team { display: grid; gap: 14px; margin: 18px 0 26px } .tm { display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: 18px; align-items: start; background: var(--card); border: 1px solid var(--line); border-radius: var(--r); padding: 16px }
+.tm img { width: 110px; height: 110px; object-fit: cover; border-radius: 50%; border: 4px solid var(--sand) } .tm h3 { margin: 4px 0 2px; font-size: 1.4rem } .tm p { margin: 4px 0 0; color: var(--ink2) } .tm .mono { color: var(--accent-ink) }
+.pfig { margin: 0 0 10px } .pfig img { border-radius: var(--r) }
+.cats { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 12px; margin: 12px 0 24px } .cat { display: grid; gap: 6px; padding: 20px; background: var(--card); border: 1px solid var(--line); border-top: 4px solid var(--water); border-radius: var(--r); text-decoration: none }
+.cat b { font: 700 1.15rem var(--f-disp) } .cat span { color: var(--ink2); font-size: .9rem } .cat em { font-style: normal; font-weight: 700; color: var(--water); display: inline-flex; gap: 6px; align-items: center } .cat em svg { width: 1em; height: 1em }
+.tbl { overflow-x: auto } .tbl table { border-collapse: collapse; width: 100%; margin: 8px 0 18px } .tbl th, .tbl td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line) } .tbl th { font-family: var(--f-disp) }
+
+/* inner */
+.phero-full::after { background: linear-gradient(90deg, rgba(10,26,20,.92) 0%, rgba(10,26,20,.62) 55%, rgba(10,26,20,.2) 100%) } .phero-full .label { color: var(--water-2) } .phero-full .label::before { background: var(--accent) }
+.phero-full.no-photo { background: radial-gradient(ellipse at 85% 20%, #1f6b5a, var(--dark) 62%) }
+.answer { border-left-color: var(--water) } .side-card { background: var(--dark) } .side-card .label { color: var(--water-2) } .side-card .btn { background: var(--accent); border-color: var(--accent); color: #fff }
+.cta { background: var(--dark) } .cta .label { color: var(--water-2) } .cta h2 em { color: var(--water-2) } .office small { color: var(--water-2) }
+.site-footer { border-top: 4px solid var(--accent) } .flogo img { width: 220px; height: auto; filter: invert(1) } .fareas b, .foot a:hover { color: var(--water-2) }
+.callbar a:last-child { background: var(--accent); color: #fff; border-color: var(--accent) }
+
+@media (prefers-reduced-motion: reduce) { .pipe-water { animation: none; transition: none } .vlv-w { transition: none } }
+@media (max-width: 1000px) { .split-h, .w-tb-in { grid-template-columns: minmax(0, 1fr) } .serv { grid-template-columns: repeat(2, minmax(0, 1fr)) } }
+@media (max-width: 760px) {
+  .pipe-run { height: auto; display: grid; gap: 10px; padding-left: 34px } .pipe-tube { top: 0; bottom: 0; left: 12px; right: auto; width: 14px; height: auto } .pipe-water { top: 0; left: 3px; right: 3px; bottom: auto; width: auto !important; height: var(--fill, 10%); transition: height .6s ease }
+  .vlv { position: static; transform: none; width: auto; grid-template-columns: 36px auto; justify-items: start; align-items: center; gap: 12px } .vlv-w { width: 36px; height: 36px; border-width: 3px } .vlv-w::before, .vlv-w::after { width: 20px; margin-left: -10px } .vlv-n { display: none } .vlv-t { text-align: left }
+}
+@media (max-width: 640px) {
+  .wh-in { min-height: 0; padding-block: 100px 50px } .w-hero h1 { font-size: clamp(2.2rem, 10vw, 3.2rem) } .w-hero::after { background: linear-gradient(0deg, rgba(10,26,20,.95) 0%, rgba(10,26,20,.75) 60%, rgba(10,26,20,.45) 100%) }
+  .serv, .jobs { grid-template-columns: minmax(0, 1fr) } .jobs img { height: 240px } .tm { grid-template-columns: 76px minmax(0, 1fr) } .tm img { width: 76px; height: 76px } .credit { right: auto; left: max(16px, env(safe-area-inset-left, 0px)) }
+}

@@ -1,0 +1,10 @@
+/* jacksonplumbinghvac.com theme: "Main line". Deep water navy, copper pipe, frost blue on a warm white: the colors of a utility room.
+   Bricolage Grotesque (friendly, sturdy) for headings, Source Sans 3 for text, IBM Plex Mono for meter digits. */
+:root {
+  --paper: #f6f4ef; --sand: #ebe7de; --card: #ffffff; --ink: #0e2230; --ink2: #3b4c58; --mute: #687782; --line: #d9dcd8;
+  --dark: #0e2230; --dark2: #17303f; --on-dark: #f2efe8; --on-dark2: #a9b9c3; --foot: #0a1922;
+  --accent: #c97a40; --accent-2: #e09a64; --accent-ink: #9a5422; --on-accent: #0e2230; --frost: #8cc4de; --frost-ink: #2a6f8f;
+  --f-disp: "Bricolage Grotesque", "Trebuchet MS", sans-serif; --f-body: "Source Sans 3", "Segoe UI", system-ui, sans-serif; --f-mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  --disp-w: 800; --disp-ls: -.02em; --disp-tt: none; --r: 14px; --btn-r: 12px; --hdr: 82px; --logo-h: 40px;
+  color-scheme: light;
+}

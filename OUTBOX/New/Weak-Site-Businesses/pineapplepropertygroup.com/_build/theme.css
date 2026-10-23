@@ -1,0 +1,10 @@
+/* pineapplepropertygroup.com theme: "The owner's ledger". Pineapple gold from the logo on a deep conifer green, with the cream of an
+   owner statement. Instrument Serif for headings, Manrope for text, JetBrains Mono for the money. */
+:root {
+  --paper: #f6f3ea; --sand: #ece6d6; --card: #fffdf7; --ink: #15211c; --ink2: #3d4a43; --mute: #6a756f; --line: #dcd5c3;
+  --dark: #12342c; --dark2: #1a4438; --on-dark: #f4f3ec; --on-dark2: #a9c0b4; --foot: #0c241e;
+  --accent: #e2b13c; --accent-2: #f0c75f; --accent-ink: #8a6200; --on-accent: #12342c; --leaf: #4f8a5b;
+  --f-disp: "Instrument Serif", Georgia, serif; --f-body: "Manrope", "Segoe UI", system-ui, sans-serif; --f-mono: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+  --disp-w: 400; --disp-ls: -.005em; --disp-tt: none; --r: 10px; --btn-r: 999px; --hdr: 84px; --logo-h: 38px;
+  color-scheme: light;
+}

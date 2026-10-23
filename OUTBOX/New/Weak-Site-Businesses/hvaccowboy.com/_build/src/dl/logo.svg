@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 120">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&amp;display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&amp;display=swap');
+    </style>
+  </defs>
+  <!-- Cowboy script text -->
+  <text x="200" y="62" text-anchor="middle" font-family="'Dancing Script', cursive" font-weight="700" font-size="64" fill="#1e3a8a" letter-spacing="1">Cowboy</text>
+  <!-- Heating & Air -->
+  <text x="200" y="95" text-anchor="middle" font-family="'Oswald', sans-serif" font-weight="500" font-size="28" fill="#1e3a8a" letter-spacing="6" text-transform="uppercase">HEATING &amp; AIR</text>
+  <!-- Underline accent -->
+  <line x1="80" y1="105" x2="320" y2="105" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,11 @@
+/* marble-builders.com theme: "Veined". Their name as material: honed charcoal, Carrara white with grey veining (drawn in CSS, not a
+   photo), and a brushed-brass accent for fixtures. Gloock (a sharp, high-contrast serif close to their wordmark) for headings, Inter Tight
+   for text, IBM Plex Mono for steps. */
+:root {
+  --paper: #f4f2ee; --sand: #e9e5de; --card: #ffffff; --ink: #1c1c1e; --ink2: #47474c; --mute: #707076; --line: #dcd8d0;
+  --dark: #1a1a1c; --dark2: #26262a; --on-dark: #f5f2ec; --on-dark2: #b3b0aa; --foot: #121214;
+  --accent: #b08d57; --accent-2: #cfae78; --accent-ink: #7a5a26; --on-accent: #1a1a1c; --vein: #9a9a9f;
+  --f-disp: "Gloock", Georgia, serif; --f-body: "Inter Tight", "Segoe UI", system-ui, sans-serif; --f-mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  --disp-w: 400; --disp-ls: -.01em; --disp-tt: none; --r: 4px; --btn-r: 2px; --hdr: 84px; --logo-h: 40px;
+  color-scheme: light;
+}
