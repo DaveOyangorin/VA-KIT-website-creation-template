@@ -70,3 +70,8 @@ h1, h2 { font-family: var(--f-disp); font-weight: 800; letter-spacing: -.03em } 
 
 /* keep the dark header when scrolled or with the menu open (premium.css switches it to paper) */
 .site-header.scrolled, body.is-home .site-header.scrolled, body.is-home.menu-open .site-header, html.menu-open body.is-home .site-header, html.menu-open .site-header { background: var(--dark); color: var(--on-dark); border-bottom-color: rgba(255,255,255,.12) }
+
+/* dropdown on a dark header: keep its links dark on the light panel (the header rule above whitens all nav links) */
+.site-header .nav .drop a, .site-header .nav .drop a span, body.is-home .site-header .nav .drop a, body.is-home .site-header .nav .drop a span { color: var(--ink) }
+.site-header .nav .drop a:hover, .site-header .nav .drop a:focus-visible, body.is-home .site-header .nav .drop a:hover, body.is-home .site-header .nav .drop a:focus-visible { color: var(--ink); background: var(--sand) }
+.site-header .nav details[open] summary, body.is-home .site-header .nav details[open] summary { background: rgba(255,255,255,.14); color: var(--on-dark) }

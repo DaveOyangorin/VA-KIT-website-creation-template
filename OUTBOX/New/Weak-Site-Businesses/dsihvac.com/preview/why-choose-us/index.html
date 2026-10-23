@@ -335,6 +335,20 @@ input[type=range][data-age] { width: 100%; accent-color: var(--accent); height: 
 @media (max-width: 980px) { .eq { grid-template-columns: 1fr 1fr } .eq > div { border-right: 0; padding-left: 0; border-bottom: 1px solid var(--line); padding-bottom: 18px } }
 @media (max-width: 640px) { .eq { grid-template-columns: 1fr } }
 
+/* dropdown on a dark header: keep its links dark on the light panel (the header rule above whitens all nav links) */
+.site-header .nav .drop a, .site-header .nav .drop a span, body.is-home .site-header .nav .drop a, body.is-home .site-header .nav .drop a span { color: var(--ink) }
+.site-header .nav .drop a:hover, .site-header .nav .drop a:focus-visible, body.is-home .site-header .nav .drop a:hover, body.is-home .site-header .nav .drop a:focus-visible { color: var(--ink); background: var(--sand) }
+.site-header .nav details[open] summary, body.is-home .site-header .nav details[open] summary { background: rgba(255,255,255,.14); color: var(--on-dark) }
+
+/* MFIX-2026-10-19: mobile header fix */
+html, body { overflow-x: hidden; overflow-x: clip; }
+.site-header { position: -webkit-sticky; position: sticky; top: 0; padding-top: env(safe-area-inset-top, 0px); }
+@media (max-width: 1024px) {
+  .site-header { -webkit-backdrop-filter: none !important; backdrop-filter: none !important; }
+  .menu-panel { position: fixed !important; inset: var(--hdr-bottom, 76px) 0 0 0 !important; top: var(--hdr-bottom, 76px) !important; bottom: 0 !important; height: auto !important; max-height: none !important; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; z-index: 60; }
+  html.menu-open { overflow: hidden !important; }
+}
+
 </style>
 <script>document.documentElement.classList.add('js')</script>
 <script type="application/ld+json">
@@ -559,6 +573,26 @@ html, body { overflow-x: hidden; overflow-x: clip; }
       text.textContent = 'An older ' + t + ' that is not working right is the classic judgment call. We can help you get the last few years out of it, or quote a new installation with a 2 year labor warranty and 10 year parts warranties. Quotes are free.'; }
   }
   d.addEventListener('input', update); d.addEventListener('change', update); update();
+})();
+
+/* MFIX-2026-10-19: mobile header fix */
+(function () {
+  var h = document.querySelector('.site-header'); if (!h) return;
+  var root = document.documentElement;
+  function y() { return Math.max(window.pageYOffset || 0, root.scrollTop || 0, document.body ? document.body.scrollTop || 0 : 0); }
+  function upd() {
+    var b = Math.max(0, Math.round(h.getBoundingClientRect().bottom));
+    root.style.setProperty('--hdr-bottom', b + 'px');
+    h.classList.toggle('scrolled', y() > 6);
+  }
+  window.addEventListener('scroll', upd, { passive: true });
+  window.addEventListener('resize', upd, { passive: true });
+  document.addEventListener('scroll', upd, { passive: true, capture: true });
+  document.querySelectorAll('.menu').forEach(function (m) {
+    m.addEventListener('toggle', function () { upd(); root.classList.toggle('menu-open', m.open); });
+    m.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { m.open = false; }); });
+  });
+  upd(); setTimeout(upd, 300);
 })();
 
 </script>

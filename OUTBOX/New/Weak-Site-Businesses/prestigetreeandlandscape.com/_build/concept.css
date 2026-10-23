@@ -63,3 +63,8 @@ h1, h2 { font-family: var(--f-disp); font-weight: 400; letter-spacing: -.015em }
   .th-in { min-height: 0; padding-block: 100px 40px } .t-hero h1 { font-size: clamp(2.3rem, 10vw, 3.3rem) } .t-hero::after { background: linear-gradient(0deg, rgba(18,26,19,.95) 0%, rgba(18,26,19,.75) 60%, rgba(18,26,19,.45) 100%) }
   .serv, .testi { grid-template-columns: minmax(0, 1fr) } .cam { grid-template-columns: repeat(2, minmax(0, 1fr)) } .credit { right: auto; left: auto; right: max(16px, env(safe-area-inset-right, 0px)); bottom: auto; top: 8px; max-width: 70% }
 }
+
+/* dropdown on a dark header: keep its links dark on the light panel (the header rule above whitens all nav links) */
+.site-header .nav .drop a, .site-header .nav .drop a span, body.is-home .site-header .nav .drop a, body.is-home .site-header .nav .drop a span { color: var(--ink) }
+.site-header .nav .drop a:hover, .site-header .nav .drop a:focus-visible, body.is-home .site-header .nav .drop a:hover, body.is-home .site-header .nav .drop a:focus-visible { color: var(--ink); background: var(--sand) }
+.site-header .nav details[open] summary, body.is-home .site-header .nav details[open] summary { background: rgba(255,255,255,.14); color: var(--on-dark) }

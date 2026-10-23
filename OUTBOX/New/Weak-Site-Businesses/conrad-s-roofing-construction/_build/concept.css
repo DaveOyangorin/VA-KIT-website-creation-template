@@ -70,3 +70,8 @@ h1, h2 { font-family: var(--f-disp); font-weight: var(--disp-w); letter-spacing:
 .lx-grid > div { border-radius: 20px 20px 20px 4px; background: linear-gradient(160deg, #fff 60%, #eaf3f8) }
 .lx-facts { border-top-color: var(--ice) }
 @media (prefers-reduced-motion: reduce) { .sn-fill { transition: none } }
+
+/* dropdown on a dark header: keep its links dark on the light panel (the header rule above whitens all nav links) */
+.site-header .nav .drop a, .site-header .nav .drop a span, body.is-home .site-header .nav .drop a, body.is-home .site-header .nav .drop a span { color: var(--ink) }
+.site-header .nav .drop a:hover, .site-header .nav .drop a:focus-visible, body.is-home .site-header .nav .drop a:hover, body.is-home .site-header .nav .drop a:focus-visible { color: var(--ink); background: var(--sand) }
+.site-header .nav details[open] summary, body.is-home .site-header .nav details[open] summary { background: rgba(255,255,255,.14); color: var(--on-dark) }

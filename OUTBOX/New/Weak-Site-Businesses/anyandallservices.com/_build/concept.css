@@ -63,3 +63,8 @@ h1, h2, h3 { font-family: var(--f-disp); font-weight: 600; text-transform: upper
   .xh-in { min-height: 0; padding-block: 100px 50px } .x-hero h1 { font-size: clamp(2.2rem, 10vw, 3.2rem) } .x-hero::after { background: linear-gradient(0deg, rgba(8,8,10,.95) 0%, rgba(8,8,10,.75) 60%, rgba(8,8,10,.45) 100%) }
   .pnl-grid, .signs { grid-template-columns: minmax(0, 1fr) } .credit { right: auto; left: max(16px, env(safe-area-inset-left, 0px)) }
 }
+
+/* dropdown on a dark header: keep its links dark on the light panel (the header rule above whitens all nav links) */
+.site-header .nav .drop a, .site-header .nav .drop a span, body.is-home .site-header .nav .drop a, body.is-home .site-header .nav .drop a span { color: var(--ink) }
+.site-header .nav .drop a:hover, .site-header .nav .drop a:focus-visible, body.is-home .site-header .nav .drop a:hover, body.is-home .site-header .nav .drop a:focus-visible { color: var(--ink); background: var(--sand) }
+.site-header .nav details[open] summary, body.is-home .site-header .nav details[open] summary { background: rgba(255,255,255,.14); color: var(--on-dark) }

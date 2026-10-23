@@ -310,6 +310,11 @@ h1, h2 { font-family: var(--f-disp); font-weight: var(--disp-w); letter-spacing:
 .lx-grid > div { border-radius: 0; border-top: 4px solid var(--ink) } .lx-grid > div:nth-child(odd) { border-top-color: var(--accent) }
 @media (prefers-reduced-motion: reduce) { .pt-roof { transition: none } }
 
+/* dropdown on a dark header: keep its links dark on the light panel (the header rule above whitens all nav links) */
+.site-header .nav .drop a, .site-header .nav .drop a span, body.is-home .site-header .nav .drop a, body.is-home .site-header .nav .drop a span { color: var(--ink) }
+.site-header .nav .drop a:hover, .site-header .nav .drop a:focus-visible, body.is-home .site-header .nav .drop a:hover, body.is-home .site-header .nav .drop a:focus-visible { color: var(--ink); background: var(--sand) }
+.site-header .nav details[open] summary, body.is-home .site-header .nav details[open] summary { background: rgba(255,255,255,.14); color: var(--on-dark) }
+
 /* MFIX-2026-10-19: mobile header fix */
 html, body { overflow-x: hidden; overflow-x: clip; }
 .site-header { position: -webkit-sticky; position: sticky; top: 0; padding-top: env(safe-area-inset-top, 0px); }
