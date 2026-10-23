@@ -1,0 +1,337 @@
+<title>Gross Family Review</title>
+<meta name="description" content="Review of the Gross Family Plumbing LLC website redesign: audit report, what was fixed, before and after, and a link to open the new site.">
+<style>
+:root {
+  --bg: #f4f5f7; --card: #ffffff; --text: #16181d; --muted: #5f6672; --line: #e1e4ea; --accent: #1f5f8b; --accent-ink: #ffffff;
+  --good: #23784a; --warn: #9a5d00; --bad: #b3261e; --chip: #eef3f7; --shade: rgba(16,24,40,.08);
+  --display: "Space Grotesk", "Segoe UI", system-ui, sans-serif; --body: "Inter", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #111317; --card: #1a1d23; --text: #eceef2; --muted: #a3a9b5; --line: #2c3039; --accent: #7fb6dd; --accent-ink: #0d1a24;
+  --good: #6cc193; --warn: #e0a54a; --bad: #ef7b72; --chip: #232a33; --shade: rgba(0,0,0,.4); color-scheme: dark; } }
+:root[data-theme="dark"] { --bg: #111317; --card: #1a1d23; --text: #eceef2; --muted: #a3a9b5; --line: #2c3039; --accent: #7fb6dd; --accent-ink: #0d1a24;
+  --good: #6cc193; --warn: #e0a54a; --bad: #ef7b72; --chip: #232a33; --shade: rgba(0,0,0,.4); color-scheme: dark; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--text); font: 15px/1.6 var(--body); }
+a { color: var(--accent); }
+.wrap { width: 100%; max-width: 1120px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.topnav { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10; background: color-mix(in srgb, var(--card) 92%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+.topnav .wrap { display: flex; align-items: center; gap: 8px 18px; min-height: 60px; flex-wrap: wrap; padding-block: 8px; }
+.topnav .brand { font: 700 15px/1.2 var(--display); margin-right: auto; }
+.topnav .brand small { display: block; font: 500 11px/1.3 var(--body); color: var(--muted); letter-spacing: .08em; text-transform: uppercase; }
+.topnav nav { display: flex; gap: 2px; flex-wrap: wrap; }
+.topnav nav a { text-decoration: none; color: var(--text); padding: 8px 10px; border-radius: 8px; font-weight: 500; font-size: 14px; }
+.topnav nav a:hover { background: var(--chip); }
+.btn { display: inline-flex; align-items: center; gap: 10px; background: var(--accent); color: var(--accent-ink); text-decoration: none; font-weight: 700; padding: 12px 18px; border-radius: 10px; min-height: 46px; }
+.btn:hover { filter: brightness(1.08); }
+.btn.big { font-size: 17px; padding: 16px 24px; min-height: 56px; }
+.btn.ghost { background: transparent; color: var(--accent); border: 2px solid var(--accent); }
+header.intro { padding-block: 40px 28px; }
+.eyebrow { font: 600 12px/1 var(--body); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+h1 { font: 700 clamp(28px, 4.4vw, 44px)/1.1 var(--display); margin: 10px 0 8px; letter-spacing: -.02em; text-wrap: balance; }
+h2.sec { font: 700 clamp(22px, 3vw, 30px)/1.15 var(--display); margin: 0 0 6px; letter-spacing: -.01em; }
+.lede { color: var(--muted); max-width: 65ch; margin: 0 0 18px; font-size: 16px; }
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin: 24px 0; }
+.stat-tile { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 16px; }
+.stat-tile b { display: block; font: 700 28px/1 var(--display); font-variant-numeric: tabular-nums; }
+.stat-tile span { color: var(--muted); font-size: 13px; }
+.block { padding-block: 34px; border-top: 1px solid var(--line); scroll-margin-top: 70px; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: clamp(16px, 3vw, 28px); }
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 14px; min-width: 560px; }
+th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { color: var(--muted); font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: .06em; }
+.tag { display: inline-block; padding: 2px 9px; border-radius: 99px; font-size: 12px; font-weight: 600; white-space: nowrap; }
+.tag.ok { background: color-mix(in srgb, var(--good) 16%, transparent); color: var(--good); }
+.tag.wait { background: color-mix(in srgb, var(--warn) 16%, transparent); color: var(--warn); }
+.tag.bad { background: color-mix(in srgb, var(--bad) 16%, transparent); color: var(--bad); }
+/* the embedded audit report (its own markup, scoped here) */
+.report section { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 18px; margin-bottom: 14px; }
+.report h1 { font-size: 22px; margin: 0 0 4px; } .report h2 { font: 700 18px/1.3 var(--display); margin: 0 0 10px; } .report h3 { font-size: 15px; margin: 14px 0 6px; }
+.report .sub { color: var(--muted); margin: 0 0 14px; }
+.report .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 10px; }
+.report .stat { border: 1px solid var(--line); border-radius: 8px; padding: 12px; } .report .stat b { display: block; font-size: 20px; } .report .stat span { color: var(--muted); font-size: 13px; }
+.report .t-good { background: color-mix(in srgb, var(--good) 16%, transparent); color: var(--good); }
+.report .t-warn { background: color-mix(in srgb, var(--warn) 16%, transparent); color: var(--warn); }
+.report .t-bad { background: color-mix(in srgb, var(--bad) 16%, transparent); color: var(--bad); }
+.report td.num, .report th.num { text-align: right; font-variant-numeric: tabular-nums; }
+.report dl { display: grid; grid-template-columns: max-content 1fr; gap: 6px 16px; margin: 0; } .report dt { color: var(--muted); } .report dd { margin: 0; }
+.report code { background: var(--chip); padding: 1px 6px; border-radius: 4px; font-size: 13px; }
+.report .note { border-left: 3px solid var(--warn); padding: 8px 12px; background: color-mix(in srgb, var(--warn) 8%, transparent); border-radius: 0 6px 6px 0; margin: 10px 0; }
+.report .check li { list-style: none; margin-left: -20px; } .report .check li::before { content: "☐ "; color: var(--muted); }
+.report-box { max-height: 640px; overflow: auto; border-radius: 14px; border: 1px solid var(--line); padding: 14px; background: var(--bg); }
+.report-box.open { max-height: none; }
+.ba { display: grid; gap: 18px; }
+.ba figure { margin: 0; }
+.ba figcaption { font: 600 13px/1.3 var(--body); color: var(--muted); margin: 10px 0 0; text-transform: uppercase; letter-spacing: .08em; }
+.frame { border-radius: 12px; overflow: hidden; border: 1px solid var(--line); box-shadow: 0 18px 40px -24px var(--shade); background: var(--card); }
+.frame .bar { display: flex; gap: 6px; padding: 9px 12px; border-bottom: 1px solid var(--line); }
+.frame .bar i { width: 10px; height: 10px; border-radius: 50%; background: var(--line); }
+.frame img { display: block; width: 100%; max-width: 100%; height: auto; max-height: 560px; object-fit: cover; object-position: top; }
+.phones { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; max-width: 520px; }
+.phone { border: 8px solid #20232a; border-radius: 26px; overflow: hidden; background: #20232a; }
+.phone img { display: block; width: 100%; max-width: 100%; height: auto; max-height: 520px; object-fit: cover; object-position: top; }
+.pages { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 10px; }
+.pagelink { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 14px 16px; background: var(--card); border: 1px solid var(--line); border-radius: 10px; text-decoration: none; color: var(--text); font-weight: 600; }
+.pagelink:hover { border-color: var(--accent); color: var(--accent); }
+.qs li { margin: 6px 0; }
+.cta-row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+footer.foot { color: var(--muted); font-size: 13px; padding-block: 30px 50px; border-top: 1px solid var(--line); }
+@media (min-width: 860px) { .ba { grid-template-columns: 1fr 1fr; } }
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap">
+
+<div class="topnav"><div class="wrap">
+<div class="brand">Gross Family Plumbing LLC<small>Website redesign review &middot; draft</small></div>
+<nav aria-label="Sections"><a href="#report">Report</a><a href="#fixes">What we fixed</a><a href="#mockup">Before &amp; after</a><a href="#pages">Pages</a><a href="#questions">Questions</a></nav>
+<a class="btn" href="home/index.html">Open website <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a>
+</div></div>
+
+<header class="wrap intro">
+<div class="eyebrow">Draft for review &middot; gross-family-plumbing-llc &middot; Salt Lake City, UT</div>
+<h1>Gross Family Plumbing LLC: website redesign</h1>
+<p class="lede">Start with the report to see what was wrong, then what we fixed, then the before-and-after. When you're ready, open the new website. Nothing here is live.</p>
+<div class="cta-row"><a class="btn big" href="home/index.html">Open the new website <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a><a class="btn ghost" href="#mockup">See before &amp; after</a></div>
+<div class="stats"><div class="stat-tile"><b>3</b><span>pages (home + contact + 1 post)</span></div><div class="stat-tile"><b>0</b><span>invented facts</span></div><div class="stat-tile"><b>1</b><span>working signature tool</span></div><div class="stat-tile"><b>0</b><span>QA issues</span></div><div class="stat-tile"><b>4/7</b><span>issues fixed in the draft</span></div></div>
+</header>
+
+<section class="block" id="report"><div class="wrap">
+<h2 class="sec">1. The report</h2><p class="lede">The website plan report from the 5 Oct 2026 audit. It's the reason behind most of the changes below.</p>
+<div class="report-box" id="rbox"><div class="report">
+  <h1>Gross Family Plumbing LLC · Website plan report</h1>
+  <p class="sub">Gross Family Plumbing LLC · Salt Lake City · No website on Google · Prepared 21 Oct 2026. Listing facts from 15 Oct 2026; audit and search numbers from 21 Oct 2026. Draft for Angelo's review.</p>
+  <section>
+    <h2>Summary</h2>
+    <ul>
+      <li><b>Home page target:</b> <code>plumber salt lake city</code>. Searches across Utah: 1,600 for “plumber salt lake city”, 8,100 for “plumber near me”.</li>
+      <li><b>No website on Google.</b> People who find the listing have nowhere to click. This is a new build from scratch.</li>
+      <li><b>Reviews:</b> 4.8 stars from 163.</li>
+      <li><b>Biggest service demand:</b> drain cleaning (1,900 "near me" searches across Utah).</li>
+      <li><b>10 of 10 services have no page</b> (ask the client which they really do).</li>
+    </ul>
+  </section>
+  <section>
+    <h2>Reviewer notes</h2>
+    <p><span class="tag t-warn">Priority B</span></p>
+    <p><b>Plumber with 163 reviews (4.8), no website.</b></p>
+    <ul>
+      <li>Address has "#3600". Confirm it is a real office, not a mailbox.</li>
+      <li>Third Salt Lake City plumber on this list with no website (with Stott and Stanley & Sons).</li>
+    </ul>
+  </section>
+  <section>
+    <h2>Business facts</h2>
+    <dl>
+      <dt>Name</dt><dd>Gross Family Plumbing LLC</dd>
+      <dt>Website</dt><dd>none on Google</dd>
+      <dt>Phone</dt><dd>+1385-331-1988</dd>
+      <dt>Address</dt><dd>1750 Research Way #3600, Salt Lake City, UT 84119</dd>
+      <dt>Google category</dt><dd>Plumber</dd>
+      <dt>Reviews</dt><dd>4.8 stars · 163 reviews</dd>
+    </dl>
+    <p class="alert"><b>Not a client yet. Do not contact this business.</b> This report is for planning only. Nothing goes to them unless Angelo says so.</p>
+    <p class="note">From the Google listing (pulled 15 Oct 2026). Confirm with the client before it goes on a site. Name, address and phone are copied exactly as given; do not reformat them.</p>
+  </section>
+  <section>
+    <h2>Why they need a site</h2>
+    <h3>What the audit found</h3>
+    <ul>
+      <li>The Google listing has no website. Searchers who find the listing have no site to click.</li>
+    </ul>
+    <h3>What to do</h3>
+    <ul>
+      <li>Build a new site: home page, one page per confirmed service, a cost page and city pages only where they work.</li>
+      <li>From day one: one H1 per page, a unique meta description, a tap-to-call phone link, business schema, alt text on every image, and the city named in titles and H1s.</li>
+      <li>Aim for 90+ mobile speed and 800+ words on the home page.</li>
+      <li>Once the site is live, add it to the Google listing (Angelo / the client).</li>
+    </ul>
+  </section>
+  <section>
+    <h2>Home page</h2>
+    <dl>
+      <dt>Main keyword</dt><dd><code>plumber salt lake city</code></dd>
+      <dt>Also use</dt><dd><code>plumbing company salt lake city</code>, <code>plumbing services salt lake city</code></dd>
+      <dt>Searches</dt><dd>1,600 for “plumber salt lake city”, 8,100 for “plumber near me” (across Utah)</dd>
+      <dt>Placement</dt><dd>Start with the keyword: title tag, H1 and first sentence.</dd>
+    </dl>
+  </section>
+  <section>
+    <h2>Service pages · build in this order</h2>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>Service</th><th>Target keyword</th><th class="num">With the city</th><th class="num">"Near me"</th><th class="num">+ "utah"</th><th>Now</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Drain cleaning</td><td><code>drain cleaning salt lake city</code></td><td class="num">90</td><td class="num">1,900</td><td class="num">40</td><td><span class="tag t-bad">Ask client</span></td></tr>
+        <tr><td>2</td><td>Emergency plumber</td><td><code>emergency plumber salt lake city</code></td><td class="num">90</td><td class="num">1,600</td><td class="num">10</td><td><span class="tag t-bad">Ask client</span></td></tr>
+        <tr><td>3</td><td>Water heater repair</td><td><code>water heater repair salt lake city</code></td><td class="num">70</td><td class="num">1,300</td><td class="num">10</td><td><span class="tag t-bad">Ask client</span></td></tr>
+        <tr><td>4</td><td>Excavation</td><td><code>excavation salt lake city</code></td><td class="num">140</td><td class="num">140</td><td class="num">20</td><td><span class="tag t-bad">Ask client</span></td></tr>
+        <tr><td>5</td><td>Sewer line repair</td><td><code>sewer line repair salt lake city</code></td><td class="num">30</td><td class="num">880</td><td class="num">10</td><td><span class="tag t-bad">Ask client</span></td></tr>
+        <tr><td>6</td><td>Water heater installation</td><td><code>water heater installation salt lake city</code></td><td class="num">10</td><td class="num">590</td><td class="num">10</td><td><span class="tag t-bad">Ask client</span></td></tr>
+        <tr><td>7</td><td>Hydro jetting</td><td><code>hydro jetting salt lake city</code></td><td class="num">10</td><td class="num">210</td><td class="num">10</td><td><span class="tag t-bad">Ask client</span></td></tr>
+        <tr><td>8</td><td>Repipe</td><td><code>repipe salt lake city</code></td><td class="num">10</td><td class="num">210</td><td class="num">10</td><td><span class="tag t-bad">Ask client</span></td></tr>
+        <tr><td>9</td><td>Leak detection</td><td><code>leak detection salt lake city</code></td><td class="num">10</td><td class="num">170</td><td class="num">110</td><td><span class="tag t-bad">Ask client</span></td></tr>
+        <tr><td>10</td><td>Sewer camera inspection</td><td><code>sewer camera inspection salt lake city</code></td><td class="num">10</td><td class="num">90</td><td class="num">–</td><td><span class="tag t-bad">Ask client</span></td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="small">Monthly searches across Utah. "–" = fewer than 10 a month. One page per service. Only build a page if the business really does that service.</p>
+  </section>
+  <section>
+    <h2>Cost page</h2>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Keyword</th><th class="num">All Utah</th><th class="num">+ "utah"</th><th>With city</th><th class="num">All Utah</th></tr></thead>
+      <tbody>
+        <tr><td>water heater replacement cost</td><td class="num">390</td><td class="num">30</td><td>water heater replacement cost salt lake city</td><td class="num">–</td></tr>
+        <tr><td>sewer line replacement cost</td><td class="num">50</td><td class="num">–</td><td>sewer line replacement cost salt lake city</td><td class="num">–</td></tr>
+        <tr><td>plumber cost</td><td class="num">30</td><td class="num">–</td><td>plumber cost salt lake city</td><td class="num">–</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p>One cost page covering these. Cost searchers are close to buying. <b>Use only real prices from the client.</b></p>
+  </section>
+  <section>
+    <h2>City pages</h2>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>City</th><th>Keyword 1</th><th class="num">All Utah</th><th>Keyword 2</th><th class="num">All Utah</th></tr></thead>
+      <tbody>
+        <tr><td>Sandy</td><td>plumber sandy</td><td class="num">210</td><td>drain cleaning sandy</td><td class="num">10</td></tr>
+        <tr><td>Lehi</td><td>plumber lehi</td><td class="num">210</td><td>drain cleaning lehi</td><td class="num">10</td></tr>
+        <tr><td>West Jordan</td><td>plumber west jordan</td><td class="num">170</td><td>drain cleaning west jordan</td><td class="num">10</td></tr>
+        <tr><td>Midvale</td><td>plumber midvale</td><td class="num">170</td><td>drain cleaning midvale</td><td class="num">10</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p>Build a city page only if the business really works there, with real local content.</p>
+  </section>
+  <section>
+    <h2>What a strong page looks like</h2>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Keyword</th><th class="num">Avg. words (top pages)</th><th class="num">Have FAQ</th><th class="num">Show prices</th></tr></thead>
+      <tbody>
+        <tr><td>plumber salt lake city</td><td class="num">~1,275</td><td class="num">1 of 3</td><td class="num">0 of 3</td></tr>
+        <tr><td>drain cleaning salt lake city</td><td class="num">~2,933</td><td class="num">3 of 3</td><td class="num">2 of 3</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <h3>Headings on the top pages (topic ideas only)</h3>
+    <ul>
+      <li>Salt Lake City, UT</li>
+      <li>How Do You Find the Best Plumber in Salt Lake City?</li>
+      <li>What Should Salt Lake City Residents Verify Before Hiring a Plumber?</li>
+      <li>What Sets the Best Plumbers in Salt Lake City Apart?</li>
+      <li>What Plumbing Services Do Salt Lake City Homes Need Most?</li>
+      <li>Why Roto-Rooter Is a Top Choice for Plumbing in Salt Lake City</li>
+      <li>Frequently Asked Questions</li>
+      <li>Salt Lake City Utah Plumber</li>
+      <li>Why Local Expertise Matters</li>
+      <li>What Is Hydro Jetting?</li>
+      <li>Two Sizes of Jetter for Two Kinds of Drains</li>
+      <li>Hydro Jetting vs. Snaking: Which One Does Your Drain Need?</li>
+      <li>Ready to Stop Dealing with the Same Drain Problems?</li>
+      <li>Family-Owned Since 2002, Not a Franchise</li>
+      <li>What Our Customers Say</li>
+      <li>Areas We Serve</li>
+      <li>24/7 Same Day Service</li>
+    </ul>
+    <p class="note">Use competitor headings for topic ideas only. Do not copy them. Some name other companies, people or prices.</p>
+  </section>
+  <section>
+    <h2>More searches Google suggests</h2>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Search</th><th>Use?</th><th>Where</th></tr></thead>
+      <tbody>
+        <tr><td>Standard Plumbing supply salt Lake City</td><td><span class="tag t-bad">Skip</span></td><td>Looks like a company&#x27;s name</td></tr>
+        <tr><td>Ferguson plumbing salt Lake City</td><td><span class="tag t-bad">Skip</span></td><td>Looks like a company&#x27;s name</td></tr>
+        <tr><td>Standard Plumbing park city</td><td><span class="tag t-bad">Skip</span></td><td>Looks like a company&#x27;s name</td></tr>
+        <tr><td>Standard plumbing supply - locations</td><td><span class="tag t-good">Yes</span></td><td>Matching service page, as a section</td></tr>
+        <tr><td>Plumbing supply near me</td><td><span class="tag t-good">Yes</span></td><td>Matching service page, as a section</td></tr>
+        <tr><td>Peterson Plumbing Supply</td><td><span class="tag t-bad">Skip</span></td><td>Looks like a company&#x27;s name</td></tr>
+        <tr><td>Standard plumbing catalog</td><td><span class="tag t-good">Yes</span></td><td>Matching service page, as a section</td></tr>
+        <tr><td>Standard plumbing supply near me</td><td><span class="tag t-good">Yes</span></td><td>Matching service page, as a section</td></tr>
+        <tr><td>Shower drain cleaning salt lake city</td><td><span class="tag t-good">Yes</span></td><td>Matching service page, as a section</td></tr>
+        <tr><td>Best drain cleaning salt lake city</td><td><span class="tag t-warn">Show, don&#x27;t claim</span></td><td>Real reviews, photos and process. Never claim &quot;the best&quot;.</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </section>
+  <section>
+    <h2>FAQ · real questions from Google</h2>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Question</th><th>Use?</th><th>Where</th></tr></thead>
+      <tbody>
+        <tr><td>What is the largest plumbing company in the United States?</td><td><span class="tag t-good">Yes</span></td><td>Matching service page</td></tr>
+        <tr><td>Do plumbers make good money in Utah?</td><td><span class="tag t-good">Yes</span></td><td>Matching service page</td></tr>
+        <tr><td>What are the two main plumbing codes?</td><td><span class="tag t-good">Yes</span></td><td>Matching service page</td></tr>
+        <tr><td>What is the average call out charge for a plumber?</td><td><span class="tag t-good">Yes</span></td><td>Matching service page</td></tr>
+        <tr><td>Is pouring salt down the drain a good way to unclog it?</td><td><span class="tag t-good">Yes</span></td><td>Matching service page</td></tr>
+        <tr><td>How much does a main line drain cleaning cost?</td><td><span class="tag t-warn">Real prices only</span></td><td>Cost page</td></tr>
+        <tr><td>Does Dawn really unclog drains?</td><td><span class="tag t-good">Yes</span></td><td>Matching service page</td></tr>
+        <tr><td>What is the best way to unclog a kitchen drain?</td><td><span class="tag t-good">Yes</span></td><td>Matching service page</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </section>
+  <section>
+    <h2>Rules for the writer</h2>
+    <ul>
+      <li>Start each page with its keyword.</li>
+      <li>Use only facts the client gives you: prices, warranty, years in business, licenses.</li>
+      <li>Do not invent reviews, numbers or photos.</li>
+      <li><b>This business is not a client yet: do not contact it.</b></li>
+    </ul>
+    <p class="small">Search numbers: Google Ads monthly searches across Utah, pulled 21 Oct 2026. "–" means fewer than 10 a month. Questions and page topics: live Google results in Salt Lake City, 21 Oct 2026.</p>
+  </section>
+  <section>
+    <h2>If they become a client: questions to ask</h2>
+    <p class="small">Only after Angelo signs them up. Do not contact them now.</p>
+    <ol>
+      <li>Which of these services do you really offer: <b>drain cleaning, emergency plumber, water heater repair, excavation, sewer line repair, water heater installation, hydro jetting, repipe, leak detection, sewer camera inspection</b>?</li>
+      <li>Are the name, phone and address on Google correct and how should they appear on the site?</li>
+      <li>Can you share real prices or price ranges?</li>
+      <li>Which cities do you work in?</li>
+      <li>Warranty, years in business, licenses? Any project photos?</li>
+    </ol>
+  </section>
+  
+</div></div>
+<p style="margin:12px 0 0"><button class="btn ghost" type="button" id="rtoggle" style="cursor:pointer;font:inherit;font-weight:700">Show the whole report</button></p>
+</div></section>
+
+<section class="block" id="fixes"><div class="wrap">
+<h2 class="sec">2. What we fixed</h2><p class="lede">Each problem from the report or the site review, and what the new site does about it.</p>
+<div class="card table-wrap"><table><thead><tr><th>Problem</th><th>What we did</th><th>Status</th></tr></thead><tbody><tr><td>Not a client yet</td><td>Draft only. Do not contact this business.</td><td><span class="tag wait">Needs Angelo</span></td></tr><tr><td>No website at all</td><td>A first website built only from the Google listing: Gross Family Plumbing LLC, 1750 Research Way #3600, Salt Lake City, UT 84119, 385-331-1988, copied exactly</td><td><span class="tag ok">Fixed</span></td></tr><tr><td>Home target &quot;plumber salt lake city&quot;</td><td>Title, H1 and first sentence use it; tap-to-call everywhere; Plumber schema</td><td><span class="tag ok">Fixed</span></td></tr><tr><td>Nothing true to say beyond the listing</td><td>Signature: Toilet water calculator, a working tool built on published sources, plus sourced tips</td><td><span class="tag ok">Fixed</span></td></tr><tr><td>No domain yet</td><td>Canonicals, sitemap and robots use a reserved .example placeholder; set the real domain before launch</td><td><span class="tag wait">Needs client</span></td></tr><tr><td>No services, hours, photos, licenses or story</td><td>Not invented. The pages stay lean until the client supplies them; banner is a credited open-license photo</td><td><span class="tag wait">Needs client</span></td></tr><tr><td>No blog</td><td>A new 1045-word post: When to replace a toilet: what WaterSense says about old, thirsty models</td><td><span class="tag ok">Fixed</span></td></tr></tbody></table></div>
+</div></section>
+
+<section class="block" id="mockup"><div class="wrap">
+<h2 class="sec">3. Before &amp; after</h2><p class="lede">The home page, old site on the left and the new design on the right. Screenshots from 16 to 17 Oct 2026.</p>
+<div class="ba">
+<figure><div class="frame"><div class="bar"><i></i><i></i><i></i></div><img src="review/old-desktop.webp" alt="Old Gross Family Plumbing LLC home page on desktop" width="1200" height="750" decoding="async"></div><figcaption>Before: current live site</figcaption></figure>
+<figure><div class="frame"><div class="bar"><i></i><i></i><i></i></div><img src="review/new-desktop.webp" alt="New Gross Family Plumbing LLC home page design on desktop" width="1200" height="1917" decoding="async"></div><figcaption>After: the new design</figcaption></figure>
+</div>
+<h3 style="font:700 18px/1.3 var(--display);margin:30px 0 12px">On a phone</h3>
+<div class="phones"><figure style="margin:0"><div class="phone"><img src="review/old-mobile.webp" alt="Old home page on a phone" width="390" height="844" decoding="async"></div><figcaption style="font:600 12px var(--body);color:var(--muted);margin-top:8px;text-transform:uppercase;letter-spacing:.08em">Before</figcaption></figure>
+<figure style="margin:0"><div class="phone"><img src="review/new-mobile.webp" alt="New home page on a phone" width="390" height="1900" decoding="async"></div><figcaption style="font:600 12px var(--body);color:var(--muted);margin-top:8px;text-transform:uppercase;letter-spacing:.08em">After</figcaption></figure></div>
+<p style="margin:26px 0 0"><a class="btn big" href="home/index.html">Open the new website <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a></p>
+</div></section>
+
+<section class="block" id="pages"><div class="wrap">
+<h2 class="sec">4. Pages to look at</h2><p class="lede">Jump straight into key pages of the new site. Use the browser back button to come back here.</p>
+<div class="pages"><a class="pagelink" href="home/index.html"><span>Home</span><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a><a class="pagelink" href="contact/index.html"><span>Contact</span><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a><a class="pagelink" href="when-to-replace-a-toilet/index.html"><span>New blog post</span><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a></div>
+</div></section>
+
+<section class="block" id="questions"><div class="wrap">
+<h2 class="sec">5. Questions for the client</h2><p class="lede">These need answers before the site goes live. Full details are in the notes file in OUTBOX.</p>
+<div class="card"><ol class="qs"><li>Which domain should the site use?</li><li>Which services do you offer, and in which areas?</li><li>What are your hours? Do you have a shop customers can visit?</li><li>Licensed and insured? License number?</li><li>Can you send photos of your team and work?</li><li>Can we show 4.8 / 163 Google reviews?</li></ol></div>
+</div></section>
+
+<footer class="wrap foot">Draft preview made by Novarte AI for review. Not the live site. Forms are switched off in this preview.</footer>
+<script>
+(function(){var b=document.getElementById('rtoggle'),x=document.getElementById('rbox');if(!b||!x)return;
+b.addEventListener('click',function(){var o=x.classList.toggle('open');b.textContent=o?'Show less':'Show the whole report';});})();
+</script>

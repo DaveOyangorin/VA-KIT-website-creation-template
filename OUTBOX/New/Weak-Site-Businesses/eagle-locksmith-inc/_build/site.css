@@ -1,0 +1,12 @@
+/* Eagle: "Straight answers". Night navy, brass, tall condensed caps; a checklist that fills a gauge. */
+:root { --label: #8e6610 }
+.site-header { border-bottom: 2px solid var(--accent) }
+.lx-hero { --hero-shade-low: linear-gradient(0deg, rgba(11,17,28,.95) 0%, rgba(11,17,28,.55) 50%, rgba(11,17,28,.1) 90%); --hero-pos: 50% 50% }
+.lx-hero h1 { font-size: clamp(3rem, 7.4vw, 6.4rem); line-height: .9 } .lx-hero h1 em { color: var(--accent) }
+.lx-2 h2, .lx-head h2 { font-size: clamp(2.6rem, 6vw, 4.6rem); line-height: .92 }
+.ck-meter { display: grid; justify-items: center } .ck-meter svg { width: min(100%, 300px) } .ck-track, .ck-arc { fill: none; stroke-width: 16; stroke-linecap: round } .ck-track { stroke: var(--dark2) }
+.ck-arc { stroke: var(--accent); stroke-dasharray: 100; stroke-dashoffset: 100; transition: stroke-dashoffset .4s ease } .ck-meter p { margin: -40px 0 0; font: 400 1.1rem var(--f-mono); color: var(--on-dark2) } .ck-meter b { font: 400 3.2rem var(--f-disp); color: var(--on-dark) }
+.ck-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px } .ck-list label { display: flex; gap: 12px; align-items: flex-start; font-weight: 500; color: var(--on-dark); padding: 12px 14px; border: 1px solid rgba(255,255,255,.14); border-radius: var(--r); cursor: pointer; margin: 0 }
+.ck-list input { width: 20px; height: 20px; accent-color: var(--accent); flex: 0 0 auto; margin-top: 2px } .ck-list label:has(input:checked) { border-color: var(--accent); background: rgba(222,168,52,.08) }
+.lx-grid > div { border-radius: 6px; border-bottom: 4px solid var(--accent) } .lx-grid h3 { font-size: 1.8rem; letter-spacing: .02em }
+@media (prefers-reduced-motion: reduce) { .ck-arc { transition: none } }

@@ -1,0 +1,12 @@
+/* Gross Family: "Every flush". Deep green, field green; numeric and tidy, rounded tiles. */
+:root { --label: #4b7a22 }
+.site-header { border-bottom: 4px solid var(--accent) }
+.lx-panel { background: radial-gradient(120% 90% at 0% 100%, rgba(124,178,74,.18), transparent 60%), var(--dark) } .lx-hero h1 em { color: var(--accent-2) } .lx-pic { --hero-pos: 50% 50% }
+.fl-tank { display: flex; justify-content: center; align-items: flex-end; gap: 28px; height: 280px }
+.fl-col { position: relative; width: 96px; height: 100%; border-radius: 14px; background: var(--dark2); border: 2px solid rgba(255,255,255,.15); overflow: hidden; display: flex; align-items: flex-end }
+.fl-col i { display: block; width: 100%; height: 50%; background: linear-gradient(0deg, #3f8fb8, #8cc6e2); transition: height .5s ease } .fl-col.ws i { background: linear-gradient(0deg, var(--accent-ink), var(--accent-2)) }
+.fl-col span { position: absolute; left: 0; right: 0; top: 8px; text-align: center; font: 500 .7rem var(--f-mono); color: var(--on-dark); text-transform: uppercase }
+.flush .tool-in input[type=number] { margin-bottom: 14px }
+.flush .tool-out h3 { font-size: clamp(1.8rem, 3.4vw, 2.6rem) }
+.lx-grid { counter-reset: d } .lx-grid > div { border-radius: 16px; border: 2px solid var(--line) } .lx-grid > div:nth-child(1) { background: #eef6e6 } .lx-grid .mono { font-size: 1.4rem; color: var(--accent-ink) }
+@media (prefers-reduced-motion: reduce) { .fl-col i { transition: none } }

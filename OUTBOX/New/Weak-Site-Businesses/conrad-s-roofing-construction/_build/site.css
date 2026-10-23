@@ -1,0 +1,14 @@
+/* Conrad's: "Snow line". Winter navy, ice blue, brass; soft, rounded, a frosted feel. */
+:root { --ice: #7abadc; --label: #2f6f93; --em-style: italic }
+.site-header { border-bottom: 3px solid var(--ice) }
+.lx-hero { --hero-shade-low: linear-gradient(0deg, rgba(13,24,36,.94) 0%, rgba(13,24,36,.45) 55%, rgba(13,24,36,.05) 100%); --hero-pos: 50% 60%; --hero-label: var(--ice) }
+.lx-hero h1 em { color: var(--ice) }
+.lx-tool .label { color: var(--ice) } .lx-tool h2 em { color: var(--ice) }
+.sn-gauge { display: grid; justify-items: center; gap: 12px } .sn-col { position: relative; width: 120px; height: 300px; border-radius: 60px 60px 18px 18px; background: linear-gradient(var(--dark2), #253a50); border: 2px solid rgba(255,255,255,.18); overflow: hidden }
+.sn-fill { position: absolute; left: 0; right: 0; bottom: 0; height: 0; background: linear-gradient(0deg, #b9dcef, #f4fbff); transition: height .5s ease } .snow.is-over .sn-fill { background: linear-gradient(0deg, #e9a27a, #fbe6d8) }
+.sn-line { position: absolute; left: -2px; right: -2px; border-top: 2px dashed var(--accent); font: 500 .62rem var(--f-mono); color: var(--accent-2) } .sn-line span { position: absolute; left: 8px; top: -18px; white-space: nowrap; background: rgba(13,24,36,.7); padding: 1px 4px; border-radius: 4px }
+.sn-num { margin: 0; text-align: center; font: 800 3rem/1 var(--f-disp); color: var(--on-dark) } .sn-num small { display: block; font: 500 .74rem var(--f-mono); color: var(--on-dark2); margin-top: 4px }
+.snow .tool-in input { margin-bottom: 14px } .snow .tool-out { border-left-color: var(--ice) } .snow.is-over .tool-out { border-left-color: var(--accent) }
+.lx-grid > div { border-radius: 20px 20px 20px 4px; background: linear-gradient(160deg, #fff 60%, #eaf3f8) }
+.lx-facts { border-top-color: var(--ice) }
+@media (prefers-reduced-motion: reduce) { .sn-fill { transition: none } }

@@ -14,6 +14,15 @@ SHARED = {"customroofs.biz", "mandmgutters.com", "roofwiseut.com", "jordanriverr
 # Mobile header fix (sticky header + mobile menu panel), applied to every redesign and republished 18 Oct 2026.
 MOBILE_FIX = "Fixed and republished 18 Oct"
 STATUS = {
+    "husky-property-maintenance": ("Premium", "Built premium from the start (21 Oct)"),
+    "superior-locksmith": ("Premium", "Built premium from the start (21 Oct)"),
+    "eagle-locksmith-inc": ("Premium", "Built premium from the start (21 Oct)"),
+    "gross-family-plumbing-llc": ("Premium", "Built premium from the start (21 Oct)"),
+    "sean-s-plumbing": ("Premium", "Built premium from the start (21 Oct)"),
+    "stanley-sons-plumbing": ("Premium", "Built premium from the start (21 Oct)"),
+    "stott-plumbing-excavating": ("Premium", "Built premium from the start (21 Oct)"),
+    "conrad-s-roofing-construction": ("Premium", "Built premium from the start (21 Oct)"),
+    "rooftek": ("Premium", "Built premium from the start (21 Oct)"),
     "jacksonplumbinghvac.com": ("Premium", "Built premium from the start (21 Oct)"),
     "dsihvac.com": ("Premium", "Built premium from the start (21 Oct)"),
     "marble-builders.com": ("Premium", "Built premium from the start (21 Oct)"),

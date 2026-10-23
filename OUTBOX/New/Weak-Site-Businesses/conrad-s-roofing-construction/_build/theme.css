@@ -1,0 +1,8 @@
+:root {
+  --paper: #f1f4f6; --sand: #e2e8ec; --card: #ffffff; --ink: #142232; --ink2: #3d4b5a; --mute: #66737f; --line: #d3dbe1;
+  --dark: #142232; --dark2: #1e3044; --on-dark: #eef3f6; --on-dark2: #a8b8c6; --foot: #0d1824;
+  --accent: #c4a062; --accent-2: #dcbd85; --accent-ink: #8a6a2e; --on-accent: #142232;
+  --f-disp: "Fraunces", Georgia, serif; --f-body: "Karla", "Segoe UI", system-ui, sans-serif; --f-mono: "DM Mono", ui-monospace, Menlo, monospace;
+  --disp-w: 800; --disp-ls: -.02em; --disp-tt: none; --r: 16px; --btn-r: 999px; --hdr: 80px; --logo-h: 40px;
+  color-scheme: light;
+}

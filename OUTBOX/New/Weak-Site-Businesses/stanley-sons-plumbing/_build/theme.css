@@ -1,0 +1,8 @@
+:root {
+  --paper: #f7f2ea; --sand: #ece4d7; --card: #fffdf9; --ink: #26191a; --ink2: #54443f; --mute: #7a6b64; --line: #e0d6c8;
+  --dark: #2a1b1a; --dark2: #382625; --on-dark: #f8f1e8; --on-dark2: #c3b2a8; --foot: #1c1211;
+  --accent: #d44834; --accent-2: #ec7a64; --accent-ink: #a3301f; --on-accent: #fffaf3;
+  --f-disp: "Playfair Display", Georgia, serif; --f-body: "Libre Franklin", "Segoe UI", system-ui, sans-serif; --f-mono: "Martian Mono", ui-monospace, Menlo, monospace;
+  --disp-w: 800; --disp-ls: -.01em; --disp-tt: none; --r: 10px; --btn-r: 10px; --hdr: 80px; --logo-h: 40px;
+  color-scheme: light;
+}

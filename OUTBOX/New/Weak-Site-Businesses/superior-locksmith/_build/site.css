@@ -1,0 +1,13 @@
+/* Superior: "Pin stack". Aubergine, violet, steel; precise geometry and a pin-tumbler lock that reacts. */
+:root { --label: #5e3fae }
+.site-header { border-bottom: 3px solid var(--accent) }
+.lx-panel { background: linear-gradient(90deg, transparent 0 calc(100% - 1px), rgba(255,255,255,.06) 0) 0 0/48px 100%, var(--dark) } .lx-hero h1 em { color: var(--accent-2) } .lx-pic { --hero-pos: 50% 45% }
+.pk-lock { display: grid; justify-items: center } .pk-lock svg { width: min(100%, 240px) }
+.pk-shackle { fill: none; stroke: #b9b6c6; stroke-width: 16; stroke-linecap: round; transition: transform .45s ease; transform-origin: 120px 90px } .pick.is-open .pk-shackle { transform: translateY(-14px) }
+.pk-body { fill: var(--accent); } .pick.is-new .pk-body { fill: #6fbf8e } .pick.is-fix .pk-body { fill: #d9a64a }
+.pk-pins rect { fill: var(--dark); transition: height .35s ease, y .35s ease } .pk-key { fill: var(--dark) }
+.pk-chips .chip span { font-size: .9rem }
+.lx-grid > div { border-radius: 14px; border: 0; background: var(--card); box-shadow: inset 0 0 0 1px var(--line), 0 10px 0 -6px var(--accent) }
+@media (prefers-reduced-motion: reduce) { .pk-shackle, .pk-pins rect { transition: none } }
+.lx-hero h1 { font-size: clamp(2.1rem, 4.1vw, 3.9rem); line-height: 1.02; overflow-wrap: break-word } .lx-head h2, .lx-2 h2 { font-size: clamp(2rem, 4vw, 3.4rem); overflow-wrap: break-word }
+@media (max-width: 640px) { .lx-hero h1 { font-size: clamp(1.9rem, 9vw, 2.6rem) } }

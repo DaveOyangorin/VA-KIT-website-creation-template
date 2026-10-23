@@ -1,0 +1,8 @@
+:root {
+  --paper: #f3f5ef; --sand: #e5eadd; --card: #ffffff; --ink: #1b2a1e; --ink2: #455447; --mute: #6b786c; --line: #d6ddcf;
+  --dark: #1b2a1e; --dark2: #263a2a; --on-dark: #f2f5ee; --on-dark2: #a9baa9; --foot: #121c14;
+  --accent: #7cb24a; --accent-2: #a2cf74; --accent-ink: #4b7a22; --on-accent: #1b2a1e;
+  --f-disp: "Sora", "Segoe UI", sans-serif; --f-body: "Inter", "Segoe UI", system-ui, sans-serif; --f-mono: "Fira Code", ui-monospace, Menlo, monospace;
+  --disp-w: 800; --disp-ls: -.03em; --disp-tt: none; --r: 12px; --btn-r: 8px; --hdr: 80px; --logo-h: 40px;
+  color-scheme: light;
+}

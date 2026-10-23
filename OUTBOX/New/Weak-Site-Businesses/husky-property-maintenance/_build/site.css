@@ -1,0 +1,13 @@
+/* Husky: "Checklist". Slate and work-orange, rounded friendly type, a progress ring and tidy list. */
+:root { --label: #ad5410 }
+.site-header { border-bottom: 4px solid var(--accent) }
+.lx-hero { --hero-shade: linear-gradient(100deg, rgba(17,23,31,.93) 0%, rgba(17,23,31,.66) 52%, rgba(17,23,31,.2) 100%); --hero-pos: 50% 50% }
+.lx-hero h1 em { color: var(--accent-2) }
+.ls-ring { position: relative; display: grid; place-items: center } .ls-ring svg { width: min(100%, 240px); transform: rotate(-90deg) } .ls-track, .ls-arc { fill: none; stroke-width: 12 } .ls-track { stroke: var(--dark2) }
+.ls-arc { stroke: var(--accent); stroke-linecap: round; stroke-dasharray: 100; stroke-dashoffset: 100; transition: stroke-dashoffset .4s ease }
+.ls-ring p { position: absolute; margin: 0; text-align: center } .ls-ring b { display: block; font: 800 2.6rem/1 var(--f-disp); color: var(--on-dark) } .ls-ring small { font: 500 .74rem var(--f-mono); color: var(--on-dark2); text-transform: uppercase }
+.ls-items { list-style: none; padding: 0; margin: 14px 0 0; display: grid; gap: 8px } .ls-items label { display: flex; gap: 12px; align-items: flex-start; font-weight: 600; color: var(--on-dark); padding: 12px 14px; background: var(--dark2); border-radius: var(--r); cursor: pointer; margin: 0 }
+.ls-items input { width: 20px; height: 20px; accent-color: var(--accent); flex: 0 0 auto; margin-top: 2px } .ls-items small { margin-left: auto; font: 500 .66rem var(--f-mono); color: var(--on-dark2); text-transform: uppercase; padding-left: 10px; white-space: nowrap }
+.ls-items label:has(input:checked) { text-decoration: line-through; text-decoration-color: var(--accent); color: var(--on-dark2) }
+.lx-grid > div { border-radius: 16px; border-left: 6px solid var(--accent) }
+@media (prefers-reduced-motion: reduce) { .ls-arc { transition: none } }

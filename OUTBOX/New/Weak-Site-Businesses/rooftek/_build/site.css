@@ -1,0 +1,11 @@
+/* RoofTek: "Pitch". Charcoal, safety orange, slate; hard edges and a diagonal roof line through the page. */
+.site-header { border-bottom: 4px solid var(--accent) }
+.lx-hero { --hero-shade: linear-gradient(105deg, rgba(16,17,20,.92) 0%, rgba(16,17,20,.62) 50%, rgba(16,17,20,.1) 100%); --hero-pos: 50% 35% }
+.lx-hero h1 { font-size: clamp(2.6rem, 6vw, 5.2rem); line-height: .95 }
+.lx-intro { background: linear-gradient(162deg, var(--paper) 0 70%, var(--sand) 70.2% 100%) }
+.lx-facts { border-top-color: var(--accent) }
+.pt-fig svg { width: 100%; max-width: 460px; display: block; margin: 0 auto } .pt-base { stroke: rgba(255,255,255,.35); stroke-width: 2 } .pt-roof { fill: rgba(214,92,52,.18); stroke: var(--accent); stroke-width: 5; stroke-linejoin: round; transition: all .3s }
+.pt-rise { stroke: var(--on-dark2); stroke-width: 2; stroke-dasharray: 5 5 } .pt-lbl { font: 700 16px var(--f-mono); fill: var(--on-dark) }
+.pt-scale { display: flex; justify-content: space-between; font: 400 .74rem var(--f-mono); color: var(--on-dark2); margin: 4px 0 18px } .tool-in label b { color: var(--accent-2); font-family: var(--f-mono) }
+.lx-grid > div { border-radius: 0; border-top: 4px solid var(--ink) } .lx-grid > div:nth-child(odd) { border-top-color: var(--accent) }
+@media (prefers-reduced-motion: reduce) { .pt-roof { transition: none } }

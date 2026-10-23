@@ -1,0 +1,14 @@
+/* Sean's: "Hard water". Lake teal on deep blue, chalky scale; soft round shapes. */
+:root { --chalk: #ece6d6; --label: #1b7c8a }
+.site-header { border-bottom: 4px solid var(--accent) }
+.lx-hero { --hero-shade-low: linear-gradient(0deg, rgba(8,32,43,.95) 0%, rgba(8,32,43,.5) 50%, rgba(8,32,43,0) 85%); --hero-pos: 50% 55%; --hero-label: var(--accent-2) }
+.lx-hero h1 em { color: var(--accent-2) }
+.hd-pipe { display: grid; justify-items: center; gap: 10px } .hd-pipe svg { width: min(100%, 300px); height: auto }
+.hd-wall { fill: #8a9aa2; stroke: #c6d2d8; stroke-width: 4 } .hd-scale { fill: var(--chalk) } .hd-water { fill: #2b8fa3; transition: r .5s ease }
+.hd-cls { margin: 0; font: 800 2.2rem/1 var(--f-disp); color: var(--on-dark) }
+.hd-bar { position: relative; display: flex; margin-top: 18px; border-radius: 999px; overflow: visible; font: 500 .66rem var(--f-mono); text-transform: uppercase }
+.hd-bar i { flex: 0 0 var(--w); padding: 8px 0; text-align: center; font-style: normal; color: var(--dark) } .hd-bar i:nth-child(1) { background: #bfe7ee; border-radius: 999px 0 0 999px } .hd-bar i:nth-child(2) { background: #8fd0dc } .hd-bar i:nth-child(3) { background: #e9dcc0 } .hd-bar i:nth-child(4) { background: #d9c49a; border-radius: 0 999px 999px 0 }
+.hd-bar b { position: absolute; top: -6px; bottom: -6px; width: 4px; margin-left: -2px; border-radius: 2px; background: var(--on-dark); left: 0; transition: left .4s ease; box-shadow: 0 0 0 2px var(--dark) }
+.hard .chips { margin: 12px 0 0 }
+.lx-grid > div { border-radius: 24px; background: linear-gradient(180deg, #fff, #f2f8f9) } .lx-grid .mono { color: var(--accent-ink) }
+@media (prefers-reduced-motion: reduce) { .hd-water, .hd-bar b { transition: none } }

@@ -11,6 +11,114 @@ Last updated: 19 Oct 2026
 
 ## Website redesigns (this kit)
 
+### husky-property-maintenance: Husky Property Maintenance (Midvale)
+- **Preview link:** https://claude.ai/artifact/BuBpSuc9EUUCRroo3kpFWk
+- **Sharing:** Private until shared (open the link, Share, Anyone with the link)
+- **Mobile header:** Applied and checked 23 Oct (incl. scrolled header)
+- **Made:** 23 Oct 2026 · premium (lean, first website): "Checklist". Own palette, type and layout; credited open-license banner; typographic wordmark; signature seasonal home safety checklist (USFA, CPSC, ENERGY STAR, IBHS).
+- **What it is:** ⚠ NOT A CLIENT YET. Do not contact this business. ⚠ NO WEBSITE: built from the Google listing only (name, address, phone, category; no services, hours, licenses or rating invented). ⚠ No domain yet: canonicals use a .example placeholder. Home + contact + 1 new post. New blog post: "Smoke and carbon monoxide alarms: where they go and how to keep them working" (1022 words, USFA and CPSC sources).
+- **Files:** `OUTBOX\New\Weak-Site-Businesses\husky-property-maintenance\`
+  - `site\` = files to put live (after the domain is set)
+  - `preview\` = the review copy behind the link
+  - `2026-10-23_husky-property-maintenance_site-notes.md` = notes and questions for Angelo
+  - `2026-10-21_husky-property-maintenance_report.html` = the website plan report
+
+### superior-locksmith: Superior Locksmith (West Jordan)
+- **Preview link:** https://claude.ai/artifact/HReg9oZJ3jAAfed8H76Uh4
+- **Sharing:** Private until shared (open the link, Share, Anyone with the link)
+- **Mobile header:** Applied and checked 23 Oct (incl. scrolled header)
+- **Made:** 23 Oct 2026 · premium (lean, first website): "Pin stack". Own palette, type and layout; credited open-license banner; typographic wordmark; signature rekey, repair or replace guide.
+- **What it is:** ⚠ NOT A CLIENT YET. Do not contact this business. ⚠ NO WEBSITE: built from the Google listing only (name, address, phone, category; no services, hours, licenses or rating invented). ⚠ No domain yet: canonicals use a .example placeholder. Home + contact + 1 new post. New blog post: "Lock grades explained: what BHMA ratings actually test" (1005 words, BHMA standards sources).
+- **Files:** `OUTBOX\New\Weak-Site-Businesses\superior-locksmith\`
+  - `site\` = files to put live (after the domain is set)
+  - `preview\` = the review copy behind the link
+  - `2026-10-23_superior-locksmith_site-notes.md` = notes and questions for Angelo
+  - `2026-10-21_superior-locksmith_report.html` = the website plan report
+
+### eagle-locksmith-inc: Eagle Locksmith inc (Salt Lake City)
+- **Preview link:** https://claude.ai/artifact/SScjEhq4SK168TSnRkhRwi
+- **Sharing:** Private until shared (open the link, Share, Anyone with the link)
+- **Mobile header:** Applied and checked 23 Oct (incl. scrolled header)
+- **Made:** 23 Oct 2026 · premium (lean, first website): "Straight answers". Own palette, type and layout; credited open-license banner; typographic wordmark; signature locksmith call checklist from BBB scam tips.
+- **What it is:** ⚠ NOT A CLIENT YET. Do not contact this business. ⚠ NO WEBSITE: built from the Google listing only (name, address, phone, category; no services, hours, licenses or rating invented). ⚠ No domain yet: canonicals use a .example placeholder. Home + contact + 1 new post. New blog post: "How to hire a locksmith without getting scammed" (1053 words, BBB and FTC sources).
+- **Files:** `OUTBOX\New\Weak-Site-Businesses\eagle-locksmith-inc\`
+  - `site\` = files to put live (after the domain is set)
+  - `preview\` = the review copy behind the link
+  - `2026-10-23_eagle-locksmith-inc_site-notes.md` = notes and questions for Angelo
+  - `2026-10-21_eagle-locksmith-inc_report.html` = the website plan report
+
+### gross-family-plumbing-llc: Gross Family Plumbing LLC (Salt Lake City)
+- **Preview link:** https://claude.ai/artifact/NrxzxVWua4DbfDr3dLBQXh
+- **Sharing:** Private until shared (open the link, Share, Anyone with the link)
+- **Mobile header:** Applied and checked 23 Oct (incl. scrolled header)
+- **Made:** 23 Oct 2026 · premium (lean, first website): "Every flush". Own palette, type and layout; credited open-license banner; typographic wordmark; signature WaterSense toilet water calculator plus the 10-minute dye test.
+- **What it is:** ⚠ NOT A CLIENT YET. Do not contact this business. ⚠ NO WEBSITE: built from the Google listing only (name, address, phone, category; no services, hours, licenses or rating invented). ⚠ No domain yet: canonicals use a .example placeholder. Home + contact + 1 new post. New blog post: "When to replace a toilet: what WaterSense says about old, thirsty models" (1045 words, EPA WaterSense sources).
+- **Files:** `OUTBOX\New\Weak-Site-Businesses\gross-family-plumbing-llc\`
+  - `site\` = files to put live (after the domain is set)
+  - `preview\` = the review copy behind the link
+  - `2026-10-23_gross-family-plumbing-llc_site-notes.md` = notes and questions for Angelo
+  - `2026-10-21_gross-family-plumbing-llc_report.html` = the website plan report
+
+### sean-s-plumbing: Sean's Plumbing (South Jordan)
+- **Preview link:** https://claude.ai/artifact/RdqdkJ3jEdsV7BjfDRCZNT
+- **Sharing:** Private until shared (open the link, Share, Anyone with the link)
+- **Mobile header:** Applied and checked 23 Oct (incl. scrolled header)
+- **Made:** 23 Oct 2026 · premium (lean, first website): "Hard water". Own palette, type and layout; credited open-license banner; typographic wordmark; signature USGS water hardness converter.
+- **What it is:** ⚠ NOT A CLIENT YET. Do not contact this business. ⚠ NO WEBSITE: built from the Google listing only (name, address, phone, category; no services, hours, licenses or rating invented). ⚠ No domain yet: canonicals use a .example placeholder. Home + contact + 1 new post. New blog post: "Hard water explained: what the numbers mean for your home" (1033 words, USGS Water Science School sources).
+- **Files:** `OUTBOX\New\Weak-Site-Businesses\sean-s-plumbing\`
+  - `site\` = files to put live (after the domain is set)
+  - `preview\` = the review copy behind the link
+  - `2026-10-23_sean-s-plumbing_site-notes.md` = notes and questions for Angelo
+  - `2026-10-21_sean-s-plumbing_report.html` = the website plan report
+
+### stanley-sons-plumbing: Stanley & Sons Plumbing (Salt Lake City)
+- **Preview link:** https://claude.ai/artifact/QD8kCoiuwKcY88duh4Ubyk
+- **Sharing:** Private until shared (open the link, Share, Anyone with the link)
+- **Mobile header:** Applied and checked 23 Oct (incl. scrolled header)
+- **Made:** 23 Oct 2026 · premium (lean, first website): "Hot line". Own palette, type and layout; credited open-license banner; typographic wordmark; signature water heater thermometer with CPSC burn times.
+- **What it is:** ⚠ NOT A CLIENT YET. Do not contact this business. ⚠ NO WEBSITE: built from the Google listing only (name, address, phone, category; no services, hours, licenses or rating invented). ⚠ No domain yet: canonicals use a .example placeholder. Home + contact + 1 new post. New blog post: "What temperature should your water heater be? Why CPSC says 120F" (1072 words, CPSC Publication 5098 and DOE FEMP sources).
+- **Files:** `OUTBOX\New\Weak-Site-Businesses\stanley-sons-plumbing\`
+  - `site\` = files to put live (after the domain is set)
+  - `preview\` = the review copy behind the link
+  - `2026-10-23_stanley-sons-plumbing_site-notes.md` = notes and questions for Angelo
+  - `2026-10-21_stanley-sons-plumbing_report.html` = the website plan report
+
+### stott-plumbing-excavating: Stott Plumbing & Excavating (Salt Lake City)
+- **Preview link:** https://claude.ai/artifact/EqSWC3Wsfpbwkrt8jvzoA3
+- **Sharing:** Private until shared (open the link, Share, Anyone with the link)
+- **Mobile header:** Applied and checked 23 Oct (incl. scrolled header)
+- **Made:** 23 Oct 2026 · premium (lean, first website): "Locate". Own palette, type and layout; credited open-license banner; typographic wordmark; signature 811 utility color code guide plus the lines Blue Stakes won't mark.
+- **What it is:** ⚠ NOT A CLIENT YET. Do not contact this business. ⚠ NO WEBSITE: built from the Google listing only (name, address, phone, category; no services, hours, licenses or rating invented). ⚠ No domain yet: canonicals use a .example placeholder. Home + contact + 1 new post. New blog post: "Blue Stakes 811 in Utah: what to know before you dig" (1053 words, Blue Stakes of Utah 811, Virginia 811 and 811beforeyoudig sources).
+- **Files:** `OUTBOX\New\Weak-Site-Businesses\stott-plumbing-excavating\`
+  - `site\` = files to put live (after the domain is set)
+  - `preview\` = the review copy behind the link
+  - `2026-10-23_stott-plumbing-excavating_site-notes.md` = notes and questions for Angelo
+  - `2026-10-21_stott-plumbing-excavating_report.html` = the website plan report
+
+### conrad-s-roofing-construction: Conrad's Roofing & Construction (Lehi)
+- **Preview link:** https://claude.ai/artifact/YQJ3JwkvSt8jQ8gxkA3UgK
+- **Sharing:** Private until shared (open the link, Share, Anyone with the link)
+- **Mobile header:** Applied and checked 23 Oct (incl. scrolled header)
+- **Made:** 23 Oct 2026 · premium (lean, first website): "Snow line". Own palette, type and layout; credited open-license banner; typographic wordmark; signature roof snow-load calculator (IBHS 20 psf rule of thumb).
+- **What it is:** ⚠ NOT A CLIENT YET. Do not contact this business. ⚠ NO WEBSITE: built from the Google listing only (name, address, phone, category; no services, hours, licenses or rating invented). ⚠ No domain yet: canonicals use a .example placeholder. Home + contact + 1 new post. New blog post: "How much snow can a roof hold? Weights, warning signs and safe removal" (1000 words, IBHS via Maine Emergency Management and FEMA P-957 sources).
+- **Files:** `OUTBOX\New\Weak-Site-Businesses\conrad-s-roofing-construction\`
+  - `site\` = files to put live (after the domain is set)
+  - `preview\` = the review copy behind the link
+  - `2026-10-23_conrad-s-roofing-construction_site-notes.md` = notes and questions for Angelo
+  - `2026-10-21_conrad-s-roofing-construction_report.html` = the website plan report
+
+### rooftek: RoofTek (Millcreek)
+- **Preview link:** https://claude.ai/artifact/AFRtanAgbrhxQxNHmB1ZTX
+- **Sharing:** Private until shared (open the link, Share, Anyone with the link)
+- **Mobile header:** Applied and checked 23 Oct (incl. scrolled header)
+- **Made:** 23 Oct 2026 · premium (lean, first website): "Pitch". Own palette, type and layout; credited open-license banner; typographic wordmark; signature roof pitch calculator (rise over 12 to angle, slope factor, roof area).
+- **What it is:** ⚠ NOT A CLIENT YET. Do not contact this business. ⚠ NO WEBSITE: built from the Google listing only (name, address, phone, category; no services, hours, licenses or rating invented). ⚠ No domain yet: canonicals use a .example placeholder. Home + contact + 1 new post. New blog post: "What is a FORTIFIED roof? A homeowner's guide to the IBHS standard" (1042 words, IBHS FORTIFIED sources).
+- **Files:** `OUTBOX\New\Weak-Site-Businesses\rooftek\`
+  - `site\` = files to put live (after the domain is set)
+  - `preview\` = the review copy behind the link
+  - `2026-10-23_rooftek_site-notes.md` = notes and questions for Angelo
+  - `2026-10-21_rooftek_report.html` = the website plan report
+
 ### jacksonplumbinghvac.com: Jackson Family Plumbing & HVAC (West Jordan)
 - **Preview link:** https://claude.ai/artifact/CPRKjw5jkso5N8x2fxqYxi
 - **Sharing:** Private until shared (open the link, Share, Anyone with the link)

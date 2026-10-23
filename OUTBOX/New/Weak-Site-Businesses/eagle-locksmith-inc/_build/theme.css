@@ -1,0 +1,8 @@
+:root {
+  --paper: #f3f2ee; --sand: #e6e3db; --card: #ffffff; --ink: #121a2a; --ink2: #3f4757; --mute: #677080; --line: #d8d6cf;
+  --dark: #121a2a; --dark2: #1c2638; --on-dark: #f4f1e9; --on-dark2: #a9b2c2; --foot: #0b111c;
+  --accent: #dea834; --accent-2: #f0c868; --accent-ink: #8e6610; --on-accent: #121a2a;
+  --f-disp: "Bebas Neue", Impact, "Arial Narrow", sans-serif; --f-body: "Barlow", "Segoe UI", system-ui, sans-serif; --f-mono: "Share Tech Mono", ui-monospace, Menlo, monospace;
+  --disp-w: 400; --disp-ls: .02em; --disp-tt: uppercase; --r: 6px; --btn-r: 6px; --hdr: 80px; --logo-h: 40px;
+  color-scheme: light;
+}
