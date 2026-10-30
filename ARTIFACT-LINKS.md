@@ -5,11 +5,21 @@ All the private preview links, in one place. Newest first.
 **18 Oct 2026, mobile header fix:** on phones the header could be cut off and the mobile menu covered part of the header (and on some sites showed only partly). Fixed on every redesign below and republished to the same links.
 They are drafts, not the live websites.
 
-Last updated: 19 Oct 2026
+Last updated: 30 Oct 2026
 
 ---
 
 ## Website redesigns (this kit)
+
+### earthenphoenix.com: Earthen Phoenix (Massage, Yoga & Reiki, Salt Lake City)
+- **Preview link:** https://claude.ai/artifact/QEntpxndXnFWCdw8vEkJ8o
+- **Sharing:** Private until shared (open the link, Share, Anyone with the link). The older home-page link (Jsn9NFxJmciVtundmDbW7H) is public and was not changed.
+- **Mobile header:** Checked 30 Oct (menu panel under header, header pinned after scroll, scrolled header colours)
+- **Made:** 30 Oct 2026 · full 17-page site built on the approved "come back to earth" home: 10 service pages, each with its own animation drawn from the session (Reiki hands on/near, Swedish long strokes, deep tissue layers with the breath, Thai rhythm + stretch, lymphatic 6 steps by scroll, Sarga foot + strap, Zen mountain river that slows), a pressure finder, price table, FAQ, about, products, contact form, five-band page transition. Facts from her site and booking page only.
+- **What it is:** Review page first, then "Open website". FLAGS: yoga $140 (booking page) vs $120 (classes page), site uses $140. The booking calendar lives on earthenphoenix.com/appointment-8682, so it must move to a subdomain or an embed before this site replaces the current one.
+- **Files:** `OUTBOX\New\earthenphoenix.com\2026-10-30_earthenphoenix.com_full-site-preview\` = the review copy behind the link
+  - Source site (editable, with `_src\build.py` and README): `Desktop\New folder (2)\earthen-phoenix-premium-website\`
+- **Waiting on:** client: yoga price ($140 or $120), whether to show the street address and hours, more session photos, OK to reuse the 3 testimonials; developer: move the GHL booking calendar before launch
 
 ### husky-property-maintenance: Husky Property Maintenance (Midvale)
 - **Preview link:** https://claude.ai/artifact/BuBpSuc9EUUCRroo3kpFWk
@@ -977,6 +987,7 @@ Where a client has more than one link, the top one is the newest.
 | Me-Tel (older) | https://claude.ai/artifact/XRZqixhtSNKU5ZurwesBHe | 14 Oct 2026 |
 | Me-Tel (older) | https://claude.ai/artifact/NS9Lr1VDqujtRssSzWSuCj | 13 Oct 2026 |
 | Me-Tel site preview (older) | https://claude.ai/artifact/ViikhG98P1vyUGFgnnEYHu | 13 Oct 2026 |
+| Earthen Phoenix full 17-page site (newest; see Website redesigns above) | https://claude.ai/artifact/QEntpxndXnFWCdw8vEkJ8o | 30 Oct 2026 |
 | Earthen Phoenix (Massage, Yoga & Reiki) | https://claude.ai/artifact/Jsn9NFxJmciVtundmDbW7H | 15 Oct 2026; 30 Oct 2026 home redesigned; later on 30 Oct 2026 animation layer rebuilt from her practice: full-width photo banner with "Release" (knotted lines loosen under cursor/finger, then breathe), massage pressure ripple on linen + drifting modality tags, yoga line flowing Vinyasa then holding Yin, tappable singing bowl with Reiki light (optional chime, off by default), sprig/constellation/tarot card, bowl-ring breathing circle, root timeline, breath-paced reviews, oil shimmer on products; earth/sand/clay/sage palette, one ember accent; sand garden removed; 30 Oct 2026 new page astrology-tarot.html (original design, client example used only as a prompt): star-trail hero over her candle photo, birth-chart wheel that turns to your sun sign, tarot cards with her four steps around a candle that reacts to air, oracle card, teas/rollies/tinctures animations, Oregon to SLC herb journey, $2/min cost meter; facts from her booking page. FLAG: booking page says yoga $140/60 min, home page says $120 |
 | Earthen Phoenix (older) | https://claude.ai/artifact/M8XVeqahZEGWSeeqTRxui1 | 15 Oct 2026 |
 | Earthen Phoenix redesign (older) | https://claude.ai/artifact/NA6jMpgeLEAc6mMBPQgKpc | 14 Oct 2026 |

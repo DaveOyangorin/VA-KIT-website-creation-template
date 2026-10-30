@@ -1,0 +1,139 @@
+/* Earthen Phoenix, astrology / tarot / herbs. The page is one evening, descending from sky to soil:
+   I the sky (astrology: star trails, a birth-chart wheel), II the table (tarot: four cards around a candle that answers your air),
+   III the garden (herbs: tea steeps, a rollie rolls, a tincture drops; the herbs travel from Oregon), then the cost and the ground.
+   Builds on ep.css (header, palette, pills, rise, ground). */
+.readings { --night: #241913; --dusk: #6b3b26; --meadow: #e3e5cf; --glyph: 'Noto Sans Symbols', 'Segoe UI Symbol', 'Apple Symbols', 'DejaVu Sans', serif }
+.strata-gauge.night i:nth-child(1) { background: var(--night) } .strata-gauge.night i:nth-child(2) { background: var(--dusk) } .strata-gauge.night i:nth-child(3) { background: var(--meadow) } .strata-gauge.night i:nth-child(4) { background: var(--clay) } .strata-gauge.night i:nth-child(5) { background: var(--sage-deep) }
+.readings .fee { margin-top: 18px; font-size: .95rem; letter-spacing: .04em } .readings .fee b { font: 400 2.2rem/1 var(--serif); margin-right: 6px }
+
+/* ---------- hero ---------- */
+.night-hero { padding-bottom: 20vh }
+.night-hero .hero-photo img { object-position: 60% 40% }
+.night-hero .hero-photo::after { background: linear-gradient(90deg, rgba(24,15,10,.86) 0%, rgba(24,15,10,.55) 45%, rgba(24,15,10,.15) 80%), linear-gradient(180deg, rgba(24,15,10,.55) 0%, transparent 35%, transparent 70%, rgba(36,25,19,.85) 100%) }
+#trails { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; -webkit-mask-image: linear-gradient(180deg, #000 0, #000 55%, transparent 88%); mask-image: linear-gradient(180deg, #000 0, #000 55%, transparent 88%) }
+.evening { position: absolute; right: max(16px, env(safe-area-inset-right, 0px)); bottom: 96px; list-style: none; display: flex; gap: 22px; font-size: .86rem }
+.evening a { color: rgba(250,245,236,.85); text-decoration: none; display: grid; gap: 2px; border-top: 1px solid rgba(250,245,236,.35); padding-top: 8px; min-width: 92px; transition: color .6s, border-color .6s }
+.evening a:hover { color: var(--ember-soft); border-color: var(--ember-soft) } .evening span { font: italic 1.1rem var(--serif); color: var(--ember-soft) }
+@media (max-width: 760px) { .night-hero { padding-bottom: 26vh } .evening { left: 24px; right: 16px; bottom: 90px; gap: 14px } .evening a { min-width: 0; flex: 1 } .night-hero .hero-photo::after { background: linear-gradient(180deg, rgba(24,15,10,.62) 0%, rgba(24,15,10,.62) 60%, rgba(36,25,19,.9) 100%) } }
+
+/* ---------- I. sky ---------- */
+.sky { --band: var(--night); background: var(--night); color: var(--cream); padding: 110px max(16px, env(safe-area-inset-right, 0px)) 120px 36px }
+.sky h2 i { color: var(--ember-soft) } .sky .over { color: rgba(250,245,236,.7) }
+.sky-in { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(30px, 6vw, 90px); align-items: center }
+.sky-copy > p { max-width: 54ch; margin-top: 18px; opacity: .9 }
+.birth { margin-top: 30px; padding: 22px; border-radius: 22px; border: 1px solid rgba(250,245,236,.22); background: rgba(250,245,236,.04) }
+.birth-q { font: italic 1.5rem var(--serif) }
+.birth-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 12px }
+.birth label { display: grid; gap: 4px; font-size: .72rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: rgba(250,245,236,.7); flex: 1; min-width: 130px }
+.birth select { font: 500 1rem var(--sans); color: var(--cream); background: var(--night); border: 1px solid rgba(250,245,236,.4); border-radius: 12px; padding: 10px 12px; color-scheme: dark }
+.birth select:focus-visible { outline: 2px solid var(--ember-soft); outline-offset: 2px }
+.birth-out { margin-top: 14px; min-height: 3.2em; font-size: .95rem; opacity: .9 } .birth-out b { font: italic 400 1.35rem var(--serif); color: var(--ember-soft) }
+.wheel-wrap { position: relative; width: 100%; max-width: 480px; margin: 0 auto }
+#wheel { aspect-ratio: 1 }
+#wheel { width: 100%; height: 100%; display: block; overflow: visible }
+.w-ring { fill: none; stroke: rgba(250,245,236,.45); stroke-width: 1.2 } .w-ring.thin { stroke: rgba(250,245,236,.25) }
+.w-sectors path { fill: transparent; stroke: rgba(250,245,236,.3); stroke-width: 1; transition: fill 1.2s var(--slow) }
+.w-sectors path.lit { fill: rgba(224,122,60,.28) }
+.w-houses line { stroke: rgba(250,245,236,.16); stroke-width: 1; stroke-dasharray: 2 5 }
+.w-glyphs text { font: 22px var(--glyph); fill: var(--cream); text-anchor: middle; dominant-baseline: central; transition: fill 1.2s var(--slow) }
+.w-glyphs text.lit { fill: var(--ember-soft) }
+.w-asc { stroke: var(--ember-soft); stroke-width: 2.4; stroke-linecap: round }
+.w-sun { stroke: var(--ember-glow); stroke-width: 1.4; stroke-dasharray: 150; stroke-dashoffset: 150; transition: stroke-dashoffset 1.4s var(--slow) } .w-sun.on { stroke-dashoffset: 0 }
+.w-core { fill: var(--ember-glow) }
+.w-label { margin-top: 10px; text-align: center; font: italic .95rem var(--serif); color: rgba(250,245,236,.6) }
+/* the wheel draws itself in when first seen */
+.wheel-wrap .w-ring, .wheel-wrap .w-sectors path, .wheel-wrap .w-houses line { stroke-dasharray: 1400; stroke-dashoffset: 1400 }
+.wheel-wrap .w-houses line { stroke-dasharray: 2 5 }
+.wheel-wrap .w-glyphs text { opacity: 0 }
+.wheel-wrap.in .w-ring, .wheel-wrap.in .w-sectors path { stroke-dashoffset: 0; transition: stroke-dashoffset 2.4s var(--slow), fill 1.2s var(--slow) }
+.wheel-wrap.in .w-glyphs text { opacity: 1; transition: opacity 1s var(--slow) calc(.8s + var(--g) * .12s), fill 1.2s var(--slow) }
+
+/* ---------- II. table ---------- */
+.table { --band: var(--dusk); background: radial-gradient(ellipse 60% 50% at 50% 62%, #82492e 0%, var(--dusk) 70%); color: var(--cream); padding: 120px max(16px, env(safe-area-inset-right, 0px)) 120px 36px }
+.table h2 i { color: var(--ember-soft) } .table .over { color: rgba(250,245,236,.7) }
+.table-head { max-width: 760px; margin: 0 auto; text-align: center } .table-head > p { margin: 18px auto 0; max-width: 58ch; opacity: .92 }
+.spread { max-width: 1000px; margin: 60px auto 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)) 150px repeat(2, minmax(0, 1fr)); gap: clamp(12px, 2.4vw, 28px); align-items: end }
+.card { position: relative; aspect-ratio: 60/96; border: 0; background: none; padding: 0; cursor: pointer; perspective: 900px; color: inherit; font: inherit; transition: transform .9s var(--settle); -webkit-tap-highlight-color: transparent }
+.card:nth-child(1) { transform: rotate(-6deg) translateY(10px) } .card:nth-child(2) { transform: rotate(-2deg) } .card:nth-child(4) { transform: rotate(2deg) } .card:nth-child(5) { transform: rotate(6deg) translateY(10px) }
+.card:hover, .card:focus-visible { translate: 0 -10px }
+.card { translate: 0 0; transition: translate .9s var(--settle) }
+.c-face { position: absolute; inset: 0; border-radius: 12px; -webkit-backface-visibility: hidden; backface-visibility: hidden; transition: transform 1.2s var(--slow); box-shadow: 0 18px 30px -16px rgba(0,0,0,.6) }
+.c-back { background: var(--night) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 96'%3E%3Cg fill='none' stroke='%23f0d3ae' stroke-width='1' stroke-linecap='round' opacity='.85'%3E%3Crect x='5' y='5' width='50' height='86' rx='4'/%3E%3Ccircle cx='30' cy='48' r='10'/%3E%3Cpath d='M30 30v-6M30 72v-6M12 48H6M54 48h-6M17 35l-4-4M43 61l4 4M43 35l4-4M17 61l-4 4'/%3E%3C/g%3E%3C/svg%3E") center/88% no-repeat; border: 1px solid rgba(240,211,174,.35) }
+.c-front { background: var(--linen); color: var(--ink); transform: rotateY(180deg); display: grid; align-content: center; justify-items: center; gap: 10px; padding: 12px; text-align: center; font: italic clamp(1.05rem, 1.8vw, 1.45rem)/1.1 var(--serif); border: 1px solid rgba(43,29,20,.2) }
+.c-front em { font: 700 .7rem var(--sans); letter-spacing: .2em; color: var(--ember); font-style: normal }
+.card.open .c-back { transform: rotateY(-180deg) } .card.open .c-front { transform: rotateY(0) }
+.candle { align-self: end; height: 100%; min-height: 260px; position: relative } .candle canvas { position: absolute; inset: 0; width: 100%; height: 100% }
+.spread-hint { text-align: center; margin-top: 26px; font: italic 1rem var(--serif); opacity: .7 }
+.oracle { max-width: 760px; margin: 60px auto 0; display: flex; align-items: center; justify-content: center; gap: 22px; flex-wrap: wrap }
+.oracle p { font: 1.35rem/1.3 var(--serif); max-width: 32ch } .oracle b { font-weight: 400; font-style: italic; color: var(--ember-soft) }
+.o-card { width: 74px; aspect-ratio: 60/96; border-radius: 10px; border: 1px solid rgba(240,211,174,.5); background: linear-gradient(160deg, #c99a6a, #93553a); color: var(--cream); display: grid; place-items: center; align-content: center; gap: 6px; cursor: pointer; font: 700 .6rem var(--sans); letter-spacing: .18em; text-transform: uppercase; transform: rotate(-8deg); box-shadow: 0 14px 24px -14px rgba(0,0,0,.6) }
+.o-card svg { width: 22px; height: 22px; fill: var(--cream) }
+.o-card.sway { animation: sway 2.4s var(--slow) }
+@keyframes sway { 0% { transform: rotate(-8deg) } 25% { transform: rotate(6deg) translateY(-6px) } 55% { transform: rotate(-4deg) } 80% { transform: rotate(2deg) translateY(-2px) } 100% { transform: rotate(-8deg) } }
+
+/* ---------- III. garden ---------- */
+.garden { --band: var(--meadow); background: var(--meadow); padding: 120px max(16px, env(safe-area-inset-right, 0px)) 110px 36px }
+.garden-head { max-width: 760px; margin: 0 auto; text-align: center } .garden-head > p { margin: 18px auto 0; max-width: 52ch; color: var(--ink-2) }
+.remedies { max-width: 960px; margin: 50px auto 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(14px, 3vw, 40px) }
+.rem { text-align: center; cursor: pointer; -webkit-tap-highlight-color: transparent } .rem svg { width: 100%; max-width: 220px; aspect-ratio: 180/160; display: block; margin: 0 auto; overflow: visible }
+.rem figcaption { font: italic 1.6rem var(--serif); margin-top: 6px }
+.cup { fill: var(--linen); stroke: var(--ink); stroke-width: 2 } .cup-handle { fill: none; stroke: var(--ink); stroke-width: 2 } .saucer { fill: none; stroke: var(--ink); stroke-width: 2 }
+.tea { fill: #efe2c4; transition: fill 3.2s var(--slow) } .rem.go .tea { fill: #b77a3a }
+.leaf-f { fill: var(--sage); stroke: var(--sage-deep); stroke-width: 1 }
+.swirl { fill: none; stroke: #8d5a2a; stroke-width: 1.2; stroke-linecap: round; stroke-dasharray: .3 .7; stroke-dashoffset: 1; opacity: 0 }
+.steam { fill: none; stroke: rgba(43,29,20,.35); stroke-width: 2; stroke-linecap: round; stroke-dasharray: 1 1; stroke-dashoffset: 1 }
+.bottle { fill: rgba(181,80,31,.5); stroke: var(--ink); stroke-width: 2 } .label { fill: var(--linen); stroke: var(--ink); stroke-width: 1 } .cap { fill: var(--earth) } .ball { fill: #f6eadb; stroke: var(--ink); stroke-width: 1.5 }
+.roller { transform-box: fill-box; transform-origin: 50% 100% }
+.oil-line { fill: none; stroke: rgba(224,122,60,.55); stroke-width: 5; stroke-linecap: round; stroke-dasharray: 1 1; stroke-dashoffset: 1 }
+.dish { fill: rgba(181,80,31,.18); stroke: var(--ink); stroke-width: 2 }
+.ripples ellipse { fill: none; stroke: var(--ember); stroke-width: 1.2; opacity: 0; transform-box: fill-box; transform-origin: center }
+.drop { fill: #b5501f; opacity: 0 } .bulb { fill: var(--earth) } .glass { fill: rgba(181,80,31,.35); stroke: var(--ink); stroke-width: 1.5 } .vial { stroke: none }
+.journey { max-width: 860px; margin: 70px auto 0; text-align: center }
+.journey svg { width: 100%; height: auto; display: block; overflow: visible }
+.route { fill: none; stroke: var(--sage-deep); stroke-width: 2; stroke-dasharray: 3 8; stroke-linecap: round } .pin { fill: var(--ember) }
+.traveller { fill: var(--sage); stroke: var(--sage-deep); stroke-width: 1.5 }
+.j-labels { display: flex; justify-content: space-between; align-items: start; gap: 12px; margin-top: -4px; font: 1.15rem/1.15 var(--serif); text-align: left }
+.j-labels span:last-child { text-align: right } .j-labels small { font: 700 .66rem var(--sans); letter-spacing: .16em; text-transform: uppercase; color: var(--ink-2) }
+.j-labels b { font: italic 400 1.5rem var(--serif); color: var(--ember) }
+.journey p { margin-top: 14px; color: var(--ink-2) }
+.garden-fee { max-width: 760px; margin: 36px auto 0; text-align: center } .garden-fee small { display: block; margin-top: 6px; color: var(--ink-2); font-size: .85rem }
+
+/* ---------- cost ---------- */
+.cost { --band: var(--clay); background: var(--clay); padding: 120px max(16px, env(safe-area-inset-right, 0px)) 130px 36px }
+.cost-in { max-width: 1060px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: clamp(30px, 6vw, 80px); align-items: center }
+.cost-in p:not(.over) { margin-top: 16px; color: var(--ink-2) }
+.meter { position: relative; display: grid; justify-items: center; gap: 12px }
+.meter svg { width: min(260px, 70vw); aspect-ratio: 1; display: block; transform: rotate(-90deg) }
+.m-track { fill: none; stroke: rgba(43,29,20,.15); stroke-width: 10 }
+.m-arc { fill: none; stroke: var(--ember); stroke-width: 10; stroke-linecap: round; stroke-dasharray: 1 1; stroke-dashoffset: .667; transition: stroke-dashoffset .9s var(--settle) }
+.m-out { position: absolute; top: calc(min(260px, 70vw) / 2); left: 50%; transform: translate(-50%, -50%); display: grid; justify-items: center; line-height: 1 }
+.m-out b { font: 400 3.6rem var(--serif) } .m-out span { font-size: .85rem; margin-top: 6px; color: var(--ink-2) }
+.m-label { font-size: .72rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--ink-2) }
+.meter input { width: min(280px, 100%); accent-color: var(--ember) }
+
+/* ---------- motion states ---------- */
+@media (prefers-reduced-motion: no-preference) {
+  .rem.go .swirl { animation: swirl 3s var(--slow) forwards } .rem.go .steam { animation: steam 3.4s var(--slow) .6s infinite } .rem.go .s2 { animation-delay: 1.4s }
+  .rem.go .roller { animation: roll 3s var(--slow) } .rem.go .oil-line { animation: oil 3s var(--slow) forwards }
+  .rem.go .dropper { animation: dropper 3.4s var(--slow) } .rem.go .drop { animation: drip 3.4s var(--slow) } .rem.go .ripples ellipse { animation: ripple 2.2s var(--settle) 2s } .rem.go .ripples ellipse:nth-child(2) { animation-delay: 2.4s }
+}
+@keyframes swirl { 0% { opacity: 0; stroke-dashoffset: 1 } 30% { opacity: 1 } 100% { opacity: 0; stroke-dashoffset: -1 } }
+@keyframes steam { 0% { stroke-dashoffset: 1; opacity: 0 } 30% { opacity: 1 } 100% { stroke-dashoffset: -1; opacity: 0 } }
+@keyframes roll { 0% { transform: none } 45% { transform: translateX(46px) rotate(10deg) } 100% { transform: none } }
+@keyframes oil { 0% { stroke-dashoffset: 1 } 50% { stroke-dashoffset: 0 } 100% { stroke-dashoffset: 0; opacity: .6 } }
+@keyframes dropper { 0%, 100% { transform: none } 25%, 70% { transform: translateY(14px) } }
+@keyframes drip { 0%, 40% { opacity: 0; transform: none } 48% { opacity: 1; transform: none } 62% { opacity: 1; transform: translateY(38px) } 66%, 100% { opacity: 0; transform: translateY(38px) } }
+@keyframes ripple { 0% { opacity: .9; transform: scale(.3) } 100% { opacity: 0; transform: scale(4.2) } }
+@media (prefers-reduced-motion: reduce) {
+  .wheel-wrap .w-ring, .wheel-wrap .w-sectors path { stroke-dashoffset: 0 } .wheel-wrap .w-glyphs text { opacity: 1 }
+  .tea { fill: #b77a3a; transition: none } .oil-line { stroke-dashoffset: 0 } .c-face, .card, .m-arc, .w-sun { transition: none }
+}
+
+@media (max-width: 900px) {
+  .sky-in, .cost-in { grid-template-columns: 1fr } .wheel-wrap { max-width: 380px }
+  .spread { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 300px; align-items: start } .candle { grid-column: 1 / -1; grid-row: 1; min-height: 180px; height: 180px; order: -1 }
+  .card:nth-child(n) { transform: none }
+  .remedies { grid-template-columns: 1fr; max-width: 260px }
+  .sky, .table, .garden, .cost { padding-left: 24px }
+  .j-labels { font-size: 1rem } .j-labels b { font-size: 1.2rem }
+}

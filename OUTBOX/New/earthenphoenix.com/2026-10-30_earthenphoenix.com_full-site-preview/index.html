@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Earthen Phoenix: full website preview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Figtree:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root { --sand:#efe4d2; --cream:#faf5ec; --ink:#2b1d14; --ink2:#5c4a3c; --ember:#b5501f; --soft:#f4bf96; --earth:#46332a; --sage:#56613f; --terra:#93553a }
+* { box-sizing:border-box; margin:0; padding:0 }
+body { font:16px/1.65 Figtree, system-ui, sans-serif; background:var(--sand); color:var(--ink) }
+a { color:inherit }
+.top { position:sticky; top:0; z-index:5; display:flex; align-items:center; gap:14px; padding:12px 22px; background:var(--ink); color:var(--cream) }
+.top b { font:1.3rem 'Instrument Serif', serif; font-weight:400 } .top span { opacity:.7; font-size:.85rem }
+.btn { display:inline-block; text-decoration:none; background:var(--ember); color:var(--cream); padding:11px 22px; border-radius:999px; font-weight:700; font-size:.92rem }
+.btn.big { padding:18px 34px; font-size:1.05rem } .top .btn { margin-left:auto }
+.wrap { max-width:1080px; margin:0 auto; padding:0 22px }
+header.intro { padding:70px 0 50px; background:var(--earth); color:var(--cream) }
+h1, h2 { font-family:'Instrument Serif', serif; font-weight:400; line-height:1.02 }
+h1 { font-size:clamp(2.8rem,6vw,4.8rem) } h1 i, h2 i { color:var(--soft) }
+h2 { font-size:clamp(2rem,4vw,2.9rem); margin-bottom:18px } section:not(.dark) h2 i { color:var(--ember) }
+.over { font-size:.72rem; font-weight:700; letter-spacing:.2em; text-transform:uppercase; opacity:.75; margin-bottom:12px }
+.intro p.lede { max-width:62ch; margin:20px 0 28px; font-size:1.1rem; opacity:.92 }
+.stats { display:flex; flex-wrap:wrap; gap:10px; margin-top:26px } .stats span { border:1px solid rgba(250,245,236,.35); border-radius:999px; padding:7px 15px; font-size:.9rem }
+section { padding:64px 0 } section.dark { background:var(--earth); color:var(--cream) } section.sage { background:var(--sage); color:var(--cream) }
+table { width:100%; border-collapse:collapse; font-size:.95rem } th { text-align:left; font-size:.72rem; letter-spacing:.16em; text-transform:uppercase; opacity:.7; padding:0 10px 10px 0 }
+td { padding:14px 10px 14px 0; border-top:1px solid rgba(43,29,20,.15); vertical-align:top } section.dark td { border-color:rgba(250,245,236,.18) }
+.tag { display:inline-block; font-size:.75rem; font-weight:700; padding:3px 10px; border-radius:999px; white-space:nowrap }
+.ok { background:#dfe6cf; color:#3d4a26 } .need { background:#f6dcc4; color:#7a3412 }
+.ba { display:grid; grid-template-columns:1fr 1fr; gap:22px } .ba figure { background:var(--cream); border-radius:18px; padding:12px }
+.ba figcaption { font-weight:700; font-size:.85rem; margin-bottom:8px } .ba img { width:100%; border-radius:10px; display:block }
+.phones { display:grid; grid-template-columns:repeat(2, minmax(0, 240px)); gap:22px; margin-top:22px; justify-content:center }
+.anim { display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:14px }
+.anim a { display:block; text-decoration:none; padding:18px 20px; border-radius:18px; background:rgba(250,245,236,.07); border:1px solid rgba(250,245,236,.22) }
+.anim a:hover { background:rgba(250,245,236,.14) } .anim strong { font:1.35rem 'Instrument Serif', serif; font-weight:400; display:block } .anim span { font-size:.92rem; opacity:.88 }
+.pages { display:flex; flex-wrap:wrap; gap:8px } .pages a { text-decoration:none; padding:7px 14px; border-radius:999px; background:var(--cream); font-size:.9rem; border:1px solid rgba(43,29,20,.12) } .pages a:hover { border-color:var(--ember) }
+ol.q { padding-left:22px } ol.q li { margin:8px 0 } .swatches { display:flex; flex-wrap:wrap; gap:8px; margin:12px 0 } .swatches i { width:48px; height:48px; border-radius:12px; display:block; box-shadow:inset 0 0 0 1px rgba(0,0,0,.1) }
+.cols { display:grid; grid-template-columns:1fr 1fr; gap:36px } ul.plain { padding-left:18px } ul.plain li { margin:6px 0 }
+.end { text-align:center; padding:80px 0 }
+@media (max-width:760px) { .ba, .anim, .cols { grid-template-columns:1fr } .top span { display:none } td:nth-child(3) { display:none } }
+</style>
+</head>
+<body>
+<div class="top"><b>Earthen Phoenix</b><span>Full website preview &middot; 30 Oct 2026</span><a class="btn" href="home/index.html">Open website</a></div>
+
+<header class="intro"><div class="wrap">
+  <p class="over">Review page &middot; draft for approval</p>
+  <h1>A full site where <i>every service moves the way it feels.</i></h1>
+  <p class="lede">The accepted home design, grown into a complete 17-page website. Every service now has its own page and its own animation drawn from what happens in the session, plus a pressure finder, a price table, an FAQ and a working contact form. Every fact comes from earthenphoenix.com and its booking page.</p>
+  <a class="btn big" href="home/index.html">Open the website</a>
+  <div class="stats"><span>17 pages</span><span>10 service pages</span><span>9 new signature animations</span><span>0 console errors</span><span>Phone + desktop tested</span></div>
+</div></header>
+
+<section><div class="wrap">
+  <h2>Before <i>and after</i></h2>
+  <div class="ba">
+    <figure><figcaption>Before: earthenphoenix.com today</figcaption><img src="review/before-desktop.webp" alt="Current Earthen Phoenix home page on desktop"></figure>
+    <figure><figcaption>After: the new home page</figcaption><img src="review/after-desktop.webp" alt="New Earthen Phoenix home page on desktop"></figure>
+  </div>
+  <div class="phones">
+    <figure class="ba" style="display:block"><figcaption>Before, phone</figcaption><img src="review/before-phone.webp" alt="Current site on a phone" style="width:100%;border-radius:10px"></figure>
+    <figure class="ba" style="display:block"><figcaption>After, phone</figcaption><img src="review/after-phone.webp" alt="New site on a phone" style="width:100%;border-radius:10px"></figure>
+  </div>
+</div></section>
+
+<section class="dark"><div class="wrap">
+  <h2>One service, <i>one motion</i></h2>
+  <p style="max-width:64ch;margin-bottom:24px;opacity:.9">Each animation shows what the session actually does. They run only on screen, pause in background tabs, and fall back to a still frame for visitors who turn motion off.</p>
+  <div class="anim">
+    <a href="home/services.html#finder"><strong>Pressure finder</strong><span>The logo's banded circle as a depth gauge. Slide from "no pressure" (Reiki) to "deepest" (Sarga); the light sinks as far as the session goes.</span></a>
+    <a href="home/reiki.html"><strong>Reiki: on or near</strong><span>Hands move over a draped, clothed body. Toggle "on" or "near"; warmth gathers under the hands, then evens out (balance).</span></a>
+    <a href="home/swedish-massage.html"><strong>Swedish: long strokes</strong><span>One long stroke per breath leaves a warm oil sheen. Choose light or medium; add sound, meditation or breathwork. Drag to stroke.</span></a>
+    <a href="home/deep-tissue-massage.html"><strong>Deep tissue: layers</strong><span>A forearm sinks through skin, fascia and muscle on the exhale and eases on the inhale. Knotted fibres lengthen. You choose the depth.</span></a>
+    <a href="home/thai-bodywork.html"><strong>Thai: rhythm, then reach</strong><span>Palm-walking compressions on a beat, then a held leg stretch and knee to chest.</span></a>
+    <a href="home/lymphatic-firming-treatment.html"><strong>Lymphatic: six steps by scroll</strong><span>Brushing toward the heart, flow along the lymph paths, warm wrap, hot towel, head and neck, firming cream.</span></a>
+    <a href="home/sarga-bodywork.html"><strong>Sarga: foot and strap</strong><span>Her bare foot glides along the back while the overhead strap takes her weight; tangled fascia lines straighten. Includes an honest comfort check.</span></a>
+    <a href="home/zen-mountain-session.html"><strong>Zen mountain: the river slows</strong><span>A mountain river rushes, then slows while you stay. Fast movement stirs it again. Optional river sound, off by default.</span></a>
+    <a href="home/private-yoga.html"><strong>Yoga: flow, then hold</strong><span>One line moves through a Vinyasa sequence, then holds Yin, plus the breathing circle and a "split the $140" picker.</span></a>
+    <a href="home/astrology-tarot.html"><strong>Readings &amp; herbs (kept)</strong><span>Star trails, the birth-chart wheel, tarot by candle and the $2/min meter. Herbs now have their <a href="home/herbalism.html" style="text-decoration:underline">own page</a>.</span></a>
+  </div>
+  <p style="margin-top:20px;opacity:.85">Site-wide: the five logo bands fall like strata between pages, a left-edge strata gauge tracks scroll, and the home hero's "Release" lines loosen under the cursor.</p>
+</div></section>
+
+<section><div class="wrap">
+  <h2>What changed <i>from the current site</i></h2>
+  <table>
+    <thead><tr><th>Issue on the current site</th><th>What the new site does</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr><td>One services list on the booking page; no page per service</td><td>10 service pages, each with an answer-first opening, prices, FAQ, Service + FAQ schema and related sessions</td><td><span class="tag ok">Done</span></td></tr>
+      <tr><td>Hard to tell which massage to pick</td><td>Pressure finder on Sessions &amp; prices; deep tissue vs Sarga vs Swedish cross-linked</td><td><span class="tag ok">Done</span></td></tr>
+      <tr><td>Prices scattered, and the yoga price conflicts ($120 vs $140)</td><td>One price table from the booking page; $140 used everywhere</td><td><span class="tag need">Client to confirm</span></td></tr>
+      <tr><td>Cookie banner covers content; long unbroken text blocks</td><td>No tracking, so no banner; short sections, her own words kept</td><td><span class="tag ok">Done</span></td></tr>
+      <tr><td>No FAQ, no structured data</td><td>FAQ page plus per-service FAQs, LocalBusiness/Service/FAQ/Breadcrumb schema, sitemap, robots, llms.txt</td><td><span class="tag ok">Done</span></td></tr>
+      <tr><td>Contact page has no form</td><td>Form writes the message into the visitor's email or text app; GHL form can replace it</td><td><span class="tag ok">Done</span></td></tr>
+      <tr><td>Booking page lives on the same domain</td><td>Keep the GHL calendar on a subdomain (or embed it) before launch; one constant to change</td><td><span class="tag need">Needs developer</span></td></tr>
+    </tbody>
+  </table>
+</div></section>
+
+<section class="sage"><div class="wrap cols">
+  <div>
+    <h2>Design <i>direction</i></h2>
+    <p>Built on the "come back to earth" direction already approved: the page descends from sand to sage like the logo's bands, with one ember accent. Type is Instrument Serif (display) and Figtree (text). All photos are her own.</p>
+    <div class="swatches"><i style="background:#efe4d2"></i><i style="background:#d9bf9f"></i><i style="background:#93553a"></i><i style="background:#46332a"></i><i style="background:#56613f"></i><i style="background:#b5501f"></i></div>
+    <p style="margin-top:14px"><b>References studied</b> (for polish only, not copied): McGarr Massage Therapy (Awwwards-listed), Mountain Rose Herbs (her herb supplier), Alo Moves. Aesop, Six Senses and Body Freedom blocked automated access.</p>
+  </div>
+  <div>
+    <h2>Testing <i>done</i></h2>
+    <ul class="plain">
+      <li>All 17 pages at 1440px desktop and a 390px phone: no console errors, no failed requests, no broken internal links, no sideways scroll</li>
+      <li>Every interaction tested, both normally and with reduced motion on</li>
+      <li>Phone header: menu panel sits exactly under the header, page locks while open, header stays pinned after scrolling</li>
+      <li>Booking and three product links return 200 on the live site</li>
+    </ul>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <h2>Questions <i>for the client</i></h2>
+  <ol class="q">
+    <li>Yoga: is it $140 (booking page) or $120 (classes page) for 60 minutes?</li>
+    <li>Should the street address be shown? It would help local search; today the site says "Salt Lake City" only.</li>
+    <li>Are there fixed hours to publish?</li>
+    <li>Can she share more photos (Thai, lymphatic, deep tissue, herbs, the Zen river spot)? A few current photos repeat across pages.</li>
+    <li>OK to keep the three testimonials (Sylvie, V, Megan) from the current site?</li>
+    <li>Booking: move the GHL calendar to a subdomain such as book.earthenphoenix.com, or embed it on the contact page?</li>
+  </ol>
+  <h2 style="margin-top:50px">Jump to <i>a page</i></h2>
+  <div class="pages">
+    <a href="home/index.html">Home</a><a href="home/services.html">Sessions &amp; prices</a><a href="home/reiki.html">Reiki</a><a href="home/swedish-massage.html">Swedish</a><a href="home/deep-tissue-massage.html">Deep tissue</a><a href="home/thai-bodywork.html">Thai</a><a href="home/lymphatic-firming-treatment.html">Lymphatic</a><a href="home/sarga-bodywork.html">Sarga</a><a href="home/zen-mountain-session.html">Zen mountain</a><a href="home/private-yoga.html">Yoga</a><a href="home/astrology-tarot.html">Astrology &amp; tarot</a><a href="home/herbalism.html">Herbalism</a><a href="home/about.html">About</a><a href="home/products.html">Products</a><a href="home/faq.html">FAQ</a><a href="home/contact.html">Contact</a>
+  </div>
+</div></section>
+
+<div class="end"><a class="btn big" href="home/index.html">Open the website</a></div>
+</body>
+</html>
