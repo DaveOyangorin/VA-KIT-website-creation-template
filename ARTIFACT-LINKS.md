@@ -977,7 +977,7 @@ Where a client has more than one link, the top one is the newest.
 | Me-Tel (older) | https://claude.ai/artifact/XRZqixhtSNKU5ZurwesBHe | 14 Oct 2026 |
 | Me-Tel (older) | https://claude.ai/artifact/NS9Lr1VDqujtRssSzWSuCj | 13 Oct 2026 |
 | Me-Tel site preview (older) | https://claude.ai/artifact/ViikhG98P1vyUGFgnnEYHu | 13 Oct 2026 |
-| Earthen Phoenix (Massage, Yoga & Reiki) | https://claude.ai/artifact/Jsn9NFxJmciVtundmDbW7H | 15 Oct 2026; 30 Oct 2026 home rebuilt as an immersive dark page (3D ember orb that changes colour per service, letter-reveal hero, scroll reveals, 3D tilt cards, RISE statement) plus the animated four-service figure |
+| Earthen Phoenix (Massage, Yoga & Reiki) | https://claude.ai/artifact/Jsn9NFxJmciVtundmDbW7H | 15 Oct 2026; 30 Oct 2026 home redesigned as "Fire to Earth": rakeable sand-garden hero (ember to ash to sand), sections in the logo's five bands, per-service animated vignettes, guided three-breath pause |
 | Earthen Phoenix (older) | https://claude.ai/artifact/M8XVeqahZEGWSeeqTRxui1 | 15 Oct 2026 |
 | Earthen Phoenix redesign (older) | https://claude.ai/artifact/NA6jMpgeLEAc6mMBPQgKpc | 14 Oct 2026 |
 | Alpine Cleaning redesign preview | https://claude.ai/artifact/TwW8FzDFCAz6kAQHYPbBLV | 14 Oct 2026 |
