@@ -447,6 +447,7 @@
       if (t0 === null) t0 = t; var e = snap ? 99999 : t - t0;
       for (var i = 0; i < n; i++) {
         var lit = e > ign[i], fx = cx + P[i][0] * sc, fy = cy + P[i][1] * sc;
+        if (!snap) { var wing = Math.max(0, Math.abs(P[i][0]) - .16), flap = Math.sin(t * .0017); fy -= flap * wing * wing * sc * .7; fx -= (P[i][0] > 0 ? 1 : -1) * Math.max(0, flap) * wing * sc * .1; }   // the wings beat, slowly
         var flick = .55 + .3 * Math.sin(t * .006 + i * 1.7) * Math.sin(t * .0023 + i);
         var gx = (i * 97 % 1000) / 1000 * S.W, gy = S.H - 6 - (i % 7) * 3;   // its place in the ash
         var ground = snap ? 0 : prog;
@@ -476,7 +477,7 @@
   var LABEL = { swedish: 'Swedish', deep: 'Deep tissue', thai: 'Thai', lymph: 'Lymphatic', sarga: 'Sarga', reiki: 'Reiki', yoga: 'Yoga', zen: 'Zen mountain', astro: 'Astrology', herbs: 'Herbs' };
 
   document.querySelectorAll('[data-hero]').forEach(function (el) { var S = new Swarm(el, { free: true, N: (window.EP_PHOENIX || []).length || 1200 }); S.set('phoenix'); });
-  document.querySelectorAll('[data-sparks]').forEach(function (el) { var S = new Swarm(el, { free: true, N: 180 }); S.set('sparks'); });
+  document.querySelectorAll('[data-sparks]').forEach(function (el) { var S = new Swarm(el, { free: true, N: +(el.dataset.n || 180) }); S.set('sparks'); });
 
   document.querySelectorAll('[data-swarm]').forEach(function (el) {
     var S = new Swarm(el, { N: 1400 }), mode = el.dataset.swarm, params = {};

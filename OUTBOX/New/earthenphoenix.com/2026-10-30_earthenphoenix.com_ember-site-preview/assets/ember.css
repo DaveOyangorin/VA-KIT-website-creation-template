@@ -323,3 +323,61 @@ form.f .err { color: #a3301a; min-height: 1.2em; font: 600 .9rem var(--display) 
 form.f .fine { font-size: .92rem; color: var(--ink-2) }
 
 .err404 { min-height: 100vh; min-height: 100svh; display: grid; place-items: center; text-align: center; padding: 120px var(--gut) }
+
+/* ================= MORE MOTION ================= */
+/* headings heat up as they land, then cool */
+.split-word > span { color: var(--ember); transition: transform 1.1s var(--out), color 1.8s ease; transition-delay: calc(var(--w) * 60ms + .1s), calc(var(--w) * 60ms + .55s) }
+.ready .split-word > span { transform: translateY(105%) }
+.ready h1 .split-word > span, h2.in .split-word > span { transform: none; color: inherit }
+@media (prefers-reduced-motion: reduce) { .split-word > span, .ready .split-word > span { transform: none !important; color: inherit !important } }
+/* kicker rules draw in */
+.kicker::before { transform: scaleX(0); transform-origin: 0 50%; transition: transform .9s var(--out) .25s }
+.kicker.in::before, .in .kicker::before, .lit .kicker::before, .ready .phero .kicker::before, html.still .kicker::before { transform: none }
+/* heat line across each section as it arrives */
+.sec::before, .finale::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--ember) 30%, var(--glow) 50%, var(--ember) 70%, transparent); transform: scaleX(0); transition: transform 1.8s var(--io); opacity: .7; z-index: 1 }
+.sec.lit::before, .finale.lit::before, html.still .sec::before { transform: none }
+/* scroll fuse */
+.fuse { position: fixed; top: 0; left: 0; right: 0; height: 2px; z-index: 70; pointer-events: none }
+.fuse i { display: block; height: 100%; background: linear-gradient(90deg, var(--clay), var(--ember), var(--glow)); transform-origin: 0 50%; transform: scaleX(0); box-shadow: 0 0 14px var(--ember) }
+/* ember trail + sparks */
+.fx { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 65 }
+/* photos drift inside their frames and open like a kiln door */
+.vessel img { transform: translate3d(0, var(--py, 0), 0) scale(var(--sc, 1.12)); transition: transform .9s var(--out) }
+.vessel:hover img { --sc: 1.17 }
+.door { clip-path: inset(100% 0 0 0) } .door img { --sc: 1.32 }
+.door.open { clip-path: inset(0 0 0 0); transition: clip-path 1.6s var(--io) } .door.open img { --sc: 1.12; transition: transform 2.2s var(--out) }
+.door.open:hover img { --sc: 1.17 }
+.door::after { content: ""; position: absolute; left: -5%; right: -5%; top: 100%; height: 3px; z-index: 3; background: linear-gradient(90deg, transparent, var(--glow) 25%, var(--ember) 50%, var(--glow) 75%, transparent); box-shadow: 0 0 22px 6px rgba(242,163,58,.65); opacity: 0; pointer-events: none }
+.door.open::after { animation: kiln 1.6s var(--io) forwards }
+@keyframes kiln { 0% { top: 100%; opacity: 1 } 88% { opacity: 1 } 100% { top: -2%; opacity: 0 } }
+@media (prefers-reduced-motion: reduce) { .door { clip-path: none } .door::after { display: none } .vessel img { transform: none } }
+.vessel .vsparks { position: absolute; inset: 0; z-index: 2; pointer-events: none; mix-blend-mode: screen }
+.vessel .vsparks canvas { position: absolute; inset: 0; width: 100%; height: 100% }
+/* scroll-velocity bands */
+.vmarq { overflow: hidden; padding: clamp(18px, 3vw, 34px) 0; background: var(--ash); border-top: 1px solid rgba(243,236,226,.08); border-bottom: 1px solid rgba(243,236,226,.08); position: relative }
+.vmarq.clay { background: var(--clay) }
+.vtrack { display: flex; width: max-content; will-change: transform }
+.vtrack span { font: 800 clamp(3rem, 9.5vw, 8.6rem)/1 var(--display); letter-spacing: -.045em; font-variation-settings: 'wdth' 76; white-space: nowrap; padding-right: .35em; color: transparent; -webkit-text-stroke: 1.3px rgba(243,236,226,.45) }
+.vtrack span b { color: var(--ember); -webkit-text-stroke: 0; font-weight: inherit }
+.vtrack span i { font-style: normal; color: var(--ember); -webkit-text-stroke: 0; font-size: .5em; vertical-align: middle; padding: 0 .3em }
+.vmarq.clay .vtrack span { -webkit-text-stroke-color: rgba(243,236,226,.65) } .vmarq.clay .vtrack span b, .vmarq.clay .vtrack span i { color: var(--glow) }
+/* the burning words at the foot of every page */
+.burn { margin: 70px auto 0; font: 800 clamp(3.4rem, 15vw, 16rem)/.82 var(--display); letter-spacing: -.055em; font-variation-settings: 'wdth' 76; white-space: nowrap; color: transparent; -webkit-text-stroke: 1px rgba(243,236,226,.22);
+  background: linear-gradient(0deg, var(--clay) 0%, var(--ember) calc(var(--p, 0%) - 14%), var(--glow) var(--p, 0%), rgba(0,0,0,0) calc(var(--p, 0%) + .5%)); -webkit-background-clip: text; background-clip: text; user-select: none; overflow: hidden }
+@media (prefers-reduced-motion: reduce) { .burn { --p: 100% } }
+/* floating preview beside session rows */
+.peek { position: fixed; left: 0; top: 0; z-index: 66; width: 200px; aspect-ratio: 3 / 4; border-radius: 999px 999px 16px 16px; overflow: hidden; pointer-events: none; opacity: 0; scale: .5; transition: opacity .35s, scale .6s var(--out); box-shadow: 0 30px 60px -20px rgba(0,0,0,.7) }
+.peek.on { opacity: 1; scale: 1 } .peek img { width: 100%; height: 100%; object-fit: cover }
+/* the gallery leans with its own momentum; cards dim and sink as the next covers them */
+.strip figure { transform: skewX(var(--sk, 0deg)); transition: transform .2s }
+.stack article { transform-origin: 50% 0; will-change: transform }
+/* small touches */
+.mark img { transition: transform 1.2s var(--out) } .mark:hover img { transform: rotate(360deg) }
+.hero h1 em { animation: smoulder 5s ease-in-out infinite }
+@keyframes smoulder { 50% { text-shadow: 0 0 40px rgba(242,163,58,.45), 0 0 90px rgba(196,83,45,.3) } }
+.btn { transition: transform .5s var(--out), box-shadow .5s } .btn:hover { box-shadow: 0 10px 40px -8px rgba(242,163,58,.55) }
+.list a, .next a { position: relative }
+.list a::after, .next a::after { content: ""; position: absolute; left: 0; bottom: -1px; height: 1px; width: 100%; background: var(--ember); transform: scaleX(0); transform-origin: 0 50%; transition: transform .7s var(--out) }
+.next a::after { height: 2px; background: var(--clay) }
+.list a:hover::after, .list a.on::after, .next a:hover::after { transform: none }
+@media (prefers-reduced-motion: reduce) { .hero h1 em { animation: none } }
