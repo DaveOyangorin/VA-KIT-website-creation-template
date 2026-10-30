@@ -12,7 +12,7 @@ Last updated: 30 Oct 2026
 ## Website redesigns (this kit)
 
 ### earthenphoenix.com: Earthen Phoenix (Massage, Yoga & Reiki, Salt Lake City)
-- **Preview link:** https://claude.ai/artifact/AMnmJyUqsrVg2kgWi25H3x (NEWEST: "Ember", original design)
+- **Preview link:** https://claude.ai/artifact/AMnmJyUqsrVg2kgWi25H3x
 - **Sharing:** Private until shared (open the link, Share, Anyone with the link)
 - **Mobile header:** Checked 30 Oct (capsule header stays at top, full-screen menu below it, page locks, links work)
 - **Made:** 30 Oct 2026 · premium, ORIGINAL design (the user asked for a new design: only content and photos carried over). Concept "Ember": a phoenix rising from the ashes, then grounding. Hero: ash rises into the phoenix from her logo and settles back on scroll. One ember swarm shows each service as heat on a body (Swedish strokes, deep tissue sinking with the breath, Thai rhythm + stretch, lymphatic flow, Sarga footprints, Reiki hands on/near), plus yoga figure, Zen river, sun-sign stars, herb vessels. Ash/clay/ember palette, Bricolage Grotesque + Newsreader, arched vessel frames, ember-iris page transition. 17 pages.
