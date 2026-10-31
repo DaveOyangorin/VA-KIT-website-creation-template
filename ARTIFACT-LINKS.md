@@ -5,13 +5,22 @@ All the private preview links, in one place. Newest first.
 **18 Oct 2026, mobile header fix:** on phones the header could be cut off and the mobile menu covered part of the header (and on some sites showed only partly). Fixed on every redesign below and republished to the same links.
 They are drafts, not the live websites.
 
-Last updated: 30 Oct 2026
+Last updated: 31 Oct 2026
 
 ---
 
 ## Website redesigns (this kit)
 
-### earthenphoenix.com: Earthen Phoenix (Massage, Yoga & Reiki, Salt Lake City)
+### earthenphoenix.com: Earthen Phoenix, "The Earthen Atlas", newest (Massage, Yoga & Reiki, Salt Lake City)
+- **Preview link:** https://claude.ai/artifact/9Wp2ERpwNbSbJ5LZ7hxGiP
+- **Sharing:** Private until shared (open the link, Share, Anyone with the link)
+- **Mobile header:** Checked 31 Oct (header stays at top 0–64px while scrolling, menu panel starts exactly at the header bottom, page locks, Esc closes; checked at top and after scrolling, home + a session page)
+- **Made:** 31 Oct 2026 · premium, ORIGINAL design built with the new service-animation-website skill (only words, prices and photos carried over; none of Ember's or earlier drafts' devices). Concept: the five bands in her logo are a relief-map key, so **tension = elevation** and every session is a live terrain that brings the ground level its own way ("Ground your soul" made literal). Hero: her mountain photo with a terrain of shoulder/low-back peaks that a long stroke levels; scroll grounds it. Pinned sideways "atlas" of 10 live plates. Session terrains: Swedish strokes (drag; light/medium; sound/meditation/breathwork), deep tissue point sinking on the out-breath (depth slider), Thai beat presses + stretch, lymphatic swelling draining to the collarbone, Sarga footprints, Reiki balance with hands on/near, Zen real mountains + river that slows, yoga waves then Yin stillness, astrology sun-sign stars from your birthday, herbalism infusion (tea/tincture/rollie). Logo-band page sweep, map labels, trail profile for her training, route steps. Gloock + Albert Sans + Martian Mono; survey paper, dark earth and the logo's five bands. 17 pages, SEO/JSON-LD, sitemap, llms.txt. Researched: Heckfield Place, Aman Wellness, The Well, Byredo, Chillhouse (ambition only).
+- **What it is:** Opens straight on the website (no comparison page, per the user). QA: 17 pages × desktop and phone, no console errors, no overflow, no broken links or images; reduced motion tested.
+- **Files:** `OUTBOX\New\earthenphoenix.com\2026-10-31_earthen-phoenix-atlas-website\` = source and the copy behind the link (`_src\build.py`, README with deploy steps)
+- **Waiting on:** client: yoga price ($140 or $120), whether to show the street address and hours, OK to reuse the 3 testimonials; developer: move the GHL booking calendar before launch, optional real form inbox
+
+### Previous Earthen Phoenix draft, "Ember" (30 Oct 2026, superseded by the Atlas above)
 - **Preview link:** https://claude.ai/artifact/AMnmJyUqsrVg2kgWi25H3x
 - **Sharing:** Private until shared (open the link, Share, Anyone with the link)
 - **Mobile header:** Checked 30 Oct (capsule header stays at top, full-screen menu below it, page locks, links work)
@@ -987,7 +996,8 @@ Where a client has more than one link, the top one is the newest.
 | Me-Tel (older) | https://claude.ai/artifact/XRZqixhtSNKU5ZurwesBHe | 14 Oct 2026 |
 | Me-Tel (older) | https://claude.ai/artifact/NS9Lr1VDqujtRssSzWSuCj | 13 Oct 2026 |
 | Me-Tel site preview (older) | https://claude.ai/artifact/ViikhG98P1vyUGFgnnEYHu | 13 Oct 2026 |
-| Earthen Phoenix "Ember" original design (newest; see Website redesigns above) | https://claude.ai/artifact/AMnmJyUqsrVg2kgWi25H3x | 30 Oct 2026 |
+| Earthen Phoenix "The Earthen Atlas" (newest; see Website redesigns above) | https://claude.ai/artifact/9Wp2ERpwNbSbJ5LZ7hxGiP | 31 Oct 2026 |
+| Earthen Phoenix "Ember" original design (previous) | https://claude.ai/artifact/AMnmJyUqsrVg2kgWi25H3x | 30 Oct 2026 |
 | Earthen Phoenix full site extending the earlier home design (superseded) | https://claude.ai/artifact/QEntpxndXnFWCdw8vEkJ8o | 30 Oct 2026 |
 | Earthen Phoenix (Massage, Yoga & Reiki) | https://claude.ai/artifact/Jsn9NFxJmciVtundmDbW7H | 15 Oct 2026; 30 Oct 2026 home redesigned; later on 30 Oct 2026 animation layer rebuilt from her practice: full-width photo banner with "Release" (knotted lines loosen under cursor/finger, then breathe), massage pressure ripple on linen + drifting modality tags, yoga line flowing Vinyasa then holding Yin, tappable singing bowl with Reiki light (optional chime, off by default), sprig/constellation/tarot card, bowl-ring breathing circle, root timeline, breath-paced reviews, oil shimmer on products; earth/sand/clay/sage palette, one ember accent; sand garden removed; 30 Oct 2026 new page astrology-tarot.html (original design, client example used only as a prompt): star-trail hero over her candle photo, birth-chart wheel that turns to your sun sign, tarot cards with her four steps around a candle that reacts to air, oracle card, teas/rollies/tinctures animations, Oregon to SLC herb journey, $2/min cost meter; facts from her booking page. FLAG: booking page says yoga $140/60 min, home page says $120 |
 | Earthen Phoenix (older) | https://claude.ai/artifact/M8XVeqahZEGWSeeqTRxui1 | 15 Oct 2026 |
