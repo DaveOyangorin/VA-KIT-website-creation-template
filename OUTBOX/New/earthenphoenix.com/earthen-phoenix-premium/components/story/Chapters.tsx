@@ -6,6 +6,7 @@ import { REVEALS } from '@/lib/reveals';
 import { BOOK, href } from '@/lib/site';
 import Img from '@/components/ui/Img';
 import { Arr } from '@/components/ui/Arrow';
+import ServiceAnim from '@/components/illustrations/ServiceAnim';
 
 /**
  * Scene 3. One full-screen chapter per session, each on its own bold colour from her logo.
@@ -34,7 +35,7 @@ function Chapter({ k, i, group }: { k: ServiceKey; i: number; group: string }) {
   const flip = i % 2 === 1;
   return (
     <article id={`ch-${k}`} data-chapter={k} className={`relative h-[230svh] motion-reduce:h-auto ${i ? '-mt-[100svh] motion-reduce:mt-0' : ''}`}
-      style={{ zIndex: i + 1, '--fg': c.fg } as CSSProperties} aria-labelledby={`ch-${k}-h`}>
+      style={{ zIndex: i + 1, '--fg': c.fg, '--acc': c.block } as CSSProperties} aria-labelledby={`ch-${k}-h`}>
       <div className={`sticky top-0 h-[100svh] overflow-hidden grid grid-rows-[60%_40%] md:grid-rows-1 rounded-t-[28px] shadow-[0_-30px_60px_-30px_rgba(29,33,28,.35)] text-[var(--fg)] ${flip ? 'md:grid-cols-[minmax(0,1fr)_minmax(0,1.45fr)]' : 'md:grid-cols-[minmax(0,1.45fr)_minmax(0,1fr)]'}`}
         style={{ background: c.bg }}>
         <div className={`relative md:h-full p-3 md:p-6 md:pt-[calc(var(--hdr)+16px)] ${flip ? 'md:order-2' : ''}`}>
@@ -42,10 +43,15 @@ function Chapter({ k, i, group }: { k: ServiceKey; i: number; group: string }) {
           <div data-frame className="relative h-full overflow-hidden rounded-[26px] bg-moss shadow-[0_40px_80px_-40px_rgba(0,0,0,.45)]">
             <Img name={s.img} alt={s.alt} className="cover" pos={s.pos} sizes="(max-width: 767px) 100vw, 60vw" />
           </div>
+          {/* phones: the animated illustration rides on the photo */}
+          <div className="md:hidden absolute right-5 bottom-5 w-[56%] rounded-[18px] p-2" style={{ background: c.bg }}>
+            <ServiceAnim k={k} tone={c.fg.includes('chalk') ? 'chalk' : 'ink'} />
+          </div>
         </div>
         <div className={`relative flex flex-col justify-center px-[var(--gutter)] md:px-[clamp(28px,4vw,72px)] ${flip ? 'md:order-1' : ''}`}>
           <span data-num aria-hidden className="pointer-events-none absolute -top-[4%] md:top-[8%] right-[6%] font-display italic leading-none opacity-15 text-[clamp(8rem,22vw,20rem)]">{String(i + 1).padStart(2, '0')}</span>
           <div data-text className="relative">
+            <ServiceAnim k={k} tone={c.fg.includes('chalk') ? 'chalk' : 'ink'} className="hidden md:block w-full max-w-[400px] mb-4 lg:mb-6 -ml-2" />
             <p className="uppercase tracking-[.22em] text-xs opacity-80">{String(i + 1).padStart(2, '0')} · {group}</p>
             <h2 id={`ch-${k}-h`} className="font-display text-[clamp(2.6rem,6.2vw,6.4rem)] leading-[0.92] tracking-[-0.035em] mt-3 md:mt-6">
               {s.name.split(' ').map((w, wi) => (

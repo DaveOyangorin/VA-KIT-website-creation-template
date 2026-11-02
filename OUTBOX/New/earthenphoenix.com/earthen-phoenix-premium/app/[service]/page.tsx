@@ -11,6 +11,7 @@ import Split from '@/components/ui/Split';
 import { Arr } from '@/components/ui/Arrow';
 import Details from '@/components/services/Details';
 import { SESSION_COLOR } from '@/lib/palette';
+import ServiceAnim from '@/components/illustrations/ServiceAnim';
 import type { CSSProperties } from 'react';
 import ReikiHalo from '@/components/services/ReikiHalo';
 import SwedishStroke from '@/components/services/SwedishStroke';
@@ -63,6 +64,18 @@ export default async function ServicePage({ params }: Props) {
       <PageHero img={s.hero.img ?? s.img} alt={s.hero.alt ?? s.alt} pos={s.hero.pos ?? s.pos} kicker={s.hero.kicker} title={s.hero.title}
         answer={s.hero.answer} spec={s.hero.spec} trail={trail} reveal={s.key} ctas={ctas} />
       <div style={{ '--tint': SESSION_COLOR[s.key] } as CSSProperties}>
+        <section className="sec bg-[color-mix(in_oklab,var(--tint)_55%,var(--color-mist))]" aria-labelledby="what-h">
+          <div className="wrap grid gap-10 lg:grid-cols-[minmax(0,4fr)_minmax(0,7fr)] items-center">
+            <div>
+              <p className="kicker" data-reveal>What happens in a session</p>
+              <Split as="h2" id="what-h" className="h2 mt-6" text={`${s.name}, _in motion._`} />
+              <p className="lede mt-6 measure text-ink/80" data-reveal>{s.line}.</p>
+            </div>
+            <div className="rounded-[28px] bg-chalk/70 p-4 sm:p-8 shadow-[0_40px_80px_-50px_rgba(29,33,28,.5)]">
+              <ServiceAnim k={s.key} className="[--acc:var(--tint)]" />
+            </div>
+          </div>
+        </section>
         <Signature s={s} />
         <Details s={s} />
       </div>
