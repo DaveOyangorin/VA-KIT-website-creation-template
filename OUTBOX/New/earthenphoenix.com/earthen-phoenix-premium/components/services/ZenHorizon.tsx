@@ -30,7 +30,7 @@ export default function ZenHorizon({ s }: { s: Service }) {
   });
 
   return (
-    <section ref={ref} className="bg-night text-chalk" aria-labelledby="sig-h">
+    <section ref={ref} className="bg-mist text-ink" aria-labelledby="sig-h">
       <div className="sec wrap pb-0">
         <SigCopy s={s} />
       </div>

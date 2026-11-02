@@ -46,15 +46,15 @@ export default function YogaFlow({ s }: { s: Service }) {
   }, [mode]);
 
   return (
-    <section className="sec bg-night text-chalk" aria-labelledby="sig-h">
+    <section className="sec bg-mist text-ink" aria-labelledby="sig-h">
       <div className="wrap grid gap-14 lg:grid-cols-[minmax(0,7fr)_minmax(0,4fr)] items-center">
         <figure className="m-0 order-2 lg:order-1">
           <div ref={frame} className="relative aspect-[3/2] overflow-hidden bg-moss" style={{ clipPath: SHAPES[0] }}>
             <Img name={s.img} alt={s.alt} className="cover" pos={s.pos} sizes="(max-width: 1023px) 92vw, 60vw" />
           </div>
-          <figcaption className="mt-4 flex items-center justify-between text-sm text-chalk/60">
+          <figcaption className="mt-4 flex items-center justify-between text-sm text-ink-2">
             <span>Her photograph: an assisted fold on the grass.</span>
-            <span className="font-display italic text-lg text-amber" aria-live="polite">{cue}</span>
+            <span className="font-display italic text-lg text-clay" aria-live="polite">{cue}</span>
           </figcaption>
         </figure>
         <div className="order-1 lg:order-2">

@@ -48,16 +48,16 @@ export default function DeepLayers({ s }: { s: Service }) {
   });
 
   return (
-    <section ref={ref} className="bg-night text-chalk" aria-labelledby="sig-h">
+    <section ref={ref} className="bg-mist text-ink" aria-labelledby="sig-h">
       <div data-track className="relative lg:h-[340svh]">
         <div className="lg:sticky lg:top-0 lg:h-[100svh] wrap grid gap-12 lg:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] items-center py-[clamp(88px,12vw,160px)] lg:py-[calc(var(--hdr)+24px)]">
           <div>
             <SigCopy s={s} />
             <ol className="mt-10 grid gap-1" aria-label="The parts of a deep tissue session">
               {STEPS.map(([t, d], i) => (
-                <li key={t} className={`grid grid-cols-[2.2rem_1fr] gap-3 py-3 border-t border-chalk/10 transition-opacity duration-500 ${i === step ? 'opacity-100' : 'lg:opacity-40'}`}>
+                <li key={t} className={`grid grid-cols-[2.2rem_1fr] gap-3 py-3 border-t border-ink/10 transition-opacity duration-500 ${i === step ? 'opacity-100' : 'lg:opacity-40'}`}>
                   <span className={`font-display italic text-xl ${i === step ? 'text-flame' : ''}`}>{['i', 'ii', 'iii', 'iv'][i]}</span>
-                  <span><b className="font-medium">{t}</b><span className="block text-sm text-chalk/65 mt-0.5">{d}</span></span>
+                  <span><b className="font-medium">{t}</b><span className="block text-sm text-ink-2 mt-0.5">{d}</span></span>
                 </li>
               ))}
             </ol>
@@ -71,7 +71,7 @@ export default function DeepLayers({ s }: { s: Service }) {
                   <span className="absolute inset-0 rounded-[inherit] pointer-events-none" style={{ boxShadow: 'inset 0 0 0 1px rgba(246,247,244,var(--edge,0))' }} />
                 </div>
               ))}
-              <span className="absolute z-10 left-5 bottom-5 text-xs uppercase tracking-[.2em] text-chalk/80">Layer {step + 1} of {N}</span>
+              <span className="absolute z-10 left-5 bottom-5 text-xs uppercase tracking-[.2em] text-ink-2">Layer {step + 1} of {N}</span>
             </div>
           </figure>
         </div>

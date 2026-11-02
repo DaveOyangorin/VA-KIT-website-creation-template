@@ -1,10 +1,8 @@
-import Hero from '@/components/home/Hero';
-import Statement from '@/components/home/Statement';
-import Register from '@/components/home/Register';
-import TwoPlaces from '@/components/home/TwoPlaces';
-import Meet from '@/components/home/Meet';
-import FirstVisit from '@/components/home/FirstVisit';
-import Voices from '@/components/home/Voices';
+import Opening from '@/components/story/Opening';
+import Reel from '@/components/story/Reel';
+import Chapters from '@/components/story/Chapters';
+import Miquelle from '@/components/story/Miquelle';
+import Voices from '@/components/story/Voices';
 import Shelf from '@/components/home/Shelf';
 import Split from '@/components/ui/Split';
 import JsonLd from '@/components/ui/JsonLd';
@@ -17,6 +15,7 @@ const DESC = 'Earthen Phoenix in Salt Lake City: massage, Thai and Sarga bodywor
 
 export const metadata = pageMeta({ title: TITLE, desc: DESC, path: '/' });
 
+/** The home page is one scroll-driven story: opening, the reel, ten chapters, Miquelle, client words, the shelf, the close. */
 export default function Home() {
   return (
     <>
@@ -26,18 +25,16 @@ export default function Home() {
         { '@type': 'WebPage', url: absolute('/'), name: TITLE, description: DESC },
         { '@type': 'ItemList', name: 'Earthen Phoenix sessions', itemListElement: SERVICES.map((s, i) => ({ '@type': 'ListItem', position: i + 1, url: absolute('/' + s.slug), name: s.full })) },
       )} />
-      <Hero />
-      <Statement />
-      <Register />
-      <TwoPlaces />
-      <Meet />
-      <FirstVisit />
+      <Opening />
+      <Reel />
+      <Chapters />
+      <Miquelle />
       <Voices />
       <section className="sec bg-mist" aria-labelledby="shelf-h">
         <div className="wrap">
           <div className="flex flex-wrap items-end justify-between gap-6 mb-14">
             <div>
-              <p className="kicker" data-reveal>Take the care home</p>
+              <p className="kicker text-lichen" data-reveal>Take the care home</p>
               <Split as="h2" id="shelf-h" className="h2 mt-6" text="Oils _and butter._" />
             </div>
             <a href={href('/products')} className="ulink" data-reveal>All products</a>

@@ -78,7 +78,7 @@ export default function Header() {
         <a href={href('/')} className="flex items-center gap-3 shrink-0" aria-label="Earthen Phoenix, home">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={asset('img/ep-mark.png')} alt="" width={38} height={38} className="size-9 md:size-[38px]" />
-          <span className="font-display text-[1.32rem] leading-none tracking-[-0.02em]" style={{ fontVariationSettings: "'SOFT' 100, 'opsz' 48" }}>
+          <span className="font-display text-[1.4rem] leading-none tracking-[-0.02em]">
             Earthen <em className="italic">Phoenix</em>
           </span>
         </a>
@@ -117,7 +117,7 @@ export default function Header() {
           <motion.div id="mega" key="mega" onMouseEnter={openMega} onMouseLeave={closeMega}
             initial={{ clipPath: 'inset(0% 0% 100% 0%)' }} animate={{ clipPath: 'inset(0% 0% 0% 0%)' }} exit={{ clipPath: 'inset(0% 0% 100% 0%)' }}
             transition={{ duration: 0.7, ease }}
-            className="fixed inset-x-0 z-50 hidden lg:block bg-mist text-ink shadow-[0_30px_60px_-30px_rgba(13,20,16,.35)]" style={{ top: 'var(--hdr)' }}>
+            className="fixed inset-x-0 z-50 hidden lg:block bg-mist text-ink shadow-[0_30px_60px_-30px_rgba(29,33,28,.25)]" style={{ top: 'var(--hdr)' }}>
             <div className="wrap grid grid-cols-[1fr_1fr_minmax(280px,30%)] gap-10 py-10">
               {[SERVICES.slice(0, 5), SERVICES.slice(5)].map((col, ci) => (
                 <ul key={ci} className="grid content-start">
@@ -156,13 +156,13 @@ export default function Header() {
           <motion.div id="menu" key="menu" role="dialog" aria-modal="true" aria-label="Menu"
             initial={{ clipPath: 'inset(0% 0% 100% 0%)' }} animate={{ clipPath: 'inset(0% 0% 0% 0%)' }} exit={{ clipPath: 'inset(0% 0% 100% 0%)' }}
             transition={{ duration: 0.75, ease }}
-            className="fixed inset-x-0 bottom-0 z-50 bg-night text-chalk overflow-y-auto overscroll-contain lg:hidden" style={{ top: 'var(--hdr)' }}>
+            className="fixed inset-x-0 bottom-0 z-50 bg-mist text-ink overflow-y-auto overscroll-contain lg:hidden" style={{ top: 'var(--hdr)' }}>
             <div className="wrap pt-6 pb-12 grid gap-10">
               <nav aria-label="Menu">
                 <ul>
                   {[{ path: '/', label: 'Home' }, ...LINKS].map((l, i) => (
                     <motion.li key={l.path} initial={{ y: 40, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.15 + i * 0.06, duration: 0.9, ease }}
-                      className="border-b border-chalk/10">
+                      className="border-b border-ink/10">
                       <a href={href(l.path)} aria-current={isCurrent(l.path) ? 'page' : undefined}
                         className="flex items-center justify-between py-3.5 font-display text-[2.1rem] leading-none tracking-[-0.02em]" style={{ fontVariationSettings: "'SOFT' 100" }}>
                         {l.label}
@@ -177,8 +177,8 @@ export default function Header() {
                 <ul className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-x-8">
                   {SERVICES.map((s) => (
                     <li key={s.key}>
-                      <a href={href('/' + s.slug)} className="flex justify-between gap-4 py-2.5 border-b border-chalk/10 text-[1.02rem]">
-                        <span>{s.name}</span><span className="text-chalk/60 text-sm tabular-nums">{s.price}</span>
+                      <a href={href('/' + s.slug)} className="flex justify-between gap-4 py-2.5 border-b border-ink/10 text-[1.02rem]">
+                        <span>{s.name}</span><span className="text-ink-2 text-sm tabular-nums">{s.price}</span>
                       </a>
                     </li>
                   ))}
@@ -187,7 +187,7 @@ export default function Header() {
               <motion.div className="grid gap-4" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6, duration: 0.8, ease }}>
                 <a href={BOOK} className="btn btn-flame justify-center">Book a session <Arr /></a>
                 <a href={TEL} className="btn btn-ghost justify-center"><Phone size={17} strokeWidth={1.75} aria-hidden /> Call or text {PHONE}</a>
-                <p className="text-sm text-chalk/60">First time? Mention it when you book for 20% off your first service.</p>
+                <p className="text-sm text-ink-2">First time? Mention it when you book for 20% off your first service.</p>
               </motion.div>
             </div>
           </motion.div>

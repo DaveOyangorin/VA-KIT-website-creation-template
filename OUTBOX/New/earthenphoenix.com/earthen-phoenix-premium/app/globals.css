@@ -1,26 +1,27 @@
 @import 'tailwindcss';
 
 /* ------------------------------------------------------------------
-   Earthen Phoenix · "Rise & Rest"
-   Moss-night and mountain-mist (sampled from her own Wasatch sky),
-   one flame accent from the phoenix. Fraunces + Hanken Grotesk.
+   Earthen Phoenix · a scroll-driven story
+   Light and airy: linen and sand, sage from her meadows, and the warm
+   sun and ember of her logo. Bodoni Moda + Manrope (Google Fonts).
    ------------------------------------------------------------------ */
 @theme {
-  --color-night: #0d1410;
-  --color-moss: #17211b;
-  --color-fern: #33473a;
-  --color-lichen: #aab79c;
-  --color-mist: #eaeef0;
-  --color-stone: #d6dcd8;
-  --color-chalk: #f6f7f4;
-  --color-ink: #111813;
-  --color-ink-2: #4a564e;
-  --color-flame: #ec6a3f;
-  --color-clay: #9c3a1b;
-  --color-amber: #f2a65a;
+  --color-night: #1d211c;
+  --color-moss: #e6dfd3;
+  --color-fern: #c9d0bf;
+  --color-lichen: #5c6f50;
+  --color-sage: #8a9b7c;
+  --color-mist: #f6f3ee;
+  --color-stone: #ece6dc;
+  --color-chalk: #fffdf9;
+  --color-ink: #1d211c;
+  --color-ink-2: #5a6158;
+  --color-flame: #c4502a;
+  --color-clay: #a43f1c;
+  --color-amber: #e8a33d;
 
-  --font-display: var(--font-fraunces), 'Times New Roman', serif;
-  --font-sans: var(--font-hanken), system-ui, sans-serif;
+  --font-display: 'Bodoni Moda', 'Didot', 'Times New Roman', serif;
+  --font-sans: 'Manrope', system-ui, sans-serif;
 
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-soft: cubic-bezier(0.65, 0, 0.35, 1);
@@ -54,7 +55,7 @@ body {
 /* Clip, never hide: `hidden` on body breaks sticky and crops fixed panels on phones. */
 main { overflow-x: clip; }
 
-::selection { background: var(--color-flame); color: var(--color-night); }
+::selection { background: var(--color-amber); color: var(--color-ink); }
 
 :focus-visible { outline: 2px solid var(--color-flame); outline-offset: 3px; border-radius: 4px; }
 
@@ -72,19 +73,19 @@ img { max-width: 100%; height: auto; }
 /* ---------- type ---------- */
 .display {
   font-family: var(--font-display);
-  font-weight: 300;
-  font-variation-settings: 'SOFT' 100, 'opsz' 144;
-  letter-spacing: -0.035em;
-  line-height: 0.92;
+  font-weight: 400;
+  font-variation-settings: 'opsz' 96;
+  letter-spacing: -0.03em;
+  line-height: 0.9;
 }
-.display em, .h2 em, .h3 em { font-style: italic; font-variation-settings: 'SOFT' 100, 'opsz' 144; }
+.display em, .h2 em, .h3 em { font-style: italic; }
 .h1 { font-size: clamp(3.2rem, 9.4vw, 9.5rem); }
 .h2 {
-  font-family: var(--font-display); font-weight: 300; font-variation-settings: 'SOFT' 100, 'opsz' 120;
+  font-family: var(--font-display); font-weight: 400; font-variation-settings: 'opsz' 96;
   font-size: clamp(2.3rem, 5.2vw, 4.9rem); line-height: 0.98; letter-spacing: -0.03em;
 }
 .h3 {
-  font-family: var(--font-display); font-weight: 400; font-variation-settings: 'SOFT' 100, 'opsz' 48;
+  font-family: var(--font-display); font-weight: 500; font-variation-settings: 'opsz' 48;
   font-size: clamp(1.45rem, 2.2vw, 2rem); line-height: 1.08; letter-spacing: -0.015em;
 }
 .kicker {
@@ -120,13 +121,13 @@ img { max-width: 100%; height: auto; }
 .btn:hover::before, .btn:focus-visible::before { transform: translateY(0); }
 .btn .arr { transition: transform .5s var(--ease-out-expo); }
 .btn:hover .arr { transform: translateX(4px); }
-.btn-flame { background: var(--color-flame); color: var(--color-night); }
-.btn-flame::before { background: var(--color-chalk); }
+.btn-flame { background: var(--color-flame); color: var(--color-chalk); }
+.btn-flame::before { background: var(--color-ink); }
 .btn-ghost { border: 1px solid color-mix(in oklab, currentColor 40%, transparent); }
 .btn-ghost::before { background: currentColor; opacity: .08; }
 .btn-ink { background: var(--color-ink); color: var(--color-chalk); }
 .btn-ink::before { background: var(--color-flame); }
-.btn-ink:hover { color: var(--color-night); }
+.btn-ink:hover { color: var(--color-chalk); }
 
 .ulink { background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat; transition: background-size .6s var(--ease-out-expo); padding-bottom: 2px; }
 .ulink:hover { background-size: 100% 1px; }
@@ -141,9 +142,9 @@ img { max-width: 100%; height: auto; }
 }
 .hdr[data-tone='light'] { --hdr-fg: var(--color-chalk); }
 .hdr[data-scrolled='true'] { background: var(--color-mist); --hdr-fg: var(--color-ink); box-shadow: 0 1px 0 rgba(17, 24, 19, .08); }
-.hdr[data-scrolled='true'][data-over='dark'] { background: var(--color-night); --hdr-fg: var(--color-chalk); box-shadow: 0 1px 0 rgba(246, 247, 244, .07); }
+
 .hdr[data-hidden='true'] { transform: translateY(-100%); }
-.hdr[data-menu='true'] { background: var(--color-night); --hdr-fg: var(--color-chalk); box-shadow: none; transform: none; }
+.hdr[data-menu='true'] { background: var(--color-mist); --hdr-fg: var(--color-ink); box-shadow: none; transform: none; }
 
 .nav a { position: relative; padding: 8px 2px; font-size: .95rem; font-weight: 500; }
 .nav a::after {
@@ -169,8 +170,8 @@ img { max-width: 100%; height: auto; }
 .field { display: grid; gap: 8px; font-size: .9rem; font-weight: 500; }
 .field input, .field select, .field textarea {
   width: 100%; min-height: 52px; padding: 12px 16px; border-radius: 14px; font: inherit; font-weight: 400; font-size: 1rem;
-  background: color-mix(in oklab, var(--color-chalk) 8%, transparent); color: inherit;
-  border: 1px solid color-mix(in oklab, var(--color-chalk) 24%, transparent); transition: border-color .3s;
+  background: var(--color-chalk); color: inherit;
+  border: 1px solid color-mix(in oklab, var(--color-ink) 18%, transparent); transition: border-color .3s;
 }
 .field textarea { min-height: 140px; resize: vertical; }
 .field select option { color: var(--color-ink); }
@@ -180,13 +181,13 @@ img { max-width: 100%; height: auto; }
 .range { -webkit-appearance: none; appearance: none; width: 100%; height: 28px; background: transparent; }
 .range::-webkit-slider-runnable-track { height: 2px; background: color-mix(in oklab, currentColor 30%, transparent); }
 .range::-moz-range-track { height: 2px; background: color-mix(in oklab, currentColor 30%, transparent); }
-.range::-webkit-slider-thumb { -webkit-appearance: none; width: 22px; height: 22px; margin-top: -10px; border-radius: 50%; background: var(--color-flame); border: 3px solid var(--color-night); }
+.range::-webkit-slider-thumb { -webkit-appearance: none; width: 22px; height: 22px; margin-top: -10px; border-radius: 50%; background: var(--color-flame); border: 3px solid var(--color-chalk); }
 .range::-moz-range-thumb { width: 18px; height: 18px; border-radius: 50%; background: var(--color-flame); border: 3px solid var(--color-night); }
 
 /* segmented control */
 .seg { display: inline-flex; flex-wrap: wrap; gap: 6px; padding: 5px; border-radius: 999px; border: 1px solid color-mix(in oklab, currentColor 22%, transparent); }
 .seg button { min-height: 42px; padding: 0 18px; border-radius: 999px; font-size: .9rem; font-weight: 500; transition: background-color .4s, color .4s; }
-.seg button[aria-pressed='true'] { background: var(--color-flame); color: var(--color-night); }
+.seg button[aria-pressed='true'] { background: var(--color-flame); color: var(--color-chalk); }
 
 /* page curtain between pages */
 .curtain { position: fixed; inset: 0; z-index: 90; pointer-events: none; background: var(--color-night); transform: scaleY(0); transform-origin: bottom; }
@@ -212,3 +213,4 @@ html.anim [data-w] { transform: translateY(135%); }
 
 /* Inner-page titles stay hidden until the display font is in, so the font swap never shifts visible text. */
 html.anim [data-h1] { visibility: hidden; }
+html.anim [data-letter], html.anim [data-gw] { transform: translateY(110%); }

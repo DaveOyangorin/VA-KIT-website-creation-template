@@ -54,7 +54,7 @@ export default function ThaiRhythm({ s }: { s: Service }) {
   });
 
   return (
-    <section className="sec bg-night text-chalk" aria-labelledby="sig-h">
+    <section className="sec bg-mist text-ink" aria-labelledby="sig-h">
       <div className="wrap grid gap-14 lg:grid-cols-[minmax(0,4fr)_minmax(0,7fr)] items-center">
         <SigCopy s={s} />
         <figure className="m-0">
@@ -69,7 +69,7 @@ export default function ThaiRhythm({ s }: { s: Service }) {
               ))}
             </div>
           </div>
-          <figcaption className="mt-4 text-sm text-chalk/55">Her photograph: an assisted stretch on the hillside.</figcaption>
+          <figcaption className="mt-4 text-sm text-ink-2">Her photograph: an assisted stretch on the hillside.</figcaption>
         </figure>
       </div>
     </section>

@@ -73,17 +73,17 @@ export default function LymphSequence({ s }: { s: Service }) {
   });
 
   return (
-    <section ref={ref} className="bg-night text-chalk" aria-labelledby="sig-h">
+    <section ref={ref} className="bg-mist text-ink" aria-labelledby="sig-h">
       <div data-track className="relative lg:h-[420svh]">
         <div className="lg:sticky lg:top-0 lg:h-[100svh] wrap grid gap-12 lg:grid-cols-[minmax(0,4fr)_minmax(0,7fr)] items-center py-[clamp(88px,12vw,160px)] lg:py-[calc(var(--hdr)+24px)]">
           <div>
             <SigCopy s={s} />
             <ol className="mt-10 grid grid-cols-2 gap-x-6" aria-label="The six steps">
               {STEPS.map(([t, d], i) => (
-                <li key={t} className={`py-3 border-t border-chalk/10 transition-all duration-500 ${i === step ? 'opacity-100' : 'lg:opacity-40'}`}>
-                  <span className={`text-xs tabular-nums ${i === step ? 'text-flame' : 'text-chalk/50'}`}>0{i + 1}</span>
+                <li key={t} className={`py-3 border-t border-ink/10 transition-all duration-500 ${i === step ? 'opacity-100' : 'lg:opacity-40'}`}>
+                  <span className={`text-xs tabular-nums ${i === step ? 'text-flame' : 'text-ink-2'}`}>0{i + 1}</span>
                   <b className="block font-medium mt-1">{t}</b>
-                  <span className="block text-sm text-chalk/60">{d}</span>
+                  <span className="block text-sm text-ink-2">{d}</span>
                 </li>
               ))}
             </ol>

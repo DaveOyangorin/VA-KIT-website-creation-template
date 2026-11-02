@@ -40,7 +40,7 @@ export default function TarotDraw({ s }: { s: Service }) {
   const all = up.every(Boolean);
 
   return (
-    <section className="sec bg-night text-chalk" aria-labelledby="sig-h">
+    <section className="sec bg-mist text-ink" aria-labelledby="sig-h">
       <div className="wrap grid gap-14 lg:grid-cols-[minmax(0,4fr)_minmax(0,7fr)] items-center">
         <SigCopy s={s}>
           <button type="button" className="btn btn-ghost" onClick={() => setUp(all ? [false, false, false, false] : [true, true, true, true])}>
@@ -55,7 +55,7 @@ export default function TarotDraw({ s }: { s: Service }) {
                 transition={reduce ? { duration: 0 } : { duration: 0.9, ease: [0.16, 1, 0.3, 1] }}>
                 <span className="absolute inset-0 rounded-[18px] bg-moss overflow-hidden [backface-visibility:hidden] shadow-[0_30px_60px_-30px_rgba(0,0,0,.8)]">
                   <Back />
-                  <span className="absolute inset-x-0 bottom-4 text-center text-[.7rem] uppercase tracking-[.2em] text-chalk/60">{['i', 'ii', 'iii', 'iv'][i]}</span>
+                  <span className="absolute inset-x-0 bottom-4 text-center text-[.7rem] uppercase tracking-[.2em] text-ink-2">{['i', 'ii', 'iii', 'iv'][i]}</span>
                 </span>
                 <span className="absolute inset-0 rounded-[18px] overflow-hidden [backface-visibility:hidden] [transform:rotateY(180deg)] bg-moss">
                   {/* one quarter of her photograph per card */}

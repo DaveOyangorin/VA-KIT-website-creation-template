@@ -19,7 +19,7 @@ export default function Faq({ items, dark }: { items: QA[]; dark?: boolean }) {
               <button type="button" aria-expanded={isOpen} aria-controls={id} onClick={() => setOpen(isOpen ? null : i)}
                 className="group w-full flex items-center justify-between gap-6 py-6 text-left font-display text-[clamp(1.25rem,1.9vw,1.6rem)] leading-snug tracking-[-0.01em]">
                 <span className="transition-transform duration-500 group-hover:translate-x-1">{q}</span>
-                <span className={`shrink-0 grid place-items-center size-10 rounded-full border transition-all duration-500 ${isOpen ? 'rotate-45 bg-flame border-flame text-night' : 'border-current/25'}`} aria-hidden>
+                <span className={`shrink-0 grid place-items-center size-10 rounded-full border transition-all duration-500 ${isOpen ? 'rotate-45 bg-flame border-flame text-chalk' : 'border-current/25'}`} aria-hidden>
                   <Plus size={18} strokeWidth={1.5} />
                 </span>
               </button>

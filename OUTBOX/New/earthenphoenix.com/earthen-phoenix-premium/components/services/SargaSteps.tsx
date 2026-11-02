@@ -40,11 +40,11 @@ export default function SargaSteps({ s }: { s: Service }) {
   };
 
   return (
-    <section className="sec bg-night text-chalk" aria-labelledby="sig-h">
+    <section className="sec bg-mist text-ink" aria-labelledby="sig-h">
       <div className="wrap grid gap-14 lg:grid-cols-[minmax(0,6fr)_minmax(0,5fr)] items-center">
         <figure className="m-0 order-2 lg:order-1">
           <div ref={ref} className="relative mx-auto max-w-[520px]">
-            <span data-strap className="absolute -top-10 left-[7%] w-px h-[38%] bg-gradient-to-b from-transparent via-chalk/50 to-chalk/80" aria-hidden />
+            <span data-strap className="absolute -top-10 left-[7%] w-px h-[38%] bg-gradient-to-b from-transparent via-ink/40 to-ink/70" aria-hidden />
             <div data-frame className="relative aspect-[9/14] overflow-hidden rounded-[28px] bg-moss cursor-pointer"
               onPointerDown={(e) => { const r = e.currentTarget.getBoundingClientRect(); step((e.clientX - r.left) / r.width, (e.clientY - r.top) / r.height); }}>
               <div data-weight className="absolute inset-0">
@@ -52,13 +52,13 @@ export default function SargaSteps({ s }: { s: Service }) {
               </div>
             </div>
           </div>
-          <figcaption className="mt-4 text-sm text-chalk/55 text-center">Her photograph. Tap it to place a step.</figcaption>
+          <figcaption className="mt-4 text-sm text-ink-2 text-center">Her photograph. Tap it to place a step.</figcaption>
         </figure>
         <div className="order-1 lg:order-2">
           <SigCopy s={s}>
             <div className="flex items-center gap-5">
               <button type="button" className="btn btn-flame" onClick={() => step()}>Take a step</button>
-              <span className="text-sm text-chalk/60 tabular-nums" aria-live="polite">{steps ? `${steps} step${steps > 1 ? 's' : ''}` : ''}</span>
+              <span className="text-sm text-ink-2 tabular-nums" aria-live="polite">{steps ? `${steps} step${steps > 1 ? 's' : ''}` : ''}</span>
             </div>
           </SigCopy>
         </div>

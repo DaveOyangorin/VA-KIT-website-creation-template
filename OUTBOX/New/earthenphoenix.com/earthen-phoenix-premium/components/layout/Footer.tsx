@@ -7,13 +7,13 @@ export default function Footer() {
   const more = SERVICES.filter((s) => ['reiki', 'yoga', 'astro', 'herbs'].includes(s.key));
   const col = 'grid content-start gap-2.5 text-[.98rem]';
   return (
-    <footer className="bg-night text-chalk">
+    <footer className="bg-mist text-ink">
       <FinalCta />
-      <div className="wrap pt-24 pb-10">
+      <div className="wrap pt-24 pb-10 border-t border-ink/10">
         <div className="grid gap-14 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div>
             <p className="display text-[clamp(3rem,6vw,5.6rem)]">Ground<br /><em className="text-flame">your soul.</em></p>
-            <p className="mt-6 max-w-[36ch] text-chalk/70">Massage, bodywork, Reiki, yoga, readings and herbal remedies with Miquelle in Salt Lake City, Utah.</p>
+            <p className="mt-6 max-w-[36ch] text-ink-2">Massage, bodywork, Reiki, yoga, readings and herbal remedies with Miquelle in Salt Lake City, Utah.</p>
             <a href={BOOK} className="btn btn-flame mt-8">Book a session</a>
           </div>
           <nav aria-label="Massage and bodywork" className={col}>
@@ -33,10 +33,10 @@ export default function Footer() {
             <a className="ulink justify-self-start" href={href('/contact')}>Contact</a>
             <a className="ulink justify-self-start" href={TEL}>{PHONE}</a>
             <a className="ulink justify-self-start" href={`mailto:${EMAIL}`}>{EMAIL}</a>
-            <p className="text-chalk/60 mt-2">Salt Lake City, Utah</p>
+            <p className="text-ink-2 mt-2">Salt Lake City, Utah</p>
           </div>
         </div>
-        <div className="mt-20 pt-6 border-t border-chalk/10 flex flex-wrap items-center justify-between gap-4 text-sm text-chalk/55">
+        <div className="mt-20 pt-6 border-t border-ink/10 flex flex-wrap items-center justify-between gap-4 text-sm text-ink-2">
           <span className="flex items-center gap-3">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={asset('img/ep-mark.png')} alt="" width={26} height={26} loading="lazy" />

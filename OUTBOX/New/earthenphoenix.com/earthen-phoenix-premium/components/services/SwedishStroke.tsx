@@ -118,14 +118,14 @@ export default function SwedishStroke({ s }: { s: Service }) {
   }, [s.img]);
 
   return (
-    <section className="sec bg-night text-chalk" aria-labelledby="sig-h">
+    <section className="sec bg-mist text-ink" aria-labelledby="sig-h">
       <div className="wrap grid gap-14 lg:grid-cols-[minmax(0,7fr)_minmax(0,4fr)] items-center">
         <figure className="m-0 order-2 lg:order-1">
           <div ref={wrap} data-mask="left" className="relative aspect-[4/5] sm:aspect-[16/11] overflow-hidden rounded-[28px] bg-moss touch-pan-y select-none cursor-crosshair">
             <Img name={s.img} alt={s.alt} className="cover [filter:brightness(.42)_saturate(.65)]" pos="50% 30%" sizes="(max-width: 1023px) 92vw, 60vw" />
             <canvas ref={canvas} className="absolute inset-0 w-full h-full" aria-hidden />
           </div>
-          <figcaption className="mt-4 text-sm text-chalk/55">Her photograph. Each stroke you draw lifts the warmth back into it, then slowly works in.</figcaption>
+          <figcaption className="mt-4 text-sm text-ink-2">Her photograph. Each stroke you draw lifts the warmth back into it, then slowly works in.</figcaption>
         </figure>
         <div className="order-1 lg:order-2">
           <SigCopy s={s}>

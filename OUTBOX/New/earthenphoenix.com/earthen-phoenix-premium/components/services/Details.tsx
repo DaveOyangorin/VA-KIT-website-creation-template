@@ -32,7 +32,7 @@ function Note({ title, children }: { title: string; children: ReactNode }) {
 
 function Shell({ kicker, title, left, right }: { kicker: string; title: string; left?: ReactNode; right: ReactNode }) {
   return (
-    <section className="sec bg-mist" aria-label={kicker}>
+    <section className="sec bg-stone" aria-label={kicker}>
       <div className="wrap grid gap-14 lg:grid-cols-2 items-start">
         <div>
           <p className="kicker" data-reveal>{kicker}</p>
@@ -72,7 +72,7 @@ export default function Details({ s }: { s: Service }) {
         right={<><Prices s={s} /><Note title="Is there anything deeper?"><a href={href('/sarga-bodywork')}>Sarga bodywork</a> goes deep into the fascia and suits old injuries. You need to be very comfortable with deep pressure.</Note><Book /></>} />;
     case 'thai':
       return (
-        <section className="sec bg-mist" aria-label="Certified">
+        <section className="sec bg-stone" aria-label="Certified">
           <div className="wrap grid gap-14 lg:grid-cols-2 items-center">
             <div data-mask="up" className="relative aspect-[4/5] overflow-hidden rounded-[28px] bg-moss">
               <div data-parallax="0.12" className="absolute -inset-y-[8%] inset-x-0"><Img name="mountain-meadow" alt="Miquelle and a student in a mountain meadow" className="cover" pos="30% 50%" sizes="(max-width: 1023px) 92vw, 45vw" /></div>
@@ -106,7 +106,7 @@ export default function Details({ s }: { s: Service }) {
         right={<div className="rounded-[26px] bg-chalk p-7 sm:p-10" data-reveal><ReadingCost /><Book label="Book a reading" /></div>} />;
     case 'herbs':
       return (
-        <section className="sec bg-mist" aria-label="How it works">
+        <section className="sec bg-stone" aria-label="How it works">
           <div className="wrap">
             <p className="kicker" data-reveal>How it works</p>
             <Split as="h2" className="h2 mt-6 max-w-[16ch]" text="From a conversation _to a remedy._" />

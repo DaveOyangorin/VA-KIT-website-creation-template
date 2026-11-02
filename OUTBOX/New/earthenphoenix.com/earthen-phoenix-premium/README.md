@@ -1,20 +1,24 @@
-# Earthen Phoenix: "Rise & Rest"
+# Earthen Phoenix: a scroll-driven story
 
 A new website for Earthen Phoenix (Miquelle, Salt Lake City), built 2 November 2026 with Next.js 16, React 19, TypeScript, Tailwind CSS 4, GSAP + ScrollTrigger, Motion for React, Lenis and Lucide icons.
 
 Only the words, prices and photographs come from her current site and booking page. The concept, palette, type, layout, components, animation and code are all new. Nothing is reused from the earlier drafts (strata/breath/bowl, sand garden, "Release", Ember, Atlas).
 
-## The concept
+## The concept (v2: a scroll-driven story)
 
-Her mark rises out of the earth: a phoenix over the ground, with the line "Ground your soul." On the home page the headline sits **behind her real Wasatch ridge**. The sky was cut out of her own meadow photograph, so the words climb out from behind the mountains on arrival (the phoenix rising) and sink back behind them as you scroll (grounding).
+The first version ("Rise & Rest", dark moss, headline behind the ridge) was rejected as too dark, too text-heavy and not "wow". This version tells the whole home page as one scroll-driven story of pinned, full-screen scenes (`components/story/`):
 
-The sessions are then ordered by **how her hands meet the body**, from her own descriptions: hands near (Reiki), hands that glide (Swedish, lymphatic), hands that press (deep tissue, Thai), full weight (Sarga), then beyond the table (Zen mountain, yoga, readings, herbs). Every session animates **her actual photograph** the way that session works.
+1. **Opening:** "Earthen" and "Phoenix" on linen with her meadow in a small window between them; scrolling parts the words and opens the window to full screen, then "Ground your soul."
+2. **Reel:** all ten sessions slide past sideways as tall photo panels.
+3. **Chapters:** one pinned full-screen chapter per session; scroll plays that session's own motion on its photo (`lib/reveals.ts`).
+4. **Miquelle:** her portrait grows while her own words light up.
+5. **Client words:** three quotes, one at a time, over the hillside.
+6. **Shelf**, then the **closing scene** on every page: the meadow folds back into a circle around the invitation to book.
 
 ## Design system
 
-- **Colour:** moss-night `#0d1410`, mountain mist `#eaeef0` (sampled from her own sky), chalk `#f6f7f4`, lichen `#aab79c`, flame `#ec6a3f` (CTA), clay `#9c3a1b` (accent on light), amber `#f2a65a`. All text pairs pass WCAG AA (5.9:1 or better).
-- **Type:** Fraunces (soft optical serif, self-hosted by next/font) and Hanken Grotesk.
-- **Tokens:** `app/globals.css` (`@theme`), base styles in `@layer base`, components in `@layer components`.
+- **Colour:** linen `#f6f3ee`, sand `#ece6dc`, ink `#1d211c`, sage `#5c6f50`/`#8a9b7c`, and the logo's sun `#e8a33d` and ember `#c4502a` (CTA, white text 4.7:1).
+- **Type:** Bodoni Moda (display) and Manrope (text), loaded from Google Fonts so they also load inside sandboxed preview frames.
 
 ## Service-specific animation
 

@@ -79,7 +79,7 @@ export default function HerbSteep({ s }: { s: Service }) {
   }, [kind]);
 
   return (
-    <section className="sec bg-night text-chalk" aria-labelledby="sig-h">
+    <section className="sec bg-mist text-ink" aria-labelledby="sig-h">
       <div className="wrap grid gap-14 lg:grid-cols-[minmax(0,4fr)_minmax(0,7fr)] items-center">
         <SigCopy s={s}>
           <div className="seg" role="group" aria-label="Remedy">
@@ -96,7 +96,7 @@ export default function HerbSteep({ s }: { s: Service }) {
               <Img name={s.img} alt="" className="cover" pos={s.pos} sizes="(max-width: 1023px) 92vw, 60vw" />
             </div>
           </div>
-          <figcaption className="mt-4 text-sm text-chalk/55">{kind === 'tincture' ? 'Tap the photograph to add a drop.' : 'An Armature oil beside fresh rosemary, from the Earthen Phoenix shop.'}</figcaption>
+          <figcaption className="mt-4 text-sm text-ink-2">{kind === 'tincture' ? 'Tap the photograph to add a drop.' : 'An Armature oil beside fresh rosemary, from the Earthen Phoenix shop.'}</figcaption>
         </figure>
       </div>
     </section>

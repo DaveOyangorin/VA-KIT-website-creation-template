@@ -47,7 +47,7 @@ export default function PageHero({ img, alt, pos, kicker, title, answer, spec, c
             </li>
           ))}
         </ol>
-        <p className="kicker text-lichen mt-8" data-in>{kicker}</p>
+        <p className="kicker text-chalk/85 mt-8" data-in>{kicker}</p>
         <h1 id="page-h" data-h1 className="display h1 mt-5 max-w-[12ch]">
           {title.split(' ').map((w, i) => (
             <span key={i}><span className="sw"><span data-w>{w}</span></span>{' '}</span>

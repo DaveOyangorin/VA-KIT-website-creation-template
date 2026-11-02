@@ -64,7 +64,7 @@ export default function ReikiHalo({ s }: { s: Service }) {
 
   const soft = near ? 0.45 : 0.25;
   return (
-    <section className="sec bg-night text-chalk" aria-labelledby="sig-h">
+    <section className="sec bg-mist text-ink" aria-labelledby="sig-h">
       <div className="wrap grid gap-14 lg:grid-cols-[minmax(0,4fr)_minmax(0,7fr)] items-center">
         <SigCopy s={s}>
           <div className="seg" role="group" aria-label="Hands">
@@ -83,7 +83,7 @@ export default function ReikiHalo({ s }: { s: Service }) {
             </div>
             <span className="pointer-events-none absolute size-3 -ml-1.5 -mt-1.5 rounded-full border border-chalk/70" style={{ left: 'var(--x)', top: 'var(--y)' }} aria-hidden />
           </div>
-          <figcaption className="mt-4 text-sm text-chalk/55">Her photograph: tuning forks beside a client on the table. The light never touches; it only rests.</figcaption>
+          <figcaption className="mt-4 text-sm text-ink-2">Her photograph: tuning forks beside a client on the table. The light never touches; it only rests.</figcaption>
         </figure>
       </div>
     </section>

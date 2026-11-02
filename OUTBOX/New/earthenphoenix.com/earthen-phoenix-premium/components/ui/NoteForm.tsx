@@ -27,7 +27,7 @@ export default function NoteForm() {
     setDone(true);
   };
   return (
-    <form onSubmit={submit} noValidate className="grid gap-5 rounded-[26px] bg-moss/70 border border-chalk/10 p-6 sm:p-9">
+    <form onSubmit={submit} noValidate className="grid gap-5 rounded-[26px] bg-chalk border border-ink/10 p-6 sm:p-9">
       <p className="kicker text-lichen">Send a note</p>
       <div className="grid gap-5 sm:grid-cols-2">
         <label className="field">Your name<input name="name" autoComplete="name" required /></label>
@@ -44,13 +44,13 @@ export default function NoteForm() {
       <label className="flex items-start gap-3 text-[.95rem]"><input type="checkbox" name="first" value="1" className="mt-1 size-4 accent-[var(--color-flame)]" /> This will be my first visit (20% off my first service)</label>
       <fieldset className="flex flex-wrap items-center gap-5 text-[.95rem]">
         <legend className="sr-only">Send it by</legend>
-        <span className="text-chalk/70">Send it by</span>
+        <span className="text-ink-2">Send it by</span>
         <label className="flex items-center gap-2"><input type="radio" name="how" value="email" defaultChecked className="accent-[var(--color-flame)]" /> Email</label>
         <label className="flex items-center gap-2"><input type="radio" name="how" value="text" className="accent-[var(--color-flame)]" /> Text</label>
       </fieldset>
-      <p role="alert" className="text-amber text-sm min-h-5">{err}</p>
+      <p role="alert" className="text-clay text-sm min-h-5">{err}</p>
       <button type="submit" className="btn btn-flame justify-self-start">Write my message <Arr /></button>
-      <p className="text-sm text-chalk/60">This opens your own email or text app with your message filled in, ready for you to send. Nothing is stored on this website.</p>
+      <p className="text-sm text-ink-2">This opens your own email or text app with your message filled in, ready for you to send. Nothing is stored on this website.</p>
       <AnimatePresence>
         {done && (
           <motion.p initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="text-sm text-lichen" role="status">

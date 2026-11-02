@@ -3,7 +3,6 @@ import { asset } from './site';
 /** Every photograph is Earthen Phoenix's own, carried over from the current site. */
 export type ImageName =
   | 'mountain-meadow'
-  | 'mountain-meadow-ridge'
   | 'yoga-assisted-fold'
   | 'massage-head-neck'
   | 'reiki-crystals-candles'
@@ -25,7 +24,6 @@ const V = (name: string, w: number, h: number, w2?: number, h2?: number): Varian
 
 export const IMAGES: Record<ImageName, Variant[]> = {
   'mountain-meadow': V('mountain-meadow', 800, 533, 1600, 1067),
-  'mountain-meadow-ridge': V('mountain-meadow-ridge', 800, 533, 1600, 1067),
   'yoga-assisted-fold': V('yoga-assisted-fold', 800, 533, 1600, 1067),
   'massage-head-neck': V('massage-head-neck', 800, 1200, 1200, 1800),
   'reiki-crystals-candles': V('reiki-crystals-candles', 800, 450, 1600, 900),

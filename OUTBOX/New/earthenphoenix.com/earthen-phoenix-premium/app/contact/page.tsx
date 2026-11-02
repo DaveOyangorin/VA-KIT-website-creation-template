@@ -28,25 +28,25 @@ export default function Contact() {
         answer="Feel free to contact me with any questions anytime. Book online, call or text 801-609-4263, or email info@earthenphoenix.com."
         spec={[['Phone', PHONE], ['Where', 'Salt Lake City'], ['First visit', '20% off']]} trail={trail}
         ctas={<><a href={BOOK} className="btn btn-flame">Get an appointment <Arr /></a><a href={TEL} className="btn btn-ghost">Call or text</a></>} />
-      <section className="sec bg-night text-chalk" aria-labelledby="ways-h">
+      <section className="sec bg-mist text-ink" aria-labelledby="ways-h">
         <div className="wrap grid gap-14 lg:grid-cols-2 items-start">
           <div>
             <p className="kicker text-lichen" data-reveal>Ways in</p>
             <Split as="h2" id="ways-h" className="h2 mt-6" text="Call, text, _or write._" />
             <ul className="mt-12">
               {WAYS.map(({ icon: Icon, label, value, to }, i) => (
-                <li key={label} className="border-t border-chalk/12 last:border-b" data-reveal data-delay={i}>
+                <li key={label} className="border-t border-ink/12 last:border-b" data-reveal data-delay={i}>
                   <a href={to} className="group flex items-center gap-5 py-6">
-                    <span className="grid place-items-center size-12 rounded-full border border-chalk/20 transition-colors duration-500 group-hover:bg-flame group-hover:border-flame group-hover:text-night"><Icon size={19} strokeWidth={1.5} aria-hidden /></span>
+                    <span className="grid place-items-center size-12 rounded-full border border-ink/20 transition-colors duration-500 group-hover:bg-flame group-hover:border-flame group-hover:text-chalk"><Icon size={19} strokeWidth={1.5} aria-hidden /></span>
                     <span className="grid">
-                      <span className="text-xs uppercase tracking-[.2em] text-chalk/55">{label}</span>
-                      <span className="font-display text-[clamp(1.4rem,2.4vw,2rem)] tracking-[-0.015em] transition-transform duration-700 group-hover:translate-x-2">{value}</span>
+                      <span className="text-xs uppercase tracking-[.2em] text-ink-2">{label}</span>
+                      <span className="text-[clamp(1.2rem,2vw,1.6rem)] font-medium tracking-[-0.01em] transition-transform duration-700 group-hover:translate-x-2">{value}</span>
                     </span>
                   </a>
                 </li>
               ))}
             </ul>
-            <p className="mt-8 text-chalk/60 measure" data-reveal>Earthen Phoenix is in Salt Lake City, Utah. The Zen mountain session happens outdoors beside a mountain river; ask Miquelle about its location and season.</p>
+            <p className="mt-8 text-ink-2 measure" data-reveal>Earthen Phoenix is in Salt Lake City, Utah. The Zen mountain session happens outdoors beside a mountain river; ask Miquelle about its location and season.</p>
           </div>
           <div data-reveal data-delay="1"><NoteForm /></div>
         </div>
