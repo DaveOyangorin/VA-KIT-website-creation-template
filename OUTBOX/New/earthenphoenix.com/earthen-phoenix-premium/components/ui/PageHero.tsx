@@ -1,21 +1,25 @@
 'use client';
-import { useRef, type ReactNode } from 'react';
+import { useRef, useState, type ReactNode } from 'react';
+import { Pause, Play } from 'lucide-react';
 import { gsap, useGsap } from '@/lib/anim';
 import { REVEALS } from '@/lib/reveals';
 import type { ServiceKey } from '@/lib/content';
 import type { ImageName } from '@/lib/images';
 import { href } from '@/lib/site';
 import Img from './Img';
+import LivingPhoto from '@/components/three/LivingPhoto';
 
 /**
  * Inner-page hero: a full-bleed photograph. On a session page it arrives with that session's own reveal
- * (lib/reveals.ts); elsewhere it opens like a slow letterbox. Scrolling pushes the photo gently away.
+ * (lib/reveals.ts) and then comes alive in 3D, acting out the session (components/three/LivingPhoto.tsx);
+ * elsewhere it opens like a slow letterbox. Scrolling pushes the photo gently away.
  */
 export default function PageHero({ img, alt, pos, kicker, title, answer, spec, ctas, trail, reveal }: {
   img: ImageName; alt: string; pos?: string; kicker: string; title: string; answer: string;
   spec?: [string, string][]; ctas?: ReactNode; trail: [string, string][]; reveal?: ServiceKey;
 }) {
   const ref = useRef<HTMLElement>(null);
+  const [paused, setPaused] = useState(false);
   useGsap(ref, ({ reduced, el }) => {
     const frame = el.querySelector<HTMLElement>('[data-frame]')!;
     const image = frame.querySelector('img');
@@ -36,6 +40,7 @@ export default function PageHero({ img, alt, pos, kicker, title, answer, spec, c
       <div data-push className="absolute inset-0">
         <div data-frame className="absolute inset-0 overflow-hidden">
           <Img name={img} alt={alt} eager className="cover" pos={pos} />
+          {reveal && <LivingPhoto k={reveal} img={img} pos={pos} paused={paused} />}
         </div>
       </div>
       <div className="absolute inset-0 bg-gradient-to-t from-night/95 via-night/45 to-night/35 pointer-events-none" />
@@ -68,6 +73,12 @@ export default function PageHero({ img, alt, pos, kicker, title, answer, spec, c
         </div>
         {ctas && <div className="mt-9 flex flex-wrap gap-3" data-in>{ctas}</div>}
       </div>
+      {reveal && (
+        <button type="button" onClick={() => setPaused((v) => !v)} aria-pressed={paused}
+          className="absolute z-10 right-[var(--gutter)] bottom-4 lg:bottom-6 inline-flex items-center gap-2 rounded-full bg-night/55 backdrop-blur px-3.5 py-2 text-xs text-chalk/85 hover:text-chalk min-h-[36px]">
+          {paused ? <Play size={14} aria-hidden /> : <Pause size={14} aria-hidden />}{paused ? 'Play motion' : 'Pause motion'}
+        </button>
+      )}
     </section>
   );
 }

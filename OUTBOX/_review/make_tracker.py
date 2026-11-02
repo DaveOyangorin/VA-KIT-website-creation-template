@@ -14,7 +14,7 @@ SHARED = {"customroofs.biz", "mandmgutters.com", "roofwiseut.com", "jordanriverr
 # Mobile header fix (sticky header + mobile menu panel), applied to every redesign and republished 18 Oct 2026.
 MOBILE_FIX = "Fixed and republished 18 Oct"
 STATUS = {
-    "earthenphoenix.com": ("Premium", "Next.js scroll-driven story v4 (2 Nov): bold logo colours, stacking colour chapters, plus 10 looping animated illustrations of each session. 17 pages. Not deployed live."),
+    "earthenphoenix.com": ("Premium", "Next.js scroll-driven story v5 (2 Nov): bold logo colours, stacking colour chapters, 10 animated session illustrations, plus 3D WebGL living-photo heroes acting out each session. 17 pages. Not deployed live."),
     "husky-property-maintenance": ("Premium", "Built premium from the start (21 Oct)"),
     "superior-locksmith": ("Premium", "Built premium from the start (21 Oct)"),
     "eagle-locksmith-inc": ("Premium", "Built premium from the start (21 Oct)"),
