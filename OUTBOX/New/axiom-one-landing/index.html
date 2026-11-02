@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AXIOM ONE: the titanium smartwatch</title>
+<meta name="description" content="AXIOM ONE is a grade 5 titanium smartwatch with a sapphire always-on display, a full health sensor array and 14 days of battery.">
+<meta name="theme-color" content="#000000">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700;800&family=Inter:wght@400;500&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #000; --ink: #f4f6f8; --mute: #9ba4ae; --line: rgba(255,255,255,.12);
+    --blue: #00f0ff; --silver: #c9ced4;
+    --pad: clamp(20px, 5vw, 72px);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { background: var(--bg); color: var(--ink); -webkit-font-smoothing: antialiased; }
+  body { font: 400 17px/1.6 Inter, system-ui, sans-serif; overflow-x: hidden; }
+  h1, h2, h3, .display { font-family: "Inter Tight", Inter, system-ui, sans-serif; letter-spacing: -0.035em; line-height: .98; font-weight: 700; }
+  a { color: inherit; }
+  .mono { font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: var(--blue); }
+  .skip { position: absolute; left: -999px; top: 12px; background: var(--blue); color: #000; padding: 10px 16px; border-radius: 8px; z-index: 100; }
+  .skip:focus { left: 12px; }
+
+  /* the watch lives on one fixed canvas behind every section */
+  #stage { position: fixed; inset: 0; width: 100%; height: 100%; display: block; z-index: 0; }
+  .glow { position: fixed; inset: 0; pointer-events: none; z-index: 0;
+    background: radial-gradient(60vmax 60vmax at var(--gx, 70%) var(--gy, 50%), rgba(0,240,255,.07), transparent 60%); transition: background .2s; }
+
+  header { position: fixed; inset: 0 0 auto; z-index: 20; display: flex; align-items: center; justify-content: space-between;
+    padding: 20px var(--pad); transition: background .4s, backdrop-filter .4s; }
+  header.solid { background: rgba(0,0,0,.6); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
+  .logo { font: 800 18px/1 "Inter Tight", sans-serif; letter-spacing: .32em; text-decoration: none; }
+  .logo b { color: var(--blue); font-weight: 800; }
+  nav { display: flex; gap: 34px; font-size: 14px; color: var(--mute); }
+  nav a { text-decoration: none; transition: color .2s; }
+  nav a:hover { color: var(--ink); }
+
+  .btn { display: inline-flex; align-items: center; gap: 10px; min-height: 52px; padding: 0 26px; border-radius: 999px; font: 600 15px/1 Inter, sans-serif;
+    text-decoration: none; border: 1px solid transparent; cursor: pointer; transition: transform .3s cubic-bezier(.2,.8,.2,1), box-shadow .3s, background .3s, color .3s; }
+  .btn-blue { background: var(--blue); color: #001518; box-shadow: 0 0 0 0 rgba(0,240,255,.0); }
+  .btn-blue:hover { transform: translateY(-2px); box-shadow: 0 12px 40px -8px rgba(0,240,255,.55); }
+  .btn-line { border-color: var(--line); color: var(--ink); }
+  .btn-line:hover { border-color: rgba(255,255,255,.4); }
+  .btn svg { width: 16px; height: 16px; }
+  .sm { min-height: 40px; padding: 0 18px; font-size: 13px; }
+  :focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
+
+  main { position: relative; z-index: 2; }
+  section { position: relative; min-height: 100vh; min-height: 100svh; display: flex; align-items: center; padding: 120px var(--pad); }
+  .col { width: min(520px, 100%); }
+  .right { justify-content: flex-end; }
+  .center { justify-content: center; text-align: center; }
+
+  .hero .col { width: min(720px, 100%); }
+  .hero h1 { font-size: clamp(3.2rem, 8vw, 8.4rem); font-weight: 800; }
+  .hero h1 .ln { display: block; overflow: hidden; padding-bottom: .06em; }
+  .hero h1 .ln > span { display: inline-block; }
+  .hero h1 em { font-style: normal; background: linear-gradient(100deg, #fff 10%, var(--silver) 45%, var(--blue) 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .lede { margin-top: 28px; max-width: 34ch; font-size: clamp(1.05rem, 1.4vw, 1.25rem); color: var(--mute); }
+  .lede strong { color: var(--ink); font-weight: 500; }
+  .ctas { margin-top: 40px; display: flex; flex-wrap: wrap; gap: 14px; }
+  .scrollcue { position: absolute; left: 50%; bottom: 28px; transform: translateX(-50%); display: grid; justify-items: center; gap: 10px; color: var(--mute); font-size: 12px; letter-spacing: .2em; text-transform: uppercase; }
+  .scrollcue i { width: 1px; height: 46px; background: linear-gradient(var(--blue), transparent); animation: cue 2.2s ease-in-out infinite; transform-origin: top; }
+  @keyframes cue { 0% { transform: scaleY(0); } 50% { transform: scaleY(1); } 100% { transform: scaleY(1); opacity: 0; } }
+
+  h2 { font-size: clamp(2.6rem, 5.6vw, 5.4rem); margin-top: 18px; }
+  .body { margin-top: 24px; color: var(--mute); max-width: 40ch; font-size: 1.06rem; }
+  .stats { margin-top: 40px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--line); }
+  .stats div { padding: 20px 16px 0 0; }
+  .stats b { display: block; font: 700 clamp(1.7rem, 2.6vw, 2.4rem)/1 "Inter Tight", sans-serif; letter-spacing: -0.03em; }
+  .stats span { display: block; margin-top: 8px; font-size: 13px; color: var(--mute); }
+  .stats b small { font-size: .5em; color: var(--blue); margin-left: 2px; }
+
+  .card { margin-top: 34px; padding: 22px 24px; border: 1px solid var(--line); border-radius: 18px; background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.01)); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+  .card + .card { margin-top: 12px; }
+  .card h3 { font-size: 1.15rem; letter-spacing: -0.01em; font-weight: 600; display: flex; align-items: center; gap: 12px; }
+  .card h3 i { width: 8px; height: 8px; border-radius: 50%; background: var(--blue); box-shadow: 0 0 14px var(--blue); }
+  .card p { margin-top: 8px; color: var(--mute); font-size: .97rem; line-height: 1.55; }
+
+  /* labels that track the exploded layers */
+  #labels { position: fixed; inset: 0; pointer-events: none; z-index: 3; }
+  #labels div { position: absolute; left: 0; top: 0; display: flex; flex-direction: row-reverse; align-items: center; gap: 10px; white-space: nowrap; opacity: 0; font-size: 13px; color: var(--ink); will-change: transform, opacity; }
+  #labels div::before { content: ""; width: 44px; height: 1px; background: linear-gradient(270deg, var(--blue), rgba(0,240,255,.2)); }
+  #labels div span { color: var(--mute); }
+
+  .specs { display: block; }
+  .specs .inner { width: min(1180px, 100%); margin: 0 auto; }
+  .grid { margin-top: 56px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 22px; overflow: hidden; }
+  .grid div { background: rgba(0,0,0,.82); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); padding: 30px 26px; min-height: 170px; display: flex; flex-direction: column; justify-content: space-between; }
+  .grid b { font: 700 clamp(1.6rem, 2.4vw, 2.2rem)/1 "Inter Tight", sans-serif; letter-spacing: -0.03em; }
+  .grid span { color: var(--mute); font-size: 14px; }
+  .grid .mono { font-size: 11px; }
+
+  .buy { align-items: flex-end; padding-bottom: 10vh; }
+  .buy h2 { font-size: clamp(3rem, 7vw, 6.6rem); }
+  .price { margin-top: 22px; color: var(--mute); font-size: 1.1rem; }
+  .price b { color: var(--ink); font-weight: 600; }
+  .buy .ctas { justify-content: center; }
+  .swatches { margin: 34px auto 0; display: flex; justify-content: center; gap: 12px; }
+  .swatches button { width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--line); cursor: pointer; position: relative; }
+  .swatches button[aria-pressed="true"]::after { content: ""; position: absolute; inset: -6px; border-radius: 50%; border: 1px solid var(--blue); }
+  .note { margin-top: 18px; font-size: 13px; color: var(--mute); min-height: 1.6em; }
+
+  footer { position: relative; z-index: 2; padding: 40px var(--pad); border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between; color: var(--mute); font-size: 13px; background: #000; }
+
+  .progress { position: fixed; right: 22px; top: 50%; transform: translateY(-50%); z-index: 20; display: grid; gap: 14px; }
+  .progress a { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,.25); transition: background .3s, transform .3s; display: block; }
+  .progress a.on { background: var(--blue); transform: scale(1.6); box-shadow: 0 0 10px var(--blue); }
+
+  /* entrance states are set by script only, so the page reads fine without it */
+  .js .rv { opacity: 0; transform: translateY(40px); }
+
+  @media (max-width: 900px) {
+    nav { display: none; }
+    section { align-items: flex-end; padding-bottom: 90px; }
+    .right, .center { justify-content: flex-start; }
+    .center { text-align: left; }
+    .hero { align-items: flex-end; }
+    .stats { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid div { min-height: 140px; padding: 22px 18px; }
+    .buy .ctas, .swatches { justify-content: flex-start; }
+    .progress { display: none; }
+    .col { background: linear-gradient(180deg, transparent, rgba(0,0,0,.75) 18%); padding-top: 30px; }
+    .specs { padding-top: 46vh; }
+    .specs .inner { background: linear-gradient(180deg, transparent, rgba(0,0,0,.85) 60px); padding-top: 40px; }
+    .scrollcue { display: none; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .scrollcue i { animation: none; }
+    .btn { transition: none; }
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<canvas id="stage" aria-hidden="true"></canvas>
+<div class="glow" aria-hidden="true"></div>
+<div id="labels" aria-hidden="true"></div>
+
+<header id="top">
+  <a class="logo" href="#hero" aria-label="AXIOM ONE home">AXI<b>O</b>M</a>
+  <nav aria-label="Sections">
+    <a href="#design">Design</a><a href="#display">Display</a><a href="#inside">Inside</a><a href="#health">Health</a><a href="#specs">Specs</a>
+  </nav>
+  <a class="btn btn-blue sm" href="#buy">Pre-order</a>
+</header>
+
+<nav class="progress" aria-label="Page progress">
+  <a href="#hero" aria-label="Intro"></a><a href="#design" aria-label="Design"></a><a href="#display" aria-label="Display"></a>
+  <a href="#inside" aria-label="Inside"></a><a href="#health" aria-label="Health"></a><a href="#specs" aria-label="Specs"></a><a href="#buy" aria-label="Pre-order"></a>
+</nav>
+
+<main id="main">
+  <section class="hero" id="hero" data-key="0">
+    <div class="col">
+      <p class="mono rv">AXIOM ONE · Smartwatch</p>
+      <h1 aria-label="Time, engineered.">
+        <span class="ln"><span>Time,</span></span>
+        <span class="ln"><span><em>engineered.</em></span></span>
+      </h1>
+      <p class="lede rv">A titanium smartwatch that keeps <strong>14 days</strong> of charge, reads your body all day and looks like an heirloom while it does it.</p>
+      <div class="ctas rv">
+        <a class="btn btn-blue" href="#design">Explore AXIOM ONE
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg></a>
+        <a class="btn btn-line" href="#specs">See specs</a>
+      </div>
+    </div>
+    <div class="scrollcue" aria-hidden="true">Scroll<i></i></div>
+  </section>
+
+  <section class="right" id="design" data-key="1">
+    <div class="col">
+      <p class="mono rv">01 · Design</p>
+      <h2 class="rv">Grade 5 titanium.<br>Feather light.</h2>
+      <p class="body rv">One block of aerospace titanium, milled, bead-blasted and hand finished. The knurled crown turns with a soft, precise click.</p>
+      <div class="stats rv">
+        <div><b>38<small>g</small></b><span>Case weight</span></div>
+        <div><b>10.7<small>mm</small></b><span>Thin</span></div>
+        <div><b>100<small>m</small></b><span>Water resistant</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="display" data-key="2">
+    <div class="col">
+      <p class="mono rv">02 · Display</p>
+      <h2 class="rv">Sapphire.<br>Always on.</h2>
+      <p class="body rv">A domed sapphire crystal over a 3,000-nit display that dims to a single nit at night. Readable in full sun, invisible in the dark.</p>
+      <div class="stats rv">
+        <div><b>3000<small>nit</small></b><span>Peak brightness</span></div>
+        <div><b>1<small>nit</small></b><span>At night</span></div>
+        <div><b>9<small>H</small></b><span>Sapphire hardness</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="right" id="inside" data-key="3">
+    <div class="col">
+      <p class="mono rv">03 · Inside</p>
+      <h2 class="rv">Seven layers.<br>Zero waste.</h2>
+      <p class="body rv">Every millimetre is used. Pull it apart and you find a dual-core chip, a stacked battery and a sensor array, sealed to 100 metres.</p>
+    </div>
+  </section>
+
+  <section id="health" data-key="4">
+    <div class="col">
+      <p class="mono rv">04 · Health</p>
+      <h2 class="rv">It reads you,<br>quietly.</h2>
+      <div class="card rv"><h3><i></i>Heart, every second</h3><p>Optical sensors track heart rate and rhythm continuously, day and night.</p></div>
+      <div class="card rv"><h3><i></i>Blood oxygen and skin temperature</h3><p>Overnight readings that show how well you actually recovered.</p></div>
+      <div class="card rv"><h3><i></i>Sleep stages</h3><p>Light, deep and REM, with a single morning score.</p></div>
+    </div>
+  </section>
+
+  <section class="specs" id="specs" data-key="5">
+    <div class="inner">
+      <p class="mono rv">05 · Specifications</p>
+      <h2 class="rv">Built to outlast<br>the week.</h2>
+      <div class="grid rv">
+        <div><span class="mono">Battery</span><b>14 days</b><span>Full charge in 45 minutes</span></div>
+        <div><span class="mono">Case</span><b>44 mm</b><span>Grade 5 titanium</span></div>
+        <div><span class="mono">Display</span><b>1.5″</b><span>Always-on, sapphire</span></div>
+        <div><span class="mono">Water</span><b>10 ATM</b><span>Swim and dive to 100 m</span></div>
+        <div><span class="mono">Chip</span><b>Dual-core</b><span>Low-power co-processor</span></div>
+        <div><span class="mono">GPS</span><b>Dual-band</b><span>L1 + L5 accuracy</span></div>
+        <div><span class="mono">Sensors</span><b>6</b><span>Heart, SpO₂, temp, more</span></div>
+        <div><span class="mono">Weight</span><b>38 g</b><span>Case only</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="center buy" id="buy" data-key="6">
+    <div class="col" style="width:min(760px,100%)">
+      <p class="mono rv">Pre-order</p>
+      <h2 class="rv">Wear the future.</h2>
+      <p class="price rv">From <b>$499</b> · Ships this spring</p>
+      <div class="swatches rv" role="group" aria-label="Finish">
+        <button type="button" aria-pressed="true" aria-label="Natural titanium" data-tint="natural" style="background:linear-gradient(135deg,#e6e9ec,#8e959c)"></button>
+        <button type="button" aria-pressed="false" aria-label="Obsidian titanium" data-tint="obsidian" style="background:linear-gradient(135deg,#4a4e54,#0d0e10)"></button>
+        <button type="button" aria-pressed="false" aria-label="Glacier titanium" data-tint="glacier" style="background:linear-gradient(135deg,#d8f7ff,#5aa9b8)"></button>
+      </div>
+      <div class="ctas rv">
+        <button class="btn btn-blue" type="button" id="reserve">Reserve yours
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+        <a class="btn btn-line" href="#specs">Compare specs</a>
+      </div>
+      <p class="note" id="note" role="status"></p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <span>© 2026 AXIOM. Concept product page.</span>
+  <span>Natural · Obsidian · Glacier titanium</span>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+} }
+</script>
+<script>document.documentElement.classList.add('js');</script>
+<script type="module">
+import * as THREE from 'three';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.js';
+
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const small = () => innerWidth <= 900;
+gsap.registerPlugin(ScrollTrigger);
+
+/* ---------- text: entrances and chrome (work even if WebGL is unavailable) ---------- */
+const header = document.getElementById('top');
+const dots = [...document.querySelectorAll('.progress a')];
+const sections = [...document.querySelectorAll('main section')];
+ScrollTrigger.create({ start: 40, onUpdate: (s) => header.classList.toggle('solid', s.scroll() > 40) });
+sections.forEach((s, i) => ScrollTrigger.create({ trigger: s, start: 'top 55%', end: 'bottom 55%', onToggle: (e) => e.isActive && dots.forEach((d, j) => d.classList.toggle('on', i === j)) }));
+
+if (reduce) {
+  gsap.set('.rv', { opacity: 1, y: 0 });
+} else {
+  gsap.from('.hero h1 .ln > span', { yPercent: 110, duration: 1.4, ease: 'expo.out', stagger: .12, delay: .25 });
+  gsap.to('.hero .rv', { opacity: 1, y: 0, duration: 1.2, ease: 'expo.out', stagger: .1, delay: .6 });
+  document.querySelectorAll('section:not(.hero)').forEach((s) => {
+    gsap.to(s.querySelectorAll('.rv'), { opacity: 1, y: 0, duration: 1.1, ease: 'expo.out', stagger: .09,
+      scrollTrigger: { trigger: s, start: 'top 68%', toggleActions: 'play none none reverse' } });
+  });
+}
+
+const note = document.getElementById('note');
+document.getElementById('reserve').addEventListener('click', () => { note.textContent = 'This is a concept page: reservations open at launch.'; });
+
+/* ---------- the watch ---------- */
+const canvas = document.getElementById('stage');
+let renderer;
+try { renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: false, powerPreference: 'high-performance' }); }
+catch (e) { canvas.remove(); throw e; }
+renderer.setPixelRatio(Math.min(devicePixelRatio, small() ? 1.5 : 2));
+renderer.setClearColor(0x000000, 1);
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.05;
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+
+const scene = new THREE.Scene();
+scene.environment = new THREE.PMREMGenerator(renderer).fromScene(new RoomEnvironment(), 0.04).texture;
+const camera = new THREE.PerspectiveCamera(32, 1, 0.1, 100);
+camera.position.set(0, 0, 7);
+
+const key = new THREE.DirectionalLight(0xffffff, 2.2); key.position.set(3, 4, 5); scene.add(key);
+const rim = new THREE.DirectionalLight(0x00f0ff, 3.2); rim.position.set(-5, 1, -3); scene.add(rim);
+const fill = new THREE.DirectionalLight(0x9fb4c8, .6); fill.position.set(-3, -3, 4); scene.add(fill);
+
+const ti = new THREE.MeshPhysicalMaterial({ color: 0xc9ced4, metalness: 1, roughness: .32, clearcoat: .3, clearcoatRoughness: .4 });
+const tiDark = new THREE.MeshPhysicalMaterial({ color: 0x2a2d31, metalness: 1, roughness: .38 });
+const polish = new THREE.MeshPhysicalMaterial({ color: 0xeef1f4, metalness: 1, roughness: .12 });
+const blueGlow = new THREE.MeshBasicMaterial({ color: 0x00f0ff });
+
+function canvasTex(size, draw) {
+  const c = document.createElement('canvas'); c.width = c.height = size;
+  const g = c.getContext('2d');
+  const paint = () => { g.setTransform(1, 0, 0, 1, 0, 0); g.clearRect(0, 0, size, size); draw(g, size); };
+  paint();
+  const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 8;
+  t.userData.repaint = () => { paint(); t.needsUpdate = true; };
+  return t;
+}
+const dialTex = canvasTex(1024, (g, s) => {
+  const c = s / 2;
+  const bg = g.createRadialGradient(c, c * .8, 0, c, c, c);
+  bg.addColorStop(0, '#0d1216'); bg.addColorStop(1, '#020304');
+  g.fillStyle = bg; g.fillRect(0, 0, s, s);
+  g.translate(c, c);
+  for (let i = 0; i < 60; i++) {           // minute track
+    g.save(); g.rotate(i * Math.PI / 30);
+    g.fillStyle = i % 5 ? 'rgba(200,210,220,.45)' : '#e9eef2';
+    i % 5 ? g.fillRect(-2, -c * .97, 4, 22) : g.fillRect(-4, -c * .97, 8, 40);
+    g.restore();
+  }
+  for (let i = 0; i < 12; i++) {           // hour indices
+    g.save(); g.rotate(i * Math.PI / 6);
+    g.fillStyle = i % 3 ? '#cfd6dc' : '#00f0ff';
+    g.shadowColor = i % 3 ? 'transparent' : '#00f0ff'; g.shadowBlur = i % 3 ? 0 : 18;
+    g.beginPath(); g.roundRect(-9, -c * .84, 18, i % 3 ? 70 : 96, 9); g.fill();
+    g.restore();
+  }
+  g.shadowBlur = 0;
+  g.fillStyle = '#e9eef2'; g.textAlign = 'center';
+  g.font = '700 46px "Inter Tight", Inter, sans-serif'; g.fillText('A X I O M', 0, -c * .36);
+  g.fillStyle = 'rgba(200,210,220,.55)'; g.font = '500 22px "JetBrains Mono", monospace'; g.fillText('TITANIUM · 100M', 0, -c * .28);
+  // complication: heart rate
+  g.strokeStyle = 'rgba(0,240,255,.35)'; g.lineWidth = 3; g.beginPath(); g.arc(0, c * .38, 92, 0, Math.PI * 2); g.stroke();
+  g.strokeStyle = '#00f0ff'; g.lineWidth = 6; g.lineCap = 'round'; g.beginPath(); g.arc(0, c * .38, 92, -Math.PI / 2, Math.PI * .95); g.stroke();
+  g.fillStyle = '#f4f6f8'; g.font = '700 62px "Inter Tight", Inter, sans-serif'; g.fillText('72', 0, c * .38 + 18);
+  g.fillStyle = '#00f0ff'; g.font = '500 18px "JetBrains Mono", monospace'; g.fillText('BPM', 0, c * .38 + 48);
+  // date window
+  g.fillStyle = '#0b0f12'; g.strokeStyle = 'rgba(255,255,255,.3)'; g.lineWidth = 2;
+  g.beginPath(); g.roundRect(c * .42, -26, 92, 52, 8); g.fill(); g.stroke();
+  g.fillStyle = '#f4f6f8'; g.font = '600 30px "Inter Tight", Inter, sans-serif'; g.fillText('14', c * .42 + 46, 11);
+});
+const boardTex = canvasTex(1024, (g, s) => {
+  g.fillStyle = '#06110f'; g.fillRect(0, 0, s, s);
+  g.strokeStyle = 'rgba(0,240,255,.55)'; g.lineWidth = 3;
+  let seed = 7; const r = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+  for (let i = 0; i < 90; i++) {
+    let x = r() * s, y = r() * s; g.beginPath(); g.moveTo(x, y);
+    for (let k = 0; k < 4; k++) { if (r() > .5) x += (r() - .5) * 300; else y += (r() - .5) * 300; g.lineTo(x, y); }
+    g.stroke(); g.fillStyle = '#00f0ff'; g.fillRect(x - 5, y - 5, 10, 10);
+  }
+  g.fillStyle = '#15191d'; g.fillRect(s * .36, s * .36, s * .28, s * .28);
+  g.strokeStyle = '#8c949c'; g.lineWidth = 4; g.strokeRect(s * .36, s * .36, s * .28, s * .28);
+  g.fillStyle = '#c9ced4'; g.font = '600 40px "JetBrains Mono", monospace'; g.textAlign = 'center'; g.fillText('AX-1', s / 2, s / 2 + 14);
+});
+
+/* built face-up (+y); the wrapper turns it to face the camera */
+const wrap = new THREE.Group(); scene.add(wrap);
+const watch = new THREE.Group(); watch.rotation.x = Math.PI / 2; wrap.add(watch);
+const layers = {};
+const layer = (name, obj, lift) => { obj.userData.base = obj.position.y; obj.userData.lift = lift; layers[name] = obj; watch.add(obj); return obj; };
+
+// case: a lathe profile with chamfers
+const back = new THREE.Mesh(new THREE.CircleGeometry(.84, 96), tiDark); back.rotation.x = Math.PI / 2; back.position.y = -.152;
+const prof = [[0, -.15], [.86, -.15], [.98, -.11], [1.04, -.03], [1.04, .05], [.99, .12], [.9, .15], [.86, .15]].map(([x, y]) => new THREE.Vector2(x, y));
+const caseG = new THREE.Group();
+caseG.add(new THREE.Mesh(new THREE.LatheGeometry(prof, 128), ti)); caseG.add(back);
+for (const sz of [-1, 1]) for (const sx of [-1, 1]) {        // lugs
+  const lug = new THREE.Mesh(new RoundedBoxGeometry(.16, .16, .42, 3, .05), ti);
+  lug.position.set(sx * .5, -.02, sz * .98); lug.rotation.x = sz * .18; caseG.add(lug);
+}
+const crown = new THREE.Mesh(new THREE.CylinderGeometry(.13, .13, .18, 48), polish);
+crown.rotation.z = Math.PI / 2; crown.position.set(1.12, 0, 0); caseG.add(crown);
+for (let i = 0; i < 24; i++) {                                  // knurling
+  const k = new THREE.Mesh(new THREE.BoxGeometry(.17, .012, .02), ti);
+  const a = i / 24 * Math.PI * 2; k.position.set(1.12, Math.cos(a) * .132, Math.sin(a) * .132); k.rotation.x = a; caseG.add(k);
+}
+const pusher = new THREE.Mesh(new THREE.CylinderGeometry(.06, .06, .14, 32), polish);
+pusher.rotation.z = Math.PI / 2; pusher.position.set(1.08, 0, -.42); caseG.add(pusher);
+layer('case', caseG, 0);
+
+// bezel with engraved minute ticks
+const bezel = new THREE.Group();
+const ring = new THREE.Mesh(new THREE.TorusGeometry(.9, .055, 24, 160), polish); ring.rotation.x = Math.PI / 2; bezel.add(ring);
+for (let i = 0; i < 60; i++) {
+  const t = new THREE.Mesh(new THREE.BoxGeometry(.012, .01, i % 5 ? .04 : .07), i % 15 ? tiDark : blueGlow);
+  const a = i / 60 * Math.PI * 2; t.position.set(Math.sin(a) * .9, .05, -Math.cos(a) * .9); t.rotation.y = -a; bezel.add(t);
+}
+bezel.position.y = .16; layer('bezel', bezel, .95);
+
+const dial = new THREE.Mesh(new THREE.CircleGeometry(.84, 96), new THREE.MeshStandardMaterial({ map: dialTex, metalness: .2, roughness: .6, emissive: 0xffffff, emissiveMap: dialTex, emissiveIntensity: .55 }));
+dial.rotation.x = -Math.PI / 2; dial.position.y = .155; layer('dial', dial, .5);
+
+// hands: 12 o'clock is local -z
+const hands = new THREE.Group(); hands.position.y = .17;
+const hand = (len, w, mat, y) => { const g = new THREE.BoxGeometry(w, .012, len); g.translate(0, y, -len / 2 + .06); const m = new THREE.Mesh(g, mat); hands.add(m); return m; };
+const hH = hand(.48, .045, polish, 0), hM = hand(.7, .032, polish, .014), hS = hand(.78, .012, blueGlow, .028);
+const cap = new THREE.Mesh(new THREE.CylinderGeometry(.04, .04, .05, 24), polish); cap.position.y = .03; hands.add(cap);
+layer('hands', hands, .72);
+
+const glass = new THREE.Mesh(new THREE.SphereGeometry(1.6, 96, 16, 0, Math.PI * 2, 0, .58),
+  new THREE.MeshPhysicalMaterial({ color: 0xffffff, metalness: 0, roughness: .02, transmission: 0, transparent: true, opacity: .14, clearcoat: 1, envMapIntensity: 1.6 }));
+glass.position.y = .16 - 1.6 * Math.cos(.58) + .02; glass.scale.set(.86 / (1.6 * Math.sin(.58)), .5, .86 / (1.6 * Math.sin(.58)));
+const glassG = new THREE.Group(); glassG.add(glass); layer('glass', glassG, 1.2);
+
+const board = new THREE.Mesh(new THREE.CylinderGeometry(.8, .8, .035, 96), [new THREE.MeshStandardMaterial({ color: 0x0b1a17, metalness: .4, roughness: .5 }), new THREE.MeshStandardMaterial({ map: boardTex, emissive: 0xffffff, emissiveMap: boardTex, emissiveIntensity: .35, roughness: .6 }), new THREE.MeshStandardMaterial({ color: 0x0b1a17 })]);
+board.position.y = .06; layer('board', board, -.55);
+
+const batt = new THREE.Group();
+batt.add(new THREE.Mesh(new THREE.CylinderGeometry(.72, .72, .1, 96), new THREE.MeshPhysicalMaterial({ color: 0x8b9299, metalness: .9, roughness: .45 })));
+const bl = new THREE.Mesh(new THREE.TorusGeometry(.5, .01, 8, 120), blueGlow); bl.rotation.x = Math.PI / 2; bl.position.y = .051; batt.add(bl);
+batt.position.y = -.04; layer('battery', batt, -1.05);
+
+// sensor back: dark glass dome with a ring of LEDs
+const sensor = new THREE.Group();
+const dome = new THREE.Mesh(new THREE.SphereGeometry(.7, 64, 16, 0, Math.PI * 2, Math.PI - .7, .7), new THREE.MeshPhysicalMaterial({ color: 0x0a0c0e, metalness: .2, roughness: .08, clearcoat: 1 }));
+dome.scale.y = .35; sensor.add(dome);
+const leds = [];
+for (let i = 0; i < 8; i++) {
+  const a = i / 8 * Math.PI * 2;
+  const l = new THREE.Mesh(new THREE.CircleGeometry(.05, 24), new THREE.MeshBasicMaterial({ color: i % 2 ? 0x00f0ff : 0x66ffd9, transparent: true }));
+  l.rotation.x = Math.PI / 2; l.position.set(Math.cos(a) * .33, -.215, Math.sin(a) * .33); sensor.add(l); leds.push(l);
+}
+const centre = new THREE.Mesh(new THREE.CircleGeometry(.09, 32), new THREE.MeshBasicMaterial({ color: 0x00f0ff, transparent: true }));
+centre.rotation.x = Math.PI / 2; centre.position.y = -.236; sensor.add(centre); leds.push(centre);
+sensor.position.y = -.14; layer('sensor', sensor, -1.55);
+
+// bracelet: titanium links curving round the wrist
+const strap = new THREE.Group();
+const linkG = new RoundedBoxGeometry(.84, .11, .19, 3, .035);
+const links = [];
+const linkT = ti.clone(), linkP = polish.clone();
+for (const s of [-1, 1]) for (let i = 0; i < 10; i++) {
+  const a = .12 + i * .15, R = 1.35;
+  const m = new THREE.Mesh(linkG, i % 2 ? linkP : linkT);
+  m.position.set(0, -R * (1 - Math.cos(a)) - .02, s * (1.12 + R * Math.sin(a)));
+  m.rotation.x = s * a; strap.add(m); links.push(m);
+}
+watch.add(strap);
+
+/* ---------- labels for the exploded view ---------- */
+const LABELS = [['glass', 'Sapphire crystal', 'domed, 9H'], ['bezel', 'Titanium bezel', '60-click'], ['hands', 'Hands', 'lume-filled'], ['dial', 'Always-on display', '3,000 nits'],
+  ['board', 'AX-1 chip', 'dual-core'], ['battery', 'Stacked battery', '14 days'], ['sensor', 'Sensor array', '6 sensors']];
+const labelBox = document.getElementById('labels');
+const labelEls = LABELS.map(([, t, s]) => { const d = document.createElement('div'); d.innerHTML = `${t} <span>${s}</span>`; labelBox.appendChild(d); return d; });
+
+/* ---------- scroll story: one state, keyframed per section ---------- */
+// x/y: screen offset, rx/ry/rz: turn, z: camera distance, ex: explode 0..1, sc: scale
+const K = [
+  { x: 1.25, y: 0, rx: .25, ry: -.5, rz: .08, z: 7, ex: 0, sc: 1 },
+  { x: -1.35, y: 0, rx: .1, ry: 1.25, rz: -.15, z: 6.6, ex: 0, sc: 1 },
+  { x: 1.05, y: 0, rx: .05, ry: -.12, rz: 0, z: 4.3, ex: 0, sc: 1 },
+  { x: -.55, y: -.15, rx: -1.05, ry: -.5, rz: -.06, z: 8.8, ex: 1, sc: 1 },
+  { x: 1.3, y: 0, rx: -.15, ry: Math.PI - .35, rz: .05, z: 6.4, ex: 0, sc: 1 },
+  { x: 3.1, y: 1.25, rx: .3, ry: Math.PI * 2 - .4, rz: .2, z: 9, ex: 0, sc: .62 },
+  { x: 0, y: 1.45, rx: .35, ry: Math.PI * 2 + .3, rz: 0, z: 8.4, ex: 0, sc: .62 },
+];
+const S = { ...K[0] };
+const tl = gsap.timeline({ defaults: { ease: 'power2.inOut', duration: 1 } });
+for (let i = 1; i < K.length; i++) tl.to(S, { ...K[i] }, i - 1);
+ScrollTrigger.create({ trigger: '#main', start: 'top top', end: 'bottom bottom', scrub: reduce ? true : 1.2, animation: tl });
+
+// finishes
+const FIN = { natural: [0xc9ced4, 0xeef1f4], obsidian: [0x3a3d42, 0x6b7076], glacier: [0xa9dbe6, 0xdff6fb] };
+document.querySelectorAll('.swatches button').forEach((b) => b.addEventListener('click', () => {
+  document.querySelectorAll('.swatches button').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+  const [a, p] = FIN[b.dataset.tint];
+  const dur = reduce ? 0 : .8;
+  const ca = new THREE.Color(a), cp = new THREE.Color(p);
+  gsap.to([ti.color, linkT.color], { r: ca.r, g: ca.g, b: ca.b, duration: dur });
+  gsap.to([polish.color, linkP.color], { r: cp.r, g: cp.g, b: cp.b, duration: dur });
+}));
+
+/* pointer parallax */
+const ptr = { x: 0, y: 0, tx: 0, ty: 0 };
+addEventListener('pointermove', (e) => { ptr.tx = e.clientX / innerWidth - .5; ptr.ty = e.clientY / innerHeight - .5;
+  document.querySelector('.glow').style.setProperty('--gx', e.clientX / innerWidth * 100 + '%'); document.querySelector('.glow').style.setProperty('--gy', e.clientY / innerHeight * 100 + '%'); }, { passive: true });
+
+function resize() {
+  const w = innerWidth, h = innerHeight;
+  renderer.setSize(w, h, false); camera.aspect = w / h; camera.updateProjectionMatrix();
+}
+addEventListener('resize', resize); resize();
+
+/* intro: the watch rises out of the dark */
+const intro = { v: reduce ? 1 : 0 };
+if (!reduce) gsap.to(intro, { v: 1, duration: 2.4, ease: 'expo.out', delay: .1 });
+
+const clock = new THREE.Clock();
+const v3 = new THREE.Vector3();
+let running = true;
+document.addEventListener('visibilitychange', () => { running = !document.hidden; if (running) { clock.getDelta(); requestAnimationFrame(frame); } });
+
+function frame() {
+  if (!running) return;
+  const t = clock.getElapsedTime();
+  ptr.x += (ptr.tx - ptr.x) * .05; ptr.y += (ptr.ty - ptr.y) * .05;
+  const m = small();
+  const idle = reduce ? 0 : 1;
+
+  // phones: watch sits above the copy, centred
+  const x = m ? 0 : S.x, y = m ? S.y * .5 + 1.15 : S.y;
+  const sc = S.sc * (m ? .72 : 1) * (.85 + .15 * intro.v);
+  wrap.position.set(x, y + Math.sin(t * .8) * .05 * idle - (1 - intro.v) * 1.4, 0);
+  wrap.rotation.set(S.rx + ptr.y * .25 * idle, S.ry + ptr.x * .35 * idle + Math.sin(t * .35) * .06 * idle - (1 - intro.v) * 1.6, S.rz);
+  wrap.scale.setScalar(sc);
+  camera.position.z = S.z * (m ? 1.25 : 1);
+
+  // explode: layers spread along the watch's axis, the bracelet slides away
+  const ex = S.ex;
+  for (const k in layers) { const o = layers[k]; o.position.y = o.userData.base + o.userData.lift * ex; }
+  strap.visible = ex < .98;
+  for (const lm of [linkT, linkP]) { lm.transparent = ex > 0; lm.opacity = 1 - ex; }
+  strap.position.y = -ex * .6;
+  strap.scale.setScalar(1 + ex * .25);
+
+  // live time on the hands
+  const d = new Date(), s = d.getSeconds() + d.getMilliseconds() / 1000, mi = d.getMinutes() + s / 60, hr = (d.getHours() % 12) + mi / 60;
+  hS.rotation.y = -s / 60 * Math.PI * 2; hM.rotation.y = -mi / 60 * Math.PI * 2; hH.rotation.y = -hr / 12 * Math.PI * 2;
+
+  // sensors pulse like a heartbeat (72 bpm)
+  const beat = Math.pow(Math.max(0, Math.sin(t * Math.PI * 2 * 1.2)), 6);
+  leds.forEach((l, i) => { l.material.opacity = .35 + .65 * (idle ? beat : 1) * (i === leds.length - 1 ? 1 : .8); });
+  bl.material.color.setHSL(.505, 1, .5 + .1 * beat);
+
+  renderer.render(scene, camera);
+
+  // place labels beside each exploded layer
+  const show = Math.max(0, (ex - .6) / .4);
+  LABELS.forEach(([k], i) => {
+    const el = labelEls[i];
+    if (show <= 0 || m) { el.style.opacity = 0; return; }
+    layers[k].getWorldPosition(v3); v3.x -= 1.05 * sc; v3.project(camera);
+    el.style.transform = `translate(calc(${(v3.x * .5 + .5) * innerWidth}px - 100%), ${(-v3.y * .5 + .5) * innerHeight - 9}px)`;
+    el.style.opacity = show;
+  });
+  requestAnimationFrame(frame);
+}
+document.fonts?.ready.then(() => { dialTex.userData.repaint(); boardTex.userData.repaint(); });
+requestAnimationFrame(frame);
+window.__axiom = { ok: true };
+</script>
+</body>
+</html>
