@@ -14,7 +14,7 @@ SHARED = {"customroofs.biz", "mandmgutters.com", "roofwiseut.com", "jordanriverr
 # Mobile header fix (sticky header + mobile menu panel), applied to every redesign and republished 18 Oct 2026.
 MOBILE_FIX = "Fixed and republished 18 Oct"
 STATUS = {
-    "earthenphoenix.com": ("Premium", "New original design \"The Earthen Atlas\" (31 Oct): tension-as-terrain service animations, 17 pages; replaces Ember (30 Oct)"),
+    "earthenphoenix.com": ("Premium", "New original Next.js site \"Rise & Rest\" (2 Nov): headline behind her real ridge, photo-based animation per session, 17 pages; replaces the Atlas (31 Oct). Not deployed live."),
     "husky-property-maintenance": ("Premium", "Built premium from the start (21 Oct)"),
     "superior-locksmith": ("Premium", "Built premium from the start (21 Oct)"),
     "eagle-locksmith-inc": ("Premium", "Built premium from the start (21 Oct)"),
