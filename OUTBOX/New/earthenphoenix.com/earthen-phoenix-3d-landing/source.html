@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Earthen Phoenix: massage, bodywork, Reiki and yoga in Salt Lake City</title>
+<meta name="description" content="Earthen Phoenix in Salt Lake City: massage, Thai and Sarga bodywork, Reiki, private yoga, astrology, tarot and herbal remedies with Miquelle. Ground your soul.">
+<meta name="theme-color" content="#000000">
+<link rel="icon" href="__MARK__">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #000; --ink: #fbf5ec; --mute: #b3a99c; --line: rgba(255,240,220,.13);
+    --saffron: #f2b33d; --tangerine: #ea7b33; --poppy: #d2442f; --rose: #eba98f; --meadow: #b9cba6;
+    --pad: clamp(20px, 5vw, 72px);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { background: var(--bg); color: var(--ink); -webkit-font-smoothing: antialiased; }
+  body { font: 400 17px/1.6 Figtree, system-ui, sans-serif; overflow-x: hidden; }
+  h1, h2, h3 { font-family: "Bricolage Grotesque", Figtree, system-ui, sans-serif; letter-spacing: -0.035em; line-height: .96; font-weight: 700; }
+  a { color: inherit; }
+  .kick { font: 600 12px/1.4 Figtree, sans-serif; letter-spacing: .22em; text-transform: uppercase; color: var(--saffron); display: flex; align-items: center; gap: 12px; }
+  .kick::before { content: ""; width: 28px; height: 1px; background: currentColor; opacity: .7; }
+  .skip { position: absolute; left: -999px; top: 12px; background: var(--saffron); color: #1a0d00; padding: 10px 16px; border-radius: 8px; z-index: 100; }
+  .skip:focus { left: 12px; }
+
+  /* the embers live on one fixed canvas behind every section */
+  #stage { position: fixed; inset: 0; width: 100%; height: 100%; display: block; z-index: 0; }
+  .glow { position: fixed; inset: 0; pointer-events: none; z-index: 0;
+    background: radial-gradient(55vmax 55vmax at var(--gx, 70%) var(--gy, 45%), rgba(234,123,51,.08), transparent 60%); }
+
+  header { position: fixed; inset: 0 0 auto; z-index: 20; display: flex; align-items: center; justify-content: space-between; gap: 20px;
+    padding: 18px var(--pad); transition: background .4s, backdrop-filter .4s; }
+  header.solid { background: rgba(0,0,0,.62); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
+  .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; font: 700 15px/1 "Bricolage Grotesque", sans-serif; letter-spacing: .2em; text-transform: uppercase; white-space: nowrap; }
+  .logo img { width: 34px; height: 34px; border-radius: 9px; }
+  nav.top { display: flex; gap: 32px; font-size: 14px; color: var(--mute); }
+  nav.top a { text-decoration: none; transition: color .2s; }
+  nav.top a:hover { color: var(--ink); }
+
+  .btn { display: inline-flex; align-items: center; gap: 10px; min-height: 52px; padding: 0 26px; border-radius: 999px; font: 600 15px/1 Figtree, sans-serif;
+    text-decoration: none; border: 1px solid transparent; cursor: pointer; white-space: nowrap; transition: transform .3s cubic-bezier(.2,.8,.2,1), box-shadow .3s, background .3s, border-color .3s; }
+  .btn-fire { background: linear-gradient(100deg, var(--saffron), var(--tangerine)); color: #1f0c00; }
+  .btn-fire:hover { transform: translateY(-2px); box-shadow: 0 14px 44px -10px rgba(234,123,51,.7); }
+  .btn-line { border-color: var(--line); color: var(--ink); }
+  .btn-line:hover { border-color: rgba(255,240,220,.45); }
+  .btn svg { width: 16px; height: 16px; }
+  .sm { min-height: 40px; padding: 0 18px; font-size: 13px; }
+  :focus-visible { outline: 2px solid var(--saffron); outline-offset: 3px; }
+
+  main { position: relative; z-index: 2; }
+  section { position: relative; min-height: 100vh; min-height: 100svh; display: flex; align-items: center; padding: 120px var(--pad); }
+  .col { width: min(520px, 100%); }
+  .right { justify-content: flex-end; }
+
+  .hero .col { width: min(700px, 100%); }
+  .hero h1 { font-size: clamp(3.4rem, 8.6vw, 8.8rem); font-weight: 800; margin-top: 22px; }
+  .hero h1 .ln { display: block; overflow: hidden; padding-bottom: .08em; }
+  .hero h1 .ln > span { display: inline-block; }
+  .hero h1 em { font-style: normal; background: linear-gradient(100deg, #fff4dc 0%, var(--saffron) 35%, var(--tangerine) 65%, var(--poppy) 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .lede { margin-top: 26px; max-width: 36ch; font-size: clamp(1.05rem, 1.4vw, 1.25rem); color: var(--mute); }
+  .lede strong { color: var(--ink); font-weight: 500; }
+  .ctas { margin-top: 38px; display: flex; flex-wrap: wrap; gap: 14px; }
+  .offer { margin-top: 22px; font-size: 14px; color: var(--mute); }
+  .offer b { color: var(--saffron); font-weight: 600; }
+  .scrollcue { position: absolute; left: 50%; bottom: 28px; transform: translateX(-50%); display: grid; justify-items: center; gap: 10px; color: var(--mute); font-size: 12px; letter-spacing: .2em; text-transform: uppercase; }
+  .scrollcue i { width: 1px; height: 46px; background: linear-gradient(var(--saffron), transparent); animation: cue 2.2s ease-in-out infinite; transform-origin: top; }
+  @keyframes cue { 0% { transform: scaleY(0); } 50% { transform: scaleY(1); } 100% { transform: scaleY(1); opacity: 0; } }
+
+  h2 { font-size: clamp(2.6rem, 5.4vw, 5.2rem); margin-top: 20px; }
+  .body { margin-top: 22px; color: var(--mute); max-width: 42ch; font-size: 1.06rem; }
+  .stats { margin-top: 38px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--line); }
+  .stats div { padding: 20px 14px 0 0; }
+  .stats b { display: block; font: 700 clamp(1.6rem, 2.4vw, 2.2rem)/1 "Bricolage Grotesque", sans-serif; letter-spacing: -0.03em; }
+  .stats span { display: block; margin-top: 8px; font-size: 13px; color: var(--mute); }
+
+  .card { margin-top: 30px; padding: 22px 24px; border: 1px solid var(--line); border-radius: 18px; background: linear-gradient(180deg, rgba(255,240,220,.06), rgba(255,240,220,.015)); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+  .card + .card { margin-top: 12px; }
+  .card h3 { font-size: 1.2rem; letter-spacing: -0.015em; font-weight: 600; display: flex; align-items: baseline; justify-content: space-between; gap: 14px; }
+  .card h3 small { font: 600 14px/1 Figtree, sans-serif; letter-spacing: 0; color: var(--saffron); white-space: nowrap; }
+  .card p { margin-top: 8px; color: var(--mute); font-size: .97rem; line-height: 1.55; }
+  .cards4 { margin-top: 30px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .cards4 .card { margin: 0; padding: 18px 18px 20px; }
+  .cards4 .card h3 { flex-direction: column; align-items: flex-start; gap: 8px; font-size: 1.08rem; }
+  .cards4 .card p { font-size: .9rem; }
+  .warn { margin-top: 22px; font-size: 14px; color: var(--rose); }
+
+  /* labels that track the layers */
+  #labels { position: fixed; inset: 0; pointer-events: none; z-index: 3; }
+  #labels div { position: absolute; left: 0; top: 0; display: flex; flex-direction: row-reverse; align-items: center; gap: 10px; white-space: nowrap; opacity: 0; font-size: 13px; color: var(--ink); will-change: transform, opacity; }
+  #labels div::before { content: ""; width: 44px; height: 1px; background: linear-gradient(270deg, var(--saffron), rgba(242,179,61,.15)); }
+  #labels div span { color: var(--mute); }
+
+  .wide { display: block; }
+  .wide .inner { width: min(1180px, 100%); margin: 0 auto; }
+  .grid { margin-top: 52px; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 22px; overflow: hidden; }
+  .grid div { background: rgba(0,0,0,.8); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); padding: 26px 22px; min-height: 168px; display: flex; flex-direction: column; justify-content: space-between; gap: 18px; }
+  .grid b { font: 700 clamp(1.4rem, 2vw, 1.9rem)/1 "Bricolage Grotesque", sans-serif; letter-spacing: -0.03em; }
+  .grid span { color: var(--mute); font-size: 13.5px; }
+  .grid .n { color: var(--ink); font-weight: 600; font-size: 15px; }
+  .grid div:hover b { color: var(--saffron); }
+
+  .about { display: grid; grid-template-columns: 300px minmax(0, 1fr); gap: clamp(32px, 6vw, 90px); align-items: start; margin-top: 52px; }
+  .portrait { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 22px; border: 1px solid var(--line); filter: saturate(.9) contrast(1.05); }
+  .about blockquote { font: 500 clamp(1.25rem, 2vw, 1.6rem)/1.4 "Bricolage Grotesque", sans-serif; letter-spacing: -0.015em; }
+  .about .body { max-width: 60ch; }
+  .chips { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 8px; }
+  .chips span { padding: 8px 14px; border: 1px solid var(--line); border-radius: 999px; font-size: 13px; color: var(--mute); background: rgba(0,0,0,.5); }
+  .voices { margin-top: 64px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+  .voices figure { padding: 26px 24px; border: 1px solid var(--line); border-radius: 18px; background: rgba(0,0,0,.7); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); display: flex; flex-direction: column; justify-content: space-between; gap: 20px; }
+  .voices blockquote { font-size: 1.02rem; line-height: 1.55; }
+  .voices blockquote::before { content: "“"; display: block; font: 800 44px/0.6 "Bricolage Grotesque", sans-serif; color: var(--tangerine); margin-bottom: 10px; }
+  .voices figcaption { font-size: 13px; color: var(--mute); }
+
+  .book { align-items: flex-end; justify-content: center; text-align: center; padding-bottom: 10vh; }
+  .book h2 { font-size: clamp(3rem, 7vw, 6.6rem); }
+  .book .body { margin-left: auto; margin-right: auto; }
+  .book .ctas { justify-content: center; }
+  .book .kick { justify-content: center; }
+  .contact { margin-top: 26px; font-size: 14px; color: var(--mute); }
+  .contact a { color: var(--ink); text-underline-offset: 3px; }
+
+  footer { position: relative; z-index: 2; padding: 36px var(--pad); border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between; color: var(--mute); font-size: 13px; background: #000; }
+
+  .progress { position: fixed; right: 22px; top: 50%; transform: translateY(-50%); z-index: 20; display: grid; gap: 14px; }
+  .progress a { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,240,220,.25); transition: background .3s, transform .3s; display: block; }
+  .progress a.on { background: var(--saffron); transform: scale(1.6); box-shadow: 0 0 10px var(--tangerine); }
+
+  /* entrance states are set by script only, so the page reads fine without it */
+  .js .rv { opacity: 0; transform: translateY(40px); }
+
+  @media (max-width: 1100px) { .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+  @media (max-width: 900px) {
+    nav.top { display: none; }
+    .logo span { display: none; }
+    section { align-items: flex-end; padding-bottom: 80px; }
+    .right { justify-content: flex-start; }
+    .col { background: linear-gradient(180deg, transparent, rgba(0,0,0,.8) 16%); padding-top: 30px; }
+    .hero .col { background: linear-gradient(180deg, transparent, rgba(0,0,0,.7) 22%); }
+    .stats { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .cards4 { grid-template-columns: 1fr; }
+    .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid div { min-height: 130px; padding: 20px 16px; }
+    .about { grid-template-columns: 1fr; }
+    .portrait { width: 180px; }
+    .voices { grid-template-columns: 1fr; }
+    .book { text-align: left; }
+    .book .ctas, .book .kick { justify-content: flex-start; }
+    .progress { display: none; }
+    .scrollcue { display: none; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .scrollcue i { animation: none; }
+    .btn { transition: none; }
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<canvas id="stage" aria-hidden="true"></canvas>
+<div class="glow" aria-hidden="true"></div>
+<div id="labels" aria-hidden="true"></div>
+
+<header id="top">
+  <a class="logo" href="#hero" aria-label="Earthen Phoenix, back to top"><img src="__MARK__" alt=""><span>Earthen Phoenix</span></a>
+  <nav class="top" aria-label="Sections">
+    <a href="#reiki">Sessions</a><a href="#prices">Prices</a><a href="#miquelle">Miquelle</a><a href="#book">Contact</a>
+  </nav>
+  <a class="btn btn-fire sm" href="__BOOK__" target="_blank" rel="noopener">Book a session</a>
+</header>
+
+<nav class="progress" aria-label="Page progress">
+  <a href="#hero" aria-label="Intro"></a><a href="#reiki" aria-label="Hands near"></a><a href="#glide" aria-label="Hands that glide"></a>
+  <a href="#press" aria-label="Hands that press"></a><a href="#sarga" aria-label="Full weight"></a><a href="#beyond" aria-label="Beyond the table"></a>
+  <a href="#prices" aria-label="Prices"></a><a href="#miquelle" aria-label="Miquelle"></a><a href="#book" aria-label="Book"></a>
+</nav>
+
+<main id="main">
+  <section class="hero" id="hero">
+    <div class="col">
+      <p class="kick rv">Earthen Phoenix · Salt Lake City</p>
+      <h1 aria-label="Ground your soul.">
+        <span class="ln"><span>Ground</span></span>
+        <span class="ln"><span><em>your soul.</em></span></span>
+      </h1>
+      <p class="lede rv">Massage, Thai and Sarga bodywork, Reiki, private yoga, astrology, tarot and herbal remedies with <strong>Miquelle</strong>, from light and relaxing to deep fascial work.</p>
+      <div class="ctas rv">
+        <a class="btn btn-fire" href="__BOOK__" target="_blank" rel="noopener">Book a session
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <a class="btn btn-line" href="#reiki">Explore the sessions</a>
+      </div>
+      <p class="offer rv"><b>20% off</b> your first service. Mention you are a first-time client when you book.</p>
+    </div>
+    <div class="scrollcue" aria-hidden="true">Scroll<i></i></div>
+  </section>
+
+  <section class="right" id="reiki">
+    <div class="col">
+      <p class="kick rv">01 · Hands near</p>
+      <h2 class="rv">Attention,<br>not pressure.</h2>
+      <p class="body rv"><strong style="color:var(--ink);font-weight:500">Reiki.</strong> Hands rest gently on or near your clothed body, to support balance and healing. Nothing is pushed or kneaded. With a Master Reiki practitioner, practising since 2011.</p>
+      <div class="stats rv">
+        <div><b>60 min</b><span>Length</span></div>
+        <div><b>$130</b><span>Price</span></div>
+        <div><b>Clothed</b><span>You stay dressed</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="glide">
+    <div class="col">
+      <p class="kick rv">02 · Hands that glide</p>
+      <h2 class="rv">Warm oil,<br>steady hands.</h2>
+      <p class="body rv">Light to medium, long and slow.</p>
+      <div class="card rv"><h3>Swedish massage <small>$140 / $170</small></h3><p>Long strokes and essential oils at light to medium pressure, for stress relief and relaxation. Sound therapy, meditation and breathwork can be part of it. 60 or 90 minutes.</p></div>
+      <div class="card rv"><h3>Lymphatic firming <small>$180 · 90 min</small></h3><p>Six slow steps: dry brushing, manual lymphatic massage, a heated body wrap, a hot towel cleanse and a head and neck treatment, finished with Eminence Coconut Firming cream.</p></div>
+    </div>
+  </section>
+
+  <section class="right" id="press">
+    <div class="col">
+      <p class="kick rv">03 · Hands that press</p>
+      <h2 class="rv">Deep, rhythmic,<br>never painful.</h2>
+      <div class="card rv"><h3>Deep tissue massage <small>$150 / $180</small></h3><p>Deep pressure at the depth you ask for, with breathwork, stretching and movement to restore balance, and stretches to take home. 60 or 90 minutes.</p></div>
+      <div class="card rv"><h3>Thai bodywork <small>$150 / $170</small></h3><p>Full-body stretching combined with rhythmic compressions. Pressed on a beat, then drawn long. 60 or 90 minutes.</p></div>
+    </div>
+  </section>
+
+  <section id="sarga">
+    <div class="col">
+      <p class="kick rv">04 · Full weight</p>
+      <h2 class="rv">Her whole weight,<br>placed with care.</h2>
+      <p class="body rv"><strong style="color:var(--ink);font-weight:500">Sarga bodywork.</strong> Miquelle works barefoot, holding a strap overhead so she controls exactly how much weight goes into each step. It reaches into the fascia, for old injuries.</p>
+      <div class="stats rv">
+        <div><b>90 min</b><span>Length</span></div>
+        <div><b>$180</b><span>Price</span></div>
+        <div><b>Deepest</b><span>Pressure</span></div>
+      </div>
+      <p class="warn rv">It can be somewhat uncomfortable. For people very comfortable with deep pressure.</p>
+    </div>
+  </section>
+
+  <section class="right" id="beyond">
+    <div class="col" style="width:min(580px,100%)">
+      <p class="kick rv">05 · Beyond the table</p>
+      <h2 class="rv">Place, movement,<br>readings, plants.</h2>
+      <div class="cards4 rv">
+        <div class="card"><h3>Zen mountain session <small>$200 · 90 min</small></h3><p>A private massage beside a peaceful mountain river, for relaxation and a reset.</p></div>
+        <div class="card"><h3>Private yoga <small>$140 · 60 min</small></h3><p>Schole yoga: Vinyasa flow, then slow Yin holds, moving with your own breath. Private or split with a group.</p></div>
+        <div class="card"><h3>Astrology &amp; tarot <small>$2 / min</small></h3><p>Birth-chart readings, and tarot and oracle readings about the present moment.</p></div>
+        <div class="card"><h3>Herbalism <small>about $40–$100</small></h3><p>A consultation, then teas, rollies or tinctures made for you. Herbs arrive in 1–2 weeks.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wide" id="prices">
+    <div class="inner">
+      <p class="kick rv">06 · Sessions &amp; prices</p>
+      <h2 class="rv">Ten ways in.<br>One practitioner.</h2>
+      <div class="grid rv">
+        <div><span class="n">Reiki</span><b>$130</b><span>60 min</span></div>
+        <div><span class="n">Swedish massage</span><b>$140 / $170</b><span>60 / 90 min</span></div>
+        <div><span class="n">Lymphatic firming</span><b>$180</b><span>90 min</span></div>
+        <div><span class="n">Deep tissue</span><b>$150 / $180</b><span>60 / 90 min</span></div>
+        <div><span class="n">Thai bodywork</span><b>$150 / $170</b><span>60 / 90 min</span></div>
+        <div><span class="n">Sarga bodywork</span><b>$180</b><span>90 min</span></div>
+        <div><span class="n">Zen mountain</span><b>$200</b><span>90 min, outdoors</span></div>
+        <div><span class="n">Private yoga</span><b>$140</b><span>60 min, you or a group</span></div>
+        <div><span class="n">Astrology &amp; tarot</span><b>$2 / min</b><span>30 min comes to $60</span></div>
+        <div><span class="n">Herbalism</span><b>~$40–$100</b><span>Teas, rollies, tinctures</span></div>
+      </div>
+      <p class="offer rv"><b>20% off</b> your first service. Not sure which to choose? Call or text <a href="tel:+18016094263">801-609-4263</a> and Miquelle will help you choose.</p>
+    </div>
+  </section>
+
+  <section class="wide" id="miquelle">
+    <div class="inner">
+      <p class="kick rv">07 · Your practitioner</p>
+      <h2 class="rv">Meet Miquelle.</h2>
+      <div class="about">
+        <img class="portrait rv" src="__PORTRAIT__" alt="Miquelle smiling on a boat at sunset" width="360" height="640">
+        <div>
+          <blockquote class="rv">“I base my work off individual needs; and can accommodate anything from light and relaxing to deep fascial work.”</blockquote>
+          <p class="body rv">I have spent the last thirteen years learning the integrative aspects that include the mind, body, and spirit. I started with Reiki in 2011 and am now a Master Reiki practitioner. I graduated from the Utah College of Massage Therapy in 2012.</p>
+          <div class="chips rv" aria-label="Certifications">
+            <span>Sarga</span><span>Lymphatic</span><span>Thai Bodywork</span><span>Cupping</span><span>Cranial-Sacral Therapy</span>
+            <span>Sound Therapy</span><span>Reflexology</span><span>Yoga</span><span>Reiki</span><span>Breath-Work</span>
+          </div>
+        </div>
+      </div>
+      <div class="voices">
+        <figure class="rv"><blockquote>This is not your typical spa massage where you leave feeling underwhelmed and overcharged.</blockquote><figcaption>Sylvie</figcaption></figure>
+        <figure class="rv"><blockquote>Miquelle is like the Thanos of massage, she’s has collected all of the massage techniques in existence.</blockquote><figcaption>V</figcaption></figure>
+        <figure class="rv"><blockquote>I was pregnant and it was the first time I was pain free the entire pregnancy.</blockquote><figcaption>Megan</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="book" id="book">
+    <div class="col" style="width:min(760px,100%)">
+      <p class="kick rv">Salt Lake City, Utah</p>
+      <h2 class="rv">Ground your soul.</h2>
+      <p class="body rv">Book online, or call or text and Miquelle will help you choose. Mention you are a first-time client for <strong style="color:var(--saffron);font-weight:600">20% off</strong> your first service.</p>
+      <div class="ctas rv">
+        <a class="btn btn-fire" href="__BOOK__" target="_blank" rel="noopener">Book online
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <a class="btn btn-line" href="tel:+18016094263">Call 801-609-4263</a>
+      </div>
+      <p class="contact rv">Text <a href="sms:+18016094263">801-609-4263</a> · Email <a href="mailto:info@earthenphoenix.com">info@earthenphoenix.com</a></p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <span>© 2026 Earthen Phoenix · Salt Lake City, Utah</span>
+  <span>Concept landing page, prepared for review.</span>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script type="importmap">
+{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js" } }
+</script>
+<script>document.documentElement.classList.add('js');</script>
+<script type="module">
+import * as THREE from 'three';
+
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const small = () => innerWidth <= 900;
+gsap.registerPlugin(ScrollTrigger);
+
+/* ---------- text: entrances and chrome (work even if WebGL is unavailable) ---------- */
+const header = document.getElementById('top');
+const dots = [...document.querySelectorAll('.progress a')];
+const sections = [...document.querySelectorAll('main section')];
+ScrollTrigger.create({ start: 40, onUpdate: (s) => header.classList.toggle('solid', s.scroll() > 40) });
+sections.forEach((s, i) => ScrollTrigger.create({ trigger: s, start: 'top 55%', end: 'bottom 55%', onToggle: (e) => e.isActive && dots.forEach((d, j) => d.classList.toggle('on', i === j)) }));
+
+if (reduce) {
+  gsap.set('.rv', { opacity: 1, y: 0 });
+} else {
+  gsap.from('.hero h1 .ln > span', { yPercent: 110, duration: 1.4, ease: 'expo.out', stagger: .12, delay: .35 });
+  gsap.to('.hero .rv', { opacity: 1, y: 0, duration: 1.2, ease: 'expo.out', stagger: .1, delay: .7 });
+  document.querySelectorAll('section:not(.hero)').forEach((s) => {
+    gsap.to(s.querySelectorAll('.rv'), { opacity: 1, y: 0, duration: 1.1, ease: 'expo.out', stagger: .08,
+      scrollTrigger: { trigger: s, start: 'top 70%', toggleActions: 'play none none reverse' } });
+  });
+}
+
+/* ---------- the embers: one particle cloud that reshapes for each chapter ---------- */
+const canvas = document.getElementById('stage');
+let renderer;
+try { renderer = new THREE.WebGLRenderer({ canvas, antialias: false, alpha: false, powerPreference: 'high-performance' }); }
+catch (e) { canvas.remove(); throw e; }
+const PR = Math.min(devicePixelRatio, 2);
+renderer.setPixelRatio(PR);
+renderer.setClearColor(0x000000, 1);
+
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(32, 1, 0.1, 100);
+camera.position.set(0, 0, 8);
+
+const N = small() ? 11000 : 20000;
+let seed = 11;
+const R = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+const TAU = Math.PI * 2;
+
+/* Each shape returns [x, y, z, shade]. Shade 0..1 picks between the shape's two colours. */
+function phoenix() {            // the logo's bird: raised wings, crest, a tail of flame
+  const k = R();
+  if (k < .52) {                // wings, drawn as feathers hanging from the leading edge
+    const s = R() < .5 ? -1 : 1, fea = R() < .82;
+    let u = R(); if (fea) u = (Math.floor(u * 26) + .5) / 26;
+    const ex = s * (.16 + 2.1 * u), ey = .5 + 1.6 * u - .45 * u * u;
+    const a = .12 + .8 * u, L = .45 + 1.0 * Math.pow(u, .8);
+    const v = fea ? Math.pow(R(), .85) : R() * .3;
+    const j = (R() - .5) * .025 * (1 - v);
+    return [ex + s * Math.sin(a) * L * v + j, ey - Math.cos(a) * L * v + j, -.35 * u * u - .12 * v + (R() - .5) * .05, .25 + .75 * u * (1 - .45 * v)];
+  }
+  if (k < .58) {                // body
+    const a = R() * TAU, b = Math.acos(2 * R() - 1), r = Math.cbrt(R());
+    return [.15 * r * Math.sin(b) * Math.cos(a), .2 + .5 * r * Math.cos(b), .13 * r * Math.sin(b) * Math.sin(a), .75];
+  }
+  if (k < .64) {                // head, beak, crest
+    const q = R();
+    if (q < .45) { const a = R() * TAU, b = Math.acos(2 * R() - 1), r = .1 * Math.cbrt(R()); return [r * Math.sin(b) * Math.cos(a), .9 + r * Math.cos(b), r * Math.sin(b) * Math.sin(a), .95]; }
+    if (q < .58) { const t = R(); return [.08 + .14 * t, .9 - .05 * t, 0, .95]; }
+    const c = Math.floor(R() * 3), t = R();
+    return [-.04 - (.18 + c * .05) * t, .96 + (.32 - c * .06) * t + .08 * Math.sin(t * 3), (R() - .5) * .02, 1];
+  }
+  if (k < .92) {                // tail: seven plumes of flame, curling at the ends
+    const j = Math.floor(R() * 7) - 3, t = Math.pow(R(), .8);
+    const x = j * .2 * t + .18 * Math.sin(t * 4.2 + j) * t + j * .12 * t * t * t + (R() - .5) * .07 * (1 - .5 * t);
+    return [x, -.25 - 1.75 * t, .15 * Math.sin(t * 3 + j * 1.3), .7 - .65 * t];
+  }
+  return [(R() - .5) * 5.4, (R() - .5) * 4.6, (R() - .5) * 2, R() * .6];   // loose sparks
+}
+function orb() {                // Reiki: energy held near, never touching
+  const k = R();
+  if (k < .58) { const a = R() * TAU, y = 1 - 2 * R(), r = Math.sqrt(1 - y * y), d = 1.05 + (R() - .5) * .08;
+    return [Math.cos(a) * r * d, y * d, Math.sin(a) * r * d, .35 + .4 * (y * .5 + .5)]; }
+  if (k < .74) { const a = R() * TAU, b = Math.acos(2 * R() - 1), r = .42 * Math.cbrt(R()); return [r * Math.sin(b) * Math.cos(a), r * Math.cos(b), r * Math.sin(b) * Math.sin(a), 1]; }
+  if (k < .9) { const a = R() * TAU, b = Math.acos(2 * R() - 1), r = 1.18 + Math.abs((R() + R() + R()) / 3 - .5) * 1.4;
+    return [r * Math.sin(b) * Math.cos(a), r * Math.cos(b), r * Math.sin(b) * Math.sin(a), .5]; }
+  const a = R() * TAU, b = Math.acos(2 * R() - 1), r = 1.25 + R() * 1.1;
+  return [r * Math.sin(b) * Math.cos(a), r * Math.cos(b), r * Math.sin(b) * Math.sin(a), .2];
+}
+function ribbons() {            // Swedish and lymphatic: long, slow strokes
+  const n = 13, j = Math.floor(R() * n), x = -2.8 + 5.6 * (R() + R() + R()) / 3;
+  const y = (j - (n - 1) / 2) * .13 + .42 * Math.sin(x * .85 + j * .33) * (.65 + .35 * Math.cos(j * .7));
+  return [x, y + (R() - .5) * .02, .5 * Math.cos(x * .7 + j * .45) + (j - n / 2) * .03, j / (n - 1)];
+}
+const LAYER_Y = [1, .5, 0, -.5, -1];
+function layers() {             // deep tissue and Thai: layers, pressed on a beat
+  const i = Math.floor(R() * 5);
+  let x = R() * 3.2 - 1.6, z = R() * 2 - 1;
+  if (i % 2) z = Math.round(z * 7) / 7 + .03 * Math.sin(x * 6 + i);
+  else if (i === 2) x = Math.round(x * 9) / 9 + .03 * Math.sin(z * 6);
+  return [x, LAYER_Y[i] + (R() - .5) * .02, z, 1 - i / 4];
+}
+function sarga() {              // Sarga: full weight into one point, a strap overhead
+  const k = R();
+  if (k < .86) { const z = Math.round((R() * 4 - 2) * 9) / 9, x = R() * 4 - 2, r2 = x * x + z * z;
+    const y = -.7 - 1.05 * Math.exp(-r2 / .42) + .05 * Math.sin(Math.sqrt(r2) * 9) * Math.exp(-r2 * .5);
+    return [x, y, z, Math.min(1, .15 + (-.7 - y) * .9)]; }
+  if (k < .93) return [(R() - .5) * 1.8, 1.55 + (R() - .5) * .03, (R() - .5) * .03, .9];
+  const s = R() < .5 ? -1 : 1, t = R();
+  return [s * (.62 - .45 * t), 1.55 - 1.1 * t, 0, .7];
+}
+function mountains() {          // beyond the table: peaks, a river, a few stars
+  const k = R();
+  const P = [[-1.7, -.6, 1.5, .55], [-.5, -.9, 1.95, .5], [.8, -.7, 1.45, .6], [2.0, -.5, 1.05, .5], [-2.7, -.3, .8, .5]];
+  const h = (x, z) => P.reduce((s, [px, pz, ph, w]) => s + ph * Math.exp(-((x - px) ** 2 + (z - pz) ** 2) / w), 0) + .12 * Math.sin(x * 3.1 + z * 2) * Math.sin(x * 1.7 - z * 2.3);
+  if (k < .82) { const x = R() * 6 - 3, z = Math.round((R() * 3 - 1.5) * 10) / 10, y = Math.max(0, h(x, z)); return [x, y - 1, z, Math.min(1, y / 1.7)]; }
+  if (k < .97) { const x = R() * 6 - 3; return [x, -.98, .75 + .25 * Math.sin(x * 1.3) + (R() - .5) * .06, 2]; }
+  const a = R() * Math.PI, rr = 3.2 + R() * .8; return [Math.cos(a) * rr, -1 + Math.sin(a) * rr * .8, -2 - R() * 1.5, .95];
+}
+function field() {              // a slow drift of embers behind the prices and the people
+  return [(R() - .5) * 14, (R() - .5) * 7, -6 + R() * 7.5, R()];
+}
+const SHAPES = [phoenix, orb, ribbons, layers, sarga, mountains, field];
+
+const geo = new THREE.BufferGeometry();
+const shades = [new Float32Array(N * 4), new Float32Array(N * 4)];
+SHAPES.forEach((fn, si) => {
+  const pos = new Float32Array(N * 3);
+  for (let i = 0; i < N; i++) { const [x, y, z, s] = fn(); pos.set([x, y, z], i * 3); shades[si >> 2][i * 4 + (si & 3)] = s; }
+  geo.setAttribute(si ? 'p' + si : 'position', new THREE.BufferAttribute(pos, 3));
+});
+geo.setAttribute('sh0', new THREE.BufferAttribute(shades[0], 4));
+geo.setAttribute('sh1', new THREE.BufferAttribute(shades[1], 4));
+const rnd = new Float32Array(N * 4); for (let i = 0; i < rnd.length; i++) rnd[i] = R();
+geo.setAttribute('rnd', new THREE.BufferAttribute(rnd, 4));
+
+const mat = new THREE.ShaderMaterial({
+  transparent: true, depthWrite: false, depthTest: false, blending: THREE.AdditiveBlending,
+  uniforms: { uA: { value: 0 }, uB: { value: 0 }, uF: { value: 0 }, uT: { value: 0 }, uIdle: { value: reduce ? 0 : 1 },
+    uBeat: { value: 0 }, uIntro: { value: reduce ? 1 : 0 }, uSize: { value: 30 * PR } },
+  vertexShader: /* glsl */`
+    attribute vec3 p1, p2, p3, p4, p5, p6;
+    attribute vec4 sh0, sh1, rnd;
+    uniform float uA, uB, uF, uT, uIdle, uBeat, uIntro, uSize;
+    varying vec3 vC; varying float vA;
+    vec3 P(float k) { if (k < .5) return position; if (k < 1.5) return p1; if (k < 2.5) return p2; if (k < 3.5) return p3; if (k < 4.5) return p4; if (k < 5.5) return p5; return p6; }
+    float SH(float k) { if (k < .5) return sh0.x; if (k < 1.5) return sh0.y; if (k < 2.5) return sh0.z; if (k < 3.5) return sh0.w; if (k < 4.5) return sh1.x; if (k < 5.5) return sh1.y; return sh1.z; }
+    vec3 COL(float k, float s) {
+      vec3 lo, hi;
+      if (k < .5)      { lo = vec3(.82,.22,.12); hi = vec3(.98,.72,.25); }   // phoenix: poppy to saffron
+      else if (k < 1.5){ lo = vec3(.92,.45,.18); hi = vec3(1.,.85,.55); }    // reiki: tangerine to warm light
+      else if (k < 2.5){ lo = vec3(.92,.6,.52);  hi = vec3(.93,.46,.18); }    // glide: rose to tangerine
+      else if (k < 3.5){ lo = vec3(.8,.22,.14);  hi = vec3(.96,.7,.26); }     // press: poppy to saffron
+      else if (k < 4.5){ lo = vec3(.62,.34,.22); hi = vec3(.95,.55,.22); }    // sarga: cacao to tangerine
+      else if (k < 5.5){ lo = vec3(.3,.5,.28);   hi = vec3(.9,.93,.82); }     // mountains: forest to meadow snow
+      else             { lo = vec3(.75,.25,.12); hi = vec3(.98,.7,.3); }      // embers
+      if (s > 1.5) return vec3(.62,.82,.92);                                  // the river
+      vec3 c = mix(lo, hi, clamp(s, 0., 1.));
+      return mix(c, vec3(1.,.93,.8), smoothstep(.88, 1., s) * .6);
+    }
+    float SZ(float k) { if (k < .5) return 1.; if (k < 1.5) return 1.; if (k < 4.5) return .9; if (k < 5.5) return .85; return 1.5; }
+    float AL(float k) { if (k < .5) return .5; if (k < 1.5) return .5; if (k < 2.5) return .55; if (k < 3.5) return .5; if (k < 4.5) return .5; if (k < 5.5) return .55; return .3; }
+    vec3 anim(float k, vec3 p) {
+      float t = uT * uIdle;
+      if (k < .5) {                                  // wings beat slowly, the tail flickers like flame
+        float w = smoothstep(.2, 2.3, abs(p.x));
+        p.y += sin(t * 1.2) * .13 * w * w; p.z += sin(t * 1.2 + .6) * .08 * w;
+        float tail = smoothstep(-.3, -1.9, p.y) * (1. - w);
+        p.x += sin(p.y * 3. + t * 2.4 + rnd.x * 2.) * .07 * tail;
+      } else if (k < 1.5) {                          // the orb breathes and turns
+        float a = t * .15, s = 1. + .05 * sin(t * 1.1);
+        p = vec3(p.x * cos(a) - p.z * sin(a), p.y, p.x * sin(a) + p.z * cos(a)) * s;
+      } else if (k < 2.5) {                          // strokes travel along the ribbons
+        p.y += .13 * sin(p.x * 1.3 - t * 1.1); p.z += .08 * cos(p.x * 1.1 - t * .8);
+      } else if (k < 3.5) {                          // rhythmic compression
+        p.y *= 1. - .3 * uBeat;
+      } else if (k < 4.5) {                          // the step settles and lifts
+        if (p.y < .4) { float r2 = dot(p.xz, p.xz); p.y -= .22 * exp(-r2 / .42) * (sin(t * .8) * .5 + .5); }
+      } else if (k > 5.5) {                          // embers rise and wrap round
+        p.y = mod(p.y + t * (.05 + .1 * rnd.x) + 3.5, 7.) - 3.5; p.x += sin(t * .3 + rnd.y * 6.28) * .15;
+      }
+      return p;
+    }
+    void main() {
+      float f = clamp((uF - rnd.x * .35) / .65, 0., 1.); f = f * f * (3. - 2. * f);
+      vec3 p = mix(anim(uA, P(uA)), anim(uB, P(uB)), f);
+      float sw = sin(3.14159 * f);                   // particles swirl like embers between shapes
+      p += vec3(sin(p.y * 1.7 + uT * .7 + rnd.y * 6.28), cos(p.x * 1.5 - uT * .6 + rnd.z * 6.28), sin(p.z * 1.9 + rnd.x * 6.28)) * .55 * sw;
+      float g = smoothstep(rnd.w * .55, rnd.w * .55 + .45, uIntro);   // intro: embers rise from below and gather
+      p = mix(vec3((rnd.x - .5) * 7., -3.4 + rnd.y * 1.2, (rnd.z - .5) * 3.), p, g);
+      vec4 mv = modelViewMatrix * vec4(p, 1.);
+      gl_Position = projectionMatrix * mv;
+      gl_PointSize = uSize * mix(SZ(uA), SZ(uB), f) * (.5 + rnd.z * .9) / -mv.z;
+      float s = mix(SH(uA), SH(uB), f);
+      vC = mix(COL(uA, SH(uA)), COL(uB, SH(uB)), f);
+      float tw = .7 + .3 * sin(uT * 2. * uIdle + rnd.y * 40.);
+      vA = mix(AL(uA), AL(uB), f) * tw * (.35 + .65 * g);
+    }`,
+  fragmentShader: /* glsl */`
+    varying vec3 vC; varying float vA;
+    void main() {
+      float r = length(gl_PointCoord - .5);
+      if (r > .5) discard;
+      float a = smoothstep(.5, 0., r); a *= a;
+      gl_FragColor = vec4(vC * a * vA, 1.);
+    }`,
+});
+const wrap = new THREE.Group(); scene.add(wrap);
+const cloud = new THREE.Points(geo, mat); cloud.frustumCulled = false; wrap.add(cloud);
+
+/* ---------- labels for the pressed layers ---------- */
+const LABELS = [['Deep pressure', 'deep tissue'], ['Breathwork', 'deep tissue'], ['Stretching', 'deep tissue · Thai'], ['Movement', 'deep tissue'], ['Rhythmic compressions', 'Thai bodywork']];
+const labelBox = document.getElementById('labels');
+const labelEls = LABELS.map(([t, s]) => { const d = document.createElement('div'); d.innerHTML = `<span>${s}</span>${t}`; labelBox.appendChild(d); return d; });
+
+/* ---------- scroll story: one state, keyframed per section ---------- */
+// x/y: offset, rx/ry/rz: turn, z: camera distance, sc: scale, m: chapter (0..8)
+const TG = [0, 1, 2, 3, 4, 5, 6, 6, 0];   // chapter -> shape
+const K = [
+  { x: 1.62, y: -.05, rx: .05, ry: -.22, rz: 0, z: 8, sc: .74, m: 0 },
+  { x: -1.65, y: 0, rx: .2, ry: .3, rz: 0, z: 7.6, sc: 1, m: 1 },
+  { x: 1.4, y: 0, rx: .35, ry: -.35, rz: .05, z: 8, sc: .6, m: 2 },
+  { x: -.75, y: -.1, rx: .42, ry: .45, rz: 0, z: 8.6, sc: .72, m: 3 },
+  { x: 1.55, y: -.1, rx: .5, ry: -.5, rz: 0, z: 8.4, sc: .78, m: 4 },
+  { x: -1.95, y: .1, rx: .28, ry: .2, rz: 0, z: 9, sc: .55, m: 5 },
+  { x: 0, y: 0, rx: 0, ry: 0, rz: 0, z: 7, sc: 1, m: 6 },
+  { x: 0, y: 0, rx: 0, ry: .6, rz: 0, z: 6.5, sc: 1, m: 7 },
+  { x: 0, y: 1.12, rx: 0, ry: 0, rz: 0, z: 8.6, sc: .46, m: 8 },
+];
+const S = { ...K[0] };
+const tl = gsap.timeline({ defaults: { ease: 'power2.inOut', duration: 1 } });
+for (let i = 1; i < K.length; i++) tl.to(S, { ...K[i] }, i - 1);
+ScrollTrigger.create({ trigger: '#main', start: 'top top', end: 'bottom bottom', scrub: reduce ? true : 1.2, animation: tl });
+
+/* pointer parallax */
+const ptr = { x: 0, y: 0, tx: 0, ty: 0 };
+const glow = document.querySelector('.glow');
+addEventListener('pointermove', (e) => { ptr.tx = e.clientX / innerWidth - .5; ptr.ty = e.clientY / innerHeight - .5;
+  glow.style.setProperty('--gx', e.clientX / innerWidth * 100 + '%'); glow.style.setProperty('--gy', e.clientY / innerHeight * 100 + '%'); }, { passive: true });
+
+function resize() { const w = innerWidth, h = innerHeight; renderer.setSize(w, h, false); camera.aspect = w / h; camera.updateProjectionMatrix(); }
+addEventListener('resize', resize); resize();
+
+/* intro: embers rise and gather into the phoenix */
+const intro = { v: reduce ? 1 : 0 };
+if (!reduce) gsap.to(intro, { v: 1, duration: 3, ease: 'power3.out', delay: .1 });
+
+const clock = new THREE.Clock();
+const v3 = new THREE.Vector3();
+let running = true;
+document.addEventListener('visibilitychange', () => { running = !document.hidden; if (running) requestAnimationFrame(frame); });
+
+function frame() {
+  if (!running) return;
+  const t = clock.getElapsedTime();
+  ptr.x += (ptr.tx - ptr.x) * .05; ptr.y += (ptr.ty - ptr.y) * .05;
+  const m = small(), idle = reduce ? 0 : 1;
+
+  const i = Math.min(Math.floor(S.m), K.length - 2), f = Math.min(1, S.m - i);
+  const a = TG[i], b = TG[i + 1];
+  const fieldW = (a === 6 ? 1 - f : 0) + (b === 6 ? f : 0);
+  const U = mat.uniforms;
+  U.uA.value = a; U.uB.value = b; U.uF.value = a === b ? 0 : f; U.uT.value = t; U.uIntro.value = intro.v;
+  const beat = idle ? Math.pow(Math.max(0, Math.sin(t * 2.2)), 4) : 0;   // Thai: pressed on a beat
+  U.uBeat.value = beat;
+
+  // phones: the shape sits above the copy, centred
+  const x = m ? 0 : S.x, y = m ? Math.min(1.55, S.y * .5 + 1.25 * (1 - fieldW)) : S.y;
+  const sc = S.sc * (m ? .44 + .56 * fieldW : 1);
+  wrap.position.set(x, y + Math.sin(t * .7) * .05 * idle, 0);
+  wrap.rotation.set(S.rx + ptr.y * .2 * idle, S.ry + ptr.x * .3 * idle + Math.sin(t * .3) * .05 * idle, S.rz);
+  wrap.scale.setScalar(sc);
+  camera.position.z = S.z * (m ? 1.15 : 1);
+
+  renderer.render(scene, camera);
+
+  // labels beside each layer while the layers are on screen
+  const show = Math.max(0, 1 - Math.abs(S.m - 3) * 2.4);
+  wrap.updateMatrixWorld();
+  LAYER_Y.forEach((ly, k) => {
+    const el = labelEls[k];
+    if (show <= 0 || m) { el.style.opacity = 0; return; }
+    v3.set(-1.75, ly * (1 - .3 * beat), 0).applyMatrix4(wrap.matrixWorld).project(camera);
+    el.style.transform = `translate(calc(${(v3.x * .5 + .5) * innerWidth}px - 100%), ${(-v3.y * .5 + .5) * innerHeight - 9}px)`;
+    el.style.opacity = show;
+  });
+  requestAnimationFrame(frame);
+}
+requestAnimationFrame(frame);
+window.__ep3d = { ok: true, N };
+</script>
+</body>
+</html>

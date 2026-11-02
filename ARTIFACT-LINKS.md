@@ -11,12 +11,18 @@ Last updated: 2 Nov 2026
 
 ## Website redesigns (this kit)
 
-### AXIOM ONE: concept one-product 3D landing page (not a client), newest
+### earthenphoenix.com: Earthen Phoenix 3D landing page (single file), newest
+- **Link:** https://claude.ai/artifact/TdoBo5S2eG2ApKBVWvEB2F
+- **Sharing:** Private until shared (open the link, Share, Anyone with the link)
+- **Made:** 2 Nov 2026 · the AXIOM ONE 3D template turned into Earthen Phoenix ("turn it into earthenphoenix"). One HTML file, Three.js 0.170 + GSAP ScrollTrigger, pure black with the logo colours. 20,000 glowing embers (11,000 on phones) gather into the logo's phoenix, then reshape for each group of sessions as you scroll: Reiki energy orb, Swedish/lymph gliding strokes, deep tissue/Thai layers pressed on a beat (labelled), Sarga weighted surface under the overhead strap, mountains and river (Zen, yoga, readings, herbs), drifting embers behind prices and Miquelle, then the phoenix again over "Ground your soul." All copy, prices, the 20% first-visit offer, certifications and the three client quotes come from the site; booking button goes to the live booking page. Checked desktop, phone and reduced motion: no errors, no horizontal overflow.
+- **Files:** `OUTBOX\New\earthenphoenix.com\earthen-phoenix-3d-landing\index.html` (source.html + build.py inline the logo and portrait)
+
+### AXIOM ONE: concept one-product 3D landing page (not a client)
 - **Link:** https://claude.ai/artifact/7MfAjZ9eVpGjEMb2tst3pd
 - **Made:** 2 Nov 2026 · single HTML file, Three.js 0.170 + GSAP ScrollTrigger from CDN. User pasted a fill-in-the-blanks 3D landing-page template with no product, so it uses a made-up titanium smartwatch on pure black (#000), electric blue #00f0ff and silver. Real-time procedural watch model (live-time hands, pulsing sensor LEDs); scroll turns it, zooms to the dial, explodes it into 7 labelled layers, flips to the sensor back; finish swatches recolour it. Responsive, reduced-motion aware.
 - **Files:** `OUTBOX\New\axiom-one-landing\index.html`
 
-### earthenphoenix.com: Earthen Phoenix, scroll-driven story (v2 of the Next.js build), newest (Massage, Yoga & Reiki, Salt Lake City)
+### earthenphoenix.com: Earthen Phoenix, scroll-driven story (v2 of the Next.js build) (Massage, Yoga & Reiki, Salt Lake City)
 - **Preview link:** https://claude.ai/artifact/KZEkxjsrEAFHPSp9zU14rG
 - **Sharing:** Private until shared (open the link, Share, Anyone with the link)
 - **Mobile header:** Checked 2 Nov (header stays at top 0–64px at the top and after scrolling, menu panel starts exactly at the header bottom, page locks, Esc closes; home, Reiki and Contact)
