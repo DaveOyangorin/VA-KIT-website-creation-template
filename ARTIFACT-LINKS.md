@@ -11,6 +11,11 @@ Last updated: 2 Nov 2026
 
 ## Website redesigns (this kit)
 
+### AXIOM ONE: concept one-product 3D landing page (not a client), newest
+- **Link:** https://claude.ai/artifact/7MfAjZ9eVpGjEMb2tst3pd
+- **Made:** 2 Nov 2026 · single HTML file, Three.js 0.170 + GSAP ScrollTrigger from CDN. User pasted a fill-in-the-blanks 3D landing-page template with no product, so it uses a made-up titanium smartwatch on pure black (#000), electric blue #00f0ff and silver. Real-time procedural watch model (live-time hands, pulsing sensor LEDs); scroll turns it, zooms to the dial, explodes it into 7 labelled layers, flips to the sensor back; finish swatches recolour it. Responsive, reduced-motion aware.
+- **Files:** `OUTBOX\New\axiom-one-landing\index.html`
+
 ### earthenphoenix.com: Earthen Phoenix, scroll-driven story (v2 of the Next.js build), newest (Massage, Yoga & Reiki, Salt Lake City)
 - **Preview link:** https://claude.ai/artifact/KZEkxjsrEAFHPSp9zU14rG
 - **Sharing:** Private until shared (open the link, Share, Anyone with the link)
