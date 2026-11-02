@@ -1,5 +1,6 @@
 import Opening from '@/components/story/Opening';
 import Reel from '@/components/story/Reel';
+import Marquee from '@/components/story/Marquee';
 import Chapters from '@/components/story/Chapters';
 import Miquelle from '@/components/story/Miquelle';
 import Voices from '@/components/story/Voices';
@@ -27,6 +28,7 @@ export default function Home() {
       )} />
       <Opening />
       <Reel />
+      <Marquee />
       <Chapters />
       <Miquelle />
       <Voices />

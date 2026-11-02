@@ -21,7 +21,8 @@ export default function Voices() {
     <section ref={ref} className="relative h-[320svh] motion-reduce:h-auto" aria-label="Client words">
       <div className="sticky top-0 h-[100svh] overflow-hidden text-chalk motion-reduce:static motion-reduce:h-auto motion-reduce:py-32">
         <div data-bg className="absolute inset-0"><Img name="yoga-assisted-fold" alt="" className="cover" pos="60% 50%" /></div>
-        <div className="absolute inset-0 bg-night/55" />
+        <div className="absolute inset-0 bg-gradient-to-br from-tangerine/55 via-poppy/35 to-saffron/40 mix-blend-multiply" />
+        <div className="absolute inset-0 bg-night/30" />
         <p className="absolute top-[calc(var(--hdr)+24px)] left-[var(--gutter)] kicker">Client words</p>
         {VOICES.map((v) => (
           <figure key={v.name} data-quote className="absolute inset-0 grid place-items-center px-[var(--gutter)] text-center motion-safe:opacity-0 motion-reduce:relative motion-reduce:py-12">

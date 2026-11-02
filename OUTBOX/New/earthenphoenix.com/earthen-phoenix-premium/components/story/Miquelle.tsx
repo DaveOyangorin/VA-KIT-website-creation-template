@@ -21,7 +21,7 @@ export default function Miquelle() {
       .fromTo(q('[data-facts] > *'), { y: 30, autoAlpha: 0 }, { y: 0, autoAlpha: 1, stagger: 0.05, duration: 0.15 }, 0.75);
   });
   return (
-    <section ref={ref} className="relative h-[260svh] motion-reduce:h-auto bg-stone" aria-labelledby="miq-h">
+    <section ref={ref} className="relative h-[260svh] motion-reduce:h-auto bg-forest text-chalk" aria-labelledby="miq-h">
       <div className="sticky top-0 h-[100svh] overflow-hidden wrap grid md:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] gap-6 md:gap-[clamp(32px,5vw,90px)] items-center pt-[calc(var(--hdr)+8px)] pb-6">
         <div className="relative h-[42svh] md:h-[78svh]">
           <div data-wide className="absolute right-0 top-[4%] w-[62%] h-[46%] overflow-hidden rounded-[22px] bg-moss">
@@ -32,16 +32,16 @@ export default function Miquelle() {
           </div>
         </div>
         <div>
-          <p className="kicker text-lichen">Meet Miquelle</p>
+          <p className="kicker text-saffron">Meet Miquelle</p>
           <h2 id="miq-h" className="sr-only">Meet Miquelle</h2>
           <blockquote className="mt-5 font-display text-[clamp(1.7rem,3.3vw,3.4rem)] leading-[1.08] tracking-[-0.02em]">
-            {WORDS.map((w, i) => <span key={i}><span data-word className={i > 16 && i < 21 ? 'italic text-flame' : undefined}>{w}</span>{' '}</span>)}
+            {WORDS.map((w, i) => <span key={i}><span data-word className={i > 16 && i < 21 ? 'italic text-saffron' : undefined}>{w}</span>{' '}</span>)}
           </blockquote>
-          <div data-facts className="mt-6 md:mt-10 grid grid-cols-3 gap-4 border-t border-ink/15 pt-5 text-sm">
-            <p><span className="block font-display text-2xl md:text-3xl">2011</span><span className="text-ink-2">Started with Reiki</span></p>
-            <p><span className="block font-display text-2xl md:text-3xl">2012</span><span className="text-ink-2">Utah College of Massage Therapy</span></p>
-            <p><span className="block font-display text-2xl md:text-3xl">Master</span><span className="text-ink-2">Reiki practitioner</span></p>
-            <a href={href('/about')} className="col-span-3 btn btn-ink justify-self-start mt-2">Her story <Arr /></a>
+          <div data-facts className="mt-6 md:mt-10 grid grid-cols-3 gap-4 border-t border-chalk/20 pt-5 text-sm">
+            <p><span className="block font-display text-2xl md:text-3xl">2011</span><span className="text-chalk/75">Started with Reiki</span></p>
+            <p><span className="block font-display text-2xl md:text-3xl">2012</span><span className="text-chalk/75">Utah College of Massage Therapy</span></p>
+            <p><span className="block font-display text-2xl md:text-3xl">Master</span><span className="text-chalk/75">Reiki practitioner</span></p>
+            <a href={href('/about')} className="col-span-3 btn btn-flame justify-self-start mt-2">Her story <Arr /></a>
           </div>
         </div>
       </div>

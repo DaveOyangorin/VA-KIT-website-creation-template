@@ -20,6 +20,15 @@
   --color-clay: #a43f1c;
   --color-amber: #e8a33d;
 
+  /* Her logo's bands, used as bold colour fields */
+  --color-saffron: #f2b33d;
+  --color-tangerine: #ea7b33;
+  --color-poppy: #d2442f;
+  --color-cacao: #5e3423;
+  --color-forest: #3e6b3a;
+  --color-rose: #eba98f;
+  --color-meadow: #b9cba6;
+
   --font-display: 'Bodoni Moda', 'Didot', 'Times New Roman', serif;
   --font-sans: 'Manrope', system-ui, sans-serif;
 
@@ -214,3 +223,4 @@ html.anim [data-w] { transform: translateY(135%); }
 /* Inner-page titles stay hidden until the display font is in, so the font swap never shifts visible text. */
 html.anim [data-h1] { visibility: hidden; }
 html.anim [data-letter], html.anim [data-gw] { transform: translateY(110%); }
+html.anim [data-sun] { opacity: 0; visibility: hidden; }

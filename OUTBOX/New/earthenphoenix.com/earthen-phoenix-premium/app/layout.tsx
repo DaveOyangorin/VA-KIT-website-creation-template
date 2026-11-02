@@ -5,6 +5,7 @@ import Footer from '@/components/layout/Footer';
 import SmoothScroll from '@/components/layout/SmoothScroll';
 import Animator from '@/components/layout/Animator';
 import PageCurtain from '@/components/layout/PageCurtain';
+import Flourish from '@/components/layout/Flourish';
 import { SITE_URL, asset } from '@/lib/site';
 
 // Google Fonts (not self-hosted) so the type also loads inside sandboxed preview frames.
@@ -39,6 +40,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <SmoothScroll />
         <Animator />
         <PageCurtain />
+        <Flourish />
       </body>
     </html>
   );

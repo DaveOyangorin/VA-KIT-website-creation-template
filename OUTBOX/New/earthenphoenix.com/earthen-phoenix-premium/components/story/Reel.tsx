@@ -29,13 +29,13 @@ export default function Reel() {
   });
 
   return (
-    <section ref={ref} className="relative bg-mist overflow-hidden" aria-labelledby="reel-h">
+    <section ref={ref} className="relative bg-saffron overflow-hidden" aria-labelledby="reel-h">
       <div className="h-[100svh] flex items-center">
         <div data-track className="flex items-center gap-[clamp(16px,2.4vw,36px)] pl-[var(--gutter)] pr-[12vw] will-change-transform">
           <div className="shrink-0 w-[min(80vw,520px)] pr-[4vw]">
-            <p className="kicker text-lichen">Ten sessions</p>
-            <h2 id="reel-h" className="font-display text-[clamp(3rem,7vw,7rem)] leading-[0.92] tracking-[-0.035em] mt-6">Ten ways <em>to ground.</em></h2>
-            <p className="mt-6 text-ink-2 max-w-[34ch]">From hands that never touch to her full body weight, then out into the mountains.</p>
+            <p className="kicker text-cacao">Ten sessions</p>
+            <h2 id="reel-h" className="font-display text-[clamp(3rem,7vw,7rem)] leading-[0.92] tracking-[-0.035em] mt-6">Ten ways <em className="text-poppy">to ground.</em></h2>
+            <p className="mt-6 text-ink/80 max-w-[34ch]">From hands that never touch to her full body weight, then out into the mountains.</p>
           </div>
           {KEYS.map((k, i) => {
             const s = SERVICE[k];

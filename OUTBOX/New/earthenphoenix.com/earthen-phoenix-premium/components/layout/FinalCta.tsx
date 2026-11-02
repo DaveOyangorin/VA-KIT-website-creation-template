@@ -20,15 +20,15 @@ export default function FinalCta() {
       .fromTo(q('[data-copy] > *'), { y: 50, autoAlpha: 0 }, { y: 0, autoAlpha: 1, stagger: 0.06, ease: 'power2.out', duration: 0.4 }, 0.5);
   });
   return (
-    <section ref={ref} className="relative h-[220svh] motion-reduce:h-auto bg-mist" aria-labelledby="cta-h">
+    <section ref={ref} className="relative h-[220svh] motion-reduce:h-auto bg-gradient-to-b from-mist via-saffron/60 to-tangerine" aria-labelledby="cta-h">
       <div className="sticky top-0 h-[100svh] overflow-hidden">
         <div data-circle className="absolute inset-0 overflow-hidden">
           <Img name="mountain-meadow" alt="" className="cover" pos="58% 40%" />
         </div>
         <div data-copy className="absolute inset-x-0 bottom-[7svh] text-center px-[var(--gutter)]">
-          <p className="kicker !gap-0 before:!hidden text-lichen">First time with us?</p>
+          <p className="kicker !gap-0 before:!hidden text-cacao">First time with us?</p>
           <h2 id="cta-h" className="font-display text-[clamp(2.6rem,7vw,7rem)] leading-[0.92] tracking-[-0.035em] mt-4">
-            Mention it when you book: <em className="text-flame">20% off.</em>
+            Mention it when you book: <em className="text-poppy">20% off.</em>
           </h2>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <a href={BOOK} className="btn btn-flame">Get an appointment <Arr /></a>

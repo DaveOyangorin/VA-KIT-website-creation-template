@@ -10,6 +10,8 @@ import JsonLd from '@/components/ui/JsonLd';
 import Split from '@/components/ui/Split';
 import { Arr } from '@/components/ui/Arrow';
 import Details from '@/components/services/Details';
+import { SESSION_COLOR } from '@/lib/palette';
+import type { CSSProperties } from 'react';
 import ReikiHalo from '@/components/services/ReikiHalo';
 import SwedishStroke from '@/components/services/SwedishStroke';
 import LymphSequence from '@/components/services/LymphSequence';
@@ -60,8 +62,10 @@ export default async function ServicePage({ params }: Props) {
       )} />
       <PageHero img={s.hero.img ?? s.img} alt={s.hero.alt ?? s.alt} pos={s.hero.pos ?? s.pos} kicker={s.hero.kicker} title={s.hero.title}
         answer={s.hero.answer} spec={s.hero.spec} trail={trail} reveal={s.key} ctas={ctas} />
-      <Signature s={s} />
-      <Details s={s} />
+      <div style={{ '--tint': SESSION_COLOR[s.key] } as CSSProperties}>
+        <Signature s={s} />
+        <Details s={s} />
+      </div>
       <section className="sec bg-chalk" aria-labelledby="faq-h">
         <div className="wrap grid gap-12 lg:grid-cols-[minmax(0,4fr)_minmax(0,7fr)]">
           <div>

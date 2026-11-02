@@ -73,7 +73,7 @@ export default function LymphSequence({ s }: { s: Service }) {
   });
 
   return (
-    <section ref={ref} className="bg-mist text-ink" aria-labelledby="sig-h">
+    <section ref={ref} className="bg-[color-mix(in_oklab,var(--tint,var(--color-mist))_24%,var(--color-mist))] text-ink" aria-labelledby="sig-h">
       <div data-track className="relative lg:h-[420svh]">
         <div className="lg:sticky lg:top-0 lg:h-[100svh] wrap grid gap-12 lg:grid-cols-[minmax(0,4fr)_minmax(0,7fr)] items-center py-[clamp(88px,12vw,160px)] lg:py-[calc(var(--hdr)+24px)]">
           <div>

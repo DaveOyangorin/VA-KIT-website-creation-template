@@ -40,7 +40,7 @@ export default function SargaSteps({ s }: { s: Service }) {
   };
 
   return (
-    <section className="sec bg-mist text-ink" aria-labelledby="sig-h">
+    <section className="sec bg-[color-mix(in_oklab,var(--tint,var(--color-mist))_24%,var(--color-mist))] text-ink" aria-labelledby="sig-h">
       <div className="wrap grid gap-14 lg:grid-cols-[minmax(0,6fr)_minmax(0,5fr)] items-center">
         <figure className="m-0 order-2 lg:order-1">
           <div ref={ref} className="relative mx-auto max-w-[520px]">
